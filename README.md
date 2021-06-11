@@ -1,3 +1,7 @@
 # Beauty Craft - Intergrated Management System for a Salon
-Repo of Second year group project![Beauty-Craft](https://user-images.githubusercontent.com/72311387/121701802-e94b8580-caee-11eb-9a52-3cfe76570efa.png)
+
+![Beauty-Craft](https://user-images.githubusercontent.com/72311387/121702451-83133280-caef-11eb-8d81-54a5c5c534dc.png)
+
+Repo of Second year group project
+
 
