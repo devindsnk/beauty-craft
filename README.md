@@ -1,2 +1,2 @@
-# hair-craft
+# beauty-craft
 Second year group project
