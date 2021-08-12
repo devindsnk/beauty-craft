@@ -1,3 +1,7 @@
+/* ------------------------------------------------------ */
+/* --------------STYLES ADDED BY DEVIN -------------------*/
+/* ------------------------------------------------------ */
+
 * {
   box-sizing: border-box;
   list-style: none;
@@ -18,7 +22,6 @@ body {
 }
 
 .sidebar {
-  /* position: relative; */
   width: 18rem;
   min-height: calc(100vh + 6rem);
   padding: 0.5rem;
@@ -143,3 +146,7 @@ header {
   display: flex;
   background-color: blue;
 }
+
+/* ------------------------------------------------------ */
+/* -----------END OF STYLES ADDED BY DEVIN ---------------*/
+/* ------------------------------------------------------ */

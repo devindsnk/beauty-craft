@@ -1,3 +1,7 @@
+/* ------------------------------------------------------ */
+/* ----------------- JS ADDED BY DEVIN -------------------*/
+/* ------------------------------------------------------ */
+
 // main menu links
 var mainLinks = document.querySelectorAll(".sidebar-main_menu_item > .sidebar-menu_item-link");
 
@@ -9,23 +13,8 @@ for (var i = 0; i < mainLinks.length; i++){
    mainLinks[i].addEventListener('click', selectMainLink);
 }
 
-// Collapse all the submenus
-// function collapseSubMenu(currentMainLink) {
-//    for (var i = 0; i < mainLinks.length; i++){
-//       if (mainLinks[i] != currentMainLink) {
-//          var subList = mainLinks[i].parentElement.querySelector('.sidebar-sub_menu');
-//          var arrow = mainLinks[i].querySelector('.sidebar-menu_item-arrow')
-//          if (subList) {
-//             subList.classList.remove("showSubMenu");
-//             arrow.classList.remove("rotated180");
-//          }
-//       }
-//    }
-// }
-
 // Marks the main menu link as unselected
 function toggleMainSelection(currentMainLink) {
-   
       for (var i = 0; i < mainLinks.length; i++) {
          if (mainLinks[i] != activeLink) {
             if (mainLinks[i] != currentMainLink) {
@@ -36,22 +25,10 @@ function toggleMainSelection(currentMainLink) {
             }
          }
       }
-   
 }
-// function toggleMainSelection(x, currentMainLink) {
-//    for (var i = 0; i < mainLinks.length; i++){
-//       if (x != activeLink && x != currentMainLink ) {
-//         x.classList.remove("main-selected");
-//       }
-//       else if (x == currentMainLink) {
-//          x.classList.toggle("main-selected");
-//       }
-//    }
-// }
 
 // Toggles the submenu
 function toggleSubMenu(currentMainLink) {
-   
    for (var i = 0; i < mainLinks.length; i++) {
       var subList = mainLinks[i].parentElement.querySelector('.sidebar-sub_menu');
       // toggle only if a sublist is available
@@ -80,10 +57,8 @@ function selectMainLink() {
       toggleSubMenu(this);
       toggleMainSelection(this);
    }
-   // unselectMainLink();
-   // this.classList.add("main-selected");
-   // collapseSubMenu(this);
-   
-   
-   
 }
+
+/* ------------------------------------------------------ */
+/* ------------- END OF JS ADDED BY DEVIN ----------------*/
+/* ------------------------------------------------------ */
