@@ -150,3 +150,144 @@ header {
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
 /* ------------------------------------------------------ */
+
+
+/* ------------------------------------------------------ */
+/* --------------STYLES ADDED BY RAVINDU -------------------*/
+/* ------------------------------------------------------ */
+
+
+* {
+    
+  box-sizing: border-box;
+  font-family: 'Noto Sans', sans-serif;}
+body{
+
+  background-color: #3C78D8;
+  font-family: sans-serif;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  
+}
+.FormContainer{
+background-color: white;
+border-radius: 8px;
+overflow: hidden;
+box-shadow: 5px 5px 5px  #35363A;
+width: 500px;
+max-width: 100%;
+}
+.formHeading{
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 20px 40px;
+}
+
+.formHeading h1 {
+  margin: 0;
+  text-align: center;
+}
+
+.formWrapper{
+
+  padding: 30px 40px;
+}
+
+.formGroup{
+  margin-bottom: 10px ;
+  padding-bottom: 20px ;
+  position: relative;
+}
+
+.formGroup label{
+ display: inline-block;
+ margin-bottom: 4px;
+}
+
+.formGroup input{
+  /* border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 10px;
+  width: 100%; */
+  border-radius: 4px;
+  border: 2px solid #f0f0f0;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 10px;
+  width: 100%;
+
+}
+
+.formGroup.success input {
+  border-color: #2ecc71;
+
+}
+.formGroup.error input {
+  border-color: #e74c3c;
+  
+}
+.formGroup.success i.fa-check-circle{
+  color: #2ecc71;
+  visibility: visible;
+}
+.formGroup.success i.fa-exclamation-circle{
+  color: #e74c3c;
+  visibility: visible;
+}
+.formGroup i.fa-check-circle {
+  position: absolute;
+  top: 40px;
+  right: 5px;
+  visibility: hidden;
+}
+.formGroup i.fa-exclamation-circle {
+  position: absolute;
+  top: 120px;
+  right: 5px;
+  visibility: hidden;
+}
+
+.formGroup.error small {
+  color: #e74c3c;
+  visibility: visible;
+}
+
+/* .radioSelect{
+
+  margin: 0px;
+  position: inherit;
+
+} */
+/* .formGroup.radio input {
+  padding: 0px;
+} */
+
+.formGroup small {
+  visibility: hidden;
+  position:absolute;
+  bottom: 0;
+  left: 0px;
+}
+
+.formWrapper button {
+  background-color: #3C78D8;
+  border: 2px solid #3C78D8;
+  color: white;
+  display: block ;
+  width: 100%;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 16px;
+  border-radius: 4px;
+  box-shadow: 4px 4px 4px 4px grey;
+}
+
+/* ------------------------------------------------------ */
+/* -----------END OF STYLES ADDED BY RAVINDU ---------------*/
+/* ------------------------------------------------------ */

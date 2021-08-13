@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <title>Form</title>
+</head>
+<body>
+    <div class="FormContainer">
+            <div class="formHeading">
+                <h1>Form Template</h1>
+            </div>
+            <div class="formWrapper">
+                <div class="formGroup success" >
+                    <label>Text :</label>
+                        <input type="text" name="name" id="name" placeholder= "Name">
+                        <br>
+                        <div class="passworderror">
+                            <i class="fa fa-check-circle" aria-hidden="false"></i>
+                            <i class="fa fa-exclamation-circle" aria-hidden="false"></i>
+                            
+                        </div>
+                </div>
+                <div class="formGroup error" >
+                    <label>Password :</label>
+                        <input type="password" name="password" id="password" placeholder= "Password">
+                        <br>
+                        <div class="passworderror">
+                            <i class="fa fa-check-circle" aria-hidden="false"></i>
+                            <i class="fa fa-exclamation-circle" aria-hidden="false"></i>
+                            <small>Error message</small>
+                        </div>
+                        
+                </div>
+                
+                <div class="formGroup">
+                    <label>Dropdown :</label>
+        
+                        <select class="Form dropdown">
+                            <option value="Select">Select</option>
+                            <option value="Value name 1">Value 1</option>
+                            <option value="Value name 2">Value 2</option>
+                        </select>
+                   
+                </div>
+                <div class="formGroup radio">
+                    <label>Radio Button :</label>
+                      <div class="radioSelect">
+                     <input type="radio" name="radioval" value="Value 1">
+                     <label >Value 1</label><br>
+                     <input type="radio" name="radioval" value="Value 2">
+                     <label >Value 2</label><br>
+                     <input type="radio" name="radioval" value="Value 3">
+                     <label >Value 3</label>
+                    </div>
+                </div>
+                <div class="formGroup">
+                    <label>Check box :</label>
+                    <div class="Checkboxval" >
+                    <input type="checkbox" name="checkval1" value="value 1">
+                    <label>Value 1</label><br>
+                    <input type="checkbox" id="checkval2" name="vehicle2" value="val2">
+                    <label> Value 2</label><br>
+                    <input type="checkbox" id="checkval3" name="vehicle3" value="val3">
+                    <label> Value 3</label><br>
+                    </div>
+                </div>
+                <div class="formGroup">
+                    <label>Text Area :</label>
+                    <textarea class="FormTextArea" rows="4" cols="50" placeholder="Add your text here"></textarea>
+                    <br>
+                    <div class="passworderror">
+                        <i class="fa fa-check-circle" aria-hidden="false"></i>
+                        <i class="fa fa-exclamation-circle" aria-hidden="false"></i>
+                        <small>Error message</small>
+                    </div>
+                </div>
+                <div class="formGroup">
+                    <label>Calender :</label>
+                    <input type="date" id="FormDate" >
+                </div>
+                <div class="formGroup"> 
+                    <label>Multiple choice dropdown:</label>
+                    <select class="formMultidropdown" multiple>
+                      <option value="val1">Value 1</option>
+                      <option value="val2">Value 2</option>
+                      <option value="val3">Value 3</option>
+                      <option value="val4">Value 4</option>
+                    </select>
+                    <p>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</p>
+                </div>
+                <div class="button"> 
+                    <button>Submit</button>
+                </div>
+            </div>
+    
+    </div>
+    
+</body>
+</html>
