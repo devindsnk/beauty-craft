@@ -282,7 +282,7 @@ header {
 
 .layout-template-1 .content {
   grid-area: content;
-  background-color: aquamarine;
+  /*background-color: aquamarine;*/
 }
 
 .layout-template-2 .content {
@@ -360,9 +360,9 @@ footer {
 
 
 /* -------------------table design----------------------- */
-table {
+/*table {
   border-collapse: collapse;
-  /* border-radius: 6px; */
+   border-radius: 6px; 
 }
 
 thead {
@@ -386,8 +386,191 @@ td img {
   width: 45px;
   border-radius: 100%;
 }
-
+*/
 
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
+/* ------------------------------------------------------ */
+
+/* ------------------------------------------------------ */
+/* -------------STYLES ADDED BY SANJANA ----------------- */
+/* ------------------------------------------------------ */
+
+
+.table-container{
+  position: absolute;
+  top: 90px;
+  left: 260px;
+  right: 0px;
+  bottom: 35px;
+  height: 100%;
+  overflow-x: auto;
+  padding: 40px 40px;
+}
+
+.table-responsive{
+  min-width: 355px;
+}
+
+.column-right-align{
+  text-align: right;
+}
+
+.column-center-align{
+  text-align: center;
+}
+
+.table-container span{
+  display: inline-block;
+  width: 80px;
+}
+
+.table{
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--white);
+  color: #1b1e24;
+  padding: 5px;
+  margin: auto;
+  box-shadow: 0 2px 12px rgba(30,30,30,.5)
+}
+
+.table-hover tbody tr:hover td{
+  color: var(--theme-blue);
+  background-color: #ced4da;
+}
+
+.table thead th{
+  position: sticky;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: var(--theme-black);
+  color: white;
+}
+
+.table th,
+.table td {
+  padding: 9px;
+  border-bottom: 2px solid #eaf2f9;
+}
+
+input[type="checkbox"]{
+  appearance: none;
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  background-color: #6c757d;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+input[type="checkbox"]:after{
+  font-family: "Font Awesome 5 Free";
+  content: "\f00c";
+  font-weight: 900;
+  font-size: 15px;
+  color: white;
+  display: none;
+}
+
+input[type="checkbox"]:hover{
+  background-color: #adb5bd;
+}
+
+input[type="checkbox"]:checked{
+  background-color: var(--theme-blue);
+}
+
+input[type="checkbox"]:checked:after{
+  display: block;
+}
+
+.btn{
+  border: none;
+  padding: 3px 2px;
+  border-radius: 6px;
+  transition-duration: 0.4s;
+  color: white;
+}
+
+.paid-btn{
+  width: 80px;
+  background-color: #40916c;
+}
+
+.not-paid-btn{
+  width: 80px;
+  background-color: #dd2d4a;
+}
+
+.pay-here-btn{
+  width: 90px;
+  background-color: var(--theme-black);
+}
+
+.paid-btn:hover {
+  color: #1b4332;
+  background-color: #b7e4c7;
+}
+
+.not-paid-btn:hover {
+  color: #fff;
+  background-color: #ff8fa3;
+}
+
+.pay-here-btn:hover {
+  color: #fff;
+  background-color: #6c757d;
+}
+
+.img-profile-picture{
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  border: 2px solid var(--theme-black);
+}
+
+.img-view-edit-update{
+  width: 20px;
+  height: 20px;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+@media (max-width:  768px){
+  .table thead{
+    display: none;
+  }
+  .table, .table tbody, .table tr, .table td{
+    display: block;
+    width: 100%;
+  }
+  .table tr{
+    margin-bottom: 25px;
+  }
+  .table tbody tr td{
+    text-align: right;
+    padding: 10px;
+    position: relative;
+  }
+  .table td:before{
+    content: attr(data-lable);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: left;
+  }
+}
+
+/* ------------------------------------------------------ */
+/* ----------END OF STYLES ADDED BY SANJANA-------------- */
 /* ------------------------------------------------------ */
