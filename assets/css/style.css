@@ -2,37 +2,67 @@
 /* --------------STYLES ADDED BY DEVIN -------------------*/
 /* ------------------------------------------------------ */
 
+:root {
+  --theme-purple: #444BF8;
+  --theme-blue: #037AFF;
+  --theme-black: #252631;
+  --theme-bgwhite: #F2F2F7;
+  --theme-grey: #50515A;
+  --white: #FFFFFF;
+  --black: #000000;
+}
+
 * {
   box-sizing: border-box;
-  list-style: none;
+  margin: 0;
+  padding: 0;
   text-decoration: none;
 }
 
 body {
-  margin: 0;
   font-family: "Poppins", sans-serif;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
-  color: #1b1e24;
   text-align: left;
-  background-color: #fafbff;
-  display: flex;
-  flex-direction: row;
+  background-color: var(--theme-bgwhite);
+}
+
+/* grid template with sidebar */
+.layout-template-1 {
+  display: grid;
+  grid-template-columns: 260px;
+  grid-template-rows: 90px 100% 35px;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar content"
+    "sidebar footer";
+}
+
+/* grid template for full screen  */
+.layout-template-2 {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 90px 100% 35px;
+  grid-template-areas:
+    "header"
+    "content"
+    "footer";
 }
 
 .sidebar {
-  width: 18rem;
+  grid-area: sidebar;
+  width: 260px;
   min-height: calc(100vh + 6rem);
   padding: 0.5rem;
-  background-color: #252631;
-  color: #ffffff;
+  background-color: var(--theme-black);
+  color: var(--white);
 }
 
 /* Sidebar Header */
 .sidebar-header {
-  padding: 1.2rem;
   display: flex;
+  padding: 1.2rem;
   align-items: center;
   justify-content: center;
 }
@@ -46,11 +76,15 @@ body {
 /* Sidebar Nav */
 .sidebar-nav {
   padding-top: 1.5rem;
-  height: 100%;
+  height: 100vh;
 }
 
 .sidebar-nav ul {
   padding-left: 0;
+}
+
+.sidebar ul {
+  list-style: none;
 }
 
 .sidebar-menu_item-link {
@@ -58,13 +92,12 @@ body {
   align-items: center;
   border-radius: 0.25rem;
   padding: 0.9rem 1.5rem;
-  color: white;
+  color: var(--white);
   transition: .3s ease-in-out;
-  /* background-color: #444BF8; */
 }
 
 .sidebar-menu_item-link:hover {
-  background-color: #50515a;
+  background-color: var(--theme-grey);
   transition: .3s ease-in-out;
 }
 
@@ -121,31 +154,239 @@ body {
 }
 
 .main-selected {
-  background-color: #444bf8;
+  background-color: var(--theme-purple);
   transition: .3s;
 }
 
 .main-selected:hover {
-  background-color: #444bf8;
+  background-color: var(--theme-purple);
 }
 
 .sub-selected {
-  background-color: #50515a;
+  background-color: var(--theme-grey);
 }
 
 /* End Sidebar Nav */
 
-.main-container {
-  width: calc(100vw - 15rem);
+/* Header */
+header {
   display: flex;
+  align-items: center;
+  padding: 10px;
+  height: 90px;
+  width: 100%;
 }
 
-header {
-  height: 4rem;
-  width: 100%;
+.header-left,
+.header-center,
+.header-right {
   display: flex;
-  background-color: blue;
+  height: 100%;
+  align-items: center;
 }
+
+.header-topic {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.header-menu_icon {
+  padding-left: 10px;
+  margin-right: 15px;
+}
+
+/* template-1 */
+.layout-template-1 header {
+  grid-area: header;
+  justify-content: space-between;
+}
+
+/* template-2 */
+.layout-template-2 header {
+  grid-area: header;
+  justify-content: center;
+}
+
+.layout-template-2 .header-center {
+  justify-content: center;
+  width: calc(100vw - 90px);
+  padding-left: 70px;
+  background-color: coral;
+}
+
+.layout-template-2 .header-right {
+  justify-content: center;
+  width: 70px;
+  background-color: deeppink;
+}
+
+/* header profile section */
+
+.header-profile {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "pic name arrow"
+    "pic role role";
+  width: 300px;
+  height: 70px;
+  border-radius: 60px;
+  padding: 5px;
+  background-color: var(--white);
+  color: var(--black);
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+.header-profilepic {
+  grid-area: pic;
+  justify-content: center;
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+  margin-right: 15px;
+}
+
+.header-username {
+  grid-area: name;
+  align-items: baseline;
+  height: 30px;
+  padding-top: 7px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.header-userRole {
+  grid-area: role;
+  height: 30px;
+  padding-top: 2px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--theme-grey);
+}
+
+.header-profile-arrow {
+  grid-area: arrow;
+  height: 30px;
+  padding-top: 10px;
+  padding-left: 5px;
+  vertical-align: middle;
+}
+
+/* End header profile section */
+
+/* End Header */
+
+/* Content */
+
+.layout-template-1 .content {
+  grid-area: content;
+  background-color: aquamarine;
+}
+
+.layout-template-2 .content {
+  grid-area: content;
+  max-width: 80rem;
+  width: 100%;
+  margin: auto;
+  min-height: 100vh;
+}
+
+.contentNewRes {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 3fr 2fr;
+  grid-template-areas:
+    "resDetails cusDetails"
+    "notes cusDetails";
+}
+
+.contentBox {
+  margin: 0;
+  padding: 5px;
+  border-radius: 6px;
+  background-color:var(--white);
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+.contentNewRes > div {
+  margin: 15px;
+}
+
+.contentNewRes .resDetails {
+  grid-area: resDetails;
+  background-color: lavender;
+}
+
+.contentNewRes .resDetails .addAnother{
+  display: flex;
+  height: ;
+  justify-content: center;
+  grid-area: resDetails;
+  color: var(--theme-blue);
+  font-weight: 500;
+}
+
+.contentNewRes .cusDetails {
+  grid-area: cusDetails;
+  background-color: lightyellow;
+}
+
+.contentNewRes .notes {
+  grid-area: notes;
+  background-color: palevioletred;
+}
+
+/* End Content */
+
+/* Footer */
+
+footer {
+  grid-area: footer;
+  height: 100%;
+  background-color: lime;
+  width: 100%;
+  margin: auto;
+}
+
+.layout-template-2 footer {
+  max-width: 80rem;
+}
+
+/* End Footer */
+
+
+
+
+/* -------------------table design----------------------- */
+table {
+  border-collapse: collapse;
+  /* border-radius: 6px; */
+}
+
+thead {
+  background-color: #252631;
+  color: #FFFFFF;
+}
+
+tbody {
+  background-color: #FFFFFF;
+}
+
+th,
+td {
+  border: 1px solid #444bf8;
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+td img {
+  height: 45px;
+  width: 45px;
+  border-radius: 100%;
+}
+
 
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
