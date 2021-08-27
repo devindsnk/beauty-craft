@@ -13,6 +13,13 @@ for (var i = 0; i < mainLinks.length; i++){
    mainLinks[i].addEventListener('click', selectMainLink);
 }
 
+// profile menu event listener
+var headerProfile = document.querySelector(".header-profile");
+var profileMenu = document.querySelector(".profile_menu");
+// headerProfile.addEventListener("mouseover", toggleProfileMenu);
+// headerProfile.addEventListener("mouseout", toggleProfileMenu);
+headerProfile.addEventListener("click", toggleProfileMenu);
+
 // Marks the main menu link as unselected
 function toggleMainSelection(currentMainLink) {
       for (var i = 0; i < mainLinks.length; i++) {
@@ -57,6 +64,16 @@ function selectMainLink() {
       toggleSubMenu(this);
       toggleMainSelection(this);
    }
+}
+
+// Headerbar profile menu toggle
+function toggleProfileMenu() {
+   arrow = document.querySelector(".header-profile-arrow i");
+   profileMenu.classList.toggle('active');
+   arrow.classList.toggle("rotated180");
+}
+function addProfileMenu() {
+   profileMenu.classList.add('active');
 }
 
 /* ------------------------------------------------------ */
