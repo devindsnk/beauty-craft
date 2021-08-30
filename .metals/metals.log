@@ -1,0 +1,5 @@
+[0m2021.08.30 00:50:12 INFO  Started: Metals version 0.10.5 in workspace 'E:\University_UCSC\2nd Year\1st Semester\SCS2202 Group Project 1\Group30_BeautyCraft_git\beauty-craft' for client Visual Studio Code 1.59.1.[0m
+[0m2021.08.30 00:50:14 INFO  time: initialize in 1.83s[0m
+[0m2021.08.30 00:50:20 WARN  Build server is not auto-connectable.[0m
+[0m2021.08.30 00:50:20 WARN  no build tool detected in workspace 'E:\University_UCSC\2nd Year\1st Semester\SCS2202 Group Project 1\Group30_BeautyCraft_git\beauty-craft'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.08.30 00:53:53 INFO  shutting down Metals[0m
