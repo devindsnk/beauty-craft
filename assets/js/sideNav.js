@@ -1,3 +1,4 @@
+/* -------------------sideNav Scripts-------------------- */
 /* ------------------------------------------------------ */
 /* ----------------- JS ADDED BY DEVIN -------------------*/
 /* ------------------------------------------------------ */
@@ -9,22 +10,21 @@ var mainLinks = document.querySelectorAll(".sidebar-main_menu_item > .sidebar-me
 var activeLink = document.querySelector(".main-selected");
 
 // main menu link event listener
-for (var i = 0; i < mainLinks.length; i++){
+for (var i = 0; i < mainLinks.length; i++) {
    mainLinks[i].addEventListener('click', selectMainLink);
 }
 
 // Marks the main menu link as unselected
 function toggleMainSelection(currentMainLink) {
-      for (var i = 0; i < mainLinks.length; i++) {
-         if (mainLinks[i] != activeLink) {
-            if (mainLinks[i] != currentMainLink) {
-               mainLinks[i].classList.remove("main-selected");
-            }
-            else {
-               mainLinks[i].classList.toggle("main-selected");
-            }
+   for (var i = 0; i < mainLinks.length; i++) {
+      if (mainLinks[i] != activeLink) {
+         if (mainLinks[i] != currentMainLink) {
+            mainLinks[i].classList.remove("main-selected");
+         } else {
+            mainLinks[i].classList.toggle("main-selected");
          }
       }
+   }
 }
 
 // Toggles the submenu
@@ -46,7 +46,6 @@ function toggleSubMenu(currentMainLink) {
          }
       }
    }
-   
 }
 
 // Marks the main menu link as selected

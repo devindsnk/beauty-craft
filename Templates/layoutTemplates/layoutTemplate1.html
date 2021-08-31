@@ -6,13 +6,13 @@
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale = 1.0" />
 
-   <title>Beauty Craft</title>
+   <title>layoutTemplate1</title>
 
    <!--Style Sheet-->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
    <link rel="stylesheet" href="../../assets/css/style.css" />
+   <link rel="stylesheet" href="../../assets/css/sideNav.css" />
+   <link rel="stylesheet" href="../../assets/css/layoutTemplate1.css" />
 
 </head>
 
@@ -35,7 +35,7 @@
 
             <!--Sidebar Item-->
             <li class="sidebar-main_menu_item sidebar-menu_item">
-               <a class="sidebar-menu_item-link  main-selected" href="./mainOption1.html">
+               <a class="sidebar-menu_item-link  main-selected" href="./layoutTemplate1.html">
                   <div class="sidebar-menu_item-icon">
                      <img src="../../assets/icons/overview-white.png" />
                   </div>
@@ -59,7 +59,7 @@
                <ul class="sidebar-sub_menu">
                   <!--Sidebar Sub Item-->
                   <li class="sidebar-menu_item sidebar-sub_menu_item">
-                     <a class="sidebar-menu_item-link" href="./subOption1.html">
+                     <a class="sidebar-menu_item-link" href="#">
                         <!-- <div class="sidebar-menu_item-icon"></div> -->
                         <div class="sidebar-menu_item-title">Sub Option 1</div>
                      </a>
@@ -67,13 +67,12 @@
                   <!--End Sidebar Sub Item-->
                   <!--Sidebar Sub Item-->
                   <li class="sidebar-menu_item sidebar-sub_menu_item">
-                     <a class="sidebar-menu_item-link" href="./subOption2.html">
+                     <a class="sidebar-menu_item-link" href="#">
                         <!-- <div class="sidebar-menu_item-icon"></div> -->
                         <div class="sidebar-menu_item-title">Sub Option 2</div>
                      </a>
                   </li>
                   <!--End Sidebar Sub Item-->
-
                </ul>
                <!--End Sidebar Sub Menu-->
             </li>
@@ -95,7 +94,7 @@
                <ul class="sidebar-sub_menu">
                   <!--Sidebar Sub Item-->
                   <li class="sidebar-menu_item sidebar-sub_menu_item">
-                     <a class="sidebar-menu_item-link" href="./subOption3.html">
+                     <a class="sidebar-menu_item-link" href="#">
                         <!-- <div class="sidebar-menu_item-icon"></div> -->
                         <div class="sidebar-menu_item-title">Sub Option 3</div>
                      </a>
@@ -103,7 +102,7 @@
                   <!--End Sidebar Sub Item-->
                   <!--Sidebar Sub Item-->
                   <li class="sidebar-menu_item sidebar-sub_menu_item">
-                     <a class="sidebar-menu_item-link" href="./subOption4.html">
+                     <a class="sidebar-menu_item-link" href="#">
                         <!-- <div class="sidebar-menu_item-icon"></div> -->
                         <div class="sidebar-menu_item-title">Sub Option 4</div>
                      </a>
@@ -123,21 +122,40 @@
 
    <!--Header(Top Bar)-->
    <header>
-      <div class="header-left">
+      <!--Header left section-->
+      <div class="header-left verticalCenter">
          <i class="fas fa-bars fa-2x header-menu_icon"></i>
-         <span class="header-topic">Calendar</span>
+         <h1 class="header-topic">Layout Template 1</h1>
       </div>
+      <!--End header left section-->
 
+      <!--Header profile section-->
       <div class="header-profile">
          <img class="header-profilepic" src="../../assets/img/person1.jpg"></img>
          <span class="header-username">Devin Dissanayake</span>
-         <span class="header-userRole">Receptionist</span>
-         <span class="header-profile-arrow">
-            <i class="fas fa-chevron-down "></i>
-         </span>
-
-         <!-- <img class="header-profile-arrow" src="../../assets/icons/overview-white.png" /> -->
+         <span class="header-userRole">Service Provider</span>
+         <div class="header-profile-arrow">
+            <i class="fas fa-chevron-down"></i>
+         </div>
       </div>
+      <!--Header profile menu-->
+      <div class="profile_menu">
+         <ul>
+            <li>
+               <i class="far fa-user"></i>
+               <a href="#">My Profile</a>
+            </li>
+            <li>
+               <i class="far fa-cog"></i>
+               <a href="#">Account Settings</a>
+            </li>
+            <li>
+               <i class="far fa-sign-out"></i>
+               <a href="#">Sign Out</a>
+            </li>
+         </ul>
+      </div>
+      <!--End header profile menu-->
    </header>
    <!--End Header(Top Bar)-->
 
@@ -148,11 +166,16 @@
 
    <!--Footer-->
    <footer>
+      <P>
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, ducimus laboriosam saepe numquam veniam velit
+         dolorem rem debitis fugit quasi illum nostrum, aliquid quam nulla labore necessitatibus excepturi culpa soluta!
+      </P>
    </footer>
    <!--End Footer-->
 
    <script src="../../assets/js/jquery-3.6.0.min.js"></script>
-   <script src="../../assets/js/sidebar.js"></script>
+   <script src="../../assets/js/sideNav.js"></script>
+   <script src="../../assets/js/header.js"></script>
 </body>
 
 

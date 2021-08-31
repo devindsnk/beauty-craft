@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Form</title>
+</head>
+
+<body>
+    <!-- form container -->
+    <div class="container">
+        <!-- form heading  -->
+        <div class="Formheading">
+            <h1>Form Template</h1>
+        </div>
+        <!-- form content wrapper -->
+        <form action="#">
+            <div class="formwrapper">
+                <!-- form text -->
+                <div class="formGroup" data-error="Sorry, that user name is taken.">
+                    <label class="labels testClass">Text :</label> <br>
+                    <input type="text" class="textinput" name="text" placeholder="Enter Your Text" value="Devin">
+                </div>
+                <!-- form password -->
+                <div class="formGroup">
+                    <span class="labels">Password :</span> <br>
+                    <input type="password" name="password" class="passwordinput" placeholder="Password">
+                </div>
+                <!-- form text area -->
+                <div class="formGroup">
+                    <label class="labels">Text Area :</label> <br>
+                    <textarea class="textArea" rows="4" cols="50" placeholder="Add your text here"></textarea>
+                </div>
+                <!-- form radio Button -->
+                <div class="formGroup">
+                    <label class="labels">Radio Button :</label>
+                    <div class="radiowrapper">
+                        <input type="radio" name="select" id="option-1">
+                        <input type="radio" name="select" id="option-2">
+                        <label for="option-1" class="option-1">
+                            <div class="dot"></div>
+                            <div class="text">Option 1</div>
+                        </label>
+                        <label for="option-2" class="option-2">
+                            <div class="dot"></div>
+                            <div class="text">Option 2</div>
+                        </label>
+                    </div>
+                </div>
+                <!-- form checkbox -->
+                <div class="formGroup">
+                    <label class="labels">Check box :</label>
+                    <label class="container">One
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Two
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Three
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Four
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+
+                </div>
+                <!-- form calender -->
+                <div class="formGroup">
+                    <label class="labels">Calender :</label> <br>
+                    <input type="date" id="formdate" class="formdate">
+                </div>
+                <!-- form multiple choice dropdown -->
+                <div class="formGroup">
+                    <label class="labels">Multiple choice dropdown :</label> <br>
+                    <select class="formMultidropdown" multiple>
+                        <option value="val1">Value 1</option>
+                        <option value="val2">Value 2</option>
+                        <option value="val3">Value 3</option>
+                        <option value="val4">Value 4</option>
+                        <option value="val5">Value 5</option>
+                        <option value="val6">Value 6</option>
+                    </select>
+                    <p class="multiselectnote">Hold down the Ctrl (windows) or Command (Mac) button to select multiple
+                        options.</p>
+                </div>
+                <!-- form image submission -->
+                <div class="formGroup">
+                    <label class="labels">Image :</label> <br>
+                    <div class="filesubBtn">
+                        <label for="filesub" class="filesubbtnLabel">
+                            <input type="file" id="filesub" accept="image/*">
+                            <img src="image_48px white.png" class="icon">
+                            <span class="filesubText">Upload a profile</span>
+                        </label>
+                    </div>
+                </div>
+                <!-- togle button -->
+                <div class="formGroup">
+                    <label class="labels">Togle</label> <br>
+                    <input type="checkbox" class="toglecheckbox">
+                </div>
+                <!-- dropdown -->
+                <div class="formGroup">
+                    <label class="labels">Dropdown</label>
+                    <select class="dropdownselectbox">
+                        <option value="val1">Value 1</option>
+                        <option value="val2">Value 2</option>
+                        <option value="val3">Value 3</option>
+                        <option value="val4">Value 4</option>
+                    </select>
+
+                </div>
+
+            </div>
+            <!-- form submit button -->
+            <div class="Button">
+                <button class="button">Submit</button>
+            </div>
+        </form>
+
+    </div>
+    </div>
+</body>
+
+</html>
