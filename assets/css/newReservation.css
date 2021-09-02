@@ -19,7 +19,7 @@
 
 .contentNewRes .resDetails {
   grid-area: resDetails;
-  background-color: lavender;
+  /* background-color: lavender; */
 }
 
 .contentNewRes .resDetails .addAnother {
@@ -33,13 +33,14 @@
 
 .contentNewRes .cusDetails {
   grid-area: cusDetails;
-  background-color: lightyellow;
+  /* background-color: lightyellow; */
 }
 
 .contentNewRes .notes {
   grid-area: notes;
-  background-color: palevioletred;
+  /* background-color: palevioletred; */
 }
+
 
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/

@@ -27,6 +27,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   text-align: left;
+  color: var(--black);
   background-color: var(--theme-bgwhite);
 }
 
@@ -58,9 +59,14 @@ footer {
 
 .verticalCenter {
   display: flex;
-  height: 100%;
   align-items: center;
 }
+
+.horizontalCenter {
+  display: flex;
+  justify-content: center;
+}
+
 
 /* white box container */
 .contentBox {
@@ -72,6 +78,12 @@ footer {
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
 }
 
+.rotated180 {
+  transform: rotate(180deg);
+  transition: 0.3s ease-in-out;
+}
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
 /* ------------------------------------------------------ */
+
+

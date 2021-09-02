@@ -4,10 +4,10 @@
 /* ------------------------------------------------------ */
 
 // main menu links
-var mainLinks = document.querySelectorAll(".sidebar-main_menu_item > .sidebar-menu_item-link");
+var mainLinks = document.querySelectorAll(".mainOption > .optionLink");
 
 // currently active main link
-var activeLink = document.querySelector(".main-selected");
+var activeLink = document.querySelector(".selected");
 
 // main menu link event listener
 for (var i = 0; i < mainLinks.length; i++) {
@@ -19,9 +19,9 @@ function toggleMainSelection(currentMainLink) {
    for (var i = 0; i < mainLinks.length; i++) {
       if (mainLinks[i] != activeLink) {
          if (mainLinks[i] != currentMainLink) {
-            mainLinks[i].classList.remove("main-selected");
+            mainLinks[i].classList.remove("selected");
          } else {
-            mainLinks[i].classList.toggle("main-selected");
+            mainLinks[i].classList.toggle("selected");
          }
       }
    }
@@ -30,18 +30,18 @@ function toggleMainSelection(currentMainLink) {
 // Toggles the submenu
 function toggleSubMenu(currentMainLink) {
    for (var i = 0; i < mainLinks.length; i++) {
-      var subList = mainLinks[i].parentElement.querySelector('.sidebar-sub_menu');
+      var subList = mainLinks[i].parentElement.querySelector('.subMenu');
       // toggle only if a sublist is available
       if (subList) {
-         var arrow = mainLinks[i].querySelector('.sidebar-menu_item-arrow')
+         var arrow = mainLinks[i].querySelector('.optionArrow')
          // other sub menus are collapsed
          if (mainLinks[i] != currentMainLink) {
-            subList.classList.remove("showSubMenu");
+            subList.classList.remove("expanded");
             arrow.classList.remove("rotated180");
          }
          // current sub menu is toggled
          else {
-            subList.classList.toggle("showSubMenu");
+            subList.classList.toggle("expanded");
             arrow.classList.toggle("rotated180");
          }
       }
@@ -50,7 +50,8 @@ function toggleSubMenu(currentMainLink) {
 
 // Marks the main menu link as selected
 function selectMainLink() {
-   x = this.parentElement.querySelector(".sidebar-sub_menu")
+   x = this.parentElement.querySelector(".subMenu")
+   
    // toggles are performed only if a sidebar is available
    if (x) {
       toggleSubMenu(this);
