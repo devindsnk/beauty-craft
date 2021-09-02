@@ -6,6 +6,16 @@
 
 /* ------------------------------------------------------ */
 
+:root {
+    --theme-purple: #444bf8;
+    --theme-blue: #037aff;
+    --theme-black: #252631;
+    --theme-bgwhite: #f2f2f7;
+    --theme-grey: #50515a;
+    --white: #ffffff;
+    --black: #000000;
+}
+
 .sub-container1 {
     display: flex;
     justify-content: space-evenly;
@@ -176,6 +186,7 @@
     right: 0;
     transition: opacity 100ms;
     visibility: hidden;
+    background: rgba(0, 0, 0, 0.35);
 }
 
 .overlay:target {
@@ -184,33 +195,32 @@
 }
 
 .popup {
-    margin: 13% 40%;
-    padding: 20px;
+    /* margin: 13% 40%; */
     background: #fff;
     border-radius: 5px;
     width: 35%;
     height: 60%;
     position: relative;
-    transition: all 0.5s ease-in-out;
-    border: 3px solid var(--theme-purple);
+    transition: all 0.5s none;
+    border: none;
+    padding: 0;
+    box-shadow: 1px 2px #ccccce;
     /* background-color: #06d85f; */
 }
 
 .popup h2 {
-    margin-top: 0;
     color: #333;
-    font-family: Tahoma, Arial, sans-serif;
+    width: 100%;
 }
 
 .popup .close {
     position: absolute;
-    top: 20px;
-    right: 30px;
-    transition: all 20ms;
-    font-size: 30px;
-    font-weight: bold;
+    top: 1px;
+    right: 10px;
+    font-size: 32px;
+    font-weight: 400;
     text-decoration: none;
-    color: #333;
+    color: var(--theme-black);
 }
 
 .popup .close:hover {
@@ -220,4 +230,15 @@
 .popup .content {
     max-height: 30%;
     overflow: auto;
+}
+
+.popup-topic {
+    text-align: center;
+    border-bottom: 1px rgb(207, 204, 204) solid;
+    width: 100%;
+    padding: 5px;
+}
+
+.popin-content {
+    padding: 20px;
 }
