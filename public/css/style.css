@@ -4,6 +4,8 @@
 /* --------------STYLES ADDED BY DEVIN -------------------*/
 /* ------------------------------------------------------ */
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 :root {
   --theme-purple: #444BF8;
   --theme-blue: #037AFF;
@@ -19,14 +21,15 @@
   text-decoration: none;
   margin: 0;
   padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
   text-align: left;
+  color: var(--black);
   background-color: var(--theme-bgwhite);
 }
 
@@ -61,6 +64,12 @@ footer {
   align-items: center;
 }
 
+.horizontalCenter {
+  display: flex;
+  justify-content: center;
+}
+
+
 /* white box container */
 .contentBox {
   font-weight: 500;
@@ -71,6 +80,12 @@ footer {
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
 }
 
+.rotated180 {
+  transform: rotate(180deg);
+  transition: 0.3s ease-in-out;
+}
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
 /* ------------------------------------------------------ */
+
+

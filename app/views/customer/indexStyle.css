@@ -1,0 +1,93 @@
+.btnContainer{
+   display: flex;
+   align-items: flex-start;
+}
+
+.btnContainer > div{
+   border: 1px solid blue;
+   height: 160px;
+}
+
+.btn {
+   /* height: 25px; */
+   border-radius: 6px;
+   border: 1px;
+   font-family: "Poppins";
+}
+
+.btn-small {
+   font-weight: 600;
+   font-size: 16px;
+   padding: 0 10px;
+   line-height: 1.8rem;
+}
+
+.btn-large {
+   font-weight: 600;
+   font-size: 16px;
+   padding: 0 20px;
+   line-height: 2.5rem;
+}
+
+.status-label {
+   height: 1.8rem;
+   font-weight: 400;
+}
+
+.status-label .circle {
+   height: 15px;
+   width: 15px;
+   border-radius: 50px;
+   margin-right: 8px;
+}
+
+
+.content,
+.contentBox {
+   margin: 30px;
+   padding: 30px;
+   height: 300px;
+}
+
+
+/* line-height: 24px;
+display: flex;
+align-items: center;
+text-align: center; */
+
+.btn-success {
+   color: #3ABD5F;
+   background-color: #C0F0D1;
+}
+
+.btn-error {
+   color: #DC3545;
+   background-color: #FFC5CA;
+}
+
+.btn-black {
+   color: var(--white);
+   background-color: #252631;
+}
+
+.btn-primary {
+   color: var(--white);
+   background-color: var(--theme-purple);
+}
+
+.btn-black-disabled {
+   color: var(--white);
+   background-color: #DAD9D9;
+}
+
+.status-success {
+   background-color: #3ABD5F;
+}
+
+.status-warning {
+   background-color: #FFBF02;
+}
+
+.status-error {
+   background-color: #DC3545;
+}

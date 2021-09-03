@@ -3,7 +3,6 @@
 /* ----------------- JS ADDED BY DEVIN -------------------*/
 /* ------------------------------------------------------ */
 
-
 // profile menu event listener
 var headerProfile = document.querySelector(".header-profile");
 var profileMenu = document.querySelector(".profile_menu");
@@ -20,8 +19,6 @@ document.addEventListener('click', function (event) {
 // Set the margin of the profile menu based on the width of the header_profile
 // Repace this with JavaScript if possible
 $(document).ready(function () {
-   console.log("loaded");
-   console.log($(".header-profile").width());
    $(".profile_menu").css({
       'margin-right': ('max(calc((' + $(".header-profile").width() + 'px - 225px)/2) , 6px)')
    });
