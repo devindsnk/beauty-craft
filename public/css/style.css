@@ -1,0 +1,91 @@
+/* ------This is a common stylesheet for every view------ */
+
+/* ------------------------------------------------------ */
+/* --------------STYLES ADDED BY DEVIN -------------------*/
+/* ------------------------------------------------------ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --theme-purple: #444BF8;
+  --theme-blue: #037AFF;
+  --theme-black: #252631;
+  --theme-bgwhite: #F2F2F7;
+  --theme-grey: #50515A;
+  --white: #FFFFFF;
+  --black: #000000;
+}
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  color: var(--black);
+  background-color: var(--theme-bgwhite);
+}
+
+header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+footer {
+  height: 100%;
+  background-color: lime;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.verticalCenter {
+  display: flex;
+  align-items: center;
+}
+
+.horizontalCenter {
+  display: flex;
+  justify-content: center;
+}
+
+
+/* white box container */
+.contentBox {
+  font-weight: 500;
+  margin: 0;
+  padding: 5px;
+  border-radius: 6px;
+  background-color: var(--white);
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+.rotated180 {
+  transform: rotate(180deg);
+  transition: 0.3s ease-in-out;
+}
+/* ------------------------------------------------------ */
+/* -----------END OF STYLES ADDED BY DEVIN ---------------*/
+/* ------------------------------------------------------ */
+
+
