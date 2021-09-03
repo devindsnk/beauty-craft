@@ -12,5 +12,4 @@
 <script src="../../assets/js/headerBar.js"></script>
 </body>
 
-
 </html>
