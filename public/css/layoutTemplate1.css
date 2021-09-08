@@ -22,8 +22,8 @@
 
 .layout-template-1 header {
    grid-area: header;
+   display: flex;
    justify-content: space-between;
-   
 }
 
 .header-left{
@@ -35,16 +35,14 @@
    margin-right: 15px;
 }
 
-
-
 .header-profile {
    display: grid;
-   grid-template-columns: 50px calc(1fr + 10px) 10px;
+   grid-template-columns: 50px 1fr 30px;
    grid-template-rows: 27px 23px;
    grid-template-areas:
       "pic name arrow"
       "pic role role";
-   min-width: 240px;
+   min-width: 225px;
    height: 60px;
    border-radius: 60px;
    padding: 5px;
@@ -52,7 +50,7 @@
    color: var(--black);
    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
    cursor: pointer;
-   /* transition: 0.2s ease-in-out; */
+   transition: 0.2s ease-in-out;
 }
 
 .header-profile:hover {
@@ -67,7 +65,7 @@
    height: 60px;
    top: 10px;
    background: linear-gradient(to right, rgba(240, 244, 245, 0), rgb(255, 255, 255));
-}
+} 
 
 .header-profilepic {
    grid-area: pic;
@@ -76,6 +74,7 @@
    height: 50px;
    width: 50px;
    border-radius: 100%;
+   background-color: chartreuse;
 }
 
 .header-username {

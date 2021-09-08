@@ -34,8 +34,6 @@ body {
 }
 
 header {
-  grid-area: header;
-  display: flex;
   align-items: center;
   padding: 10px;
   width: 100%;
@@ -68,7 +66,6 @@ footer {
   display: flex;
   justify-content: center;
 }
-
 
 /* white box container */
 .contentBox {
