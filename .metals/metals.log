@@ -2,3 +2,7 @@
 [0m2021.09.06 21:58:58 INFO  time: initialize in 0.33s[0m
 [0m2021.09.06 21:58:58 WARN  Build server is not auto-connectable.[0m
 [0m2021.09.06 21:58:58 WARN  no build tool detected in workspace 'C:\wamp64\www\beauty-craft'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.09.08 11:02:34 INFO  Started: Metals version 0.10.5 in workspace 'C:\wamp64\www\beauty-craft' for client Visual Studio Code 1.60.0.[0m
+[0m2021.09.08 11:02:35 INFO  time: initialize in 0.39s[0m
+[0m2021.09.08 11:02:40 WARN  Build server is not auto-connectable.[0m
+[0m2021.09.08 11:02:40 WARN  no build tool detected in workspace 'C:\wamp64\www\beauty-craft'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
