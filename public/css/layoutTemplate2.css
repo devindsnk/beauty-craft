@@ -16,7 +16,12 @@
 
 .layout-template-2 header {
    grid-area: header;
+   display: flex;
    justify-content: center;
+}
+
+.layout-template-2 header>div {
+   height: 100%;
 }
 
 .layout-template-2 .header-center {

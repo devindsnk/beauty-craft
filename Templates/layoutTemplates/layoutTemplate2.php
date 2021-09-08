@@ -10,11 +10,11 @@
 
    <!--Style Sheet-->
    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-   <link rel="stylesheet" href="../../assets/css/style.css" />
-   <link rel="stylesheet" href="../../assets/css/sideNav.css" />
-   <link rel="stylesheet" href="../../assets/css/sideHeader.css" />
-   <link rel="stylesheet" href="../../assets/css/layoutTemplate2.css" />
-   <link rel="stylesheet" href="assets/css/newReservation.css">
+   <link rel="stylesheet" href="../../public/css/style.css" />
+   <link rel="stylesheet" href="../../public/css/sideNav.css" />
+   <link rel="stylesheet" href="../../public/css/sideHeader.css" />
+   <link rel="stylesheet" href="../../public/css/layoutTemplate2.css" />
+   <link rel="stylesheet" href="public/css/newReservation.css">
 </head>
 
 <body class="layout-template-2">
@@ -30,5 +30,4 @@
    <div class="content contentNewRes">
    </div>
    <footer></footer>
-
 </body>
