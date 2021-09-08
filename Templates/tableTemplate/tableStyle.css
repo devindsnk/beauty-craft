@@ -89,6 +89,10 @@ justify-content: center;
   border-bottom: 0;
 }
 
+.selected_row {
+  background-color: #f4f5f7 !important;
+}
+
 input[type="checkbox"]{
   appearance: none;
   -webkit-appearance: none;
@@ -161,6 +165,10 @@ input[type="checkbox"]:checked:after{
 
 .pay-now-btn:hover {
   background-color: #6c757d;
+}
+
+.btn-position{
+  margin: 10px 10px 10px 0px;
 }
 
 .img-profile-picture{
