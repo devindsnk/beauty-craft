@@ -1,133 +1,149 @@
 /* --------------Styles of the sideNav------------------- */
 
+
 /* ------------------------------------------------------ */
+
+
 /* --------------STYLES ADDED BY DEVIN -------------------*/
+
+
 /* ------------------------------------------------------ */
 
 .sidebar {
-   grid-area: sidebar;
-   width: 260px;
-   height: 100vh;
-   /* min-height: calc(100vh + 6rem); */
-   padding: 0.5rem;
-   background-color: var(--theme-black);
-   color: var(--white);
+    grid-area: sidebar;
+    width: 260px;
+    height: 100vh;
+    /* min-height: calc(100vh + 6rem); */
+    padding: 0.5rem;
+    background-color: var(--theme-black);
+    color: var(--white);
 }
 
+
 /* Sidebar Header */
+
 .sidebar-header {
-   height: 118px;
-   display: flex;
-   padding: 1.2rem;
-   align-items: center;
-   justify-content: center;
+    height: 118px;
+    display: flex;
+    padding: 1.2rem;
+    align-items: center;
+    justify-content: center;
 }
 
 .sidebar-header img {
-   max-width: 100%;
+    max-width: 100%;
 }
+
 
 /* End Sidebar Header */
 
+
 /* Sidebar Nav */
+
 .sidebar-nav {
-   padding-top: 1.5rem;
+    padding-top: 1.5rem;
 }
 
 .sidebar-nav ul {
-   padding-left: 0;
+    padding-left: 0;
 }
 
 .sidebar ul {
-   list-style: none;
+    list-style: none;
 }
 
 .sidebar-menu_item-link {
-   display: flex;
-   align-items: center;
-   border-radius: 0.25rem;
-   padding: 0.9rem 1.5rem;
-   color: var(--white);
-   transition: .3s ease-in-out;
+    display: flex;
+    align-items: center;
+    border-radius: 0.25rem;
+    padding: 0.9rem 1.5rem;
+    color: var(--white);
+    transition: 0.3s ease-in-out;
 }
 
 .sidebar-menu_item-link:hover {
-   background-color: var(--theme-grey);
-   transition: .3s ease-in-out;
+    background-color: var(--theme-grey);
+    transition: 0.3s ease-in-out;
 }
 
 .sidebar-menu_item-link div {
-   display: flex;
-   align-items: center;
-   height: 25px;
+    display: flex;
+    align-items: center;
+    height: 25px;
 }
 
 .sidebar-menu_item-icon img {
-   max-height: 25px;
-   padding-right: 12px;
+    max-height: 25px;
+    padding-right: 12px;
 }
 
 .sidebar-menu_item-title {
-   width: 100%;
+    width: 100%;
 }
 
 .sidebar-menu_item-arrow img {
-   max-height: 18px;
+    max-height: 18px;
 }
 
 .sidebar-main_menu_item {
-   margin-top: 0.4rem;
+    margin-top: 0.4rem;
 }
 
 .sidebar-sub_menu_item {
-   margin-top: 0.2rem;
+    margin-top: 0.2rem;
 }
 
 .sidebar-main_menu_item {
-   font-weight: 500;
-   letter-spacing: 0.3px;
-   font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    font-size: 0.9rem;
 }
 
 .sidebar-sub_menu_item div {
-   font-weight: 400;
-   padding-left: 37px;
-   font-size: 0.875rem;
+    font-weight: 400;
+    padding-left: 37px;
+    font-size: 0.875rem;
 }
 
 .sidebar-sub_menu {
-   overflow: hidden;
-   max-height: 0;
-   transition: max-height 0.4s ease-out;
-   /* display: none; */
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease-out;
+    /* display: none; */
 }
 
 .showSubMenu {
-   max-height: 200px;
-   /* display: block; */
-   /* transition: 0.15s ease-out; */
+    max-height: 200px;
+    /* display: block; */
+    /* transition: 0.15s ease-out; */
 }
 
 .rotated180 {
-   transform: rotate(180deg);
-   transition: 0.3s ease-in-out;
+    transform: rotate(180deg);
+    transition: 0.3s ease-in-out;
 }
 
 .main-selected {
-   background-color: var(--theme-purple);
-   transition: .3s;
+    background-color: var(--theme-purple);
+    transition: 0.3s;
 }
 
 .main-selected:hover {
-   background-color: var(--theme-purple);
+    background-color: var(--theme-purple);
 }
 
 .sub-selected {
-   background-color: var(--theme-grey);
+    background-color: var(--theme-grey);
 }
+
 
 /* End Sidebar Nav */
 
+
 /* ------------------------------------------------------ */
+
+
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
+
+
 /* ------------------------------------------------------ */

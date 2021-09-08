@@ -68,7 +68,7 @@
     /* for Firefox */
     overflow: hidden;
     overflow-y: scroll;
-    height: 500px;
+    height: 370px;
 }
 
 .scroll-area::-webkit-scrollbar {
@@ -196,6 +196,8 @@
 
 .popup {
     /* margin: 13% 40%; */
+    margin: auto;
+    margin-top: 100px;
     background: #fff;
     border-radius: 5px;
     width: 35%;
