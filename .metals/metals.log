@@ -6,3 +6,5 @@
 [0m2021.09.08 11:02:35 INFO  time: initialize in 0.39s[0m
 [0m2021.09.08 11:02:40 WARN  Build server is not auto-connectable.[0m
 [0m2021.09.08 11:02:40 WARN  no build tool detected in workspace 'C:\wamp64\www\beauty-craft'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+Sep 08, 2021 1:29:47 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
