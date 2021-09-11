@@ -8,12 +8,11 @@
 
    <title>Beauty Craft</title>
 
-   <!--Style Sheet-->
+   <!--Style Sheets-->
    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-   <link rel="stylesheet" href="../../../public/css/style.css">
-   <link rel="stylesheet" href="../../../Templates/btnLabelTemplate/btnLabel.css" />
-   
-   <link rel="stylesheet" href="./indexStyle.css">
+   <link rel="stylesheet" href="../../public/css/style.css">
+   <link rel="stylesheet" href="../../public/css/home.css">
+   <link rel="stylesheet" href="../../public/css/icons.css">
 
 </head>
 
@@ -22,43 +21,57 @@
       <nav>
          <div class="logo">
             <a href="index.html">
-               <img src="../../../public/imgs/logoTextWhite.png" alt="logo">
+               <img src="../../public/imgs/logoTextWhite.png" alt="logo">
             </a>
          </div>
          <div class="links">
+            <i class="ci ci-x-white closeBtn"></i>
             <ul>
-               <li>
-                  <a href="">Home</a>
-               </li>
-               <li>
-                  <a href="">Services</a>
-               </li>
-               <li>
-                  <a href="">Staff</a>
-               </li>
-               <li>
-                  <a href="">Gallery</a>
-               </li>
-               <li>
-                  <a href="">Contact</a>
-               </li>
+               <li><a href="">Home</a></li>
+               <li><a href="">Services</a></li>
+               <li><a href="">Staff</a></li>
+               <li><a href="">Gallery</a></li>
+               <li><a href="">Contact</a></li>
             </ul>
          </div>
-         <div class="profie">
-            <button class="btn btn-large btn-special btnProfile">
-               <span>Devin Dissanayake</span>
-            </button>
-            <button class="btn btn-large btn-special btnLogin">
+
+         <div class="buttons">
+            <button class="btn-landing btnLogin" value="Login">
                <span>Login</span>
             </button>
-            <button class="btn btn-large btn-special btnRegister">
+            <button class="btn-landing btnRegister">
                <span>Register</span>
             </button>
+            <div class="profileIcon">
+               <img src="../../public/imgs/person4.jpg" alt="">
+            </div>
+            <i class="ci ci-menu-white menuBtn"></i>
          </div>
       </nav>
       <div class="bottom">
-         <span>Redefining Your </span><span class="red">BEAUTY</span></span>
-         <a href="#"><button class="btn btn-large btn-special btnMakeRes"> Make a Reservation </button></a>
+         <div class="text">
+            <span>Redefining Your </span><span class="red">BEAUTY</span>
+         </div>
+         <div class="break"></div>
+         <div>
+            <button class="btn-landing btnMakeRes"> Make a Reservation </button>
+         </div>
+      </div>
+      <div class="profile_menu">
+         <ul>
+            <li>
+               <i class="far fa-user"></i>
+               <a href="#">My Profile</a>
+            </li>
+            <li>
+               <i class="far fa-cog"></i>
+               <a href="#">Account Settings</a>
+            </li>
+            <li>
+               <i class="far fa-sign-out"></i>
+               <a href="#">Sign Out</a>
+            </li>
+         </ul>
       </div>
    </header>
 
@@ -91,19 +104,10 @@
       laboriosam eveniet et similique. Consequatur tenetur sint dicta alias. Omnis amet dolor quae sint quia similique.
    </div>
 
+   <footer>
 
-
-
-
-
-
-
-
-
-   </div>
-
-   <footer></footer>
-
+   </footer>
+   <script src="../../public/js/home.js"></script>
 </body>
 
 </html>
