@@ -8,6 +8,7 @@
 
 :root {
   --theme-purple: #444BF8;
+  --theme-red: #FE3D4F;
   --theme-blue: #037AFF;
   --theme-black: #252631;
   --theme-bgwhite: #F2F2F7;
@@ -35,7 +36,7 @@ body {
 
 header {
   align-items: center;
-  padding: 10px;
+  /* padding: 10px; */
   width: 100%;
 }
 
@@ -81,6 +82,7 @@ footer {
   transform: rotate(180deg);
   transition: 0.3s ease-in-out;
 }
+
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
 /* ------------------------------------------------------ */

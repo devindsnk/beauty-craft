@@ -1,0 +1,27 @@
+/* -----This is stylesheet is for custom icons----------- */
+
+/* ------------------------------------------------------ */
+/* --------------STYLES ADDED BY DEVIN -------------------*/
+/* ------------------------------------------------------ */
+
+/* Custom menu icon */
+.ci-menu-white {
+   background: url(../../public/svg/menu-white.svg);
+   height: 32px;
+   width: 32px;
+   background-size: contain;
+}
+
+/* Custom close icon */
+.ci-x-white {
+   background: url(../../public/svg/x-white.svg);
+   height: 24px;
+   width: 24px;
+   display: block;
+   background-size: contain;
+}
+
+
+/* ------------------------------------------------------ */
+/* -----------END OF STYLES ADDED BY DEVIN ---------------*/
+/* ------------------------------------------------------ */
