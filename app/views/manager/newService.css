@@ -23,53 +23,69 @@ body{
     padding: 10px;
     background-color: #F2F2F7;
 }
+
+h1{
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+h3, h4{
+    padding: 10px 10px;
+}
+
 hr{
     margin-top: 25px;
     text-align: center;
     width: 100%;
     border-color: #F2F2F7;
 }
+
 hr.resHr{
     width: 100%;
-    margin: 10px 0 10px 0;
+    margin: 10px -10px 10px -10px;
 }
-h1{
-    text-align: center;
-    padding-bottom: 10px;
+
+a{
+    text-decoration: none;
 }
-h3{
-    padding-left: 20px;
+
+label{
+    display: inline-block;
 }
+
 span{
     margin: 10px 10px;
     font-size: 12px;
 }
 
 .newService-main{
+    display: block;
+    width: 55%;
 	margin: 10px 10px;
     overflow-x: auto;
     justify-content: center;
 }
+
 .newService-sub{
-    min-width: 355px;
-	/*width: 750px;*/
-    padding: 25px;
+    min-width: 385px;
+    padding: 20px;
     padding-left: 0;
     padding-right: 0;
     margin: 20px 10px;
     background-color: white;
-    /*border: 1px solid lightblue;*/
     border-radius: 6px;
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
 }
-.newService-sub-head{
 
+.newService-sub-head{
+    margin-top: 20px;
 }
+
 .newService-sub-sub{
-	width: 90x;
     padding: 10px 10px;
     margin: 10px 10px;
 }
+
 .dropdown-Div{
     background-color: #F2F2F7;
     background-clip: border-box;
@@ -78,21 +94,15 @@ span{
     padding: 10px 10px;
     border-radius: 6px;
 }
-.slot{
-    display: none;
+
+.anotheSlot{
+    padding-left: 20px;
 }
-.interval{
-    display: none;
-}
-.show{
-    display: block;
-}
-label{
-    display: inline-block;
-}
+
 .checkbox-div{
 	height: 120px;
     width: 60%;
+    min-width: 290px;
     padding: 10px 10px;
     background-color: white;
     margin: 0 0px 10px 0px;
@@ -100,12 +110,15 @@ label{
     border-radius: 6px;
     overflow: auto;
 }
+
 .dropdownSelectBox{
     width: 60%;
     padding-left: 15px;
 
 }
+
 .dropdownSelectBox-small{
+    /* display: none; */
     height: 25px;
     width: 50px;
     border-radius: 6px;
@@ -116,19 +129,19 @@ label{
     padding-top: 0px;
     font-size : 16px;
 }
+
 input[type="text"], .dropdownSelectBox{
 	height: 45px;
     border-radius: 6px;
     border :1px solid #ccc;
-    font-size : 16px;r;
+    font-size : 16px;
 }
+
 input[type="text"]{
     width: 100%;
     padding-left: 15px;
 }
-/*input[type="checkbox"]{
-    margin: 10px 10px;
-}*/
+
 .buttonNew{
     background-color: black;
     color: white;
@@ -142,12 +155,13 @@ input[type="text"]{
     border-radius: 6px;
     cursor: pointer;
 }
+
 .button-Add-Div{
     display: flex;
-    width: 700px;
-    margin: 10px;
     justify-content: center;
+    align-items: center;
 }
+
 .buttonAdd{
     background-color: #444BF8;
     margin-top: 20px;
@@ -179,6 +193,7 @@ select.dropdownSelectBox {
     1px 1.5em;
   background-repeat: no-repeat;
 }
+
 select.dropdownSelectBox:focus {
   background-image:
     linear-gradient(45deg, green 50%, transparent 50%),
@@ -202,23 +217,41 @@ select:-moz-focusring {
   text-shadow: 0 0 0 #000;
 }
 
-/*[placeholder]:focus::-webkit-input-placeholder {
-  transition: opacity 0.5s 0.5s ease; 
-  opacity: 0;
+.close-slot{
+    position: absolute;
+    right: 22%;
+    width: 50px;
+    height: 50px;
+    color: #000000;
 }
-*/
-/*.example-two:focus::-webkit-input-placeholder {
-  transition: text-indent 0.5s 0.5s ease; 
-  text-indent: -100%;
-  opacity: 1;
-}*/
 
-@media(max-width: 600px) {
-     .button-Add-Div{
-        width: 100%;
-    }
+.close-slot:hover {
+    color: red;
+}
+
+/* View service extra*/
+.view-Div{
+    margin-left: 0px;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid rgb(194, 194, 194); 
+    background-color: white;
+    overflow: auto;
+}
+
+.resource-align{
+    text-align: left;
+}
+
+.quantity-align{
+    float: right;
+}
+
+/* @media(max-width: 950px) {
+    
     .checkbox-div{
-        width: 300px;
+        width: 250px;
         
     }
-}
+} */
