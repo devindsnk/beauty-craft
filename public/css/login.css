@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
 * {
     box-sizing: border-box;
 }
@@ -9,7 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-family: "Montserrat", sans-serif;
+    font-family: "poppins";
     height: 100vh;
     margin: -20px 0 50px;
 }
@@ -24,7 +23,7 @@ h2 {
 }
 
 p {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 100;
     line-height: 20px;
     letter-spacing: 0.5px;
@@ -32,22 +31,22 @@ p {
 }
 
 span {
-    font-size: 12px;
+    font-size: 16px;
 }
 
 a {
     color: #333;
-    font-size: 14px;
+    font-size: 16px;
     text-decoration: none;
     margin: 15px 0;
 }
 
 button {
     border-radius: 20px;
-    border: 1px solid #ff4b2b;
-    background-color: #ff4b2b;
+    border: 1px solid #fe3d4f;
+    background-color: #fe3d4f;
     color: #ffffff;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: bold;
     padding: 12px 45px;
     letter-spacing: 1px;
@@ -74,16 +73,16 @@ form {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0 50px;
+    padding: 0 25px;
     height: 100%;
-    text-align: center;
+    text-align: space-between;
 }
 
 input {
     background-color: #eee;
     border: none;
     padding: 12px 15px;
-    margin: 8px 0;
+    margin-bottom: 20px;
     width: 100%;
 }
 
@@ -93,9 +92,9 @@ input {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     position: relative;
     overflow: hidden;
-    width: 768px;
+    width: 850px;
     max-width: 100%;
-    min-height: 480px;
+    min-height: 550px;
 }
 
 .form-container {
@@ -158,9 +157,7 @@ input {
 }
 
 .overlay {
-    background: #ff416c;
-    background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
-    background: linear-gradient(to right, #ff4b2b, #ff416c);
+    background-image: linear-gradient( to right, #ff3d4f, #ff4b5a, #ff5764, #ff626e, #fe6c78, #fe6c78, #fe6c78, #fe6c78, #ff626e, #ff5764, #ff4b5a, #ff3d4f);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
@@ -224,146 +221,56 @@ input {
     width: 40px;
 }
 
-footer {
-    background-color: #222;
-    color: #fff;
-    font-size: 14px;
-    bottom: 0;
-    position: fixed;
-    left: 0;
-    right: 0;
-    text-align: center;
-    z-index: 999;
-}
-
-footer p {
-    margin: 10px 0;
-}
-
-footer i {
-    color: red;
-}
-
-footer a {
-    color: #3c97bf;
-    text-decoration: none;
-}
-
 
 /* form style */
-
-
-/* By Ruwanthi */
 
 .container form .formwrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    text-align: left;
 }
 
 form .formwrapper .formGroup {
-    margin: 20px 0 12px 0;
+    margin-bottom: 15px;
     width: calc(100% / 2 - 10px);
+    max-height: 70px;
 }
 
-form .formwrapper .formGroup .passwordinput,
-form .formwrapper .formGroup .textinput {
+.passwordinput,
+.textinput {
     display: block;
-    height: 45px;
-    width: 100%;
-    /* outline:none; */
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    padding-left: 15px;
-    font-size: 16px;
-}
-
-form .formwrapper .formGroup .radiowrapper {
-    padding: 0;
-    background: #fff;
-    border-radius: 10px;
-}
-
-form .formwrapper .formGroup .radiowrapper label {
-    display: flex;
     height: 40px;
     width: 100%;
-    color: white;
-    align-items: center;
-    border: 1px solid lightgray;
-    border-radius: 6px;
-    margin: 5px 0;
-    padding: 5px;
-    cursor: default;
-    transition: all 0.3s ease;
+    /* outline:none; */
+    border-radius: 0px;
+    border: none;
+    padding-left: 15px;
+    font-size: 14px;
 }
 
 
-/* form .formwrapper .formGroup .radiowrapper label .dot {
-    height: 20px;
-    width: 20px;
-    background: #d9d9d9;
-    border-radius: 50%;
-    position: relative;
-} */
-
-
-/* radio button black dot */
-
-
-/* form .formwrapper .formGroup .radiowrapper label .dot::before{
-    position: absolute;
-    content: "";
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(2);
-    height: 9px;
-    width: 9px;
-
-    border-radius: 50%;
-
-}
-#option-1:checked ~ .option-1 .dot::before,
-#option-2:checked ~ .option-2 .dot::before{
-  background: #333;
-  transform: translate(-50%,-50%) scale(1);
-}
-
-form .formwrapper .formGroup .radiowrapper label .text{
-    color :black;
-    font-size: 16px;
-    font-weight: 400;
-    padding-left: 10px;
-    transition: all 0.3s ease;
-}
-#option-1:checked ~ .option-1,
-#option-2:checked ~ .option-2{
-    background: black;
-    border-color:black;
-    }
-#option-1:checked ~ .option-1 .text,
-#option-2:checked ~ .option-2 .text{
-  color: white;
-
-} */
-
-form .formwrapper .formGroup .radiowrapper label .text {
-    color: black;
-    font-size: 16px;
-    font-weight: 400;
-    padding-left: 10px;
-    transition: all 0.3s ease;
-}
-
-form .formwrapper .formGroup .radiowrapper input[type="radio"] {
-    display: none;
-}
+/*container */
 
 form .formwrapper .formGroup .container {
     display: grid;
     position: relative;
     padding-left: 35px;
     margin-bottom: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.option {
+    display: inline;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    margin-right: 20px;
     cursor: pointer;
     font-size: 16px;
     -webkit-user-select: none;
@@ -372,10 +279,109 @@ form .formwrapper .formGroup .container {
     user-select: none;
 }
 
-form .formwrapper .formGroup .container input {
+
+/* Hide the browser's default radio button */
+
+.option input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
-    height: 0;
-    width: 0;
+}
+
+
+/* Create a custom radio button */
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+
+/* On mouse-over, add a grey background color */
+
+.option:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+
+/* When the radio button is checked, add a black background */
+
+.option input:checked~.checkmark {
+    background-color: #252631;
+}
+
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the indicator (dot/circle) when checked */
+
+.option input:checked~.checkmark:after {
+    display: block;
+}
+
+
+/* Style the indicator (dot/circle) */
+
+.option .checkmark:after {
+    top: 4px;
+    left: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+.labels {
+    margin-left: 0px;
+    font-size: 14px;
+}
+
+label.labels {
+    text-align: left;
+    width: 100%;
+}
+
+.radiobutton {
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.codesend {
+    display: flex;
+    flex-direction: row;
+    padding: auto;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.message {
+    text-align: left;
+    font-size: 13px;
+    margin-left: 17px;
+}
+
+.send-code {
+    background-color: #252631;
+    color: cornsilk;
+    border-radius: 6px;
+}
+
+.send-code:hover {
+    background-color: #454546;
+}
+
+.signupbutton {
+    margin-top: 5px;
 }
