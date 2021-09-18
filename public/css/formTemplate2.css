@@ -1,0 +1,68 @@
+/* ----------Styles of the 2nd form template------------- */
+
+/* ------------------------------------------------------ */
+/* --------------STYLES ADDED BY DEVIN -------------------*/
+/* ------------------------------------------------------ */
+
+.form .row {
+   width: 100%;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+   gap: 20px 30px;
+   margin-bottom: 20px;
+}
+
+.form input[type = "text"], select {
+   width: 100%;
+   font-weight: 400;
+   padding: 8px 10px;
+   border-radius: 6px;
+   border: 1.2px solid #c4cae0;
+   margin-top: 5px;
+}
+
+.form input[type="radio"], input[type="checkbox"]{
+   margin-right: 8px;
+   transform: scale(1.5);
+}
+
+.form input:focus{
+   outline: none;
+   border-color: #6f6df4;
+}
+
+.form .label{
+   color: #1c093c;
+   font-size: 14px;
+   font-weight: 500;
+   display: block;
+   width: 100%;
+}
+
+.form .text-group{
+   width: 100%;
+}
+
+.form .radio-container{
+   margin-top: 5px;
+}
+
+.form .radio-group{
+   align-self: center;
+   display: inline;
+   cursor: pointer;
+   margin-right: 15px;
+}
+
+.form .checkbox-group{
+   margin-top: 5px;
+}
+
+.form .radio-group span, .form .checkbox-group span{
+   font-size: 13px;
+}
+
+.form .error{
+   font-size: 12px;
+   color: #DC3545;
+}
