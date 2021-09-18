@@ -3,6 +3,7 @@
 /* ------------------------------------------------------ */
 /* -------------STYLES ADDED BY SANJANA ----------------- */
 /* ------------------------------------------------------ */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
@@ -16,19 +17,19 @@
 }
 
 *{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body{
-width: 100%;
-/* display: flex; */
-color: #1b1e24;
-background-color: #fafbff;
-text-align: left;
-justify-content: center;
+  width: 100%;
+  /* display: flex; */
+  color: #1b1e24;
+  background-color: #fafbff;
+  text-align: left;
+  justify-content: center;
 }
 
 .table-container{
@@ -62,22 +63,27 @@ justify-content: center;
   margin: auto;
   /*box-shadow: 0 2px 12px rgba(30,30,30,.5)*/
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
 
-}
-
-.table-hover tbody tr:hover td{
-  background-color: #f4f5f7;
 }
 
 .table thead th{
   font-size: 15px;
   font-weight: 600;
   position: sticky;
-  padding: 20px 13px;
+  padding: 20px 15px;
   padding-bottom: 20px;
   border-spacing: 10px;
   background-color: var(--theme-black);
   color: var(--white);
+}
+
+table th:first-child{
+  border-radius:6px 0 0 0;
+}
+
+table th:last-child{
+  border-radius:0 6px 0 0;
 }
 
 .table td {
@@ -183,12 +189,17 @@ input[type="checkbox"]:checked:after{
   width: 20px;
   height: 20px;
 }
+
 .text-uppercase {
   text-transform: uppercase;
 }
 
 .column-right-align{
   text-align: right;
+}
+
+.column-left-align{
+  text-align: left;
 }
 
 .column-center-align{
