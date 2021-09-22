@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="../../public/css/login.css" />
+    <link rel="stylesheet" href="../../public/css/style.css" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <title>slider sign in/sign up form</title>
 </head>
@@ -18,16 +19,14 @@
             <form action="#">
                 <h1 class="topic">CreateAccount</h1>
                 <div class="formwrapper">
-                    <!-- name -->
-                    <div class="formGroup">
-                        <label class="labels ">Name </label> <br />
-                        <input type="text" class="textinput" name="text" placeholder="First Name" />
-                    </div>
-
-                    <div class="formGroup">
-                        <label class="labels "></label> <br />
-                        <input type="text" class="textinput" name="text" placeholder="Last Name" />
-                    </div>
+                        <div class="formGroup">
+                            <label class="labels ">First Name </label> <br />
+                            <input type="text" class="textinput" name="text" placeholder="First Name " />
+                        </div>
+                        <div class="formGroup">
+                            <label class="labels ">Last Name </label> <br />
+                            <input type="text" class="textinput" name="text" placeholder="Last Name" />
+                        </div>
                 </div>
                     
                     <!-- form radio Button -->
@@ -69,7 +68,7 @@
                             <input type="password" name="password" class="passwordinput" placeholder="Password" />
                         </div>
                         <div class="formGroup">
-                            <label class="labels">Password </label> <br />
+                            <label class="labels">Confirm password </label> <br />
                             <input type="password" name="password" class="passwordinput" placeholder="Password" />
                         </div>
 
@@ -112,8 +111,6 @@
         <script type="text/javascript" src="../../public/js/login.js"></script>
 </body>
 
-<footer>
-</footer>
-</body>
+
 
 </html> 

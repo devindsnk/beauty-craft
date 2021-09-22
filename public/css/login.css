@@ -24,7 +24,7 @@ h2 {
 
 p {
     font-size: 15px;
-    font-weight: 100;
+    font-weight: 300;
     line-height: 20px;
     letter-spacing: 0.5px;
     margin: 20px 0 30px;
@@ -42,13 +42,14 @@ a {
 }
 
 button {
-    border-radius: 20px;
-    border: 1px solid #fe3d4f;
-    background-color: #fe3d4f;
+    border-radius: 6px;
+    border: 2px solid var(--theme-red);
+    background-color: var(--theme-red);
     color: #ffffff;
+    font-family: "poppins";
     font-size: 16px;
     font-weight: bold;
-    padding: 12px 45px;
+    padding: 10px 35px;
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: transform 80ms ease-in;
@@ -73,7 +74,7 @@ form {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0 25px;
+    padding: 0 50px;
     height: 100%;
     text-align: space-between;
 }
@@ -106,7 +107,7 @@ input {
 
 .sign-in-container {
     left: 0;
-    width: 50%;
+    width: 60%;
     z-index: 2;
 }
 
@@ -116,15 +117,15 @@ input {
 
 .sign-up-container {
     left: 0;
-    width: 50%;
+    width: 60%;
     opacity: 0;
     z-index: 1;
 }
 
 .container.right-panel-active .sign-up-container {
-    transform: translateX(100%);
+    transform: translateX(67%);
     opacity: 1;
-    z-index: 5;
+    z-index: 3;
     animation: show 0.6s;
 }
 
@@ -137,15 +138,15 @@ input {
     50%,
     100% {
         opacity: 1;
-        z-index: 5;
+        z-index: 3;
     }
 }
 
 .overlay-container {
     position: absolute;
     top: 0;
-    left: 50%;
-    width: 50%;
+    left: 60%;
+    width: 40%;
     height: 100%;
     overflow: hidden;
     transition: transform 0.6s ease-in-out;
@@ -153,7 +154,7 @@ input {
 }
 
 .container.right-panel-active .overlay-container {
-    transform: translateX(-100%);
+    transform: translateX(-151%);
 }
 
 .overlay {
@@ -204,21 +205,6 @@ input {
 
 .container.right-panel-active .overlay-right {
     transform: translateX(20%);
-}
-
-.social-container {
-    margin: 20px 0;
-}
-
-.social-container a {
-    border: 1px solid #dddddd;
-    border-radius: 50%;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 5px;
-    height: 40px;
-    width: 40px;
 }
 
 
@@ -297,7 +283,7 @@ form .formwrapper .formGroup .container {
     left: 0;
     height: 16px;
     width: 16px;
-    background-color: #eee;
+    background-color: var(--white);
     border-radius: 50%;
 }
 
@@ -305,14 +291,14 @@ form .formwrapper .formGroup .container {
 /* On mouse-over, add a grey background color */
 
 .option:hover input~.checkmark {
-    background-color: #ccc;
+    background-color: var(--theme-bgwhite);
 }
 
 
 /* When the radio button is checked, add a black background */
 
 .option input:checked~.checkmark {
-    background-color: #252631;
+    background-color: var(--theme-black);
 }
 
 
@@ -340,7 +326,7 @@ form .formwrapper .formGroup .container {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: white;
+    background: var(--white);
 }
 
 .labels {
@@ -354,8 +340,9 @@ label.labels {
 }
 
 .radiobutton {
-    justify-content: space-between;
     margin-bottom: 10px;
+    float: left;
+    margin-right: 160px;
 }
 
 .codesend {
@@ -373,15 +360,46 @@ label.labels {
 }
 
 .send-code {
-    background-color: #252631;
-    color: cornsilk;
+    background-color: var(--theme-black);
+    color: var(--white);
     border-radius: 6px;
 }
 
 .send-code:hover {
-    background-color: #454546;
+    /* background-color: #454546; */
 }
 
 .signupbutton {
     margin-top: 5px;
+}
+
+
+/* popup login */
+
+.popup {
+    margin: 20px;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    /* transition: all 0.6s ease-in-out; */
+}
+
+.overlaypopup {
+    position: fixed;
+    transition: opacity 1ms;
+    visibility: hidden;
+    background: none;
+}
+
+.overlaypopup:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.close-popup {
+    font-size: 32px;
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--theme-black);
+    margin-left: 830px;
 }
