@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="../../public/css/style.css">
+   <link rel="stylesheet" href="../../public/css/modalStyle.css">
+
+   <!-- Do not use the below styles -->
+   <!-- They are used just for the demonstration purposes and not a part of the modal template-->
+   <style type="text/css">
+      h1 {
+         padding-bottom: 10px;
+      }
+
+      .container {
+         width: 40%;
+         min-width: 330px;
+         background-color: #ffffff;
+         padding: 35px 50px;
+         transform: translate(-50%, -50%);
+         position: absolute;
+         left: 50%;
+         top: 50%;
+         border-radius: 8px;
+         box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+      }
+
+      .modal-box p {
+         font-size: 14px;
+      }
+
+      button {
+         border: none;
+         padding: 7px 20px;
+         background: linear-gradient(130deg,
+               #6f6df4,
+               #4c46f5);
+         color: #ffffff;
+         border-radius: 6px;
+         font-family: 'Poppins';
+         font-size: 14px;
+         font-weight: 400;
+      }
+   </style>
+
+   <title>Document</title>
+</head>
+
+<body>
+   <div class="container">
+      <h1>Api thamai hodatama kare &#128526;</h1>
+      <button class="btnOpen normal" type="button">Normal Modal</button>
+      <button class="btnOpen full" type="button">Full Screen Modal</button>
+   </div>
+
+   <div class="modal-container normal">
+      <div class="modal-box">
+         <h1>This is a normal modal</h1>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste enim odit, nulla consequuntur corporis
+            provident sint magni necessitatibus animi molestias quas eos perspiciatis doloribus porro? .</p>
+         <button class="btn btnClose normal">Close Me</button>
+      </div>
+   </div>
+
+   <div class="modal-container full">
+      <div class="modal-box">
+         <h1>This is a full modal</h1>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste enim odit, nulla consequuntur corporis
+            provident sint magni necessitatibus animi molestias quas eos perspiciatis doloribus porro? Fugit amet
+            recusandae distinctio.</p>
+         <button class="btn btnClose full">Close Me</button>
+      </div>
+   </div>
+
+   <script type="text/javascript" src="../../public/js/modals.js"></script>
+</body>
+
+</html>
