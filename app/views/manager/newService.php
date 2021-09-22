@@ -10,6 +10,8 @@
 		<script src="newService.js"></script>
 
 		
+
+		
 	</head>
 	<body>
 		<!-- New service container -->
@@ -74,7 +76,7 @@
 					<form>
 
 						<!-- slot 1-->
-						<div class="newService-sub-sub slot" id="slotdetails1">
+						<div class="newService-sub-sub " id="slotdetails1">
 		                	<h4>Slot 1</h4>
 							<div class="dropdown-Div">
 								<!-- duration -->
@@ -89,7 +91,7 @@
 								<!-- end of duration -->
 
 								<!-- resources -->
-								<div class="newService-sub-sub">
+								<!-- <div class="newService-sub-sub">
 									<label>Resorces</label><br>
 			                		<div class="checkbox-div">
 					                	<input type="checkbox" class="reschkbx" name=""><span>Res001, Resource 01</span><br>
@@ -98,15 +100,16 @@
 					                	<input type="checkbox" class="reschkbx" name=""><span>Res004, Resource 04</span><br>
 					                	<input type="checkbox" class="reschkbx" name=""><span>Res005, Resource 05</span><br>
 				                	</div>
-								</div>
+								</div> -->
 								<!-- end of resources -->
 
 								<!-- quantity -->
 								<div class="newService-sub-sub">
-									<label>Quantity</label><br>
+									<label>Resources & Quantity</label><br>
 			                		<div class="checkbox-div">
 					                	<label class="labels" id="checkedItem">Res001, Resource 01</label>
-					                    <select class="dropdownSelectBox-small" id="selectcount">
+					                    <select class="dropdownSelectBox-small quantity-align" id="selectcount">
+											<option value="val1">0</option>
 					                        <option value="val1">1</option>
 					                        <option value="val2">2</option>
 					                        <option value="val1">3</option>
@@ -117,7 +120,8 @@
 					                    <hr class="resHr">
 
 					                    <label class="labels">Res001, Resource 01</label>
-					                    <select class="dropdownSelectBox-small">
+					                    <select class="dropdownSelectBox-small quantity-align">
+											<option value="val1">0</option>
 					                        <option value="val1">1</option>
 					                        <option value="val2">2</option>
 					                        <option value="val1">3</option>
@@ -128,7 +132,8 @@
 					                    <hr class="resHr">
 
 					                    <label class="labels">Res002, Resource 02</label>
-					                    <select class="dropdownSelectBox-small">
+					                    <select class="dropdownSelectBox-small quantity-align">
+											<option value="val1">0</option>
 					                        <option value="val1">1</option>
 					                        <option value="val2">2</option>
 					                        <option value="val1">3</option>
