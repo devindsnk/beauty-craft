@@ -16,9 +16,19 @@
     <div class="container" id="container">
         <!-- signup container -->
         <div class="form-container sign-up-container">
-            <form action="#">
+            <form action="#" method ="post">
                 <h1 class="topic">CreateAccount</h1>
                 <div class="formwrapper">
+                    <!-- name -->
+                    <!-- <div class="formGroup">
+                        <label class="labels ">Name </label> <br />
+                        <input type="text" class="textinput" name="text" placeholder="First Name" />
+                    </div>
+
+                    <div class="formGroup">
+                        <label class="labels "></label> <br />
+                        <input type="text" class="textinput" name="text" placeholder="Last Name" />
+                    </div> -->
                         <div class="formGroup">
                             <label class="labels ">First Name </label> <br />
                             <input type="text" class="textinput" name="text" placeholder="First Name " />
@@ -80,7 +90,7 @@
         <!-- end signup container -->
         <!-- signin container -->
         <div class="form-container sign-in-container">
-                <form action="#">
+                <form action="#" method="post">
                     <h1>Sign in</h1>
                     <!-- input field -->
                         <input id="user name" class="username" type="text" placeholder="Name">
