@@ -14,10 +14,13 @@
    <link rel="stylesheet" href="../../../public/css/sideNav.css" />
    <link rel="stylesheet" href="../../../public/css/layoutTemplate1.css" />
    <link rel="stylesheet" href="../../../public/css/tableStyle.css" />
+   <link rel="stylesheet" href="../../../public/css/modalStyle.css"/>
 
 
 
    <!-- Temporary Styles-->
    <link rel="stylesheet" href="../../../public/css/formTemplate2.css" />
    <link rel="stylesheet" href="../../../public/css/receptStyle.css" />
+   <link rel="stylesheet" href="../../../public/css/ownRemStaff.css" />
+   <link rel="stylesheet" href="../../../public/css/ownAddStaff.css"/>
 </head>

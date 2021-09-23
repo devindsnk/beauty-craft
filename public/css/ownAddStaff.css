@@ -1,0 +1,391 @@
+/* *{
+    margin: 2px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins' , sans-serif;
+} */
+/* -----------------------------------body styles starts----------------------------------------- */
+.Addstaffform{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: #F2F2F7;
+
+ 
+}
+  
+/* -----------------------------------body styles endss----------------------------------------- */
+    
+
+
+/* -----------------------------------container styles starts---------------------------------- */
+.addstaff_container {
+
+    max-width: 800px;
+    width: 100%;
+    background: white;
+    padding: 25px 16px ;
+    border-radius: 6px;
+    display: grid;
+}
+/* -----------------------------------container styles ends------------------------------------- */
+    
+    
+    
+
+
+/*-------------------------------Sub head and its contents styles starts ----------------------- */
+/* form subheading styles */
+.addstaff_container .addstaff_formWrapper .subhead{
+    font-size: 16px;
+    font-weight: 600; 
+}
+/* sub heading contents */
+.addstaff_container .addstaff_basicinfo,
+.addstaff_container .contactdetails,
+.addstaff_container .bankdetails{
+    padding: 20px;
+}
+
+/*-------------------------------Sub head and its contents styles sendss ------------------------ */
+/*------------------------------- Data error styles starts ---------------------------------------*/
+.formGroupFname #firstname::after,
+.formGroupLname #lastname::after,
+.formGroupNIC #NIC::after,
+.formGroupADD #homeADD::after,
+.formGroupTP #contactnum::after,
+.formGroupMAIL #email::after,
+.formGroupACCNUM #accnum::after ,
+.formGroupACCNAME #acchold::after{
+    border-color: #c92432;
+    color: #c92432;
+    border-width: 2px;
+    /* visibility: hidden;  */
+}
+.formGroupFname .dataError,
+.formGroupLname .dataError,
+.formGroupNIC .dataError,
+.formGroupMAIL .dataError,
+.formGroupADD .dataError,
+.formGroupTP .dataError,
+.formGroupACCNUM .dataError,
+.formGroupACCNAME .dataError{
+    font-size: 12px;
+    color: #c92432;
+    /* visibility: hidden; */
+    
+
+}
+/*------------------------------- Data error styles ends ---------------------------------------*/
+
+/* ------------------------------ Main grids styles starts ---------------------------------------*/
+
+/*--Customize the grid places --------------*/
+.addstaff_container .maingrid1{
+    display: grid;
+    grid-template-columns: 35% 75%;
+    grid-template-areas: 
+      'formGroupImage formGroupFname'
+      'formGroupImage formGroupLname'
+      'formGroupRadio formGroupNIC';
+
+}
+.addstaff_container .maingrid2{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+      'formGroupStype formGroupDOB';
+}
+.addstaff_container .maingrid3{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas: 
+      'formGroupADD';
+}
+.addstaff_container .maingrid4{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+      'formGroupTP formGroupMAIL';
+}
+.addstaff_container .maingrid5{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+      'formGroupACCNUM formGroupACCNAME';
+}
+/*--------- Input styles maingrids -------------*/
+form .addstaff_formWrapper .maingrid1 input[type=text]{
+    border-radius: 6px;
+    border: 1px solid lightgray;
+    width:80%;
+    height: 40px;
+    padding-left: 5px;
+    }
+form .addstaff_formWrapper .maingrid2 input[type=text]{
+    border-radius: 6px;
+    border: 1px solid lightgray;
+    width:90%;
+    height: 40px;
+    padding-left: 5px;
+    }
+form .addstaff_formWrapper .maingrid3 .formGroupADD .homeAdd{
+    border-radius: 6px;
+    border: 1px solid lightgray;
+    width:95%;
+    height: 80px;
+    padding-left: 5px;
+    }
+form .addstaff_formWrapper .maingrid3 .formGroupDOB .Date{
+        border-radius: 6px;
+        border: 1px solid lightgray;
+        width:100%;
+        height: 80px;
+        padding-left: 5px;
+        }
+form .addstaff_formWrapper .maingrid4 input[type=text]{
+    border-radius: 6px;
+    border: 1px solid lightgray;
+    width:90%;
+    height: 40px;
+    padding-left: 5px;
+    }
+form .addstaff_formWrapper .maingrid5 input[type=text]{
+    border-radius: 6px;
+    border: 1px solid lightgray;
+    width:90%;
+    height: 40px;
+    padding-left: 5px;
+    }
+
+/*----------- Assigning grid areas and adding styles ----------------*/
+
+.formGroupImage{
+    grid-area: formGroupImage;   
+    
+}
+.formGroupFname{
+    grid-area: formGroupFname;
+    padding-bottom: 10px;
+}
+.formGroupLname{
+    grid-area: formGroupLname;
+    padding-bottom: 10px;
+}
+.formGroupRadio{
+    grid-area: formGroupRadio;
+    padding-bottom: 10px;
+}
+.formGroupNIC{
+    grid-area: formGroupNIC;
+    padding-bottom: 10px;
+}
+.formGroupStype{
+    grid-area: formGroupStype;
+    padding-bottom: 10px;
+}
+.formGroupDOB{
+    grid-area: formGroupDOB;
+    padding-bottom: 10px;
+}
+
+.formGroupADD{
+    grid-area: formGroupADD;
+    padding-bottom: 10px;
+}
+.formGroupTP{
+    grid-area: formGroupTP;
+    padding-bottom: 10px;
+}
+.formGroupMAIL{
+    grid-area: formGroupMAIL;
+    padding-bottom: 10px;
+}
+.formGroupACCNUM{
+    grid-area: formGroupACCNUM;
+    padding-bottom: 10px;
+}
+.formGroupACCNAME{
+    grid-area: formGroupACCNAME;
+    padding-bottom: 10px;
+}
+
+
+/* -------------------------------- Main grids styles ends ---------------------------------------------*/
+
+
+/*-------------------------------- Form label styles starts ---------------------------------------------*/
+.addstaff_container .addstaff_formWrapper .labels{
+    /* temp */
+    color: black;
+    font-size: 14px;
+    font-weight: 450;
+/*-------------------------------- Form label styles ends -----------------------------------------------*/
+
+}
+
+
+/*-------------- Form heading styles starts --------------*/
+.addstaff_container .addstaff_Formheading{
+    font-size: 20px;
+    font-weight: 600;
+    position: relative; 
+    text-align: center;
+    
+}
+/*-------------- Form heading styles ends--------------*/
+
+
+/*---------------------------------------------------- Add image styles starts -----------------------------------------*/
+form .addstaff_formWrapper .formGroupImage .filesubBtn #imagesub{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    visibility: hidden;
+}
+form .addstaff_formWrapper .formGroupImage .filesubBtn .imagewrapper{
+  
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;    
+    padding:50px 10px ;
+    background: #eaeaea;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+form .addstaff_formWrapper .formGroupImage .filesubBtn .imagetitle{
+    font-weight: 600;
+    font-size: 14px;
+    color: white; 
+ }
+ form .addstaff_formWrapper .formGroupImage .filesubBtn .icon{
+     
+     align-items: center;
+    
+}
+.form .addstaff_formwrapper .formGroupImage .filesubBtn .imagewrapper:hover{
+    transform: translate(-5px);
+    box-shadow: 0;
+}
+/* Form image wrapper styles */
+form .addstaff_formWrapper .formGroupImage .imagewrapper{
+    
+    margin-bottom: 10px;
+}
+/*---------------------------------------------------- Add image styles ends -----------------------------------------*/
+
+/*---------------------------------------------------- Dropdown style starts ----------------------------------------*/
+.dropdownselectbox{
+    font-size: 16px;
+    padding : 10px 15px;
+    background: white;
+    border-radius: 6px;
+    width: 95%;
+    height: 42px;
+   }
+.dropdownselectbox::before{
+    border-color: #eaeaea;
+}
+/*---------------------------------------------------- Dropdown style ends ----------------------------------------*/
+
+
+/*--------------------------------------------------- Butoon styles starts ----------------------------------------*/
+.button {
+    background-color: #444BF8;
+    color: white;
+    border: 1px solid ;
+    height: 40px;
+    display: block;
+    width: 40%;
+    padding: 10px;
+    font-family: inherit;
+    font-size: 16px;
+    border-radius: 6px;
+    float: right;
+    text-align: center;
+    align-items: center;
+        
+  }
+.Button{
+      padding-right: 55px;
+}
+/*--------------------------------------------------- Butoon styles ends ----------------------------------------*/
+
+
+/*################################################################## Responsive styles ####################################################*/
+
+
+@media screen and (max-width: 640px){
+   
+
+/*---- Grids placing and styles for responsive ----*/
+    .addstaff_container .maingrid1{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas: 
+          'formGroupImage' 
+          'formGroupFname'
+          'formGroupLname'
+          'formGroupRadio'
+          'formGroupNIC';    
+    }
+    .addstaff_container .maingrid2{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas: 
+          'formGroupStype'
+          'formGroupDOB';
+    }
+    .addstaff_container .maingrid3{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas: 
+          'formGroupADD';
+    }
+    .addstaff_container .maingrid4{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas: 
+          'formGroupTP'
+          'formGroupMAIL';
+    }
+    .addstaff_container .maingrid5{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas: 
+          'formGroupACCNUM'
+          'formGroupACCNAME';
+    }
+/*---- Add image style for responsive ----*/
+    .formGroupImage{
+        justify-content: center;
+        text-align: center;
+    }
+
+
+/*---- Form wrapper styles for responsive -----*/
+    form .addstaff_formWrapper .maingrid1 input[type=text]{        
+        width:100%;        
+        }
+    .dropdownselectbox{
+        width: 100%;
+    }
+/* Form home address styles for responsive */
+form .addstaff_formWrapper .maingrid3 .formGroupADD .homeAdd{
+      width: 100%;
+    }
+form .addstaff_formWrapper .maingrid4 input[type=text],
+form .addstaff_formWrapper .maingrid5 input[type=text]{
+    width: 100%;
+}
+/*----Form button styles for responsive ---- */
+     .Button{
+         padding-right: 20px; 
+    }
+    
+}

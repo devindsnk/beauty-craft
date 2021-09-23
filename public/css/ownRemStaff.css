@@ -1,0 +1,137 @@
+/* -----------Styles for Remove Staff--------------- */
+/* Move required styles to common stylesheet where necessary */
+
+/* ------------------------------------------------------ */
+/* --------------STYLES ADDED BY RAVINDU -----------------*/
+/* ------------------------------------------------------ */
+h1 {
+    padding-bottom: 10px;
+    text-align: center;
+ }
+
+ .container {
+  
+    width: 40%;
+    min-width: 330px;
+    background-color: #ffffff;
+    padding: 35px 50px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 8px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+  
+
+ }
+
+.staffLabel1,
+.staffLabel2,
+.staffLabel3{ 
+     font-size: 14px;
+     font-weight: 600;
+     text-align: center;
+ }
+ .staffData1,
+ .staffData2,
+ .staffData3
+ {
+    font-size: 14px;
+    font-weight: 600;
+    color: #50515A;
+    text-align: start;
+ }
+ .staffDetails{
+   text-align: center;
+   align-items: end;
+ }
+
+
+.remStaffErrortext {
+     font-size: 10px;
+     color: red ;
+     padding-top: 5px;
+ }
+ .viewReservaions{
+     color: #037AFF;
+     
+}
+.remStaffError{
+    text-align: center;
+}
+ button {
+    border: none;
+    padding: 7px 20px;
+    background: linear-gradient(130deg,
+          #6f6df4,
+          #4c46f5);
+    color: #ffffff;
+    border-radius: 6px;
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-weight: 400;
+ }
+
+
+
+.staffDetails{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+    'staffLabel1 staffData1'
+    'staffLabel2 staffData2'
+    'staffLabel3 staffData3';
+}
+.remStaffError{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-areas: 
+    'remStaffErrortext viewReservaions';
+    
+}
+.remButtons{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+    'btn1 btn2';
+    text-align:  center;
+    padding-top: 5px;
+}
+
+
+.staffLabel1{
+    grid-area: staffLabel1;
+}
+.staffData1{
+    grid-area: staffData1;
+}
+.staffLabel2{
+    grid-area: staffLabel2;
+}
+.staffData2{
+    grid-area: staffData2;
+}
+.staffLabel3{
+    grid-area: staffLabel3;
+}
+.staffData3{
+    grid-area: staffData3;
+}
+.remStaffErrortext{
+    grid-area: remStaffErrortext;
+}
+
+.viewReservaions{
+    grid-area: viewReservaions;
+}
+.btn1{
+    grid-area: btn1;
+}
+.btn2{
+    grid-area: btn2;
+}
+ 
+ 
+ /* ------------------------------------------------------ */
+ /* -----------END OF STYLES ADDED BY RAVINDU--------------*/
+ /* ------------------------------------------------------ */
