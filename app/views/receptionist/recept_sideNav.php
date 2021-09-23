@@ -39,6 +39,28 @@
 
          <!--Sidebar Item-->
          <li class="mainOption menuOption">
+            <a class="optionLink <?php if ($selectedMain == "RecallRequests") echo " selected" ?>" href="./recept_recallRequests.php">
+               <div class="optionIcon">
+                  <img src="../../../public/icons/overview-white.png" />
+               </div>
+               <div class="optionTitle">Recall Requests</div>
+            </a>
+         </li>
+         <!--End Sidebar Item-->
+
+         <!--Sidebar Item-->
+         <li class="mainOption menuOption">
+            <a class="optionLink <?php if ($selectedMain == "Sales") echo " selected" ?>" href="./recept_sales.php">
+               <div class="optionIcon">
+                  <img src="../../../public/icons/overview-white.png" />
+               </div>
+               <div class="optionTitle">Sales</div>
+            </a>
+         </li>
+         <!--End Sidebar Item-->
+
+         <!--Sidebar Item-->
+         <li class="mainOption menuOption">
             <a class="optionLink <?php if ($selectedMain == "Services") echo " selected" ?>" href="./recept_services.php">
                <div class="optionIcon">
                   <img src="../../../public/icons/overview-white.png" />
@@ -69,6 +91,18 @@
             </a>
          </li>
          <!--End Sidebar Item-->
+
+         <!--Sidebar Item-->
+         <li class="mainOption menuOption">
+            <a class="optionLink <?php if ($selectedMain == "Leaves") echo " selected" ?>" href="./recept_leaves.php">
+               <div class="optionIcon">
+                  <img src="../../../public/icons/overview-white.png" />
+               </div>
+               <div class="optionTitle">Leaves</div>
+            </a>
+         </li>
+         <!--End Sidebar Item-->
+
       </ul>
       <!--End Sidebar Menu-->
    </nav>
