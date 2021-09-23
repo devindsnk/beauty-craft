@@ -16,19 +16,9 @@
     <div class="container" id="container">
         <!-- signup container -->
         <div class="form-container sign-up-container">
-            <form action="#" method ="post">
+                        <form action="#" method ="post">
                 <h1 class="topic">CreateAccount</h1>
                 <div class="formwrapper">
-                    <!-- name -->
-                    <!-- <div class="formGroup">
-                        <label class="labels ">Name </label> <br />
-                        <input type="text" class="textinput" name="text" placeholder="First Name" />
-                    </div>
-
-                    <div class="formGroup">
-                        <label class="labels "></label> <br />
-                        <input type="text" class="textinput" name="text" placeholder="Last Name" />
-                    </div> -->
                         <div class="formGroup">
                             <label class="labels ">First Name </label> <br />
                             <input type="text" class="textinput" name="text" placeholder="First Name " />
@@ -40,18 +30,24 @@
                 </div>
                     
                     <!-- form radio Button -->
+                <div class="formwrapperopt">
                 <label class="labels" >Gender</label>
-                <div class="formGroup">
+                
                     <div class="radiobutton">
+                        <div class="opt">
                         <label class="option">Male
                             <input type="radio" checked="checked" name="radio">
                             <span class="checkmark"></span>
                         </label>
+                        </div>
+                        <div class="opt">
                         <label class="option">Female
                             <input type="radio" name="radio">
                             <span class="checkmark"></span>
                         </label>
-                    </div>
+                        </div>
+                    
+                </div>
                 </div>
             
 
@@ -65,6 +61,8 @@
                             <label class="labels ">Verification code </label> <br />
                             <input type="text" class="textinput" name="text" placeholder="_  _  _  _ " />
                         </div>
+                </div>
+                
                         <div class="codesend">
                             <div class="formGroup">
                                 <input class="send-code" type="submit" value="Send code" />
@@ -73,17 +71,23 @@
                                 <label class="msg">Verification code will be sent to your mobile number</label>
                             </div>
                         </div>
+                
+                <div class="formwrapper">
                         <div class="formGroup">
                             <label class="labels">Password </label> <br />
                             <input type="password" name="password" class="passwordinput" placeholder="Password" />
                         </div>
+                
                         <div class="formGroup">
                             <label class="labels">Confirm password </label> <br />
                             <input type="password" name="password" class="passwordinput" placeholder="Password" />
                         </div>
-
                 </div>
                 <button class="signupbutton">Sign Up</button>
+            
+                
+                
+                
                     <!-- end create Account -->
             </form>
         </div>

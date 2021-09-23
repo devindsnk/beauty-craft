@@ -3,7 +3,7 @@
 }
 
 body {
-    background: #f6f5f7;
+    background: var(--theme-bgwhite);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -210,17 +210,26 @@ input {
 
 /* form style */
 
-.container form .formwrapper {
+.formwrapper {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     text-align: left;
+    flex-direction: inline;
+    width: 100%;
+}
+
+.formwrapperopt {
+    display: block;
+    justify-content: space-between;
+    text-align: left;
+    flex-direction: inline;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 form .formwrapper .formGroup {
-    margin-bottom: 15px;
     width: calc(100% / 2 - 10px);
-    max-height: 70px;
+    /* max-height: 70px; */
 }
 
 .passwordinput,
@@ -336,21 +345,18 @@ form .formwrapper .formGroup .container {
 
 label.labels {
     text-align: left;
-    width: 100%;
 }
 
 .radiobutton {
-    margin-bottom: 10px;
-    float: left;
-    margin-right: 160px;
+    display: flex;
+    align-items: left;
 }
 
 .codesend {
     display: flex;
-    flex-direction: row;
-    padding: auto;
-    height: 50px;
-    margin-bottom: 10px;
+    text-align: left;
+    flex-direction: inline;
+    width: 100%;
 }
 
 .message {

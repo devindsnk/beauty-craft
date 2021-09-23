@@ -20,4 +20,7 @@
    <!-- Temporary Styles-->
    <link rel="stylesheet" href="../../../public/css/formTemplate2.css" />
    <link rel="stylesheet" href="../../../public/css/receptStyle.css" />
+
+   <!-- service provider style added by Ruwanthi -->
+   <link rel="stylesheet" href="../../../public/css/serviceprovider.css" />
 </head>
