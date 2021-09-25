@@ -11,6 +11,8 @@
 .btn {
    /* height: 25px; */
    border-radius: 6px;
+   display: flex;
+   align-items: center;
    /* border: 1px; */
    font-family: "Poppins";
    transition: 0.3s ease-in-out;
@@ -27,7 +29,8 @@
    height: 40px;
    font-weight: 600;
    font-size: 16px;
-   padding: 10px 20px;
+   padding: auto 20px;
+   /* padding: 10px 20px; */
 }
 
 
@@ -101,19 +104,7 @@ text-align: center; */
    background-color: #e63648;
 }
 
-.btn-special {
-   border: 2px solid #FE3D4F;
-   color: white;
-   background-color: transparent;
-   background-image: linear-gradient(45deg, #FE3D4F 50%, transparent 50%);
-   background-size: 500%;
-   background-position: 100%;
-   transition: background 0.3s ease-in;
-}
 
-.btn-special:hover {
-   background-position: 0;
-}
 
 .btn-black-disabled {
    color: var(--white);

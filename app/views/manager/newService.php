@@ -16,7 +16,10 @@
 	<body>
 		<!-- New service container -->
 		<div class="newService-main" >
-			<h1>New Service</h1>
+			<div>
+				<h1>New Service</h1>
+			</div>
+			
 
 			<!-- Basic information -->
 			<div class="newService-sub-head">

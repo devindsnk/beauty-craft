@@ -1,0 +1,368 @@
+/* ------ This is stylesheet is for homePage------------- */
+
+/* ------------------------------------------------------ */
+/* --------------STYLES ADDED BY DEVIN -------------------*/
+/* ------------------------------------------------------ */
+
+/* Special Button Design */
+.landingPage .btn-landing {
+   border: 2px solid var(--theme-red);
+   border-radius: 6px;
+   padding: 5px 10px;
+   color: var(--white);
+   background-color: transparent;
+   background-image: linear-gradient(45deg, var(--theme-red) 50%, transparent 50%);
+   background-size: 500%;
+   background-position: 100%;
+   transition: background 0.3s ease-in;
+   cursor: pointer;
+}
+
+.landingPage .btn-landing:hover {
+   background-position: -1px;
+}
+/* End Special Button Design */
+
+.landingPage header {
+   min-height: 100vh;
+   width: 100%;
+   background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../../public/imgs/bg2.jpeg);
+   background-position: top;
+   background-size: cover;
+   position: relative;
+}
+
+/* Header Navigation */
+.landingPage nav {   
+   display: flex;
+   width: 100%;
+   height: 100px;
+   padding: 20px 30px 10px 30px ;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.landingPage nav .logo {
+   height:100%;
+}
+
+.landingPage nav .logo a{
+   display: block;
+   height:100%;
+}
+
+.landingPage nav .logo img {
+   height:70px;
+}
+
+.landingPage nav .links {
+   height: 100%;
+}
+
+.landingPage nav .links ul{
+   height: 100%;
+}
+
+.landingPage nav .links ul li {
+   display: inline-block;
+   height: 100%;
+   list-style: none;
+   margin: 0 35px;
+   padding-top: 20px;
+   position: relative;
+}
+
+.landingPage nav .links ul li::after {
+   content: '';
+   width: 0%;
+   height: 2px;
+   background: var(--theme-red);
+   display: block;
+   margin: auto;
+   transition: 0.3s;
+}
+
+.landingPage nav .links ul li:hover::after {
+   color: var(--white);
+   width: 100%;
+}
+
+.landingPage nav .links ul li:hover a {
+   color: var(--white);
+}
+
+.landingPage nav .links ul li a {
+   text-decoration: none;
+   color: #DDDDDD;
+   font-size: 16px;
+   letter-spacing: 0.5px;
+   transition: 0.3s;
+}
+
+.landingPage nav .buttons{
+   height: 100%;
+   display: flex;
+   align-content: center;
+}
+
+.landingPage nav .btnLogin, .landingPage nav .btnRegister {
+   height: 35px;
+   align-self: center;
+   margin-left: 25px;
+   display: none;
+}
+
+.landingPage nav .buttons .profileIcon{
+   border-radius: 100%;
+   height: 48px;
+   padding: 2px;
+   border: 2px solid transparent;
+   display: flex;
+   align-self: center;
+   transition: 0.3s ease-in-out;
+   /* display: none; */
+}
+
+
+.landingPage nav .buttons .profileIcon img{
+   height: 40px;
+   border-radius: 100%;
+   align-self: center;
+}
+
+.landingPage nav .buttons .profileIcon:hover{
+   border: 2px solid var(--theme-red);
+}
+
+.landingPage nav .links .closeBtn{
+   display: none;
+   margin:25px;
+   cursor: pointer;
+}
+
+.landingPage nav .buttons .menuBtn{
+   margin-left: 25px;
+   display: none;
+   cursor: pointer;
+   align-self: center;
+}
+
+
+@media(max-width: 1150px) {
+   .landingPage nav .links .closeBtn{
+      display: block;
+   }
+
+   .landingPage nav .buttons .menuBtn{
+      display: block;
+   }
+
+   .landingPage nav .links {
+      position: absolute;
+      height: 100vh;
+      width: 260px;
+      background: #0B0E1D;
+      top: 0;
+      right: -260px;
+      z-index: 2;
+      transition: 0.7s ease-in-out;
+   }
+
+   .landingPage nav .links ul{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   }
+
+   .landingPage nav .links ul li {
+      height: 60px;
+      margin: 0px;
+      padding: 0;
+   }
+}
+
+@media(max-width: 550px) {
+   .landingPage nav{
+      height: 80px;
+   }
+
+   .landingPage nav .logo img {
+      height:50px;
+   }
+
+   .landingPage nav .btnRegister{
+      display: none;
+   }
+}
+
+@media(max-width: 375px) {
+   .landingPage nav .btnProfile{
+      max-width: 80px;
+   }
+}
+/* End Header Navigation */
+
+
+/* Profile menu */
+.landingPage .profile_menu {
+   position: absolute;
+   top: 110px;
+   right: 10px;
+   padding: 20px 28px;
+   width: 225px;
+   border-radius: 6px;
+   background-color: var(--white);
+   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+   transition: 0.3s;
+   visibility: hidden;
+   opacity: 0;
+}
+
+.landingPage .profile_menu ul li {
+   list-style: none;
+   padding: 6px 0;
+   font-size: 16px;
+   font-weight: 500;
+   /* border-top: 1px solid rgba(0, 0, 0, 0.07); */
+}
+
+.landingPage .profile_menu ul li i {
+   width: 15px;
+   margin-right: 8px;
+   transition: 0.5s;
+   color: var(--theme-grey);
+}
+
+.landingPage .profile_menu ul li a {
+   text-decoration: none;
+   transition: 0.4s;
+   color: var(--theme-grey);
+   opacity: 0.95;
+}
+
+.landingPage .profile_menu ul li:hover a,
+.landingPage .profile_menu ul li:hover i {
+   color: var(--theme-red);
+   opacity: 1;
+}
+
+.landingPage .profileIcon.active{
+   border: 2px solid var(--theme-red) !important;
+}
+
+.landingPage .profile_menu.active {
+   top: 82px;
+   visibility: visible;
+   opacity: 1;
+}
+
+@media(max-width: 550px) {.landingPage .profile_menu.active {
+   top: 72px;
+}
+
+}
+/* End Profile menu */
+
+/* Header Bottom */
+.landingPage .bottom {
+   display: flex;
+   flex-wrap: wrap;
+   height: calc(100vh - 100px);
+   width: 100%;
+   padding: 30px 50px 80px;
+   align-content: flex-end;
+}
+
+.landingPage .bottom .text{
+   line-height: 110px;
+   width: 750px;
+   font-size: 96px;
+   font-weight: 700;
+   color: var(--white);
+}
+
+.landingPage .bottom .red {
+   color: var(--theme-red);
+}
+
+.landingPage .bottom .break{
+   flex-basis: 100%;
+   height: 0;
+}
+
+.landingPage .bottom .btnMakeRes {
+   font-weight: 400 !important;
+   font-size: 18px;
+   letter-spacing: 0.6px;
+   margin-top: 15px;
+   display: block;
+   height: max-content;
+   padding: 10px 30px;
+   cursor: pointer;
+}
+
+@media(max-width: 768px) {
+   .landingPage .bottom {
+      text-align: center;
+      justify-content: center;
+      position: absolute;
+      padding-bottom: 200px;
+   }
+
+   .landingPage .bottom .text {
+      width: 600px;
+      font-size: 80px;
+      line-height: 95px;
+   }
+}
+
+@media(max-width: 550px) {
+   .landingPage .bottom .text {
+      font-size: 60px;
+      line-height: 60px;
+   }
+}
+
+@media(max-width: 375px) {
+   .landingPage .bottom .text {
+      font-size: 50px;
+      line-height: 50px;
+   }
+}
+
+/* End Header Bottom */
+
+.section {
+   display: flex;
+   height: 100vh;
+}
+
+.section .title {
+   margin: 50px auto;
+   text-align: center;
+   font-size: 64px;
+   font-weight: 700;
+   text-shadow: 0px 0px 16px rgba(0, 0, 0, 0.35);
+}
+
+@media(max-width: 768px) {
+   .section .title {
+      font-size: 45px;
+   }
+}
+
+@media(max-width: 550px) {
+   .section .title {
+      font-size: 35px;
+   }
+}
+
+@media(max-width: 375px) {
+   .section .title {
+      font-size: 25px;
+   }
+}
+
+/* ------------------------------------------------------ */
+/* -----------END OF STYLES ADDED BY DEVIN ---------------*/
+/* ------------------------------------------------------ */

@@ -1,0 +1,154 @@
+
+.sub-container1{
+    display: flex;
+    flex-wrap: wrap;
+    /* background-color: aquamarine; */
+    justify-content: space-evenly;
+    width: 100%;
+    height: auto;
+    padding: 10px 10px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sub-container-card{
+    display: flex;
+    position: relative;
+    background-color: var(--white);
+    justify-content: space-around;
+    text-align: center;
+    align-content: center;
+    padding: 20px;
+    width: 230px;
+    height: 125px;
+    margin: 10px 5px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+.sub-container-card-title{
+    width: 90%;
+    color: #999;
+    position: absolute;
+    font-size: 1.1rem;
+}
+
+.sub-container-card-amount{
+    position: absolute;
+    margin-top: 23%;
+    width: 90%;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.sub-container2,
+.sub-container3{
+    display: flex;
+    flex-wrap: wrap;
+    /* background-color: rgb(255, 200, 127); */
+    justify-content: space-evenly;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.chart-container,
+.table-container{
+    padding: 30px;
+    width: 50%;
+    height: 50%;
+    justify-content: space-around;
+}
+
+.chart-head,
+.table-head{
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 10px 10px;
+}
+
+/*  */
+.table-cont{
+    background-color: var(--white);
+    padding: 10px 10px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+}
+
+table{
+    table-layout: fixed;
+    width: 100%;
+}
+td ,th{
+    padding: 5px 5px;
+}
+td{
+    border-top: 2px solid #eaeaea;
+}
+.align-right{
+    float: right;
+}
+
+/*  */
+.select-box-container{
+    display: flex;
+    position: relative;
+    padding: 10px 10px;
+    width: 250px;
+}
+input[type = "text"],input[type = "date"], select {
+    width: 220px;
+    height: 50px;
+    font-weight: 400;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1.2px solid #c4cae0;
+    margin-top: 5px;
+ }
+.search-btn{
+    width: 200px;
+    height: 50px;
+    background-color: #252631;
+    margin-top: 29px;
+    border-radius: 6px;
+    color: var(--white);
+    font-size: 20px;
+}
+/* for card */
+@media screen and (max-width: 1270px) {
+    .sub-container-card{
+        width: 400px;
+    }
+    .sub-container-card-amount{
+        margin-top: 10%;
+    }
+
+}
+/* for card */
+@media screen and (max-width: 730px) {
+    .sub-container-card{
+        width: 270px;
+    }
+    .sub-container-card-amount{
+        margin-top: 10%;
+    }
+    
+}
+/* for table */
+@media screen and (max-width: 1296px) {
+    .table-container{
+        width: 580px;
+    }
+    
+}
+/* for chart */
+@media screen and (max-width: 1099px) {
+    .chart-container{
+        width:500px;
+        flex-wrap: wrap;
+    }
+
+}
