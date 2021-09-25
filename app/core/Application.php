@@ -6,13 +6,14 @@
 
 class Application
 {
-   protected $currentController = 'Main';
-   protected $currentMethod = 'index';
+   protected $currentController = 'Pages';
+   protected $currentMethod = 'home';
    protected $params = [];
 
    public function __construct()
    {
       $url = $this->getURL();
+
       // Look in controllers for the first value
       if (file_exists('../app/controllers/' . ucwords($url[0]) . '.php')) {
          // Set the controller if exists
@@ -23,7 +24,6 @@ class Application
 
       // Require the controller
       require_once '../app/controllers/' . $this->currentController . '.php';
-
       // Instantiate controller class
       $this->currentController = new $this->currentController;
 
@@ -33,6 +33,7 @@ class Application
             unset($url[1]);
          }
       }
+      // echo $url[0];
 
       $this->params = $url ? array_values($url) : [];
 

@@ -1,4 +1,4 @@
-<?php require "../header.php" ?>
+<?php require "../inc/header.php" ?>
 
 <body class="layout-template-1">
    <?php
@@ -10,7 +10,7 @@
    $title = "Customers";
    $username = "Devin Dissanayake";
    $userLevel = "Receptionist";
-   require "../headerBar.php"
+   require "../inc/headerBar.php"
    ?>
 
    <!--Content-->
@@ -24,4 +24,4 @@
    <!--End Content-->
 
 
-   <?php require "../footer.php" ?>
+   <?php require "../inc/footer.php" ?>
