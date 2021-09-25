@@ -70,8 +70,28 @@
       </div>
       <!--End of sub-container2-->
 
-      <div class="sub-container2">
-         
+      <div class="sub-container1">
+         <div class="table-container">
+            <div class="table-responsive">
+            <table class="table table-hover">
+               <thead>
+                  <tr>
+                     <th class="column-right-align">Salary</th>
+                     <th class="column-center-align">Paid Status</th>
+                     <th class="column-center-align">Action</th>
+                     <th class="column-center-align">More</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td data-lable="Staff Member Name">Sanjana Rajapaksha</td>
+                     <td data-lable="Staff ID">S001</td>
+                     <td data-lable="Staff Type">Manager</td>
+                     <td data-lable="Staff Type">Manager</td>
+                  </tr>
+               </tbody>
+            </div>
+         </div>
       </div>
    </div>
    <!--End Content-->
