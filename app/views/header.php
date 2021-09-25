@@ -23,4 +23,5 @@
    <link rel="stylesheet" href="../../../public/css/receptStyle.css" />
    <link rel="stylesheet" href="../../../public/css/ownRemStaff.css" />
    <link rel="stylesheet" href="../../../public/css/ownAddStaff.css"/>
+   <link rel="stylesheet" href="../../../public/css/ownResources.css"/>
 </head>

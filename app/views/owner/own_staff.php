@@ -24,11 +24,11 @@
    <!------------------- Remove Staff Container starts ----------------------------->
       <div class="modal-container normal">
       <div class="modal-box">
-         <h1>Remove Staff</h1>
+         <h1 class="ownRemStaffHead">Remove Staff</h1>
          <!-- start main grid 1 -->
          <div class= "staffDetails">
              
-             <label class= "staffLabel1">Staff Id</label>
+             <label class = "staffLabel1">Staff Id</label>
              <span class="staffData1">M001</span>
              <br>
              <label class= "staffLabel2">Name</label>
@@ -47,10 +47,10 @@
          <!-- main grid 2 ends -->
          <!-- main grid 3 starts -->
          <div class="remButtons">
-            <div class="btn1">
+            <div class="ownRemStaffbtn1">
             <button class="btn btnClose normal">Cancel</button>
             </div>
-            <div class="btn2">
+            <div class="ownRemStaffbtn2">
             <button class="btn">Proceed</button>
             </div>
         </div>

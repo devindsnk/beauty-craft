@@ -4,7 +4,7 @@
 /* ------------------------------------------------------ */
 /* --------------STYLES ADDED BY RAVINDU -----------------*/
 /* ------------------------------------------------------ */
-h1 {
+.ownRemStaffHead {
     padding-bottom: 10px;
     text-align: center;
  }
@@ -20,8 +20,7 @@ h1 {
     left: 50%;
     top: 50%;
     border-radius: 8px;
-    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
-  
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);  
 
  }
 
@@ -41,10 +40,10 @@ h1 {
     color: #50515A;
     text-align: start;
  }
- .staffDetails{
+.staffDetails{
    text-align: center;
    align-items: end;
- }
+}
 
 
 .remStaffErrortext {
@@ -63,14 +62,22 @@ h1 {
     border: none;
     padding: 7px 20px;
     background: linear-gradient(130deg,
-          #6f6df4,
-          #4c46f5);
+          #037AFF,
+          #037AFF);
     color: #ffffff;
     border-radius: 6px;
     font-family: 'Poppins';
     font-size: 14px;
     font-weight: 400;
  }
+
+ .ownRemStaffbtn1 .btn{
+     background: #EAEAEA;
+     color: black;
+ }
+
+
+
 
 
 
@@ -84,16 +91,17 @@ h1 {
 }
 .remStaffError{
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 100%;
     grid-template-areas: 
-    'remStaffErrortext viewReservaions';
+    'remStaffErrortext' 
+    'viewReservaions';
     
 }
 .remButtons{
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-areas: 
-    'btn1 btn2';
+    'ownRemStaffbtn1 ownRemStaffbtn2';
     text-align:  center;
     padding-top: 5px;
 }
@@ -124,11 +132,12 @@ h1 {
 .viewReservaions{
     grid-area: viewReservaions;
 }
-.btn1{
-    grid-area: btn1;
+.ownRemStaffbtn1{
+    grid-area: ownRemStaffbtn1;
+    
 }
-.btn2{
-    grid-area: btn2;
+.ownRemStaffbtn2{
+    grid-area: ownRemStaffbtn2;
 }
  
  
