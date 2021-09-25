@@ -10,9 +10,17 @@
 
    <!--Style Sheet-->
    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-   <link rel="stylesheet" href="../../assets/css/style.css" />
-   <link rel="stylesheet" href="../../assets/css/sideNav.css" />
-   <link rel="stylesheet" href="../../assets/css/layoutTemplate1.css" />
+   <link rel="stylesheet" href="../../../public/css/style.css" />
+   <link rel="stylesheet" href="../../../public/css/sideNav.css" />
+   <link rel="stylesheet" href="../../../public/css/layoutTemplate1.css" />
+   <link rel="stylesheet" href="../../../public/css/tableStyle.css" />
 
 
+
+   <!-- Temporary Styles-->
+   <link rel="stylesheet" href="../../../public/css/formTemplate2.css" />
+   <link rel="stylesheet" href="../../../public/css/receptStyle.css" />
+
+   <!-- service provider style added by Ruwanthi -->
+   <link rel="stylesheet" href="../../../public/css/serviceprovider.css" />
 </head>

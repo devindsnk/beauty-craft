@@ -1,21 +1,23 @@
 <?php require "../header.php" ?>
 
+
 <body class="layout-template-1">
+
    <?php
-   $selectedMain = "Customers";
-   require "./recept_sideNav.php"
+   $selectedMain = "Overview";
+   require "./serProv_sideNav.php"
    ?>
 
    <?php
-   $title = "Customers";
-   $username = "Devin Dissanayake";
-   $userLevel = "Receptionist";
+   $title = "Overview";
+   $username = "Ruwanthi Munasinghe";
+   $userLevel = "Service Provider";
    require "../headerBar.php"
    ?>
 
    <!--Content-->
    <div class="content">
-      <h3>This is main option 1</h3>
+      <h3>This is leave page</h3>
 
 
 
