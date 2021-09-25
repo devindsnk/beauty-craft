@@ -1,0 +1,142 @@
+/* ------This is a common stylesheet for every view------ */
+
+/* ------------------------------------------------------ */
+/* -------------STYLES ADDED BY SANJANA ----------------- */
+/* ------------------------------------------------------ */
+
+.table-container{
+  height: 100%;
+  overflow-x: auto;
+  padding: 40px 40px;
+}
+
+.table-responsive{
+  min-width: 355px;
+}
+
+.table-container span{
+  display: inline-block;
+  width: 90px;
+}
+
+.table{
+  font-size: 13px;
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--white);
+  color: #1b1e24;
+  padding: 15px;
+  margin: auto;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+
+}
+
+.table thead th{
+  font-size: 15px;
+  font-weight: 600;
+  position: sticky;
+  padding: 20px 15px;
+  padding-bottom: 20px;
+  border-spacing: 10px;
+  background-color: var(--theme-black);
+  color: var(--white);
+}
+
+table th:first-child{
+  border-radius:6px 0 0 0;
+  padding-left: 40px;
+}
+
+table th:last-child{
+  border-radius:0 6px 0 0;
+  padding-right: 40px;
+}
+
+table tr td:first-child{
+    padding-left: 40px;
+}
+
+table tr td:last-child{
+    padding-right: 40px;
+}
+
+.table td {
+  padding: 15px 15px;
+  border-bottom: 2px solid #eaeaea;
+}
+
+.table tr:last-child td{
+  border-bottom: 0;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.column-right-align{
+  text-align: right;
+}
+
+.column-left-align{
+  text-align: left;
+}
+
+.column-center-align{
+  text-align: center;
+}
+
+@media (max-width:  760px){
+    
+  .table{
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .table thead{
+    display: none;
+  }
+
+  .table, .table tbody, .table tr, .table td{
+    font-size: 14px;
+    display: block;
+    width: 100%;
+  }
+
+  .table tr{
+    margin-bottom: 25px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+    background-color: white;
+    border-radius: 6px;
+  }
+
+  .table tbody tr td{
+    text-align: right;
+    padding: 15px;
+    position: relative;
+  }
+
+  .table-hover tbody tr:hover td{
+    background:none;
+  }
+
+  .table tbody tr td:last-child{
+    border-bottom: 0;
+  }
+
+  .table td:before{
+    content: attr(data-lable);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 20px;
+    font-weight: 600;
+    text-align: left;
+  }
+
+}
+
+/* ------------------------------------------------------ */
+/* ----------END OF STYLES ADDED BY SANJANA-------------- */
+/* ------------------------------------------------------ */
