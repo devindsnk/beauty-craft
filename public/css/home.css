@@ -21,6 +21,11 @@
 .landingPage .btn-landing:hover {
    background-position: -1px;
 }
+
+.landingPage .btn-landing a {
+  text-decoration: none;
+  color: var(--white);
+}
 /* End Special Button Design */
 
 .landingPage header {
@@ -109,7 +114,7 @@
    height: 35px;
    align-self: center;
    margin-left: 25px;
-   display: none;
+   /* display: none; */
 }
 
 .landingPage nav .buttons .profileIcon{
@@ -120,7 +125,7 @@
    display: flex;
    align-self: center;
    transition: 0.3s ease-in-out;
-   /* display: none; */
+   display: none;
 }
 
 
