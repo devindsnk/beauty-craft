@@ -1,16 +1,16 @@
-<?php require "../header.php" ?>
+<?php require APPROOT . "/views/inc/header.php" ?>
 
 <body class="layout-template-1">
    <?php
    $selectedMain = "StaffMembers";
-   require "./recept_sideNav.php"
+   require APPROOT . "/views/receptionist/recept_sideNav.php"
    ?>
 
    <?php
    $title = "Staff Members";
    $username = "Devin Dissanayake";
    $userLevel = "Receptionist";
-   require "../headerBar.php"
+   require APPROOT . "/views/inc/headerBar.php"
    ?>
 
    <!--Content-->
@@ -20,4 +20,4 @@
    <!--End Content-->
 
 
-   <?php require "../footer.php" ?>
+   <?php require APPROOT . "/views/inc/footer.php" ?>

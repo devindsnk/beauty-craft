@@ -17,6 +17,14 @@
   --black: #000000;
 }
 
+::-webkit-scrollbar{
+  width: 5px;
+}
+
+::-webkit-scrollbar-track{
+  border-radius: 5px;
+}
+
 * {
   box-sizing: border-box;
   text-decoration: none;
