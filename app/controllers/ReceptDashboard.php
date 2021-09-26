@@ -1,5 +1,5 @@
 <?php
-class Pages extends Controller
+class ReceptDashboard extends Controller
 {
    public function __construct()
    {
@@ -8,14 +8,34 @@ class Pages extends Controller
 
    public function dailyView()
    {
-      $this->view('');
+      $this->view('receptionist/recept_dailyView');
    }
    public function reservations()
    {
-      $this->view('login');
+      $this->view('receptionist/recept_reservations');
    }
    public function recallRequests()
    {
-      $this->view('register');
+      $this->view('receptionist/recept_recallRequests');
+   }
+   public function sales()
+   {
+      $this->view('receptionist/recept_sales');
+   }
+   public function services()
+   {
+      $this->view('receptionist/recept_services');
+   }
+   public function customers()
+   {
+      $this->view('receptionist/recept_customers');
+   }
+   public function staffMembers()
+   {
+      $this->view('receptionist/recept_staffMembers');
+   }
+   public function leaves()
+   {
+      $this->view('receptionist/recept_leaves');
    }
 }

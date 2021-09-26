@@ -2,12 +2,12 @@
 
 <body class="layout-template-1">
    <?php
-   $selectedMain = "DailyView";
+   $selectedMain = "Leaves";
    require APPROOT . "/views/receptionist/recept_sideNav.php"
    ?>
 
    <?php
-   $title = "Daily View";
+   $title = "Leaves";
    $username = "Devin Dissanayake";
    $userLevel = "Receptionist";
    require APPROOT . "/views/inc/headerBar.php"
