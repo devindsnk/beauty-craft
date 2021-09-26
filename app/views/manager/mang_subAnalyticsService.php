@@ -71,28 +71,58 @@
       <!--End of sub-container2-->
 
       <div class="sub-container1">
-         <div class="table-container">
-            <div class="table-responsive">
-            <table class="table table-hover">
-               <thead>
-                  <tr>
-                     <th class="column-right-align">Salary</th>
-                     <th class="column-center-align">Paid Status</th>
-                     <th class="column-center-align">Action</th>
-                     <th class="column-center-align">More</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td data-lable="Staff Member Name">Sanjana Rajapaksha</td>
-                     <td data-lable="Staff ID">S001</td>
-                     <td data-lable="Staff Type">Manager</td>
-                     <td data-lable="Staff Type">Manager</td>
-                  </tr>
-               </tbody>
-            </div>
+         <div class="chart-head"> 
+            <p>Reservation Details</p>
          </div>
-      </div>
+        <div class="table-responsive">
+           <table class="table table-hover">
+              <!--Table head-->
+              <thead>
+                 <tr>
+                    <th class="">Reservation No</th>
+                    <th class="">Service Provider</th>
+                    <th class="">Customer</th>
+                    <th class="column-right-align">Price</th>
+                 </tr>
+              </thead>
+              <!--End of table head-->
+
+              <!--Table body-->
+              <tbody>
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">Res0001</td>
+                    <td data-lable="Service Provider">Sanjana Rajapaksha</td>
+                    <td data-lable="Customer">Ruwanthi Munasinghe</td>
+                    <td data-lable="Price" class="column-right-align">250.00 LKR</td>
+                 </tr>
+                 <!--End of table row-->
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">Res0002</td>
+                    <td data-lable="Service Provider">Sethni Nimesha</td>
+                    <td data-lable="Customer">Kamal Perera</td>
+                    <td data-lable="Price" class="column-right-align">350.00 LKR</td>
+                 </tr>
+                 <!--End of table row-->
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">Res0003</td>
+                    <td data-lable="Service Provider">Ravindu Madhubashana</td>
+                    <td data-lable="Customer">Sarith Karunarathne</td>
+                    <td data-lable="Price" class="column-right-align">150.00 LKR</td>
+                 </tr>
+                 <!--End of table row-->
+                 
+                 
+              </tbody>
+              <!--End of table body-->
+
+           </table>
+        </div>
    </div>
    <!--End Content-->
 
