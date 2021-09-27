@@ -35,9 +35,9 @@
 
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Staff Members") echo " selected" ?>" href="./own_staff.php">
+            <a class="optionLink <?php if ($selectedMain == "Staff Members") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/staff">
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Staff Members</div>
             </a>
