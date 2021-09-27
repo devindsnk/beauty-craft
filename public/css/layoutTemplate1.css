@@ -12,7 +12,7 @@
 .layout-template-1 {
     display: grid;
     grid-template-columns: 260px 1fr;
-    grid-template-rows: 80px calc(100vh - 115px) 35px;
+    grid-template-rows: 80px 0.5fr 35px;
     grid-template-areas: "sidebar header" "sidebar content" "sidebar footer";
 }
 
