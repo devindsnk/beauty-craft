@@ -40,7 +40,7 @@
                <a href="<?php echo URLROOT ?>/pages/login"><span>Login</span></a>
             </button>
             <button class="btn-landing btnRegister">
-               <a href=""><span>Register</span></a>
+            <a href="<?php echo URLROOT ?>/pages/register"><span>Register</span></a>
             </button>
             <div class="profileIcon">
                <img src="<?php echo URLROOT ?>/public/imgs/person4.jpg" alt="">

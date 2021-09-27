@@ -13,7 +13,12 @@
 </head>
 
 <body>
+<?php 
+$val = $_COOKIE['varname'];
+        echo $val;
+?>     
     <div class="container" id="container">
+        
         <!-- signup container -->
         <div class="form-container sign-up-container">
             <form action="#" method="post">
@@ -122,7 +127,17 @@
         </div>
         <!-- overlay-container -->
     </div>
-    <script type="text/javascript" src="<?php echo URLROOT ?>/public/js/login.js"></script>
+    <?php
+        if($val=="reg"){?>
+            <script type="text/javascript" src="<?php echo URLROOT ?>/public/js/register.js"></script>
+            <?php
+        }
+        
+        else { ?>
+            <script type="text/javascript" src="<?php echo URLROOT ?>/public/js/login.js"></script>
+            <?php
+        }?>
+    
 </body>
 
 
