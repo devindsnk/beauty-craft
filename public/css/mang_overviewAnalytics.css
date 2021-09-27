@@ -1,17 +1,17 @@
 
-.sub-container1{
+.mang-sub-container1{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     width: 100%;
     height: auto;
-    padding: 10px 20px;
+    padding: 20px 20px;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
 }
 
-.sub-container-card{
+.mang-sub-container-card{
     display: flex;
     position: relative;
     background-color: var(--white);
@@ -26,14 +26,14 @@
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
 }
 
-.sub-container-card-title{
+.mang-sub-container-card-title{
     width: 90%;
-    color: #999;
+    color: rgb(126, 126, 126);
     position: absolute;
     font-size: 1.1rem;
 }
 
-.sub-container-card-amount{
+.mang-sub-container-card-amount{
     position: absolute;
     margin-top: 23%;
     width: 90%;
@@ -41,11 +41,11 @@
     font-weight: 600;
 }
 
-.sub-container2,
-.sub-container3{
+.mang-sub-container2,
+.mang-sub-container3{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     width: 100%;
     height: auto;
     align-items: center;
@@ -53,7 +53,7 @@
     margin-right: auto;
 }
 
-.chart-container,
+.mang .chart-container,
 .table-container{
     padding: 30px;
     width: 50%;
@@ -61,7 +61,7 @@
     justify-content: space-around;
 }
 
-.chart-head,
+.mang .chart-head,
 .table-head{
     font-size: 1.5rem;
     font-weight: 600;
@@ -69,35 +69,38 @@
 }
 
 /*  */
-.table-cont{
+.mang .table-cont{
     background-color: var(--white);
     padding: 10px 10px;
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
     border-radius: 6px;
 }
 
-table{
-    table-layout: fixed;
+.mang table{
+    /* table-layout: fixed; */
     width: 100%;
 }
-td ,th{
+.mang td ,th{
     padding: 5px 5px;
 }
-td{
+.mang td{
     border-top: 2px solid #eaeaea;
 }
 .align-right{
     float: right;
 }
+.align-left{
+    float: left;
+}
 
 /*  */
-.select-box-container{
+.mang .select-box-container{
     display: flex;
     position: relative;
     padding: 10px 10px;
     width: 250px;
 }
-input[type = "text"],input[type = "date"], select {
+.mang input[type = "text"],input[type = "date"], select {
     width: 220px;
     height: 50px;
     font-weight: 400;
@@ -106,7 +109,7 @@ input[type = "text"],input[type = "date"], select {
     border: 1.2px solid #c4cae0;
     margin-top: 5px;
  }
-.search-btn{
+.mang .searching-btn{
     width: 200px;
     height: 50px;
     background-color: #252631;
@@ -117,34 +120,40 @@ input[type = "text"],input[type = "date"], select {
 }
 /* for card */
 @media screen and (max-width: 1270px) {
-    .sub-container-card{
+    .mang-sub-container-card{
         width: 400px;
     }
-    .sub-container-card-amount{
+    .mang-sub-container-card-amount{
         margin-top: 10%;
     }
 
 }
 /* for card */
-@media screen and (max-width: 730px) {
-    .sub-container-card{
+@media screen and (max-width: 768px) {
+    .mang-sub-container-card{
         width: 270px;
     }
-    .sub-container-card-amount{
+    .mang-sub-container-card-amount{
         margin-top: 10%;
     }
-    
+    .mang .chart-container{
+        width:500px;
+        flex-wrap: wrap;
+    }
+    .mang .table-container{
+        width: 400px;
+    }
 }
 /* for table */
 @media screen and (max-width: 1296px) {
-    .table-container{
-        width: 580px;
+    .mang .table-container{
+        width: 560px;
     }
     
 }
 /* for chart */
 @media screen and (max-width: 1099px) {
-    .chart-container{
+    .mang .chart-container{
         width:500px;
         flex-wrap: wrap;
     }

@@ -102,7 +102,7 @@
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
                   <a class="optionLink <?php if ($selectedSub == "LeaveRequests") echo " selected" ?>"
-                     href="<?php echo URLROOT ?>/MangDashboard/subLeaveRequests">
+                     href="<?php echo URLROOT ?>/MangDashboard/leaveRequests">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Leave Requests</div>
                   </a>
@@ -111,7 +111,7 @@
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
                   <a class="optionLink <?php if ($selectedSub == "TakeLeave") echo " selected" ?>"
-                     href="<?php echo URLROOT ?>/MangDashboard/subTakeLeave">
+                     href="<?php echo URLROOT ?>/MangDashboard/takeLeave">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Take Leave</div>
                   </a>
@@ -138,7 +138,7 @@
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
                   <a class="optionLink <?php if ($selectedSub == "OverallAnalytics") echo " selected" ?>"
-                     href="<?php echo URLROOT ?>/MangDashboard/subAnalyticsOverall">
+                     href="<?php echo URLROOT ?>/MangDashboard/analyticsOverall">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Overall</div>
                   </a>
@@ -147,7 +147,7 @@
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
                   <a class="optionLink <?php if ($selectedSub == "ServiceAnalytics") echo " selected" ?>"
-                     href="<?php echo URLROOT ?>/MangDashboard/subAnayticsService">
+                     href="<?php echo URLROOT ?>/MangDashboard/analyticsService">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Service's</div>
                   </a>
@@ -156,7 +156,7 @@
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
                   <a class="optionLink <?php if ($selectedSub == "ServiceProviderAnalytics") echo " selected" ?>"
-                     href="<?php echo URLROOT ?>/MangDashboard/subAnayticsSProvider">
+                     href="<?php echo URLROOT ?>/MangDashboard/analyticsSProvider">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Service Provider's</div>
                   </a>

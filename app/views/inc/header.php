@@ -28,6 +28,7 @@
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/ownSalaries.css"/>
 
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/mang_overviewAnalytics.css" />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> 
    
    <!-- service provider style added by Ruwanthi -->
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/serviceprovider.css" />
