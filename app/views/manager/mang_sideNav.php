@@ -2,9 +2,9 @@
 <div class="sidebar">
    <!--Sidebar Header-->
    <div class="header">
-      <a href="mang_overview.php">
+      <a href="<?php echo URLROOT ?>/MangDashboard/mang_overview">
          <div>
-            <img src="../../../public/imgs/logo-white.png" alt="BeautyCraft">
+            <img src="<?php echo URLROOT ?>/public/imgs/logo-white.png" alt="BeautyCraft">
          </div>
       </a>
    </div>
@@ -17,9 +17,9 @@
 
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Overview") echo " selected" ?>" href="./mang_overview.php">
+            <a class="optionLink <?php if ($selectedMain == "Overview") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/overview">
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Overview</div>
             </a>
@@ -29,9 +29,9 @@
          <!--Sidebar Item-->
          <li class="mainOption menuOption">
             <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>"
-               href="./mang_reservations.php">
+               href="<?php echo URLROOT ?>/MangDashboard/reservations">
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Reservations</div>
             </a>
@@ -41,9 +41,9 @@
          <!--Sidebar Item-->
          <li class="mainOption menuOption">
             <a class="optionLink <?php if ($selectedMain == "StaffMembers") echo " selected" ?>"
-               href="./mang_staffMembers.php">
+               href="<?php echo URLROOT ?>/MangDashboard/staffMembers">
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Staff Members</div>
             </a>
@@ -53,9 +53,9 @@
          <!--Sidebar Item-->
          <li class="mainOption">
             <a class="optionLink <?php if ($selectedMain == "Customers") echo " selected" ?>"
-               href="./mang_customers.php">
+               href="<?php echo URLROOT ?>/MangDashboard/customers">
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Customers</div>
             </a>
@@ -65,9 +65,9 @@
          <!--Sidebar Item-->
          <li class="mainOption">
             <a class="optionLink <?php if ($selectedMain == "Services") echo " selected" ?>"
-               href="./mang_services.php">
+               href="<?php echo URLROOT ?>/MangDashboard/services">
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Services</div>
             </a>
@@ -77,9 +77,9 @@
          <!--Sidebar Item-->
          <li class="mainOption">
             <a class="optionLink <?php if ($selectedMain == "Resources") echo " selected" ?>"
-               href="./mang_resources.php">
+               href="<?php echo URLROOT ?>/MangDashboard/resources">
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Resources</div>
             </a>
@@ -90,11 +90,11 @@
          <li class="mainOption">
             <a class="optionLink <?php if ($selectedMain == "Leaves") echo " selected" ?>" >
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Leaves</div>
                <div class="optionArrow <?php if ($selectedMain == "Leaves") echo " rotated180" ?>">
-                  <img src="../../../public/icons/expand-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/expand-white.png" />
                </div>
             </a>
             <!--Sidebar Sub Menu-->
@@ -102,7 +102,7 @@
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
                   <a class="optionLink <?php if ($selectedSub == "LeaveRequests") echo " selected" ?>"
-                     href="./mang_subLeaveRequests.php">
+                     href="<?php echo URLROOT ?>/MangDashboard/subLeaveRequests">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Leave Requests</div>
                   </a>
@@ -111,7 +111,7 @@
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
                   <a class="optionLink <?php if ($selectedSub == "TakeLeave") echo " selected" ?>"
-                     href="./mang_subTakeLeave.php">
+                     href="<?php echo URLROOT ?>/MangDashboard/subTakeLeave">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Take Leave</div>
                   </a>
@@ -126,11 +126,11 @@
          <li class="mainOption">
             <a class="optionLink <?php if ($selectedMain == "Analytics") echo " selected" ?>" >
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Analytics</div>
                <div class="optionArrow <?php if ($selectedMain == "Analytics") echo " rotated180" ?>">
-                  <img src="../../../public/icons/expand-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/expand-white.png" />
                </div>
             </a>
             <!--Sidebar Sub Menu-->
@@ -138,7 +138,7 @@
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
                   <a class="optionLink <?php if ($selectedSub == "OverallAnalytics") echo " selected" ?>"
-                     href="./mang_subAnalyticsOverall.php">
+                     href="<?php echo URLROOT ?>/MangDashboard/subAnalyticsOverall">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Overall</div>
                   </a>
@@ -147,7 +147,7 @@
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
                   <a class="optionLink <?php if ($selectedSub == "ServiceAnalytics") echo " selected" ?>"
-                     href="./mang_subAnayticsService.php">
+                     href="<?php echo URLROOT ?>/MangDashboard/subAnayticsService">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Service's</div>
                   </a>
@@ -156,7 +156,7 @@
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
                   <a class="optionLink <?php if ($selectedSub == "ServiceProviderAnalytics") echo " selected" ?>"
-                     href="./mang_subAnayticsSProvider.php">
+                     href="<?php echo URLROOT ?>/MangDashboard/subAnayticsSProvider">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Service Provider's</div>
                   </a>

@@ -1,17 +1,17 @@
-<?php require "../header.php" ?>
+<?php require APPROOT . "/views/inc/header.php" ?>
 
 <body class="layout-template-1">
    <?php
    $selectedMain = "Leaves";
    $selectedSub = "";
-   require "./mang_sideNav.php"
+   require APPROOT . "/views/manager/mang_sideNav.php"
    ?>
 
    <?php
    $title = "Overview";
    $username = "Sanjana Rajapaksha";
    $userLevel = "Manager";
-   require "../headerBar.php"
+   require APPROOT . "/views/inc/headerBar.php"
    ?>
 
    <!--Content-->
@@ -21,4 +21,4 @@
    <!--End Content-->
 
 
-   <?php require "../footer.php" ?>
+   <?php require APPROOT . "/views/inc/footer.php" ?>

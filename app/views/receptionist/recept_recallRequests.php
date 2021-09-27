@@ -2,15 +2,14 @@
 
 <body class="layout-template-1">
    <?php
-   $selectedMain = "Resources";
-   $selectedSub = "";
-   require APPROOT . "/views/manager/mang_sideNav.php"
+   $selectedMain = "RecallRequests";
+   require APPROOT . "/views/receptionist/recept_sideNav.php"
    ?>
 
    <?php
-   $title = "Resources";
-   $username = "Sanjana Rajapaksha";
-   $userLevel = "Manager";
+   $title = "Recall Requests";
+   $username = "Devin Dissanayake";
+   $userLevel = "Receptionist";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 
@@ -19,6 +18,5 @@
       <h3>This is main option 1</h3>
    </div>
    <!--End Content-->
-
 
    <?php require APPROOT . "/views/inc/footer.php" ?>
