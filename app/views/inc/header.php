@@ -18,7 +18,7 @@
 
 
    <!-- Temporary Styles-->
-   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/formTemplate2.css" />
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/formStyle.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/receptStyle.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/ownRemStaff.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/ownAddStaff.css"/>
