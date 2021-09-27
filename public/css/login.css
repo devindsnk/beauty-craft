@@ -113,6 +113,7 @@ input {
 
 .container.right-panel-active .sign-in-container {
     transform: translateX(100%);
+    opacity: 0;
 }
 
 .sign-up-container {

@@ -12,10 +12,14 @@ class Pages extends Controller
    }
    public function login()
    {
+      $val= "log";
+      $_COOKIE['varname'] = $val;
       $this->view('login');
    }
    public function register()
    {
-      $this->view('register');
+      $val= 'reg'; 
+      $_COOKIE['varname'] = $val;
+      $this->view('login');
    }
 }
