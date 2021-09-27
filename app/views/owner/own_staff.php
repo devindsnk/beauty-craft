@@ -1,4 +1,4 @@
-<?php require "../header.php" ?>
+<?php require APPROOT . "/views/inc/header.php" ?>
 
 <body class="layout-template-1">
    <?php
@@ -22,7 +22,7 @@
       <button class="btnOpen full" type="button">Add Staff</button>
       <button class="btnOpen full" type="button">Update Staff</button>
    </div>
-   <!------------------- Remove Staff Container starts ----------------------------->
+   <!------------------- Remove Staff modal starts ----------------------------->
       <div class="modal-container normal">
       <div class="modal-box">
          <h1 class="ownRemStaffHead">Remove Staff</h1>

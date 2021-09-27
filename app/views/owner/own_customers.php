@@ -1,16 +1,16 @@
-<?php require "../header.php" ?>
+<?php require APPROOT . "/views/inc/header.php" ?>
 
 <body class="layout-template-1">
    <?php
    $selectedMain = "Customers";
-   require "./own_sidenav.php"
+   require APPROOT . "/views/owner/own_sidenav.php"
    ?>
 
    <?php
    $title = "Customers";
    $username = "Ravindu Madhubhashana";
    $userLevel = "Owner";
-   require "../headerBar.php"
+   require APPROOT . "/views/inc/headerBar.php"
    ?>
 
    <!--Content-->
@@ -76,4 +76,4 @@
    <!--End Content-->
 
 
-   <?php require "../footer.php" ?>
+   <?php require APPROOT . "/views/inc/footer.php" ?>

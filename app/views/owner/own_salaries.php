@@ -1,112 +1,112 @@
-<?php require "../header.php" ?>
+<?php require APPROOT . "/views/inc/header.php" ?>
 
 <body class="layout-template-1">
    <?php
    $selectedMain = "Salaries";
-   require "./own_sidenav.php"
+   require APPROOT . "/views/owner/own_sidenav.php"
    ?>
 
    <?php
    $title = "Salaries";
    $username = "Ravindu Madhubhashana";
    $userLevel = "Owner";
-   require "../headerBar.php"
+   require APPROOT . "/views/inc/headerBar.php"
    ?>
 
    <!--Content-->
    <div class="content">
       <h3>This is main option 1</h3>
-      <div class="ownSalariesHeading">
-         <label class="ownSalariesHead1">Beauty Craft</label> <br>
-         <label class="ownSalariesHead2">Staff Member Salary Report</label> <br>
-         <label class="ownSalariesHead3">Month</label>
+      <div class="SalaryReportContainer">
+      <div class="ownSalaryReportHeadings">
+         <label class="ownSalaryReportHead1">Beauty Craft</label> <br>
+         <label class="ownSalaryReportHead2">Staff Member Salary Report</label> <br>
+         <label class="ownSalaryReportHead3">Month</label>
       </div>
       <!-- Staff member details starts  -->
-      <div class="ownSalariesStaffMemberDetails">
-         <div class="ownSalariesStaffMemberDetailHead">
-            <label class="ownSalariesStaffMemberDetailHeadLabel">Staff member details</label>
+      <div class="ownSalaryReportStaffMemberDetails">
+         <div class="ownSalaryReportStaffMemberDetailHead">
+            <label class="ownSalaryReportStaffMemberDetailHeadLabel">Staff member details</label>
         </div>
 
-        <div class="ownSalariesStaffMemberDetailsContent">
-            <label >Name</label>
-            <label >Devin Dissanayake</label>
+        <div class="ownSalaryReportStaffMemberDetailsContent">
+
+            <label class="ownSalaryReportStaffMemberDetailsContentData">Name</label>
+            <label class="ownSalaryReportStaffMemberDetailsContentValue">Devin Dissanayake</label>
             <br>
-            <label >Staff Id</label>
-            <label >R001</label>
+            <label class="ownSalaryReportStaffMemberDetailsContentData">Staff Id</label>
+            <label class="ownSalaryReportStaffMemberDetailsContentValue">R001</label>
             <br>
-            <label >Type</label>
-            <label >Service Provider</label>
+            <label class="ownSalaryReportStaffMemberDetailsContentData">Type</label>
+            <label class="ownSalaryReportStaffMemberDetailsContentValue">Service Provider</label>
             <br>
-            <label >Contact Number</label>
-            <label >0711234567</label>
+            <label class="ownSalaryReportStaffMemberDetailsContentData">Contact Number</label>
+            <label class="ownSalaryReportStaffMemberDetailsContentValue">0711234567</label>
         </div>
 
       </div>
       <!-- Staff member details ends  -->
       <!-- Earning details starts  -->
-      <div class="ownSalariesEarningDetails">
-         <div class="ownSalariesEarningDetailHead">
-            <label class="ownSalariesEarningDetailHeadLabel">Earnings</label>
+      <div class="ownSalaryReportEarningDetails">
+         <div class="ownSalaryReportEarningDetailsHead">
+            <label class="ownSalaryReportEarningDetailHeadLabel">Earnings</label>
         </div>
 
-        <div class="ownSalariesEarningDetailsContent">
-            <label >Basic Salary</label>
-            <label >30000.00</label>
+        <div class="ownSalaryReportEarningDetailsContent">
+            <label class="ownSalaryReportEarningDetailsContentData" >Basic Salary</label>
+            <label class="ownSalaryReportEarningDetailsContentValue">30000.00</label>
             <br>
-            <label >Service Commision</label>
-            <label >20000.00</label>
+            <label class="ownSalaryReportEarningDetailsContentData">Service Commision</label>
+            <label class="ownSalaryReportEarningDetailsContentValue">20000.00</label>
         </div>
 
       </div>
       <!-- Earning details ends  -->
           <!-- Deductions  etails starts  -->
-          <div class="ownSalariesDeductionsDetails">
-         <div class="ownSalariesDeductionsDetailHead">
-            <label class="ownSalariesDeductionsDetailHeadLabel">Deductions</label>
+          <div class="ownSalaryReportDeductionsDetails">
+         <div class="ownSalaryReportDeductionsDetailHead">
+            <label class="ownSalaryReportDeductionsDetailHeadLabel">Deductions</label>
         </div>
 
-        <div class="ownSalariesDeductionsDetailsContent">
-            <label >Addtional Leave Count</label>
-            <label >4</label>
+        <div class="ownSalaryReportDeductionsDetailsContent">
+            <label class="ownSalaryReportDeductionsDetailsContentData">Addtional Leave Count</label>
+            <label class="ownSalaryReportDeductionsDetailsContentValue" >4</label>
             <br>
-            <label ></label>
-            <label >-2500.00</label>
+            <label class="ownSalaryReportDeductionsDetailsContentData">Leave Deduction (LKR)</label>
+            <label class="ownSalaryReportDeductionsDetailsContentValue">-2500.00</label>
         </div>
 
       </div>
       <!-- Deductions details ends  -->
       <!-- Sub Total  details starts  -->
-           <div class="ownSalariesSubTotalDetails">
-         <div class="ownSalariesSubTotalDetailHead">
-            <label class="ownSalariesSubTotalDetailHeadLabel">Deductions</label>
+           <div class="ownSalaryReportSubTotalDetails">
+         <div class="ownSalaryReportSubTotalDetailHead">
+            <label class="ownSalaryReportSubTotalDetailHeadLabe">Sub Total</label>
         </div>
 
-        <div class="ownSalariesSubTotalDetailsContent">
-            <label >Total Salary(LKR)</label>
-            <label >47500.00</label>
+        <div class="ownSalaryReportSubTotalDetailsContent">
+            <label class="ownSalaryReportSubTotalDetailsContentData">Total Salary(LKR)</label>
+            <label class="ownSalaryReportSubTotalDetailsContentValue">47500.00</label>
         </div>
+        
 
       </div>
       <!-- Sub Total details ends  -->
       <!-- Paid details starts  -->
-      <div class="ownSalariesPaidDetails">
-         <div class="ownSalariesPaidDetailHead">
-            <label class="ownSalariesPaidDetailHeadLabel">Deductions</label>
-        </div>
-
-        <div class="ownSalariesPaidDetailsContent">
-            <label >Paid</label>
-            <label >28/08/2021</label>
+      <div class="ownSalaryReportPaidDetails">
+            <div class="ownSalaryReportPaidDetailsContent">
+            <label class="ownSalaryReportPaidDetailsContentData">Paid</label>
+            <label class="ownSalaryReportPaidDetailsContentValue">28/08/2021</label>
             <br>
-            <label >Paid Ammount(LKR)</label>
-            <label >47500.00</label>
+            <label class="ownSalaryReportPaidDetailsContentData">Paid Ammount(LKR)</label>
+            <label class="ownSalaryReportPaidDetailsContentValue">47500.00</label>
         </div>
       </div>
       <!-- Sub Total details ends  -->
 
+      </div>
 
    </div>
    <!--End Content-->
 
 
-   <?php require "../footer.php" ?>
+   <?php require APPROOT . "/views/inc/footer.php" ?>
