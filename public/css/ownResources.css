@@ -88,13 +88,13 @@
 .ownResAddDetail2 input[type="text"] {
 
     background-color : #EAEAEA; 
-    text-align: center;
-    Border : none;
+    text-align: center; 
+    Border : none; 
   
   }
 .ownResAddBtn1 .btn{
-    background: #EAEAEA;
-    color: black;
+    background: #EAEAEA; 
+    color: black; 
 }
 .ownResAddButtons{
     display: grid;
@@ -111,8 +111,10 @@
     grid-area: ownResAddBtn2;
     
 }
-.ownResAddBtn2 .btn{
+.ownResAddBtn2 .btn{  
     background: #3ABD5F;
 }
-
+/* ------------------------------------------------------------ */
+/* -----------Styles for Add Resources Ends------------------ */
+/* ------------------------------------------------------------ */
 

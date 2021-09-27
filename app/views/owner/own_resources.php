@@ -5,14 +5,14 @@
    $selectedMain = "Resources";
    require "./own_sidenav.php"
    ?>
-
+   
    <?php
    $title = "Resources";
    $username = "Ravindu Madhubhashana";
    $userLevel = "Owner";
    require "../headerBar.php"
    ?>
-
+   
    <!--Content-->
    <div class="content">
       <h3>This is main option 1</h3>
@@ -36,7 +36,7 @@
                    </div
 >               </div>
                 <!-- main grid 1 ends -->
-                           <!-- main grid 2 starts -->
+                <!-- main grid 2 starts -->
             <div class="ownResAddButtons">
                 <div class="ownResAddBtn1">
                     <button class="btn btnClose normal">Cancel</button>

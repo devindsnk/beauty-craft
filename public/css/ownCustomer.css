@@ -4,7 +4,7 @@
 /* ------------------------------------------------------ */
 /* --------------STYLES ADDED BY RAVINDU -----------------*/
 /* ------------------------------------------------------ */
-.ownRemStaffHead {
+.ownRemCusHead {
     padding-bottom: 10px;
     text-align: center;
  }
@@ -24,38 +24,32 @@
 
  }
 
-.staffLabel1,
-.staffLabel2,
-.staffLabel3{ 
+.ownRemCusLabel1,
+.ownRemCusLabel2{ 
      font-size: 14px;
      font-weight: 600;
      text-align: center;
  }
- .staffData1,
- .staffData2,
- .staffData3
+ .ownRemCusData1,
+ .ownRemCusData2
  {
     font-size: 14px;
     font-weight: 600;
     color: #50515A;
     text-align: start;
  }
-.staffDetails{
+.ownRemCusDetails{
    text-align: center;
    align-items: end;
 }
 
 
-.remStaffErrortext {
+.ownRemCusErrortext {
      font-size: 10px;
      color: red ;
      padding-top: 5px;
  }
- .viewReservaions{
-     color: #037AFF;
-     
-}
-.remStaffError{
+.ownRemCusError{
     text-align: center;
 }
  button {
@@ -71,73 +65,56 @@
     font-weight: 400;
  }
 
- .ownRemStaffbtn1 .btn{
+ .ownRemCusbtn1 .btn{
      background: #EAEAEA;
      color: black;
  }
-
-
-
-
-
-
-.staffDetails{
+ 
+.ownRemCusDetails{
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-areas: 
-    'staffLabel1 staffData1'
-    'staffLabel2 staffData2'
-    'staffLabel3 staffData3';
+    'ownRemCusLabel1 ownRemCusData1'
+    'ownRemCusLabel2 ownRemCusData2';
 }
-.remStaffError{
+.ownRemCusError{
     display: grid;
     grid-template-columns: 100%;
     grid-template-areas: 
-    'remStaffErrortext' 
-    'viewReservaions';
+    'ownRemCusErrortext';
     
 }
 .remButtons{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
     grid-template-areas: 
-    'ownRemStaffbtn1 ownRemStaffbtn2';
+    'ownRemCusbtn1 ownRemCusbtn2';
     text-align:  center;
     padding-top: 5px;
 }
 
 
-.staffLabel1{
-    grid-area: staffLabel1;
+.ownRemCusLabel1{
+    grid-area: ownRemCusLabel1;
 }
-.staffData1{
-    grid-area: staffData1;
+.ownRemCusData1{
+    grid-area: ownRemCusData1;
 }
-.staffLabel2{
-    grid-area: staffLabel2;
+.ownRemCusLabel2{
+    grid-area: ownRemCusLabel2;
 }
-.staffData2{
-    grid-area: staffData2;
+.ownRemCusData2{
+    grid-area: ownRemCusData2;
 }
-.staffLabel3{
-    grid-area: staffLabel3;
+.ownRemCusErrortext{
+    grid-area: ownRemCusErrortext;
 }
-.staffData3{
-    grid-area: staffData3;
-}
-.remStaffErrortext{
-    grid-area: remStaffErrortext;
-}
-
-.viewReservaions{
-    grid-area: viewReservaions;
-}
-.ownRemStaffbtn1{
-    grid-area: ownRemStaffbtn1;
+.ownRemCusbtn1{
+    grid-area: ownRemCusbtn1;
     
 }
-.ownRemStaffbtn2{
-    grid-area: ownRemStaffbtn2;
+.ownRemCusbtn2{
+    grid-area: ownRemCusbtn2;
 }
  
  

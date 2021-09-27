@@ -24,4 +24,7 @@
    <link rel="stylesheet" href="../../../public/css/ownRemStaff.css" />
    <link rel="stylesheet" href="../../../public/css/ownAddStaff.css"/>
    <link rel="stylesheet" href="../../../public/css/ownResources.css"/>
+   <link rel="stylesheet" href="../../../public/css/ownCustomer.css"/>
+   <link rel="stylesheet" href="../../../public/css/ownRates.css"/>
+   <link rel="stylesheet" href="../../../public/css/ownSalaries.css"/>
 </head>

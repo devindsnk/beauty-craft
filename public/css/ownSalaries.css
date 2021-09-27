@@ -1,0 +1,143 @@
+/* -----------Styles for Salaries--------------- */
+/* Move required styles to common stylesheet where necessary */
+
+/* ------------------------------------------------------ */
+/* --------------STYLES ADDED BY RAVINDU -----------------*/
+/* ------------------------------------------------------ */
+
+
+/* ------------------------- owner salary report styles --------------------------- */
+
+/* ----------------------------Headings styles -------------*/
+.SalaryReportContainer{
+    background-color: white;
+}
+.ownSalaryReportHeadings{
+    text-align: center;
+}
+.ownSalaryReportHead1{
+   font-size: 30px;
+   font-weight: 600;
+}
+.ownSalaryReportHead2{
+   font-size: 16px;
+   font-weight: 450;
+
+}
+.ownSalaryReportHead3{
+   font-size: 18px;
+   font-weight: 800;
+   color: #8A8888;
+}
+
+/* ----------------------------Salary Report Staff Member Details Styles-------------- */
+
+.ownSalaryReportStaffMemberDetails,
+.ownSalaryReportEarningDetails,
+.ownSalaryReportDeductionsDetails{
+    padding-left: 10px;
+
+}
+.ownSalaryReportStaffMemberDetailHead,
+.ownSalaryReportEarningDetailsHead,
+.ownSalaryReportDeductionsDetailHead,
+.ownSalaryReportSubTotalDetailHead{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.ownSalaryReportStaffMemberDetailsContent{
+    background-color: #EAEAEA;
+    padding: 10px;
+    float: right;
+    height: 120px;
+    width: 500px;
+
+}
+
+.ownSalaryReportEarningDetailsContent{
+    background-color: #EAEAEA;
+    padding: 10px;
+    float: right;
+    height: 120px;
+    width: 500px;
+}
+.ownSalaryReportDeductionsDetailsContent{
+    background-color: #EAEAEA;
+    padding: 10px;
+    float: left;
+    height: 120px;
+    width: 500px;
+}
+.ownSalaryReportSubTotalDetailsContent{
+    background-color: #EAEAEA;
+    padding: 10px;
+    height: 40px;
+    width: 500px;
+}
+.ownSalaryReportPaidDetailsContent{
+    background-color: #EAEAEA;
+    padding: 10px;
+    width: 500px; 
+    height: 60px;  
+}
+
+.ownSalaryReportStaffMemberDetailsContentData,
+.ownSalaryReportEarningDetailsContentData,
+.ownSalaryReportDeductionsDetailsContentData,
+.ownSalaryReportSubTotalDetailsContentData,
+.ownSalaryReportPaidDetailsContentData{
+    float: left;
+    font-size: 14px;
+    font-weight: 400px;
+}
+.ownSalaryReportStaffMemberDetailsContentValue,
+.ownSalaryReportEarningDetailsContentValue,
+.ownSalaryReportDeductionsDetailsContentValue,
+.ownSalaryReportSubTotalDetailsContentValue,
+.ownSalaryReportPaidDetailsContentValue{
+    float: right;
+    font-size: 14px;
+    font-weight: 400px;
+    color:#50515A ;
+}
+/* Arrange the grid areas */
+.SalaryReportContainer{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+    'ownSalaryReportHeadings ownSalaryReportHeadings'
+    'ownSalaryReportStaffMemberDetails ownSalaryReportDeductionsDetails'
+    'ownSalaryReportEarningDetails ownSalaryReportSubTotalDetails'
+    'ownSalaryReportEarningDetails ownSalaryReportPaidDetails'
+}
+
+/* Assign grid areas */
+.ownSalaryReportHeadings{
+    grid-area: ownSalaryReportHeadings;
+    padding: 5px;
+}
+.ownSalaryReportStaffMemberDetails{
+    grid-area: ownSalaryReportStaffMemberDetails;
+    padding: 5px;
+    
+}
+.ownSalaryReportEarningDetails{
+    grid-area: ownSalaryReportEarningDetails;
+    padding: 5px;
+  
+}
+.ownSalaryReportDeductionsDetails{
+    grid-area: ownSalaryReportDeductionsDetails;
+    padding: 5px ;
+}
+.ownSalaryReportSubTotalDetails{
+    grid-area: ownSalaryReportSubTotalDetails;
+    padding: 5px;
+}
+.ownSalaryReportPaidDetails{
+    grid-area: ownSalaryReportPaidDetails;
+    padding: 5px;
+}
+
+
