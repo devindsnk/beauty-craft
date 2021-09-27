@@ -27,6 +27,8 @@
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/ownRates.css"/>
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/ownSalaries.css"/>
 
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/mang_overviewAnalytics.css" />
+   
    <!-- service provider style added by Ruwanthi -->
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/serviceprovider.css" />
   
