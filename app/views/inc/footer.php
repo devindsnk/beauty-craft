@@ -7,10 +7,9 @@
 </footer>
 <!--End Footer-->
 
-<script src="../../../public/js/jquery-3.6.0.min.js"></script>
-<script src="../../../public/js/sideNav.js"></script>
-<script src="../../../public/js/headerBar.js"></script>
-<script src="../../../public/js/modals.js"></script>
+<script src="<?php echo URLROOT ?>/public/js/jquery-3.6.0.min.js"></script>
+<script src="<?php echo URLROOT ?>/public/js/sideNav.js"></script>
+<script src="<?php echo URLROOT ?>/public/js/headerBar.js"></script>
 </body>
 
 </html>
