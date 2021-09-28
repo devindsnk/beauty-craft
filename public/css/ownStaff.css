@@ -1,0 +1,505 @@
+/* -----------Styles for Remove Staff--------------- */
+/* Move required styles to common stylesheet where necessary */
+
+/* ------------------------------------------------------ */
+/* --------------STYLES ADDED BY RAVINDU -----------------*/
+/* ------------------------------------------------------ */
+.ownRemStaffHead {
+    padding-bottom: 10px;
+    text-align: center;
+ }
+
+ .container {
+  
+    width: 40%;
+    min-width: 330px;
+    background-color: #ffffff;
+    padding: 35px 50px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 8px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);  
+
+ }
+
+.staffLabel1,
+.staffLabel2,
+.staffLabel3{ 
+     font-size: 14px;
+     font-weight: 600;
+     text-align: start;
+ }
+ .staffData1,
+ .staffData2,
+ .staffData3
+ {
+    font-size: 14px;
+    font-weight: 600;
+    color: #50515A;
+    text-align: start;
+ }
+.staffDetails{
+   text-align: center;
+   align-items: end;
+}
+
+
+.remStaffErrortext {
+     font-size: 10px;
+     color: red ;
+     padding-top: 5px;
+ }
+ .viewReservaions{
+     color: #037AFF;
+     
+}
+.remStaffError{
+    text-align: center;
+}
+ button {
+    border: none;
+    padding: 7px 20px;
+    background: linear-gradient(130deg,
+          #037AFF,
+          #037AFF);
+    color: #ffffff;
+    border-radius: 6px;
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-weight: 400;
+ }
+
+ .ownRemStaffbtn1 .btn{
+     background: #EAEAEA;
+     color: black;
+ }
+
+
+
+
+
+
+
+.staffDetails{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+    'staffLabel1 staffData1'
+    'staffLabel2 staffData2'
+    'staffLabel3 staffData3';
+}
+.remStaffError{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas: 
+    'remStaffErrortext' 
+    'viewReservaions';
+    
+}
+.remButtons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    'ownRemStaffbtn1 ownRemStaffbtn2';
+    text-align:  center;
+    padding-top: 5px;
+}
+
+
+.staffLabel1{
+    grid-area: staffLabel1;
+}
+.staffData1{
+    grid-area: staffData1;
+}
+.staffLabel2{
+    grid-area: staffLabel2;
+}
+.staffData2{
+    grid-area: staffData2;
+}
+.staffLabel3{
+    grid-area: staffLabel3;
+}
+.staffData3{
+    grid-area: staffData3;
+}
+.remStaffErrortext{
+    grid-area: remStaffErrortext;
+}
+
+.viewReservaions{
+    grid-area: viewReservaions;
+}
+.ownRemStaffbtn1{
+    grid-area: ownRemStaffbtn1;
+    
+}
+.ownRemStaffbtn2{
+    grid-area: ownRemStaffbtn2;
+}
+
+
+
+/* ------------------------------------------------------------------------------------------------------ */
+/* -----------------------------------Staff view styles starts------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------ */
+
+
+#ownViewStaffContainer{
+    background-color: #EAEAEA;
+}
+
+.ownViewStaffProfileDetails .sub-container-card{
+    height: 200px;
+    width: 150px;
+}
+
+
+ 
+ 
+/* ------------------------------------------------------------------------------------------------------ */
+/* -----------------------------------Staff view styles ends------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------ */
+
+
+
+ /* ------------------------------------------------------------------------------------------------------ */
+/* -----------------------------------Add staff styles starts------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------ */
+
+
+/* -----------------------------------container styles starts---------------------------------- */
+
+.ownAddstaffContainer{ 
+    max-width: 800px;
+    width: 100%;
+    background: white;
+    padding: 25px 16px ;
+    border-radius: 6px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* --------------- Form heading styles --------------------------------*/
+.ownAddStaff_Formheading{
+    text-align: center;
+}
+
+
+
+.ownAddstaffContainer .ownAddstaffBasicinfo,
+.ownAddstaffContainer .ownAddstaffContactdetails,
+.ownAddstaffContainer .ownAddstaffBankdetails{
+    padding: 20px;
+}
+
+/*---------------------------------------------------- Add image styles starts -----------------------------------------*/
+.ownAddstaffContainer .ownAddstaffFormGroupImage .ownAddstaffBasicinfoFilesubBtn #ownAddstaffBasicinfoImagesub{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    visibility: hidden;
+}
+.ownAddstaffContainer .ownAddstaffFormGroupImage .ownAddstaffBasicinfoFilesubBtn .ownAddstaffBasicinfoImagewrapper{
+  
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;    
+    padding:50px 10px ;
+    background: #eaeaea;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ownAddstaffContainer .ownAddstaffFormGroupImage .ownAddstaffBasicinfoFilesubBtn .ownAddstaffBasicinfoImagetitle{
+    font-weight: 600;
+    font-size: 14px;
+    color: white; 
+ }
+ .ownAddstaffContainer .ownAddstaffFormGroupImage .ownAddstaffBasicinfoFilesubBtn .ownAddstaffBasicinfoIcon{
+     
+     align-items: center;
+    
+}
+.ownAddstaffContainer .ownAddstaffFormGroupImage .ownAddstaffBasicinfoFilesubBtn .ownAddstaffBasicinfoImagewrapper:hover{
+    transform: translate(-5px);
+    box-shadow: 0;
+}
+/* Form image wrapper styles */
+.ownAddstaffContainer .ownAddstaffFormGroupImage .ownAddstaffBasicinfoImagewrapper{
+    
+    margin-bottom: 10px;
+}
+/*---------------------------------------------------- Add image styles ends -----------------------------------------*/
+
+/*---------------------------------------------------- Address styles --------------------*/
+.ownAddstaffFormGroupADD .homeAdd{
+    border-radius: 6px;
+    border: 1px solid lightgray;
+    width:100%;
+    height: 80px;
+    padding-left: 5px;
+    }
+
+/*----------------------------------- Drop down styles ----------------------------------------------------------*/
+
+.dropdownselectbox{
+    font-size: 16px;
+    padding : 10px 15px;
+    background: white;
+    border-radius: 6px;
+    width: 95%;
+    height: 42px;
+   }
+
+   /*--------------------------------------------------- Butoon styles starts ----------------------------------------*/
+.ownAddstaffbutton {
+    background-color: #444BF8;
+    color: white;
+    border: 1px solid ;
+    height: 40px;
+    display: block;
+    width: 40%;
+    padding: 10px;
+    font-family: inherit;
+    font-size: 16px;
+    border-radius: 6px;
+    float: right;
+    text-align: center;
+    align-items: center;
+        
+  }
+.ownAddstaffButton{
+      padding-right: 55px;
+}
+/*--------------------------------------------------- Butoon styles ends ----------------------------------------*/
+
+/* --------------------------- Form template styles --------------------------------------------------------------*/
+
+.ownAddstaffContainer form input[type = "text"], select {
+    width: 100%;
+    font-weight: 400;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1.2px solid #c4cae0;
+    margin-top: 5px;
+ }
+ .ownAddstaffContainer form input[type = "date"], select {
+    width: 100%;
+    font-weight: 400;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1.2px solid #c4cae0;
+    margin-top: 5px;
+ }
+
+ .ownAddstaffContainer input[type="radio"], input[type="checkbox"]{
+    margin-left: 3px;
+    margin-right: 8px;
+    transform: scale(1.5);
+ }
+ 
+ .ownAddstaffContainer form input:focus,
+ .ownAddstaffFormGroupADD .homeAdd:focus,
+ .dropdownselectbox:focus{
+    outline: none;
+    border-color: #6f6df4;
+ }
+ 
+ .ownAddstaffContainer .ownAddstaffLabels{
+    color: #1c093c;
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    padding-bottom: 0;
+ }
+ 
+ .ownAddstaffContainer form .ownAddstaffFormGroupFname{
+    width: 100%;
+ }
+.ownAddstaffContainer form .ownAddstaffFormGroupRadio{
+    margin-top: 5px;
+ }
+ .ownAddstaffContainer .error{
+    font-size: 12px;
+    color: #DC3545;
+ }
+
+ 
+ /*--Customize the grid places --------------*/
+ .ownAddstaffContainer .ownAddstaffMaingrid1{
+     display: grid;
+     grid-template-columns: 1fr 3fr;
+     grid-gap: 5px;
+     grid-template-areas: 
+       'ownAddstaffFormGroupImage ownAddstaffFormGroupFname'
+       'ownAddstaffFormGroupImage ownAddstaffFormGroupLname'
+       'ownAddstaffFormGroupRadio ownAddstaffFormGroupNIC';
+ 
+ }
+ .ownAddstaffContainer .ownAddstaffMaingrid2{
+     display: grid;
+     grid-template-columns: 1fr 1fr ;
+     grid-gap: 15px;
+     grid-template-areas: 
+       'ownAddstaffFormGroupStype ownAddstaffFormGroupDOB';
+ }
+ .ownAddstaffContainer .ownAddstaffMaingrid3{
+     display: grid;
+     grid-template-columns: 1fr;
+     grid-template-areas: 
+       'ownAddstaffFormGroupADD';
+ }
+ .ownAddstaffContainer .ownAddstaffMaingrid4{
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     grid-gap: 15px;
+     grid-template-areas: 
+       'ownAddstaffFormGroupTP ownAddstaffFormGroupMAIL';
+ }
+ .ownAddstaffContainer .ownAddstaffMaingrid5{
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     grid-gap: 15px;
+     grid-template-areas: 
+       'ownAddstaffFormGroupACCNUM ownAddstaffFormGroupACCNAME';
+ }
+ 
+ /*----------- Assigning grid areas and adding styles ----------------*/
+
+.ownAddstaffFormGroupImage{
+    grid-area: ownAddstaffFormGroupImage;   
+    
+}
+.ownAddstaffFormGroupFname{
+    grid-area: ownAddstaffFormGroupFname;
+    padding-bottom: 10px;
+}
+.ownAddstaffFormGroupLname{
+    grid-area: ownAddstaffFormGroupLname;
+    padding-bottom: 10px;
+}
+.ownAddstaffFormGroupRadio{
+    grid-area: ownAddstaffFormGroupRadio;
+    padding-bottom: 10px;
+}
+.ownAddstaffFormGroupNIC{
+    grid-area: ownAddstaffFormGroupNIC;
+    padding-bottom: 10px;
+}
+.ownAddstaffFormGroupStype{
+    grid-area: ownAddstaffFormGroupStype;
+    padding-bottom: 10px;
+}
+.ownAddstaffFormGroupDOB{
+    grid-area: ownAddstaffFormGroupDOB;
+    padding-bottom: 10px;
+}
+
+.ownAddstaffFormGroupADD{
+    grid-area: ownAddstaffFormGroupADD;
+    padding-bottom: 10px;
+}
+.ownAddstaffFormGroupTP{
+    grid-area: ownAddstaffFormGroupTP;
+    padding-bottom: 10px;
+}
+.ownAddstaffFormGroupMAIL{
+    grid-area: ownAddstaffFormGroupMAIL;
+    padding-bottom: 10px;
+}
+.ownAddstaffFormGroupACCNUM{
+    grid-area: ownAddstaffFormGroupACCNUM;
+    padding-bottom: 10px;
+}
+.ownAddstaffFormGroupACCNAME{
+    grid-area: ownAddstaffFormGroupACCNAME;
+    padding-bottom: 10px;
+}
+
+
+/*################################################################## Responsive styles ####################################################*/
+
+
+@media screen and (max-width: 830px){
+   
+
+    /*---- Grids placing and styles for responsive ----*/
+        .ownAddstaffContainer .ownAddstaffMaingrid1{
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-areas: 
+              'ownAddstaffFormGroupImage' 
+              'ownAddstaffFormGroupFname'
+              'ownAddstaffFormGroupLname'
+              'ownAddstaffFormGroupRadio'
+              'ownAddstaffFormGroupNIC';    
+        }
+        .ownAddstaffContainer .maingrid2{
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-areas: 
+              'ownAddstaffFormGroupStype'
+              'ownAddstaffFormGroupDOB';
+        }
+        .ownAddstaffContainer .ownAddstaffMaingrid3{
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-areas: 
+              'ownAddstaffFormGroupADD';
+        }
+        .ownAddstaffContainer .ownAddstaffMaingrid4{
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-areas: 
+              'ownAddstaffFormGroupTP'
+              'ownAddstaffFormGroupMAIL';
+        }
+        .ownAddstaffContainer .ownAddstaffMaingrid5{
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-areas: 
+              'ownAddstaffFormGroupACCNUM'
+              'ownAddstaffFormGroupACCNAME';
+        }
+    /*---- Add image style for responsive ----*/
+        .ownAddstaffFormGroupImage{
+            justify-content: center;
+            text-align: center;
+        }
+    
+    
+    /*---- Form wrapper styles for responsive -----*/
+        form .ownAddstaffFormWrapper .ownAddstaffMaingrid1 input[type=text]{        
+            width:100%;        
+            }
+        .dropdownselectbox{
+            width: 100%;
+        }
+    /* Form home address styles for responsive */
+    form .ownAddstaffFormWrapper .ownAddstaffMaingrid3 .ownAddstaffFormGroupADD .homeAdd{
+          width: 100%;
+        }
+    form .ownAddstaffFormWrapper .ownAddstaffMaingrid4 input[type=text],
+    form .ownAddstaffMormWrapper .ownAddstaffMaingrid5 input[type=text]{
+        width: 100%;
+    }
+    /*----Form button styles for responsive ---- */
+         .ownAddstaffButton{
+             padding-right: 20px; 
+        }
+        
+    }
+ 
+/* ------------------------------------------------------------------------------------------------------ */
+/* -----------------------------------Add staff styles ends------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------ */

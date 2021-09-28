@@ -17,7 +17,7 @@
    <div class="content">
       <h3>This is main option 1</h3>
       <div class="container">
-      <button class="btnOpen normal" type="button">Remove Staff</button>
+      <button class="btnOpen normal" type="button">Remove Customer</button>
    </div>
    <!------------------- Remove Staff Container starts ----------------------------->
       <div class="modal-container normal">

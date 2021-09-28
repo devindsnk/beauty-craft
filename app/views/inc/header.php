@@ -21,7 +21,7 @@
    <!-- Temporary Styles-->
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/formStyle.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/receptStyle.css" />
-   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/ownRemStaff.css" />
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/ownStaff.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/ownAddStaff.css"/>
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/ownResources.css"/>
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/ownCustomer.css"/>
@@ -29,9 +29,9 @@
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/ownSalaries.css"/>
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/own_overview.css"/>
 
-   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/mang_overviewAnalytics.css" />
+   <!-- <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/mang_overviewAnalytics.css" /> -->
    
    <!-- service provider style added by Ruwanthi -->
-   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/serviceprovider.css" />
+   <!-- <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/serviceprovider.css" /> -->
   
 </head>
