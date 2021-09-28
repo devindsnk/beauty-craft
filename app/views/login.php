@@ -14,11 +14,12 @@
 
 <body>
     <?php
-    $val = $_COOKIE['varname'];
-    echo $val;
+    $selectbutton = $_COOKIE['selectbtn'];
+    echo $selectbutton;
     ?>
-    <div class="container" id="container">
+    <div class="container<?php if ($selectbutton == "register") echo " register" ?><?php if ($selectbutton == "login") echo " login" ?>" id="container">
         <!-- signup container -->
+        <!-- <div class="sliding-container<?php if ($selectbutton == "register") echo " register" ?>"> -->
         <div class="form-container sign-up-container">
             <form action="<?php echo URLROOT; ?>/users/register" method="post">
                 <h1 class="topic">Get Registered</h1>
@@ -43,13 +44,13 @@
                     <div class="radiobutton">
                         <div class="opt">
                             <label class="option">Male
-                                <input type="radio" name="gender" value="Male" <?php echo ($data['gender'] == "Male") ? 'checked' : '' ?> />
+                                <input type="radio" name="gender" value="Male" checked=<?php echo ($data['gender'] == "Male") ? 'checked' : '' ?> />
                                 <span class="checkmark"></span>
                             </label>
                         </div>
                         <div class="opt">
                             <label class="option">Female
-                                <input type="radio" name="gender" value="Female" <?php echo ($data['gender'] == "Female") ? 'checked' : '' ?>>
+                                <input type="radio" name="gender" value="Female" checked=<?php echo ($data['gender'] == "Female") ? 'checked' : '' ?>>
                                 <span class="checkmark"></span>
                             </label>
                         </div>
@@ -66,20 +67,28 @@
                         <?php echo (!empty($data['mobileNo_error'])) ? 'error' : ' ' ?>" value="<?php echo $data['mobileNo']; ?>" />
                         <span class="error"><?php echo $data['mobileNo_error']; ?></span>
                     </div>
+                    
+                      
                     <div class="formGroup">
-                        <label class="labels ">Verification code </label> <br />
+                      
+                         <button class="send-code" type="submit">Get PIN</button>
+                    </div>
+                    
+               
+                    
+                </div>
+                <div class="formwrapper">
+                    <div class="line"></div>
+                </div>
+                
+                <div class="formwrapper">
+                    <!-- contact number -->
+                    
+                    <div class="formGroup">
+                        <label class="labels ">PIN </label> <br />
                         <input type="text" name="code" placeholder="_  _  _  _ " class="textinput 
                         <?php echo (!empty($data['code_error'])) ? 'error' : ' ' ?>" value="<?php echo $data['code']; ?>" />
                         <span class="error"><?php echo $data['code_error']; ?></span>
-                    </div>
-                </div>
-
-                <div class="codesend">
-                    <div class="formGroup">
-                        <input class="send-code" type="submit" value="Send code" />
-                    </div>
-                    <div class="message">
-                        <label class="msg">Verification code will be sent to your mobile number</label>
                     </div>
                 </div>
 
@@ -98,6 +107,7 @@
                         <span class="error"><?php echo $data['confirmPassword_error']; ?></span>
                     </div>
                 </div>
+                
                 <button class="signupbutton">Register</button>
 
 
@@ -144,15 +154,11 @@
             </div>
         </div>
         <!-- overlay-container -->
+        </div>
     </div>
-    <?php
-    if ($val == "reg") { ?>
-        <script type="text/javascript" src="<?php echo URLROOT ?>/public/js/register.js"></script>
-    <?php
-    } else { ?>
+    
         <script type="text/javascript" src="<?php echo URLROOT ?>/public/js/login.js"></script>
-    <?php
-    } ?>
+    
 
 </body>
 
