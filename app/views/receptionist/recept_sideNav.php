@@ -16,8 +16,8 @@
       <ul class="mainMenu">
 
          <!--Sidebar Item-->
-         <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "DailyView") echo " selected" ?>" href="<?php echo URLROOT ?>/ReceptDashboard/dailyView">
+         <li class="mainOption"><?php if ($selectedMain == "DailyView") echo " selected" ?>
+            <a class="optionLink " href="<?php echo URLROOT ?>/ReceptDashboard/dailyView">
                <div class="optionIcon">
                   <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>

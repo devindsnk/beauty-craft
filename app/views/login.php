@@ -14,11 +14,12 @@
 
 <body>
     <?php
-    $val = $_COOKIE['varname'];
-    echo $val;
+    $selectbutton = $_COOKIE['selectbtn'];
+    echo $selectbutton;
     ?>
-    <div class="container" id="container">
+    <div class="container<?php if ($selectbutton == "register") echo " register" ?>" id="container">
         <!-- signup container -->
+        <!-- <div class="sliding-container<?php if ($selectbutton == "register") echo " register" ?>"> -->
         <div class="form-container sign-up-container">
             <form action="<?php echo URLROOT; ?>/users/register" method="post">
                 <h1 class="topic">Get Registered</h1>
@@ -142,17 +143,13 @@
                     <button class="ghost" id="signUp">Register</button>
                 </div>
             </div>
-        </div>
+        <!-- </div> -->
         <!-- overlay-container -->
+        </div>
     </div>
-    <?php
-    if ($val == "reg") { ?>
-        <script type="text/javascript" src="<?php echo URLROOT ?>/public/js/register.js"></script>
-    <?php
-    } else { ?>
+    
         <script type="text/javascript" src="<?php echo URLROOT ?>/public/js/login.js"></script>
-    <?php
-    } ?>
+    
 
 </body>
 

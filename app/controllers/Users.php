@@ -43,6 +43,8 @@ class Users extends Controller
          if (empty($data['contactNo_error']) && empty($data['password_error'])) {
             die("Success");
          } else {
+            $selectbutton= 'login'; 
+            $_COOKIE['selectbtn'] = $selectbutton;
             $this->view('login', $data);
          }
       } else {
@@ -67,6 +69,8 @@ class Users extends Controller
             'password_error_2' => '',
             'confirmPassword_error' => '',
          ];
+         $selectbutton= 'loginmmmm'; 
+         $_COOKIE['selectbtn'] = $selectbutton;
          $this->view('login', $data);
       }
    }
@@ -134,6 +138,8 @@ class Users extends Controller
          if (empty($data['fname_error']) && empty($data['lname_error']) && empty($data['gender_error']) && empty($data['mobileNo_error']) && empty($data['code_error']) && empty($data['password_error_2']) && empty($data['confirmPassword_error'])) {
             die("Success");
          } else {
+            $selectbutton= 'register'; 
+            $_COOKIE['selectbtn'] = $selectbutton;
             $this->view('login', $data);
          }
       } else {
@@ -158,6 +164,8 @@ class Users extends Controller
             'password_error_2' => 'Please enter something sample',
             'confirmPassword_error' => 'Please enter something sample',
          ];
+         $selectbutton= 'register'; 
+         $_COOKIE['selectbtn'] = $selectbutton;
          $this->view('login', $data);
       }
    }
