@@ -15,7 +15,8 @@
 <body>
 <?php 
 $val = $_COOKIE['varname'];
-        echo $val;
+        // echo $val;
+        
 ?>     
     <div class="container" id="container">
         
