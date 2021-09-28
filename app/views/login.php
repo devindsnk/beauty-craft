@@ -152,7 +152,7 @@
                     <button class="ghost" id="signUp">Register</button>
                 </div>
             </div>
-        </div>
+        <!-- </div> -->
         <!-- overlay-container -->
         </div>
     </div>
