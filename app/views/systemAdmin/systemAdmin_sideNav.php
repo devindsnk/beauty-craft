@@ -4,7 +4,7 @@
    <div class="header">
       <a href="systemAdmin_systemlog.php">
          <div>
-            <img src="../../../public/imgs/logo-white.png" alt="BeautyCraft">
+            <img src="<?php echo URLROOT ?>/public/imgs/logo-white.png" alt="BeautyCraft">
          </div>
       </a>
    </div>
@@ -18,9 +18,9 @@
          <!--Sidebar Item-->
          <li class="mainOption">
             <a class="optionLink <?php if ($selectedMain == "SystemLog") echo " selected" ?>" 
-            href="./systemAdmin_systemlog.php">
+            href="<?php echo URLROOT ?>/SystemAdminDashboard/systemlog">
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">System Log</div>
             </a>
@@ -29,17 +29,17 @@
 
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Create Account") echo " selected" ?>" >
+            <a class="optionLink <?php if ($selectedMain == "CreateAccount") echo " selected" ?>" >
                <div class="optionIcon">
                   <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Create Account</div>
-               <div class="optionArrow <?php if ($selectedMain == "Create Account") echo " rotated180" ?>">
+               <div class="optionArrow <?php if ($selectedMain == "CreateAccount") echo " rotated180" ?>">
                   <img src="<?php echo URLROOT ?>/public/icons/expand-white.png" />
                </div>
             </a>
             <!--Sidebar Sub Menu-->
-            <ul class="subMenu <?php if ($selectedMain == "Create Account") echo " expanded" ?>">
+            <ul class="subMenu <?php if ($selectedMain == "CreateAccount") echo " expanded" ?>">
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
                   <a class="optionLink <?php if ($selectedSub == "Staff") echo " selected" ?>"

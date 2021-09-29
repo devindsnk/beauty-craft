@@ -4,7 +4,7 @@
 <body class="layout-template-1">
 
    <?php
-   $selectedMain = "Create account";
+   $selectedMain = "CreateAccount";
     $selectedSub = "Staff";
    require APPROOT . "/views/systemAdmin/systemAdmin_sideNav.php"
    ?>

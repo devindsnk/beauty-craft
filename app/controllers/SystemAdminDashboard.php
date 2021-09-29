@@ -1,5 +1,5 @@
 <?php
-class MangDashboard extends Controller
+class SystemAdminDashboard extends Controller
 {
    public function __construct()
    {
@@ -10,11 +10,11 @@ class MangDashboard extends Controller
    {
       $this->view('systemAdmin/systemAdmin_systemlog');
    }
-   public function staff()
+   public function Staff()
    {
       $this->view('systemAdmin/systemAdmin_staff');
    }
-   public function customer()
+   public function Customer()
    {
       $this->view('systemAdmin/systemAdmin_customer');
    }

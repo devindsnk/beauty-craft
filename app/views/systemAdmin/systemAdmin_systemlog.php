@@ -5,6 +5,7 @@
 
    <?php
    $selectedMain = "SystemLog";
+   $selectedSub = "";
    require APPROOT . "/views/systemAdmin/systemAdmin_sideNav.php"
    ?>
 
