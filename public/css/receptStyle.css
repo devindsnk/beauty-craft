@@ -1,0 +1,70 @@
+/* -----------Styles for receptionist views--------------- */
+/* Move required styles to common stylesheet where necessary */
+
+/* ------------------------------------------------------ */
+/* --------------STYLES ADDED BY DEVIN -------------------*/
+/* ------------------------------------------------------ */
+
+.content .top-container{
+   margin: 30px 0 10px 0;
+   padding: 0 70px;
+   display: flex;
+   justify-content: right;
+   width: 100%;
+}
+
+
+.content .options-container{
+   display: flex;
+   padding: 30px 70px;
+   width: 100%;
+   min-width: 330px;
+}
+
+.content .options-container .left-section{
+   width: 100%;
+   margin-right: auto;
+}
+
+.content .options-container .right-section{
+   margin-left: 30px;
+}
+
+.content .btn{
+   border: none;
+   border-radius: 6px;
+   padding: 8px 15px;
+   color: var(--white);
+   font-size: 14px;
+   min-width: 100px;
+   font-weight: 500;
+}
+
+.content .top-container .btn-main{
+   background-color: var(--theme-purple);
+}
+
+.content .options-container .btn-search{
+   margin-top: 26px;
+   background-color: var(--theme-black);
+}
+
+@media (max-width:  940px){
+   .content .options-container{
+      flex-direction: column;
+   }
+
+   .content .options-container .right-section{
+      margin-left: auto;
+   }
+
+   .content .options-container .btn-search{
+      margin-top: 0px;
+   }
+}
+
+
+
+/* ------------------------------------------------------ */
+/* -----------END OF STYLES ADDED BY DEVIN ---------------*/
+/* ------------------------------------------------------ */

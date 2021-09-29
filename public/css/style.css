@@ -8,12 +8,21 @@
 
 :root {
   --theme-purple: #444BF8;
+  --theme-red: #FE3D4F;
   --theme-blue: #037AFF;
   --theme-black: #252631;
   --theme-bgwhite: #F2F2F7;
   --theme-grey: #50515A;
   --white: #FFFFFF;
   --black: #000000;
+}
+
+::-webkit-scrollbar{
+  width: 5px;
+}
+
+::-webkit-scrollbar-track{
+  border-radius: 5px;
 }
 
 * {
@@ -34,10 +43,8 @@ body {
 }
 
 header {
-  grid-area: header;
-  display: flex;
   align-items: center;
-  padding: 10px;
+  /* padding: 10px; */
   width: 100%;
 }
 
@@ -69,7 +76,6 @@ footer {
   justify-content: center;
 }
 
-
 /* white box container */
 .contentBox {
   font-weight: 500;
@@ -84,6 +90,7 @@ footer {
   transform: rotate(180deg);
   transition: 0.3s ease-in-out;
 }
+
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
 /* ------------------------------------------------------ */

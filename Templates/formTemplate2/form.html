@@ -1,0 +1,171 @@
+<!-- This the form template 2 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="../../public/css/style.css">
+   <link rel="stylesheet" href="../../public/css/formStyle.css">
+
+
+   <!-- Do not use the below styles -->
+   <!-- They are used just for the demonstration purposes and not a part of the form template -->
+   <style type="text/css">
+      .container {
+         width: 70%;
+         min-width: 330px;
+         background-color: #ffffff;
+         padding: 35px 50px;
+         transform: translate(-50%, -50%);
+         position: absolute;
+         left: 50%;
+         top: 50%;
+         border-radius: 8px;
+         box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+      }
+
+      @media (max-width: 500px) {
+         .container {
+            padding: 35px 25px;
+         }
+      }
+
+      button {
+         border: none;
+         padding: 7px 20px;
+         background: linear-gradient(130deg,
+               #6f6df4,
+               #4c46f5);
+         color: #ffffff;
+         border-radius: 6px;
+         font-family: 'Poppins';
+         font-size: 14px;
+         font-weight: 400;
+      }
+   </style>
+
+   <title>Document</title>
+</head>
+
+<body>
+   <div class="container">
+      <h1>Form Template 2</h1>
+      <p class="subLine">We'll see how it goes</p>
+      <form class="form" action="">
+         <div class="row">
+
+            <div class="column">
+               <div class="text-group">
+                  <label class="label" for="fName">First Name</label>
+                  <input type="text" name="" id="fName" placeholder="Your first name here">
+               </div>
+               <span class="error"> <?php echo " "; ?></span>
+            </div>
+
+            <div class="column">
+               <div class="text-group">
+                  <label class="label" for="fName">First Name</label>
+                  <input type="text" name="" id="fName" placeholder="Your first name here">
+               </div>
+               <span class="error"></span>
+            </div>
+
+         </div>
+         <div class="row">
+            <div class="column">
+               <div class="text-group">
+                  <label class="label" for="fName">First Name</label>
+                  <input type="text" name="" id="fName" placeholder="Your first name here">
+               </div>
+               <span class="error"></span>
+            </div>
+
+            <div class="column">
+               <div class="dropdown-group">
+                  <label class="label" for="lName">Last Name</label>
+                  <select name="cars" id="cars">
+                     <option value="" disabled selected>Select an option</option>
+                     <option value="volvo">Volvo</option>
+                     <option value="saab">Saab</option>
+                     <option value="mercedes">Mercedes</option>
+                     <option value="audi">Audi</option>
+                  </select>
+               </div>
+
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="column">
+               <label class="label" for="lName">Type</label>
+               <div class="radio-container">
+                  <div class="radio-group">
+                     <input type="radio" name="gender">
+                     <span>Type 1</span>
+                  </div>
+                  <div class="radio-group">
+                     <input type="radio" name="gender">
+                     <span>Type 1</span>
+                  </div>
+               </div>
+               <span class="error">error here</span>
+            </div>
+            <div class="column">
+               <div class="text-group">
+                  <label class="label" for="fName">First Name</label>
+                  <input type="text" name="" id="fName" placeholder="Your first name here">
+               </div>
+               <span class="error">Bla bla</span>
+            </div>
+
+         </div>
+
+         <div class="row">
+            <div class="column">
+               <div class="text-group">
+                  <label class="label" for="fName">First Name</label>
+                  <input type="text" name="" id="fName" placeholder="Your first name here">
+               </div>
+            </div>
+            <div class="column">
+               <label class="label" for="lName">Last Name</label>
+               <input type="text" name="" id="lName" placeholder="Your last name here">
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="column">
+               <label class="label" for="lName">Select your preferences</label>
+               <div class="checkbox-container">
+                  <div class="checkbox-group">
+                     <input type="checkbox">
+                     <span>Type 1</span>
+                  </div>
+                  <div class="checkbox-group">
+                     <input type="checkbox">
+                     <span>Type 1</span>
+                  </div>
+               </div>
+               <span class="error">Bla bla</span>
+            </div>
+            <div class="column">
+               <label class="label" for="lName">Last Name</label>
+               <input type="text" name="" id="lName" placeholder="Your last name here">
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="column">
+               <label for="fName">First Name</label>
+               <input type="text" name="" id="fName" placeholder="Your first name here">
+            </div>
+         </div>
+         <button class="btnOpen normal" type="button">Save</button>
+      </form>
+   </div>
+</body>
+
+</html>
