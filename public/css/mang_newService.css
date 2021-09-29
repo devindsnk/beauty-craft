@@ -1,24 +1,29 @@
-hr{
+.newservice body{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.newservice hr{
     margin-top: 25px;
     text-align: center;
     width: 100%;
     border-color: #F2F2F7;
 }
 
-hr.resHr{
+.newservice hr.resHr{
     width: 100%;
     margin: 10px -10px 10px -10px;
 }
 
-a{
+.newservice a{
     text-decoration: none;
 }
 
-label{
+.newservice label{
     display: inline-block;
 }
 
-span{
+.newservice span{
     margin: 10px 10px;
     font-size: 12px;
 }
@@ -95,14 +100,14 @@ span{
     font-size : 16px;
 }
 
-input[type="text"], .dropdownSelectBox{
+.newservice input[type="text"], .dropdownSelectBox{
 	height: 45px;
     border-radius: 6px;
     border :1px solid #ccc;
     font-size : 16px;
 }
 
-input[type="text"]{
+.newservice input[type="text"]{
     width: 100%;
     padding-left: 15px;
 }
@@ -182,11 +187,25 @@ select:-moz-focusring {
   text-shadow: 0 0 0 #000;
 }
 
+.btn-remove{
+    margin-right: auto;
+    align-items: right;
+}
+
 .close-slot{
-    position: absolute;
-    right: 22%;
+    /* position: absolute; */
+    margin-right: auto;
+    /* right: 22%; */
     width: 50px;
     height: 50px;
+    color: #000000;
+}
+
+.close-newservice-window{
+    margin-right: auto;
+    align-items: right;
+    width: 100px;
+    height: 100px;
     color: #000000;
 }
 
@@ -212,11 +231,3 @@ select:-moz-focusring {
 .quantity-align{
     float: right;
 }
-
-/* @media(max-width: 950px) {
-    
-    .checkbox-div{
-        width: 250px;
-        
-    }
-} */

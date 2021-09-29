@@ -202,4 +202,5 @@
 
          document.querySelector("#serviceToDate").valueAsDate = new Date();
    </script>
-   
+
+   <?php require APPROOT . "/views/inc/footer.php" ?>

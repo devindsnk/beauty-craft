@@ -17,6 +17,7 @@
    <!--Content-->
    <div class="content">
       <h3>This is main option 1</h3>
+      <a href="<?php echo URLROOT ?>/services/addService"><button>New Service</button></a>
    </div>
    <!--End Content-->
 
