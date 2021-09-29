@@ -34,7 +34,9 @@
 
         <!--sub-container2-->
         <div class="sub-content-container2">
+            <div class="topic">
             <h2>Upcoming reservations today</h2>
+            </div>
             <!--sub-container2-card-->
             <div class="scroll-area">
                 <div class="webview">
@@ -887,7 +889,7 @@
        <div class="modaldatetime">
            <div class="modaldatetime-time">
                 <span>10.45 - 11.00</span><br>
-                <span>25 mins</span>
+                <span class="duration">25 mins</span>
            </div>
            <div class="modaldatetime-date">
                <span>JUNE 10</span><br>
@@ -896,8 +898,8 @@
        </div>
         <div class="modaldetails">
            <div class="modaldetails-name">
-                <span>Hair Color-short</span><br>
-                <span>Ruwanthi Munasinghe</span>
+                <span class="service">Hair Color-short</span><br>
+                <span class="name">Ruwanthi Munasinghe</span>
            </div>
            <div class="modaldetails-status">
               <div class="confirm-status">
@@ -907,9 +909,9 @@
        </div>
 
        <div class="Reservationnote">
-<div class="Reservationnote-name">
-    <span>Reservation Note</span>
-</div>
+    <div class="Reservationnote-name">
+        <span>Reservation Note</span>
+    </div>
 <div class="Reservationnote-note">
     <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum magni nisi dolorem? Harum totam, earum possimus sequi sint nesciunt, maior</span>
 
@@ -920,8 +922,8 @@
 <div class="Reservationnote-name">
     <span>Customer Note</span>
 </div>
-<div contenteditable="true">
-  This text can be edited by the user.
+<div class="Reservationnote-note" contenteditable="true">
+  <span>This text can be edited by the user.</span>
 </div>
 
 </div>
@@ -929,13 +931,17 @@
 <button>Save Changes</button>
     </div>
         <div class="modalbutton">
+            <div>
          <button class="btn btnClose normal">Close</button>
-         <button >recall</button>
          </div>
-      </div>
+         <div>
+         <button class="btn btnClose normalrecall">Recall</button>
+         </div>
+         </div>
+</div>
    </div>
         <!-- end modal -->
-    </div>
+    
     <!--End Content-->
 <script type="text/javascript" src="<?php echo URLROOT ?>/public/js/modals.js"></script>
   <?php require APPROOT . "/views/inc/footer.php" ?>

@@ -34,6 +34,10 @@ body {
     font: poppings;
 }
 
+.webview {
+    margin: 0px 50px;
+}
+
 .sub-container1-card {
     width: 220px;
     height: 100px;
@@ -69,7 +73,6 @@ body {
     font-size: 1.33rem;
     display: flex;
     flex-direction: column;
-    margin: 0px 50px;
 }
 
 .scroll-area {
@@ -235,6 +238,12 @@ body {
 .popup h2 {
     color: #333;
     width: 100%;
+    margin-left: 50px;
+    padding-left: 50px;
+}
+
+.topic {
+    margin-left: 50px;
 }
 
 .popup .close {
@@ -288,6 +297,12 @@ body {
 
 .modal-box {
     height: 600px;
+    width: 500px;
+}
+
+.modal-box h1 {
+    text-align: center;
+    padding-bottom: 15px;
 }
 
 .modaldatetime-time {
@@ -300,18 +315,28 @@ body {
 }
 
 .modaldatetime-time span {
-    font-size: 18px;
-    font-family: roboto;
+    font-size: 22px;
+}
+
+.confirm-status span {
+    text-align: center;
+    font-size: 17px;
+}
+
+span.duration {
+    font-size: 16px;
 }
 
 .modaldatetime {
     display: flex;
     flex-direction: row;
+    color: var(--theme-purple);
 }
 
 .modaldetails {
     display: flex;
     flex-direction: row;
+    margin: 5px 0px;
 }
 
 .modaldetails-name {
@@ -320,8 +345,8 @@ body {
 
 .modaldetails-status {
     width: 50%;
-    margin-right: 0px;
     text-align: center;
+    padding-left: 100px;
 }
 
 .savechange button {
@@ -335,4 +360,44 @@ body {
     border: none;
     background-color: #ffffff;
     font-family: poppins;
+}
+
+.Reservationnote-name {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.service {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.name {
+    font-size: 16px;
+}
+
+.Reservationnote-note {
+    margin-bottom: 20px;
+}
+
+.Reservationnote-note span {
+    font-size: 18px;
+}
+
+.savechange {
+    text-align: right;
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+.Reservationnote {
+    margin: 5px 0;
+}
+
+.modalbutton {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* padding-left: 50px; */
 }
