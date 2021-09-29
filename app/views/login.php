@@ -13,146 +13,16 @@
 </head>
 
 <body>
-    <?php
-    $val = $_COOKIE['varname'];
-    echo $val;
-    ?>
-    <div class="container" id="container">
-        <!-- signup container -->
-        <div class="form-container sign-up-container">
-            <form action="<?php echo URLROOT; ?>/users/register" method="post">
-                <h1 class="topic">Get Registered</h1>
-                <div class="formwrapper">
-                    <div class="formGroup">
-                        <label class="labels ">First Name </label> <br />
-                        <input type="text" name="fname" placeholder="First Name " class="textinput <?php echo (!empty($data['fname_error'])) ? 'error' : ' ' ?>" value="<?php echo $data['fname']; ?>" />
-                        <span class="error"><?php echo $data['fname_error']; ?></span>
-                    </div>
-                    <div class="formGroup">
-                        <label class="labels ">Last Name </label> <br />
-                        <input type="text" name="lname" placeholder="Last Name" class="textinput 
-                        <?php echo (!empty($data['lname_error'])) ? 'error' : ' ' ?>" value="<?php echo $data['lname']; ?>" />
-                        <span class="error"><?php echo $data['lname_error']; ?></span>
-                    </div>
-                </div>
-
-                <!-- form radio Button -->
-                <div class="formwrapperopt">
-                    <label class="labels">Gender</label>
-
-                    <div class="radiobutton">
-                        <div class="opt">
-                            <label class="option">Male
-                                <input type="radio" name="gender" value="Male" <?php echo ($data['gender'] == "Male") ? 'checked' : '' ?> />
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <div class="opt">
-                            <label class="option">Female
-                                <input type="radio" name="gender" value="Female" <?php echo ($data['gender'] == "Female") ? 'checked' : '' ?>>
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <span class="error"><?php echo $data['gender_error']; ?></span>
-                    </div>
-                </div>
-
-
-                <div class="formwrapper">
-                    <!-- contact number -->
-                    <div class="formGroup">
-                        <label class="labels ">Mobile Number </label> <br />
-                        <input type="text" name="mobileNo" placeholder="+94 " class="textinput 
-                        <?php echo (!empty($data['mobileNo_error'])) ? 'error' : ' ' ?>" value="<?php echo $data['mobileNo']; ?>" />
-                        <span class="error"><?php echo $data['mobileNo_error']; ?></span>
-                    </div>
-                    <div class="formGroup">
-                        <label class="labels ">Verification code </label> <br />
-                        <input type="text" name="code" placeholder="_  _  _  _ " class="textinput 
-                        <?php echo (!empty($data['code_error'])) ? 'error' : ' ' ?>" value="<?php echo $data['code']; ?>" />
-                        <span class="error"><?php echo $data['code_error']; ?></span>
-                    </div>
-                </div>
-
-                <div class="codesend">
-                    <div class="formGroup">
-                        <input class="send-code" type="submit" value="Send code" />
-                    </div>
-                    <div class="message">
-                        <label class="msg">Verification code will be sent to your mobile number</label>
-                    </div>
-                </div>
-
-                <div class="formwrapper">
-                    <div class="formGroup">
-                        <label class="labels">Password </label> <br />
-                        <input type="password" name="password_2" placeholder="Password" class="passwordinput
-                        <?php echo (!empty($data['password_error_2'])) ? 'error' : ' ' ?>" />
-                        <span class="error"><?php echo $data['password_error_2']; ?></span>
-                    </div>
-
-                    <div class="formGroup">
-                        <label class="labels">Confirm password </label> <br />
-                        <input type="password" name="confirmPassword" placeholder="Password" class="passwordinput
-                        <?php echo (!empty($data['confirmPassword_error'])) ? 'error' : ' ' ?>" />
-                        <span class="error"><?php echo $data['confirmPassword_error']; ?></span>
-                    </div>
-                </div>
-                <button class="signupbutton">Register</button>
-
-
-
-
-                <!-- end create Account -->
+    <div class="main-container">
+        <div class="login-container">
+            <form action="#">
+                <h1>Log In</h1>
+                <input type="text">
+                <input type="text" name="" id="">
+                <button>Register</button>
             </form>
         </div>
-        <!-- end signup container -->
-        <!-- signin container -->
-        <div class="form-container sign-in-container">
-            <form action="<?php echo URLROOT; ?>/users/login" method="post">
-                <h1>Sign in</h1>
-                <!-- input field -->
-                <div class="text-group">
-                    <input name="contactNo" id="user name" type="text" placeholder="Contact No" class="username <?php echo (!empty($data['contactNo_error'])) ? 'error' : ' ' ?>" value="<?php echo $data['contactNo']; ?>" />
-                    <span class="error"><?php echo $data['contactNo_error']; ?></span>
-                </div>
-
-                <!-- end input field -->
-                <div class="text-group">
-                    <input name="password" type="password" placeholder="Password" class="
-                    <?php echo (!empty($data['password_error'])) ? 'error' : ' ' ?>" />
-                    <span class="error"><?php echo $data['password_error']; ?></span>
-                </div>
-                <a href="#">Forgot your password?</a>
-                <button>Sign In</button>
-            </form>
-        </div>
-        <!-- end signin container -->
-        <!-- overlay-container -->
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please sign in to your account</p>
-                    <button class="ghost" id="signIn">Sign In</button>
-                </div>
-                <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Get registered and start your journey with us</p>
-                    <button class="ghost" id="signUp">Register</button>
-                </div>
-            </div>
-        </div>
-        <!-- overlay-container -->
     </div>
-    <?php
-    if ($val == "reg") { ?>
-        <script type="text/javascript" src="<?php echo URLROOT ?>/public/js/register.js"></script>
-    <?php
-    } else { ?>
-        <script type="text/javascript" src="<?php echo URLROOT ?>/public/js/login.js"></script>
-    <?php
-    } ?>
 
 </body>
 
