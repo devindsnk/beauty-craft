@@ -57,6 +57,238 @@
                             <span>Confirmed</span>
                         </div>
                         <div class="sub-container2-card-link">
+                            <button class="btnOpen normal" type="button">
+                  More Info
+                </button>
+                        </div>
+                    </div>
+                    <!-- sub-container2-card -->
+                                        <div class="sub-container2-card">
+                        <!--sub-container2-card-timetype-->
+                        <div class="sub-container2-card-timeservice">
+                            <span class="sub-container2-card-timeservice-time">
+                  10.30-11.00
+                </span>
+                            <span class="sub-container2-card-timeservice-service">
+                  Ladies hair cut
+                </span>
+                        </div>
+                        <!--sub-container2-card-timetype-->
+
+                        <div class="sub-container2-card-name">
+                            <span>Ruwanthi Munasinghe</span>
+                        </div>
+                        <div class="confirm-status">
+                            <span>Confirmed</span>
+                        </div>
+                        <div class="sub-container2-card-link">
+                            <button class="sub-container2-card-link" type="button">
+                  More Info
+                </button>
+                        </div>
+                    </div>
+                    <!-- end sub-container2-card -->
+                                        <!-- sub-container2-card -->
+                                        <div class="sub-container2-card">
+                        <!--sub-container2-card-timetype-->
+                        <div class="sub-container2-card-timeservice">
+                            <span class="sub-container2-card-timeservice-time">
+                  10.30-11.00
+                </span>
+                            <span class="sub-container2-card-timeservice-service">
+                  Ladies hair cut
+                </span>
+                        </div>
+                        <!--sub-container2-card-timetype-->
+
+                        <div class="sub-container2-card-name">
+                            <span>Ruwanthi Munasinghe</span>
+                        </div>
+                        <div class="confirm-status">
+                            <span>Confirmed</span>
+                        </div>
+                        <div class="sub-container2-card-link">
+                            <button class="sub-container2-card-link" type="button">
+                  More Info
+                </button>
+                        </div>
+                    </div>
+                    <!-- end sub-container2-card -->
+                                        <!-- sub-container2-card -->
+                                        <div class="sub-container2-card">
+                        <!--sub-container2-card-timetype-->
+                        <div class="sub-container2-card-timeservice">
+                            <span class="sub-container2-card-timeservice-time">
+                  10.30-11.00
+                </span>
+                            <span class="sub-container2-card-timeservice-service">
+                  Ladies hair cut
+                </span>
+                        </div>
+                        <!--sub-container2-card-timetype-->
+
+                        <div class="sub-container2-card-name">
+                            <span>Ruwanthi Munasinghe</span>
+                        </div>
+                        <div class="confirm-status">
+                            <span>Confirmed</span>
+                        </div>
+                        <div class="sub-container2-card-link">
+                            <button class="sub-container2-card-link" type="button">
+                  More Info
+                </button>
+                        </div>
+                    </div>
+                    <!-- end sub-container2-card -->
+                                        <!-- sub-container2-card -->
+                                        <div class="sub-container2-card">
+                        <!--sub-container2-card-timetype-->
+                        <div class="sub-container2-card-timeservice">
+                            <span class="sub-container2-card-timeservice-time">
+                  10.30-11.00
+                </span>
+                            <span class="sub-container2-card-timeservice-service">
+                  Ladies hair cut
+                </span>
+                        </div>
+                        <!--sub-container2-card-timetype-->
+
+                        <div class="sub-container2-card-name">
+                            <span>Ruwanthi Munasinghe</span>
+                        </div>
+                        <div class="confirm-status">
+                            <span>Confirmed</span>
+                        </div>
+                        <div class="sub-container2-card-link">
+                            <button class="sub-container2-card-link" type="button">
+                  More Info
+                </button>
+                        </div>
+                    </div>
+                    <!-- end sub-container2-card -->
+                                        <!-- sub-container2-card -->
+                                        <div class="sub-container2-card">
+                        <!--sub-container2-card-timetype-->
+                        <div class="sub-container2-card-timeservice">
+                            <span class="sub-container2-card-timeservice-time">
+                  10.30-11.00
+                </span>
+                            <span class="sub-container2-card-timeservice-service">
+                  Ladies hair cut
+                </span>
+                        </div>
+                        <!--sub-container2-card-timetype-->
+
+                        <div class="sub-container2-card-name">
+                            <span>Ruwanthi Munasinghe</span>
+                        </div>
+                        <div class="confirm-status">
+                            <span>Confirmed</span>
+                        </div>
+                        <div class="sub-container2-card-link">
+                            <button class="sub-container2-card-link" type="button">
+                  More Info
+                </button>
+                        </div>
+                    </div>
+                    <!-- end sub-container2-card -->
+                                        <!-- sub-container2-card -->
+                                        <div class="sub-container2-card">
+                        <!--sub-container2-card-timetype-->
+                        <div class="sub-container2-card-timeservice">
+                            <span class="sub-container2-card-timeservice-time">
+                  10.30-11.00
+                </span>
+                            <span class="sub-container2-card-timeservice-service">
+                  Ladies hair cut
+                </span>
+                        </div>
+                        <!--sub-container2-card-timetype-->
+
+                        <div class="sub-container2-card-name">
+                            <span>Ruwanthi Munasinghe</span>
+                        </div>
+                        <div class="confirm-status">
+                            <span>Confirmed</span>
+                        </div>
+                        <div class="sub-container2-card-link">
+                            <button class="sub-container2-card-link" type="button">
+                  More Info
+                </button>
+                        </div>
+                    </div>
+                    <!-- end sub-container2-card -->
+                    <var><var>                    <!-- sub-container2-card -->
+                                        <div class="sub-container2-card">
+                        <!--sub-container2-card-timetype-->
+                        <div class="sub-container2-card-timeservice">
+                            <span class="sub-container2-card-timeservice-time">
+                  10.30-11.00
+                </span>
+                            <span class="sub-container2-card-timeservice-service">
+                  Ladies hair cut
+                </span>
+                        </div>
+                        <!--sub-container2-card-timetype-->
+
+                        <div class="sub-container2-card-name">
+                            <span>Ruwanthi Munasinghe</span>
+                        </div>
+                        <div class="confirm-status">
+                            <span>Confirmed</span>
+                        </div>
+                        <div class="sub-container2-card-link">
+                            <button class="sub-container2-card-link" type="button">
+                  More Info
+                </button>
+                        </div>
+                    </div>
+                    <!-- end sub-container2-card --></var></var>
+
+                                       <div class="sub-container2-card">
+                        <!--sub-container2-card-timetype-->
+                        <div class="sub-container2-card-timeservice">
+                            <span class="sub-container2-card-timeservice-time">
+                  10.30-11.00
+                </span>
+                            <span class="sub-container2-card-timeservice-service">
+                  Ladies hair cut
+                </span>
+                        </div>
+                        <!--sub-container2-card-timetype-->
+
+                        <div class="sub-container2-card-name">
+                            <span>Ruwanthi Munasinghe</span>
+                        </div>
+                        <div class="confirm-status">
+                            <span>Confirmed</span>
+                        </div>
+                        <div class="sub-container2-card-link">
+                            <button class="sub-container2-card-link" type="button">
+                  More Info
+                </button>
+                        </div>
+                    </div>
+                    <!-- sub-container2-card -->
+                                       <div class="sub-container2-card">
+                        <!--sub-container2-card-timetype-->
+                        <div class="sub-container2-card-timeservice">
+                            <span class="sub-container2-card-timeservice-time">
+                  10.30-11.00
+                </span>
+                            <span class="sub-container2-card-timeservice-service">
+                  Ladies hair cut
+                </span>
+                        </div>
+                        <!--sub-container2-card-timetype-->
+
+                        <div class="sub-container2-card-name">
+                            <span>Ruwanthi Munasinghe</span>
+                        </div>
+                        <div class="confirm-status">
+                            <span>Confirmed</span>
+                        </div>
+                        <div class="sub-container2-card-link">
                             <button class="sub-container2-card-link" type="button">
                   More Info
                 </button>
@@ -444,7 +676,7 @@
                         </div>
                     </div>
                     <!--End mobile sub-container2-card-->
-                    
+
                     
 
 
@@ -636,8 +868,8 @@
 
         </div>
         <!--End sub-container2-->
-        <!--popup-->
-        <div id="popup1" class="overlay">
+        <!-- popup-->
+        <!-- <div id="popup1" class="overlay">
             <div class="popup">
                 <h2 class="popup-topic">Reservation Details</h2>
                 <a class="close" href="#">&times;</a>
@@ -645,9 +877,65 @@
                     content
                 </div>
             </div>
-        </div>
-        <!--End popup-->
+        </div> -->
+        <!--End popup -->
+
+        <!-- modal -->
+    <div class="modal-container normal">
+      <div class="modal-box">
+         <h1>Reservation details</h1>
+       <div class="modaldatetime">
+           <div class="modaldatetime-time">
+                <span>10.45 - 11.00</span><br>
+                <span>25 mins</span>
+           </div>
+           <div class="modaldatetime-date">
+               <span>JUNE 10</span><br>
+               <span>2020</span>
+           </div>
+       </div>
+        <div class="modaldetails">
+           <div class="modaldetails-name">
+                <span>Hair Color-short</span><br>
+                <span>Ruwanthi Munasinghe</span>
+           </div>
+           <div class="modaldetails-status">
+              <div class="confirm-status">
+                    <span>Confirmed</span>
+                </div>
+           </div>
+       </div>
+
+       <div class="Reservationnote">
+<div class="Reservationnote-name">
+    <span>Reservation Note</span>
+</div>
+<div class="Reservationnote-note">
+    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum magni nisi dolorem? Harum totam, earum possimus sequi sint nesciunt, maior</span>
+
+</div>
+
+       </div>
+<div class="Reservationnote">
+<div class="Reservationnote-name">
+    <span>Customer Note</span>
+</div>
+<div contenteditable="true">
+  This text can be edited by the user.
+</div>
+
+</div>
+<div class="savechange">
+<button>Save Changes</button>
+    </div>
+        <div class="modalbutton">
+         <button class="btn btnClose normal">Close</button>
+         <button >recall</button>
+         </div>
+      </div>
+   </div>
+        <!-- end modal -->
     </div>
     <!--End Content-->
-
+<script type="text/javascript" src="<?php echo URLROOT ?>/public/js/modals.js"></script>
   <?php require APPROOT . "/views/inc/footer.php" ?>
