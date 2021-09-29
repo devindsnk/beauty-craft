@@ -28,6 +28,7 @@
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/ownRates.css"/>
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/ownSalaries.css"/>
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/own_overview.css"/>
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/ownCloseSalon.css"/>
 
    <!-- <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/mang_overviewAnalytics.css" /> -->
    

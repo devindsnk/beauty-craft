@@ -4,36 +4,37 @@
 /* ------------------------------------------------------ */
 /* --------------STYLES ADDED BY RAVINDU -----------------*/
 /* ------------------------------------------------------ */
-.ownRemStaffHead {
+
+
+
+
+/* ------------------------------------------------------------------------------------------------------ */
+/* ----------------------------------- Remove Staff styles starts------------------ --------------------- */
+/* ------------------------------------------------------------------------------------------------------ */
+
+#ownRemstaffWrapper{
+    display: block;
+    width: 400px;
+}
+
+.ownRemstaffContainer {
+    display: grid;    
+}
+
+.ownRemStaffHead{
     padding-bottom: 10px;
     text-align: center;
  }
 
- .container {
-  
-    width: 40%;
-    min-width: 330px;
-    background-color: #ffffff;
-    padding: 35px 50px;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    border-radius: 8px;
-    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);  
 
- }
 
-.staffLabel1,
-.staffLabel2,
-.staffLabel3{ 
+.staffLable{ 
      font-size: 14px;
      font-weight: 600;
      text-align: start;
+     display: block;
  }
- .staffData1,
- .staffData2,
- .staffData3
+ .staffData
  {
     font-size: 14px;
     font-weight: 600;
@@ -41,23 +42,42 @@
     text-align: start;
  }
 .staffDetails{
-   text-align: center;
-   align-items: end;
+   
+    width: 300px;
+    height: 120px;
 }
 
 
 .remStaffErrortext {
-     font-size: 10px;
+     font-size: 12px;
      color: red ;
-     padding-top: 5px;
  }
- .viewReservaions{
+ .remStaffErrorAnchortag{
+     cursor: auto;
+ }
+ .remStaffErrorViewReservaions{
      color: #037AFF;
+     text-align: start;
+     font-size: 12px;
+     cursor: pointer;
+    
+   
      
 }
 .remStaffError{
-    text-align: center;
+    text-align: left;
+    width: 300px;
+    height: 40px;
+
 }
+
+
+
+
+
+
+/* 
+--------------------------------------------- */
  button {
     border: none;
     padding: 7px 20px;
@@ -66,10 +86,17 @@
           #037AFF);
     color: #ffffff;
     border-radius: 6px;
-    font-family: 'Poppins';
     font-size: 14px;
     font-weight: 400;
  }
+
+
+
+
+
+
+
+
 
  .ownRemStaffbtn1 .btn{
      background: #EAEAEA;
@@ -77,22 +104,19 @@
  }
 
 
-
-
-
-
-
 .staffDetails{
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-areas: 
-    'staffLabel1 staffData1'
-    'staffLabel2 staffData2'
-    'staffLabel3 staffData3';
+    grid-template-columns: 1fr 1fr; 
+    justify-self: center;
+    grid-template-areas:
+    'staffDetail1 staffDetail2' 
+    'staffDetail3 staffDetail3'
+   
 }
 .remStaffError{
-    display: grid;
+    display: grid; 
     grid-template-columns: 100%;
+    justify-self: center;
     grid-template-areas: 
     'remStaffErrortext' 
     'viewReservaions';
@@ -101,30 +125,25 @@
 .remButtons{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-gap: 40px;
     grid-template-areas: 
     'ownRemStaffbtn1 ownRemStaffbtn2';
     text-align:  center;
     padding-top: 5px;
 }
 
-
-.staffLabel1{
-    grid-area: staffLabel1;
+.staffDetail1{
+    grid-area: staffDetail1;
+    
 }
-.staffData1{
-    grid-area: staffData1;
+.staffDetail2{
+    grid-area: staffDetail2;
+  
+ 
 }
-.staffLabel2{
-    grid-area: staffLabel2;
-}
-.staffData2{
-    grid-area: staffData2;
-}
-.staffLabel3{
-    grid-area: staffLabel3;
-}
-.staffData3{
-    grid-area: staffData3;
+.staffDetail3{
+    grid-area: staffDetail3;
+    
 }
 .remStaffErrortext{
     grid-area: remStaffErrortext;
@@ -135,11 +154,18 @@
 }
 .ownRemStaffbtn1{
     grid-area: ownRemStaffbtn1;
+    justify-self: right;
     
 }
 .ownRemStaffbtn2{
     grid-area: ownRemStaffbtn2;
+   justify-self: left;
 }
+
+
+/* ------------------------------------------------------------------------------------------------------ */
+/* ----------------------------------- Remove Staff styles ends------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------------ */
 
 
 
@@ -170,28 +196,59 @@
 /* -----------------------------------Add staff styles starts------------------------------------------- */
 /* ------------------------------------------------------------------------------------------------------ */
 
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 /* -----------------------------------container styles starts---------------------------------- */
 
-.ownAddstaffContainer{ 
+/* -----------------------------------body styles starts----------------------------------------- */
+.ownAddstaffBody{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    /* position: relative; */
+    
+}
+  
+/* -----------------------------------body styles endss----------------------------------------- */
+.ownStaff_allignmentbox{
+    display: grid;
+    height: 100%;
+    /* position: absolute;
+    padding: 20px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); */
+}  
+
+
+/* -----------------------------------container styles starts---------------------------------- */
+.ownAddstaffContainer {
+
     max-width: 800px;
     width: 100%;
     background: white;
-    padding: 25px 16px ;
+    padding: 25px ;
     border-radius: 6px;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    box-sizing: border-box;
-}
+    display: grid;
+    justify-self: center;
 
+     
+}
+/* -----------------------------------container styles ends------------------------------------- */
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+  
 /* --------------- Form heading styles --------------------------------*/
+
+
 .ownAddStaff_Formheading{
     text-align: center;
 }
-
-
+.container{
+    align-items: center;
+    position: absolute;
+}
 
 .ownAddstaffContainer .ownAddstaffBasicinfo,
 .ownAddstaffContainer .ownAddstaffContactdetails,
@@ -251,7 +308,7 @@
 
 /*----------------------------------- Drop down styles ----------------------------------------------------------*/
 
-.dropdownselectbox{
+.ownAddstaffFormGroupStype .dropdownselectbox{
     font-size: 16px;
     padding : 10px 15px;
     background: white;
@@ -266,10 +323,8 @@
     color: white;
     border: 1px solid ;
     height: 40px;
-    display: block;
     width: 40%;
     padding: 10px;
-    font-family: inherit;
     font-size: 16px;
     border-radius: 6px;
     float: right;
@@ -503,3 +558,53 @@
 /* ------------------------------------------------------------------------------------------------------ */
 /* -----------------------------------Add staff styles ends------------------------------------------- */
 /* ------------------------------------------------------------------------------------------------------ */
+
+.ownUpdateStaffFormGroupDisable .toglecheckbox{
+    position: relative;
+    width: 80px;
+    height: 40px;
+    -webkit-appearance: none;
+    background: #c6c6c6;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+.ownUpdateStaffFormGroupDisable .toglecheckbox:checked{
+    background: #444BF8;
+
+}
+.ownUpdateStaffFormGroupDisable .toglecheckbox::before{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+.ownUpdateStaffFormGroupDisable .toglecheckbox:checked::before{
+    left: 40px;
+}
+
+.ownUpdateStaffDisable{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    'ownUpdateStaffFormGroupDisableLable '
+    'ownUpdateStaffFormGroupDisableTogle';
+}
+
+
+.ownUpdateStaffFormGroupDisableLable{
+    grid-area: ownUpdateStaffFormGroupDisableLable;
+}
+.ownUpdateStaffFormGroupDisableTogle{
+    grid-area: ownUpdateStaffFormGroupDisableTogle;
+    padding-top: 20px;
+    padding-left: 10px;
+}
