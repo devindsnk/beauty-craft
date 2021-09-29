@@ -72,7 +72,7 @@
   background-color: #f4f5f7 !important;
 }
 
-.table1 input[type="checkbox"]{
+/* .table1 input[type="checkbox"]{
   appearance: none;
   -webkit-appearance: none;
   height: 13px;
@@ -94,10 +94,10 @@
   font-size: 10px;
   color: white;
   display: none;
-}
+} */
 
 .table1 input[type="checkbox"]:hover{
-  background-color: #adb5bd;
+  background-color: #343435;
 }
 
 .table1 input[type="checkbox"]:checked{
@@ -212,9 +212,10 @@
   }
 
   .table1 tbody tr td:nth-child(1){
+    max-height: 0;
     width: 80px;
     margin-left: auto;
-    top: 50px;
+    top: 25px;
     padding: 10px 10px 10px 40px;
   }
 
