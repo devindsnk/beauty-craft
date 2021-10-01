@@ -42,30 +42,25 @@
                 <div class="webview">
                     <div class="sub-container2-card">
                         <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-timeservice">
-                            <span class="sub-container2-card-timeservice-time">
-                  10.30-11.00
-                </span>
-                            <span class="sub-container2-card-timeservice-service">
-                  Ladies hair cut
-                </span>
+                        <div class="sub-container2-card-name">
+                            <span class="sub-container2-card-timeservice-time"> 10.30 - 11.00 </span>
+                            <span class="sub-container2-card-timeservice-service">Ladies hair cut</span>
                         </div>
                         <!--sub-container2-card-timetype-->
 
                         <div class="sub-container2-card-name">
-                            <span>Ruwanthi Munasinghe</span>
+                            <span class="sub-container2-card-name-cstname">Customer Name</span><br>
+                            <span class="name">Ruwanthi Munasinghe</span>
                         </div>
                         <div class="confirm-status">
                             <span>Confirmed</span>
                         </div>
                         <div class="sub-container2-card-link">
-                            <button class="btnOpen normal" type="button">
-                  More Info
-                </button>
+                            <button class="btnOpen normal" type="button">More Info</button>
                         </div>
                     </div>
                     <!-- sub-container2-card -->
-                                        <div class="sub-container2-card">
+                    <div class="sub-container2-card">
                         <!--sub-container2-card-timetype-->
                         <div class="sub-container2-card-timeservice">
                             <span class="sub-container2-card-timeservice-time">
@@ -884,7 +879,7 @@
 
         <!-- modal -->
     <div class="modal-container normal">
-      <div class="modal-box">
+    <div class="modal-box">
          <h1>Reservation details</h1>
        <div class="modaldatetime">
            <div class="modaldatetime-time">
@@ -908,37 +903,36 @@
            </div>
        </div>
 
-       <div class="Reservationnote">
-    <div class="Reservationnote-name">
-        <span>Reservation Note</span>
-    </div>
-<div class="Reservationnote-note">
-    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum magni nisi dolorem? Harum totam, earum possimus sequi sint nesciunt, maior</span>
+       <div class="Reservationnote cust">
+          <div class="Reservationnote-name">
+             <span>Reservation Note</span>
+          </div>
+          <div class="Reservationnote-note">
+             <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum magni nisi dolorem? Harum totam, earum possimus sequi sint nesciunt, maior</span>
 
-</div>
+          </div>
+        </div>
+        <div class="Reservationnote">
+           <div class="Reservationnote-name">
+               <span>Customer Note</span>
+           </div>
+           <div class="Reservationnote-note editable" contenteditable="true">
+               <span>This text can be edited by the user.</span>
+            </div>
 
-       </div>
-<div class="Reservationnote">
-<div class="Reservationnote-name">
-    <span>Customer Note</span>
-</div>
-<div class="Reservationnote-note" contenteditable="true">
-  <span>This text can be edited by the user.</span>
-</div>
-
-</div>
-<div class="savechange">
-<button>Save Changes</button>
-    </div>
+        </div>
+        <div class="savechange">
+            <button>Save Changes</button>
+        </div>
         <div class="modalbutton">
             <div>
-         <button class="btn btnClose normal">Close</button>
-         </div>
-         <div>
-         <button class="btn btnClose normalrecall">Recall</button>
-         </div>
-         </div>
-</div>
+               <button class="btn btnClose normal">Close</button>
+            </div>
+            <div>
+                <button class="btn btnClose normalrecall">Recall</button>
+            </div>
+        </div>
+    </div>
    </div>
         <!-- end modal -->
     

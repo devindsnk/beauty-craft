@@ -6,6 +6,8 @@
 
 /* ------------------------------------------------------ */
 
+
+/* 
 :root {
     --theme-purple: #444bf8;
     --theme-blue: #037aff;
@@ -14,7 +16,7 @@
     --theme-grey: #50515a;
     --white: #ffffff;
     --black: #000000;
-}
+} */
 
 body {
     background-color: var(--theme-bgwhite);
@@ -91,8 +93,9 @@ body {
 }
 
 .sub-container2-card {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.034), 0 5px 17.9px rgba(0, 0, 0, 0.072);
     padding: 10px 20px;
-    height: 80px;
+    height: 100px;
     display: flex;
     font-size: 1.06rem;
     align-items: center;
@@ -105,19 +108,22 @@ body {
 .sub-container2-card-timeservice {
     width: 25%;
     height: 100%;
+    margin-left: 10px;
 }
 
 .sub-container2-card-timeservice-time {
     height: 40%;
     font-weight: 400;
     display: block;
+    font-size: 18px;
+    /* margin-top: 5px; */
     /* font-size: 1.06rem; */
 }
 
 .sub-container2-card-timeservice-service {
     height: 60%;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 24px;
     display: block;
 }
 
@@ -135,6 +141,18 @@ body {
     height: 60px;
     border-radius: 100%;
     margin-right: 10px;
+}
+
+.sub-container2-card-name {
+    display: block;
+}
+
+.sub-container2-card-name-cstname {
+    font-size: 18px;
+}
+
+.sub-container2-card-name .name {
+    font-size: 21px;
 }
 
 .sub-container2-card button {
@@ -235,6 +253,12 @@ body {
     /* background-color: #06d85f; */
 }
 
+.sub-content-container2 h2 {
+    font-size: 27px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
 .popup h2 {
     color: #333;
     width: 100%;
@@ -307,11 +331,13 @@ body {
 
 .modaldatetime-time {
     width: 50%;
+    color: Var(--theme-black);
 }
 
 .modaldatetime-date {
     width: 50%;
     text-align: right;
+    color: Var(--theme-black);
 }
 
 .modaldatetime-time span {
@@ -323,8 +349,22 @@ body {
     font-size: 17px;
 }
 
+.modaldatetime-time {
+    font-weight: 600;
+}
+
 span.duration {
     font-size: 16px;
+    font-weight: 600;
+    color: var(--theme-blue);
+}
+
+.Reservationnote-note.editable {
+    border: var(--theme-black) solid 2px;
+    padding: 0px 10px;
+    border-radius: 6px;
+    background-color: rgb(236, 230, 230);
+    padding-bottom: 20px;
 }
 
 .modaldatetime {
@@ -351,7 +391,7 @@ span.duration {
 
 .savechange button {
     background: transparent;
-    font-size: 20px;
+    font-size: 18px;
     color: var(--theme-black);
     font-weight: 600;
     text-align: right;
@@ -367,6 +407,10 @@ span.duration {
     font-weight: 600;
 }
 
+.Reservationnote.cust {
+    padding-bottom: 10px;
+}
+
 .service {
     font-weight: 600;
     font-size: 20px;
@@ -376,12 +420,14 @@ span.duration {
     font-size: 16px;
 }
 
+
+/* 
 .Reservationnote-note {
-    margin-bottom: 20px;
-}
+    margin-bottom: 10px;
+} */
 
 .Reservationnote-note span {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .savechange {
@@ -391,7 +437,7 @@ span.duration {
 }
 
 .Reservationnote {
-    margin: 5px 0;
+    /* margin: 5px 0; */
 }
 
 .modalbutton {
@@ -400,4 +446,21 @@ span.duration {
     flex-direction: row;
     justify-content: space-around;
     /* padding-left: 50px; */
+}
+
+.modaldetails-name span.name {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.modalbutton button.btn.btnClose.normal {
+    height: 45px;
+    width: 110px;
+    font-size: 18px;
+}
+
+.modalbutton button.btn.btnClose.normalrecall {
+    height: 45px;
+    width: 110px;
+    font-size: 18px;
 }
