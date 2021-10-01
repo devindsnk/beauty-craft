@@ -36,12 +36,12 @@
          </div>
 
          <div class="buttons">
-            <button class="btn-landing btnLogin" value="Login">
-               <a href="<?php echo URLROOT ?>/users/login"><span>Login</span></a>
-            </button>
-            <button class="btn-landing btnRegister">
-               <a href="<?php echo URLROOT ?>/customer/register"><span>Register</span></a>
-            </button>
+            <a href="<?php echo URLROOT ?>/user/signin" class="btn-landing btnLogin">
+               <span>Sign In</span>
+            </a>
+            <a href="<?php echo URLROOT ?>/customer/register" class="btn-landing btnRegister">
+               <span>Register</span>
+            </a>
             <div class="profileIcon">
                <img src="<?php echo URLROOT ?>/public/imgs/person4.jpg" alt="">
             </div>

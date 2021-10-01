@@ -1,17 +1,17 @@
 <?php
-class Users extends Controller
+class User extends Controller
 {
    public function __construct()
    {
       // $this->employeeModel = $this->model('Employee');
    }
-   public function login()
+   public function signin()
    {
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          $data = [
-            'contactNo' => trim($_POST['contactNo']),
+            'mobileNo' => trim($_POST['contactNo']),
             'password' => trim($_POST['password']),
-            'contactNo_error' => '',
+            'mobileNo_error' => '',
             'password_error' => ''
          ];
 
@@ -27,16 +27,16 @@ class Users extends Controller
          if (empty($data['contactNo_error']) && empty($data['password_error'])) {
             die("Success");
          } else {
-            $this->view('login', $data);
+            $this->view('signin', $data);
          }
       } else {
          $data = [
-            'contactNo' => '',
+            'mobileNo' => '',
             'password' => '',
-            'contactNo_error' => '',
+            'mobileNo_error' => '',
             'password_error' => ''
          ];
-         $this->view('login', $data);
+         $this->view('signin', $data);
       }
    }
 }
