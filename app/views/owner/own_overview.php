@@ -14,7 +14,7 @@
    ?>
 
    <!--Content-->
-   <div class="content">
+   <div class="content own overview">
       <!-- owner overview Container starts -->
       <div class="ownOverviewContainer">
       <div class="ownOverviewCardContainer">

@@ -17,7 +17,7 @@
    <!--Content-->
 
 <!----------------------- temporary buttons --------------------------------------->
-   <div class="content">
+   <div class="content own staff">
       <h3>This is main option 1</h3>
       <div class="container">
       <button class="btnOpen normal" type="button">Remove Staff</button>

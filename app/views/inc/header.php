@@ -21,7 +21,7 @@
    <!-- Temporary Styles-->
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/formStyle.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/receptStyle.css" />
-   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/own_styles.css" />
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/ownStyle.css" />
   
 
    <!-- <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/mang_overviewAnalytics.css" /> -->

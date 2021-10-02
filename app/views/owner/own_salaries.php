@@ -14,7 +14,7 @@
    ?>
 
    <!--Content-->
-   <div class="content">
+   <div class="content own salaries">
       <h3>This is main option 1</h3>
       <div class="SalaryReportContainer">
       <div class="ownSalaryReportHeadings">

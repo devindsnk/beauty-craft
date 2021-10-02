@@ -14,7 +14,7 @@
    ?>
 
    <!--Content-->
-<div class="content">
+<div class="content own rates">
     <h3>This is main option 1</h3>
     <!-- grid area 1  start-->
     <div class="ownRatesDate">

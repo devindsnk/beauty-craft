@@ -1,7 +1,7 @@
 <?php require APPROOT . "/views/inc/header.php" ?>
 
 <!-- <body class="ownAddstaffBody"> -->
-<body class="ownAddstaffBody">
+<body class="ownAddstaffBody ">
 
 
 <div class="ownStaff_allignmentbox">

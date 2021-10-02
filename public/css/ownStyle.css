@@ -1,13 +1,13 @@
-.ownOverviewCardContainer .sub-container-card{
+.own.overview .ownOverviewCardContainer .sub-container-card{
     width: 450px;
     overflow: hidden;
     height: 150px;
 }
-.ownOverviewCardContainer .ownOverviewContainerCard3 .sub-container-card{
+.own.overview .ownOverviewCardContainer .ownOverviewContainerCard3 .sub-container-card{
     width: 1100px;
     height: 60px;
 }
-.ownOverviewCardContainer{
+.own.overview .ownOverviewCardContainer{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
@@ -17,19 +17,19 @@
 
 }
 
-.ownOverviewContainerCard1{
+.own.overview .ownOverviewContainerCard1{
     grid-area: ownOverviewContainerCard1;
 }
 
-.ownOverviewContainerCard2{
+.own.overview .ownOverviewContainerCard2{
     grid-area: ownOverviewContainerCard2;
 }
-.ownOverviewContainerCard3{
+.own.overview .ownOverviewContainerCard3{
     grid-area: ownOverviewContainerCard3;
     padding: 10px 0 20px 0;
 }
 
-.ownOverviewCharts{
+.own.overview .ownOverviewCharts{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: 
@@ -37,13 +37,13 @@
 
 }
 
-.ownOverviewChart1{
+.own.overview .ownOverviewChart1{
     grid-area: ownOverviewChart1;
 }
-.ownOverviewChart2{
+.own.overview .ownOverviewChart2{
     grid-area: ownOverviewChart2;
 }
-.ownOverviewChart3{
+.own.overview .ownOverviewChart3{
     grid-area: ownOverviewChart3;
 }
 
@@ -63,25 +63,26 @@ Close Salon Starts
 
 
 
+
 #ownCloseSalonContainer{
-    width: 550px;
- }
- 
- .ownCloseSalonHead{
+     width: 550px;
+ } 
+
+ .own.close-salon .ownCloseSalonHead{
      text-align: center;
  }
- .ownCloseSalonLable{
+ .own.close-salon .ownCloseSalonLable{
      font-size: 14px;
       font-weight: 600;
       text-align: start;
  }
  
- .ownCloseSalonDetail1,
- .ownCloseSalonDetail2{
+ .own.close-salon .ownCloseSalonDetail1,
+ .own.close-salon .ownCloseSalonDetail2{
      display: inline-block;
  }
  
- .ownCloseSalonGrid1 input[type = "date"], #ownCloseSalonTextArea, select {
+ .own.close-salon .ownCloseSalonGrid1 input[type = "date"], #ownCloseSalonTextArea, select {
      width: 100%;
      font-weight: 400;
      padding: 8px 10px;
@@ -95,26 +96,26 @@ Close Salon Starts
       width: 450px;
   }
  
-  .ownCloseSalonGrid1 input:focus,
+  .own.close-salon .ownCloseSalonGrid1 input:focus,
   #ownCloseSalonTextArea:focus{
       border-color: none;
       outline: none;
   }
  
-  .ownCloseSalonErrortext{
+  .own.close-salon .ownCloseSalonErrortext{
      font-size: 12px;
      color: red ;
      padding-right: 40px;
      font-weight: 600;
   }
  
-  .ownCloseSalonMessage{
+  .own.close-salon .ownCloseSalonMessage{
       font-size: 14px;
       padding-top: 5px;
       font-weight: 600;
   }
  
-  .ownCloseSalonErrorViewReservaions{
+  .own.close-salon .ownCloseSalonErrorViewReservaions{
      color: #037AFF;
      text-align: start;
      font-size: 14px;
@@ -124,7 +125,7 @@ Close Salon Starts
   }
  
  
-  .ownCloseSalonGrid3{
+  .own.close-salon .ownCloseSalonGrid3{
       display: grid;
       justify-self: center;
       padding-top: 10px;
@@ -134,15 +135,15 @@ Close Salon Starts
       'ownRemStaffbtn1 ownRemStaffbtn2' }
  
  
-  .ownRemStaffbtn1{
+      .own.close-salon .ownRemStaffbtn1{
       grid-area: ownRemStaffbtn1;
   }
  
-  .ownRemStaffbtn2{
+  .own.close-salon .ownRemStaffbtn2{
      grid-area: ownRemStaffbtn2;
  }
  
- .ownRemStaffbtn2 .btn{  
+ .own.close-salon .ownRemStaffbtn2 .btn{  
      background: #3ABD5F;
  }
  
@@ -185,56 +186,52 @@ Customers Starts
 /* ------------------------------------------------------ */
 /* --------------STYLES ADDED BY RAVINDU -----------------*/
 /* ------------------------------------------------------ */
-.ownRemCusHead {
+.own.customers .ownRemCusHead {
     padding-bottom: 10px;
     text-align: center;
  }
 
- .container {
+ .own.customers .container {
   
     width: 40%;
     min-width: 330px;
     background-color: #ffffff;
     padding: 35px 50px;
-    transform: translate(-50%, -50%);
-    /* position: absolute; */
-    align-items: center;
-    left: 50%;
-    top: 50%;
+    margin-left: 30px;
     border-radius: 6px;
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);  
 
  }
 
-.ownRemCusLabel1,
-.ownRemCusLabel2{ 
+ .own.customers .ownRemCusLabel1,
+ .own.customers .ownRemCusLabel2{ 
      font-size: 14px;
      font-weight: 600;
      text-align: start;
  }
- .ownRemCusData1,
- .ownRemCusData2
+ .own.customers .ownRemCusData1,
+ .own.customers .ownRemCusData2
  {
     font-size: 14px;
     font-weight: 600;
     color: #50515A;
     text-align: start;
  }
-.ownRemCusDetails{
+ .own.customers .ownRemCusDetails{
    text-align: center;
    align-items: end;
 }
 
 
-.ownRemCusErrortext {
+.own.customers .ownRemCusErrortext {
      font-size: 10px;
      color: red ;
      padding-top: 5px;
  }
-.ownRemCusError{
+ .own.customers .ownRemCusError{
     text-align: center;
 }
- button {
+.own.customers button {
     border: none;
     padding: 7px 20px;
     background: linear-gradient(130deg,
@@ -247,12 +244,12 @@ Customers Starts
     font-weight: 400;
  }
 
- .ownRemCusbtn1 .btn{
+ .own.customers .ownRemCusbtn1 .btn{
      background: #EAEAEA;
      color: black;
  }
  
-.ownRemCusDetails{
+ .own.customers.ownRemCusDetails{
     display: grid;
     width: 400px;
     grid-template-columns: 1fr 1fr;
@@ -261,14 +258,14 @@ Customers Starts
     'ownRemCusLabel1 ownRemCusData1'
     'ownRemCusLabel2 ownRemCusData2';
 }
-.ownRemCusError{
+.own.customers .ownRemCusError{
     display: grid;
     grid-template-columns: 100%;
     grid-template-areas: 
     'ownRemCusErrortext';
     
 }
-.ownRemCusButtons{
+.own.customers .ownRemCusButtons{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
@@ -278,27 +275,27 @@ Customers Starts
 }
 
 
-.ownRemCusLabel1{
+.own.customers .ownRemCusLabel1{
     grid-area: ownRemCusLabel1;
 }
-.ownRemCusData1{
+.own.customers .ownRemCusData1{
     grid-area: ownRemCusData1;
 }
-.ownRemCusLabel2{
+.own.customers .ownRemCusLabel2{
     grid-area: ownRemCusLabel2;
 }
-.ownRemCusData2{
+.own.customers .ownRemCusData2{
     grid-area: ownRemCusData2;
 }
-.ownRemCusErrortext{
+.own.customers .ownRemCusErrortext{
     grid-area: ownRemCusErrortext;
 }
-.ownRemCusbtn1{
+.own.customers .ownRemCusbtn1{
     grid-area: ownRemCusbtn1;
 
     
 }
-.ownRemCusbtn2{
+.own.customers .ownRemCusbtn2{
     grid-area: ownRemCusbtn2;
 }
  
@@ -321,86 +318,86 @@ Customers Endss
 ##################################################################################################################################################### */
 
 
-.ownRatesDate{
+.own.rates .ownRatesDate{
     padding-left: 40px;
 }
-.ownRateMonthlabel{
+.own.rates .ownRateMonthlabel{
     font-size: 12px;
     font-weight: 600;
 }
 /* Main headings styles */
-.ownRatesLeaveLimitHeadbar h1,
-.ownRatesCommisionRateHeadbar h1,
-.ownRatesMinManagersHeadbar h1,
-.ownRatesBasicSalaryHeadbar h1{
+.own.rates .ownRatesLeaveLimitHeadbar h1,
+.own.rates .ownRatesCommisionRateHeadbar h1,
+.own.rates .ownRatesMinManagersHeadbar h1,
+.own.rates .ownRatesBasicSalaryHeadbar h1{
    font-size: 16px;
    font-weight: 250px;
    padding-left: 10px;
 }
 /* Leave Limits styles */
-.ownRatesLeaveLimitsLabel{
+.own.rates .ownRatesLeaveLimitsLabel{
    font-size: 14px;
    font-weight: 400;
    color: #50515A;
    padding-left: 10px;
 }
-.ownRatesLeaveLimitsText{
+.own.rates .ownRatesLeaveLimitsText{
    text-align: center;
 }
-.ownRatesLeaveLimitsDetails input{
+.own.rates .ownRatesLeaveLimitsDetails input{
    float: right;
    /* border-radius: 6px; */
    border: none;
    background-color: #EAEAEA;
 }
-.ownRatesLeaveLimitsDetails{
+.own.rates .ownRatesLeaveLimitsDetails{
    padding-top: 20px;
 }
 
 /* commision rate styles */
 /* Minimum Managers styles */
-.ownRatesComissionRate input,
-.ownRatesMinManagers input{
+.own.rates .ownRatesComissionRate input,
+.own.rates .ownRatesMinManagers input{
    
    border: none;
    background-color: #EAEAEA;
    height: 30px;
 }
-.ownRatesCommisionRateDetails,
-.ownRatesMinManagersDetails{
+.own.rates .ownRatesCommisionRateDetails,
+.own.rates .ownRatesMinManagersDetails{
    text-align: center;
    padding-top: 40px;
 }
-.ownRatesCommisionRateText,
-.ownRatesMinManagersText{
+.own.rates .ownRatesCommisionRateText,
+.own.rates .ownRatesMinManagersText{
    text-align: center;
 }
 /* Basic salary styles */
-.ownRatesBasicSalaryHeadbar{
+.own.rates .ownRatesBasicSalaryHeadbar{
    padding-left: 10px;
    padding-top: 20px;
 }
 
-.ownRatesBasicSalary1 input,
-.ownRatesBasicSalary2 input,
-.ownRatesBasicSalary3 input{
+.own.rates .ownRatesBasicSalary1 input,
+.own.rates .ownRatesBasicSalary2 input,
+.own.rates .ownRatesBasicSalary3 input{
    border: none;
    background-color: #EAEAEA;
    height: 30px;
 }
-.ownRatesBasicSalarytext1,
-.ownRatesBasicSalarytext2,
-.ownRatesBasicSalarytext3{
+.own.rates .ownRatesBasicSalarytext1,
+.own.rates .ownRatesBasicSalarytext2,
+.own.rates .ownRatesBasicSalarytext3{
    text-align: center;
    padding-top: 20px;
 }
-.ownRatesBasicSalaryText{
+.own.rates .ownRatesBasicSalaryText{
    text-align: center;
 }
 
-.ownRatesBasicSalary1,
-.ownRatesBasicSalary2,
-.ownRatesBasicSalary3{
+.own.rates .ownRatesBasicSalary1,
+.own.rates .ownRatesBasicSalary2,
+.own.rates .ownRatesBasicSalary3{
    color: #50515A;
    font-weight: 500;
    text-align: center;
@@ -408,16 +405,16 @@ Customers Endss
 
 /* grid styles */
 
-.ownRatesLeaveLimit,
-.ownRatesComissionRate,
-.ownRatesMinManagers{
+.own.rates .ownRatesLeaveLimit,
+.own.rates .ownRatesComissionRate,
+.own.rates .ownRatesMinManagers{
    height: 150px;
    width: 350px;
    background-color: white;
    border-radius: 6px;
    box-shadow: 4px 4px 4px  #dad6d6;    
 }
-.ownRatesBasicSalary{
+.own.rates .ownRatesBasicSalary{
    height: 200px;
    width: 1096px;
    background-color: white;
@@ -425,11 +422,11 @@ Customers Endss
    box-shadow: 4px 4px 4px  #dad6d6; 
    
 }
-.ownRatesBasicSalaryContainer{
+.own.rates .ownRatesBasicSalaryContainer{
    padding-left: 60px;
 }
 
-.ownRateGridArea2{
+.own.rates .ownRateGridArea2{
    display: grid;
    grid-template-columns: 1fr 1fr 1fr;
    /* grid-gap: 10px 40px; */
@@ -440,7 +437,7 @@ Customers Endss
 
 }
 
-.ownRatesBasicSalary{
+.own.rates .ownRatesBasicSalary{
    display: grid;
    grid-template-columns: 100%;
    grid-template-areas: 
@@ -449,7 +446,7 @@ Customers Endss
    
 }
 
-.ownRatesBasicSalaryContent{
+.own.rates .ownRatesBasicSalaryContent{
    display: grid;
    grid-template-columns: 1fr 1fr 1fr;
    grid-template-areas: 
@@ -457,37 +454,37 @@ Customers Endss
    justify-content: center;
 }
 
-.ownRatesLeaveLimit{
+.own.rates .ownRatesLeaveLimit{
    grid-area: ownRatesLeaveLimit;
    padding: 10px;
 }
 
-.ownRatesComissionRate{
+.own.rates .ownRatesComissionRate{
    grid-area: ownRatesComissionRate;
    padding: 10px;
 }
-.ownRatesMinManagers{
+.own.rates .ownRatesMinManagers{
    grid-area: ownRatesMinManagers;
    padding: 10px;
 }
 
-.ownRatesBasicSalary{
+.own.rates .ownRatesBasicSalary{
    grid-area: ownRatesBasicSalary;
 }
-.ownRatesBasicSalaryHeadbar{
+.own.rates .ownRatesBasicSalaryHeadbar{
    grid-area: ownRatesBasicSalaryHeadbar;
 }
-.ownRatesBasicSalaryContent{
+.own.rates .ownRatesBasicSalaryContent{
    grid-area: ownRatesBasicSalaryContent;
 }
 
-.ownRatesBasicSalary1{
+.own.rates .ownRatesBasicSalary1{
    grid-area: ownRatesBasicSalary1;
 }
-.ownRatesBasicSalary2{
+.own.rates .ownRatesBasicSalary2{
    grid-area: ownRatesBasicSalary2;
 }
-.ownRatesBasicSalary3{
+.own.rates .ownRatesBasicSalary3{
    grid-area: ownRatesBasicSalary3;
 }
 
@@ -516,34 +513,34 @@ Customers Endss
     width: 500px;
         height: 200px;
 }
-.ownRemResHead{
+.own.resources .ownRemResHead{
     padding-bottom: 10px;
     text-align: center;
  }
- .ownResRem_ResourceDeatils{
+ .own.resources .ownResRem_ResourceDeatils{
      text-align: center;
      color: #50515A;
  }
- .ownResRemButtons{
+ .own.resources .ownResRemButtons{
      padding-top: 20px;
  }
- .ownResRemBtn1 .btn{
+ .own.resources .ownResRemBtn1 .btn{
     background: #EAEAEA;
     color: black;
 }
 
-.ownResRemButtons{
+.own.resources .ownResRemButtons{
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-areas: 
     'ownResRemBtn1 ownResRemBtn2';
     text-align: center;
 }
-.ownResRemBtn1{
+.own.resources .ownResRemBtn1{
     grid-area: ownResRemBtn1;
     padding-left: 20px; 
 }
-.ownResRemBtn2{
+.own.resources .ownResRemBtn2{
     grid-area: ownResRemBtn2;
     padding-right: 20px; 
 }
@@ -564,17 +561,17 @@ Customers Endss
         width: 500px;
         height: 300px;
 }
-.ownResAddHead{
+.own.resources .ownResAddHead{
     text-align: center;
 
 }
 
-.ownResAddDetails{
+.own.resources .ownResAddDetails{
     text-align: left;
     padding-top: 40px;
 }
-.ownResAddLabel1,
-.ownResAddLabel2{
+.own.resources .ownResAddLabel1,
+.own.resources .ownResAddLabel2{
    
     font-size: 16px;
     font-weight: 600; 
@@ -584,46 +581,46 @@ Customers Endss
     margin: 0;
 }
 
-.ownResAddDetail1,
-.ownResAddDetail2{
+.own.resources .ownResAddDetail1,
+.own.resources .ownResAddDetail2{
   text-align: left;
 }
 
-.ownResAddLabeltext{
+.own.resources .ownResAddLabeltext{
     border-radius: 6px;
     width: 200px;
     height: 40px;
 }
-.ownResAddDetail1 input[type="text"],
-.ownResAddDetail2 #ownResAddQuantity{
+.own.resources .ownResAddDetail1 input[type="text"],
+.own.resources .ownResAddDetail2 #ownResAddQuantity{
 
     background-color : #EAEAEA; 
     padding-left: 5px;
     Border : none; 
   
   }
-  .ownResAddDetail1 input[type="text"]:focus,
-  .ownResAddDetail2 #ownResAddQuantity:focus{
+  .own.resources .ownResAddDetail1 input[type="text"]:focus,
+  .own.resources .ownResAddDetail2 #ownResAddQuantity:focus{
         outline: none;
         border-color: #6f6df4;
      }
-.ownResAddBtn1 .btn{
+     .own.resources .ownResAddBtn1 .btn{
     background: #EAEAEA; 
     color: black; 
 }
-.ownResAddBtn2 .btn{  
+.own.resources .ownResAddBtn2 .btn{  
     background: #3ABD5F;
 }
 
-.ownResAddBtn1{
+.own.resources .ownResAddBtn1{
     padding-left: 20px;    
 }
-.ownResAddBtn2{
+.own.resources .ownResAddBtn2{
     padding-right: 20px;    
 }
 
 
-.ownResAddDetails{
+.own.resources .ownResAddDetails{
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-areas: 
@@ -631,7 +628,7 @@ Customers Endss
 }
 
 
-.ownResAddButtons{
+.own.resources .ownResAddButtons{
     display: grid;
     grid-template-columns: 1fr 1fr ;
     grid-template-areas: 
@@ -639,17 +636,17 @@ Customers Endss
     text-align: center;
     padding-top: 60px;
 }
-.ownResAddBtn1{
+.own.resources .ownResAddBtn1{
     grid-area: ownResAddBtn1;
 }
-.ownResAddBtn2{
+.own.resources .ownResAddBtn2{
     grid-area: ownResAddBtn2;
     
 }
-.ownResAddDetail1{
+.own.resources .ownResAddDetail1{
     grid-area: ownResAddDetail1;
 }
-.ownResAddDetail2{
+.own.resources .ownResAddDetail2{
     grid-area: ownResAddDetail2;
 }
 
@@ -687,22 +684,22 @@ Customers Endss
 /* ------------------------- owner salary report styles --------------------------- */
 
 /* ----------------------------Headings styles -------------*/
-.SalaryReportContainer{
+.own.salaries .SalaryReportContainer{
     background-color: white;
 }
-.ownSalaryReportHeadings{
+.own.salaries .ownSalaryReportHeadings{
     text-align: center;
 }
-.ownSalaryReportHead1{
+.own.salaries .ownSalaryReportHead1{
    font-size: 30px;
    font-weight: 600;
 }
-.ownSalaryReportHead2{
+.own.salaries .ownSalaryReportHead2{
    font-size: 16px;
    font-weight: 450;
 
 }
-.ownSalaryReportHead3{
+.own.salaries .ownSalaryReportHead3{
    font-size: 18px;
    font-weight: 800;
    color: #8A8888;
@@ -710,21 +707,21 @@ Customers Endss
 
 /* ----------------------------Salary Report Staff Member Details Styles-------------- */
 
-.ownSalaryReportStaffMemberDetails,
-.ownSalaryReportEarningDetails,
-.ownSalaryReportDeductionsDetails{
+.own.salaries .ownSalaryReportStaffMemberDetails,
+.own.salaries .ownSalaryReportEarningDetails,
+.own.salaries .ownSalaryReportDeductionsDetails{
     padding-left: 10px;
 
 }
-.ownSalaryReportStaffMemberDetailHead,
-.ownSalaryReportEarningDetailsHead,
-.ownSalaryReportDeductionsDetailHead,
-.ownSalaryReportSubTotalDetailHead{
+.own.salaries .ownSalaryReportStaffMemberDetailHead,
+.own.salaries .ownSalaryReportEarningDetailsHead,
+.own.salaries .ownSalaryReportDeductionsDetailHead,
+.own.salaries .ownSalaryReportSubTotalDetailHead{
     font-size: 16px;
     font-weight: 500;
 }
 
-.ownSalaryReportStaffMemberDetailsContent{
+.own.salaries .ownSalaryReportStaffMemberDetailsContent{
     background-color: #EAEAEA;
     padding: 10px;
     float: right;
@@ -733,54 +730,54 @@ Customers Endss
 
 }
 
-.ownSalaryReportEarningDetailsContent{
+.own.salaries .ownSalaryReportEarningDetailsContent{
     background-color: #EAEAEA;
     padding: 10px;
     float: right;
     height: 120px;
     width: 500px;
 }
-.ownSalaryReportDeductionsDetailsContent{
+.own.salaries .ownSalaryReportDeductionsDetailsContent{
     background-color: #EAEAEA;
     padding: 10px;
     float: left;
     height: 120px;
     width: 500px;
 }
-.ownSalaryReportSubTotalDetailsContent{
+.own.salaries .ownSalaryReportSubTotalDetailsContent{
     background-color: #EAEAEA;
     padding: 10px;
     height: 40px;
     width: 500px;
 }
-.ownSalaryReportPaidDetailsContent{
+.own.salaries .ownSalaryReportPaidDetailsContent{
     background-color: #EAEAEA;
     padding: 10px;
     width: 500px; 
     height: 60px;  
 }
 
-.ownSalaryReportStaffMemberDetailsContentData,
-.ownSalaryReportEarningDetailsContentData,
-.ownSalaryReportDeductionsDetailsContentData,
-.ownSalaryReportSubTotalDetailsContentData,
-.ownSalaryReportPaidDetailsContentData{
+.own.salaries .ownSalaryReportStaffMemberDetailsContentData,
+.own.salaries .ownSalaryReportEarningDetailsContentData,
+.own.salaries .ownSalaryReportDeductionsDetailsContentData,
+.own.salaries .ownSalaryReportSubTotalDetailsContentData,
+.own.salaries .ownSalaryReportPaidDetailsContentData{
     float: left;
     font-size: 14px;
     font-weight: 400px;
 }
-.ownSalaryReportStaffMemberDetailsContentValue,
-.ownSalaryReportEarningDetailsContentValue,
-.ownSalaryReportDeductionsDetailsContentValue,
-.ownSalaryReportSubTotalDetailsContentValue,
-.ownSalaryReportPaidDetailsContentValue{
+.own.salaries .ownSalaryReportStaffMemberDetailsContentValue,
+.own.salaries .ownSalaryReportEarningDetailsContentValue,
+.own.salaries .ownSalaryReportDeductionsDetailsContentValue,
+.own.salaries .ownSalaryReportSubTotalDetailsContentValue,
+.own.salaries .ownSalaryReportPaidDetailsContentValue{
     float: right;
     font-size: 14px;
     font-weight: 400px;
     color:#50515A ;
 }
 /* Arrange the grid areas */
-.SalaryReportContainer{
+.own.salaries .SalaryReportContainer{
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-areas: 
@@ -791,29 +788,29 @@ Customers Endss
 }
 
 /* Assign grid areas */
-.ownSalaryReportHeadings{
+.own.salaries .ownSalaryReportHeadings{
     grid-area: ownSalaryReportHeadings;
     padding: 5px;
 }
-.ownSalaryReportStaffMemberDetails{
+.own.salaries .ownSalaryReportStaffMemberDetails{
     grid-area: ownSalaryReportStaffMemberDetails;
     padding: 5px;
     
 }
-.ownSalaryReportEarningDetails{
+.own.salaries .ownSalaryReportEarningDetails{
     grid-area: ownSalaryReportEarningDetails;
     padding: 5px;
   
 }
-.ownSalaryReportDeductionsDetails{
+.own.salaries .ownSalaryReportDeductionsDetails{
     grid-area: ownSalaryReportDeductionsDetails;
     padding: 5px ;
 }
-.ownSalaryReportSubTotalDetails{
+.own.salaries .ownSalaryReportSubTotalDetails{
     grid-area: ownSalaryReportSubTotalDetails;
     padding: 5px;
 }
-.ownSalaryReportPaidDetails{
+.own.salaries .ownSalaryReportPaidDetails{
     grid-area: ownSalaryReportPaidDetails;
     padding: 5px;
 }
@@ -856,48 +853,48 @@ Customers Endss
     width: 400px;
 }
 
-.ownRemstaffContainer {
+.own.staff .ownRemstaffContainer {
     display: grid;
 }
 
-.ownRemStaffHead {
+.own.staff .ownRemStaffHead {
     padding-bottom: 10px;
     text-align: center;
 }
 
 
 
-.staffLable {
+.own.staff .staffLable {
     font-size: 14px;
     font-weight: 600;
     text-align: start;
     display: block;
 }
 
-.staffData {
+.own.staff .staffData {
     font-size: 14px;
     font-weight: 600;
     color: #50515A;
     text-align: start;
 }
 
-.staffDetails {
+.own.staff .staffDetails {
 
     width: 300px;
     height: 120px;
 }
 
 
-.remStaffErrortext {
+.own.staff .remStaffErrortext {
     font-size: 12px;
     color: red;
 }
 
-.remStaffErrorAnchortag {
+.own.staff .remStaffErrorAnchortag {
     cursor: auto;
 }
 
-.remStaffErrorViewReservaions {
+.own.staff .remStaffErrorViewReservaions {
     color: #037AFF;
     text-align: start;
     font-size: 12px;
@@ -907,7 +904,7 @@ Customers Endss
 
 }
 
-.remStaffError {
+.own.staff .remStaffError {
     text-align: left;
     width: 300px;
     height: 40px;
@@ -921,7 +918,7 @@ Customers Endss
 
 /* 
 --------------------------------------------- */
-button {
+.own.staff button {
     border: none;
     padding: 7px 20px;
     background: linear-gradient(130deg,
@@ -933,13 +930,13 @@ button {
     font-weight: 400;
 }
 
-.ownRemStaffbtn1 .btn {
+.own.staff .ownRemStaffbtn1 .btn {
     background: #EAEAEA;
     color: black;
 }
 
 
-.staffDetails {
+.own.staff .staffDetails {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-self: center;
@@ -949,7 +946,7 @@ button {
 
 }
 
-.remStaffError {
+.own.staff .remStaffError {
     display: grid;
     grid-template-columns: 100%;
     justify-self: center;
@@ -959,7 +956,7 @@ button {
 
 }
 
-.remButtons {
+.own.staff .remButtons {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 40px;
@@ -969,33 +966,33 @@ button {
     padding-top: 5px;
 }
 
-.staffDetail1 {
+.own.staff .staffDetail1 {
     grid-area: staffDetail1;
 
 }
 
-.staffDetail2 {
+.own.staff .staffDetail2 {
     grid-area: staffDetail2;
 }
 
-.staffDetail3 {
+.own.staff .staffDetail3 {
     grid-area: staffDetail3;
 }
 
-.remStaffErrortext {
+.own.staff .remStaffErrortext {
     grid-area: remStaffErrortext;
 }
 
-.viewReservaions {
+.own.staff .viewReservaions {
     grid-area: viewReservaions;
 }
 
-.ownRemStaffbtn1 {
+.own.staff .ownRemStaffbtn1 {
     grid-area: ownRemStaffbtn1;
     justify-self: right;
 }
 
-.ownRemStaffbtn2 {
+.own.staff .ownRemStaffbtn2 {
     grid-area: ownRemStaffbtn2;
     justify-self: left;
 }
@@ -1281,10 +1278,10 @@ button {
     text-align: center;
 }
 
-.container {
+/* .container {
     align-items: center;
     position: absolute;
-}
+} */
 
 .ownAddstaffContainer .ownAddstaffBasicinfo,
 .ownAddstaffContainer .ownAddstaffContactdetails,
@@ -1646,8 +1643,8 @@ input[type="checkbox"] {
         width: 100%;
     }
 
-    form .ownAddstaffFormWrapper .ownAddstaffMaingrid4 input[type=text],
-    form .ownAddstaffMormWrapper .ownAddstaffMaingrid5 input[type=text] {
+    .ownAddstaffFormWrapper .ownAddstaffMaingrid4 input[type=text],
+    .ownAddstaffMormWrapper .ownAddstaffMaingrid5 input[type=text] {
         width: 100%;
     }
 
