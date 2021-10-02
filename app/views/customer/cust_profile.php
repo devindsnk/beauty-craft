@@ -15,14 +15,14 @@
             <div class="sidebarcontent">
                 <div class="list">
                     <div class="sidenavbtn1">
-                        <a href="<?php echo URLROOT ?>/CustDashboard/myReservation">
+                        <a href="<?php echo URLROOT ?>/Customer/myReservation">
                         <button class="sidenavbttn option">My Reservations</button>
 </a>
                     </div>
                     <div class="sidenavbtn2">
                         <button class="sidenavbttn selected">Profile</button>
                     </div>
-                    <div class="sidenavbtn3"><a href="<?php echo URLROOT ?>/CustDashboard/changePassword">
+                    <div class="sidenavbtn3"><a href="<?php echo URLROOT ?>/Customer/changePassword">
                         <button class="sidenavbttn option">Change Password</button></a>
                     </div>
                     

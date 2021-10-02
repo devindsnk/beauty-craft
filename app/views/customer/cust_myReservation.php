@@ -18,12 +18,12 @@
                         <button class="sidenavbttn selected">My Reservations</button>
                     </div>
                     <div class="sidenavbtn2">
-                        <a href="<?php echo URLROOT ?>/CustDashboard/profile">
+                        <a href="<?php echo URLROOT ?>/Customer/profile">
                         <button class="sidenavbttn">Profile</button>
                         </a>
                     </div>
                     <div class="sidenavbtn3">
-                        <a href="<?php echo URLROOT ?>/CustDashboard/changePassword">
+                        <a href="<?php echo URLROOT ?>/Customer/changePassword">
                         <button class="sidenavbttn ">Change Password</button>
                         </a>
                     </div>
