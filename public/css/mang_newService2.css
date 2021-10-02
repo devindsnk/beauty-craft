@@ -3,7 +3,7 @@
     margin-top: 25px;
     text-align: center;
     width: 100%;
-    border-color: #F2F2F7;
+    border-color: #c4cae0;
 }
 
 .mang.resHr{
@@ -49,7 +49,7 @@
 
 .newService-sub{
     min-width: 380px;
-    padding: 10px;
+    padding: 20px;
     /* padding-left: 0;
     padding-right: 0; */
     margin: 20px 10px;
@@ -100,37 +100,36 @@
 
 .checkbox-div{
 	height: 200px;
-    width: 90%;
+    width: 100%;
     min-width: 290px;
     /* padding: 10px 10px; */
     background-color: white;
     padding: 0;
     margin-top: 5px;
-    border :1px solid #ccc;
+    border :1px solid #c4cae0;
     border-radius: 6px;
     /* overflow: scroll; */
     overflow-y: visible;
     overflow-x: hidden;
     direction: ltr;
-    /*position of scroll bar can use rtl if wanted, but use div * {direction: ltr;} if you do.} */
-    scrollbar-width: thin;/*fancy width*/
-    scrollbar-color: #f3f0dd #154734;
+    scrollbar-width: thin;
+    scrollbar-color: #f3f0dd #F2F2F7;
 }
 .checkbox-div::-webkit-scrollbar {
     width: 11px;
   }
   
   .checkbox-div::-webkit-scrollbar-track {
-    background: #979b99;
+    background: #F2F2F7;
   }
   
   .checkbox-div::-webkit-scrollbar-thumb {
-    background-color: #f3f0dd;
+    background-color: #c4cae0;
     border-radius: 6px;
-    border: 3px solid #979b99;
+    border: 3px solid #c4cae0;
   }
 .dropdownSelectBox{
-    width: 60%;
+    width: 100%;
     padding-left: 15px;
 
 }
@@ -159,7 +158,7 @@
     height: 35px;
     right: 0;
     /* margin:auto; */
-    margin-top: 5px;
+    margin-top: 20px;
     font-family: inherit;
     font-size: 16px;
     border: none;
@@ -280,90 +279,6 @@
     }
 } */
 
-.containerclose
-{
-  position: relative;
-  width: 2em;
-  height: 2em;
-}
-.containerclose:before
-{
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 0;
-  width: 0;
-  border: 1em solid rgba(100,100,100,0.8);
-  border-radius: 6em;
-  transition: all 0.2s ease-in-out;
-}
-.close_icon
-{
-  transition: all 0.075s ease-in-out;
-  position: absolute;
-  width: 2em;
-  height: 2em;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  border: 0.1em solid;
-  border-color: rgba(250,250,250,0.8);
-  border-radius: 6em;
-  /*background: rgba(255,255,255,0.8);*/
-}
-.close_icon:after
-{
-  transition: all 0.075s ease-in-out;
-  font: 1em Helvetica, arial;
-  font-size: 1em;
-  width: 100%;
-  height: 100%;
-  content:"x";
-  color: rgba(250,250,250,0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: translate(0,-5%) scale(1.25,1);
-}
-.container.zoom_invert:hover:before
-{
-  font-size: 1.4em;
-  border-color: rgba(200,200,200,0.6);
-}
-.container.zoom_invert:hover .close_icon.zoom_invert
-{
-  border-color: rgba(200,200,200,1);
-}
-.container.zoom_invert:hover .close_icon.zoom_invert:after
-{
-  color: rgba(100,100,100,1);
-}
-
-.container.zoom_invert:active:before
-{
-  font-size: 1.2em;
-  border-color: rgba(200,100,100,0.8);
-}
-.container.zoom_invert:active .close_icon.zoom_invert
-{
-  transition: all 0.05s ease-in-out;
-  font-size: 1.2em;
-  border-color: rgba(50,50,50,0.8);
-}
-.container.zoom_invert:active .close_icon.zoom_invert:after
-{
-  transition: all 0.05s ease-in-out;
-  font-size: 1.2em;
-  color: rgba(50,50,50,0.8);
-}
-
-.row2{
-    display: grid;
-    align-items: center;
-}
-.row3{
-    display: grid;
-    align-items: end;
+.row .row3{
+    margin-top: 90px;
 }
