@@ -6,6 +6,8 @@
 
 /* ------------------------------------------------------ */
 
+
+/* 
 :root {
     --theme-purple: #444bf8;
     --theme-blue: #037aff;
@@ -14,51 +16,65 @@
     --theme-grey: #50515a;
     --white: #ffffff;
     --black: #000000;
+} */
+
+body {
+    background-color: var(--theme-bgwhite);
+    font-family: poppins;
 }
 
 .sub-container1 {
     display: flex;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     width: 80%;
     height: 150px;
-    align-items: center;
+    /* align-items: center; */
     margin-left: auto;
     margin-right: auto;
+    overflow: hidden;
+    margin: auto;
+    font: poppings;
+}
+
+.webview {
+    margin: 0px 50px;
 }
 
 .sub-container1-card {
+    width: 220px;
+    height: 100px;
     display: flex;
+    flex-direction: column;
     background-color: var(--white);
-    padding: 20px;
+    padding: 0px 10px;
     border-radius: 6px;
+    text-align: center;
     /* width: 16rem;
          height: 5rem; */
-    height: 80px;
-    width: 270px;
+    margin: auto;
     justify-content: space-around;
     align-items: center;
 }
 
 .sub-container1-card-title {
-    width: 70%;
     font-weight: 500;
-    font-size: 1.3rem;
+    font-size: 18px;
+    display: flex;
 }
 
 .sub-container1-card-count {
-    width: 20%;
-    color: #444bf8;
+    color: var(--theme-purple);
     font-weight: 600;
-    font-size: 1.6rem;
+    font-size: 30px;
     text-align: center;
+    display: flex;
 }
 
-.sub-container2 {
-    width: 80%;
+.sub-content-container2 {
     /* height: 1%; */
-    margin-left: auto;
-    margin-right: auto;
     font-size: 1.33rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .scroll-area {
@@ -68,7 +84,7 @@
     /* for Firefox */
     overflow: hidden;
     overflow-y: scroll;
-    height: 370px;
+    height: 65vh;
 }
 
 .scroll-area::-webkit-scrollbar {
@@ -77,8 +93,9 @@
 }
 
 .sub-container2-card {
-    padding: 20px;
-    height: 80px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.034), 0 5px 17.9px rgba(0, 0, 0, 0.072);
+    padding: 10px 20px;
+    height: 100px;
     display: flex;
     font-size: 1.06rem;
     align-items: center;
@@ -89,29 +106,32 @@
 }
 
 .sub-container2-card-timeservice {
-    width: 35%;
+    width: 25%;
     height: 100%;
+    margin-left: 10px;
 }
 
 .sub-container2-card-timeservice-time {
     height: 40%;
     font-weight: 400;
     display: block;
+    font-size: 18px;
+    /* margin-top: 5px; */
     /* font-size: 1.06rem; */
 }
 
 .sub-container2-card-timeservice-service {
     height: 60%;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 24px;
     display: block;
 }
 
 .sub-container2-card-name {
-    width: 50%;
+    width: 25%;
     display: flex;
     align-items: center;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 500;
 }
 
@@ -123,11 +143,34 @@
     margin-right: 10px;
 }
 
-.sub-container2-card-link {
-    width: 15%;
-    color: #037aff;
+.sub-container2-card-name {
+    display: block;
+}
+
+.sub-container2-card-name-cstname {
     font-size: 18px;
+}
+
+.sub-container2-card-name .name {
+    font-size: 21px;
+}
+
+.sub-container2-card button {
+    background: transparent;
+    color: var(--theme-purple);
+    font-size: 20px;
     font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    padding: 2px;
+    border: none;
+    width: 150px;
+    background-color: #ffffff;
+    font-family: poppins;
+}
+
+.sub-container2-card button:hover {
+    font-weight: 600;
 }
 
 .mob-subcontainer2-card {
@@ -210,9 +253,21 @@
     /* background-color: #06d85f; */
 }
 
+.sub-content-container2 h2 {
+    font-size: 27px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
 .popup h2 {
     color: #333;
     width: 100%;
+    margin-left: 50px;
+    padding-left: 50px;
+}
+
+.topic {
+    margin-left: 50px;
 }
 
 .popup .close {
@@ -243,4 +298,169 @@
 
 .popin-content {
     padding: 20px;
+}
+
+.confirm-status {
+    padding: 5px 30px;
+    background-color: #c0f0d1;
+    color: #3abd5f;
+    font-weight: 600;
+    border-radius: 6px;
+    max-width: 152px;
+    text-align: center;
+}
+
+.sub-content-container2 h2 {
+    margin: 1px 0px;
+}
+
+.modal-container.normal {
+    width: 100%;
+    height: 100%;
+}
+
+.modal-box {
+    height: 600px;
+    width: 500px;
+}
+
+.modal-box h1 {
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.modaldatetime-time {
+    width: 50%;
+    color: Var(--theme-black);
+}
+
+.modaldatetime-date {
+    width: 50%;
+    text-align: right;
+    color: Var(--theme-black);
+}
+
+.modaldatetime-time span {
+    font-size: 22px;
+}
+
+.confirm-status span {
+    text-align: center;
+    font-size: 17px;
+}
+
+.modaldatetime-time {
+    font-weight: 600;
+}
+
+span.duration {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--theme-blue);
+}
+
+.Reservationnote-note.editable {
+    border: var(--theme-black) solid 2px;
+    padding: 0px 10px;
+    border-radius: 6px;
+    background-color: rgb(236, 230, 230);
+    padding-bottom: 20px;
+}
+
+.modaldatetime {
+    display: flex;
+    flex-direction: row;
+    color: var(--theme-purple);
+}
+
+.modaldetails {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0px;
+}
+
+.modaldetails-name {
+    width: 50%;
+}
+
+.modaldetails-status {
+    width: 50%;
+    text-align: center;
+    padding-left: 100px;
+}
+
+.savechange button {
+    background: transparent;
+    font-size: 18px;
+    color: var(--theme-black);
+    font-weight: 600;
+    text-align: right;
+    text-decoration: none;
+    padding: 2px;
+    border: none;
+    background-color: #ffffff;
+    font-family: poppins;
+}
+
+.Reservationnote-name {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.Reservationnote.cust {
+    padding-bottom: 10px;
+}
+
+.service {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.name {
+    font-size: 16px;
+}
+
+
+/* 
+.Reservationnote-note {
+    margin-bottom: 10px;
+} */
+
+.Reservationnote-note span {
+    font-size: 16px;
+}
+
+.savechange {
+    text-align: right;
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+.Reservationnote {
+    /* margin: 5px 0; */
+}
+
+.modalbutton {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* padding-left: 50px; */
+}
+
+.modaldetails-name span.name {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.modalbutton button.btn.btnClose.normal {
+    height: 45px;
+    width: 110px;
+    font-size: 18px;
+}
+
+.modalbutton button.btn.btnClose.normalrecall {
+    height: 45px;
+    width: 110px;
+    font-size: 18px;
 }

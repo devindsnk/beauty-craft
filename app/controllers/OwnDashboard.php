@@ -5,10 +5,8 @@ class OwnDashboard extends Controller
    {
       // $this->employeeModel = $this->model('Employee');
    }
-   public function staff()
+   public function overview()
    {
-      $this->view('owner/own_staff');
+      $this->view('owner/own_overview');
    }
-
-
 }
