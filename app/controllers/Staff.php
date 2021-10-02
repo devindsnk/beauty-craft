@@ -14,5 +14,9 @@ class Staff extends Controller
    {
       $this->view('owner/own_staffUpdate');
    }
+   public function viewStaff()
+   {
+      $this->view('owner/own_staffView');
+   }
 
 }
