@@ -7,7 +7,7 @@ define('APPROOT', dirname(dirname(__FILE__)));
 define('URLROOT', 'http://localhost/beauty-craft');
 
 // Site Name
-define('SITENAME', 'MVC_App');
+define('SITENAME', 'Beauty Craft');
 
 
 // DB parameters
