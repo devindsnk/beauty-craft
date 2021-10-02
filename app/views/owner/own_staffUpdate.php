@@ -6,7 +6,7 @@
 
 <div class="ownStaff_allignmentbox">
 
-<div class="ownAddstaffContainer contentBox">
+<div class="ownAddstaffContainer contentBox"> 
         <div class="ownAddStaff_Formheading">
             <h1>Add New Staff Members</h1>
         </div>
@@ -47,7 +47,7 @@
                             <div class="ownAddstaffBasicinfoRadiowrapper">
 
                                 <input type="radio" name="select" id="option-1">
-                                <label for="option1"> Male</label>
+                                <label for="option1"> Male</label> <br>
                                 <input type="radio" name="select" id="option-2">
                                 <label for="option2">Female</label>
 
@@ -81,7 +81,10 @@
                 </div>
                 <!------------------ maingrid2 ends --------------------------------------------------------------->
                 <!----------------------------------------------- Basic Info ends ---------------------------------------------------------------------------->
-
+                <div class= "ownAddstaffLineContainer">
+                    <div class= "ownAddstaffLines">
+                    </div>
+                </div>
 
                 <!------------------------------------------ Contact Details starts -------------------------------------------------------------------------->
                 <div class="ownAddstaffContactdetails">
@@ -112,6 +115,10 @@
                 </div>
                 <!--------------------------- maingrid4 end --------------------------------------------------------->
                 <!---------------------------------------- Contact Details ends ------------------------------------------------------------------------------>
+                <div class= "ownAddstaffLineContainer">
+                    <div class= "ownAddstaffLines">
+                    </div>
+                </div>
                 <!----------------------------------------- Bank Details starts ------------------------------------------------------------------------------>
                 <div class="ownAddstaffBankdetails">
                     <h3 class="subhead">Bank Details</h3> <br>
@@ -130,8 +137,15 @@
                     </div>
                     <!------------------ maingrid5 end ---------------------------------------------------------------->
                     <!----------------------------------------- Bank Details ends --------------------------------------------------------------------------->
+
                 </div>
-            </div>
+
+                <div class= "ownAddstaffLineContainer">
+                    <div class= "ownAddstaffLines">
+                    </div>
+                    </div>
+
+            
             <div class="ownUpdateStaffFormGroupDisable">
             <div class="ownUpdateStaffFormGroupDisableLable">
                     <h3 class="subhead">Disable Staff member</h3>
@@ -139,8 +153,8 @@
                     <div class="ownUpdateStaffFormGroupDisableTogle">
                     <input type="checkbox" class="toglecheckbox">
                     </div>
-                
                 </div>
+            </div>
             <!----------------------------------------- form submit button starts ------------------------------------------------------------------------>
             <div class="ownAddstaffButton">
                 <button class="ownAddstaffbutton">Save</button>

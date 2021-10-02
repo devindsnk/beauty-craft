@@ -41,14 +41,13 @@
                         </div>
 
 
-
                         <div class="ownAddstaffFormGroupRadio">
                             <label class="ownAddstaffLabels">Gender</label> 
                             <div class="ownAddstaffBasicinfoRadiowrapper">
 
                                 <input type="radio" name="select" id="option-1">
-                                <label for="option1"> Male</label>
-                                <input type="radio" name="select" id="option-2">
+                                <label for="option1"> Male</label> <br>
+                                <input type="radio" name="select" id="option-2"> 
                                 <label for="option2">Female</label>
 
                             </div>
@@ -82,6 +81,11 @@
                 <!------------------ maingrid2 ends --------------------------------------------------------------->
                 <!----------------------------------------------- Basic Info ends ---------------------------------------------------------------------------->
 
+                <div class= "ownAddstaffLineContainer">
+                    <div class= "ownAddstaffLines">
+                    </div>
+                </div>
+
 
                 <!------------------------------------------ Contact Details starts -------------------------------------------------------------------------->
                 <div class="ownAddstaffContactdetails">
@@ -112,6 +116,12 @@
                 </div>
                 <!--------------------------- maingrid4 end --------------------------------------------------------->
                 <!---------------------------------------- Contact Details ends ------------------------------------------------------------------------------>
+
+                <div class= "ownAddstaffLineContainer">
+                    <div class= "ownAddstaffLines">
+                    </div>
+                </div>
+
                 <!----------------------------------------- Bank Details starts ------------------------------------------------------------------------------>
                 <div class="ownAddstaffBankdetails">
                     <h3 class="subhead">Bank Details</h3> <br>
