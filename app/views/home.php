@@ -10,9 +10,9 @@
 
    <!--Style Sheets-->
    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-   <link rel="stylesheet" href="../../public/css/style.css">
-   <link rel="stylesheet" href="../../public/css/home.css">
-   <link rel="stylesheet" href="../../public/css/icons.css">
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/style.css">
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/home.css">
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/icons.css">
 
 </head>
 
@@ -21,7 +21,7 @@
       <nav>
          <div class="logo">
             <a href="index.html">
-               <img src="../../public/imgs/logoTextWhite.png" alt="logo">
+               <img src="<?php echo URLROOT ?>/public/imgs/logoTextWhite.png" alt="logo">
             </a>
          </div>
          <div class="links">
@@ -37,13 +37,13 @@
 
          <div class="buttons">
             <button class="btn-landing btnLogin" value="Login">
-               <span>Login</span>
+               <a href="<?php echo URLROOT ?>/pages/login"><span>Login</span></a>
             </button>
             <button class="btn-landing btnRegister">
-               <span>Register</span>
+            <a href="<?php echo URLROOT ?>/pages/register"><span>Register</span></a>
             </button>
             <div class="profileIcon">
-               <img src="../../public/imgs/person4.jpg" alt="">
+               <img src="<?php echo URLROOT ?>/public/imgs/person4.jpg" alt="">
             </div>
             <i class="ci ci-menu-white menuBtn"></i>
          </div>
@@ -107,7 +107,7 @@
    <footer>
 
    </footer>
-   <script src="../../public/js/home.js"></script>
+   <script src="<?php echo URLROOT ?>/public/js/home.js"></script>
 </body>
 
 </html>
