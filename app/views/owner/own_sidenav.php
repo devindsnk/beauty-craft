@@ -4,7 +4,7 @@
    <div class="header">
       <a href="recept_calendar.php">
          <div>
-            <img src="../../../public/imgs/logo-white.png" alt="BeautyCraft">
+           <img src="<?php echo URLROOT ?>/public/imgs/logo-white.png" alt="BeautyCraft">
          </div>
       </a>
    </div>
@@ -16,18 +16,18 @@
       <ul class="mainMenu">
                <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Overview") echo " selected" ?>" href="./own_overview.php">
+            <a class="optionLink <?php if ($selectedMain == "Overview") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/overview">
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Overview</div>
             </a>
          </li>
          <!--End Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Analytics") echo " selected" ?>" href="./own_analytics.php">
+            <a class="optionLink <?php if ($selectedMain == "Analytics") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/analytics">
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Analytics</div>
             </a>
@@ -45,9 +45,9 @@
          <!--End Sidebar Item-->
            <!--Sidebar Item-->
            <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Services") echo " selected" ?>" href="./own_services.php">
+            <a class="optionLink <?php if ($selectedMain == "Services") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/services">
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Services</div>
             </a>
@@ -55,9 +55,9 @@
          <!--End Sidebar Item-->
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Resources") echo " selected" ?>" href="./own_resources.php">
+            <a class="optionLink <?php if ($selectedMain == "Resources") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/resources">
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Resources</div>
             </a>
@@ -65,9 +65,9 @@
          <!--End Sidebar Item-->
             <!--Sidebar Item-->
             <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="./own_reservations.php">
+            <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/reservations">
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Reservations</div>
             </a>
@@ -75,9 +75,9 @@
          <!--End Sidebar Item-->
    <!--Sidebar Item-->
    <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Customers") echo " selected" ?>" href="./own_customers.php">
+            <a class="optionLink <?php if ($selectedMain == "Customers") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/customers">
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Customers</div>
             </a>
@@ -85,9 +85,9 @@
          <!--End Sidebar Item-->
    <!--Sidebar Item-->
    <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Salaries") echo " selected" ?>" href="./own_salaries.php">
+            <a class="optionLink <?php if ($selectedMain == "Salaries") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/salaries">
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Salaries</div>
             </a>
@@ -95,9 +95,9 @@
          <!--End Sidebar Item-->
             <!--Sidebar Item-->
             <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Rates") echo " selected" ?>" href="./own_rates.php">
+            <a class="optionLink <?php if ($selectedMain == "Rates") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/rates">
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Rates</div>
             </a>
@@ -105,9 +105,9 @@
          <!--End Sidebar Item-->
           <!--Sidebar Item-->
           <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Close Salon") echo " selected" ?>" href="./own_closeSalon.php">
+            <a class="optionLink <?php if ($selectedMain == "Close Salon") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/closeSalon">
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Close Salon</div>
             </a>

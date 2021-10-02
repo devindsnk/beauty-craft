@@ -16,7 +16,7 @@
 
    <!--Content-->
    <div class="content">
-      <div class="sub-container1">
+      <div class="mang-sub-container1 mang">
          <div class="select-box-container">
             <form action="">
                <label class="label" for="serviceName">Service</label>
@@ -45,11 +45,37 @@
          </div>
 
          <div class="select-box-container">
-            <button class="search-btn align-right">Search</button>
+            <button class="searching-btn align-right">Search</button>
          </div>
       </div>
 
-      <div class="sub-container2">
+      <!--sub-container1-->
+      <div class="mang-sub-container1 mang">
+         <!--card1-->
+         <div class="mang-sub-container-card">
+            <div class="mang-sub-container-card-title"> 
+               <p>Total Reservation</p>
+            </div>
+            <div class="mang-sub-container-card-amount"> 
+               <p>400</p>
+            </div>
+         </div>
+         <!--End of card1-->
+
+         <!--card2-->
+         <div class="mang-sub-container-card">
+            <div class="mang-sub-container-card-title"> 
+               <p>Total Income</p>
+            </div>
+            <div class="mang-sub-container-card-amount"> 
+               <p>45,000.00 LKR</p>
+            </div>
+         </div>
+         <!--End of card2-->
+      </div>
+      <!--End of sub-container1-->
+
+      <div class="mang-sub-container2 mang">
          <!--chart-container-->
          <div class="chart-container">
             <div class="chart-head"> 
@@ -70,7 +96,7 @@
       </div>
       <!--End of sub-container2-->
 
-      <div class="sub-container1">
+      <div class="table-container1 mang">
          <div class="chart-head"> 
             <p>Reservation Details</p>
          </div>
@@ -116,13 +142,11 @@
                     <td data-lable="Price" class="column-right-align">150.00 LKR</td>
                  </tr>
                  <!--End of table row-->
-                 
-                 
               </tbody>
               <!--End of table body-->
-
            </table>
         </div>
+      </div>
    </div>
    <!--End Content-->
 
@@ -176,4 +200,5 @@
 
          document.querySelector("#serviceToDate").valueAsDate = new Date();
    </script>
-   
+
+   <?php require APPROOT . "/views/inc/footer.php" ?>

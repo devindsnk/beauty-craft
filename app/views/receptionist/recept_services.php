@@ -14,7 +14,7 @@
    ?>
 
    <!--Content-->
-   <div class="content">
+   <div class="content recept services">
       <div class="top-container">
          <button class="btn btn-main">Add New</button>
       </div>
@@ -88,7 +88,7 @@
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <a href="#"><img class="img-view-edit-update" src="../../assets/icons/delete.png"></a>
+                           <a href="#"><img class="img-view-edit-update" src="<?php echo URLROOT ?>/public/icons/delete.png"></a>
                         </span>
                      </td>
                   </tr>
@@ -102,7 +102,7 @@
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <a href="#"><img class="img-view-edit-update" src="../../assets/icons/delete.png"></a>
+                           <a href="#"><img class="img-view-edit-update" src="<?php echo URLROOT ?>/public/icons/delete.png"></a>
                         </span>
                      </td>
                   </tr>
@@ -116,7 +116,7 @@
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <a href="#"><img class="img-view-edit-update" src="../../assets/icons/delete.png"></a>
+                           <a href="#"><img class="img-view-edit-update" src="<?php echo URLROOT ?>/public/icons/delete.png"></a>
                         </span>
                      </td>
                   </tr>
@@ -130,7 +130,7 @@
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <a href="#"><img class="img-view-edit-update" src="../../assets/icons/delete.png"></a>
+                           <a href="#"><img class="img-view-edit-update" src="<?php echo URLROOT ?>/public/icons/delete.png"></a>
                         </span>
                      </td>
                   </tr>
@@ -144,7 +144,7 @@
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <a href="#"><img class="img-view-edit-update" src="../../assets/icons/delete.png"></a>
+                           <a href="#"><img class="img-view-edit-update" src="<?php echo URLROOT ?>/public/icons/delete.png"></a>
                         </span>
                      </td>
                   </tr>
@@ -158,7 +158,7 @@
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <a href="#"><img class="img-view-edit-update" src="../../assets/icons/delete.png"></a>
+                           <a href="#"><img class="img-view-edit-update" src="<?php echo URLROOT ?>/public/icons/delete.png"></a>
                         </span>
                      </td>
                   </tr>

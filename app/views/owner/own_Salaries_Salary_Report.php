@@ -86,6 +86,7 @@
             <label class="ownSalaryReportSubTotalDetailsContentData">Total Salary(LKR)</label>
             <label class="ownSalaryReportSubTotalDetailsContentValue">47500.00</label>
         </div>
+        
 
       </div>
       <!-- Sub Total details ends  -->

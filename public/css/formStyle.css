@@ -24,7 +24,7 @@
 .form input[type="radio"], input[type="checkbox"]{
    margin-left: 3px;
    margin-right: 8px;
-   transform: scale(1.5);
+   /* transform: scale(1.5); */
 }
 
 .form input:focus{
