@@ -1,0 +1,1724 @@
+.own.overview .ownOverviewCardContainer .sub-container-card{
+    width: 450px;
+    overflow: hidden;
+    height: 150px;
+}
+.own.overview .ownOverviewCardContainer .ownOverviewContainerCard3 .sub-container-card{
+    width: 1100px;
+    height: 60px;
+}
+.own.overview .ownOverviewCardContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    'ownOverviewContainerCard1 ownOverviewContainerCard2'
+    'ownOverviewContainerCard3 ownOverviewContainerCard3';
+    justify-items: center;
+
+}
+
+.own.overview .ownOverviewContainerCard1{
+    grid-area: ownOverviewContainerCard1;
+}
+
+.own.overview .ownOverviewContainerCard2{
+    grid-area: ownOverviewContainerCard2;
+}
+.own.overview .ownOverviewContainerCard3{
+    grid-area: ownOverviewContainerCard3;
+    padding: 10px 0 20px 0;
+}
+
+.own.overview .ownOverviewCharts{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    'ownOverviewChart1 ownOverviewChart2 ownOverviewChart3';
+
+}
+
+.own.overview .ownOverviewChart1{
+    grid-area: ownOverviewChart1;
+}
+.own.overview .ownOverviewChart2{
+    grid-area: ownOverviewChart2;
+}
+.own.overview .ownOverviewChart3{
+    grid-area: ownOverviewChart3;
+}
+
+
+
+/* 
+#####################################################################################################################################################
+Close Salon Starts
+##################################################################################################################################################### */
+/* -----------Styles for Remove Staff--------------- */
+/* Move required styles to common stylesheet where necessary */
+
+/* ------------------------------------------------------ */
+/* --------------STYLES ADDED BY RAVINDU -----------------*/
+/* ------------------------------------------------------ */
+
+
+
+
+
+#ownCloseSalonContainer{
+     width: 550px;
+ } 
+
+ .own.close-salon .ownCloseSalonHead{
+     text-align: center;
+ }
+ .own.close-salon .ownCloseSalonLable{
+     font-size: 14px;
+      font-weight: 600;
+      text-align: start;
+ }
+ 
+ .own.close-salon .ownCloseSalonDetail1,
+ .own.close-salon .ownCloseSalonDetail2{
+     display: inline-block;
+ }
+ 
+ .own.close-salon .ownCloseSalonGrid1 input[type = "date"], #ownCloseSalonTextArea, select {
+     width: 100%;
+     font-weight: 400;
+     padding: 8px 10px;
+     border-radius: 6px;
+     border: none;
+     background-color : #EAEAEA;
+     margin-top: 5px;
+ 
+  }
+  #ownCloseSalonTextArea{
+      width: 450px;
+  }
+ 
+  .own.close-salon .ownCloseSalonGrid1 input:focus,
+  #ownCloseSalonTextArea:focus{
+      border-color: none;
+      outline: none;
+  }
+ 
+  .own.close-salon .ownCloseSalonErrortext{
+     font-size: 12px;
+     color: red ;
+     padding-right: 40px;
+     font-weight: 600;
+  }
+ 
+  .own.close-salon .ownCloseSalonMessage{
+      font-size: 14px;
+      padding-top: 5px;
+      font-weight: 600;
+  }
+ 
+  .own.close-salon .ownCloseSalonErrorViewReservaions{
+     color: #037AFF;
+     text-align: start;
+     font-size: 14px;
+     cursor: pointer;
+     font-weight: 600;
+     text-decoration: underline;
+  }
+ 
+ 
+  .own.close-salon .ownCloseSalonGrid3{
+      display: grid;
+      justify-self: center;
+      padding-top: 10px;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 80px;
+      grid-template-areas: 
+      'ownRemStaffbtn1 ownRemStaffbtn2' }
+ 
+ 
+      .own.close-salon .ownRemStaffbtn1{
+      grid-area: ownRemStaffbtn1;
+  }
+ 
+  .own.close-salon .ownRemStaffbtn2{
+     grid-area: ownRemStaffbtn2;
+ }
+ 
+ .own.close-salon .ownRemStaffbtn2 .btn{  
+     background: #3ABD5F;
+ }
+ 
+ 
+ 
+ 
+ /* ------------------------------------------------------ */
+ /* --------------STYLES ADDED BY RAVINDU -----------------*/
+ /* ------------------------------------------------------ */
+ 
+
+
+
+
+
+
+
+/* 
+#####################################################################################################################################################
+Close Salon ends
+##################################################################################################################################################### */
+
+
+
+
+
+/* 
+#####################################################################################################################################################
+Customers Starts
+##################################################################################################################################################### */
+
+
+
+
+
+
+/* -----------Styles for Remove Staff--------------- */
+/* Move required styles to common stylesheet where necessary */
+
+/* ------------------------------------------------------ */
+/* --------------STYLES ADDED BY RAVINDU -----------------*/
+/* ------------------------------------------------------ */
+.own.customers .ownRemCusHead {
+    padding-bottom: 10px;
+    text-align: center;
+ }
+
+ .own.customers .container {
+  
+    width: 40%;
+    min-width: 330px;
+    background-color: #ffffff;
+    padding: 35px 50px;
+    margin-left: 30px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);  
+
+ }
+
+ .own.customers .ownRemCusLabel1,
+ .own.customers .ownRemCusLabel2{ 
+     font-size: 14px;
+     font-weight: 600;
+     text-align: start;
+ }
+ .own.customers .ownRemCusData1,
+ .own.customers .ownRemCusData2
+ {
+    font-size: 14px;
+    font-weight: 600;
+    color: #50515A;
+    text-align: start;
+ }
+ .own.customers .ownRemCusDetails{
+   text-align: center;
+   align-items: end;
+}
+
+
+.own.customers .ownRemCusErrortext {
+     font-size: 10px;
+     color: red ;
+     padding-top: 5px;
+ }
+ .own.customers .ownRemCusError{
+    text-align: center;
+}
+.own.customers button {
+    border: none;
+    padding: 7px 20px;
+    background: linear-gradient(130deg,
+          #037AFF,
+          #037AFF);
+    color: #ffffff;
+    border-radius: 6px;
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-weight: 400;
+ }
+
+ .own.customers .ownRemCusbtn1 .btn{
+     background: #EAEAEA;
+     color: black;
+ }
+ 
+ .own.customers.ownRemCusDetails{
+    display: grid;
+    width: 400px;
+    grid-template-columns: 1fr 1fr;
+
+    grid-template-areas: 
+    'ownRemCusLabel1 ownRemCusData1'
+    'ownRemCusLabel2 ownRemCusData2';
+}
+.own.customers .ownRemCusError{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas: 
+    'ownRemCusErrortext';
+    
+}
+.own.customers .ownRemCusButtons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    'ownRemCusbtn1 ownRemCusbtn2';
+    text-align:  center;
+    padding-top: 5px;
+}
+
+
+.own.customers .ownRemCusLabel1{
+    grid-area: ownRemCusLabel1;
+}
+.own.customers .ownRemCusData1{
+    grid-area: ownRemCusData1;
+}
+.own.customers .ownRemCusLabel2{
+    grid-area: ownRemCusLabel2;
+}
+.own.customers .ownRemCusData2{
+    grid-area: ownRemCusData2;
+}
+.own.customers .ownRemCusErrortext{
+    grid-area: ownRemCusErrortext;
+}
+.own.customers .ownRemCusbtn1{
+    grid-area: ownRemCusbtn1;
+
+    
+}
+.own.customers .ownRemCusbtn2{
+    grid-area: ownRemCusbtn2;
+}
+ 
+ 
+ /* ------------------------------------------------------ */
+ /* -----------END OF STYLES ADDED BY RAVINDU--------------*/
+ /* ------------------------------------------------------ */
+
+/* 
+#####################################################################################################################################################
+Customers Endss
+##################################################################################################################################################### */
+
+
+
+
+/* 
+#####################################################################################################################################################
+ Rates Starts
+##################################################################################################################################################### */
+
+
+.own.rates .ownRatesDate{
+    padding-left: 40px;
+}
+.own.rates .ownRateMonthlabel{
+    font-size: 12px;
+    font-weight: 600;
+}
+/* Main headings styles */
+.own.rates .ownRatesLeaveLimitHeadbar h1,
+.own.rates .ownRatesCommisionRateHeadbar h1,
+.own.rates .ownRatesMinManagersHeadbar h1,
+.own.rates .ownRatesBasicSalaryHeadbar h1{
+   font-size: 16px;
+   font-weight: 250px;
+   padding-left: 10px;
+}
+/* Leave Limits styles */
+.own.rates .ownRatesLeaveLimitsLabel{
+   font-size: 14px;
+   font-weight: 400;
+   color: #50515A;
+   padding-left: 10px;
+}
+.own.rates .ownRatesLeaveLimitsText{
+   text-align: center;
+}
+.own.rates .ownRatesLeaveLimitsDetails input{
+   float: right;
+   /* border-radius: 6px; */
+   border: none;
+   background-color: #EAEAEA;
+}
+.own.rates .ownRatesLeaveLimitsDetails{
+   padding-top: 20px;
+}
+
+/* commision rate styles */
+/* Minimum Managers styles */
+.own.rates .ownRatesComissionRate input,
+.own.rates .ownRatesMinManagers input{
+   
+   border: none;
+   background-color: #EAEAEA;
+   height: 30px;
+}
+.own.rates .ownRatesCommisionRateDetails,
+.own.rates .ownRatesMinManagersDetails{
+   text-align: center;
+   padding-top: 40px;
+}
+.own.rates .ownRatesCommisionRateText,
+.own.rates .ownRatesMinManagersText{
+   text-align: center;
+}
+/* Basic salary styles */
+.own.rates .ownRatesBasicSalaryHeadbar{
+   padding-left: 10px;
+   padding-top: 20px;
+}
+
+.own.rates .ownRatesBasicSalary1 input,
+.own.rates .ownRatesBasicSalary2 input,
+.own.rates .ownRatesBasicSalary3 input{
+   border: none;
+   background-color: #EAEAEA;
+   height: 30px;
+}
+.own.rates .ownRatesBasicSalarytext1,
+.own.rates .ownRatesBasicSalarytext2,
+.own.rates .ownRatesBasicSalarytext3{
+   text-align: center;
+   padding-top: 20px;
+}
+.own.rates .ownRatesBasicSalaryText{
+   text-align: center;
+}
+
+.own.rates .ownRatesBasicSalary1,
+.own.rates .ownRatesBasicSalary2,
+.own.rates .ownRatesBasicSalary3{
+   color: #50515A;
+   font-weight: 500;
+   text-align: center;
+}
+
+/* grid styles */
+
+.own.rates .ownRatesLeaveLimit,
+.own.rates .ownRatesComissionRate,
+.own.rates .ownRatesMinManagers{
+   height: 150px;
+   width: 350px;
+   background-color: white;
+   border-radius: 6px;
+   box-shadow: 4px 4px 4px  #dad6d6;    
+}
+.own.rates .ownRatesBasicSalary{
+   height: 200px;
+   width: 1096px;
+   background-color: white;
+   border-radius: 6px;
+   box-shadow: 4px 4px 4px  #dad6d6; 
+   
+}
+.own.rates .ownRatesBasicSalaryContainer{
+   padding-left: 60px;
+}
+
+.own.rates .ownRateGridArea2{
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   /* grid-gap: 10px 40px; */
+   grid-template-areas: 
+   'ownRatesLeaveLimit ownRatesComissionRate ownRatesMinManagers';
+   justify-content: center;
+   padding: 40px;
+
+}
+
+.own.rates .ownRatesBasicSalary{
+   display: grid;
+   grid-template-columns: 100%;
+   grid-template-areas: 
+   'ownRatesBasicSalaryHeadbar'
+   'ownRatesBasicSalaryContent';
+   
+}
+
+.own.rates .ownRatesBasicSalaryContent{
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   grid-template-areas: 
+   'ownRatesBasicSalary1 ownRatesBasicSalary2 ownRatesBasicSalary3';
+   justify-content: center;
+}
+
+.own.rates .ownRatesLeaveLimit{
+   grid-area: ownRatesLeaveLimit;
+   padding: 10px;
+}
+
+.own.rates .ownRatesComissionRate{
+   grid-area: ownRatesComissionRate;
+   padding: 10px;
+}
+.own.rates .ownRatesMinManagers{
+   grid-area: ownRatesMinManagers;
+   padding: 10px;
+}
+
+.own.rates .ownRatesBasicSalary{
+   grid-area: ownRatesBasicSalary;
+}
+.own.rates .ownRatesBasicSalaryHeadbar{
+   grid-area: ownRatesBasicSalaryHeadbar;
+}
+.own.rates .ownRatesBasicSalaryContent{
+   grid-area: ownRatesBasicSalaryContent;
+}
+
+.own.rates .ownRatesBasicSalary1{
+   grid-area: ownRatesBasicSalary1;
+}
+.own.rates .ownRatesBasicSalary2{
+   grid-area: ownRatesBasicSalary2;
+}
+.own.rates .ownRatesBasicSalary3{
+   grid-area: ownRatesBasicSalary3;
+}
+
+
+
+
+
+/* 
+#####################################################################################################################################################
+ Rates Endss
+##################################################################################################################################################### */
+
+/* -----------Styles for Resources--------------- */
+/* Move required styles to common stylesheet where necessary */
+
+/* ------------------------------------------------------ */
+/* --------------STYLES ADDED BY RAVINDU -----------------*/
+/* ------------------------------------------------------ */
+
+/* --------------------------------------------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------ */
+/* -----------Styles for Remove Resources Starts--------------- */
+/* ------------------------------------------------------------ */
+#ownResRemContainer{
+    width: 500px;
+        height: 200px;
+}
+.own.resources .ownRemResHead{
+    padding-bottom: 10px;
+    text-align: center;
+ }
+ .own.resources .ownResRem_ResourceDeatils{
+     text-align: center;
+     color: #50515A;
+ }
+ .own.resources .ownResRemButtons{
+     padding-top: 20px;
+ }
+ .own.resources .ownResRemBtn1 .btn{
+    background: #EAEAEA;
+    color: black;
+}
+
+.own.resources .ownResRemButtons{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+    'ownResRemBtn1 ownResRemBtn2';
+    text-align: center;
+}
+.own.resources .ownResRemBtn1{
+    grid-area: ownResRemBtn1;
+    padding-left: 20px; 
+}
+.own.resources .ownResRemBtn2{
+    grid-area: ownResRemBtn2;
+    padding-right: 20px; 
+}
+
+
+/* ---------------------------------------------------------- */
+/* -----------Styles for Remove Resources Ends--------------- */
+/* ---------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------------------------------------- */
+
+
+/* ------------------------------------------------------------ */
+/* -----------Styles for Add Resources Starts------------------ */
+/* ------------------------------------------------------------ */
+
+#ownResAddContainer{
+        width: 500px;
+        height: 300px;
+}
+.own.resources .ownResAddHead{
+    text-align: center;
+
+}
+
+.own.resources .ownResAddDetails{
+    text-align: left;
+    padding-top: 40px;
+}
+.own.resources .ownResAddLabel1,
+.own.resources .ownResAddLabel2{
+   
+    font-size: 16px;
+    font-weight: 600; 
+    margin-bottom: 10px;
+}
+#ownResAddQuantity{
+    margin: 0;
+}
+
+.own.resources .ownResAddDetail1,
+.own.resources .ownResAddDetail2{
+  text-align: left;
+}
+
+.own.resources .ownResAddLabeltext{
+    border-radius: 6px;
+    width: 200px;
+    height: 40px;
+}
+.own.resources .ownResAddDetail1 input[type="text"],
+.own.resources .ownResAddDetail2 #ownResAddQuantity{
+
+    background-color : #EAEAEA; 
+    padding-left: 5px;
+    Border : none; 
+  
+  }
+  .own.resources .ownResAddDetail1 input[type="text"]:focus,
+  .own.resources .ownResAddDetail2 #ownResAddQuantity:focus{
+        outline: none;
+        border-color: #6f6df4;
+     }
+     .own.resources .ownResAddBtn1 .btn{
+    background: #EAEAEA; 
+    color: black; 
+}
+.own.resources .ownResAddBtn2 .btn{  
+    background: #3ABD5F;
+}
+
+.own.resources .ownResAddBtn1{
+    padding-left: 20px;    
+}
+.own.resources .ownResAddBtn2{
+    padding-right: 20px;    
+}
+
+
+.own.resources .ownResAddDetails{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 
+    'ownResAddDetail1 ownResAddDetail2';
+}
+
+
+.own.resources .ownResAddButtons{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-areas: 
+    'ownResAddBtn1 ownResAddBtn2';
+    text-align: center;
+    padding-top: 60px;
+}
+.own.resources .ownResAddBtn1{
+    grid-area: ownResAddBtn1;
+}
+.own.resources .ownResAddBtn2{
+    grid-area: ownResAddBtn2;
+    
+}
+.own.resources .ownResAddDetail1{
+    grid-area: ownResAddDetail1;
+}
+.own.resources .ownResAddDetail2{
+    grid-area: ownResAddDetail2;
+}
+
+
+/* ------------------------------------------------------------ */
+/* -----------Styles for Add Resources Ends------------------ */
+/* ------------------------------------------------------------ */
+
+/* ------------------------------------------------------ */
+/* --------------STYLES ADDED BY RAVINDU -----------------*/
+/* ------------------------------------------------------ */
+
+
+/* 
+#####################################################################################################################################################
+ Resources Ends
+##################################################################################################################################################### */
+
+
+
+
+/* 
+#####################################################################################################################################################
+ Salaries Starts
+##################################################################################################################################################### */
+
+/* -----------Styles for Salaries--------------- */
+/* Move required styles to common stylesheet where necessary */
+
+/* ------------------------------------------------------ */
+/* --------------STYLES ADDED BY RAVINDU -----------------*/
+/* ------------------------------------------------------ */
+
+
+/* ------------------------- owner salary report styles --------------------------- */
+
+/* ----------------------------Headings styles -------------*/
+.own.salaries .SalaryReportContainer{
+    background-color: white;
+}
+.own.salaries .ownSalaryReportHeadings{
+    text-align: center;
+}
+.own.salaries .ownSalaryReportHead1{
+   font-size: 30px;
+   font-weight: 600;
+}
+.own.salaries .ownSalaryReportHead2{
+   font-size: 16px;
+   font-weight: 450;
+
+}
+.own.salaries .ownSalaryReportHead3{
+   font-size: 18px;
+   font-weight: 800;
+   color: #8A8888;
+}
+
+/* ----------------------------Salary Report Staff Member Details Styles-------------- */
+
+.own.salaries .ownSalaryReportStaffMemberDetails,
+.own.salaries .ownSalaryReportEarningDetails,
+.own.salaries .ownSalaryReportDeductionsDetails{
+    padding-left: 10px;
+
+}
+.own.salaries .ownSalaryReportStaffMemberDetailHead,
+.own.salaries .ownSalaryReportEarningDetailsHead,
+.own.salaries .ownSalaryReportDeductionsDetailHead,
+.own.salaries .ownSalaryReportSubTotalDetailHead{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.own.salaries .ownSalaryReportStaffMemberDetailsContent{
+    background-color: #EAEAEA;
+    padding: 10px;
+    float: right;
+    height: 120px;
+    width: 500px;
+
+}
+
+.own.salaries .ownSalaryReportEarningDetailsContent{
+    background-color: #EAEAEA;
+    padding: 10px;
+    float: right;
+    height: 120px;
+    width: 500px;
+}
+.own.salaries .ownSalaryReportDeductionsDetailsContent{
+    background-color: #EAEAEA;
+    padding: 10px;
+    float: left;
+    height: 120px;
+    width: 500px;
+}
+.own.salaries .ownSalaryReportSubTotalDetailsContent{
+    background-color: #EAEAEA;
+    padding: 10px;
+    height: 40px;
+    width: 500px;
+}
+.own.salaries .ownSalaryReportPaidDetailsContent{
+    background-color: #EAEAEA;
+    padding: 10px;
+    width: 500px; 
+    height: 60px;  
+}
+
+.own.salaries .ownSalaryReportStaffMemberDetailsContentData,
+.own.salaries .ownSalaryReportEarningDetailsContentData,
+.own.salaries .ownSalaryReportDeductionsDetailsContentData,
+.own.salaries .ownSalaryReportSubTotalDetailsContentData,
+.own.salaries .ownSalaryReportPaidDetailsContentData{
+    float: left;
+    font-size: 14px;
+    font-weight: 400px;
+}
+.own.salaries .ownSalaryReportStaffMemberDetailsContentValue,
+.own.salaries .ownSalaryReportEarningDetailsContentValue,
+.own.salaries .ownSalaryReportDeductionsDetailsContentValue,
+.own.salaries .ownSalaryReportSubTotalDetailsContentValue,
+.own.salaries .ownSalaryReportPaidDetailsContentValue{
+    float: right;
+    font-size: 14px;
+    font-weight: 400px;
+    color:#50515A ;
+}
+/* Arrange the grid areas */
+.own.salaries .SalaryReportContainer{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+    'ownSalaryReportHeadings ownSalaryReportHeadings'
+    'ownSalaryReportStaffMemberDetails ownSalaryReportDeductionsDetails'
+    'ownSalaryReportEarningDetails ownSalaryReportSubTotalDetails'
+    'ownSalaryReportEarningDetails ownSalaryReportPaidDetails'
+}
+
+/* Assign grid areas */
+.own.salaries .ownSalaryReportHeadings{
+    grid-area: ownSalaryReportHeadings;
+    padding: 5px;
+}
+.own.salaries .ownSalaryReportStaffMemberDetails{
+    grid-area: ownSalaryReportStaffMemberDetails;
+    padding: 5px;
+    
+}
+.own.salaries .ownSalaryReportEarningDetails{
+    grid-area: ownSalaryReportEarningDetails;
+    padding: 5px;
+  
+}
+.own.salaries .ownSalaryReportDeductionsDetails{
+    grid-area: ownSalaryReportDeductionsDetails;
+    padding: 5px ;
+}
+.own.salaries .ownSalaryReportSubTotalDetails{
+    grid-area: ownSalaryReportSubTotalDetails;
+    padding: 5px;
+}
+.own.salaries .ownSalaryReportPaidDetails{
+    grid-area: ownSalaryReportPaidDetails;
+    padding: 5px;
+}
+
+
+
+
+
+
+/* 
+#####################################################################################################################################################
+ Salaries Ends
+##################################################################################################################################################### */
+
+
+
+
+/* 
+#####################################################################################################################################################
+ Staff starts
+##################################################################################################################################################### */
+
+
+/* -----------Styles for Remove Staff--------------- */
+/* Move required styles to common stylesheet where necessary */
+
+/* ------------------------------------------------------ */
+/* --------------STYLES ADDED BY RAVINDU -----------------*/
+/* ------------------------------------------------------ */
+
+
+
+
+/* ------------------------------------------------------------------------------------------------------ */
+/* ----------------------------------- Remove Staff styles starts------------------ --------------------- */
+/* ------------------------------------------------------------------------------------------------------ */
+
+#ownRemstaffWrapper {
+    display: block;
+    width: 400px;
+}
+
+.own.staff .ownRemstaffContainer {
+    display: grid;
+}
+
+.own.staff .ownRemStaffHead {
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+
+
+.own.staff .staffLable {
+    font-size: 14px;
+    font-weight: 600;
+    text-align: start;
+    display: block;
+}
+
+.own.staff .staffData {
+    font-size: 14px;
+    font-weight: 600;
+    color: #50515A;
+    text-align: start;
+}
+
+.own.staff .staffDetails {
+
+    width: 300px;
+    height: 120px;
+}
+
+
+.own.staff .remStaffErrortext {
+    font-size: 12px;
+    color: red;
+}
+
+.own.staff .remStaffErrorAnchortag {
+    cursor: auto;
+}
+
+.own.staff .remStaffErrorViewReservaions {
+    color: #037AFF;
+    text-align: start;
+    font-size: 12px;
+    cursor: pointer;
+
+
+
+}
+
+.own.staff .remStaffError {
+    text-align: left;
+    width: 300px;
+    height: 40px;
+
+}
+
+
+
+
+
+
+/* 
+--------------------------------------------- */
+.own.staff button {
+    border: none;
+    padding: 7px 20px;
+    background: linear-gradient(130deg,
+            #037AFF,
+            #037AFF);
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.own.staff .ownRemStaffbtn1 .btn {
+    background: #EAEAEA;
+    color: black;
+}
+
+
+.own.staff .staffDetails {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-self: center;
+    grid-template-areas:
+        'staffDetail1 staffDetail2'
+        'staffDetail3 staffDetail3'
+
+}
+
+.own.staff .remStaffError {
+    display: grid;
+    grid-template-columns: 100%;
+    justify-self: center;
+    grid-template-areas:
+        'remStaffErrortext'
+        'viewReservaions';
+
+}
+
+.own.staff .remButtons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 40px;
+    grid-template-areas:
+        'ownRemStaffbtn1 ownRemStaffbtn2';
+    text-align: center;
+    padding-top: 5px;
+}
+
+.own.staff .staffDetail1 {
+    grid-area: staffDetail1;
+
+}
+
+.own.staff .staffDetail2 {
+    grid-area: staffDetail2;
+}
+
+.own.staff .staffDetail3 {
+    grid-area: staffDetail3;
+}
+
+.own.staff .remStaffErrortext {
+    grid-area: remStaffErrortext;
+}
+
+.own.staff .viewReservaions {
+    grid-area: viewReservaions;
+}
+
+.own.staff .ownRemStaffbtn1 {
+    grid-area: ownRemStaffbtn1;
+    justify-self: right;
+}
+
+.own.staff .ownRemStaffbtn2 {
+    grid-area: ownRemStaffbtn2;
+    justify-self: left;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------ */
+/* ----------------------------------- Remove Staff styles ends------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------------ */
+
+
+
+/* ------------------------------------------------------------------------------------------------------ */
+/* -----------------------------------Staff view styles starts------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------ */
+
+
+.ownViewStaffBody {
+    height: 100vh;
+}
+
+.ownViewStaffContainer {
+    height: calc(100vh - 35px);
+}
+
+.ownViewStaffContainerHead {
+    text-align: center;
+    padding: 20px;
+
+}
+
+/* .ownAddstaffLineContainer{
+    padding-top: 5px 10px;
+} */
+
+
+/* ######################################################## */
+
+.ownViewStaffCard1Details,
+.ownViewStaffCard2Details,
+.ownViewStaffCard3Details {
+
+    padding-left: 100px;
+
+}
+
+/* ######################################################## */
+
+
+
+.ownViewStaffCards .ownViewStaffCardHeadLabel {
+    text-align: center;
+}
+
+.ownViewStaffProfileDetailsImgCircle {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* all cards heading styles */
+.ownViewStaffProfileDetails,
+.ownViewStaffCard1,
+.ownViewStaffCard2,
+.ownViewStaffCard3 {
+    font-weight: 500;
+    margin: 0;
+    padding: 5px;
+    border-radius: 6px;
+    background-color: var(--white);
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* All cards label styles */
+
+.ownViewStaffCardDetailsLabel {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--theme-grey);
+
+}
+
+/* All cards values styles */
+
+.ownViewStaffCardDetailsValue {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* profile details card styles */
+
+.ownViewStaffProfileDetailsName {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+
+.ownViewStaffProfileDetailsStaffId {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--theme-grey);
+}
+
+
+
+/*---------------------------------- Assign grid areas and grid arrange styles starts----------------------------------- */
+
+
+/*------------------------------- Card grid areas and styles -------------------------------------------- */
+.ownViewStaffProfileDetails {
+
+    grid-area: ownViewStaffProfileDetails;
+    width: 600px;
+    height: 240px;
+    justify-self: right;
+    align-self: flex-end;
+
+}
+
+.ownViewStaffCard1 {
+    grid-area: ownViewStaffCard1;
+    width: 600px;
+    height: 460px;
+    justify-self: right;
+    justify-self: self-end;
+}
+
+.ownViewStaffCard2 {
+
+    grid-area: ownViewStaffCard2;
+    width: 600px;
+    height: 400px;
+    justify-self: left;
+    align-self: flex-end;
+
+}
+
+.ownViewStaffCard3 {
+    grid-area: ownViewStaffCard3;
+    width: 600px;
+    height: 300px;
+    justify-self: left;
+}
+
+.ownViewStaffCards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    grid-template-areas:
+        'ownViewStaffProfileDetails ownViewStaffCard2'
+        'ownViewStaffProfileDetails ownViewStaffCard2'
+        'ownViewStaffCard1 ownViewStaffCard2'
+        'ownViewStaffCard1 ownViewStaffCard3'
+        'ownViewStaffCard1 ownViewStaffCard3'
+}
+
+
+
+/*---------------------------------------------- Profile Grid areas and styles -------------------------------------------*/
+
+
+.ownViewStaffProfileGrid {
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+        'ownViewStaffProfileDetailsImg ownViewStaffProfileDetailsInfo';
+
+}
+
+.ownViewStaffProfileDetailsImg {
+    grid-area: ownViewStaffProfileDetailsImg;
+    justify-self: center;
+
+}
+
+.ownViewStaffProfileDetailsInfo {
+    grid-area: ownViewStaffProfileDetailsInfo;
+    align-self: center;
+    justify-self: center;
+}
+
+/*---------------------------------------------- Basic Info Grid areas and styles -------------------------------------------*/
+.ownViewStaffCardrow {
+    word-wrap: break-word;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    /* gap: 20px; */
+    margin: 20px;
+}
+
+/*################################################################## Responsive styles ####################################################*/
+
+@media screen and (max-width: 830px) {
+    .ownViewStaffCards {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+        grid-template-areas:
+            'ownViewStaffProfileDetails'
+            'ownViewStaffCard1'
+            'ownViewStaffCard2'
+            'ownViewStaffCard3'
+    }
+
+    .ownViewStaffProfileDetails,
+    .ownViewStaffCard1,
+    .ownViewStaffCard2,
+    .ownViewStaffCard3 {
+        justify-self: center;
+        align-self: center;
+    }
+
+}
+
+/* ------------------------------------------------------------------------------------------------------ */
+/* -----------------------------------Staff view styles ends------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------ */
+
+
+
+/* ------------------------------------------------------------------------------------------------------ */
+/* -----------------------------------Add staff styles starts------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------ */
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* -----------------------------------container styles starts---------------------------------- */
+
+/* -----------------------------------body styles starts----------------------------------------- */
+.ownAddstaffBody {
+
+    width: 100vw;
+
+}
+
+/* -----------------------------------body styles endss----------------------------------------- */
+.ownStaff_allignmentbox {
+    display: grid;
+    width: 100vw;
+    height: 100%;
+}
+
+
+/* -----------------------------------container styles starts---------------------------------- */
+.ownAddstaffContainer {
+
+    max-width: 800px;
+    width: 100%;
+    background: white;
+    padding: 25px;
+    border-radius: 6px;
+    display: grid;
+    justify-self: center;
+
+
+}
+
+/* -----------------------------------container styles ends------------------------------------- */
+
+/* ----------------------------------------------Form section break lines -----------------------------------------*/
+.ownAddstaffLines {
+    height: 2px;
+    max-width: 800px;
+    width: 100%;
+    background-color: lightgray;
+    border-radius: 6px;
+
+}
+
+.ownAddstaffLineContainer {
+    padding: 25px 40px;
+
+}
+
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* --------------- Form heading styles --------------------------------*/
+
+.ownAddStaff_Formheading {
+    text-align: center;
+}
+
+/* .container {
+    align-items: center;
+    position: absolute;
+} */
+
+.ownAddstaffContainer .ownAddstaffBasicinfo,
+.ownAddstaffContainer .ownAddstaffContactdetails,
+.ownAddstaffContainer .ownAddstaffBankdetails {
+    padding: 20px;
+}
+
+/*---------------------------------------------------- Add image styles starts -----------------------------------------*/
+.ownAddstaffContainer .ownAddstaffFormGroupImage .ownAddstaffBasicinfoFilesubBtn #ownAddstaffBasicinfoImagesub {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.ownAddstaffContainer .ownAddstaffFormGroupImage .ownAddstaffBasicinfoFilesubBtn .ownAddstaffBasicinfoImagewrapper {
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 10px;
+    background: #eaeaea;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ownAddstaffContainer .ownAddstaffFormGroupImage .ownAddstaffBasicinfoFilesubBtn .ownAddstaffBasicinfoImagetitle {
+    font-weight: 600;
+    font-size: 14px;
+    color: white;
+}
+
+.ownAddstaffContainer .ownAddstaffFormGroupImage .ownAddstaffBasicinfoFilesubBtn .ownAddstaffBasicinfoIcon {
+
+    align-items: center;
+
+}
+
+.ownAddstaffContainer .ownAddstaffFormGroupImage .ownAddstaffBasicinfoFilesubBtn .ownAddstaffBasicinfoImagewrapper:hover {
+    transform: translate(-5px);
+    box-shadow: 0;
+}
+
+/* Form image wrapper styles */
+.ownAddstaffContainer .ownAddstaffFormGroupImage .ownAddstaffBasicinfoImagewrapper {
+
+    margin-bottom: 10px;
+}
+
+/*---------------------------------------------------- Add image styles ends -----------------------------------------*/
+
+/*---------------------------------------------------- Address styles --------------------*/
+.ownAddstaffFormGroupADD .homeAdd {
+    border-radius: 6px;
+    border: 1px solid lightgray;
+    width: 100%;
+    height: 80px;
+    padding: 8px 10px;
+    resize: none;
+    font-weight: 400;
+}
+
+/*----------------------------------- Drop down styles ----------------------------------------------------------*/
+
+.ownAddstaffFormGroupStype .dropdownselectbox {
+    font-size: 16px;
+    padding: 10px 15px;
+    background: white;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    width: 95%;
+    height: 42px;
+}
+
+/*--------------------------------------------------- Butoon styles starts ----------------------------------------*/
+.ownAddstaffbutton {
+    background-color: #6f6df4;
+    color: white;
+    border: 1px solid;
+    height: 50px;
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    padding-right: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+.ownAddstaffButton {
+    padding-right: 20px;
+}
+
+/*--------------------------------------------------- Butoon styles ends ----------------------------------------*/
+
+
+/* --------------------------- Form template styles --------------------------------------------------------------*/
+
+.ownAddstaffContainer form input[type="text"],
+select {
+    width: 100%;
+    font-weight: 400;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1.2px solid #c4cae0;
+    margin-top: 5px;
+}
+
+.ownAddstaffContainer form input[type="date"],
+select {
+    width: 100%;
+    font-weight: 400;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1.2px solid #c4cae0;
+    margin-top: 5px;
+}
+
+.ownAddstaffContainer input[type="radio"],
+input[type="checkbox"] {
+    margin-left: 3px;
+    margin-right: 8px;
+    transform: scale(1.5);
+}
+
+.ownAddstaffContainer form input:focus,
+.ownAddstaffFormGroupADD .homeAdd:focus,
+.dropdownselectbox:focus {
+    outline: none;
+    border-color: #6f6df4;
+}
+
+.ownAddstaffContainer .ownAddstaffLabels {
+    color: #1c093c;
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+    width: 100%;
+    padding-bottom: 0;
+}
+
+.ownAddstaffFormGroupADD .ownAddstaffLabels,
+.ownAddstaffFormGroupRadio .ownAddstaffLabels {
+    padding-bottom: 5px;
+}
+
+.ownAddstaffContainer form .ownAddstaffFormGroupFname {
+    width: 100%;
+}
+
+.ownAddstaffContainer form .ownAddstaffFormGroupRadio {
+    margin-top: 5px;
+}
+
+.ownAddstaffContainer .error {
+    font-size: 12px;
+    color: #DC3545;
+}
+
+
+/*--Customize the grid places --------------*/
+.ownAddstaffContainer .ownAddstaffMaingrid1 {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 5px;
+    grid-template-areas:
+        'ownAddstaffFormGroupImage ownAddstaffFormGroupFname'
+        'ownAddstaffFormGroupImage ownAddstaffFormGroupLname'
+        'ownAddstaffFormGroupRadio ownAddstaffFormGroupNIC';
+
+}
+
+.ownAddstaffContainer .ownAddstaffMaingrid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+    grid-template-areas:
+        'ownAddstaffFormGroupStype ownAddstaffFormGroupDOB';
+}
+
+.ownAddstaffContainer .ownAddstaffMaingrid3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        'ownAddstaffFormGroupADD';
+}
+
+.ownAddstaffContainer .ownAddstaffMaingrid4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+    grid-template-areas:
+        'ownAddstaffFormGroupTP ownAddstaffFormGroupMAIL';
+}
+
+.ownAddstaffContainer .ownAddstaffMaingrid5 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+    grid-template-areas:
+        'ownAddstaffFormGroupACCNUM ownAddstaffFormGroupACCNAME';
+}
+
+.ownUpdateStaffDisable {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        'ownUpdateStaffFormGroupDisableLable ownUpdateStaffFormGroupDisableTogle';
+}
+
+
+
+.ownAddstaffButton {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 15px;
+    grid-template-areas:
+        'ownAddstaffbutton';
+}
+
+/*----------- Assigning grid areas and adding styles ----------------*/
+
+.ownAddstaffFormGroupImage {
+    grid-area: ownAddstaffFormGroupImage;
+
+}
+
+.ownAddstaffFormGroupFname {
+    grid-area: ownAddstaffFormGroupFname;
+    padding-bottom: 10px;
+}
+
+.ownAddstaffFormGroupLname {
+    grid-area: ownAddstaffFormGroupLname;
+    padding-bottom: 10px;
+}
+
+.ownAddstaffFormGroupRadio {
+    grid-area: ownAddstaffFormGroupRadio;
+    padding-bottom: 10px;
+}
+
+.ownAddstaffFormGroupNIC {
+    grid-area: ownAddstaffFormGroupNIC;
+    padding-bottom: 10px;
+}
+
+.ownAddstaffFormGroupStype {
+    grid-area: ownAddstaffFormGroupStype;
+    padding-bottom: 10px;
+}
+
+.ownAddstaffFormGroupDOB {
+    grid-area: ownAddstaffFormGroupDOB;
+    padding-bottom: 10px;
+}
+
+.ownAddstaffFormGroupADD {
+    grid-area: ownAddstaffFormGroupADD;
+    padding-bottom: 10px;
+}
+
+.ownAddstaffFormGroupTP {
+    grid-area: ownAddstaffFormGroupTP;
+    padding-bottom: 10px;
+}
+
+.ownAddstaffFormGroupMAIL {
+    grid-area: ownAddstaffFormGroupMAIL;
+    padding-bottom: 10px;
+}
+
+.ownAddstaffFormGroupACCNUM {
+    grid-area: ownAddstaffFormGroupACCNUM;
+    padding-bottom: 10px;
+}
+
+.ownAddstaffFormGroupACCNAME {
+    grid-area: ownAddstaffFormGroupACCNAME;
+    padding-bottom: 10px;
+}
+
+.ownAddstaffbutton {
+    grid-area: ownAddstaffbutton;
+    justify-self: right;
+
+}
+
+
+/*################################################################## Responsive styles ####################################################*/
+
+
+@media screen and (max-width: 600px) {
+
+
+    /*---- Grids placing and styles for responsive ----*/
+    .ownAddstaffContainer .ownAddstaffMaingrid1 {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas:
+            'ownAddstaffFormGroupImage'
+            'ownAddstaffFormGroupFname'
+            'ownAddstaffFormGroupLname'
+            'ownAddstaffFormGroupRadio'
+            'ownAddstaffFormGroupNIC';
+    }
+
+    .ownAddstaffContainer .maingrid2 {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas:
+            'ownAddstaffFormGroupStype'
+            'ownAddstaffFormGroupDOB';
+    }
+
+    .ownAddstaffContainer .ownAddstaffMaingrid3 {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas:
+            'ownAddstaffFormGroupADD';
+    }
+
+    .ownAddstaffContainer .ownAddstaffMaingrid4 {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas:
+            'ownAddstaffFormGroupTP'
+            'ownAddstaffFormGroupMAIL';
+    }
+
+    .ownAddstaffContainer .ownAddstaffMaingrid5 {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas:
+            'ownAddstaffFormGroupACCNUM'
+            'ownAddstaffFormGroupACCNAME';
+    }
+
+    /*---- Add image style for responsive ----*/
+    .ownAddstaffFormGroupImage {
+        justify-content: center;
+        text-align: center;
+    }
+
+
+    /*---- Form wrapper styles for responsive -----*/
+    form .ownAddstaffFormWrapper .ownAddstaffMaingrid1 input[type=text] {
+        width: 100%;
+    }
+
+    .dropdownselectbox {
+        width: 100%;
+    }
+
+    /* Form home address styles for responsive */
+    form .ownAddstaffFormWrapper .ownAddstaffMaingrid3 .ownAddstaffFormGroupADD .homeAdd {
+        width: 100%;
+    }
+
+    .ownAddstaffFormWrapper .ownAddstaffMaingrid4 input[type=text],
+    .ownAddstaffMormWrapper .ownAddstaffMaingrid5 input[type=text] {
+        width: 100%;
+    }
+
+    /*----Form button styles for responsive ---- */
+    .ownAddstaffButton {
+        padding-right: 20px;
+    }
+
+}
+
+/* ------------------------------------------------------------------------------------------------------ */
+/* -----------------------------------Add staff styles ends------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------ */
+
+
+
+/* ------------------------------------------------------------------------------------------------------ */
+/* -----------------------------------Update staff styles starts------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------ */
+
+.ownUpdateStaffFormGroupDisable .toglecheckbox {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    -webkit-appearance: none;
+    background: #c6c6c6;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.ownUpdateStaffFormGroupDisable .toglecheckbox:checked {
+    background: #444BF8;
+
+}
+
+.ownUpdateStaffFormGroupDisable .toglecheckbox::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.ownUpdateStaffFormGroupDisable .toglecheckbox:checked::before {
+    left: 20px;
+}
+
+.ownUpdateStaffFormGroupDisableLable {
+    grid-area: ownUpdateStaffFormGroupDisableLable;
+}
+
+.ownUpdateStaffFormGroupDisableTogle {
+    grid-area: ownUpdateStaffFormGroupDisableTogle;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+
+
+/* ------------------------------------------------------------------------------------------------------ */
+/* -----------------------------------Update staff styles ends------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------ */
+
+/* 
+#####################################################################################################################################################
+Staff Ends
+##################################################################################################################################################### */
+
+

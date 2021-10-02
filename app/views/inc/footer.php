@@ -10,8 +10,8 @@
 <script src="<?php echo URLROOT ?>/public/js/jquery-3.6.0.min.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/sideNav.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/headerBar.js"></script>
-<script src="<?php echo URLROOT ?>/public/js/newService.js"></script>
-<script type="text/javascript" src="<?php echo URLROOT ?>/public/js/modals.js"></script>
+<script src="<?php echo URLROOT ?>/public/js/modals.js"></script>
+<script src="<?php echo URLROOT ?>/public/js/own_overview.js"></script>
 
 </body>
 
