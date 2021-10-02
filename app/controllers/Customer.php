@@ -4,6 +4,7 @@ class Customer extends Controller
    public function __construct()
    {
       $this->customerModel = $this->model('CustomerModel');
+      $this->userModel = $this->model('userModel');
    }
 
    public function register()
@@ -63,14 +64,39 @@ class Customer extends Controller
             $data['confirmPassword_error'] = "Passwords dont't match";
          }
 
-         if (empty($data['fName_error']) && empty($data['lName_error']) && empty($data['gender_error']) && empty($data['mobileNo_error']) && empty($data['code_error']) && empty($data['password_error']) && empty($data['confirmPassword_error'])) {
-            $this->customerModel->register($data);
+         if (
+            empty($data['fName_error']) && empty($data['lName_error']) && empty($data['gender_error']) && empty($data['mobileNo_error']) &&
+            empty($data['code_error']) && empty($data['password_error']) && empty($data['confirmPassword_error'])
+         ) {
+
+            // try {
+            //    // First of all, let's begin a transaction
+            //    $this->db->beginTransaction();
+
+            //    // A set of queries; if one fails, an exception should be thrown
+            //    $this->customerModel->register($data);
+            //    $this->userModel->register($data);
+
+            //    // If we arrive here, it means that no exception was thrown
+            //    // i.e. no query has failed, and we can commit the transaction
+            //    $this->dbh->commit();
+            // } catch (\Throwable $e) {
+            //    // An exception has been thrown
+            //    // We must rollback the transaction
+            //    $this->dbh->rollback();
+            //    throw $e; // but the error must be handled anyway
+            // }
+
+
+            $this->customerModel->registerCustomer($data);
+            $this->userModel->registerUser($data);
+
             header('location: ' . URLROOT . '/user/signin');
          } else {
-            // die("Fail");
             $this->view('register', $data);
          }
       } else {
+
          $data = [
             'fName' => '',
             'lName' => '',

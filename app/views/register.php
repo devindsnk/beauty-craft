@@ -65,7 +65,7 @@
             <div class="row">
                <div class="text-group">
                   <label class="label" for="pin">PIN</label>
-                  <input type="text" class="pin" name="pin" placeholder="Enter PIN here">
+                  <input type="text" class="pin" name="pin" maxlength="6" placeholder="PIN">
                   <span class="error"><?php echo $data['pin_error']; ?></span>
                </div>
             </div>
@@ -74,14 +74,14 @@
                <div class="column">
                   <div class="text-group">
                      <label class="label" for="password">Password</label>
-                     <input type="text" name="password" placeholder="Enter password here">
+                     <input type="password" name="password" placeholder="Enter password here">
                      <span class="error"><?php echo $data['password_error']; ?></span>
                   </div>
                </div>
                <div class="column">
                   <div class="text-group">
                      <label class="label" for="confirmPassword">Confirm Password</label>
-                     <input type="text" name="confirmPassword" placeholder="Enter password again">
+                     <input type="password" name="confirmPassword" placeholder="Enter password again">
                      <span class="error"><?php echo $data['confirmPassword_error']; ?></span>
                   </div>
                </div>

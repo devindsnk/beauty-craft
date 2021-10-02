@@ -15,16 +15,16 @@
 <body>
     <div class="main-container">
         <div class="login-container form-container contentBox">
-            <form action="#" class="form">
+            <form action="<?php echo URLROOT; ?>/user/signin" method="post" class="form">
                 <h1 class="title">Sign In</h1>
 
                 <div class="text-group">
-                    <input type="text" name="mobileNo" placeholder="Your first name here">
-                    <span class="error"><?php echo $data['mobileNo_error']; ?></span>
+                    <input type="text" name="mobileNo" placeholder="Your mobile number here" value="<?php echo $data['mobileNo']; ?>">
+                    <span class=" error"><?php echo $data['mobileNo_error']; ?></span>
                 </div>
 
                 <div class="text-group">
-                    <input type="text" placeholder="Your first name here">
+                    <input type="password" name="password" placeholder="Your password here">
                     <span class="error"><?php echo $data['password_error']; ?></span>
                 </div>
 

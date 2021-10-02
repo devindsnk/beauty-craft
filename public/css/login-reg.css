@@ -86,7 +86,7 @@ body {
     margin-bottom: 20px;
 }
 
-.form-container input[type=text] {
+.form-container input[type=text], .form-container input[type=password] {
     display: block;
     border-radius: 5px;
     padding: 5px 20px;
@@ -94,6 +94,10 @@ body {
     height: 40px;
     width: 100%;
     background-color: var(--theme-lightgrey);
+}
+
+.form .pin {
+    letter-spacing: 4px;
 }
 
 .login-container input[type=text] {

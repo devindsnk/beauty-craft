@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -36,15 +40,20 @@
          </div>
 
          <div class="buttons">
-            <a href="<?php echo URLROOT ?>/user/signin" class="btn-landing btnLogin">
-               <span>Sign In</span>
-            </a>
-            <a href="<?php echo URLROOT ?>/customer/register" class="btn-landing btnRegister">
-               <span>Register</span>
-            </a>
-            <div class="profileIcon">
-               <img src="<?php echo URLROOT ?>/public/imgs/person4.jpg" alt="">
-            </div>
+            <?php if (isset($_SESSION['userMobileNo'])) : ?>
+               <div class="profileIcon">
+                  <img src="<?php echo URLROOT ?>/public/imgs/person4.jpg" alt="">
+               </div>
+
+            <?php else : ?>
+               <a href="<?php echo URLROOT ?>/user/signin" class="btn-landing btnLogin">
+                  <span>Sign In</span>
+               </a>
+               <a href="<?php echo URLROOT ?>/customer/register" class="btn-landing btnRegister">
+                  <span>Register</span>
+               </a>
+            <?php endif; ?>
+
             <i class="ci ci-menu-white menuBtn"></i>
          </div>
       </nav>
@@ -69,7 +78,7 @@
             </li>
             <li>
                <i class="far fa-sign-out"></i>
-               <a href="#">Sign Out</a>
+               <a href="<?php echo URLROOT ?>/user/signout">Sign Out</a>
             </li>
          </ul>
       </div>
