@@ -14,7 +14,7 @@
    ?>
 
    <!--Content-->
-   <div class="content">
+   <div class="content recept customers">
       <h3>This is main option 1</h3>
 
 

@@ -17,46 +17,46 @@
    <!--Content-->
    <div class="content">
       <!--sub-container1-->
-      <div class="sub-container1">
+      <div class="mang-sub-container1">
          <!--card1-->
-         <div class="sub-container-card">
-            <div class="sub-container-card-title"> 
+         <div class="mang-sub-container-card">
+            <div class="mang-sub-container-card-title"> 
                <p>Total Reservations</p>
             </div>
-            <div class="sub-container-card-amount"> 
+            <div class="mang-sub-container-card-amount"> 
                <p>450</p>
             </div>
          </div>
          <!--End of card1-->
 
          <!--card2-->
-         <div class="sub-container-card">
-            <div class="sub-container-card-title"> 
+         <div class="mang-sub-container-card">
+            <div class="mang-sub-container-card-title"> 
                <p>Total Income</p>
             </div>
-            <div class="sub-container-card-amount"> 
+            <div class="mang-sub-container-card-amount"> 
                <p>400,000.00 LKR</p>
             </div>
          </div>
          <!--End of card2-->
 
          <!--card3-->
-         <div class="sub-container-card">
-            <div class="sub-container-card-title"> 
+         <div class="mang-sub-container-card">
+            <div class="mang-sub-container-card-title"> 
                <p>Total Services</p>
             </div>
-            <div class="sub-container-card-amount"> 
+            <div class="mang-sub-container-card-amount"> 
                <p>25</p>
             </div>
          </div>
          <!--End of card3-->
 
          <!--card4-->
-         <div class="sub-container-card">
-            <div class="sub-container-card-title"> 
-               <p>No of Service Providers</p>
+         <div class="mang-sub-container-card">
+            <div class="mang-sub-container-card-title"> 
+               <p>Service Providers</p>
             </div>
-            <div class="sub-container-card-amount"> 
+            <div class="mang-sub-container-card-amount"> 
                <p>30</p>
             </div>
          </div>
@@ -65,7 +65,7 @@
       <!--End of sub-container1-->
 
       <!--sub-container2-->
-      <div class="sub-container2">
+      <div class="mang-sub-container2 mang">
          <!--chart-container-->
          <div class="chart-container">
             <div class="chart-head"> 
@@ -87,7 +87,7 @@
       <!--End of sub-container2-->
 
       <!--sub-container2-->
-      <div class="sub-container2">
+      <div class="mang-sub-container2 mang">
          <!--chart-container-->
          <div class="chart-container">
             <div class="chart-head"> 
@@ -108,7 +108,7 @@
       </div>
       <!--End of sub-container2-->
 
-      <div class="sub-container3">
+      <div class="mang-sub-container3 mang">
          <div class="table-container">
             <div class="table-head"> 
                <p>Top 5 Employees</p>
@@ -272,5 +272,6 @@
           },
         });
     </script>
+    
    <?php require APPROOT . "/views/inc/footer.php" ?>
    

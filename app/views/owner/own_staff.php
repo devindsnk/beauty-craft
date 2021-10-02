@@ -1,4 +1,4 @@
-<?php require "../header.php" ?>
+<?php require APPROOT . "/views/inc/header.php" ?>
 
 <body class="layout-template-1">
    <?php
@@ -15,35 +15,52 @@
    ?>
 
    <!--Content-->
-   <div class="content">
+
+<!----------------------- temporary buttons --------------------------------------->
+   <div class="content own staff">
       <h3>This is main option 1</h3>
       <div class="container">
       <button class="btnOpen normal" type="button">Remove Staff</button>
-      <button class="btnOpen full" type="button">Add Staff</button>
-      <button class="btnOpen full" type="button">Update Staff</button>
+      <button type="button">
+      <a href="<?php echo URLROOT?>/staff/addStaff">Add Staff </a>
+      </button>
+      <button class="btnOpen" type="button">
+      <a href="<?php echo URLROOT?>/staff/updateStaff">Update Staff</a>       
+      </button>
+      <button class="btnOpen" type="button">
+      <a href="<?php echo URLROOT?>/staff/viewStaff">  View Staff</a>       
+      </button>
    </div>
-   <!------------------- Remove Staff Container starts ----------------------------->
+
+
+   <!------------------- Remove Staff modal starts ----------------------------->
       <div class="modal-container normal">
-      <div class="modal-box">
+      <div class="modal-box " id="ownRemstaffWrapper">
+        <div class="ownRemstaffContainer">
          <h1 class="ownRemStaffHead">Remove Staff</h1>
          <!-- start main grid 1 -->
+         
          <div class= "staffDetails">
-             
-             <label class = "staffLabel1">Staff Id</label>
-             <span class="staffData1">M001</span>
-             <br>
-             <label class= "staffLabel2">Name</label>
-             <span class="staffData2">Ravindu Madhubhashana</span>
-             <br>
-             <label class= "staffLabel3">Type</label>
-             <span class="staffData3">Manager</span>
+             <div class="staffDetail1">
+             <label class = "staffLable">Staff Id</label> 
+             <span class="staffData">M001</span>
+             </div>
+             <div class="staffDetail2">
+             <label class= "staffLable">Type</label>
+             <span class="staffData">Service Provider</span>            
+             </div>
+             <div class="staffDetail3">
+             <label class= "staffLable">Name</label>
+             <span class="staffData">Ravindu Madhubhashana</span>
+             </div>
          </div>
+      
          <!-- main grid 1 ends -->
 
          <!-- main grid 2 starts -->
          <div class="remStaffError">
                 <label class="remStaffErrortext">Cannot proceed. Has upcoming reservations</label>
-                <a href="#"> <label class="viewReservaions">View Reservaions</label></a>
+                <a href="#" class="remStaffErrorAnchortag"> <label class="remStaffErrorViewReservaions">View Reservaions</label></a>
          </div>
          <!-- main grid 2 ends -->
          <!-- main grid 3 starts -->
@@ -57,42 +74,10 @@
         </div>
         <!-- main grid 3 ends -->
 
-        
+        </div>
       </div>
    </div>
     <!------------------- Remove Staff Container ends ----------------------------->
-     <!------------------- Add Staff Container starts ----------------------------->
-     <div class="modal-container full">
-      <div class="modal-box">
-         <h1>This is a full modal</h1>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste enim odit, nulla consequuntur corporis
-            provident sint magni necessitatibus animi molestias quas eos perspiciatis doloribus porro? Fugit amet
-            recusandae distinctio.</p>
-         <button class="btn btnClose full">Save</button>
-
-      </div>
-
-      
-   </div>
-    <!------------------- Add Staff Container ends ----------------------------->
-
-    <!------------------- Update Staff Container starts ----------------------------->
-    <div class="modal-container full">
-      <div class="modal-box">
-         <h1>This is a full modal</h1>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste enim odit, nulla consequuntur corporis
-            provident sint magni necessitatibus animi molestias quas eos perspiciatis doloribus porro? Fugit amet
-            recusandae distinctio.</p>
-         <button class="btn btnClose full">Save</button>
-
-      </div>
-
-      
-   </div>
-    <!------------------- Update Staff Container ends ----------------------------->
-
-
-
    </div>
    <!--End Content-->
 

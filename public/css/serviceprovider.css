@@ -6,79 +6,95 @@
 
 /* ------------------------------------------------------ */
 
-:root {
-    --theme-purple: #444bf8;
-    --theme-blue: #037aff;
-    --theme-black: #252631;
-    --theme-bgwhite: #f2f2f7;
-    --theme-grey: #50515a;
-    --white: #ffffff;
-    --black: #000000;
+body {
+    background-color: var(--theme-bgwhite);
+    font-family: poppins;
 }
 
-.sub-container1 {
+.serprov .sub-container1 {
     display: flex;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     width: 80%;
     height: 150px;
-    align-items: center;
+    /* align-items: center; */
     margin-left: auto;
     margin-right: auto;
+    overflow: hidden;
+    /* justify-content: flex-start; */
 }
 
-.sub-container1-card {
+.serprov .container1-card {
     display: flex;
-    background-color: var(--white);
-    padding: 20px;
-    border-radius: 6px;
-    /* width: 16rem;
-         height: 5rem; */
-    height: 80px;
-    width: 270px;
-    justify-content: space-around;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.serprov .sub-container1-card-content {
+    display: flex;
+    justify-content: center;
     align-items: center;
+    background-color: white;
+    margin: 10px 50px;
+    padding: 8px 50px;
+    width: 350px;
+    border-radius: 6px;
+    justify-content: space-between;
 }
 
-.sub-container1-card-title {
-    width: 70%;
+.serprov .webview {
+    margin: 0px 50px;
+}
+
+.serprov .sub-container1-card-title {
     font-weight: 500;
-    font-size: 1.3rem;
+    font-size: 18px;
+    display: flex;
 }
 
-.sub-container1-card-count {
-    width: 20%;
-    color: #444bf8;
+.serprov .sub-container1-card-count {
+    color: var(--theme-purple);
     font-weight: 600;
-    font-size: 1.6rem;
+    font-size: 30px;
     text-align: center;
+    display: flex;
 }
 
-.sub-container2 {
-    width: 80%;
-    /* height: 1%; */
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 1.33rem;
+.serprov .sub-content-container2 {
+    display: flex;
+    flex-direction: column;
 }
 
-.scroll-area {
+.serprov .topic {
+    margin-bottom: 10px;
+    margin-left: 50px;
+}
+
+.serprov .sub-content-container2 h2 {
+    font-size: 27px;
+    font-weight: 500;
+}
+
+.serprov .reservationlist {
+    height: 600px;
+}
+
+.serprov .scroll-area {
     -ms-overflow-style: none;
-    /* for Internet Explorer, Edge */
     scrollbar-width: none;
-    /* for Firefox */
     overflow: hidden;
     overflow-y: scroll;
-    height: 370px;
+    height: 100%;
 }
 
-.scroll-area::-webkit-scrollbar {
+..serprov .scroll-area::-webkit-scrollbar {
     display: none;
     /* for Chrome, Safari, and Opera */
 }
 
-.sub-container2-card {
-    padding: 20px;
-    height: 80px;
+.serprov .sub-container2-card {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.034), 0 5px 17.9px rgba(0, 0, 0, 0.072);
+    padding: 10px 40px;
+    height: 100px;
     display: flex;
     font-size: 1.06rem;
     align-items: center;
@@ -88,49 +104,67 @@
     border-radius: 6px;
 }
 
-.sub-container2-card-timeservice {
-    width: 35%;
-    height: 100%;
+.serprov .sub-container2-card-name {
+    width: 25%;
+    display: flex;
+    align-items: center;
 }
 
-.sub-container2-card-timeservice-time {
+.serprov .sub-container2-card-time {
     height: 40%;
     font-weight: 400;
     display: block;
-    /* font-size: 1.06rem; */
+    font-size: 18px;
 }
 
-.sub-container2-card-timeservice-service {
+.serprov .sub-container2-card-service {
     height: 60%;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 24px;
     display: block;
 }
 
-.sub-container2-card-name {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    font-size: 18px;
+.serprov .sub-container2-card-name {
+    display: block;
+}
+
+.serprov .sub-container2-card-cstname {
+    font-size: 16px;
+}
+
+.serprov .sub-container2-card-name .name {
+    font-size: 21px;
+}
+
+.serprov .sub-container2-card button {
+    background: transparent;
+    color: var(--theme-purple);
+    font-size: 20px;
     font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    padding: 2px;
+    border: none;
+    width: 150px;
+    background-color: #ffffff;
+    font-family: poppins;
 }
 
-.avatar {
-    vertical-align: middle;
-    width: 60px;
-    height: 60px;
-    border-radius: 100%;
-    margin-right: 10px;
+.serprov .sub-container2-card button:hover {
+    font-weight: 600;
 }
 
-.sub-container2-card-link {
-    width: 15%;
-    color: #037aff;
-    font-size: 18px;
-    font-weight: 500;
+.serprov .confirm-status {
+    padding: 5px 30px;
+    background-color: #c0f0d1;
+    color: #3abd5f;
+    font-weight: 600;
+    border-radius: 6px;
+    max-width: 152px;
+    text-align: center;
 }
 
-.mob-subcontainer2-card {
+.serprov .mob-subcontainer2-card {
     width: 100%;
     height: 140px;
     padding: 20px;
@@ -178,69 +212,200 @@
     }
 }
 
-.overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    transition: opacity 100ms;
-    visibility: hidden;
-    background: rgba(0, 0, 0, 0.35);
-}
-
-.overlay:target {
-    visibility: visible;
-    opacity: 1;
-}
-
-.popup {
-    /* margin: 13% 40%; */
-    margin: auto;
-    margin-top: 100px;
-    background: #fff;
-    border-radius: 5px;
-    width: 35%;
-    height: 60%;
-    position: relative;
-    transition: all 0.5s none;
-    border: none;
-    padding: 0;
-    box-shadow: 1px 2px #ccccce;
-    /* background-color: #06d85f; */
-}
-
-.popup h2 {
-    color: #333;
+.serprov .modal-container.normal {
     width: 100%;
+    height: 100%;
 }
 
-.popup .close {
-    position: absolute;
-    top: 1px;
-    right: 10px;
-    font-size: 32px;
-    font-weight: 400;
-    text-decoration: none;
-    color: var(--theme-black);
+.serprov .modal-box {
+    height: 600px;
 }
 
-.popup .close:hover {
+.serprov .modelcontent {
+    height: 550px;
+    width: 100%;
+    /* background-color: lightblue; */
+    display: flex;
+    flex-direction: column;
+}
+
+.serprov .modal-box h1 {
+    text-align: center;
+}
+
+.serprov .modaldatetime {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 12%;
+    color: var(--theme-purple);
+    /* background-color: teal; */
+}
+
+.serprov .modaldetails {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* background-color: thistle; */
+    height: 12%;
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0px;
+}
+
+.serprov .Reservationnote-cust {
+    display: flex;
+    flex-direction: column;
+    height: 21%;
+    align-items: flex-start;
+    justify-content: center;
+    /* background-color: lightcoral; */
+}
+
+.serprov .Reservationnote {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 21%;
+    /* background-color: lightseagreen; */
+}
+
+.serprov .savechange {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 10%;
+    /* background-color: yellow; */
+}
+
+.serprov .modalbutton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* background-color: tomato; */
+    height: 24%;
+}
+
+.serprov .modaldatetime-time {
+    width: 50%;
+    color: Var(--theme-black);
+}
+
+.serprov .modaldatetime-date {
+    width: 50%;
+    text-align: right;
+    color: Var(--theme-black);
+}
+
+.serprov .modaldatetime-time span {
+    font-size: 22px;
+}
+
+.serprov .confirm-status span {
+    text-align: center;
+    font-size: 17px;
+}
+
+.serprov .modaldatetime-time {
+    font-weight: 600;
+}
+
+.serprov span.duration {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--theme-blue);
+}
+
+.serprov .Reservationnote-note.editable {
+    border-radius: 6px;
+    background-color: #eaeaea;
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+}
+
+.serprov .modaldatetime {
+    display: flex;
+    flex-direction: row;
     color: var(--theme-purple);
 }
 
-.popup .content {
-    max-height: 30%;
-    overflow: auto;
+.serprov .modaldetails-name {
+    width: 50%;
 }
 
-.popup-topic {
+.serprov .modaldetails-status {
+    width: 50%;
     text-align: center;
-    border-bottom: 1px rgb(207, 204, 204) solid;
-    width: 100%;
-    padding: 5px;
+    padding-left: 100px;
 }
 
-.popin-content {
-    padding: 20px;
+.serprov .savechange button {
+    background: transparent;
+    font-size: 18px;
+    color: var(--theme-black);
+    font-weight: 600;
+    text-align: right;
+    text-decoration: none;
+    padding: 2px;
+    border: none;
+    background-color: #ffffff;
+    font-family: poppins;
+}
+
+.serprov .Reservationnote-name {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.serprov .service {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.serprov .name {
+    font-size: 16px;
+}
+
+
+/* 
+.Reservationnote-note {
+    margin-bottom: 10px;
+}
+
+.Reservationnote-note span {
+    font-size: 16px;
+}
+
+.savechange {
+    text-align: right;
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+.modalbutton {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    /* padding-left: 50px; }*/
+
+.serprov .modaldetails-name span.name {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.serprov button.btn.btnClose.normal {
+    height: 45px;
+    width: 110px;
+    font-size: 18px;
+    background-color: #eaeaea;
+}
+
+.serprov .modalbutton button.btn.btnClose.normalrecall {
+    height: 45px;
+    width: 110px;
+    font-size: 18px;
 }

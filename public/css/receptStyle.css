@@ -5,7 +5,7 @@
 /* --------------STYLES ADDED BY DEVIN -------------------*/
 /* ------------------------------------------------------ */
 
-.content .top-container{
+.recept .content .top-container {
    margin: 30px 0 10px 0;
    padding: 0 70px;
    display: flex;
@@ -13,24 +13,23 @@
    width: 100%;
 }
 
-
-.content .options-container{
+.recept .content .options-container {
    display: flex;
    padding: 30px 70px;
    width: 100%;
    min-width: 330px;
 }
 
-.content .options-container .left-section{
+.recept .content .options-container .left-section {
    width: 100%;
    margin-right: auto;
 }
 
-.content .options-container .right-section{
+.recept .content .options-container .right-section {
    margin-left: 30px;
 }
 
-.content .btn{
+.recept .content .btn {
    border: none;
    border-radius: 6px;
    padding: 8px 15px;
@@ -40,28 +39,151 @@
    font-weight: 500;
 }
 
-.content .top-container .btn-main{
+.recept .content .top-container .btn-main {
    background-color: var(--theme-purple);
 }
 
-.content .options-container .btn-search{
+.recept .content .options-container .btn-search {
    margin-top: 26px;
    background-color: var(--theme-black);
 }
 
-@media (max-width:  940px){
-   .content .options-container{
+@media (max-width: 940px) {
+   .recept .content .options-container {
       flex-direction: column;
    }
 
-   .content .options-container .right-section{
+   .recept .content .options-container .right-section {
       margin-left: auto;
    }
 
-   .content .options-container .btn-search{
+   .recept .content .options-container .btn-search {
       margin-top: 0px;
    }
 }
+
+/* Styles of recallRequest */
+.recept.recall-request .main-container {
+   width: 100%;
+   padding: 20px 0;
+   display: flex;
+   flex-direction: column;
+   /* justify-content: center; */
+}
+
+.recept.recall-request .sub-container {
+   align-self: center;
+   padding: 30px;
+   width: 60%;
+   height: min-content;
+   display: flex;
+   flex-wrap: wrap;
+   margin: 12px 0;
+}
+
+.recept.recall-request .sub-container .left-section {
+   flex-grow: 2;
+}
+
+.recept.recall-request .sub-container .right-section {
+   flex-grow: 1;
+}
+
+.recept .recall-request .sub-container .row {
+   width: 100%;
+   height: fit-content;
+   display: grid;
+   grid-template-columns: auto 120px;
+   gap: 0 15px;
+}
+
+.recept.recall-request .sub-container .row-inner {
+   width: 100%;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.recept.recall-request .sub-container .date-box {
+   border-radius: 6px;
+   height: max-content;
+   background-color: var(--theme-lightgrey);
+   display: flex;
+   flex-wrap: wrap;
+   padding: 10px 0;
+}
+
+.recept .text-group span,
+.date-box span {
+   display: block;
+   width: 100%;
+}
+
+.recept .sub-container .text-group {
+   margin-bottom: 15px;
+}
+
+.recept .text-group .title {
+   font-size: 16px;
+   font-weight: 400;
+   color: var(--theme-grey);
+}
+
+.recept .text-group .content {
+   font-size: 17px;
+   font-weight: 600;
+   color: var(--theme-black);
+}
+
+.recept .text-group .description {
+   font-size: 17px;
+   font-weight: 400;
+   color: var(--theme-black);
+}
+
+.recept .date-box .mondate {
+   text-align: center;
+   font-size: 22px;
+   font-weight: 600;
+   color: var(--theme-purple);
+}
+
+.recept .date-box .year {
+   text-align: center;
+   font-size: 18px;
+   font-weight: 500;
+   color: var(--theme-grey);
+}
+
+.recept .sub-container .btn {
+   width: 100px;
+   font-size: 16px;
+   font-weight: 500;
+   margin-top: 10px;
+   width: 120px;
+   height: 35px;
+
+   text-align: center;
+}
+
+.recept .sub-container .btn-outlined.btn-black {
+   background-color: transparent;
+   border: 2px solid var(--theme-black);
+   color: var(--theme-black);
+}
+
+.recept .sub-container .btn-red {
+   background-color: var(--theme-red);
+}
+
+.recept .desc-container {
+   margin-top: 20px;
+}
+
+
+
+
+
+
 
 
 

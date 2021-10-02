@@ -13,9 +13,14 @@ class Application
    public function __construct()
    {
       $url = $this->getURL();
+<<<<<<< HEAD
    //   print_r($url);
+=======
+
+>>>>>>> 1268da40c5f1c9390c86613a607a5f50689f4c84
       // Look in controllers for the first value
-      if (file_exists('../app/controllers/' . ucwords($url[0]) . '.php')) {
+      if (file_exists('../app/controllers/' . ucwords($url[0]) . '.php'))
+      {
          // Set the controller if exists
          $this->currentController = ucwords($url[0]);
          // Unset the 0th value
@@ -25,8 +30,10 @@ class Application
       require_once '../app/controllers/' . $this->currentController . '.php';
       // Instantiate controller class
       $this->currentController = new $this->currentController;
-      if (isset($url[1])) {
-         if (method_exists($this->currentController, $url[1])) {
+      if (isset($url[1]))
+      {
+         if (method_exists($this->currentController, $url[1]))
+         {
 
             $this->currentMethod = $url[1];
             unset($url[1]);
@@ -39,7 +46,8 @@ class Application
 
    public function getURL()
    {
-      if (isset($_GET['url'])) {
+      if (isset($_GET['url']))
+      {
          $url = rtrim($_GET['url'], '/');
          $url = filter_var($url, FILTER_SANITIZE_URL);
          $url = explode('/', $url);

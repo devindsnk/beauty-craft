@@ -4,12 +4,12 @@
 <body class="layout-template-1">
 
    <?php
-   $selectedMain = "Overview";
+   $selectedMain = "Reservations";
    require APPROOT . "/views/serviceProvider/serProv_sideNav.php"
    ?>
 
    <?php
-   $title = "Overview";
+   $title = "Reservations";
    $username = "Ruwanthi Munasinghe";
    $userLevel = "Service Provider";
    require APPROOT . "/views/inc/headerBar.php"
