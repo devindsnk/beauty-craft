@@ -57,7 +57,28 @@ class Database
                break;
          }
       }
-
       $this->statement->bindValue($param, $value, $type);
+   }
+
+   public function execute()
+   {
+      return $this->statement->execute();
+   }
+
+   public function resultSet()
+   {
+      $this->execute();
+      return $this->statement->fetchAll(PDO::FETCH_OBJ);
+   }
+
+   public function single()
+   {
+      $this->execute();
+      return $this->statement->fetch(PDO::FETCH_OBJ);
+   }
+
+   public function rowCount()
+   {
+      return $this->statement->rowCount();
    }
 }
