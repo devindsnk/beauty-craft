@@ -5,12 +5,32 @@
 /* ------------------------------------------------------ */
 
 .table-container{
-  height: 100%;
+  height: 50%;
+  margin-bottom: 20px;
   overflow: scroll;
+  overflow-y: visible;
+  overflow-x: hidden;
+  direction: ltr;
+  scrollbar-width: thin;
+  scrollbar-color: #f3f0dd #F2F2F7;
+}
+
+.table-container::-webkit-scrollbar {
+  width: 11px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: #F2F2F7;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: #c4cae0;
+  border-radius: 6px;
+  border: 3px solid #c4cae0;
 }
 
 .table1-responsive{
-  height: auto;
+  height: 400px;
   padding: 40px 40px;
   min-width: 500px;
 }
@@ -108,9 +128,9 @@
   display: block;
 }
 
-.table1 button{
+/* .table1 button{
   background: none;
-}
+} */
 
 .table1 .table-btn{
   border: none;
@@ -145,6 +165,21 @@
 
 .table1 .btn-position{
   margin: 10px 10px 10px 0px;
+}
+
+.table1 .check-btn{
+  width: 90px;
+  height: 25px;
+  background-color: #3ABD5F;
+  color: #FFFFFF;
+
+}
+
+.table1 .uncheck-btn{
+  width: 90px;
+  height: 25px;
+  background-color: #FE3D4F;
+  color: #FFFFFF;
 }
 
 .table1 .img-profile-picture{

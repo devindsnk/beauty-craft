@@ -3,8 +3,8 @@
    <!--Sidebar Header-->
    <div class="header">
       <a href="serProv_overview.php">
-         <div>
-            <img src="../../../public/imgs/logo-white.png" alt="BeautyCraft">
+          <div>
+            <img src="<?php echo URLROOT ?>/public/imgs/logo-white.png" alt="BeautyCraft">
          </div>
       </a>
    </div>
@@ -17,9 +17,9 @@
 
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Overview") echo " selected" ?>" href="./serProv_overview.php">
+            <a class="optionLink <?php if ($selectedMain == "Overview") echo " selected" ?>" href="<?php echo URLROOT ?>/SerProvDashboard/overview">
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Overview</div>
             </a>
@@ -28,9 +28,9 @@
 
          <!--Sidebar Item-->
          <li class="mainOption menuOption">
-            <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="./serProv_reservation.php">
+            <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="<?php echo URLROOT ?>/SerProvDashboard/reservations">
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Reservations</div>
             </a>
@@ -39,9 +39,9 @@
 
          <!--Sidebar Item-->
          <li class="mainOption menuOption">
-            <a class="optionLink <?php if ($selectedMain == "Leaves") echo " selected" ?>" href="./serProv_leaves.php">
+            <a class="optionLink <?php if ($selectedMain == "Leaves") echo " selected" ?>" href="<?php echo URLROOT ?>/SerProvDashboard/leaves">
                <div class="optionIcon">
-                  <img src="../../../public/icons/overview-white.png" />
+                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
                <div class="optionTitle">Leaves</div>
             </a>

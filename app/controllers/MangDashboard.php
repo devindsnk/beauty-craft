@@ -30,23 +30,23 @@ class MangDashboard extends Controller
    {
       $this->view('manager/mang_resources');
    }
-   public function subLeaveRequests()
+   public function leaveRequests()
    {
       $this->view('manager/mang_subLeaveRequests');
    }
-   public function subTakeLeave()
+   public function takeLeave()
    {
       $this->view('manager/mang_subTakeLeave');
    }
-   public function subAnalyticsOverall()
+   public function analyticsOverall()
    {
       $this->view('manager/mang_subAnalyticsOverall');
    }
-   public function subAnalyticsService()
+   public function analyticsService()
    {
       $this->view('manager/mang_subAnalyticsService');
    }
-   public function subAnalyticsSProvider()
+   public function analyticsSProvider()
    {
       $this->view('manager/mang_subAnalyticsSProvider');
    }
