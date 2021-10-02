@@ -5,7 +5,7 @@
 /* --------------STYLES ADDED BY DEVIN -------------------*/
 /* ------------------------------------------------------ */
 
-.content .top-container {
+.recept .content .top-container {
    margin: 30px 0 10px 0;
    padding: 0 70px;
    display: flex;
@@ -13,24 +13,23 @@
    width: 100%;
 }
 
-
-.content .options-container {
+.recept .content .options-container {
    display: flex;
    padding: 30px 70px;
    width: 100%;
    min-width: 330px;
 }
 
-.content .options-container .left-section {
+.recept .content .options-container .left-section {
    width: 100%;
    margin-right: auto;
 }
 
-.content .options-container .right-section {
+.recept .content .options-container .right-section {
    margin-left: 30px;
 }
 
-.content .btn {
+.recept .content .btn {
    border: none;
    border-radius: 6px;
    padding: 8px 15px;
@@ -40,31 +39,31 @@
    font-weight: 500;
 }
 
-.content .top-container .btn-main {
+.recept .content .top-container .btn-main {
    background-color: var(--theme-purple);
 }
 
-.content .options-container .btn-search {
+.recept .content .options-container .btn-search {
    margin-top: 26px;
    background-color: var(--theme-black);
 }
 
 @media (max-width: 940px) {
-   .content .options-container {
+   .recept .content .options-container {
       flex-direction: column;
    }
 
-   .content .options-container .right-section {
+   .recept .content .options-container .right-section {
       margin-left: auto;
    }
 
-   .content .options-container .btn-search {
+   .recept .content .options-container .btn-search {
       margin-top: 0px;
    }
 }
 
 /* Styles of recallRequest */
-.recall-request .main-container {
+.recept.recall-request .main-container {
    width: 100%;
    padding: 20px 0;
    display: flex;
@@ -72,7 +71,7 @@
    /* justify-content: center; */
 }
 
-.recall-request .sub-container {
+.recept.recall-request .sub-container {
    align-self: center;
    padding: 30px;
    width: 60%;
@@ -82,15 +81,15 @@
    margin: 12px 0;
 }
 
-.recall-request .sub-container .left-section{
+.recept.recall-request .sub-container .left-section {
    flex-grow: 2;
 }
 
-.recall-request .sub-container .right-section{
+.recept.recall-request .sub-container .right-section {
    flex-grow: 1;
 }
 
-.recall-request .sub-container .row {
+.recept .recall-request .sub-container .row {
    width: 100%;
    height: fit-content;
    display: grid;
@@ -98,13 +97,13 @@
    gap: 0 15px;
 }
 
-.recall-request .sub-container .row-inner {
+.recept.recall-request .sub-container .row-inner {
    width: 100%;
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
-.recall-request .sub-container .date-box {
+.recept.recall-request .sub-container .date-box {
    border-radius: 6px;
    height: max-content;
    background-color: var(--theme-lightgrey);
@@ -113,68 +112,70 @@
    padding: 10px 0;
 }
 
-.text-group span, .date-box span{
+.recept .text-group span,
+.date-box span {
    display: block;
    width: 100%;
 }
-.sub-container .text-group{
+
+.recept .sub-container .text-group {
    margin-bottom: 15px;
 }
-.text-group .title{
+
+.recept .text-group .title {
    font-size: 16px;
    font-weight: 400;
    color: var(--theme-grey);
 }
 
-.text-group .content{
+.recept .text-group .content {
    font-size: 17px;
    font-weight: 600;
    color: var(--theme-black);
 }
 
-.text-group .description{
+.recept .text-group .description {
    font-size: 17px;
    font-weight: 400;
    color: var(--theme-black);
 }
 
-.date-box .mondate{
+.recept .date-box .mondate {
    text-align: center;
    font-size: 22px;
    font-weight: 600;
    color: var(--theme-purple);
 }
-.date-box .year{
+
+.recept .date-box .year {
    text-align: center;
    font-size: 18px;
    font-weight: 500;
    color: var(--theme-grey);
 }
 
-
-
-.sub-container .btn{
+.recept .sub-container .btn {
    width: 100px;
    font-size: 16px;
    font-weight: 500;
    margin-top: 10px;
    width: 120px;
    height: 35px;
-   
+
    text-align: center;
 }
 
-.sub-container  .btn-outlined.btn-black{
+.recept .sub-container .btn-outlined.btn-black {
    background-color: transparent;
    border: 2px solid var(--theme-black);
    color: var(--theme-black);
 }
 
-.sub-container .btn-red{
+.recept .sub-container .btn-red {
    background-color: var(--theme-red);
 }
 
-.desc-container{
+.recept .desc-container {
    margin-top: 20px;
 }
 

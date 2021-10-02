@@ -14,7 +14,7 @@
    ?>
 
    <!--Content-->
-   <div class="content">
+   <div class="content recept services">
       <div class="top-container">
          <button class="btn btn-main">Add New</button>
       </div>

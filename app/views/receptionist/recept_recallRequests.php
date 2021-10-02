@@ -14,7 +14,7 @@
    ?>
 
    <!--Content-->
-   <div class="content recall-request">
+   <div class="content recept recall-request">
       <div class="main-container">
 
          <div class="sub-container contentBox">
