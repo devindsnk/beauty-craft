@@ -17,39 +17,30 @@
 
     <!--Content-->
     <div class="content">
-         <div class="sub-container1">
             <!--sub-container1-card 1-->
-            <div class="sub-container1-card">
-                <div class="sub-container1-card-title">Completed</div>
-                <div class="sub-container1-card-count">5</div>
+            <div class="container1-card">
+                <div class="sub-container1-card-content">
+                    <div class="sub-container1-card-title">Completed</div>
+                    <div class="sub-container1-card-count">5</div>
+                </div>
             </div>
             <!--End sub-container1-card  1-->
-            <!--sub-container1-card 2-->
-            <div class="sub-container1-card">
-                <div class="sub-container1-card-title">Recall Request</div>
-                <div class="sub-container1-card-count">10</div>
-            </div>
-            <!--End sub-container1-card  2-->
-        </div>
-
         <!--sub-container2-->
-        <div class="sub-content-container2">
-            <div class="topic">
-            <h2>Upcoming reservations today</h2>
-            </div>
+    <div class="sub-content-container2">
+    <div class="topic"><h2>Upcoming reservations today</h2></div>
             <!--sub-container2-card-->
+        <div class="reservationlist">
             <div class="scroll-area">
                 <div class="webview">
                     <div class="sub-container2-card">
                         <!--sub-container2-card-timetype-->
                         <div class="sub-container2-card-name">
-                            <span class="sub-container2-card-timeservice-time"> 10.30 - 11.00 </span>
-                            <span class="sub-container2-card-timeservice-service">Ladies hair cut</span>
+                            <span class="sub-container2-card-time"> 10.30 - 11.00 </span>
+                            <span class="sub-container2-card-service">Ladies hair cut</span>
                         </div>
                         <!--sub-container2-card-timetype-->
-
                         <div class="sub-container2-card-name">
-                            <span class="sub-container2-card-name-cstname">Customer Name</span><br>
+                            <span class="sub-container2-card-cstname">Customer Name</span><br>
                             <span class="name">Ruwanthi Munasinghe</span>
                         </div>
                         <div class="confirm-status">
@@ -59,828 +50,166 @@
                             <button class="btnOpen normal" type="button">More Info</button>
                         </div>
                     </div>
-                    <!-- sub-container2-card -->
                     <div class="sub-container2-card">
                         <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-timeservice">
-                            <span class="sub-container2-card-timeservice-time">
-                  10.30-11.00
-                </span>
-                            <span class="sub-container2-card-timeservice-service">
-                  Ladies hair cut
-                </span>
+                        <div class="sub-container2-card-name">
+                            <span class="sub-container2-card-time"> 10.30 - 11.00 </span>
+                            <span class="sub-container2-card-service">Ladies hair cut</span>
                         </div>
                         <!--sub-container2-card-timetype-->
-
                         <div class="sub-container2-card-name">
-                            <span>Ruwanthi Munasinghe</span>
+                            <span class="sub-container2-card-cstname">Customer Name</span><br>
+                            <span class="name">Ruwanthi Munasinghe</span>
                         </div>
                         <div class="confirm-status">
                             <span>Confirmed</span>
                         </div>
                         <div class="sub-container2-card-link">
-                            <button class="sub-container2-card-link" type="button">
-                  More Info
-                </button>
+                            <button class="btnOpen normal" type="button">More Info</button>
                         </div>
                     </div>
-                    <!-- end sub-container2-card -->
-                                        <!-- sub-container2-card -->
-                                        <div class="sub-container2-card">
+                    <div class="sub-container2-card">
                         <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-timeservice">
-                            <span class="sub-container2-card-timeservice-time">
-                  10.30-11.00
-                </span>
-                            <span class="sub-container2-card-timeservice-service">
-                  Ladies hair cut
-                </span>
+                        <div class="sub-container2-card-name">
+                            <span class="sub-container2-card-time"> 10.30 - 11.00 </span>
+                            <span class="sub-container2-card-service">Ladies hair cut</span>
                         </div>
                         <!--sub-container2-card-timetype-->
-
                         <div class="sub-container2-card-name">
-                            <span>Ruwanthi Munasinghe</span>
+                            <span class="sub-container2-card-cstname">Customer Name</span><br>
+                            <span class="name">Ruwanthi Munasinghe</span>
                         </div>
                         <div class="confirm-status">
                             <span>Confirmed</span>
                         </div>
                         <div class="sub-container2-card-link">
-                            <button class="sub-container2-card-link" type="button">
-                  More Info
-                </button>
+                            <button class="btnOpen normal" type="button">More Info</button>
                         </div>
                     </div>
-                    <!-- end sub-container2-card -->
-                                        <!-- sub-container2-card -->
-                                        <div class="sub-container2-card">
+                    <div class="sub-container2-card">
                         <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-timeservice">
-                            <span class="sub-container2-card-timeservice-time">
-                  10.30-11.00
-                </span>
-                            <span class="sub-container2-card-timeservice-service">
-                  Ladies hair cut
-                </span>
+                        <div class="sub-container2-card-name">
+                            <span class="sub-container2-card-time"> 10.30 - 11.00 </span>
+                            <span class="sub-container2-card-service">Ladies hair cut</span>
                         </div>
                         <!--sub-container2-card-timetype-->
-
                         <div class="sub-container2-card-name">
-                            <span>Ruwanthi Munasinghe</span>
+                            <span class="sub-container2-card-cstname">Customer Name</span><br>
+                            <span class="name">Ruwanthi Munasinghe</span>
                         </div>
                         <div class="confirm-status">
                             <span>Confirmed</span>
                         </div>
                         <div class="sub-container2-card-link">
-                            <button class="sub-container2-card-link" type="button">
-                  More Info
-                </button>
+                            <button class="btnOpen normal" type="button">More Info</button>
                         </div>
                     </div>
-                    <!-- end sub-container2-card -->
-                                        <!-- sub-container2-card -->
-                                        <div class="sub-container2-card">
+                    <div class="sub-container2-card">
                         <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-timeservice">
-                            <span class="sub-container2-card-timeservice-time">
-                  10.30-11.00
-                </span>
-                            <span class="sub-container2-card-timeservice-service">
-                  Ladies hair cut
-                </span>
+                        <div class="sub-container2-card-name">
+                            <span class="sub-container2-card-time"> 10.30 - 11.00 </span>
+                            <span class="sub-container2-card-service">Ladies hair cut</span>
                         </div>
                         <!--sub-container2-card-timetype-->
-
                         <div class="sub-container2-card-name">
-                            <span>Ruwanthi Munasinghe</span>
+                            <span class="sub-container2-card-cstname">Customer Name</span><br>
+                            <span class="name">Ruwanthi Munasinghe</span>
                         </div>
                         <div class="confirm-status">
                             <span>Confirmed</span>
                         </div>
                         <div class="sub-container2-card-link">
-                            <button class="sub-container2-card-link" type="button">
-                  More Info
-                </button>
+                            <button class="btnOpen normal" type="button">More Info</button>
                         </div>
                     </div>
-                    <!-- end sub-container2-card -->
-                                        <!-- sub-container2-card -->
-                                        <div class="sub-container2-card">
+                    <div class="sub-container2-card">
                         <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-timeservice">
-                            <span class="sub-container2-card-timeservice-time">
-                  10.30-11.00
-                </span>
-                            <span class="sub-container2-card-timeservice-service">
-                  Ladies hair cut
-                </span>
+                        <div class="sub-container2-card-name">
+                            <span class="sub-container2-card-time"> 10.30 - 11.00 </span>
+                            <span class="sub-container2-card-service">Ladies hair cut</span>
                         </div>
                         <!--sub-container2-card-timetype-->
-
                         <div class="sub-container2-card-name">
-                            <span>Ruwanthi Munasinghe</span>
+                            <span class="sub-container2-card-cstname">Customer Name</span><br>
+                            <span class="name">Ruwanthi Munasinghe</span>
                         </div>
                         <div class="confirm-status">
                             <span>Confirmed</span>
                         </div>
                         <div class="sub-container2-card-link">
-                            <button class="sub-container2-card-link" type="button">
-                  More Info
-                </button>
+                            <button class="btnOpen normal" type="button">More Info</button>
                         </div>
                     </div>
-                    <!-- end sub-container2-card -->
-                                        <!-- sub-container2-card -->
-                                        <div class="sub-container2-card">
+                    <div class="sub-container2-card">
                         <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-timeservice">
-                            <span class="sub-container2-card-timeservice-time">
-                  10.30-11.00
-                </span>
-                            <span class="sub-container2-card-timeservice-service">
-                  Ladies hair cut
-                </span>
+                        <div class="sub-container2-card-name">
+                            <span class="sub-container2-card-time"> 10.30 - 11.00 </span>
+                            <span class="sub-container2-card-service">Ladies hair cut</span>
                         </div>
                         <!--sub-container2-card-timetype-->
-
                         <div class="sub-container2-card-name">
-                            <span>Ruwanthi Munasinghe</span>
+                            <span class="sub-container2-card-cstname">Customer Name</span><br>
+                            <span class="name">Ruwanthi Munasinghe</span>
                         </div>
                         <div class="confirm-status">
                             <span>Confirmed</span>
                         </div>
                         <div class="sub-container2-card-link">
-                            <button class="sub-container2-card-link" type="button">
-                  More Info
-                </button>
+                            <button class="btnOpen normal" type="button">More Info</button>
                         </div>
                     </div>
-                    <!-- end sub-container2-card -->
-                    <var><var>                    <!-- sub-container2-card -->
-                                        <div class="sub-container2-card">
+                    <div class="sub-container2-card">
                         <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-timeservice">
-                            <span class="sub-container2-card-timeservice-time">
-                  10.30-11.00
-                </span>
-                            <span class="sub-container2-card-timeservice-service">
-                  Ladies hair cut
-                </span>
+                        <div class="sub-container2-card-name">
+                            <span class="sub-container2-card-time"> 10.30 - 11.00 </span>
+                            <span class="sub-container2-card-service">Ladies hair cut</span>
                         </div>
                         <!--sub-container2-card-timetype-->
-
                         <div class="sub-container2-card-name">
-                            <span>Ruwanthi Munasinghe</span>
+                            <span class="sub-container2-card-cstname">Customer Name</span><br>
+                            <span class="name">Ruwanthi Munasinghe</span>
                         </div>
                         <div class="confirm-status">
                             <span>Confirmed</span>
                         </div>
                         <div class="sub-container2-card-link">
-                            <button class="sub-container2-card-link" type="button">
-                  More Info
-                </button>
+                            <button class="btnOpen normal" type="button">More Info</button>
                         </div>
                     </div>
-                    <!-- end sub-container2-card --></var></var>
-
-                                       <div class="sub-container2-card">
+                    <div class="sub-container2-card">
                         <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-timeservice">
-                            <span class="sub-container2-card-timeservice-time">
-                  10.30-11.00
-                </span>
-                            <span class="sub-container2-card-timeservice-service">
-                  Ladies hair cut
-                </span>
+                        <div class="sub-container2-card-name">
+                            <span class="sub-container2-card-time"> 10.30 - 11.00 </span>
+                            <span class="sub-container2-card-service">Ladies hair cut</span>
                         </div>
                         <!--sub-container2-card-timetype-->
-
                         <div class="sub-container2-card-name">
-                            <span>Ruwanthi Munasinghe</span>
+                            <span class="sub-container2-card-cstname">Customer Name</span><br>
+                            <span class="name">Ruwanthi Munasinghe</span>
                         </div>
                         <div class="confirm-status">
                             <span>Confirmed</span>
                         </div>
                         <div class="sub-container2-card-link">
-                            <button class="sub-container2-card-link" type="button">
-                  More Info
-                </button>
+                            <button class="btnOpen normal" type="button">More Info</button>
                         </div>
-                    </div>
-                    <!-- sub-container2-card -->
-                                       <div class="sub-container2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-timeservice">
-                            <span class="sub-container2-card-timeservice-time">
-                  10.30-11.00
-                </span>
-                            <span class="sub-container2-card-timeservice-service">
-                  Ladies hair cut
-                </span>
-                        </div>
-                        <!--sub-container2-card-timetype-->
+                    </div> 
 
-                        <div class="sub-container2-card-name">
-                            <span>Ruwanthi Munasinghe</span>
-                        </div>
-                        <div class="confirm-status">
-                            <span>Confirmed</span>
-                        </div>
-                        <div class="sub-container2-card-link">
-                            <button class="sub-container2-card-link" type="button">
-                  More Info
-                </button>
-                        </div>
-                    </div>
-                    <!-- sub-container2-card -->
-                    <div class="mob-subcontainer2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="details">
-                            <div class="sub-container2-card-timeservice">
-                                <span class="sub-container2-card-timeservice-time">
-                            10.30-10.00
-                        </span>
-                                <span class="sub-container2-card-timeservice-service">
-                            Ladies hair cut
-                        </span>
-                                <span class="sub-container2-card-name">
-                            Ruwanthi123Munasinghe
-                        </span>
-
-                            </div>
-                            <div class="sub-container2-card-profile">
-                                <img src="https://image.shutterstock.com/image-photo/young-businesswoman-sitting-on-modern-260nw-1912892869.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                        </div>
-                        <div class=" sub-container2-card-link ">
-                            <a class="sub-container2-card-link" href="url ">More Info</a>
-                        </div>
-                    </div>
-                    <!--End mobile sub-container2-card-->
-                    <!-- sub-container2-card -->
-                    <div class="mob-subcontainer2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="details">
-                            <div class="sub-container2-card-timeservice">
-                                <span class="sub-container2-card-timeservice-time">
-                            10.30-10.00
-                        </span>
-                                <span class="sub-container2-card-timeservice-service">
-                            Ladies hair cut
-                        </span>
-                                <span class="sub-container2-card-name">
-                            Ruwanthi123Munasinghe
-                        </span>
-
-                            </div>
-                            <div class="sub-container2-card-profile">
-                                <img src="https://image.shutterstock.com/image-photo/young-businesswoman-sitting-on-modern-260nw-1912892869.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                        </div>
-                        <div class=" sub-container2-card-link ">
-                            <a class="sub-container2-card-link" href="url ">More Info</a>
-                        </div>
-                    </div>
-                    <!--End mobile sub-container2-card-->
-                    <!-- sub-container2-card -->
-                    <div class="mob-subcontainer2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="details">
-                            <div class="sub-container2-card-timeservice">
-                                <span class="sub-container2-card-timeservice-time">
-                            10.30-10.00
-                        </span>
-                                <span class="sub-container2-card-timeservice-service">
-                            Ladies hair cut
-                        </span>
-                                <span class="sub-container2-card-name">
-                            Ruwanthi123Munasinghe
-                        </span>
-
-                            </div>
-                            <div class="sub-container2-card-profile">
-                                <img src="https://image.shutterstock.com/image-photo/young-businesswoman-sitting-on-modern-260nw-1912892869.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                        </div>
-                        <div class=" sub-container2-card-link ">
-                            <a class="sub-container2-card-link" href="url ">More Info</a>
-                        </div>
-                    </div>
-                    <!--End mobile sub-container2-card-->
-                    <!-- sub-container2-card -->
-                    <div class="mob-subcontainer2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="details">
-                            <div class="sub-container2-card-timeservice">
-                                <span class="sub-container2-card-timeservice-time">
-                            10.30-10.00
-                        </span>
-                                <span class="sub-container2-card-timeservice-service">
-                            Ladies hair cut
-                        </span>
-                                <span class="sub-container2-card-name">
-                            Ruwanthi123Munasinghe
-                        </span>
-
-                            </div>
-                            <div class="sub-container2-card-profile">
-                                <img src="https://image.shutterstock.com/image-photo/young-businesswoman-sitting-on-modern-260nw-1912892869.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                        </div>
-                        <div class=" sub-container2-card-link ">
-                            <a class="sub-container2-card-link" href="url ">More Info</a>
-                        </div>
-                    </div>
-                    <!--End mobile sub-container2-card-->
-                   
-                <!--mobilesub-container2-card-->
+                    <!-- end web view -->
+                </div>  
                 <div class="mobview">
-
-                    <!-- sub-container2-card -->
-                    <div class="mob-subcontainer2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="details">
-                            <div class="sub-container2-card-timeservice">
-                                <span class="sub-container2-card-timeservice-time">
-                            10.30-10.00
-                        </span>
-                                <span class="sub-container2-card-timeservice-service">
-                            Ladies hair cut
-                        </span>
-                                <span class="sub-container2-card-name">
-                            Ruwanthi123Munasinghe
-                        </span>
-
-                            </div>
-                            <div class="sub-container2-card-profile">
-                                <img src="https://image.shutterstock.com/image-photo/young-businesswoman-sitting-on-modern-260nw-1912892869.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                        </div>
-                        <div class=" sub-container2-card-link ">
-                            <a class="sub-container2-card-link" href="url ">More Info</a>
-                        </div>
-                    </div>
+   
                     <!--End mobile sub-container2-card-->
-                                        <!-- sub-container2-card -->
-                    <div class="mob-subcontainer2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="details">
-                            <div class="sub-container2-card-timeservice">
-                                <span class="sub-container2-card-timeservice-time">
-                            10.30-10.00
-                        </span>
-                                <span class="sub-container2-card-timeservice-service">
-                            Ladies hair cut
-                        </span>
-                                <span class="sub-container2-card-name">
-                            Ruwanthi123Munasinghe
-                        </span>
-
-                            </div>
-                            <div class="sub-container2-card-profile">
-                                <img src="https://image.shutterstock.com/image-photo/young-businesswoman-sitting-on-modern-260nw-1912892869.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                        </div>
-                        <div class=" sub-container2-card-link ">
-                            <a class="sub-container2-card-link" href="url ">More Info</a>
-                        </div>
-                    </div>
-                    <!--End mobile sub-container2-card-->
-                                        <!-- sub-container2-card -->
-                    <div class="mob-subcontainer2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="details">
-                            <div class="sub-container2-card-timeservice">
-                                <span class="sub-container2-card-timeservice-time">
-                            10.30-10.00
-                        </span>
-                                <span class="sub-container2-card-timeservice-service">
-                            Ladies hair cut
-                        </span>
-                                <span class="sub-container2-card-name">
-                            Ruwanthi123Munasinghe
-                        </span>
-
-                            </div>
-                            <div class="sub-container2-card-profile">
-                                <img src="https://image.shutterstock.com/image-photo/young-businesswoman-sitting-on-modern-260nw-1912892869.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                        </div>
-                        <div class=" sub-container2-card-link ">
-                            <a class="sub-container2-card-link" href="url ">More Info</a>
-                        </div>
-                    </div>
-                    <!--End mobile sub-container2-card-->
-                                        <!-- sub-container2-card -->
-                    <div class="mob-subcontainer2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="details">
-                            <div class="sub-container2-card-timeservice">
-                                <span class="sub-container2-card-timeservice-time">
-                            10.30-10.00
-                        </span>
-                                <span class="sub-container2-card-timeservice-service">
-                            Ladies hair cut
-                        </span>
-                                <span class="sub-container2-card-name">
-                            Ruwanthi123Munasinghe
-                        </span>
-
-                            </div>
-                            <div class="sub-container2-card-profile">
-                                <img src="https://image.shutterstock.com/image-photo/young-businesswoman-sitting-on-modern-260nw-1912892869.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                        </div>
-                        <div class=" sub-container2-card-link ">
-                            <a class="sub-container2-card-link" href="url ">More Info</a>
-                        </div>
-                    </div>
-                    <!--End mobile sub-container2-card-->
-                                        <!-- sub-container2-card -->
-                    <div class="mob-subcontainer2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="details">
-                            <div class="sub-container2-card-timeservice">
-                                <span class="sub-container2-card-timeservice-time">
-                            10.30-10.00
-                        </span>
-                                <span class="sub-container2-card-timeservice-service">
-                            Ladies hair cut
-                        </span>
-                                <span class="sub-container2-card-name">
-                            Ruwanthi123Munasinghe
-                        </span>
-
-                            </div>
-                            <div class="sub-container2-card-profile">
-                                <img src="https://image.shutterstock.com/image-photo/young-businesswoman-sitting-on-modern-260nw-1912892869.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                        </div>
-                        <div class=" sub-container2-card-link ">
-                            <a class="sub-container2-card-link" href="url ">More Info</a>
-                        </div>
-                    </div>
-                    <!--End mobile sub-container2-card-->
-                                        <!-- sub-container2-card -->
-                    <div class="mob-subcontainer2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="details">
-                            <div class="sub-container2-card-timeservice">
-                                <span class="sub-container2-card-timeservice-time">
-                            10.30-10.00
-                        </span>
-                                <span class="sub-container2-card-timeservice-service">
-                            Ladies hair cut
-                        </span>
-                                <span class="sub-container2-card-name">
-                            Ruwanthi123Munasinghe
-                        </span>
-
-                            </div>
-                            <div class="sub-container2-card-profile">
-                                <img src="https://image.shutterstock.com/image-photo/young-businesswoman-sitting-on-modern-260nw-1912892869.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                        </div>
-                        <div class=" sub-container2-card-link ">
-                            <a class="sub-container2-card-link" href="url ">More Info</a>
-                        </div>
-                    </div>
-                    <!--End mobile sub-container2-card-->
-                                        <!-- sub-container2-card -->
-                    <div class="mob-subcontainer2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="details">
-                            <div class="sub-container2-card-timeservice">
-                                <span class="sub-container2-card-timeservice-time">
-                            10.30-10.00
-                        </span>
-                                <span class="sub-container2-card-timeservice-service">
-                            Ladies hair cut
-                        </span>
-                                <span class="sub-container2-card-name">
-                            Ruwanthi123Munasinghe
-                        </span>
-
-                            </div>
-                            <div class="sub-container2-card-profile">
-                                <img src="https://image.shutterstock.com/image-photo/young-businesswoman-sitting-on-modern-260nw-1912892869.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                        </div>
-                        <div class=" sub-container2-card-link ">
-                            <a class="sub-container2-card-link" href="url ">More Info</a>
-                        </div>
-                    </div>
-                    <!--End mobile sub-container2-card-->
-                                        <!-- sub-container2-card -->
-                    <div class="mob-subcontainer2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="details">
-                            <div class="sub-container2-card-timeservice">
-                                <span class="sub-container2-card-timeservice-time">
-                            10.30-10.00
-                        </span>
-                                <span class="sub-container2-card-timeservice-service">
-                            Ladies hair cut
-                        </span>
-                                <span class="sub-container2-card-name">
-                            Ruwanthi123Munasinghe
-                        </span>
-
-                            </div>
-                            <div class="sub-container2-card-profile">
-                                <img src="https://image.shutterstock.com/image-photo/young-businesswoman-sitting-on-modern-260nw-1912892869.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                        </div>
-                        <div class=" sub-container2-card-link ">
-                            <a class="sub-container2-card-link" href="url ">More Info</a>
-                        </div>
-                    </div>
-                    <!--End mobile sub-container2-card-->
-                                        <!-- sub-container2-card -->
-                    <div class="mob-subcontainer2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="details">
-                            <div class="sub-container2-card-timeservice">
-                                <span class="sub-container2-card-timeservice-time">
-                            10.30-10.00
-                        </span>
-                                <span class="sub-container2-card-timeservice-service">
-                            Ladies hair cut
-                        </span>
-                                <span class="sub-container2-card-name">
-                            Ruwanthi123Munasinghe
-                        </span>
-
-                            </div>
-                            <div class="sub-container2-card-profile">
-                                <img src="https://image.shutterstock.com/image-photo/young-businesswoman-sitting-on-modern-260nw-1912892869.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                        </div>
-                        <div class=" sub-container2-card-link ">
-                            <a class="sub-container2-card-link" href="url ">More Info</a>
-                        </div>
-                    </div>
-                    <!--End mobile sub-container2-card-->
-                                        <!-- sub-container2-card -->
-                    <div class="mob-subcontainer2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="details">
-                            <div class="sub-container2-card-timeservice">
-                                <span class="sub-container2-card-timeservice-time">
-                            10.30-10.00
-                        </span>
-                                <span class="sub-container2-card-timeservice-service">
-                            Ladies hair cut
-                        </span>
-                                <span class="sub-container2-card-name">
-                            Ruwanthi123Munasinghe
-                        </span>
-
-                            </div>
-                            <div class="sub-container2-card-profile">
-                                <img src="https://image.shutterstock.com/image-photo/young-businesswoman-sitting-on-modern-260nw-1912892869.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                        </div>
-                        <div class=" sub-container2-card-link ">
-                            <a class="sub-container2-card-link" href="url ">More Info</a>
-                        </div>
-                    </div>
-                    <!--End mobile sub-container2-card-->
-
-                    
-
-
-                    <div class="mob-subcontainer2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="details">
-                            <div class="sub-container2-card-timeservice">
-                                <span class="sub-container2-card-timeservice-time">
-                            10.30-10.00
-                        </span>
-                                <span class="sub-container2-card-timeservice-service">
-                            Ladies hair cut
-                        </span>
-                                <span class="sub-container2-card-name">
-                            Ruwanthi123Munasinghe
-                        </span>
-
-                            </div>
-                            <div class="sub-container2-card-profile">
-                                <img src="https://image.shutterstock.com/image-photo/young-businesswoman-sitting-on-modern-260nw-1912892869.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                        </div>
-                        <div class=" sub-container2-card-link ">
-                            <a class="sub-container2-card-link" href="url ">More Info</a>
-                        </div>
-                    </div>
-                    <!--End mobile sub-container2-card-->
-                    <div class="mob-subcontainer2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="details">
-                            <div class="sub-container2-card-timeservice">
-                                <span class="sub-container2-card-timeservice-time">
-                            10.30-10.00
-                        </span>
-                                <span class="sub-container2-card-timeservice-service">
-                            Ladies hair cut
-                        </span>
-                                <span class="sub-container2-card-name">
-                            Ruwanthi123Munasinghe
-                        </span>
-
-                            </div>
-                            <div class="sub-container2-card-profile">
-                                <img src="https://image.shutterstock.com/image-photo/young-businesswoman-sitting-on-modern-260nw-1912892869.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                        </div>
-                        <div class=" sub-container2-card-link ">
-                            <a class="sub-container2-card-link" href="url ">More Info</a>
-                        </div>
-                    </div>
-                    <!--End mobile sub-container2-card-->
-                    <div class="mob-subcontainer2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="details">
-                            <div class="sub-container2-card-timeservice">
-                                <span class="sub-container2-card-timeservice-time">
-                            10.30-10.00
-                        </span>
-                                <span class="sub-container2-card-timeservice-service">
-                            Ladies hair cut
-                        </span>
-                                <span class="sub-container2-card-name">
-                            Ruwanthi123Munasinghe
-                        </span>
-
-                            </div>
-                            <div class="sub-container2-card-profile">
-                                <img src="https://image.shutterstock.com/image-photo/young-businesswoman-sitting-on-modern-260nw-1912892869.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                        </div>
-                        <div class=" sub-container2-card-link ">
-                            <a class="sub-container2-card-link" href="url ">More Info</a>
-                        </div>
-                    </div>
-                    <!--End mobile sub-container2-card-->
-                    <div class="mob-subcontainer2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="details">
-                            <div class="sub-container2-card-timeservice">
-                                <span class="sub-container2-card-timeservice-time">
-                            10.30-10.00
-                        </span>
-                                <span class="sub-container2-card-timeservice-service">
-                            Ladies hair cut
-                        </span>
-                                <span class="sub-container2-card-name">
-                            Ruwanthi123Munasinghe
-                        </span>
-
-                            </div>
-                            <div class="sub-container2-card-profile">
-                                <img src="https://image.shutterstock.com/image-photo/young-businesswoman-sitting-on-modern-260nw-1912892869.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                        </div>
-                        <div class=" sub-container2-card-link ">
-                            <a class="sub-container2-card-link" href="url ">More Info</a>
-                        </div>
-                    </div>
-                    <!--End mobile sub-container2-card-->
-                    <div class="mob-subcontainer2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="details">
-                            <div class="sub-container2-card-timeservice">
-                                <span class="sub-container2-card-timeservice-time">
-                            10.30-10.00
-                        </span>
-                                <span class="sub-container2-card-timeservice-service">
-                            Ladies hair cut
-                        </span>
-                                <span class="sub-container2-card-name">
-                            Ruwanthi123Munasinghe
-                        </span>
-
-                            </div>
-                            <div class="sub-container2-card-profile">
-                                <img src="https://image.shutterstock.com/image-photo/young-businesswoman-sitting-on-modern-260nw-1912892869.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                        </div>
-                        <div class=" sub-container2-card-link ">
-                            <a class="sub-container2-card-link" href="url ">More Info</a>
-                        </div>
-                    </div>
-                    <!--End mobile sub-container2-card-->
-                    <div class="mob-subcontainer2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="details">
-                            <div class="sub-container2-card-timeservice">
-                                <span class="sub-container2-card-timeservice-time">
-                            10.30-10.00
-                        </span>
-                                <span class="sub-container2-card-timeservice-service">
-                            Ladies hair cut
-                        </span>
-                                <span class="sub-container2-card-name">
-                            Ruwanthi123Munasinghe
-                        </span>
-
-                            </div>
-                            <div class="sub-container2-card-profile">
-                                <img src="https://image.shutterstock.com/image-photo/young-businesswoman-sitting-on-modern-260nw-1912892869.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                        </div>
-                        <div class=" sub-container2-card-link ">
-                            <a class="sub-container2-card-link" href="url ">More Info</a>
-                        </div>
-                    </div>
-                    <!--End mobile sub-container2-card-->
-                    <div class="mob-subcontainer2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="details">
-                            <div class="sub-container2-card-timeservice">
-                                <span class="sub-container2-card-timeservice-time">
-                            10.30-10.00
-                        </span>
-                                <span class="sub-container2-card-timeservice-service">
-                            Ladies hair cut
-                        </span>
-                                <span class="sub-container2-card-name">
-                            Ruwanthi123Munasinghe
-                        </span>
-
-                            </div>
-                            <div class="sub-container2-card-profile">
-                                <img src="https://image.shutterstock.com/image-photo/young-businesswoman-sitting-on-modern-260nw-1912892869.jpg" alt="Avatar" class="avatar">
-
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                        </div>
-                        <div class=" sub-container2-card-link ">
-                            <a class="sub-container2-card-link" href="url ">More Info</a>
-                        </div>
-                    </div>
-                    <!--End mobile sub-container2-card-->
-                </div>
-            </div>
+                </div>            
             <!--End scroll area-->
-
-        </div>
-        <!--End sub-container2-->
-        <!-- popup-->
-        <!-- <div id="popup1" class="overlay">
-            <div class="popup">
-                <h2 class="popup-topic">Reservation Details</h2>
-                <a class="close" href="#">&times;</a>
-                <div class="popin-content">
-                    content
-                </div>
             </div>
-        </div> -->
-        <!--End popup -->
+        </div>
 
         <!-- modal -->
     <div class="modal-container normal">
     <div class="modal-box">
          <h1>Reservation details</h1>
+         <div class="modelcontent">
        <div class="modaldatetime">
            <div class="modaldatetime-time">
                 <span>10.45 - 11.00</span><br>
@@ -903,12 +232,12 @@
            </div>
        </div>
 
-       <div class="Reservationnote cust">
+       <div class="Reservationnote-cust">
           <div class="Reservationnote-name">
              <span>Reservation Note</span>
           </div>
           <div class="Reservationnote-note">
-             <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum magni nisi dolorem? Harum totam, earum possimus sequi sint nesciunt, maior</span>
+             <span>Lorem ipsum dolor sit, si dolorem? Harum totaarum possimus sequi sint nesciunt, maior</span>
 
           </div>
         </div>
@@ -933,8 +262,10 @@
             </div>
         </div>
     </div>
-   </div>
+    </div>
+    </div>
         <!-- end modal -->
+    </div>
     
     <!--End Content-->
 <script type="text/javascript" src="<?php echo URLROOT ?>/public/js/modals.js"></script>
