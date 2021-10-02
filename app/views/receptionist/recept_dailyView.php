@@ -14,7 +14,7 @@
    ?>
 
    <!--Content-->
-   <div class="content">
+   <div class="content recept daily-view">
       <h3>This is main option 1</h3>
       <p>
          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, itaque. Recusandae, omnis officiis! Quia aliquid sunt vel facere quas facilis cupiditate tenetur atque explicabo! Excepturi magni ullam sint autem doloremque.

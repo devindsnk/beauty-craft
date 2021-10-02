@@ -13,6 +13,7 @@ class Application
    public function __construct()
    {
       $url = $this->getURL();
+
       // Look in controllers for the first value
       if (file_exists('../app/controllers/' . ucwords($url[0]) . '.php'))
       {
