@@ -1,3 +1,9 @@
+// function Previous() {
+//     window.history.back("<?php echo URLROOT ?>/MangDashboard/service")
+// }
+    function Previous() {
+        location.replace("http://localhost/beauty-craft/MangDashboard/services");
+    }
 
     var i=1;
     var j=0;
@@ -7,7 +13,7 @@
         i++;
         j++;
         
-        $('#addDiv').append('<div class="newService-sub" id="intervaldetails'+j+'"><div class="btn-remove"> <a href="#" name="remove" id="'+i+'" class="close-slot">X</a></div> <div class="newService-sub-sub interval" >      <h4>Interval '+j+'</h4><div class="dropdown-Div"><div class="newService-sub-sub"><label class="labels">Duration</label><br><select class="dropdownSelectBox"><option value="val1">1 min</option>option value="val2">2 min</option><option value="val1">3 min</option></select></div></div></div>      <div class="newService-sub-sub slot" id="slotdetails'+i+'"> <h4>Slot '+i+'</h4><div class="dropdown-Div"><div class="newService-sub-sub"><label class="labels">Duration</label><br><select class="dropdownSelectBox"> <option value="val1">1 min</option><option value="val2">2 min</option></select></div><div class="newService-sub-sub"><label>Resources and Quantity</label><br><div class="checkbox-div"><label class="labels">Res111, Resource1</label><select class="dropdownSelectBox-small quantity-align"><option value="val1">0</option><option value="val1">1</option><option value="val2">2</option><option value="val1">3</option></select><br><hr class="resHr"><label class="labels">Res111, Resource1</label><select class="dropdownSelectBox-small quantity-align"><option value="val1">0</option><option value="val1">1</option><option value="val2">2</option><option value="val1">3</option></select><br><hr class="resHr"><label class="labels">Res111, Resource1</label><select class="dropdownSelectBox-small quantity-align"><option value="val1">0</option><option value="val1">1</option><option value="val2">2</option><option value="val1">3</option></select><br><hr class="resHr"></div></div></div></div> </div>       ');
+        $('#addDiv').append('<div class="newService-sub" id="intervaldetails'+j+'"><div class="btn-remove quantity-align"> <a href="#slotdetails'+j+'" name="remove" id="'+i+'" class="close-slot">X</a></div> <div class="newService-sub-sub interval" >      <h4>Interval '+j+'</h4><div class="dropdown-Div"><div class="newService-sub-sub"><label class="labels">Duration</label><br><select class="dropdownSelectBox"><option value="val1">1 min</option>option value="val2">2 min</option><option value="val1">3 min</option></select></div></div></div>      <div class="newService-sub-sub slot" id="slotdetails'+i+'"> <h4>Slot '+i+'</h4><div class="dropdown-Div"><div class="newService-sub-sub"><label class="labels">Duration</label><br><select class="dropdownSelectBox"> <option value="val1">1 min</option><option value="val2">2 min</option></select></div><div class="newService-sub-sub"><label>Resources and Quantity</label><div class="checkbox-div"><div class="divIndiv"><label class="labels">Res111, Resource1</label><select class="dropdownSelectBox-small quantity-align"><option value="val1">0</option><option value="val1">1</option><option value="val2">2</option><option value="val1">3</option></select></div><hr class="resHr"><div class="divIndiv"><label class="labels">Res111, Resource1</label><select class="dropdownSelectBox-small quantity-align"><option value="val1">0</option><option value="val1">1</option><option value="val2">2</option><option value="val1">3</option></select></div><hr class="resHr"><div class="divIndiv"><label class="labels">Res111, Resource1</label><select class="dropdownSelectBox-small quantity-align"><option value="val1">0</option><option value="val1">1</option><option value="val2">2</option><option value="val1">3</option></select></div><hr class="resHr"></div></div></div></div> </div>       ');
         
         });
 
@@ -31,9 +37,9 @@
         j--;
     });
     
-    document.getElementById("close-newservice-window").onclick = function(){
-        location.href= "<?php echo URLROOT ?>/services/service";
-    }
+    // document.getElementById("close-newservice-window").onclick = function(){
+    //     location.href= "<?php echo URLROOT ?>/MangDashboard/service";
+    // }
     
     // $(function() {
     // 	$(":checkbox").change(function() {

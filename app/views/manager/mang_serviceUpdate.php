@@ -5,10 +5,9 @@
         <div class="btn-remove-service quantity-align mang">
             <a href="#newServiceMain" name="remove" id="" class="close-service-window"><span onclick="Previous()">X</span></a>
         </div>
-
 		<div class="newService-main newservice" id="newServiceMain">
 			<div class="newService-main-head">
-				<h1>New Service</h1>
+				<h1>Update Service</h1>
 			</div>
 			
 			<!-- Basic information -->
@@ -59,11 +58,11 @@
 	                <div class="newService-sub-sub">
 		                <label><h4>Employee</h4></label>
 		                <div class="checkbox-div">
-                            <div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
-                            <div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
-                            <div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
-                            <div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
-                            <div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
+                            <div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div>
+                            <div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div>
+                            <div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div>
+                            <div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div>
+                            <div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div>
 		                </div>
 	                </div>
 					<!-- end of employees -->
@@ -160,9 +159,19 @@
 				<p id="add"><a href="#addDiv">+ Add another slot</a></p>
 			</div>
 
+            <div class="newService-sub-head">
+				<h3>Editing Options</h3>
+			</div>
+            <div class="newService-sub" >
+                <div class="hold-service-div">
+                    <input type="checkbox" class="toglecheckbox">
+                    <label class="lableInDiv2">Hold the Service</label> <br>
+                </div>
+            </div> 
+
 			<!-- submit service button -->
 			<div class="button-Add-Div">
-	    		<button class="buttonAdd">Add</button>
+	    		<button class="buttonAdd">Save</button>
 	    	</div>
 
 		</div>

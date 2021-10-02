@@ -13,7 +13,6 @@
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/style.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/sideNav.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/layoutTemplate1.css" />
-   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/tableStyle.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/modalStyle.css"/>
 
 
@@ -28,7 +27,7 @@
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/ownSalaries.css"/>
 
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/mang_overviewAnalytics.css" />
-   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/mang_newService.css"/>
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/mang_newService2.css"/>
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> 
    

@@ -16,86 +16,86 @@
 
    <!--Content-->
    <div class="content">
-   <div class="mang-sub-container1 mang">
-         <div class="select-box-container">
-            <form action="">
-               <label class="label" for="serviceName">Employee</label>
-               <select name="services" id="services">
-                     <option value="" disabled selected>--Select--</option>
-                     <option value="volvo">Employee 01</option>
-                     <option value="saab">Employee 02</option>
-                     <option value="mercedes">Employee 03</option>
-                     <option value="audi">Employee 04</option>
-                  </select>
-            </form>
-         </div>
-
-         <div class="select-box-container">
-            <form action="">
-               <label class="label" for="serviceFromDate">From</label>
-               <input type="date" name="" id="serviceFromDate" placeholder="--select--">
-            </form>
-         </div>
-
-         <div class="select-box-container">
-            <form action="">
-               <label class="label" for="serviceFromDate">To</label>
-               <input type="date" name="" id="serviceFromDate" placeholder="--select--">
-            </form>
-         </div>
-
-         <div class="select-box-container">
-            <button class="searching-btn align-right">Search</button>
-         </div>
-      </div>
-
-      <!--sub-container1-->
       <div class="mang-sub-container1 mang">
-         <!--card1-->
-         <div class="mang-sub-container-card">
-            <div class="mang-sub-container-card-title"> 
-               <p>Total Reservation</p>
+            <div class="select-box-container">
+               <form action="">
+                  <label class="label" for="serviceName">Employee</label>
+                  <select name="services" id="services">
+                        <option value="" disabled selected>--Select--</option>
+                        <option value="volvo">Employee 01</option>
+                        <option value="saab">Employee 02</option>
+                        <option value="mercedes">Employee 03</option>
+                        <option value="audi">Employee 04</option>
+                     </select>
+               </form>
             </div>
-            <div class="mang-sub-container-card-amount"> 
-               <p>400</p>
-            </div>
-         </div>
-         <!--End of card1-->
 
-         <!--card2-->
-         <div class="mang-sub-container-card">
-            <div class="mang-sub-container-card-title"> 
-               <p>Total Income</p>
+            <div class="select-box-container">
+               <form action="">
+                  <label class="label" for="serviceFromDate">From</label>
+                  <input type="date" name="" id="serviceFromDate" placeholder="--select--">
+               </form>
             </div>
-            <div class="mang-sub-container-card-amount"> 
-               <p>45,000.00 LKR</p>
+
+            <div class="select-box-container">
+               <form action="">
+                  <label class="label" for="serviceFromDate">To</label>
+                  <input type="date" name="" id="serviceFromDate" placeholder="--select--">
+               </form>
+            </div>
+
+            <div class="select-box-container">
+               <button class="searching-btn align-right">Search</button>
             </div>
          </div>
-         <!--End of card2-->
+
+         <!--sub-container1-->
+         <div class="mang-sub-container1 mang">
+            <!--card1-->
+            <div class="mang-sub-container-card">
+               <div class="mang-sub-container-card-title"> 
+                  <p>Total Reservation</p>
+               </div>
+               <div class="mang-sub-container-card-amount"> 
+                  <p>400</p>
+               </div>
+            </div>
+            <!--End of card1-->
+
+            <!--card2-->
+            <div class="mang-sub-container-card">
+               <div class="mang-sub-container-card-title"> 
+                  <p>Total Income</p>
+               </div>
+               <div class="mang-sub-container-card-amount"> 
+                  <p>45,000.00 LKR</p>
+               </div>
+            </div>
+            <!--End of card2-->
+         </div>
+         <!--End of sub-container1-->
+
+         <div class="mang-sub-container2 mang">
+            <!--chart-container-->
+            <div class="chart-container">
+               <div class="chart-head"> 
+                  <p>Reservations</p>
+               </div>
+               <canvas id="myChart5" width="290" height="200"></canvas>
+            </div>
+            <!--End od chart-container-->
+
+            <!--chart-container-->
+            <div class="chart-container">
+               <div class="chart-head"> 
+                  <p>Income</p>
+               </div>
+               <canvas id="myChart6" width="290" height="200"></canvas>
+            </div>
+            <!--End od chart-container-->
+         </div>
+         <!--End of sub-container2-->
       </div>
-      <!--End of sub-container1-->
-
-      <div class="mang-sub-container2 mang">
-         <!--chart-container-->
-         <div class="chart-container">
-            <div class="chart-head"> 
-               <p>Reservations</p>
-            </div>
-            <canvas id="myChart5" width="290" height="200"></canvas>
-         </div>
-         <!--End od chart-container-->
-
-         <!--chart-container-->
-         <div class="chart-container">
-            <div class="chart-head"> 
-               <p>Income</p>
-            </div>
-            <canvas id="myChart6" width="290" height="200"></canvas>
-         </div>
-         <!--End od chart-container-->
-      </div>
-      <!--End of sub-container2-->
-
    </div>
    <!--End Content-->
 

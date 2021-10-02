@@ -54,7 +54,7 @@
          <!--card4-->
          <div class="mang-sub-container-card">
             <div class="mang-sub-container-card-title"> 
-               <p>No of Service Providers</p>
+               <p>Service Providers</p>
             </div>
             <div class="mang-sub-container-card-amount"> 
                <p>30</p>

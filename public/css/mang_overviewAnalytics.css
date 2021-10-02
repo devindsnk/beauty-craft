@@ -13,13 +13,14 @@
 
 .mang-sub-container-card{
     display: flex;
-    position: relative;
+    flex-direction: column;
+    /* position: relative; */
     background-color: var(--white);
     justify-content: space-around;
     text-align: center;
     align-content: center;
     padding: 20px;
-    width: 230px;
+    width: 250px;
     height: 125px;
     margin: 10px 5px;
     border-radius: 6px;
@@ -27,18 +28,15 @@
 }
 
 .mang-sub-container-card-title{
-    width: 90%;
     color: rgb(126, 126, 126);
-    position: absolute;
     font-size: 1.1rem;
+    text-align: center;
 }
 
 .mang-sub-container-card-amount{
-    position: absolute;
-    margin-top: 23%;
-    width: 90%;
     font-size: 1.5rem;
     font-weight: 600;
+    justify-content: center;
 }
 
 .mang-sub-container2,
@@ -55,7 +53,7 @@
 
 .mang .chart-container,
 .table-container{
-    padding: 30px;
+    padding: 40px;
     width: 50%;
     height: 50%;
     justify-content: space-around;
@@ -68,7 +66,7 @@
     padding: 10px 10px;
 }
 
-/*  */
+/* table of overall analytics */
 .mang .table-cont{
     background-color: var(--white);
     padding: 10px 10px;
@@ -86,6 +84,8 @@
 .mang td{
     border-top: 2px solid #eaeaea;
 }
+/* End of table of overall analytics */
+
 .align-right{
     float: right;
 }
@@ -93,14 +93,31 @@
     float: left;
 }
 
-/*  */
+/* search box container */
 .mang .select-box-container{
     display: flex;
-    position: relative;
     padding: 10px 10px;
     width: 250px;
 }
-.mang input[type = "text"],input[type = "date"], select {
+.mang input[type = "text"] {
+    width: 220px;
+    height: 50px;
+    font-weight: 400;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1.2px solid #c4cae0;
+    margin-top: 5px;
+ }
+ .mang input[type = "date"]{
+    width: 220px;
+    height: 50px;
+    font-weight: 400;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1.2px solid #c4cae0;
+    margin-top: 5px;
+ }
+ .mang select {
     width: 220px;
     height: 50px;
     font-weight: 400;
@@ -118,14 +135,16 @@
     color: var(--white);
     font-size: 20px;
 }
+/* End of search box container */
+
 /* for card */
-@media screen and (max-width: 1270px) {
+@media screen and (max-width: 1305px) {
     .mang-sub-container-card{
         width: 400px;
     }
-    .mang-sub-container-card-amount{
+    /* .mang-sub-container-card-amount{
         margin-top: 10%;
-    }
+    } */
 
 }
 /* for card */

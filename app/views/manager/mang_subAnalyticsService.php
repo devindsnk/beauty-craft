@@ -142,13 +142,11 @@
                     <td data-lable="Price" class="column-right-align">150.00 LKR</td>
                  </tr>
                  <!--End of table row-->
-                 
-                 
               </tbody>
               <!--End of table body-->
-
            </table>
         </div>
+      </div>
    </div>
    <!--End Content-->
 

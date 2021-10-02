@@ -11,6 +11,7 @@
 <script src="<?php echo URLROOT ?>/public/js/sideNav.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/headerBar.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/newService.js"></script>
+<script type="text/javascript" src="<?php echo URLROOT ?>/public/js/modals.js"></script>
 
 </body>
 

@@ -2,9 +2,12 @@
 
 <body class="">
     <!-- New service container -->
-        <div class="btn-remove-service quantity-align mang">
+        <!-- <div class="btn-remove-service quantity-align mang">
+            <i class="fa fa-close blue-color " ></i>
             <a href="#newServiceMain" name="remove" id="" class="close-service-window"><span onclick="Previous()">X</span></a>
-        </div>
+        </div> -->
+
+        <div class="containerclose zoom_invert quantity-align mang"><div class="close_icon zoom_invert" onclick="Previous()"></div></div>
 
 		<div class="newService-main newservice" id="newServiceMain">
 			<div class="newService-main-head">
@@ -19,23 +22,49 @@
 			<div class="newService-sub">
 				<form class="form" action="">
 					<!-- service name -->
-					<div class="newService-sub-sub">
-						<label><h4>Service Name</h4></label>
-						<input type="text" name="" placeholder="--Type Here--">
-                        <span class="error paddingLeft"> <?php echo " error message"; ?></span>
-					</div>
+					<div class="row">
+                        <div class="column">
+                            <div class="text-group">
+                                <label class="label" for="fName">First Name</label>
+                                <input type="text" name="" id="fName" placeholder="Your first name here">
+                            </div>
+                            <span class="error"> <?php echo " "; ?></span>
+                        </div>
+                    </div>
 					<!-- end of service name -->
 
 					<!-- service type -->
-					<div class="newService-sub-sub">
-	                    <label class="labels"><h4>Service Type</h4></label>
-	                    <select class="dropdownSelectBox">
-	                    	<option class="unbold" value="val1" option selected="true" disabled="disabled" >Select One</option>
-	                        <option value="val1">Long Hair</option>
-	                        <option value="val2">Short Hair</option>
-	                    </select>
-	                    <button class="buttonNew quantity-align btnOpen normal">New</button>
-	                </div>
+                    <div class="row">
+
+                        <div class="column">
+                            <label class="labels"><h4>Service Type</h4></label>
+                            <select class="dropdownSelectBox">
+                                <option class="unbold" value="val1" option selected="true" disabled="disabled" >Select One</option>
+                                <option value="val1">Long Hair</option>
+                                <option value="val2">Short Hair</option>
+                            </select>
+                            <div class="row2">
+                                <button class="buttonNew quantity-align btnOpen normal">New</button>
+                            </div>
+                            <div class="row3">
+                                <label><h4>Price</h4></label>
+                                <input type="text" name="" placeholder="--Rs.0.00--">
+                                <span class="error paddingLeft"> <?php echo " error message"; ?></span>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                        <label><h4>Employee</h4></label>
+                            <div class="checkbox-div">
+                                <div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
+                                <div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
+                                <div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
+                                <div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
+                                <div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
+                            </div>
+                        </div>
+                    </div>
+
 
                     <!-- New service type model -->
                     <div class="modal-container normal">
@@ -56,7 +85,7 @@
 					<!-- end of service type -->
 
 					<!-- employees -->
-	                <div class="newService-sub-sub">
+	                <!-- <div class="newService-sub-sub">
 		                <label><h4>Employee</h4></label>
 		                <div class="checkbox-div">
                             <div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
@@ -65,15 +94,15 @@
                             <div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
                             <div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
 		                </div>
-	                </div>
+	                </div> -->
 					<!-- end of employees -->
 
 					<!-- price -->
-	                <div class="newService-sub-sub">
+	                <!-- <div class="newService-sub-sub">
 	                	<label><h4>Price</h4></label>
 						<input type="text" name="" placeholder="--Rs.0.00--">
                         <span class="error paddingLeft"> <?php echo " error message"; ?></span>
-	                </div>
+	                </div> -->
 					<!-- end of price -->
 				</form>
 			</div>
