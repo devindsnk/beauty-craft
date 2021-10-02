@@ -84,11 +84,7 @@
       <!-- owner overview Container ends -->
       </div>
 
-     
-
    </div>
    <!--End Content-->
    
-
-
    <?php require APPROOT . "/views/inc/footer.php" ?>

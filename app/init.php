@@ -1,7 +1,13 @@
 <?php
+
+// Loading config
 require_once 'config/config.php';
 
-spl_autoload_register(function ($className) {
+// Loading helpers
+require_once 'helpers/url_helper.php';
+
+spl_autoload_register(function ($className)
+{
    require_once 'core/' . $className . '.php';
 });
 

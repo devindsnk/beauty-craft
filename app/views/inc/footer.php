@@ -13,7 +13,6 @@
 <script src="<?php echo URLROOT ?>/public/js/modals.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/own_overview.js"></script>
 
-
 </body>
 
 </html>
