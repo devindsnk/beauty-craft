@@ -29,7 +29,7 @@
            </li>
            <li>
               <i class="far fa-sign-out"></i>
-              <a href="#">Sign Out</a>
+              <a href="<?php echo URLROOT ?>/user/signout">Sign Out</a>
            </li>
         </ul>
      </div>
