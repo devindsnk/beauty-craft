@@ -231,14 +231,14 @@
             datasets: [{ 
                 data: [200,490,100],
                 label: "No of Reservations",
-                borderColor:[ "#3cba9f",
-                              "#ffa500",
-                              "#c45850",
+                borderColor:[ "#d2b7e5",
+                              "#9163cb",
+                              "#6247aa",
                ],
                 backgroundColor:[
-                  "rgb(60,186,159,0.1)",
-                  "rgb(255,165,0,0.1)",
-                  "rgb(196,88,80,0.1)",
+                  "#dec9e9",
+                  "#b185db",
+                  "#815ac0 ",
                 ],
                 borderWidth:2
               }
