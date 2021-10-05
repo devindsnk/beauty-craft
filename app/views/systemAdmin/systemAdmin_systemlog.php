@@ -17,11 +17,10 @@
    ?>
 
    <!--Content-->
-   <div class="content">
-      <h3>This is System Log</h3>
-
-
-
+   <div class="content systemlogdownload">
+<div class="systemlog">
+<a href=""><button><i class="fa fa-download"></i>Download Now</button></a>
+</div>
 
    </div>
    <!--End Content-->

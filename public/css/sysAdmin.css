@@ -9,6 +9,10 @@
     align-items: center;
 }
 
+.content.admin .ownAddstaffContainer.contentBox {
+    margin-top: 50px;
+}
+
 
 /* Common container for reg and singin */
 
@@ -23,9 +27,10 @@
     height: 450px;
 }
 
-.reg-container {
+.content.admin .reg-container {
     width: 650px;
     height: fit-content;
+    margin-top: 50px;
 }
 
 @media (max-width: 768px) {
@@ -156,4 +161,25 @@
 
 .footer-container p {
     text-align: center;
+}
+
+.content.systemlogdownload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.systemlog button {
+    border-radius: 6px;
+    font-size: 17px;
+    font-weight: 600;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 50px;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+}
+
+i.fa.fa-download {
+    margin-right: 15px;
 }
