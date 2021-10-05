@@ -20,11 +20,12 @@
    <!-- Temporary Styles-->
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/formStyle.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/receptStyle.css" />
-   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/ownStyle.css" />
+   <!-- <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/ownStyle.css" /> -->
   
 
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/mang_overviewAnalytics.css" />
-   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/mang_newService2.css"/>
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/mang_service.css"/>
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/leaveStyle.css"/>
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> 
    

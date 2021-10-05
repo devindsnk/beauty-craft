@@ -6,22 +6,22 @@ class Services extends Controller
       // $this->ServiceModel = $this->model('ServiceModel');
    }
 
-   public function addService()
-   {
-      // if($_SERVER('REQUEST_METHOD') == 'POST'){
+   // public function addNewService()
+   // {
+   //    if($_SERVER('REQUEST_METHOD') == 'POST'){
+   //       $data = [
+   //          'sName' => trim($_POST['sName']),
+   //          'sPrice' => trim($_POST['sPrice']),
+   //       ];
+   //    }else{
+   //       $data = [
+   //          'sName' => '',
+   //          'sType' => '',
 
-      // }else{
-      //    $data = [
-      //       'sName' => '',
-      //       'sType' => '',
-
-      //       'sPrice' => '',
-
-      //    ]
-         $this->view('manager/mang_serviceAdd');
-         // $this->view('manager/mang_serviceAdd', $data);
-      // }
-   }
+   //       ];
+   //       $this->view('manager/mang_serviceAdd', $data);
+   //    }
+   // }
    public function addService2()
    {
       $this->view('manager/mang_serviceAdd2');

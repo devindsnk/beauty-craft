@@ -1,0 +1,140 @@
+/* ---------------- This has styles for  ---------------- */
+/* --------  leave requests | edit leave requests ------- */
+/* -----------  take leave | edit taken leave ----------- */
+/* ----------------- delete leave model ------------------ */
+
+/* ------------------------------------------------------ */
+/* -------------STYLES ADDED BY SANJANA ----------------- */
+/* ------------------------------------------------------ */
+
+
+/* accept|reject leave requests */
+
+.leave-requests-main{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    min-width: 330px;
+	margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow-x: auto;
+    align-content: center;
+    justify-content: center;
+}
+
+.leave-request-main-head{
+    text-align: center;
+    padding: 10px;
+}
+
+.contentBox.leave-sub-container-card{
+    width: 250px;
+    height: 60px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    align-content: center;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.leave-requests-sub{
+    min-width: 380px;
+    padding: 40px;
+    margin: 20px 10px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+.leave-requests-button-div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+}
+    /* styles for leave request model */
+    .leave-request input[type = "date"]{
+        width: 200px;
+        height: 30px;
+        font-weight: 400;
+        padding: 8px 10px;
+        border-radius: 6px;
+        border: 1.2px solid #c4cae0;
+        margin-top: 10px;
+    }
+
+    .leave-request textarea {
+        resize: none;
+        width: 100%;
+        border: 1.2px solid #c4cae0;
+        border-radius: 6px;
+        padding: 10px;
+        margin-top: 10px 5px;
+    }
+    /* End of styles for leave request model */
+
+.leave-request input:disabled , .leave-request textarea:disabled{
+    background-color: white;
+}
+
+.buttonLeaveRequest{
+    margin-top: 20px;
+    color: white;
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-remove-leave-request{
+    padding-top: 10px;
+}
+
+.buttonApprove{
+    background-color: #3ABD5F;
+}
+
+.buttonReject{
+    background-color: #DC3545;
+}
+
+/* End of accept|reject leave requests */
+
+/* Leave Request delete model */
+
+.leave-model-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+    padding: 10px;
+}
+
+.leave-model-btn {
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    height: 35px;
+    width: 100px;
+    margin-top: 20px;
+}
+.close-leave-model-btn {
+    background-color: #EAEAEA;
+    color: #000;
+}
+.proceed-leave-model-btn {
+    background-color: #037AFF;
+    color: #000;
+}
+
+/* End of Leave Request delete model */
+
+/* ------------------------------------------------------ */
+/* ----------END OF STYLES ADDED BY SANJANA-------------- */
+/* ------------------------------------------------------ */

@@ -1,3 +1,8 @@
+/* ---- This has styles for mang_overview & mang_analytics ---- */
+
+/* ------------------------------------------------------------ */
+/* ----------------STYLES ADDED BY SANJANA -------------------- */
+/* ------------------------------------------------------------ */
 
 .mang-sub-container1{
     display: flex;
@@ -75,7 +80,6 @@
 }
 
 .mang table{
-    /* table-layout: fixed; */
     width: 100%;
 }
 .mang td ,th{
@@ -142,10 +146,6 @@
     .mang-sub-container-card{
         width: 400px;
     }
-    /* .mang-sub-container-card-amount{
-        margin-top: 10%;
-    } */
-
 }
 /* for card */
 @media screen and (max-width: 768px) {
@@ -178,3 +178,7 @@
     }
 
 }
+
+/* ------------------------------------------------------ */
+/* ----------END OF STYLES ADDED BY SANJANA-------------- */
+/* ------------------------------------------------------ */

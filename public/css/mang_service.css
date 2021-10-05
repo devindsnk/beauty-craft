@@ -1,3 +1,6 @@
+/* ------------------------------------------------------ */
+/* -------------STYLES ADDED BY SANJANA ----------------- */
+/* ------------------------------------------------------ */
 
 .mang hr{
     margin-top: 25px;
@@ -39,6 +42,7 @@
     display: flex;
     flex-direction: column;
     width: 50%;
+    min-width: 330px;
 	margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -49,9 +53,7 @@
 
 .newService-sub{
     min-width: 380px;
-    padding: 20px;
-    /* padding-left: 0;
-    padding-right: 0; */
+    padding: 30px 30px 15px 30px;
     margin: 20px 10px;
     background-color: white;
     border-radius: 6px;
@@ -75,9 +77,9 @@
 .hold-service-div{
     display: flex;
     flex-direction: row;
-    /* justify-content: ; */
     text-align: center;
     padding: 10px;
+    padding-left: 0;
 }
 
 .newService-sub-sub{
@@ -101,7 +103,7 @@
 .checkbox-div{
 	height: 200px;
     width: 100%;
-    min-width: 290px;
+    /* min-width: 290px; */
     /* padding: 10px 10px; */
     background-color: white;
     padding: 0;
@@ -135,7 +137,6 @@
 }
 
 .dropdownSelectBox-small{
-    /* display: none; */
     height: 25px;
     width: 80px;
     border-radius: 6px;
@@ -185,13 +186,20 @@
     border-radius: 6px;
     cursor: pointer;
 }
-.add-type-btn{
+.add-type-btn, .confirm-service-btn{
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
     background-color: #3ABD5F;
+    color: #FFF;
     height: 35px;
     width: 100px;
     margin-top: 20px;
 }
 .close-type-btn{
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
     background-color: #EAEAEA;
     color: #000;
     height: 35px;
@@ -199,14 +207,19 @@
     margin-top: 20px;
 }
 .close-slot, .btn-remove-service{
-    width: 50px;
-    height: 50px;
+    /* width: 50px;
+    height: 50px; */
     font-weight: 800;
     color: #000000;
 }
 
-.btn-remove, .btn-remove-service{
-    padding-right: 10px;
+.btn-remove-service{
+    padding-top: 10px;
+}
+
+.btn-remove{
+    width: 100%;
+    text-align: right;
 }
 .close-slot:hover {
     color: red;
@@ -279,6 +292,17 @@
     }
 } */
 
-.row .row3{
+.row3{
     margin-top: 90px;
 }
+.service-full-model{
+   background-color: var(--theme-bgwhite);
+   width: 100vw;
+   /* height: 100vh; */
+   max-height: 100vh;
+   overflow-y: auto;
+}
+
+/* ------------------------------------------------------ */
+/* ----------END OF STYLES ADDED BY SANJANA-------------- */
+/* ------------------------------------------------------ */
