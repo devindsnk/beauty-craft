@@ -1,17 +1,8 @@
-* {
-    box-sizing: border-box;
-}
-
-body {
-    background: var(--theme-bgwhite);
-}
-
-
 /* Full page container */
 
-.main-container {
-    width: 100vw;
-    min-height: 100vh;
+.content.admin {
+    /* width: 100vw;
+    min-height: 100vh; */
     height: fit-content;
     display: flex;
     justify-content: center;
@@ -146,7 +137,7 @@ body {
 
 .form-container .btn {
     height: 35px;
-    width: 100px;
+    width: 150px;
 }
 
 .form-container .btn.middle {
