@@ -15,6 +15,11 @@
 
    <!--Content-->
    <div class="content own salaries">
+
+   <button class="btnOpen" type="button">
+      <a href="<?php echo URLROOT?>/staff/salaryReport">  View Staff</a>       
+      </button>
+
       <h3>This is main option 1</h3>
       <div class="SalaryReportContainer">
       <div class="ownSalaryReportHeadings">

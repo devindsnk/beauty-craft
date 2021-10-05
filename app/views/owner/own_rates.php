@@ -80,12 +80,15 @@
         <h1>Basic Salary(LKR)</h1>
     </div>
     <!-- basic salary heading ends -->
-
+ 
     <!-- basic salary content starts -->
     <div class="ownRatesBasicSalaryContent">
         <div class="ownRatesBasicSalary1">
             <div class="ownRatesBasicSalarylabel1">
                 <label class="ownRatesBasicSalarylabel">Receptionist</label>
+                <div class="ownRatesDotButton">
+                    <button><img src="" alt=""></button>
+                </div>
             </div>
             <div class="ownRatesBasicSalarytext1">
                 <input type="text" class="ownRatesBasicSalaryText" placeholder="20000">

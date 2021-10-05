@@ -1,16 +1,6 @@
-<?php require "../header.php" ?>
+<?php require APPROOT . "/views/inc/header.php" ?>
 
-<body class="layout-template-2">
-<header class="full-header">
-      <div class="header-center verticalCenter">
-         <h1 class="header-topic">Layout Template 2</h1>
-      </div>
-      <div class="header-right verticalCenter">
-         <i class="fal fa-times fa-2x header-closebtn"></i>
-         <!-- <i class="fas fa-times fa-2x header-closebtn"></i> -->
-      </div>
-   </header>
-   <div class="content contentNewRes">
+<body>
    <div class="content">
       <h3>This is main option 1</h3>
       <!--------------------------------------------------------------------------------------- Salary Report Container starts ---------------------------------------------------------------->
@@ -111,8 +101,7 @@
 
 
 
-
-<?php require "../footer.php" ?>
+<?php require APPROOT . "/views/inc/footer.php" ?>
 
 
 

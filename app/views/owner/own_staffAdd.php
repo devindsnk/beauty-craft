@@ -4,7 +4,7 @@
 <body class="ownAddstaffBody ">
 
 
-<div class="ownStaff_allignmentbox">
+<div class="ownStaff_allignmentbox own staff">
 
 <div class="ownAddstaffContainer contentBox">
         <div class="ownAddStaff_Formheading">

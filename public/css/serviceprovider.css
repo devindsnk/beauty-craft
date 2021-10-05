@@ -86,7 +86,7 @@ body {
     height: 100%;
 }
 
-..serprov .scroll-area::-webkit-scrollbar {
+.serprov .scroll-area::-webkit-scrollbar {
     display: none;
     /* for Chrome, Safari, and Opera */
 }
