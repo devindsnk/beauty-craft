@@ -1,5 +1,5 @@
 <?php
-class SystemAdminDashboard extends Controller
+class SysAdminDashboard extends Controller
 {
    public function __construct()
    {

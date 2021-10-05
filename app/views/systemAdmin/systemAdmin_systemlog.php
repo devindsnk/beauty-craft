@@ -19,7 +19,7 @@
    <!--Content-->
    <div class="content systemlogdownload">
 <div class="systemlog">
-<a href=""><button><i class="fa fa-download"></i>Download Now</button></a>
+<a href=""><button><i class="fa fa-download"></i>Download File</button></a>
 </div>
 
    </div>

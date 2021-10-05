@@ -18,7 +18,7 @@
          <!--Sidebar Item-->
          <li class="mainOption">
             <a class="optionLink <?php if ($selectedMain == "SystemLog") echo " selected" ?>" 
-            href="<?php echo URLROOT ?>/SystemAdminDashboard/systemlog">
+            href="<?php echo URLROOT ?>/SysAdminDashboard/systemlog">
                <div class="optionIcon">
                   <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
                </div>
@@ -43,7 +43,7 @@
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
                   <a class="optionLink <?php if ($selectedSub == "Staff") echo " selected" ?>"
-                     href="<?php echo URLROOT ?>/SystemAdminDashboard/staff">
+                     href="<?php echo URLROOT ?>/SysAdminDashboard/staff">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Staff</div>
                   </a>
@@ -52,7 +52,7 @@
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
                   <a class="optionLink <?php if ($selectedSub == "Customer") echo " selected" ?>"
-                     href="<?php echo URLROOT ?>/SystemAdminDashboard/Customer">
+                     href="<?php echo URLROOT ?>/SysAdminDashboard/Customer">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Customer</div>
                   </a>
