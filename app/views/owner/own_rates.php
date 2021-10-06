@@ -19,7 +19,7 @@
     <!-- grid area 1  start-->
     <div class="ownRatesDate">
       <label class="ownRateMonthlabel">Month</label> <br>
-      <input type="month">
+      <input type="month" class="ownRatesInputMonth" placeholder="Select Month">
     </div>
     <!-- grid area 1  ends-->
     <!-- grid area 2 starts -->
@@ -86,9 +86,6 @@
         <div class="ownRatesBasicSalary1">
             <div class="ownRatesBasicSalarylabel1">
                 <label class="ownRatesBasicSalarylabel">Receptionist</label>
-                <div class="ownRatesDotButton">
-                    <button><img src="" alt=""></button>
-                </div>
             </div>
             <div class="ownRatesBasicSalarytext1">
                 <input type="text" class="ownRatesBasicSalaryText" placeholder="20000">

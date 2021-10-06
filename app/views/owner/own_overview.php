@@ -1,4 +1,4 @@
-<!-- <?php require APPROOT . "/views/inc/header.php" ?> -->
+<?php require APPROOT . "/views/inc/header.php" ?> 
 
 <body class="layout-template-1">
    <?php

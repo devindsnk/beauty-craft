@@ -4,6 +4,7 @@ class Staff extends Controller
    public function __construct()
    {
       // $this->employeeModel = $this->model('Employee');
+      $this->satffModel = $this->model('StaffModel');
    }
 
    public function addStaff()
@@ -22,5 +23,6 @@ class Staff extends Controller
    {
       $this->view('owner/own_Salaries_Salary_Report');
    }
+   
 
 }
