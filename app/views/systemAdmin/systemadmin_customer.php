@@ -10,7 +10,7 @@
    ?>
 
    <?php
-   $title = "Create Account-Customer";
+   $title = "Create Account";
    $username = "Ruwanthi Munasinghe";
    $userLevel = "System Admin";
    require APPROOT . "/views/inc/headerBar.php"
@@ -20,7 +20,7 @@
    <div class="content admin">
  
       <div class="reg-container form-container contentBox">
-         <form action="<?php echo URLROOT; ?>/customer/register" method="post" class="form">
+         <form  method="post" class="form">
             <h1 class="title">Customer Account</h1>
 
             <div class="row">

@@ -10,7 +10,7 @@
    ?>
 
    <?php
-   $title = "Create Account-Staff";
+   $title = "Create Account";
    $username = "Ruwanthi Munasinghe";
    $userLevel = "System Admin";
    require APPROOT . "/views/inc/headerBar.php"
@@ -158,7 +158,7 @@
             </div>
             <!----------------------------------------- form submit button starts ------------------------------------------------------------------------>
             <div class="ownAddstaffButton">
-                <button class="ownAddstaffbutton">Create Account</button>
+                <button class="ownAddstaffbutton btn">Create Account</button>
             </div>
             <!----------------------------------------- form submit button ends -------------------------------------------------------------------------->
         </form>

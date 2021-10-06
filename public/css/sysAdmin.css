@@ -9,8 +9,18 @@
     align-items: center;
 }
 
-.content.admin .ownAddstaffContainer.contentBox {
+.content.admin .ownAddstaffContainer.contentBox,
+.reg-container.form-container.contentBox {
     margin-top: 50px;
+}
+
+.reg-container.form-container.contentBox input {
+    background: white;
+}
+
+.reg-container label.label {
+    font-size: 16px;
+    font-weight: 600;
 }
 
 
@@ -19,7 +29,7 @@
 .form-container {
     display: flex;
     justify-content: center;
-    padding: 50px !important;
+    padding: 25px 50px;
 }
 
 .login-container {
@@ -30,7 +40,6 @@
 .content.admin .reg-container {
     width: 650px;
     height: fit-content;
-    margin-top: 50px;
 }
 
 @media (max-width: 768px) {
@@ -84,12 +93,23 @@
     margin-bottom: 20px;
 }
 
+
+/* form input[type="password"] {
+    width: 100%;
+    font-weight: 400;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1.2px solid #c4cae0;
+    margin-top: 5px;
+    background-color: saddlebrown;
+} */
+
 .form-container input[type="text"],
 .form-container input[type="password"] {
     display: block;
-    border-radius: 5px;
+    border-radius: 6px;
     padding: 5px 20px;
-    border: hidden;
+    border: 1.2px solid #c4cae0;
     height: 40px;
     width: 100%;
     background-color: var(--theme-lightgrey);
@@ -132,6 +152,8 @@
 .form hr {
     margin-bottom: 10px;
     color: var(--theme-lightgrey);
+    margin: 25px 20px;
+    height: 2px;
 }
 
 .login-container .forgot-password {
@@ -141,12 +163,23 @@
 }
 
 .form-container .btn {
-    height: 35px;
-    width: 150px;
+    height: 40px;
+    /* padding: 15px 20px; */
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 8px;
+    border-radius: 6px;
+    border: none;
+    background-color: var(--theme-blue);
+    color: white;
+    font-size: 16px;
 }
 
 .form-container .btn.middle {
-    margin-top: 27px;
+    margin-top: 29px;
+    background-color: var(--theme-black);
+    color: white;
 }
 
 .footer-container {
@@ -182,4 +215,27 @@
 
 i.fa.fa-download {
     margin-right: 15px;
+}
+
+.ownAddstaffbutton.btn {
+    background-color: var(--theme-blue);
+    margin: auto;
+}
+
+.admin .ownAddstaffContainer {
+    width: 650px;
+}
+
+label.ownAddstaffBasicinfoImagewrapper {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 50px 10px; */
+    background: #eaeaea;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 160px;
+    width: 160px;
+    margin-right: 20px;
 }
