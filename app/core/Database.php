@@ -26,9 +26,12 @@ class Database
          PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
       );
 
-      try {
+      try
+      {
          $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
-      } catch (PDOException $e) {
+      }
+      catch (PDOException $e)
+      {
          $this->error = $e->getMessage();
          echo $this->error;
       }
@@ -41,8 +44,10 @@ class Database
 
    public function bind($param, $value, $type = null)
    {
-      if (is_null($type)) {
-         switch (true) {
+      if (is_null($type))
+      {
+         switch (true)
+         {
             case is_int($value):
                $type = PDO::PARAM_INT;
                break;
@@ -62,7 +67,11 @@ class Database
 
    public function execute()
    {
-      return $this->statement->execute();
+      $result = $this->statement->execute();
+      // Use this if required to get the auto generated id
+      // echo " Hi", $this->dbh->lastInsertId(), " ";
+      // echo $last_id;
+      return $result;
    }
 
    public function resultSet()

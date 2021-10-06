@@ -5,6 +5,7 @@
 /* --------------STYLES ADDED BY DEVIN -------------------*/
 /* ------------------------------------------------------ */
 
+/* Styles for pages with tables */
 .recept .content .top-container {
    margin: 30px 0 10px 0;
    padding: 0 70px;
@@ -74,6 +75,7 @@
 .recept.recall-request .sub-container {
    align-self: center;
    padding: 30px;
+   min-width: 500px;
    width: 60%;
    height: min-content;
    display: flex;
@@ -89,7 +91,15 @@
    flex-grow: 1;
 }
 
-.recept .recall-request .sub-container .row {
+.recept.recall-request .sub-container .btn-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+   padding-top: auto;
+   padding-bottom: 0;
+}
+
+.recept.recall-request .sub-container .row {
    width: 100%;
    height: fit-content;
    display: grid;
@@ -155,14 +165,13 @@
 }
 
 .recept .sub-container .btn {
-   width: 100px;
    font-size: 16px;
    font-weight: 500;
    margin-top: 10px;
    width: 120px;
    height: 35px;
-
    text-align: center;
+   border-radius: 6px;
 }
 
 .recept .sub-container .btn-outlined.btn-black {
@@ -173,6 +182,8 @@
 
 .recept .sub-container .btn-red {
    background-color: var(--theme-red);
+   border: none;
+   color:var(--white);
 }
 
 .recept .desc-container {
