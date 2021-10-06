@@ -19,7 +19,6 @@
          <button class="btn btn-main">Add New</button>
       </div>
 
-
       <form class="form" action="">
          <div class="options-container">
             <div class="left-section">
@@ -65,8 +64,8 @@
 
 
       <div class="table-container">
-         <div class="table-responsive">
-            <table class="table table-hover">
+         <div class="table1 table1-responsive">
+            <table class="table1-hover">
                <thead>
                   <tr>
                      <th>Service Name</th>
