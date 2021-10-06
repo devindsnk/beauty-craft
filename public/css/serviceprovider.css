@@ -404,8 +404,31 @@ body {
     background-color: #eaeaea;
 }
 
-.serprov .modalbutton button.btn.btnClose.normalrecall {
+button.btnOpen.new {
     height: 45px;
     width: 110px;
     font-size: 18px;
+    background-color: var(--theme-blue);
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+button.btn.btnClose.normal {
+    height: 45px;
+    width: 110px;
+    font-size: 18px;
+    background-color: #eaeaea;
+    border: none;
+    border-radius: 6px;
+}
+
+.modal-container.new {
+    height: 100%;
+    width: 100%;
+}
+
+.modal-container.new .modal-box {
+    height: 500px;
+    width: 600px;
 }

@@ -261,13 +261,64 @@
                                 <button class="btn btnClose normal">Close</button>
                             </div>
                             <div>
-                                <button class="btn btnClose normalrecall">Recall</button>
+                                <button class="btnOpen new" type="button">Recall</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- end modal -->
+    <div class="modal-container new">
+      <div class="modal-box">
+        <h1>Recall request</h1>
+                            <div class="modelcontent">
+                        <div class="modaldatetime">
+                            <div class="modaldatetime-time">
+                                <span>10.45 - 11.00</span><br>
+
+                            </div>
+                            <div class="modaldatetime-date">
+                                <span>JUNE 10</span><br>
+                                <span>2020</span>
+                            </div>
+                        </div>
+                        <div class="modaldetails">
+                            <div class="modaldetails-name">
+                                <span class="service">Hair Color-short</span><br>
+                                <span class="name">Ruwanthi Munasinghe</span>
+                            </div>
+                            
+                        </div>
+
+                        <div class="Reservationnote">
+                            <div class="Reservationnote-name">
+                                <span>Reason</span>
+                            </div>
+                            <div class="Reservationnote-note editable" contenteditable="true">
+                                <span></span>
+                            </div>
+
+                        </div>
+                        <div class="savechange">
+                            
+                        </div>
+
+                       
+                        <div class="modalbutton">
+                            <div>
+                                <button class="btn btnClose normal">Close</button>
+                            </div>
+                            <div>
+                                <button class="btnOpen new" type="button">Recall</button>
+                            </div>
+                        </div>
+                    </div>
+      </div>
+    </div>
+
+
+
+
         </div>
 
         <!--End Content-->
