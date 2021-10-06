@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/modalStyle.css"/>
 </head>
 <body>
-    <div class="profileview">
-    <h1>View Profile</h1>
+    <div class="profileviewh1">
+    <h1 class="profileviewh1">View Profile</h1>
     <div class="profilecontent">
 <div class="basicinfo">
    <div class="item1">
