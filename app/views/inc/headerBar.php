@@ -21,7 +21,7 @@
         <ul>
            <li>
               <i class="far fa-user"></i>
-              <a href="#">My Profile</a>
+              <a href="<?php echo URLROOT ?>/staffUser/profile">My Profile</a>
            </li>
            <li>
               <i class="far fa-cog"></i>
