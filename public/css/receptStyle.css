@@ -5,8 +5,45 @@
 /* --------------STYLES ADDED BY DEVIN -------------------*/
 /* ------------------------------------------------------ */
 
-/* Styles for pages with tables */
-.recept .content .top-container {
+/* Common button styles */
+
+.recept .btn{
+   display: block;
+   border-radius: 6px;
+   text-align: center;
+}
+
+.recept .btn.btn-filled{
+   border: none;
+   color:var(--white);
+}
+
+.recept .btn.btn-outlined{
+   background-color: transparent;
+}
+
+.recept .btn.btn-filled.btn-theme-purple{
+   background-color: var(--theme-purple);
+}
+
+.recept .btn.btn-filled.btn-red{
+   background-color: var(--theme-red);
+}
+
+.recept .btn.btn-filled.btn-black{
+   background-color: var(--theme-black);
+}
+
+.recept .btn.btn-outlined.btn-black{
+   border: 2px solid var(--theme-black);
+   color: var(--theme-black);
+}
+
+/* End of Common button styles */
+
+/* Common template for pages with tables */
+
+.recept.content .top-container {
    margin: 30px 0 10px 0;
    padding: 0 70px;
    display: flex;
@@ -14,62 +51,59 @@
    width: 100%;
 }
 
-.recept .content .options-container {
+.recept .top-container .btn{
+   font-weight: 500;
+   padding: 7px;
+   width: 120px;
+}
+
+.recept.content .options-container {
    display: flex;
    padding: 30px 70px;
    width: 100%;
    min-width: 330px;
 }
 
-.recept .content .options-container .left-section {
+.recept.content .options-container .left-section {
    width: 100%;
    margin-right: auto;
 }
 
-.recept .content .options-container .right-section {
+.recept.content .options-container .right-section {
    margin-left: 30px;
 }
 
-.recept .content .btn {
-   border: none;
-   border-radius: 6px;
-   padding: 8px 15px;
-   color: var(--white);
-   font-size: 14px;
-   min-width: 100px;
-   font-weight: 500;
-}
-
-.recept .content .top-container .btn-main {
-   background-color: var(--theme-purple);
-}
-
-.recept .content .options-container .btn-search {
+.recept .options-container .btn{
    margin-top: 26px;
-   background-color: var(--theme-black);
+   font-weight: 500;
+   padding: 7px;
+   width: 120px;
 }
 
 @media (max-width: 940px) {
-   .recept .content .options-container {
+   .recept.content .options-container {
       flex-direction: column;
    }
 
-   .recept .content .options-container .right-section {
+   .recept.content .options-container .right-section {
       margin-left: auto;
    }
 
-   .recept .content .options-container .btn-search {
+   .recept .options-container .btn{
       margin-top: 0px;
    }
 }
 
-/* Styles of recallRequest */
+/* End of Common template for pages with tables */
+
+
+/* Styles of recall request page */
+
 .recept.recall-request .main-container {
    width: 100%;
    padding: 20px 0;
    display: flex;
    flex-direction: column;
-   /* justify-content: center; */
 }
 
 .recept.recall-request .sub-container {
@@ -83,20 +117,19 @@
    margin: 12px 0;
 }
 
-.recept.recall-request .sub-container .left-section {
-   flex-grow: 2;
-}
-
-.recept.recall-request .sub-container .right-section {
-   flex-grow: 1;
-}
-
 .recept.recall-request .sub-container .btn-container {
    display: flex;
    flex-direction: column;
    justify-content: flex-end;
    padding-top: auto;
    padding-bottom: 0;
+}
+
+.recept.recall-request .sub-container .btn-container .btn{
+   font-weight: 500;
+   padding: 5px;
+   width: 120px;
+   margin-top: 10px;
 }
 
 .recept.recall-request .sub-container .row {
@@ -164,38 +197,10 @@
    color: var(--theme-grey);
 }
 
-.recept .sub-container .btn {
-   font-size: 16px;
-   font-weight: 500;
-   margin-top: 10px;
-   width: 120px;
-   height: 35px;
-   text-align: center;
-   border-radius: 6px;
-}
-
-.recept .sub-container .btn-outlined.btn-black {
-   background-color: transparent;
-   border: 2px solid var(--theme-black);
-   color: var(--theme-black);
-}
-
-.recept .sub-container .btn-red {
-   background-color: var(--theme-red);
-   border: none;
-   color:var(--white);
-}
-
 .recept .desc-container {
    margin-top: 20px;
 }
-
-
-
-
-
-
-
+/* End of Styles of recall request page */
 
 
 /* ------------------------------------------------------ */
