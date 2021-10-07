@@ -10,7 +10,7 @@
         <div class="ownAddStaff_Formheading">
             <h1>Add New Staff Members</h1>
         </div>
-        <form action="#">
+        <form action="<?php echo URLROOT; ?>/staff/addStaff" method="post">
             <div class="ownAddstaff_formWrapper">
                 <!------------------------------ Basic Info Starts------------------------------------------------------------------------------->
 
