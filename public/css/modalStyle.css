@@ -59,34 +59,22 @@
 .ModalGreenButton{
    background-color: #1BC657;
    color: white;
-   font-size: 16px;
-   font-weight:400;
-   height: 40px;
-   width: 180px;
-   border: none;
-   padding: 7px 20px;
-   border-radius: 6px;
 }
 
 .ModalBlueButton{
    background-color: var(--theme-blue);
    color: white;
-   font-size: 14px;
-   font-weight:500;
-   height: 40px;
-   width: 180px;
-   border: none;
-   padding: 7px 20px;
-   border-radius: 6px;
 }
 
 .ModalCancelButton{
    background-color: var(--theme-lightgrey);
    color: black;
+}
+.ModalButton{
    font-size: 16px;
    font-weight:500;
    height: 40px;
-   width: 180px;
+   width: 160px;
    border: none;
    padding: 7px 20px;
    border-radius: 6px;
