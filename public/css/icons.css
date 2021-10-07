@@ -5,6 +5,16 @@
 /* ------------------------------------------------------ */
 
 /* Custom menu icon */
+/* .ci{
+   display: block;
+} */
+
+.sidenav-icon{
+   height: 26px;
+   width: 26px;
+   
+}
+
 .ci-menu-white {
    background: url(../../public/svg/menu-white.svg);
    height: 32px;
@@ -12,11 +22,56 @@
    background-size: contain;
 }
 
+/* .ci-calendar {
+   background: url(../../public/svg/calendar.svg);
+   background-size: contain;
+} */
+
+.ci-elements {
+   background: url(../../public/svg/element-equal.svg);
+   background-size: contain;
+}
+
+.ci-receipt {
+   background: url(../../public/svg/receipt-2.svg);
+   background-size: contain;
+}
+
+.ci-people {
+   background: url(../../public/svg/people.svg);
+   background-size: contain;
+}
+
+.ci-briefcase {
+   background: url(../../public/svg/briefcase.svg);
+   background-size: contain;
+}
+
+.ci-refresh-left {
+   background: url(../../public/svg/refresh-left-square.svg);
+   background-size: contain;
+}
+
+.ci-save-remove {
+   background: url(../../public/svg/save-remove.svg);
+   background-size: contain;
+}
+
+.ci-tasks {
+   background: url(../../public/svg/task-square.svg);
+   background-size: contain;
+}
+
+.ci-calendar {
+   background: url(../../public/svg/menu-board.svg);
+   background-size: contain;
+}
+
 /* Custom close icon */
 .ci-x-white {
    background: url(../../public/svg/x-white.svg);
-   height: 24px;
-   width: 24px;
+   height: 32px;
+   width: 32px;
    display: block;
    background-size: contain;
 }
