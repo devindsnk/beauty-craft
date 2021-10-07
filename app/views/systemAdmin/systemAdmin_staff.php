@@ -158,7 +158,7 @@
             </div>
             <!----------------------------------------- form submit button starts ------------------------------------------------------------------------>
             <div class="ownAddstaffButton">
-                <button class="ownAddstaffbutton btn">Create Account</button>
+                <button class="ownAddstaffbutton 2 btn">Create Account</button>
             </div>
             <!----------------------------------------- form submit button ends -------------------------------------------------------------------------->
         </form>
