@@ -17,7 +17,7 @@
    <!--Content-->
    <div class="content">
       <h3>This is main option 1</h3>
-      <a href="<?php echo URLROOT ?>/services/addService"><button>New Service</button></a>
+      <a href="<?php echo URLROOT ?>/services/addNewService"><button>New Service</button></a>
       <a href="<?php echo URLROOT ?>/services/addService2"><button>New Service2</button></a>
       <a href="<?php echo URLROOT ?>/services/viewService"><button>View Service</button></a>
       <a href="<?php echo URLROOT ?>/services/updateService"><button>Update Service</button></a>

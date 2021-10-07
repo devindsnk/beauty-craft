@@ -16,37 +16,69 @@
 
    <!--Content-->
    <div class="content">
-      <div class="mang-sub-container1 mang">
-         <div class="select-box-container">
-            <form action="">
-               <label class="label" for="serviceName">Service</label>
-               <select name="services" id="services">
+      <div class="mang-sub-container1-head mang">
+         <form action="" class="form">
+            <!-- <div class="select-box-container">
+                  <label class="label" for="serviceName">Service</label>
+                  <select name="services" id="services">
                      <option value="" disabled selected>--Select--</option>
                      <option value="volvo">Service 01</option>
                      <option value="saab">Service 02</option>
                      <option value="mercedes">Service 03</option>
                      <option value="audi">Service 04</option>
                   </select>
-            </form>
-         </div>
+            </div>
 
-         <div class="select-box-container">
-            <form action="">
-               <label class="label" for="serviceFromDate">From</label>
-               <input type="date" name="" id="serviceFromDate" placeholder="--select--">
-            </form>
-         </div>
+            <div class="select-box-container">
+                  <label class="label" for="serviceFromDate">From</label>
+                  <input type="date" name="" id="serviceFromDate" placeholder="--select--">
+            </div>
 
-         <div class="select-box-container">
-            <form action="">
-               <label class="label" for="serviceFromDate">To</label>
-               <input type="date" name="" id="serviceFromDate" placeholder="--select--">
-            </form>
-         </div>
+            <div class="select-box-container">
+                  <label class="label" for="serviceFromDate">To</label>
+                  <input type="date" name="" id="serviceFromDate" placeholder="--select--">
+            </div>
 
-         <div class="select-box-container">
-            <button class="searching-btn align-right">Search</button>
-         </div>
+            <div class="select-box-container">
+               <button class="searching-btn align-right">Search</button>
+            </div> -->
+
+            <div class="row">
+
+               <div class="column">
+                  <div class="dropdown-group">
+                     <label class="labels" for="serviceName">Service</label>
+                     <select name="services" id="services">
+                        <option value="" disabled selected>--Select--</option>
+                        <option value="Service 01">Service 01</option>
+                        <option value="Service 02">Service 02</option>
+                        <option value="Service 03">Service 03</option>
+                        <option value="Service 04">Service 04</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="column">
+                  <div class="text-group">
+                     <label class="labels" for="serviceFromDate">From</label>
+                     <input type="date" name="" id="serviceFromDate" placeholder="--select--">
+                  </div>
+                  <span class="error"></span>
+               </div>
+               <div class="column">
+                  <div class="text-group">
+                     <label class="labels" for="serviceToDate">To</label>
+                     <input type="date" name="" id="serviceToDate" placeholder="--select--">
+                  </div>
+                  <span class="error"></span>
+               </div>
+               <div class="column">
+                  <div class="select-box-container">
+                     <button class="searching-btn align-right">Search</button>
+                  </div>
+               </div>
+
+            </div>
+         </form>
       </div>
 
       <!--sub-container1-->

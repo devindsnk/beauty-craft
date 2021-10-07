@@ -29,7 +29,7 @@
                                 <label class="labels" for="serviceName"> Service Name</label>
                                 <input type="text" name="" id="sName" placeholder="--Enter the service name here--" value="<?php echo $data['sName']; ?>">
                             </div>
-                            <span class="error"> <?php echo " "; ?></span>
+                            <span class="error"><?php echo $data['sName_error']; ?></span>
                         </div>
                     </div>
 					<!-- end of service name -->
@@ -40,10 +40,27 @@
                         <div class="column">
 							<!-- New service type -->
                             <label class="labels" for="serviceType">Service Type</label>
-                            <select class="dropdownSelectBox">
+                            <select class="dropdownSelectBox" name="serviceType">
                                 <option class="unbold" value="val1" option selected="true" disabled="disabled" >Select One</option>
-                                <option value="val1">Long Hair</option>
-                                <option value="val2">Short Hair</option>
+
+                                <!-- <option value="val1">Long Hair</option>
+                                <option value="val2">Short Hair</option> -->
+
+								<?php
+									// $records1 = mysqli_query($db, "SELECT DISTINCT service_type From services"); 
+
+									// while($sType = mysqli_fetch_array($records1))
+									// {
+									// 	echo "<option value='". $sType['service_type'] ."'>" .$sType['service_type'] ."</option>";
+									// }	
+								?> 
+								
+								<?php foreach($data['sType'] as $sType) : ?>
+									
+									<option value="<?php echo $sType->type; ?>"><?php echo $sType->type; ?></option>
+
+								<?php endforeach; ?>
+
                             </select>
 							<!-- end of service type -->
 
@@ -57,7 +74,7 @@
                             <div class="row3">
                                 <label class="labels" for="servicePrice">Price</label>
                                 <input type="text" name="sPrice" placeholder="--Rs.0.00--"> value="<?php echo $data['sPrice']; ?>"
-                                <span class="error paddingLeft"> <?php echo " error message"; ?></span>
+                                <span class="error paddingLeft"> <?php echo $data['sPrice_error']; ?></span>
                             </div>
 							<!-- End of ervice price -->
                         </div>
@@ -66,11 +83,30 @@
                         <div class="column">
 							<label class="labels" for="serviceEmp">Employee</label>
 							<div class="checkbox-div">
+								<!-- <div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
 								<div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
 								<div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
 								<div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
-								<div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
-								<div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
+								<div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr"> -->
+
+								<?php
+									// $records2 = mysqli_query($db, "SELECT staffID,fname,lname From staff WHERE staffType='serviceProvider"); 
+
+									// while($sStaff = mysqli_fetch_array($records2))
+									// {
+										
+									// 	echo "<div class='divIndiv'><input type='checkbox' name=''><lable class='lableInDiv'>" . $sStaff['staffID'] . " - " . $sStaff['fname'] . " " . $sStaff['lname'] . "</lable></div><hr class='resHr'";
+									// }	
+								?>  
+
+								<?php foreach($data['sProv'] as $sProv) : ?>
+									<div class="divIndiv"><input type="checkbox" name="">
+										<lable class="lableInDiv">
+											<?php echo $sProv->staffID; ?> - <?php echo $sProv->fname; ?> <?php echo $sProv->lname; ?>
+										</lable>
+									</div><hr class="resHr">
+								<?php endforeach; ?>
+								
 							</div>
                         </div>
 						<!-- End of employees -->
@@ -84,7 +120,7 @@
                                 <h1>New Type</h1>
                             </div>
                             <label class="labels paddingBottom" for="serviceNewType">Service Type</label>
-                            <input type="text" name="" placeholder="--Type Here--">
+                            <input type="text" name="serviceNewType" placeholder="--Type Here--">
                             <div class="new-type-head">
                                 <button class="btn btnClose normal close-type-btn">Close</button>
                                 <button class="btn btnClose normal add-type-btn">Add</button>
@@ -113,14 +149,16 @@
 								<!-- duration -->
 								<label class="labels paddingBottom">Duration</label><br>
 								<select class="dropdownSelectBox">
-									<option value="val1">1 min</option>
-									<option value="val2">2 min</option>
-									<option value="val1">3 min</option>
+									<option value="val1">15 min</option>
+									<option value="val2">30 min</option>
+									<option value="val1">45 min</option>
+									<option value="val1">60 min</option>
+									<option value="val1">75 min</option>
 								</select>
 							</div>
-								<!-- end of duration -->
+							<!-- end of duration -->
 
-								<!-- quantity -->
+							<!-- quantity -->
 							<div class="column" id="resorceDetails1">
 								<label class="labels paddingBottom">Resources & Quantity</label><br>
 								<div class="checkbox-div">
@@ -162,6 +200,39 @@
 									</select><br>
 									</div>
 									<hr class="resHr">
+
+									<?php
+										// $records3 = mysqli_query($db, "SELECT resourceID, rname, quantity From resources"); 
+
+										// while($sResource = mysqli_fetch_array($records3))
+										// {
+											
+										// 	echo "<div class='divIndiv'><label class='lableInDiv' id='checkedItem'>" . $sResource['resourceID'] . " - " . $sResource['rname'] . "</label><select class='dropdownSelectBox-small quantity-align resCount'></select><br></div><hr class='resHr'>";
+
+										// }	
+									?>  
+									
+									<?php foreach($data['sResource'] as $sResource) : ?>
+										<div class="divIndiv">
+											<label class="lableInDiv" id="checkedItem">
+												<?php echo $sResource->resourceID; ?> - <?php echo $sResource->rname; ?>
+											</label>
+											<select class='dropdownSelectBox-small quantity-align resCount'>
+
+
+											</select><br></div><hr class='resHr'>
+
+									<?php endforeach; ?>
+
+									<!-- <script>
+										$(function(){
+											var $select = $(".resCount");
+											for (i=1;i<=100;i++){
+												$select.append($('<option></option>').val(i).html(i))
+											}
+										});
+									</script> -->
+
 								</div>
 								<span class="error paddingLeft"> <?php echo " error message"; ?></span>
 							</div>

@@ -2,16 +2,16 @@
 
 <body class="">
      <!-- New service container -->
-	 	<div class="btn-remove-service mang">
-			<a href="#newServiceMain" name="remove" id="" class="close-service-window"><span onclick="Previous()"><i class='fas fa-arrow-left fa-2x'></i></span></a><br/>
-        </div>
+		<div class="btn-remove-service quantity-align mang">
+			<a href="#newServiceMain" name="remove" id="" class="close-service-window"><span onclick="Previous()"><i class='fas fa-times fa-2x'></i></span></a><br/>
+		</div>
 
 		<div class="newService-main newservice" id="newServiceMain">
 
 			<form class="form" action="">
 
 				<div class="newService-main-head">
-					<h1>New Service</h1>
+					<h1>Update Service</h1>
 				</div>
 				
 				<!-- Basic information -->

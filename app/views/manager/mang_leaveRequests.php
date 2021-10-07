@@ -2,8 +2,8 @@
 
 <body class="">
 
-    <div class="btn-remove-leave-request mang">
-        <a href="#" name="remove" id="" class="close-leave-request-window"><span onclick="Previous2()"><i class='fas fa-arrow-left fa-2x'></i></span></a><br/>
+    <div class="btn-remove-leave-request quantity-align mang">
+        <a href="#" name="remove" id="" class="close-leave-request-window"><span onclick="Previous2()"><i class='fas fa-times fa-2x'></i></span></a><br/>
     </div>
 
     <form class="form" action="">
@@ -15,7 +15,7 @@
             <div class="mang-sub-container1 leave-sub-container">
 				<!--card1-->
                 <div class="contentBox leave-sub-container-card">
-                    <p>Taken Leaves</p>
+                    <p>Leaves taken</p>
                     <p>2</p>
                 </div>
                 <!--End of card1-->

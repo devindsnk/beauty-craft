@@ -54,7 +54,7 @@
 .newService-sub{
     min-width: 380px;
     padding: 30px 30px 15px 30px;
-    margin: 20px 10px;
+    margin: 0px 10px 10px 10px;
     background-color: white;
     border-radius: 6px;
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
@@ -97,7 +97,8 @@
 }
 
 .anotheSlot{
-    padding-left: 20px;
+    text-align: center;
+    padding: 10px;
 }
 
 .checkbox-div{
@@ -169,8 +170,9 @@
 
 .button-Add-Div{
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
+    padding: 7px;
 }
 
 .buttonAdd{

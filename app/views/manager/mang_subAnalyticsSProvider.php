@@ -16,38 +16,74 @@
 
    <!--Content-->
    <div class="content">
-      <div class="mang-sub-container1 mang">
-            <div class="select-box-container">
-               <form action="">
-                  <label class="label" for="serviceName">Employee</label>
-                  <select name="services" id="services">
-                        <option value="" disabled selected>--Select--</option>
-                        <option value="volvo">Employee 01</option>
-                        <option value="saab">Employee 02</option>
-                        <option value="mercedes">Employee 03</option>
-                        <option value="audi">Employee 04</option>
-                     </select>
-               </form>
-            </div>
-
-            <div class="select-box-container">
-               <form action="">
-                  <label class="label" for="serviceFromDate">From</label>
-                  <input type="date" name="" id="serviceFromDate" placeholder="--select--">
-               </form>
-            </div>
-
-            <div class="select-box-container">
-               <form action="">
-                  <label class="label" for="serviceFromDate">To</label>
-                  <input type="date" name="" id="serviceFromDate" placeholder="--select--">
-               </form>
-            </div>
-
-            <div class="select-box-container">
-               <button class="searching-btn align-right">Search</button>
-            </div>
+      <div class="mang-sub-container1-head mang">
+         <form action="" class="form">
+         <!-- <div class="select-box-container">
+            <form action="">
+               <label class="label" for="serviceName">Employee</label>
+               <select name="services" id="services">
+                     <option value="" disabled selected>--Select--</option>
+                     <option value="volvo">Employee 01</option>
+                     <option value="saab">Employee 02</option>
+                     <option value="mercedes">Employee 03</option>
+                     <option value="audi">Employee 04</option>
+                  </select>
+            </form>
          </div>
+
+         <div class="select-box-container">
+            <form action="">
+               <label class="label" for="serviceFromDate">From</label>
+               <input type="date" name="" id="serviceFromDate" placeholder="--select--">
+            </form>
+         </div>
+
+         <div class="select-box-container">
+            <form action="">
+               <label class="label" for="serviceFromDate">To</label>
+               <input type="date" name="" id="serviceFromDate" placeholder="--select--">
+            </form>
+         </div>
+
+         <div class="select-box-container">
+            <button class="searching-btn align-right">Search</button>
+         </div> -->
+
+         <div class="row">
+               <div class="column">
+                  <div class="dropdown-group">
+                     <label class="labels" for="serviceProviderName">Service Provider</label>
+                     <select name="serviceProvider" id="serviceProvider">
+                        <option value="" disabled selected>--Select--</option>
+                        <option value="ServiceProvider 01">Service Provider 01</option>
+                        <option value="ServiceProvider 02">Service Provider 02</option>
+                        <option value="ServiceProvider 03">Service Provider 03</option>
+                        <option value="ServiceProvider 04">Service Provider 04</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="column">
+                  <div class="text-group">
+                     <label class="labels" for="serviceProviderFromDate">From</label>
+                     <input type="date" name="" id="serviceProviderFromDate" placeholder="--select--">
+                  </div>
+                  <span class="error"></span>
+               </div>
+               <div class="column">
+                  <div class="text-group">
+                     <label class="labels" for="serviceProviderToDate">To</label>
+                     <input type="date" name="" id="serviceProviderToDate" placeholder="--select--">
+                  </div>
+                  <span class="error"></span>
+               </div>
+               <div class="column">
+                  <div class="select-box-container">
+                     <button class="searching-btn align-right">Search</button>
+                  </div>
+               </div>
+            </div>
+         </form>
+      </div>
 
          <!--sub-container1-->
          <div class="mang-sub-container1 mang">
@@ -75,6 +111,7 @@
          </div>
          <!--End of sub-container1-->
 
+         <!--sub-container2-->
          <div class="mang-sub-container2 mang">
             <!--chart-container-->
             <div class="chart-container">

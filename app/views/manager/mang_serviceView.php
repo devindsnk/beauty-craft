@@ -1,8 +1,8 @@
 <?php require APPROOT . "/views/inc/header.php" ?>
 
 <body class="">
-	<div class="btn-remove-service quantity-align mang">
-		<a href="#newServiceMain" name="remove" id="" class="close-service-window"><span onclick="Previous()">X</span></a>
+	<div class="btn-remove-service mang">
+	<a href="#newServiceMain" name="remove" id="" class="close-service-window"><span onclick="Previous()"><i class='fas fa-arrow-left fa-2x'></i></span></a><br/>
 	</div>
 	<div class="newService-main" >
 		<div class="newService-main-head">
