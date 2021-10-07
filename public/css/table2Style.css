@@ -59,22 +59,6 @@
     width: 90px;
 }
 
-.text-uppercase {
-    text-transform: uppercase;
-}
-
-.column-right-align{
-    text-align: right;
-}
-
-.column-left-align{
-    text-align: left;
-}
-
-.column-center-align{
-    text-align: center;
-}
-
 @media (max-width:  1000px){
     
     .table2 table{
@@ -123,9 +107,6 @@
         width: 50%;
         padding-left: 10px;
         text-align: left;
-    }
-    .table2 tbody tr td:nth-child(1){
-        font-size: 18px;
         font-weight: 600;
     }
 }
