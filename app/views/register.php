@@ -18,7 +18,7 @@
          <form action="<?php echo URLROOT; ?>/customer/register" method="post" class="form">
             <h1 class="title">Get Registered</h1>
 
-            <div class="row">
+            <div class="rowitem">
                <div class="column">
                   <div class="text-group">
                      <label class="label" for="name">Name</label>

@@ -88,11 +88,6 @@
     margin-top: 23px;
 }
 
-.form .text-group,
-.form .radio-container {
-    margin-bottom: 20px;
-}
-
 
 /* form input[type="password"] {
     width: 100%;
@@ -113,6 +108,10 @@
     height: 40px;
     width: 100%;
     background-color: var(--theme-lightgrey);
+}
+
+.form .rowitem {
+    margin-bottom: 0;
 }
 
 .form .pin {
@@ -152,7 +151,7 @@
 .form hr {
     margin-bottom: 10px;
     color: var(--theme-lightgrey);
-    margin: 25px 20px;
+    margin: 30px 20px 20px 20px;
     height: 2px;
 }
 
