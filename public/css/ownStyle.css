@@ -232,14 +232,56 @@
 Owner Overview Starts
 ##################################################################################################################################################### */
 
+
+
+.mang-sub-container-card{
+    display: flex;
+    flex-direction: column;
+    /* position: relative; */
+    background-color: var(--white);
+    justify-content: space-around;
+    text-align: center;
+    align-content: center;
+    padding: 20px;
+    width: 250px;
+    height: 125px;
+    margin: 10px 5px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+.mang-sub-container-card-title{
+    color: rgb(126, 126, 126);
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.mang-sub-container-card-amount{
+    font-size: 1.5rem;
+    font-weight: 600;
+    justify-content: center;
+}
 .own.overview .ownOverviewContainerCard1,
 .own.overview .ownOverviewContainerCard2 {
-    width: 450px;
-    height: 150px;
+    /* width: 250px;
+    height: 125px;
     margin: 20px;
     padding: 5px;
     border-radius: 6px;
     background-color: white;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25); */
+    display: flex;
+    flex-direction: column;
+    /* position: relative; */
+    background-color: var(--white);
+    justify-content: space-around;
+    text-align: center;
+    align-content: center;
+    padding: 20px;
+    width: 250px;
+    height: 125px;
+    margin: 10px 5px;
+    border-radius: 6px;
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
 }
 
@@ -994,13 +1036,12 @@ Customers Endss
 
 /* ----------------------------Headings styles -------------*/
 .own.salaries .content {
-    height: 100vh;
+    height: 100%;
 }
 
 .own.salaries .ownSalaryReportHeadings {
     text-align: center;
-    height: 200px;
-    padding-top: 60px;
+    padding: 30px;
 }
 
 .own.salaries .ownSalaryReportHead3 {
@@ -1016,7 +1057,7 @@ Customers Endss
 }
 
 .own.salaries .ownSalaryReportStaffMemberDetailsContent {
-    padding: 20px;
+    padding: 40px;
     float: right;
     width: 450px;
     margin: 0;
@@ -1027,7 +1068,7 @@ Customers Endss
 }
 
 .own.salaries .ownSalaryReportSalaryDetailsContent {
-    padding: 20px;
+    padding: 40px;
     float: left;
     /* height: 400px; */
     width: 450px;
@@ -1095,7 +1136,8 @@ Customers Endss
 /* Arrange the grid areas */
 .own.salaries .SalaryReportContainer {
     display: grid;
-    height: 100vh;
+    height: 100%;
+    padding-bottom: 45px;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 20px;
     grid-template-areas:
@@ -1307,33 +1349,27 @@ Customers Endss
 /* ------------------------------------------------------------------------------------------------------ */
 
 
-.ownViewStaffBody {
-    height: 100vh;
-}
 
-.ownViewStaffContainer {
-    height: calc(100vh - 35px);
-}
 
 .ownViewStaffContainerHead {
     text-align: center;
-    padding: 20px;
+    padding-top: 30px;
 
 }
 
-/* .ownAddstaffLineContainer{
-    padding-top: 5px 10px;
-} */
-
-
 /* ######################################################## */
 
-.ownViewStaffCard1Details,
-.ownViewStaffCard2Details,
-.ownViewStaffCard3Details {
+.ownViewStaffCard1Details {
 
     padding-left: 100px;
 
+}
+.ownViewStaffCard2Details,
+.ownViewStaffCard3Details{
+    padding-left: 10px;
+}
+.ownViewStaffCardDetailsLabel{
+    width: 100px;
 }
 
 /* ######################################################## */
@@ -1358,7 +1394,7 @@ Customers Endss
 .ownViewStaffCard3 {
     font-weight: 500;
     margin: 0;
-    padding: 5px;
+    padding: 20px;
     border-radius: 6px;
     background-color: var(--white);
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
@@ -1386,7 +1422,6 @@ Customers Endss
     font-size: 24px;
     font-weight: 600;
 }
-
 
 .ownViewStaffProfileDetailsStaffId {
     font-size: 20px;
@@ -1438,8 +1473,10 @@ Customers Endss
 .ownViewStaffCards {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    height: 100%;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
+    padding-bottom: 30px;
     grid-template-areas:
         'ownViewStaffProfileDetails ownViewStaffCard2'
         'ownViewStaffProfileDetails ownViewStaffCard2'
@@ -1474,7 +1511,7 @@ Customers Endss
 
 /*---------------------------------------------- Basic Info Grid areas and styles -------------------------------------------*/
 .ownViewStaffCardrow {
-    word-wrap: break-word;
+    /* word-wrap: break-word; */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     /* gap: 20px; */
@@ -1483,10 +1520,16 @@ Customers Endss
 
 /*################################################################## Responsive styles ####################################################*/
 
-@media screen and (max-width: 830px) {
+@media screen and (max-width: 1220px) {
+
+    .ownViewStaffContainerHead {
+        text-align: center;
+        padding: 30px;
+    }
     .ownViewStaffCards {
         display: grid;
         grid-template-columns: 1fr;
+        grid-template-rows:auto;
         grid-gap: 20px;
         grid-template-areas:
             'ownViewStaffProfileDetails'

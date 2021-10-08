@@ -22,11 +22,11 @@
 
             <div class="ownOverviewContainerCard1">
                <!-- <div class="sub-container-card"> -->
-               <div class="CardTitle">
-                  <h3>Available Managers</h3>
+               <div class="CardTitle" mang-sub-container-card-title>
+                  <P>Available Managers</P>
                </div>
-               <div class="CardAmmount">
-                  <h1>2/5</h1>
+               <div class="CardAmmount mang-sub-container-card-amount">
+                  <p>5</p>
                   <!-- </div> -->
                </div>
             </div>
@@ -34,11 +34,11 @@
 
             <!-- owner overview total income card starts -->
             <div class="ownOverviewContainerCard2">               
-                  <div class="CardTitle">
-                     <h3>Total Income(LKR)</h3>
+                  <div class="CardTitle mang-sub-container-card-title">
+                     <P>Total Income</P>
                   </div>
-                  <div class="CardAmmount">
-                     <h1>1.56M</h1>
+                  <div class="CardAmmount mang-sub-container-card-amount">
+                     <p>4000000.00 LKR</p>
                   </div>
             </div>
             <!-- owner overview total income card ends -->

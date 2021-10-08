@@ -17,6 +17,8 @@
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/table1Style.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/table2Style.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/modalStyle.css" />
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/sysAdmin.css" />
+
 
 
    <!-- Temporary Styles-->
