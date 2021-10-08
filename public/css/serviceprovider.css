@@ -6,11 +6,6 @@
 
 /* ------------------------------------------------------ */
 
-body {
-    background-color: var(--theme-bgwhite);
-    font-family: poppins;
-}
-
 .serprov .sub-container1 {
     display: flex;
     /* justify-content: space-evenly; */
