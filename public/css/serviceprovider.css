@@ -172,6 +172,16 @@
     display: none;
 }
 
+@media Screen and (max-width: 1254px) {
+    .serprov .sub-container2-card-name .name {
+        font-size: 18px;
+    }
+    .serprov .sub-container2-card-service {
+        font-size: 20px;
+        display: block;
+    }
+}
+
 @media Screen and (max-width: 980px) {
     .sub-container1-card-title {
         font-size: 1.2rem;
@@ -401,7 +411,7 @@
     background-color: #eaeaea;
 }
 
-button.btnOpen.new {
+.serprov button.btnOpen.new {
     height: 35px;
     width: 150px;
     font-size: 18px;
@@ -411,7 +421,7 @@ button.btnOpen.new {
     border-radius: 6px;
 }
 
-button.btn.btnClose.normal {
+.serprov button.btn.btnClose.normal {
     height: 45px;
     width: 110px;
     font-size: 18px;
@@ -420,12 +430,12 @@ button.btn.btnClose.normal {
     border-radius: 6px;
 }
 
-.modal-container.new {
+.serprov .modal-container.new {
     height: 100%;
     width: 100%;
 }
 
-.modal-container.new .modal-box {
+.serprov .modal-container.new .modal-box {
     height: 500px;
     width: 600px;
 }
