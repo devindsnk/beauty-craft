@@ -211,10 +211,13 @@ span.item2type {
     font-size: 18px;
     font-weight: 400;
     margin-top: 7px;
+    font-weight: 500;
+    color: #50515a;
 }
 
 .contactinfo1 {
-    height: 62%;
+    height: 70%;
+    padding: 3% 3% 5% 3%;
     width: 100%;
     /* background-color: yellowgreen; */
     margin-bottom: 40px;
@@ -223,7 +226,8 @@ span.item2type {
 }
 
 .contactinfo2 {
-    height: 37%;
+    padding: 3% 3%;
+    height: 30%;
     width: 100%;
     font-size: 18px;
     /* background-color: thistle; */
@@ -245,6 +249,9 @@ span.item2type {
 }
 
 .listitem6 {
+    /* background-color: cadetblue; */
+    margin-top: 6px;
+    margin-bottom: 15px;
     height: 20%;
     width: 100%;
     display: flex;
@@ -269,13 +276,17 @@ span.item2type {
 .infoitemright {
     display: flex;
     align-items: center;
+    text-align: left;
     width: 60%;
     height: 100%;
     padding-left: 30px;
+    font-weight: 500;
+    color: #50515a;
     /* background-color: powderblue; */
 }
 
 .listitemleft.add {
+    padding-top: 6px;
     justify-content: flex-end;
     align-items: flex-start;
 }
@@ -373,4 +384,9 @@ button.btn.btnClose.normal {
 button.btnOpen.new {
     background-color: #037aff;
     color: white;
+}
+
+.profview .normal .modal-box {
+    width: 500px;
+    height: 5000px;
 }

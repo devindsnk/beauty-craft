@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/modalStyle.css"/>
 </head>
 <body>
+    <div class="profview">
     <div class="profileviewh1">
     <h1 class="profileviewh1">View Profile</h1>
     <div class="profilecontent">
@@ -128,5 +129,6 @@
         </div>
     
     <script type="text/javascript" src="<?php echo URLROOT ?>/public/js/modals.js"></script>
+</div>
 </body>
 </html>
