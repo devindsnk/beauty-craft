@@ -287,10 +287,17 @@
 
 .serprov .modalbutton {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     /* background-color: tomato; */
     height: 24%;
+}
+
+.btnalign {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* align-items:sp; */
 }
 
 .serprov .modaldatetime-time {
@@ -412,8 +419,8 @@
 }
 
 .serprov button.btnOpen.new {
-    height: 35px;
-    width: 150px;
+    height: 45px;
+    width: 110px;
     font-size: 18px;
     background-color: var(--theme-blue);
     color: white;

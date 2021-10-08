@@ -258,11 +258,13 @@
                             <button>Save Changes</button>
                         </div>
                         <div class="modalbutton">
-                            <div>
+                            <div class="btnalign">
+                                <div class="2">
                                 <button class="btn btnClose normal">Close</button>
-                           
-                               <button class="btnOpen new"type="button">Recall</button>
-                               
+                                </div>
+                           <div class="2">
+                               <button class="btn btnOpen new"type="button">Recall</button>
+                              </div> 
                             </div>
                         </div>
                     </div>
