@@ -19,7 +19,7 @@
          <li class="mainOption">
             <a class="optionLink <?php if ($selectedMain == "Overview") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/overview">
                <div class="optionIcon">
-                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
+                  <i class="sidenav-icon ci-overview "></i>
                </div>
                <div class="optionTitle">Overview</div>
             </a>
@@ -28,10 +28,9 @@
 
          <!--Sidebar Item-->
          <li class="mainOption menuOption">
-            <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>"
-               href="<?php echo URLROOT ?>/MangDashboard/reservations">
+            <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/reservations">
                <div class="optionIcon">
-                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
+                  <i class="sidenav-icon ci-elements "></i>
                </div>
                <div class="optionTitle">Reservations</div>
             </a>
@@ -40,10 +39,9 @@
 
          <!--Sidebar Item-->
          <li class="mainOption menuOption">
-            <a class="optionLink <?php if ($selectedMain == "StaffMembers") echo " selected" ?>"
-               href="<?php echo URLROOT ?>/MangDashboard/staffMembers">
+            <a class="optionLink <?php if ($selectedMain == "StaffMembers") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/staffMembers">
                <div class="optionIcon">
-                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
+                  <i class="sidenav-icon ci-elements "></i>
                </div>
                <div class="optionTitle">Staff Members</div>
             </a>
@@ -52,10 +50,9 @@
 
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Customers") echo " selected" ?>"
-               href="<?php echo URLROOT ?>/MangDashboard/customers">
+            <a class="optionLink <?php if ($selectedMain == "Customers") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/customers">
                <div class="optionIcon">
-                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
+                  <i class="sidenav-icon ci-elements "></i>
                </div>
                <div class="optionTitle">Customers</div>
             </a>
@@ -64,10 +61,9 @@
 
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Services") echo " selected" ?>"
-               href="<?php echo URLROOT ?>/MangDashboard/services">
+            <a class="optionLink <?php if ($selectedMain == "Services") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/services">
                <div class="optionIcon">
-                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
+                  <i class="sidenav-icon ci-elements "></i>
                </div>
                <div class="optionTitle">Services</div>
             </a>
@@ -76,10 +72,9 @@
 
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Resources") echo " selected" ?>"
-               href="<?php echo URLROOT ?>/MangDashboard/resources">
+            <a class="optionLink <?php if ($selectedMain == "Resources") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/resources">
                <div class="optionIcon">
-                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
+                  <i class="sidenav-icon ci-elements "></i>
                </div>
                <div class="optionTitle">Resources</div>
             </a>
@@ -88,9 +83,9 @@
 
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Leaves") echo " selected" ?>" >
+            <a class="optionLink <?php if ($selectedMain == "Leaves") echo " selected" ?>">
                <div class="optionIcon">
-                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
+                  <i class="sidenav-icon ci-elements "></i>
                </div>
                <div class="optionTitle">Leaves</div>
                <div class="optionArrow <?php if ($selectedMain == "Leaves") echo " rotated180" ?>">
@@ -101,8 +96,7 @@
             <ul class="subMenu <?php if ($selectedMain == "Leaves") echo " expanded" ?>">
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
-                  <a class="optionLink <?php if ($selectedSub == "LeaveRequests") echo " selected" ?>"
-                     href="<?php echo URLROOT ?>/MangDashboard/leaveRequests">
+                  <a class="optionLink <?php if ($selectedSub == "LeaveRequests") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/leaveRequests">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Leave Requests</div>
                   </a>
@@ -110,8 +104,7 @@
                <!--End Sidebar Sub Item-->
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
-                  <a class="optionLink <?php if ($selectedSub == "TakeLeave") echo " selected" ?>"
-                     href="<?php echo URLROOT ?>/MangDashboard/takeLeave">
+                  <a class="optionLink <?php if ($selectedSub == "TakeLeave") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/takeLeave">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Take Leave</div>
                   </a>
@@ -121,12 +114,12 @@
             <!--End Sidebar Sub Menu-->
          </li>
          <!--End Sidebar Item-->
-         
+
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Analytics") echo " selected" ?>" >
+            <a class="optionLink <?php if ($selectedMain == "Analytics") echo " selected" ?>">
                <div class="optionIcon">
-                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
+                  <i class="sidenav-icon ci-elements "></i>
                </div>
                <div class="optionTitle">Analytics</div>
                <div class="optionArrow <?php if ($selectedMain == "Analytics") echo " rotated180" ?>">
@@ -137,8 +130,7 @@
             <ul class="subMenu <?php if ($selectedMain == "Analytics") echo " expanded" ?>">
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
-                  <a class="optionLink <?php if ($selectedSub == "OverallAnalytics") echo " selected" ?>"
-                     href="<?php echo URLROOT ?>/MangDashboard/analyticsOverall">
+                  <a class="optionLink <?php if ($selectedSub == "OverallAnalytics") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/analyticsOverall">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Overall</div>
                   </a>
@@ -146,8 +138,7 @@
                <!--End Sidebar Sub Item-->
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
-                  <a class="optionLink <?php if ($selectedSub == "ServiceAnalytics") echo " selected" ?>"
-                     href="<?php echo URLROOT ?>/MangDashboard/analyticsService">
+                  <a class="optionLink <?php if ($selectedSub == "ServiceAnalytics") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/analyticsService">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Service's</div>
                   </a>
@@ -155,8 +146,7 @@
                <!--End Sidebar Sub Item-->
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
-                  <a class="optionLink <?php if ($selectedSub == "ServiceProviderAnalytics") echo " selected" ?>"
-                     href="<?php echo URLROOT ?>/MangDashboard/analyticsSProvider">
+                  <a class="optionLink <?php if ($selectedSub == "ServiceProviderAnalytics") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/analyticsSProvider">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Service Provider's</div>
                   </a>
@@ -169,7 +159,7 @@
       </ul>
       <!--End Sidebar Menu-->
 
-         
+
    </nav>
    <!--End Sidebar Navigation-->
 

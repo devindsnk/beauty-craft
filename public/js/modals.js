@@ -1,21 +1,36 @@
 /* ----------------- modal box Scripts----------------- */
 
-const btnOpenN = document.querySelector('.btnOpen.normal');
-const btnOpenF = document.querySelector('.btnOpen.full');
-const modalContainerN = document.querySelector('.modal-container.normal');
-const modalContainerF = document.querySelector('.modal-container.full');
-const btnCloseN = document.querySelector('.btnClose.normal');
-const btnCloseF = document.querySelector('.btnClose.full');
+var modalToToggle = null;
 
-btnOpenN.addEventListener("click", toggleModalN);
-btnCloseN.addEventListener("click", toggleModalN);
-btnOpenF.addEventListener("click", toggleModalF);
-btnCloseF.addEventListener("click", toggleModalF);
+const removeServiceModal = document.querySelector('.remove-service');
+// const testServiceModal = document.querySelector('.test-service');
 
-function toggleModalN() {
-   modalContainerN.classList.toggle("show");
-}
 
-function toggleModalF() {
-   modalContainerF.classList.toggle("show");
+const btnRemoveServiceList = document.querySelectorAll('.btnRemoveService');
+btnRemoveServiceList.forEach(btn => {
+   btn.addEventListener("click",
+      function () {
+         modalToToggle = removeServiceModal;
+         toggleModal();
+      }
+   );
+});
+
+
+// const btnTest = document.querySelector('.btnTest');
+// btnTest.addEventListener("click",
+//    function () {
+//       modalToToggle = testServiceModal;
+//       toggleModal();
+//    }
+// );
+
+const btnCloseList = document.querySelectorAll('.btnClose');
+btnCloseList.forEach(btn => {
+   btn.addEventListener("click", toggleModal);
+});
+
+
+function toggleModal() {
+   modalToToggle.classList.toggle("show");
 }

@@ -141,7 +141,7 @@
 
 .addItemsModalnGrid1 input[type="date"],
 #addItemsModalTextArea,
-select {
+.own select {
     width: 100%;
     font-weight: 400;
     padding: 8px 10px;
@@ -347,7 +347,7 @@ Close Salon Starts
 
 .own.close-salon .ownCloseSalonGrid1 input[type="date"],
 #ownCloseSalonTextArea,
-select {
+.own select {
     width: 100%;
     font-weight: 400;
     padding: 8px 10px;

@@ -5,9 +5,9 @@
 /* --------------STYLES ADDED BY DEVIN -------------------*/
 /* ------------------------------------------------------ */
 
-/* Common button styles */
+/* Common button styles */  /*Currently moved to style.css check for conflicts*/
 
-.recept .btn{
+/* .recept .btn{
    display: block;
    border-radius: 6px;
    text-align: center;
@@ -37,13 +37,13 @@
 .recept .btn.btn-outlined.btn-black{
    border: 2px solid var(--theme-black);
    color: var(--theme-black);
-}
+} */
 
 /* End of Common button styles */
 
-/* Common template for pages with tables */
+/* Common template for pages with tables */  /*Currently moved to style.css check for conflicts*/
 
-.recept.content .top-container {
+/* .recept.content .top-container {
    margin: 30px 0 10px 0;
    padding: 0 70px;
    display: flex;
@@ -92,7 +92,7 @@
    .recept .options-container .btn{
       margin-top: 0px;
    }
-}
+} */
 
 /* End of Common template for pages with tables */
 
@@ -156,7 +156,7 @@
 }
 
 .recept .text-group span,
-.date-box span {
+.recept .date-box span {
    display: block;
    width: 100%;
 }

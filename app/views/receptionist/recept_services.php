@@ -15,14 +15,12 @@
 
    <!--Content-->
    <div class="content recept services">
-      <div class="top-container">
 
-         <!-- <div > -->
+      <div class="page-top-main-container">
          <a href="" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
-         <!-- </div> -->
       </div>
 
-      <form class="form" action="">
+      <form class="form filter-options" action="">
          <div class="options-container">
             <div class="left-section">
                <div class="row">
@@ -67,8 +65,8 @@
       </form>
 
       <div class="table-container">
-         <div class="table1 table1-responsive">
-            <table class="table1-hover">
+         <div class="table2 table2-responsive">
+            <table class="table2-hover">
 
                <thead>
                   <tr>
@@ -90,11 +88,11 @@
                      <td class="column-center-align">1 h 20 mins</td>
                      <td class="column-right-align">900 LKR</td>
                      <td class="column-center-align">
-                        <button type="button" class="table-btn paid-btn text-uppercase">Active</button>
+                        <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <a href="#"><img class="img-view-edit-update" src="../../public/icons/view.png"></a>
+                           <a href="#"><i class="ci-view-more table-icon"></i></a>
                         </span>
                      </td>
                   </tr>
@@ -106,11 +104,11 @@
                      <td class="column-center-align">1 h 20 mins</td>
                      <td class="column-right-align">900 LKR</td>
                      <td class="column-center-align">
-                        <button type="button" class="table-btn paid-btn text-uppercase">Active</button>
+                        <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <a href="#"><img class="img-view-edit-update" src="../../public/icons/view.png"></a>
+                           <a href="#"><i class="ci-view-more table-icon"></i></a>
                         </span>
                      </td>
                   </tr>
@@ -122,11 +120,11 @@
                      <td class="column-center-align">1 h 20 mins</td>
                      <td class="column-right-align">900 LKR</td>
                      <td class="column-center-align">
-                        <button type="button" class="table-btn paid-btn text-uppercase">Active</button>
+                        <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <a href="#"><img class="img-view-edit-update" src="../../public/icons/view.png"></a>
+                           <a href="#"><i class="ci-view-more table-icon"></i></a>
                         </span>
                      </td>
                   </tr>
@@ -135,138 +133,7 @@
          </div>
       </div>
 
-      <style type="text/css">
-         .col-1 {
-            width: 10%;
-         }
 
-         .col-2 {
-            width: 20%;
-         }
-
-         .col-3 {
-            width: 20%;
-         }
-
-         .col-4 {
-            width: 15%;
-         }
-
-         .col-5 {
-            width: 10%;
-         }
-
-         .col-6 {
-            width: 5%;
-         }
-
-         .col-7 {
-            width: 3%;
-         }
-      </style>
-
-      <!-- <div class="table-container">
-         <div class="table1 table1-responsive">
-            <table class="table1-hover">
-               <thead>
-                  <tr>
-                     <th>Service Name</th>
-                     <th>Category</th>
-                     <th>Total Duration</th>
-                     <th class="column-center-align">Price</th>
-                     <th class="column-center-align">Status</th>
-                     <th class="column-center-align">Action</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td data-lable="Service Name">Hair Cut- Gents</td>
-                     <td data-lable="Category">Hair Cuts</td>
-                     <td data-lable="Total Duration">40mins</td>
-                     <td data-lable="Price">750.00 LKR</td>
-                     <td data-lable="Status" class="column-center-align">
-                        <a href="#"><button type="button" class="btn paid-btn text-uppercase">Paid</button></a>
-                     </td>
-                     <td data-lable="Action" class="column-center-align">
-                        <span>
-                           <a href="#"><img class="img-view-edit-update" src="<?php echo URLROOT ?>/public/icons/delete.png"></a>
-                        </span>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td data-lable="Service Name">Hair Cut- Gents</td>
-                     <td data-lable="Category">Hair Cuts</td>
-                     <td data-lable="Total Duration">40mins</td>
-                     <td data-lable="Price">750.00 LKR</td>
-                     <td data-lable="Status" class="column-center-align">
-                        <a href="#"><button type="button" class="btn paid-btn text-uppercase">Paid</button></a>
-                     </td>
-                     <td data-lable="Action" class="column-center-align">
-                        <span>
-                           <a href="#"><img class="img-view-edit-update" src="<?php echo URLROOT ?>/public/icons/delete.png"></a>
-                        </span>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td data-lable="Service Name">Hair Cut- Gents</td>
-                     <td data-lable="Category">Hair Cuts</td>
-                     <td data-lable="Total Duration">40mins</td>
-                     <td data-lable="Price">750.00 LKR</td>
-                     <td data-lable="Status" class="column-center-align">
-                        <a href="#"><button type="button" class="btn paid-btn text-uppercase">Paid</button></a>
-                     </td>
-                     <td data-lable="Action" class="column-center-align">
-                        <span>
-                           <a href="#"><img class="img-view-edit-update" src="<?php echo URLROOT ?>/public/icons/delete.png"></a>
-                        </span>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td data-lable="Service Name">Hair Cut- Gents</td>
-                     <td data-lable="Category">Hair Cuts</td>
-                     <td data-lable="Total Duration">40mins</td>
-                     <td data-lable="Price">750.00 LKR</td>
-                     <td data-lable="Status" class="column-center-align">
-                        <a href="#"><button type="button" class="btn paid-btn text-uppercase">Paid</button></a>
-                     </td>
-                     <td data-lable="Action" class="column-center-align">
-                        <span>
-                           <a href="#"><img class="img-view-edit-update" src="<?php echo URLROOT ?>/public/icons/delete.png"></a>
-                        </span>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td data-lable="Service Name">Hair Cut-Gents</td>
-                     <td data-lable="Category">Hair Cuts</td>
-                     <td data-lable="Total Duration">40mins</td>
-                     <td data-lable="Price">750.00 LKR</td>
-                     <td data-lable="Status" class="column-center-align">
-                        <a href="#"><button type="button" class="btn paid-btn text-uppercase">Paid</button></a>
-                     </td>
-                     <td data-lable="Action" class="column-center-align">
-                        <span>
-                           <a href="#"><img class="img-view-edit-update" src="<?php echo URLROOT ?>/public/icons/delete.png"></a>
-                        </span>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td data-lable="Service Name">Hair Cut- Gents</td>
-                     <td data-lable="Category">Hair Cuts</td>
-                     <td data-lable="Total Duration">40mins</td>
-                     <td data-lable="Price">750.00 LKR</td>
-                     <td data-lable="Status" class="column-center-align">
-                        <a href="#"><button type="button" class="btn paid-btn text-uppercase">Paid</button></a>
-                     </td>
-                     <td data-lable="Action" class="column-center-align">
-                        <span>
-                           <a href="#"><img class="img-view-edit-update" src="<?php echo URLROOT ?>/public/icons/delete.png"></a>
-                        </span>
-                     </td>
-                  </tr>
-               </tbody>
-            </table>
-         </div>
-      </div> -->
    </div>
    <!--End Content-->
 

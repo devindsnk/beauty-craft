@@ -15,14 +15,14 @@
 
    <!--Content-->
    <div class="content recept reservations">
-      <div class="top-container">
+      <div class="page-top-main-container">
 
          <!-- <div > -->
          <a href="" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
          <!-- </div> -->
       </div>
 
-      <form class="form" action="">
+      <form class="form filter-options" action="">
          <div class="options-container">
             <div class="left-section">
                <div class="row">
@@ -99,11 +99,11 @@
                      <td data-lable="Service Provider" class="column-left-align">Devin Dissanayake</td>
                      <td data-lable="Customer" class="column-left-align">Ravindu Madhubhashana</td>
                      <td data-lable="Status" class="column-center-align">
-                        <button type="button" class="table-btn paid-btn text-uppercase">Active</button>
+                        <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
                      </td>
                      <td class="column-center-align">
                         <span>
-                           <a href="#"><img class="img-view-edit-update" src="../../public/icons/view.png"></a>
+                           <a href="#"><i class="ci-view-more table-icon"></i></a>
                         </span>
                      </td>
                   </tr>
@@ -116,11 +116,11 @@
                      <td data-lable="Service Provider" class="column-left-align">Devin Dissanayake</td>
                      <td data-lable="Customer" class="column-left-align">Ravindu Madhubhashana</td>
                      <td data-lable="Status" class="column-center-align">
-                        <button type="button" class="table-btn paid-btn text-uppercase">Active</button>
+                        <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
                      </td>
                      <td class="column-center-align">
                         <span>
-                           <a href="#"><img class="img-view-edit-update" src="../../public/icons/view.png"></a>
+                           <a href="#"><i class="ci-view-more table-icon"></i></a>
                         </span>
                      </td>
                   </tr>
@@ -133,11 +133,11 @@
                      <td data-lable="Service Provider" class="column-left-align">Devin Dissanayake</td>
                      <td data-lable="Customer" class="column-left-align">Ravindu Madhubhashana</td>
                      <td data-lable="Status" class="column-center-align">
-                        <button type="button" class="table-btn paid-btn text-uppercase">Active</button>
+                        <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
                      </td>
                      <td class="column-center-align">
                         <span>
-                           <a href="#"><img class="img-view-edit-update" src="../../public/icons/view.png"></a>
+                           <a href="#"><i class="ci-view-more table-icon"></i></a>
                         </span>
                      </td>
                   </tr>
@@ -148,7 +148,11 @@
       </div>
 
 
-
+      <style>
+         table .col-8 {
+            width: 20px;
+         }
+      </style>
 
    </div>
    <!--End Content-->

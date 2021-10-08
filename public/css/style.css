@@ -13,16 +13,16 @@
   --theme-black: #252631;
   --theme-bgwhite: #F2F2F7;
   --theme-grey: #50515A;
-  --theme-lightgrey : #EAEAEA;
+  --theme-lightgrey: #EAEAEA;
   --white: #FFFFFF;
   --black: #000000;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 5px;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
   border-radius: 5px;
 }
 
@@ -93,8 +93,128 @@ footer {
   transition: 0.3s ease-in-out;
 }
 
+
+
+/* Common template for pages with tables */
+
+.content .page-top-main-container {
+  margin: 30px 0 10px 0;
+  padding: 0 70px;
+  display: flex;
+  justify-content: right;
+  width: 100%;
+}
+
+.content .page-top-main-container .btn {
+  font-weight: 500;
+  padding: 7px;
+  width: 120px;
+}
+
+.content .filter-options .options-container {
+  display: flex;
+  padding: 30px 70px;
+  width: 100%;
+  min-width: 330px;
+}
+
+.content .filter-options .options-container .left-section {
+  width: 100%;
+  margin-right: auto;
+}
+
+.content .filter-options .options-container .right-section {
+  margin-left: 30px;
+}
+
+.content .filter-options .options-container .btn {
+  margin-top: 26px;
+  font-weight: 500;
+  padding: 7px;
+  width: 120px;
+}
+
+@media (max-width: 940px) {
+  .content .filter-options .options-container {
+    flex-direction: column;
+  }
+
+  .content .filter-options .options-container .right-section {
+    margin-left: auto;
+  }
+
+  .content .filter-options .options-container .btn {
+    margin-top: 0px;
+  }
+}
+
+/* End of Common template for pages with tables */
+
+
+/* Common button styles */
+
+.btn {
+  display: block;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.btn.btn-filled {
+  border: none;
+  color: var(--white);
+}
+
+.btn.btn-outlined {
+  background-color: transparent;
+}
+
+.btn.btn-filled.btn-theme-purple {
+  background-color: var(--theme-purple);
+}
+
+.btn.btn-filled.btn-red {
+  background-color: var(--theme-red);
+}
+
+.btn.btn-filled.btn-black {
+  background-color: var(--theme-black);
+}
+
+.btn.btn-outlined.btn-black {
+  border: 2px solid var(--theme-black);
+  color: var(--theme-black);
+}
+
+.btn.btn-outlined.btn-red {
+  border: 2px solid var(--theme-red);
+  color: var(--theme-red);
+}
+
+.btn.btn-outlined.btn-theme-purple {
+  border: 2px solid var(--theme-purple);
+  color: var(--theme-purple);
+}
+
+/* End of Common button styles */
+
+/* Common styles for staff table */
+.content .staff-table tr .col-2 {
+  width: 300px;
+}
+.content .staff-table tr .col-3 {
+  width: 150px;
+}
+.content .staff-table tr .col-7 {
+  width: 130px;
+}
+.content .staff-table tr .col-8 {
+  width: 20px;
+}
+
+
+
+/* End of Common styles for staff table */
+
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
 /* ------------------------------------------------------ */
-
-
