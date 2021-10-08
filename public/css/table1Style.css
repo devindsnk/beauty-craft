@@ -5,7 +5,7 @@
 /* ------------------------------------------------------ */
 
 .table-container{
-  height: 50%;
+  /* height: 50%; */
   margin-bottom: 20px;
   overflow: scroll;
   overflow-y: visible;
@@ -83,9 +83,9 @@
   border-bottom: 0;
 }
 
-.table1-responsive span{
+.table1-responsive span, .table2-responsive span{
   display: inline-block;
-  width: 90px;
+  width: max-content;
 }
 
 .selected_row {
