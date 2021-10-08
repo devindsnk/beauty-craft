@@ -39,7 +39,7 @@
 
 						
 						<!-- Service price -->
-						<div class="row3">
+						<div class="row4">
 							<div class="labels"><label class="labels" for="servicePrice">Price</label></div>
 							<input type="text" name="" id="servicePrice" placeholder="Rs.500.00" disabled>
 						</div>
@@ -132,7 +132,7 @@
 								<div class="labels"><label class="labels">Interval Duration</label></div>
 								<input type="text" name="" id="" placeholder="10 min" disabled>
 							</div>
-							<div class="row3" id="">
+							<div class="row4" id="">
 								<div class="labels"><label class="labels">Slot Duration</label></div>
 								<input type="text" name="" id="" placeholder="30 min" disabled>
 							</div>

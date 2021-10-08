@@ -16,6 +16,7 @@
    
    <!--Content-->
    <div class="content">
+
       <h3>This is main option 1</h3>
       <a href="<?php echo URLROOT ?>/services/addNewService"><button>New Service</button></a>
       <a href="<?php echo URLROOT ?>/services/addService2"><button>New Service2</button></a>
@@ -28,15 +29,15 @@
       <!-- Service delete model -->
       <div class="modal-container normal">
          <div class="modal-box">
-               <div class="new-type-head">
+               <div class="confirm-model-head">
                   <h1>Delete Service</h1>
                </div>
-               <div class="new-type-head">
+               <div class="confirm-model-head">
                   <p>Are you sure you want to delete the service? <br> This action cannot be undone after proceeding.</p>
                </div>
-               <div class="new-type-head">
-               <button class="btn btnClose normal close-type-btn">Close</button>
-               <button class="btn btnClose normal confirm-service-btn">Confirm</button>
+               <div class="confirm-model-head">
+                  <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
+                  <button class="btn btnClose normal ModalButton ModalBlueButton">Confirm</button>
                </div>
          </div>
       </div>

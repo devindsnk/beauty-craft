@@ -15,7 +15,7 @@
 }
 
 .labels{
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .mang.a{
@@ -234,7 +234,7 @@
 
 /* View service extra*/
 
-.labled.input:disabled{
+.newservice input:disabled{
     background-color: white;
     color: #000;
 }
@@ -306,6 +306,9 @@
 
 .row3{
     margin-top: 90px;
+}
+.row4{
+    margin-top: 100px;
 }
 .service-full-model{
    background-color: var(--theme-bgwhite);

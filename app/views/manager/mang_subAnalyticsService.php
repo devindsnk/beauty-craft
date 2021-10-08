@@ -128,12 +128,14 @@
       </div>
       <!--End of sub-container2-->
 
-      <div class="table-container1 mang">
-         <div class="chart-head"> 
+      <div class="mang-sub-container1 mang">
+         <div class="table-head "> 
             <p>Reservation Details</p>
          </div>
-        <div class="table-responsive">
-           <table class="table table-hover">
+      </div>
+      <div class="table-container mang">
+        <div class="table2 table2-responsive">
+           <table class="table2 table2-hover">
               <!--Table head-->
               <thead>
                  <tr>
@@ -172,6 +174,15 @@
                     <td data-lable="Service Provider">Ravindu Madhubashana</td>
                     <td data-lable="Customer">Sarith Karunarathne</td>
                     <td data-lable="Price" class="column-right-align">150.00 LKR</td>
+                 </tr>
+                 <!--End of table row-->
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">Res0001</td>
+                    <td data-lable="Service Provider">Sanjana Rajapaksha</td>
+                    <td data-lable="Customer">Ruwanthi Munasinghe</td>
+                    <td data-lable="Price" class="column-right-align">250.00 LKR</td>
                  </tr>
                  <!--End of table row-->
               </tbody>

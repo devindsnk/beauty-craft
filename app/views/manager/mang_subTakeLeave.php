@@ -21,7 +21,7 @@
       <button class="btnOpen normal">Edit Leave</button></a>
 
       <!-- Take leave model -->
-      <div class="modal-container normal">
+      <!-- <div class="modal-container normal">
          <div class="modal-box leave-request">
                <div class="new-type-head">
                   <h1>Take a Leave</h1>
@@ -53,8 +53,40 @@
 
                </form>
          </div>
-      </div>
+      </div> -->
       <!-- End of Take leave model -->
+
+      <div class="modal-container normal">
+         <div class="modal-box addItems">
+            <h1 class="addItemsModalHead">TakeLeave</h1>
+            <form action="" class="form">
+               <!-- start main grid 1 -->
+               <div class="addItemsModalGrid1">
+                  <div class="addItemsModalDetail1">
+                     <label class="addItemsModalLable">Date</label><br>
+                     <input type="date" class="addItemsModalDate"><br>
+                     <span class="error"> <?php echo "Limit has exceeded for the date "; ?></span>
+                  </div>
+                  <div class="addItemsModalDetail2">
+                     <label class="addItemsModalLable">Reason</label>
+                     <textarea class="addItemsModalTextArea" name="addItemsModalTextArea" rows="4" cols="50"
+                        placeholder="Type the reason here"> </textarea>
+                  </div>
+               </div>
+               <!-- main grid 1 ends -->
+               <!-- main grid 3 starts -->
+               <div class="addItemsModalGrid3">
+                  <div class="addItemsModalbtn1">
+                     <button class="btn btnClose normal ModalCancelButton ModalButton">Cancel</button>
+                  </div>
+                  <div class="addItemsModalbtn2">
+                     <button class="btn ModalGreenButton ModalButton">Proceed</button>
+                  </div>
+               </div>
+               <!-- main grid 3 ends -->
+            </form>
+         </div>
+      </div>
 
 
       <!-- Edit taken leave model -->

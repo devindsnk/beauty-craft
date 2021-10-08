@@ -3,6 +3,7 @@
 /* ------------------------------------------------------ */
 /* -------------STYLES ADDED BY SANJANA ----------------- */
 /* ------------------------------------------------------ */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
@@ -16,19 +17,19 @@
 }
 
 *{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body{
-width: 100%;
-/* display: flex; */
-color: #1b1e24;
-background-color: #fafbff;
-text-align: left;
-justify-content: center;
+  width: 100%;
+  /* display: flex; */
+  color: #1b1e24;
+  background-color: #fafbff;
+  text-align: left;
+  justify-content: center;
 }
 
 .table-container{
@@ -62,22 +63,25 @@ justify-content: center;
   margin: auto;
   /*box-shadow: 0 2px 12px rgba(30,30,30,.5)*/
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
-
-}
-
-.table-hover tbody tr:hover td{
-  background-color: #f4f5f7;
 }
 
 .table thead th{
   font-size: 15px;
   font-weight: 600;
   position: sticky;
-  padding: 20px 13px;
+  padding: 20px 15px;
   padding-bottom: 20px;
   border-spacing: 10px;
   background-color: var(--theme-black);
   color: var(--white);
+}
+
+table th:first-child{
+  border-radius:6px 0 0 0;
+}
+
+table th:last-child{
+  border-radius:0 6px 0 0;
 }
 
 .table td {
@@ -87,6 +91,10 @@ justify-content: center;
 
 .table tr:last-child td{
   border-bottom: 0;
+}
+
+.selected_row {
+  background-color: #f4f5f7 !important;
 }
 
 input[type="checkbox"]{
@@ -163,6 +171,10 @@ input[type="checkbox"]:checked:after{
   background-color: #6c757d;
 }
 
+.btn-position{
+  margin: 10px 10px 10px 0px;
+}
+
 .img-profile-picture{
   height: 40px;
   width: 40px;
@@ -175,12 +187,17 @@ input[type="checkbox"]:checked:after{
   width: 20px;
   height: 20px;
 }
+
 .text-uppercase {
   text-transform: uppercase;
 }
 
 .column-right-align{
   text-align: right;
+}
+
+.column-left-align{
+  text-align: left;
 }
 
 .column-center-align{
@@ -258,6 +275,18 @@ input[type="checkbox"]:checked:after{
   .table tr:last-child td{
     border-bottom: 2px solid #eaf2f9;
   }
+  
+  /* .table1 table tbody tr td:nth-child(1){
+    width: 80px;
+    padding: 15px;
+    border-bottom: 0;
+    top: 57px;
+  }
+
+  .table1 tbody tr td:nth-child(2){
+    width: 80px;
+    margin-left: auto;
+  } */
 
 }
 
