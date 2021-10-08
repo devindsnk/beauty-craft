@@ -1,0 +1,209 @@
+.content {
+    display: grid;
+    grid-template-columns: 5fr 12fr 1fr;
+    grid-template-rows: 155px calc(100vh - 155px);
+    grid-template-areas: "header header header" "sidebar content space";
+}
+
+.container {
+    grid-area: content;
+    height: 600px;
+    width: 800px;
+    margin-top: 7px;
+    max-height: 600px;
+    /* max-width: 800px; */
+    display: flex;
+    flex-direction: column;
+    background-color: #f2f2f7;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    flex-direction: flex-start;
+}
+
+.item1 {
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+}
+
+.item2,
+.item7 {
+    height: 18%;
+    display: flex;
+    flex-direction: row;
+}
+
+.item3 {
+    height: 15%;
+}
+
+.item4,
+.item6 {
+    height: 18%;
+}
+
+.item6 {
+    margin-top: 10px;
+}
+
+.item5 {
+    height: 18%;
+    display: flex;
+    align-items: flex-end;
+    padding-right: 5%;
+    /* flex-direction: flex-end; */
+}
+
+.profileimg {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-right: 20px;
+}
+
+.profileimg img {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+.profbutton {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 20px;
+}
+
+.profbutton button {
+    padding: 4px 20px;
+}
+
+button.upload {
+    background-color: #252631;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 6px;
+    border: #252631;
+    color: white;
+}
+
+button.remove {
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.profname {
+    width: 50%;
+}
+
+label.proflabel {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.fname {
+    margin-top: 5px;
+    height: 50px;
+    width: 90%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    font-size: 18px;
+    border: 1px #eaeaea;
+    border-radius: 6px;
+}
+
+.item5 button {
+    background-color: #ff463f;
+    width: 150px;
+    height: 50px;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.passwordinput {
+    height: 50px;
+    width: 90%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    border: 1px #eaeaea;
+    border-radius: 6px;
+    margin-top: 5px;
+}
+
+.radiobutton {
+    margin-top: 5px;
+}
+
+.radiobutton label {
+    font-size: 18px;
+    width: 100%;
+}
+
+.passwordinput input {
+    width: 100%;
+    height: 100%;
+    padding-left: 15px;
+}
+
+.line {
+    width: 2px;
+    height: 550px;
+    background-color: rgb(100, 101, 109, 40%);
+}
+
+.list {
+    margin-top: 20px;
+}
+
+.sidebarcontent {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 35px;
+}
+
+.sidenavbtn1 button,
+.sidenavbtn2 button,
+.sidenavbtn3 button {
+    color: #50515a;
+    width: 200px;
+    height: 35px;
+    margin-right: 28px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent;
+    /* background-color: wheat; */
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
+
+.sidenavbttn.selected {
+    background-color: #dddddd;
+    font-weight: 600;
+}
+
+
+/* button.sidenavbttn.option:hover {
+    font-weight: 500;
+} */
