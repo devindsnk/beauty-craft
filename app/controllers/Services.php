@@ -79,6 +79,10 @@ class Services extends Controller
    {
       $this->view('manager/mang_serviceView');
    }
+   public function viewService2()
+   {
+      $this->view('manager/mang_serviceView2');
+   }
    public function updateService()
    {
       $this->view('manager/mang_serviceUpdate');

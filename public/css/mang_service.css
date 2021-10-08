@@ -14,6 +14,10 @@
     margin: 10px -10px 10px -10px;
 }
 
+.labels{
+    font-weight: bold;
+}
+
 .mang.a{
     text-decoration: none;
 }
@@ -22,6 +26,7 @@
     font-size: 14px;
     margin: auto;
 }
+
 .lableInDiv2{
     font-size: 14px;
     margin-top: 5px;
@@ -45,7 +50,7 @@
     min-width: 330px;
 	margin: auto;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     overflow-x: auto;
     align-content: center;
     justify-content: center;
@@ -228,6 +233,11 @@
 }
 
 /* View service extra*/
+
+.labled.input:disabled{
+    background-color: white;
+    color: #000;
+}
 .view-Div{
     margin-left: 0px;
     padding: 8px 20px 8px 20px;
@@ -300,7 +310,6 @@
 .service-full-model{
    background-color: var(--theme-bgwhite);
    width: 100vw;
-   /* height: 100vh; */
    max-height: 100vh;
    overflow-y: auto;
 }

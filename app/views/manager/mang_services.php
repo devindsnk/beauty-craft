@@ -20,6 +20,7 @@
       <a href="<?php echo URLROOT ?>/services/addNewService"><button>New Service</button></a>
       <a href="<?php echo URLROOT ?>/services/addService2"><button>New Service2</button></a>
       <a href="<?php echo URLROOT ?>/services/viewService"><button>View Service</button></a>
+      <a href="<?php echo URLROOT ?>/services/viewService2"><button>View Service2</button></a>
       <a href="<?php echo URLROOT ?>/services/updateService"><button>Update Service</button></a>
       <button class="btnOpen normal">Delete Service</button></a>
       
