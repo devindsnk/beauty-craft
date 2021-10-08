@@ -26,7 +26,7 @@
                   <P>Available Managers</P>
                </div>
                <div class="CardAmmount mang-sub-container-card-amount">
-                  <h1>5</h1>
+                  <p>5</p>
                   <!-- </div> -->
                </div>
             </div>
@@ -38,7 +38,7 @@
                      <P>Total Income</P>
                   </div>
                   <div class="CardAmmount mang-sub-container-card-amount">
-                     <h1>4000000.00 LKR</h1>
+                     <p>4000000.00 LKR</p>
                   </div>
             </div>
             <!-- owner overview total income card ends -->

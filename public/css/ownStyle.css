@@ -232,14 +232,56 @@ select {
 Owner Overview Starts
 ##################################################################################################################################################### */
 
+
+
+.mang-sub-container-card{
+    display: flex;
+    flex-direction: column;
+    /* position: relative; */
+    background-color: var(--white);
+    justify-content: space-around;
+    text-align: center;
+    align-content: center;
+    padding: 20px;
+    width: 250px;
+    height: 125px;
+    margin: 10px 5px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+.mang-sub-container-card-title{
+    color: rgb(126, 126, 126);
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.mang-sub-container-card-amount{
+    font-size: 1.5rem;
+    font-weight: 600;
+    justify-content: center;
+}
 .own.overview .ownOverviewContainerCard1,
 .own.overview .ownOverviewContainerCard2 {
-    width: 450px;
-    height: 150px;
+    /* width: 250px;
+    height: 125px;
     margin: 20px;
     padding: 5px;
     border-radius: 6px;
     background-color: white;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25); */
+    display: flex;
+    flex-direction: column;
+    /* position: relative; */
+    background-color: var(--white);
+    justify-content: space-around;
+    text-align: center;
+    align-content: center;
+    padding: 20px;
+    width: 250px;
+    height: 125px;
+    margin: 10px 5px;
+    border-radius: 6px;
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
 }
 
