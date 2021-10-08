@@ -65,7 +65,7 @@
                      <span class="description">I have applied for a leave and will not be able provide the service</span>
                   </div>
                </div>
-               <div class="right-section">
+               <div class="right-section btn-container">
                   <button class="btn btn-outlined btn-black">Edit</button>
                   <button class="btn btn-filled btn-red">Cancel</button>
                </div>

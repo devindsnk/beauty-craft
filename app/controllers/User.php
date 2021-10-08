@@ -46,8 +46,7 @@ class User extends Controller
                   // die("SUCCESS");
                }
                else
-               {
-                  //Handle incorrect Attempts
+               {  //Handle incorrect Attempts
                   $data['password_error'] = "Incorrect password";
                }
             }
@@ -85,7 +84,7 @@ class User extends Controller
       $_SESSION['userType'] = $user->userType;
    }
 
-   private function provideIntialView()
+   public function provideIntialView()
    {
       switch ($_SESSION['userType'])
       {
@@ -101,12 +100,12 @@ class User extends Controller
          case 'manager':
             redirect('mangDashboard/overview');
             break;
-            // case 'owner':
-            //    redirect('ownDashboard/overview');
-            //    break;
-            // case 'admin':
-            //    redirect('owner/overview');
-            //    break;
+         case 'owner':
+            redirect('ownDashboard/overview');
+            break;
+         case 'admin':
+            redirect('owner/overview');
+            break;
          default:
             die("USER TYPE ERROR");
             // http_response_code(404);

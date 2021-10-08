@@ -69,8 +69,13 @@ session_start();
       <div class="profile_menu">
          <ul>
             <li>
-               <i class="far fa-user"></i>
-               <a href="#">My Profile</a>
+               <?php if ($_SESSION['userType'] == 'customer') : ?>
+                  <i class="far fa-user"></i>
+                  <a href="#">My Reservations</a>
+               <?php else : ?>
+                  <i class="far fa-user"></i>
+                  <a href="<?php echo URLROOT ?>/user/provideIntialView">Dashboard</a>
+               <?php endif; ?>
             </li>
             <li>
                <i class="far fa-cog"></i>

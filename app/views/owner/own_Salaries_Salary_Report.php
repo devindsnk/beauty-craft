@@ -1,119 +1,78 @@
-<?php require "../header.php" ?>
+<?php require APPROOT . "/views/inc/header.php" ?>
 
-<body class="layout-template-2">
-<header class="full-header">
-      <div class="header-center verticalCenter">
-         <h1 class="header-topic">Layout Template 2</h1>
-      </div>
-      <div class="header-right verticalCenter">
-         <i class="fal fa-times fa-2x header-closebtn"></i>
-         <!-- <i class="fas fa-times fa-2x header-closebtn"></i> -->
-      </div>
-   </header>
-   <div class="content contentNewRes">
-   <div class="content">
-      <h3>This is main option 1</h3>
-      <!--------------------------------------------------------------------------------------- Salary Report Container starts ---------------------------------------------------------------->
+<body>
+    <div class="content own salaries">
+            <div class="ownSalaryReportHeadings">
+                <h1 class="ownSalaryReportHead2">Staff Member Salary Report</h1> 
+                <h3 class="ownSalaryReportHead3">Month-August</h3>
+            </div> 
+            <!-- Staff member details starts  -->
+            <div class="SalaryReportContainer"> 
+            <div class="ownSalaryReportStaffMemberDetails">
+                <div class="ownSalaryReportStaffMemberDetailHead">
+                    <label class="ownSalaryReportStaffMemberDetailHeadLabel">Staff member details</label>
+                </div> 
+                <div class="ownSalaryReportStaffMemberDetailsContent">
 
-      <div class="SalaryReportContainer">
-      <div class="ownSalaryReportHeadings">
-         <label class="ownSalaryReportHead1">Beauty Craft</label> <br>
-         <label class="ownSalaryReportHead2">Staff Member Salary Report</label> <br>
-         <label class="ownSalaryReportHead3">Month</label>
-      </div>
-      <!-- Staff member details starts  -->
-      <div class="ownSalaryReportStaffMemberDetails">
-         <div class="ownSalaryReportStaffMemberDetailHead">
-            <label class="ownSalaryReportStaffMemberDetailHeadLabel">Staff member details</label>
+                    <label class="ownSalaryReportStaffMemberDetailsContentData">Name</label>
+                    <label class="ownSalaryReportStaffMemberDetailsContentValue">Devin Dissanayake</label>
+                    <br> <br>
+                    <label class="ownSalaryReportStaffMemberDetailsContentData">Staff Id</label>
+                    <label class="ownSalaryReportStaffMemberDetailsContentValue">R001</label>
+                    <br> <br>
+                    <label class="ownSalaryReportStaffMemberDetailsContentData">Type</label>
+                    <label class="ownSalaryReportStaffMemberDetailsContentValue">Service Provider</label>
+                    <br> <br>
+                    <label class="ownSalaryReportStaffMemberDetailsContentData">Contact Number</label>
+                    <label class="ownSalaryReportStaffMemberDetailsContentValue">0711234567</label>
+                </div>
+
+            </div>
+            <!-- Staff member details ends  -->
+            <!-- Earning details starts  -->
+            <div class="ownSalaryReportSalaryDetails">
+                <div class="ownSalaryReportSalaryDetailssHead">
+                    <label class="ownSalaryReportSalaryDetailsHeadLabel">Salary Breakdown</label>
+                </div>
+
+                <div class="ownSalaryReportSalaryDetailsContent">
+                    <label class="ownSalaryReportSalaryDetailsContentData">Basic Salary</label>
+                    <label class="ownSalaryReportSalaryDetailsContentValue">30000.00 LKR</label>
+                    <br> <br>
+                    <label class="ownSalaryReportSalaryDetailsContentData">Service Commision</label>
+                    <label class="ownSalaryReportSalaryDetailsContentValue">20000.00 LKR</label>
+                    <br> 
+                    <div class= "ownAddstaffLineContainer">
+                    <div class= "ownAddstaffLines">
+                    </div>
+                </div>
+                    <label class="ownSalaryReportSalaryDetailsContentData">Addtional Leave Count</label>
+                    <label class="ownSalaryReportSalaryDetailsContentValue">4</label>
+                    <br> <br>
+                    <label class="ownSalaryReportDeductionsDetailsContentData">Leave Deduction (LKR)</label>
+                    <label class="ownSalaryReportDeductionsDetailsContentValue">-2500.00 LKR</label>
+                    <br> <br>
+                    <div class= "ownAddstaffLineContainer">
+                    <div class= "ownAddstaffLines">
+                    </div>
+                </div>
+                    <label class="ownSalaryReportTotalSalaryContentData">Total Salary(LKR)</label>
+                    <label class="ownSalaryReportTotalSalaryContentValue">47500.00 LKR</label> 
+                    <br> <br>
+                    <div class="ownSalaryReportTotalSalaryStatus">
+                         <label class="ownSalaryReportTotalSalaryStatusLabel">Paid</label> 
+                    </div>
+                    <br> <br>
+                    <label class="ownSalaryReportSalaryDetailsContentData">Paid Date</label>
+                    <label class="ownSalaryReportSalaryDetailsContentValue">28/08/2021</label>
+                </div>
+            </div>                
+            <!---- Earning details starts  ---->
+
         </div>
 
-        <div class="ownSalaryReportStaffMemberDetailsContent">
-
-            <label class="ownSalaryReportStaffMemberDetailsContentData">Name</label>
-            <label class="ownSalaryReportStaffMemberDetailsContentValue">Devin Dissanayake</label>
-            <br>
-            <label class="ownSalaryReportStaffMemberDetailsContentData">Staff Id</label>
-            <label class="ownSalaryReportStaffMemberDetailsContentValue">R001</label>
-            <br>
-            <label class="ownSalaryReportStaffMemberDetailsContentData">Type</label>
-            <label class="ownSalaryReportStaffMemberDetailsContentValue">Service Provider</label>
-            <br>
-            <label class="ownSalaryReportStaffMemberDetailsContentData">Contact Number</label>
-            <label class="ownSalaryReportStaffMemberDetailsContentValue">0711234567</label>
-        </div>
-
-      </div>
-      <!-- Staff member details ends  -->
-      <!-- Earning details starts  -->
-      <div class="ownSalaryReportEarningDetails">
-         <div class="ownSalaryReportEarningDetailsHead">
-            <label class="ownSalaryReportEarningDetailHeadLabel">Earnings</label>
-        </div>
-
-        <div class="ownSalaryReportEarningDetailsContent">
-            <label class="ownSalaryReportEarningDetailsContentData" >Basic Salary</label>
-            <label class="ownSalaryReportEarningDetailsContentValue">30000.00</label>
-            <br>
-            <label class="ownSalaryReportEarningDetailsContentData">Service Commision</label>
-            <label class="ownSalaryReportEarningDetailsContentValue">20000.00</label>
-        </div>
-
-      </div>
-      <!-- Earning details ends  -->
-          <!-- Deductions  etails starts  -->
-          <div class="ownSalaryReportDeductionsDetails">
-         <div class="ownSalaryReportDeductionsDetailHead">
-            <label class="ownSalaryReportDeductionsDetailHeadLabel">Deductions</label>
-        </div>
-
-        <div class="ownSalaryReportDeductionsDetailsContent">
-            <label class="ownSalaryReportDeductionsDetailsContentData">Addtional Leave Count</label>
-            <label class="ownSalaryReportDeductionsDetailsContentValue" >4</label>
-            <br>
-            <label class="ownSalaryReportDeductionsDetailsContentData">Leave Deduction (LKR)</label>
-            <label class="ownSalaryReportDeductionsDetailsContentValue">-2500.00</label>
-        </div>
-
-      </div>
-      <!-- Deductions details ends  -->
-      <!-- Sub Total  details starts  -->
-           <div class="ownSalaryReportSubTotalDetails">
-         <div class="ownSalaryReportSubTotalDetailHead">
-            <label class="ownSalaryReportSubTotalDetailHeadLabe">Sub Total</label>
-        </div>
-
-        <div class="ownSalaryReportSubTotalDetailsContent">
-            <label class="ownSalaryReportSubTotalDetailsContentData">Total Salary(LKR)</label>
-            <label class="ownSalaryReportSubTotalDetailsContentValue">47500.00</label>
-        </div>
-        
-
-      </div>
-      <!-- Sub Total details ends  -->
-      <!-- Paid details starts  -->
-      <div class="ownSalaryReportPaidDetails">
-            <div class="ownSalaryReportPaidDetailsContent">
-            <label class="ownSalaryReportPaidDetailsContentData">Paid</label>
-            <label class="ownSalaryReportPaidDetailsContentValue">28/08/2021</label>
-            <br>
-            <label class="ownSalaryReportPaidDetailsContentData">Paid Ammount(LKR)</label>
-            <label class="ownSalaryReportPaidDetailsContentValue">47500.00</label>
-        </div>
-      </div>
-      <!-- Sub Total details ends  -->
-
-      </div>
-            <!--------------------------------------------------------------------------------------- Salary Report Container ends ---------------------------------------------------------------->
-            
-        </div>
-
-   </div>
+    </div>
 
 
 
-
-<?php require "../footer.php" ?>
-
-
-
-
+    <?php require APPROOT . "/views/inc/footer.php" ?>

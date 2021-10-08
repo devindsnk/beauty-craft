@@ -1,0 +1,107 @@
+
+   <!DOCTYPE html>
+   <html lang="en">
+   
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="../../public/css/style.css">
+      <link rel="stylesheet" href="../../public/css/modalStyle.css">
+   
+      <!-- Do not use the below styles -->
+      <!-- They are used just for the demonstration purposes and not a part of the modal template-->
+      <style type="text/css">
+         h1 {
+            padding-bottom: 10px;
+         }
+   
+         .container {
+            width: 40%;
+            min-width: 330px;
+            background-color: #ffffff;
+            padding: 35px 50px;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            border-radius: 8px;
+            box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+         }
+   
+         .modal-box p {
+            font-size: 14px;
+         }
+   
+         .btnOpen {
+            border: none;
+            padding: 7px 20px;
+            background: linear-gradient(130deg,
+                  #6f6df4,
+                  #4c46f5);
+            color: #ffffff;
+            border-radius: 6px;
+            font-family: 'Poppins';
+            font-size: 14px;
+            font-weight: 400;
+         }
+      </style>
+   
+      <title>Document</title>
+   </head>
+   
+   <body>
+      <div class="container">
+         <h1>Api thamai hodatama kare &#128526;</h1>
+         <button class="btnOpen normal" type="button">Normal Modal</button>
+         <button class="btnOpen full" type="button">Full Screen Modal</button>
+      </div>
+   
+   <div class="modal-container normal">
+    <div class="modal-box addItems">
+       <h1 class="addItemsModalHead">Title</h1>
+       <!-- start main grid 1 -->
+
+       <div class="addItemsModalGrid1">
+          <div class="addItemsModalDetail1">
+             <label class="addItemsModalLable">Add Items Modal Date</label>
+             <input type="date" class="addItemsModalDate">
+          </div>
+          <div class="addItemsModalDetail2">
+             <label class="addItemsModalLable">Reason</label>
+             <textarea class="addItemsModalTextArea" name="addItemsModalTextArea" rows="4" cols="50"
+                placeholder="Type the reason here"> </textarea>
+          </div>
+       </div>
+
+       <!-- main grid 1 ends -->
+
+       <!-- main grid 2 starts -->
+       <!-- <div class="addItemsModalGrid2">
+          <div class="addItemsModalError">
+             <label class="addItemsModalErrortext">Cannot proceed. Has upcoming reservations</label>
+             <a href="#" class="addItemsModalErrorAnchortag"> <label class="addItemsModalErrorLable">View
+                   Reservaions</label></a>
+          </div>
+          <div class="addItemsModalRecallMessage">
+             <span class="addItemsModalMessage">Recall requests will be sent if you proceed.</span>
+          </div>
+       </div> -->
+       <!-- main grid 2 ends -->
+       <!-- main grid 3 starts -->
+       <div class="addItemsModalGrid3">
+          <div class="addItemsModalbtn1">
+             <button class="btn btnClose normal ModalCancelButton ModalButton">Cancel</button>
+          </div>
+          <div class="addItemsModalbtn2">
+             <button class="btn ModalGreenButton ModalButton">Proceed</button>
+          </div>
+       </div>
+       <!-- main grid 3 ends -->
+    </div>
+ </div>
+
+ <script type="text/javascript" src="../../public/js/modals.js"></script>
+</body>
+
+</html>
