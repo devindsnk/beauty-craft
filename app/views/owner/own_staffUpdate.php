@@ -134,6 +134,11 @@
                             <input type="text" name="acchold" id="acchold" placeholder="Your account holders name here">
                             <span class="error">Sorry, that user name is taken </span>
                         </div>
+                        <div class="ownAddstaffFormGroupBankNAME">
+                            <label class="ownAddstaffLabels">Bank Name</label> 
+                            <input type="text" name="acchold" id="acchold" placeholder="Your bank name here">
+                            <span class="error">Sorry, that user name is taken </span>
+                        </div>
                     </div>
                     <!------------------ maingrid5 end ---------------------------------------------------------------->
                     <!----------------------------------------- Bank Details ends --------------------------------------------------------------------------->
