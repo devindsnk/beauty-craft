@@ -34,7 +34,7 @@
 
         </div>
         <div class="container">
-            <div class="item item4">
+            <div class="item item6">
                 <div class="profname">
                     <label class="proflabel">Current Password </label> <br />
                       <div class="passwordinput">
@@ -42,7 +42,7 @@
                     </div>
                 </div>
             </div>
-            <div class="item item2">
+            <div class="item item7">
                 <div class="profname">
                     <label class="proflabel">New Password </label> <br />
                     <div class="passwordinput">
