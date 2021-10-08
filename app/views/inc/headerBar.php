@@ -21,11 +21,11 @@
         <ul>
            <li>
               <i class="far fa-user"></i>
-              <a href="<?php echo URLROOT ?>/staffUser/profile">My Profile</a>
+              <a href="<?php echo URLROOT ?>/home">Home Page</a>
            </li>
            <li>
               <i class="far fa-cog"></i>
-              <a href="#">Account Settings</a>
+              <a href="#">Profile Settings</a>
            </li>
            <li>
               <i class="far fa-sign-out"></i>

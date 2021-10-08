@@ -19,7 +19,7 @@
     <!-- grid area 1  start-->
     <div class="ownRatesDate">
       <label class="ownRateMonthlabel">Month</label> <br>
-      <input type="month">
+      <input type="month" class="ownRatesInputMonth" placeholder="Select Month">
     </div>
     <!-- grid area 1  ends-->
     <!-- grid area 2 starts -->
@@ -80,7 +80,7 @@
         <h1>Basic Salary(LKR)</h1>
     </div>
     <!-- basic salary heading ends -->
-
+ 
     <!-- basic salary content starts -->
     <div class="ownRatesBasicSalaryContent">
         <div class="ownRatesBasicSalary1">

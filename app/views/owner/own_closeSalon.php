@@ -63,11 +63,11 @@
             <!-- main grid 2 ends -->
             <!-- main grid 3 starts -->
             <div class="ownCloseSalonGrid3">
-               <div class="ownRemStaffbtn1">
-                  <button class="btn btnClose normal">Cancel</button>
+               <div class="ownCloseSalonbtn1">
+                  <button class="btn btnClose normal ownCancelButton">Cancel</button>
                </div>
-               <div class="ownRemStaffbtn2">
-                  <button class="btn">Proceed</button>
+               <div class="ownCloseSalonbtn2">
+                  <button class="btn ownAddGreenButton">Proceed</button>
                </div>
             </div>
             <!-- main grid 3 ends -->

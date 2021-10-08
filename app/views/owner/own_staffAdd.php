@@ -4,13 +4,13 @@
 <body class="ownAddstaffBody ">
 
 
-<div class="ownStaff_allignmentbox">
+<div class="ownStaff_allignmentbox own staff">
 
 <div class="ownAddstaffContainer contentBox">
         <div class="ownAddStaff_Formheading">
             <h1>Add New Staff Members</h1>
         </div>
-        <form action="#">
+        <form action="<?php echo URLROOT; ?>/staff/addStaff" method="post">
             <div class="ownAddstaff_formWrapper">
                 <!------------------------------ Basic Info Starts------------------------------------------------------------------------------->
 
@@ -32,7 +32,7 @@
                         <div class="ownAddstaffFormGroupFname">
                             <label class="ownAddstaffLabels">First Name</label> 
                             <input type="text" name="firstname" id="ownAddstaffBasicinfoFirstname" placeholder="Your first name here">
-                            <span class="error">Sorry, that user name is taken </span>
+                            <span class="error">Sorry, that user name is taken </span> 
                         </div>
                         <div class="ownAddstaffFormGroupLname">
                             <label class="ownAddstaffLabels">Last Name</label>
@@ -135,6 +135,11 @@
                         <div class="ownAddstaffFormGroupACCNAME">
                             <label class="ownAddstaffLabels">Account Holders Name</label> 
                             <input type="text" name="acchold" id="acchold" placeholder="Your account holders name here">
+                            <span class="error">Sorry, that user name is taken </span>
+                        </div>
+                        <div class="ownAddstaffFormGroupBankNAME">
+                            <label class="ownAddstaffLabels">Bank Name</label> 
+                            <input type="text" name="acchold" id="acchold" placeholder="Your bank name here">
                             <span class="error">Sorry, that user name is taken </span>
                         </div>
                     </div>
