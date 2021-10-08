@@ -2,23 +2,21 @@
 
 <body class="layout-template-1">
    <?php
-   $selectedMain = "StaffMembers";
+   $selectedMain = "CreateAccount";
    $selectedSub = "";
-   require APPROOT . "/views/manager/mang_sideNav.php"
+   require APPROOT . "/views/SystemAdmin/systemAdmin_sideNav.php"
    ?>
 
    <?php
-   $title = "Staff Members";
-   $username = "Sanjana Rajapaksha";
-   $userLevel = "Manager";
+   $title = "Create Account";
+   $username = "Ruwanthi Munasinghe";
+   $userLevel = "System Admin";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 
    <!--Content-->
    <div class="content">
-
-      <?php require APPROOT . "/views/common/staffTable.php" ?>
-
+      <h3>create account</h3>
    </div>
    <!--End Content-->
 

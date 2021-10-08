@@ -6,7 +6,9 @@ body {
     background: var(--theme-bgwhite);
 }
 
+
 /* Full page container */
+
 .main-container {
     width: 100vw;
     min-height: 100vh;
@@ -16,7 +18,9 @@ body {
     align-items: center;
 }
 
+
 /* Common container for reg and singin */
+
 .form-container {
     display: flex;
     justify-content: center;
@@ -49,12 +53,10 @@ body {
     .reg-container {
         min-width: 416px;
     }
-
     .reg-container {
         width: 100vw;
     }
 }
-
 
 .form {
     width: 100%;
@@ -86,7 +88,8 @@ body {
     margin-bottom: 20px;
 }
 
-.form-container input[type=text], .form-container input[type=password] {
+.form-container input[type="text"],
+.form-container input[type="password"] {
     display: block;
     border-radius: 5px;
     padding: 5px 20px;
@@ -100,11 +103,11 @@ body {
     letter-spacing: 4px;
 }
 
-.login-container input[type=text] {
+.login-container input[type="text"] {
     /* margin: 20px 0; */
 }
 
-.reg-container input[type=text] {
+.reg-container input[type="text"] {
     /* padding: 5px 20px; */
     /* margin-top: 5px; */
 }

@@ -9,6 +9,7 @@
    height: 100%;
    padding: 0.5rem;
    background-color: var(--theme-black);
+   position: fixed;
 }
 
 /* Sidebar Header */
@@ -50,9 +51,9 @@
    height: 25px;
 }
 
-.sidebar .optionIcon img {
+.sidebar .optionIcon .sidenav-icon {
    max-height: 25px;
-   padding-right: 12px;
+   margin-right: 12px;
 }
 
 .sidebar .optionTitle {

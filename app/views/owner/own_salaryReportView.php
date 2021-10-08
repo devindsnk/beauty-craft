@@ -49,14 +49,14 @@
                     <label class="ownSalaryReportSalaryDetailsContentData">Addtional Leave Count</label>
                     <label class="ownSalaryReportSalaryDetailsContentValue">4</label>
                     <br> <br>
-                    <label class="ownSalaryReportDeductionsDetailsContentData">Leave Deduction (LKR)</label>
+                    <label class="ownSalaryReportDeductionsDetailsContentData">Leave Deduction</label>
                     <label class="ownSalaryReportDeductionsDetailsContentValue">-2500.00 LKR</label>
                     <br> <br>
                     <div class= "ownAddstaffLineContainer">
                     <div class= "ownAddstaffLines">
                     </div>
                 </div>
-                    <label class="ownSalaryReportTotalSalaryContentData">Total Salary(LKR)</label>
+                    <label class="ownSalaryReportTotalSalaryContentData">Total Salary</label>
                     <label class="ownSalaryReportTotalSalaryContentValue">47500.00 LKR</label> 
                     <br> <br>
                     <div class="ownSalaryReportTotalSalaryStatus">
