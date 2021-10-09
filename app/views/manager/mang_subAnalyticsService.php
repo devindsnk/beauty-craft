@@ -47,7 +47,7 @@
 
                <div class="column">
                   <div class="dropdown-group">
-                     <label class="labels" for="serviceName">Service</label>
+                     <label class="labels" for="serviceName">Service</label><br>
                      <select name="services" id="services">
                         <option value="" disabled selected>--Select--</option>
                         <option value="Service 01">Service 01</option>
@@ -59,14 +59,14 @@
                </div>
                <div class="column">
                   <div class="text-group">
-                     <label class="labels" for="serviceFromDate">From</label>
+                     <label class="labels" for="serviceFromDate">From</label><br>
                      <input type="date" name="" id="serviceFromDate" placeholder="--select--">
                   </div>
                   <span class="error"></span>
                </div>
                <div class="column">
                   <div class="text-group">
-                     <label class="labels" for="serviceToDate">To</label>
+                     <label class="labels" for="serviceToDate">To</label><br>
                      <input type="date" name="" id="serviceToDate" placeholder="--select--">
                   </div>
                   <span class="error"></span>
@@ -185,6 +185,76 @@
                     <td data-lable="Price" class="column-right-align">250.00 LKR</td>
                  </tr>
                  <!--End of table row-->
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">Res0001</td>
+                    <td data-lable="Service Provider">Sanjana Rajapaksha</td>
+                    <td data-lable="Customer">Ruwanthi Munasinghe</td>
+                    <td data-lable="Price" class="column-right-align">250.00 LKR</td>
+                 </tr>
+                 <!--End of table row-->
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">Res0002</td>
+                    <td data-lable="Service Provider">Sethni Nimesha</td>
+                    <td data-lable="Customer">Kamal Perera</td>
+                    <td data-lable="Price" class="column-right-align">350.00 LKR</td>
+                 </tr>
+                 <!--End of table row-->
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">Res0003</td>
+                    <td data-lable="Service Provider">Ravindu Madhubashana</td>
+                    <td data-lable="Customer">Sarith Karunarathne</td>
+                    <td data-lable="Price" class="column-right-align">150.00 LKR</td>
+                 </tr>
+                 <!--End of table row-->
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">Res0001</td>
+                    <td data-lable="Service Provider">Sanjana Rajapaksha</td>
+                    <td data-lable="Customer">Ruwanthi Munasinghe</td>
+                    <td data-lable="Price" class="column-right-align">250.00 LKR</td>
+                 </tr>
+                 <!--End of table row-->
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">Res0001</td>
+                    <td data-lable="Service Provider">Sanjana Rajapaksha</td>
+                    <td data-lable="Customer">Ruwanthi Munasinghe</td>
+                    <td data-lable="Price" class="column-right-align">250.00 LKR</td>
+                 </tr>
+                 <!--End of table row-->
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">Res0002</td>
+                    <td data-lable="Service Provider">Sethni Nimesha</td>
+                    <td data-lable="Customer">Kamal Perera</td>
+                    <td data-lable="Price" class="column-right-align">350.00 LKR</td>
+                 </tr>
+                 <!--End of table row-->
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">Res0003</td>
+                    <td data-lable="Service Provider">Ravindu Madhubashana</td>
+                    <td data-lable="Customer">Sarith Karunarathne</td>
+                    <td data-lable="Price" class="column-right-align">150.00 LKR</td>
+                 </tr>
+                 <!--End of table row-->
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">Res0001</td>
+                    <td data-lable="Service Provider">Sanjana Rajapaksha</td>
+                    <td data-lable="Customer">Ruwanthi Munasinghe</td>
+                    <td data-lable="Price" class="column-right-align">250.00 LKR</td>
+                 </tr>
+                 <!--End of table row-->
               </tbody>
               <!--End of table body-->
            </table>
@@ -205,8 +275,8 @@
             datasets: [{ 
                 data: [35000,11400,50600,30600,40700,11100,13300,45000,42000.23500,17500,12400],
                 label: "No of reservations",
-                borderColor: "rgb(62,149,205)",
-                backgroundColor: "rgb(62,149,205,0.1)",
+                borderColor: "#87986a",
+                backgroundColor: "#b5c99a",
               }
             ]
           },
@@ -220,8 +290,8 @@
             datasets: [{ 
                 data: [70,90,44,60,83,90,100,30,80.35,45,39],
                 label: "Income",
-                borderColor: "#3cba9f",
-                backgroundColor: "#71d1bd",
+                borderColor: "#00b4d8",
+                backgroundColor: "#90e0ef",
                 borderWidth:2
               }
             ]

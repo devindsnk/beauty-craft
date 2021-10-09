@@ -189,6 +189,41 @@
                     <td data-lable="Price" class="column-right-align">250.00 LKR</td>
                  </tr>
                  <!--End of table row-->
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">Res0001</td>
+                    <td data-lable="Service">Service 01</td>
+                    <td data-lable="Customer">Ruwanthi Munasinghe</td>
+                    <td data-lable="Price" class="column-right-align">250.00 LKR</td>
+                 </tr>
+                 <!--End of table row-->
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">Res0002</td>
+                    <td data-lable="Service">Service 01</td>
+                    <td data-lable="Customer">Kamal Perera</td>
+                    <td data-lable="Price" class="column-right-align">350.00 LKR</td>
+                 </tr>
+                 <!--End of table row-->
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">Res0003</td>
+                    <td data-lable="Service">Service 01</td>
+                    <td data-lable="Customer">Sarith Karunarathne</td>
+                    <td data-lable="Price" class="column-right-align">150.00 LKR</td>
+                 </tr>
+                 <!--End of table row-->
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">Res0001</td>
+                    <td data-lable="Service">Service 01</td>
+                    <td data-lable="Customer">Ruwanthi Munasinghe</td>
+                    <td data-lable="Price" class="column-right-align">250.00 LKR</td>
+                 </tr>
+                 <!--End of table row-->
               </tbody>
               <!--End of table body-->
            </table>
@@ -209,8 +244,8 @@
             datasets: [{ 
                 data: [35000,11400,50600,30600,40700,11100,13300,45000,42000.23500,17500,12400],
                 label: "No of reservations",
-                borderColor: "rgb(62,149,205)",
-                backgroundColor: "rgb(62,149,205,0.1)",
+                borderColor: "#b07d62",
+                backgroundColor: "#d69f7e",
               }
             ]
           },
@@ -224,8 +259,8 @@
             datasets: [{ 
                 data: [70,90,44,60,83,90,100,30,80.35,45,39],
                 label: "Income",
-                borderColor: "#3cba9f",
-                backgroundColor: "#71d1bd",
+                borderColor: "#ff758f",
+                backgroundColor: "#ffb3c1",
                 borderWidth:2
               }
             ]

@@ -5,7 +5,7 @@
 /* ------------------------------------------------------ */
 
 .table-container{
-  height: 50%;
+  /* height: 50%; */
   margin-bottom: 20px;
   overflow: scroll;
   overflow-y: visible;

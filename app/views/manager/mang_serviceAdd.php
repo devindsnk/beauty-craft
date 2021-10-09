@@ -43,17 +43,6 @@
                             <select class="dropdownSelectBox" name="serviceType">
                                 <option class="unbold" value="val1" option selected="true" disabled="disabled" >Select One</option>
 
-                                <!-- <option value="val1">Long Hair</option>
-                                <option value="val2">Short Hair</option> -->
-
-								<?php
-									// $records1 = mysqli_query($db, "SELECT DISTINCT service_type From services"); 
-
-									// while($sType = mysqli_fetch_array($records1))
-									// {
-									// 	echo "<option value='". $sType['service_type'] ."'>" .$sType['service_type'] ."</option>";
-									// }	
-								?> 
 								
 								<?php foreach($data['sType'] as $sType) : ?>
 									
@@ -251,7 +240,7 @@
 
 			<!-- submit service button -->
 			<div class="button-Add-Div">
-	    		<button class="buttonAdd">Add</button>
+	    		<button type="submit" class="buttonAdd" name="action" value="addService">Add</button>
 	    	</div>
 
 		</div>
