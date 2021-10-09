@@ -446,3 +446,71 @@
     height: 500px;
     width: 600px;
 }
+
+
+/* ---------------leave request ----------------- */
+
+.content.serprov.leave {
+    width: 70%;
+    margin: 0 auto 0 auto;
+}
+
+.content.serprov.leave .row.statusopt {
+    width: 12%;
+}
+
+.content.serprov.leave .filter-options .options-container {
+    display: flex;
+    margin: 0 auto 0 auto;
+    width: 100%;
+    min-width: 330px;
+    padding: 0 40px 0 40px;
+}
+
+.serprov.leave .dropdown-group {
+    width: 70%;
+}
+
+
+/* .page-top-main-container {
+    justify-content: space-between !important;
+} */
+
+.leavecountcard {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 20px;
+    background-color: var(--white);
+    height: 50px;
+    width: 400px;
+    border-radius: 6px;
+}
+
+.cardandbutton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between !important;
+    align-items: center;
+    margin-left: 40px;
+}
+
+.leavecountcardleft {
+    font-weight: 500;
+    font-size: 18px;
+    padding-right: 10px;
+    color: var(--theme-grey);
+}
+
+.leavecountcardright {
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.content.serprov.leave .page-top-main-container {
+    margin: 30px 0 10px 0;
+    padding: 0 40px;
+    display: flex;
+    justify-content: right;
+    width: 100%;
+}
