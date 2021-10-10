@@ -8,7 +8,7 @@
 
 <div class="ownAddstaffContainer contentBox"> 
         <div class="ownAddStaff_Formheading">
-            <h1>Add New Staff Members</h1>
+            <h1>Update Staff Member</h1>
         </div>
         <form action="#">
             <div class="ownAddstaff_formWrapper">

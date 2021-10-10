@@ -22,7 +22,7 @@
                         <div class="ownAddstaffFormGroupImage">
                             <div class="ownAddstaffBasicinfoFilesubBtn">
                                 <label for="ownAddstaffBasicinfoImagesub" class="ownAddstaffBasicinfoImagewrapper">
-                                    <input type="file" id="ownAddstaffBasicinfoImagesub" accept="image/*">
+                                    <input type="file" name="staffImage" id="ownAddstaffBasicinfoImagesub" accept="image/*" >
                                     <img src="<?php echo URLROOT ?>/public/icons/add_graph_report_64px.png" class="ownAddstaffBasicinfoIcon"> <br>
                                     <span class="ownAddstaffBasicinfoImagetitle">Add Image</span>
                                 </label>
@@ -31,13 +31,13 @@
 
                         <div class="ownAddstaffFormGroupFname">
                             <label class="ownAddstaffLabels">First Name</label> 
-                            <input type="text" name="firstname" id="ownAddstaffBasicinfoFirstname" placeholder="Your first name here">
-                            <span class="error">Sorry, that user name is taken </span> 
+                            <input type="text" name="staffFname" id="ownAddstaffBasicinfoFirstname" placeholder="Your first name here" value="<?php echo $data['staffFname'];?>">
+                            <span class="error"><?php echo $data['staffFname_error'];?></span> 
                         </div>
                         <div class="ownAddstaffFormGroupLname">
                             <label class="ownAddstaffLabels">Last Name</label>
-                            <input type="text" name="lastname" id="ownAddstaffLastname" placeholder="Your last name here">
-                            <span class="error">Sorry, that user name is taken </span>
+                            <input type="text" name="staffLname" name="lastname" id="ownAddstaffLastname" placeholder="Your last name here" value="<?php echo $data['staffLname'];?>" >
+                            <span class="error"><?php echo $data['staffLname_error'];?></span>
                         </div>
 
 
@@ -45,18 +45,19 @@
                             <label class="ownAddstaffLabels">Gender</label> 
                             <div class="ownAddstaffBasicinfoRadiowrapper">
 
-                                <input type="radio" name="select" id="option-1">
+                                <input type="radio" name="gender" id="option-1" value="M"<?php if($data['gender']=='M') echo 'checked';?>>
                                 <label for="option1"> Male</label> <br>
-                                <input type="radio" name="select" id="option-2"> 
+                                <input type="radio" name="gender" id="option-2" value="F"<?php if($data['gender']=='F') echo 'checked';?>> 
                                 <label for="option2">Female</label>
+                                <span class="error"><?php echo $data['gender_error'];?></span>
 
                             </div>
 
                         </div>
                         <div class="ownAddstaffFormGroupNIC">
                             <label class="ownAddstaffLabels">NIC</label>
-                            <input type="text" name="NIC" id="NIC" placeholder="Your NIC here">
-                            <span class="error">Sorry, that user name is taken </span>
+                            <input type="text" name="staffNIC" id="NIC" placeholder="Your NIC here" value="<?php echo $data['staffNIC'];?>">
+                            <span class="error"><?php echo $data['staffNIC_error'];?></span>
                         </div>
                     </div>
                     <!------------------ maingrid1 end ----------------------------------------------------------->
@@ -64,16 +65,15 @@
                     <div class="ownAddstaffMaingrid2">
                         <div class="ownAddstaffFormGroupDOB">
                             <label class="ownAddstaffLabels"> Date Of Birth</label> 
-                            <input type="date" class="Date">
+                            <input type="date" name="staffDOB" class="Date" value="<?php echo $data['staffDOB'];?>">
 
                         </div>
                         <div class="ownAddstaffFormGroupStype">
                             <label class="ownAddstaffLabels">Staff Type</label>
-                            <select class="dropdownselectbox">
-                                <option value="val1">Value 1</option>
-                                <option value="val2">Value 2</option>
-                                <option value="val3">Value 3</option>
-                                <option value="val4">Value 4</option>
+                            <select class="dropdownselectbox" >
+                                <option value="V1">Manager</option>
+                                <option value="V2">Receptionist</option>
+                                <option value="V3">Service Provider</option>
                             </select>
                         </div>
                     </div>
@@ -93,10 +93,10 @@
                     <!------------------ maingrid3 start ---------------------------------------------------------->
                     <div class="ownAddstaffMaingrid3">
                         <div class="ownAddstaffFormGroupADD">
-                            <label class="ownAddstaffLabels">Home Address</label> 
-                            <textarea class="homeAdd" name="homeAdd" rows="4"
-                                cols="50" placeholder="Your home address here"></textarea>
-                                <span class="error">Sorry, that user name is taken </span>
+                            <label class="ownAddstaffLabels">Address</label> 
+                            <textarea class="homeAdd" name="staffHomeAdd" rows="4"
+                                cols="50" placeholder="Your address here" value="<?php echo $data['staffHomeAdd'];?>"></textarea>
+                                <span class="error"><?php echo $data['staffHomeAdd_error'];?></span>
                         </div>
                     </div>
                     <!------------------ maingrid3 ends ---------------------------------------------------------->
@@ -104,13 +104,13 @@
                     <div class="ownAddstaffMaingrid4">
                         <div class="ownAddstaffFormGroupTP">
                             <label class="ownAddstaffLabels">Contact Number</label>
-                            <input type="text" name="contactnum" id="contactnum" placeholder="Your contact number here">
-                            <span class="error">Sorry, that user name is taken </span>
+                            <input type="text" name="staffContactNum" id="contactnum" placeholder="Your contact number here" value="<?php echo $data['staffContactNum'];?>">
+                            <span class="error"><?php echo $data['staffContactNum_error'];?></span>
                         </div>
                         <div class="ownAddstaffFormGroupMAIL">
                             <label class="ownAddstaffLabels">E-mail</label> 
-                            <input type="text" name="email" id="email" placeholder="Your email here">
-                            <span class="error">Sorry, that user name is taken </span>
+                            <input type="text" name="staffEmail" id="email" placeholder="Your email here"  value="<?php echo $data['staffEmail'];?>">
+                            <span class="error"><?php echo $data['staffEmail_error'];?></span>
                         </div>
                     </div>
                 </div>
@@ -129,18 +129,18 @@
                     <div class="ownAddstaffMaingrid5">
                         <div class="ownAddstaffFormGroupACCNUM">
                             <label class="ownAddstaffLabels">Account Number</label> 
-                            <input type="text" name="accnum" id="accnum" placeholder="Your account number here">
-                            <span class="error">Sorry, that user name is taken </span>
+                            <input type="text" name="staffAccNum" id="accnum" placeholder="Your account number here" value="<?php echo $data['staffAccNum'];?>">
+                            <span class="error"><?php echo $data['staffAccNum_error'];?></span>
                         </div>
                         <div class="ownAddstaffFormGroupACCNAME">
                             <label class="ownAddstaffLabels">Account Holders Name</label> 
-                            <input type="text" name="acchold" id="acchold" placeholder="Your account holders name here">
-                            <span class="error">Sorry, that user name is taken </span>
+                            <input type="text" name="staffAccHold" id="acchold" placeholder="Your account holders name here" value="<?php echo $data['staffAccHold'];?>">
+                            <span class="error"><?php echo $data['staffAccHold_error'];?></span>
                         </div>
                         <div class="ownAddstaffFormGroupBankNAME">
                             <label class="ownAddstaffLabels">Bank Name</label> 
-                            <input type="text" name="acchold" id="acchold" placeholder="Your bank name here">
-                            <span class="error">Sorry, that user name is taken </span>
+                            <input type="text" name="staffAccBank" id="accbank" placeholder="Your bank name here" value="<?php echo $data['staffAccBank'];?>">
+                            <span class="error"><?php echo $data['staffAccBank_error'];?></span>
                         </div>
                     </div>
                     <!------------------ maingrid5 end ---------------------------------------------------------------->
@@ -150,7 +150,7 @@
             <!----------------------------------------- form submit button starts ------------------------------------------------------------------------>
             <div class="ownAddstaffButton">
                 <button class="ownAddstaffbutton">Save</button>
-            </div>
+            </div> 
             <!----------------------------------------- form submit button ends -------------------------------------------------------------------------->
         </form>
 

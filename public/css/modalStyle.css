@@ -102,6 +102,10 @@
 
 /* ----------------------------------------Add Item modal starts ---------------------------------------*/
 
+.modal-box.addItems {
+    padding: 30px 50px 35px 50px;
+}
+
 .modal-container.normal.addItems {
     width: 600px;
 }
@@ -116,16 +120,10 @@
     text-align: start;
 }
 
-
-/* ?????????????????????????????????? */
-
 .addItemsModalDetail1 {
     display: inline-block;
     padding-bottom: 15px;
 }
-
-
-/* ?????????????????????????????????? */
 
 .addItemsModalGrid1 input[type="date"],
 .addItemsModalTextArea {
@@ -137,7 +135,7 @@
 }
 
 .addItemsModalGrid1 input[type="date"] {
-    width: 50%;
+    width: 300px;
 }
 
 .addItemsModalTextArea {
@@ -183,12 +181,9 @@
     display: grid;
     padding-top: 27px;
     justify-self: center;
-    grid-template-columns: 50% 50%;
-    grid-template-areas: "addItemsModalbtn1 addItemsModalbtn2";
-}
-
-.modal-box.addItems {
-    padding: 30px 50px 35px 50px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    'addItemsModalbtn1 addItemsModalbtn2';
 }
 
 .addItemsModalGrid3 .addItemsModalbtn1 {
