@@ -365,7 +365,7 @@ Owner Overview Ends
 Close Salon Starts
 ##################################################################################################################################################### */
 
-#ownCloseSalonContainer {
+/* #ownCloseSalonContainer {
     width: 600px;
 }
 
@@ -377,17 +377,17 @@ Close Salon Starts
     font-size: 14 px;
     font-weight: 600;
     text-align: start;
-}
+}  */
 
 /* ?????????????????????????????????? */
-.own.close-salon .ownCloseSalonDetail1 {
+/* .own.close-salon .ownCloseSalonDetail1 {
     display: inline-block;
     padding-bottom: 15px;
-}
+} */ 
 
 /* ?????????????????????????????????? */
 
-.own.close-salon .ownCloseSalonGrid1 input[type="date"],
+/* .own.close-salon .ownCloseSalonGrid1 input[type="date"],
 #ownCloseSalonTextArea,
 select {
     width: 100%;
@@ -441,6 +441,7 @@ select {
     padding-bottom: 20px;
 }
 
+ */
 .own.close-salon .ownCloseSalonGrid3 {
     display: grid;
     padding-top: 20px;
@@ -732,7 +733,7 @@ Customers Endss
 
 .own.rates .ownRatesBasicSalary {
     height: 200px;
-    width: 1096px;
+    width: 80%;
     margin: 20px;
     padding: 5px;
     border-radius: 6px;
@@ -741,7 +742,9 @@ Customers Endss
 }
 
 .own.rates .ownRatesBasicSalaryContainer {
-    padding-left: 60px;
+    display: flex;
+    padding: 40px;
+    justify-content: center;
 }
 
 .own.rates .ownRateGridArea2 {
@@ -768,7 +771,6 @@ Customers Endss
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
         'ownRatesBasicSalary1 ownRatesBasicSalary2 ownRatesBasicSalary3';
-    justify-content: center;
 }
 
 .own.rates .ownRatesLeaveLimit {
@@ -810,7 +812,30 @@ Customers Endss
     grid-area: ownRatesBasicSalary3;
 }
 
-@media screen and (max-width: 830px) {
+
+@media screen and (max-width: 1400px) {
+    .own.rates .ownRateGridArea2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            'ownRatesLeaveLimit ownRatesComissionRate'
+            'ownRatesMinManagers ownRatesMinManagers ';
+    }
+    .ownRatesMinManagersContainer{
+        justify-self: center;
+    }
+    .ownRatesComissionRate,
+    .ownRatesLeaveLimit{
+        width: 100%;
+    }
+    .ownRatesMinManagers{
+        width: 500px;
+    }
+}
+
+
+
+@media screen and (max-width: 1000px) {
     .own.rates .ownRateGridArea2 {
         display: grid;
         grid-template-columns: 1fr;

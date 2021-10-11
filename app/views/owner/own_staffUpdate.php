@@ -1,19 +1,36 @@
 <?php require APPROOT . "/views/inc/header.php" ?>
 
 <!-- <body class="ownAddstaffBody"> -->
-<body class="ownAddstaffBody">
+<body class="ownAddstaffBody layout-template-2">
+
+<!-- ########################################################################################################################### -->
+
+<header class="full-header">
+      <div class="header-center verticalCenter">
+         <h1 class="header-topic">Update Staff Member</h1>
+      </div>
+      <div class="header-right verticalCenter">
+         <a href="<?php echo URLROOT ?>/OwnDashboard/staff"><i class="fal fa-times fa-2x header-closebtn"></i></a>
+         <!-- <i class="fas fa-times fa-2x header-closebtn"></i> -->
+      </div>
+   </header>
+   <div class="content contentNewRes">
 
 
-<div class="ownStaff_allignmentbox">
+
+
+
+
+   <div class="ownStaff_allignmentbox">
 
 <div class="ownAddstaffContainer contentBox"> 
-        <div class="ownAddStaff_Formheading">
-            <h1>Add New Staff Members</h1>
-        </div>
+        <!-- <div class="ownAddStaff_Formheading">
+            <h1>Update Staff Member</h1>
+        </div> -->
         <form action="#">
             <div class="ownAddstaff_formWrapper">
                 <!------------------------------ Basic Info Starts------------------------------------------------------------------------------->
-
+                                                                                                                                                           
                 <div class="ownAddstaffBasicinfo">
                     <h3 class="ownAddstaffBasicinfoSubHead">Basic Info</h3> <br>
                     <!------------------ maingrid1 start --------------------------------------------------------->
@@ -93,8 +110,7 @@
                     <div class="ownAddstaffMaingrid3">
                         <div class="ownAddstaffFormGroupADD">
                             <label class="ownAddstaffLabels">Home Address</label> 
-                            <textarea class="homeAdd" name="homeAdd" rows="4"
-                                cols="50" placeholder="Your home address here"></textarea>
+                            <textarea class="homeAdd" name="homeAdd" rows="4" cols="50" placeholder="Your home address here"></textarea>
                                 <span class="error">Sorry, that user name is taken </span>
                         </div>
                     </div>
@@ -126,7 +142,7 @@
                     <div class="ownAddstaffMaingrid5">
                         <div class="ownAddstaffFormGroupACCNUM">
                             <label class="ownAddstaffLabels">Account Number</label> 
-                            <input type="text" name="accnum" id="accnum" placeholder="Your account number here">
+                            <input type="text" name="accnum" id="accnum" placeholder="Your account number here"> 
                             <span class="error">Sorry, that user name is taken </span>
                         </div>
                         <div class="ownAddstaffFormGroupACCNAME">
@@ -170,6 +186,18 @@
     </div>
 
 </div>
+
+
+
+
+
+
+
+
+   </div>
+
+
+<!-- ################################################################################################################################## -->
 
 
 
