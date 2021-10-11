@@ -97,15 +97,11 @@ class Staff extends Controller
             empty($data['staffFname_error']) && empty($data['staffLname_error']) && empty($data['gender_error']) && empty($data['staffNIC_error']) && empty($data['staffDOB_error']) && empty($data['staffType_error']) && empty($data['staffHomeAdd_error']) && empty($data['staffContactNum_error']) && empty($data['staffEmail_error']) &&
             empty($data['staffAccNum_error']) && empty($data['staffAccHold_error']) && empty($data['staffAccBank_error'])
          ) {
-            // die("success");
             $this->staffModel->addStaffDetails($data);
-            // $this->db->query("SELECT * FROM staff WHERE cantactNo =  ");
             $this->staffModel->addBankDetails($data);
             $this->userModel->registerUser($data['staffContactNum'] ,$data['staffNIC'] ,$data['staffType']);
             header('location: ' . URLROOT . '/OwnDashboard/staff');
          } else {
-            // print_r($data);
-            // die("hello");
             $this->view('owner/own_staffAdd', $data);
          }
       } else {

@@ -10,7 +10,6 @@ class StaffModel
 
    public function addStaff($data)
    {
-      // die("Success");
       $this->addStaffDetails($data);
       $this->addBankDetails($data);
    }
