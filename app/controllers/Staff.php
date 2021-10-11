@@ -41,11 +41,18 @@ class Staff extends Controller
          if (empty($data['staffFname'])) {
             $data['staffFname_error'] = "Please enter First Name";
          }
+         else if (!preg_match("/^[a-zA-Z-' ]*$/",$data['staffFname'])) {
+            $data['staffFname_error']  = "Only letters are allowed";
+          }
 
          // Validating lname
          if (empty($data['staffLname'])) {
             $data['staffLname_error'] = "Please enter Last Name";
          }
+         else if (!preg_match("/^[a-zA-Z-' ]*$/",$data['staffFname'])) {
+            $data['staffFname_error']  = "Only letters are allowed";
+          }
+
 
          // Validating gender
          if (empty($data['gender'])) {
@@ -56,6 +63,9 @@ class Staff extends Controller
          if (empty($data['staffNIC'])) {
             $data['staffNIC_error'] = "Please enter NIC number";
          }
+         else if (preg_match ("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $data['staffNIC']) ){ 
+            $data['staffNIC_error'] = "Only numeric values and letters are allowed";
+         }  
 
          // Validating date of birth
          if (empty($data['staffDOB'])) {
@@ -74,23 +84,44 @@ class Staff extends Controller
          if (empty($data['staffContactNum'])) {
             $data['staffContactNum_error'] = "Please enter contact number";
          }
+         else if (!preg_match ("/^[0-9]*$/", $data['staffContactNum']) ){  
+            $data['staffContactNum_error'] = "Only numeric values are allowed.";
+         }  
+
          // Validating email
          if (empty($data['staffEmail'])) {
             $data['staffEmail_error'] = "Please enter email";
          }
+         else if (!filter_var($data['staffEmail'], FILTER_VALIDATE_EMAIL)) {
+            $data['staffEmail_error'] = "Invalid email format";
+         }
+
+         
          
          // Validating account number
          if (empty($data['staffAccNum'])) {
             $data['staffAccNum_error'] = "Please enter bank account number";
          }
+         else if (!preg_match ("/^[0-9]*$/", $data['staffAccNum']) ){  
+            $data['staffAccNum_error'] = "Only numeric values are allowed.";
+         }  
+
          // Validating account holder's name
          if (empty($data['staffAccHold'])) {
             $data['staffAccHold_error'] = "Please enter bank account holders name";
          }
+         else if (!preg_match("/^[a-zA-Z-' ]*$/",$data['staffAccHold'])) {
+            $data['staffAccHold_error']  = "Only letters are allowed";
+          }
+
          // Validating bank name
          if (empty($data['staffAccBank'])) {
             $data['staffAccBank_error'] = "Please enter bank name";
          }
+         else if (!preg_match("/^[a-zA-Z-' ]*$/",$data['staffAccBank'])) {
+            $data['staffAccBank_error']  = "Only letters are allowed";
+          }
+
        
 
          if (

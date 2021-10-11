@@ -28,6 +28,7 @@
       </div>
    </header>
    <div class="content contentNewRes">
+      
    </div>
    <footer></footer>
 </body>
