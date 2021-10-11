@@ -1,15 +1,29 @@
 <?php require APPROOT . "/views/inc/header.php" ?>
 
 <!-- <body class="ownAddstaffBody"> -->
-<body class="ownAddstaffBody ">
+<body class="ownAddstaffBody layout-template-2">
+
+<!-- ########################################################################################################################### -->
+
+<header class="full-header">
+      <div class="header-center verticalCenter">
+         <h1 class="header-topic">Add New Staff Members</h1>
+      </div>
+      <div class="header-right verticalCenter">
+         <a href="<?php echo URLROOT ?>/OwnDashboard/staff"><i class="fal fa-times fa-2x header-closebtn"></i></a>
+         <!-- <i class="fas fa-times fa-2x header-closebtn"></i> -->
+      </div>
+   </header>
+   <div class="content contentNewRes">
+
+
+
+
 
 
 <div class="ownStaff_allignmentbox own staff">
 
 <div class="ownAddstaffContainer contentBox">
-        <div class="ownAddStaff_Formheading">
-            <h1>Add New Staff Members</h1>
-        </div>
         <form action="<?php echo URLROOT; ?>/staff/addStaff" method="post">
             <div class="ownAddstaff_formWrapper">
                 <!------------------------------ Basic Info Starts------------------------------------------------------------------------------->
@@ -49,8 +63,8 @@
                                 <label for="option1"> Male</label> <br>
                                 <input type="radio" name="gender" id="option-2" value="F"<?php if($data['gender']=='F') echo 'checked';?>> 
                                 <label for="option2">Female</label>
+                                <br>
                                 <span class="error"><?php echo $data['gender_error'];?></span>
-
                             </div>
 
                         </div>
@@ -70,19 +84,20 @@
                         </div>
                         <div class="ownAddstaffFormGroupStype">
                             <label class="ownAddstaffLabels">Staff Type</label>
-                            <select class="dropdownselectbox" >
-                                <option value="V1">Manager</option>
-                                <option value="V2">Receptionist</option>
-                                <option value="V3">Service Provider</option>
-                            </select>
-                        </div>
-                    </div>
+                            <select name="staffType" class="dropdownselectbox" >
+                                <option value="1">Manager</option>
+                                <option value="2">Receptionist</option>
+                                <option value="3">Service Provider</option>
+                            </select>                   
+                            <span class="error"><?php echo $data['staffType_error'];?></span>
+                        </div>  
+                    </div>  
                 </div>
                 <!------------------ maingrid2 ends --------------------------------------------------------------->
                 <!----------------------------------------------- Basic Info ends ---------------------------------------------------------------------------->
 
                 <div class= "ownAddstaffLineContainer">
-                    <div class= "ownAddstaffLines">
+                    <div class= "ownAddstaffLines"> 
                     </div>
                 </div>
 
@@ -149,7 +164,7 @@
             </div>
             <!----------------------------------------- form submit button starts ------------------------------------------------------------------------>
             <div class="ownAddstaffButton">
-                <button class="ownAddstaffbutton">Save</button>
+                <button type="submit" class="ownAddstaffbutton">Save</button>
             </div> 
             <!----------------------------------------- form submit button ends -------------------------------------------------------------------------->
         </form>

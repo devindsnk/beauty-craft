@@ -2,7 +2,18 @@
 
 <!-- <body class="ownAddstaffBody"> -->
 
-<body class="ownViewStaffBody">
+<body class="ownViewStaffBody layout-template-2">
+
+
+<header class="full-header">
+      <div class="header-center verticalCenter">
+         <h1 class="header-topic">Staff Member Details</h1>
+      </div>
+      <div class="header-right verticalCenter">
+         <a href="<?php echo URLROOT ?>/OwnDashboard/staff"><i class="fal fa-times fa-2x header-closebtn"></i></a>
+      </div>
+   </header>
+   <div class="content contentNewRes">
 
 
 
@@ -10,9 +21,8 @@
 
 
 
-
       <!-------------------------------- View staff container starts ------------------------------------->
-      <h1 class="ownViewStaffContainerHead">Staff Member Details</h1>
+      <!-- <h1 class="ownViewStaffContainerHead">Staff Member Details</h1> -->
 
       <!------------------------------------ Card container starts ---------------------------------------------->
       <div class="ownViewStaffCards">

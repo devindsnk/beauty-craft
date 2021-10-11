@@ -59,6 +59,7 @@
           </div>
        </div>
        <!-- main grid 2 ends -->
+
        <!-- main grid 3 starts -->
        <div class="ownCloseSalonGrid3">
           <div class="ownCloseSalonbtn1">
