@@ -28,10 +28,10 @@
                     <span class="error"><?php echo $data['password_error']; ?></span>
                 </div>
 
-                <a href="" class="forgot-password">Forgot Password?</a>
+                <a href="<?php echo URLROOT ?>/user/resetPassword">Forgot Password?</a>
 
                 <div class="footer-container">
-                    <button class="btn">Sign In</button>
+                    <button class="btn btn-filled btn-theme-purple">Sign In</button>
                     <p>Don't have an account? <a href="<?php echo URLROOT ?>/customer/register">Register Here</a></p>
                 </div>
 

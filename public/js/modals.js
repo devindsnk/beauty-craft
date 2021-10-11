@@ -38,7 +38,7 @@ btnCloseList.forEach(btn => {
 
 function toggleModal() {
    modalToToggle.classList.toggle("show");
-
+}
    
 // const btnOpenO = document.querySelector(".btnOpen.new");
 // const modalContainerO = document.querySelector(".modal-container.new");
