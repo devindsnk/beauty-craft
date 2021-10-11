@@ -1,164 +1,467 @@
-.own.overview .ownOverviewCardContainer .sub-container-card{
-    width: 450px;
-    overflow: hidden;
-    height: 150px;
+/*------------------------------------- Common Styles for owner starts --------------------------------------------*/
+.ownAddGreenButton {
+    background-color: #1BC657;
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    height: 35px;
+    width: 130px;
+    border: none;
+    padding: 7px 20px;
+    border-radius: 6px;
 }
-.own.overview .ownOverviewCardContainer .ownOverviewContainerCard3 .sub-container-card{
-    width: 1100px;
-    height: 60px;
+
+.ownProceedBlueButton {
+    background-color: var(--theme-blue);
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    height: 35px;
+    width: 130px;
+    border: none;
+    padding: 7px 20px;
+    border-radius: 6px; 
 }
-.own.overview .ownOverviewCardContainer{
+
+.ownCancelButton {
+    background-color: var(--theme-lightgrey);
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+    height: 35px;
+    width: 130px;
+    border: none;
+    padding: 7px 20px;
+    border-radius: 6px;
+}
+
+/* ########################################### */
+
+.own.customers .ownRemCusButtons {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-    'ownOverviewContainerCard1 ownOverviewContainerCard2'
-    'ownOverviewContainerCard3 ownOverviewContainerCard3';
-    justify-items: center;
-
+    grid-template-areas:
+        'ownRemCusbtn1 ownRemCusbtn2';
+    text-align: center;
+    padding-top: 10px;
 }
 
-.own.overview .ownOverviewContainerCard1{
-    grid-area: ownOverviewContainerCard1;
+
+.own.customers .ownRemCusLabel1 {
+    grid-area: ownRemCusLabel1;
 }
 
-.own.overview .ownOverviewContainerCard2{
-    grid-area: ownOverviewContainerCard2;
-}
-.own.overview .ownOverviewContainerCard3{
-    grid-area: ownOverviewContainerCard3;
-    padding: 10px 0 20px 0;
+/* ########################################### */
+
+/* common Model Styles starts */
+.commonModelHead {
+    /* padding: 20px; */
+    text-align: center;
 }
 
-.own.overview .ownOverviewCharts{
+/* .commonModelDetails{
+    text-align: center;
+} */
+/* .commonModelDetailsLabel{
+    padding-bottom: 20px;
+} */
+
+.commonModelDetailsLabel {
+    font-weight: 600;
+}
+
+.commonModelContainer {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: 
-    'ownOverviewChart1 ownOverviewChart2 ownOverviewChart3';
+    grid-template-columns: 1fr;
+    grid-row-gap: 30px;
+    grid-template-areas:
+        'commonModelHead'
+        'commonModelDetails'
+        'commonModelButtons';
+}
+
+.commonModelDetails {
+    grid-area: commonModelDetails;
+}
+
+.commonModelButtons {
+    grid-area: commonModelButtons;
+}
+
+.commonModelHead {
+    grid-area: commonModelHead;
+}
+
+.commonModelButtons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 80px;
+    grid-template-areas:
+        'commonModelBtn1 commonModelBtn2';
+}
+
+.commonModelBtn1 {
+    grid-area: commonModelBtn1;
+    justify-self: right;
+}
+
+.commonModelBtn2 {
+    grid-area: commonModelBtn2;
+    justify-self: left;
+}
+
+
+
+
+
+/* common Model Styles ends */
+
+/* #################################################################################################################### */
+.modal-container.normal.addItems {
+    width: 600px;
+}
+
+.addItemsModalHead {
+    text-align: center;
+}
+
+.addItemsModalLable {
+    font-size: 14 px;
+    font-weight: 600;
+    text-align: start;
+}
+
+/* ?????????????????????????????????? */
+.addItemsModalDetail1 {
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+/* ?????????????????????????????????? */
+
+.addItemsModalnGrid1 input[type="date"],
+#addItemsModalTextArea,
+.own select {
+    width: 100%;
+    font-weight: 400;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: none;
+    background-color: #EAEAEA;
+    margin-top: 5px;
+}
+
+#addItemsModalTextArea {
+    width: 500px;
+    resize: none;
+}
+
+.addItemsModalGrid1 input:focus,
+#addItemsModalTextArea:focus {
+    border-color: none;
+    outline: none;
+}
+
+.addItemsModalErrortext {
+    font-size: 14px;
+    color: #DA2346;
+    padding-right: 50px;
+    font-weight: 600;
+}
+
+.addItemsModalMessage {
+    font-size: 14px;
+    padding-top: 5px;
+    font-weight: 600;
+}
+
+.addItemsModalErrorViewReservaions {
+    color: #037AFF;
+    text-align: start;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.addItemsModalGrid1 {
+    padding-top: 20px;
+}
+
+.addItemsModalGrid2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.addItemsModalGrid3 {
+    display: grid;
+    padding-top: 20px;
+    justify-self: center;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+        'ownCloseSalonbtn1 ownCloseSalonbtn2'
+}
+
+
+.modal-container.normal.addItems .addItemsModalbtn1 {
+    grid-area: addItemsModalbtn1;
+    justify-self: center;
 
 }
 
-.own.overview .ownOverviewChart1{
-    grid-area: ownOverviewChart1;
-}
-.own.overview .ownOverviewChart2{
-    grid-area: ownOverviewChart2;
-}
-.own.overview .ownOverviewChart3{
-    grid-area: ownOverviewChart3;
+.modal-container.normal.addItems .addItemsModalbtn2 {
+    grid-area: addItemsModalbtn2;
+    justify-self: center;
 }
 
 
 
-/* 
-#####################################################################################################################################################
-Close Salon Starts
-##################################################################################################################################################### */
-/* -----------Styles for Remove Staff--------------- */
-/* Move required styles to common stylesheet where necessary */
+
+
+/* #################################################################################################################### */
+
+
+/*-------------------------------------- Common styles for owner ends --------------------------------------------*/
+
 
 /* ------------------------------------------------------ */
 /* --------------STYLES ADDED BY RAVINDU -----------------*/
 /* ------------------------------------------------------ */
 
+/*####################################################################################################################################################
+Owner Overview Starts
+##################################################################################################################################################### */
+
+
+
+.mang-sub-container-card{
+    display: flex;
+    flex-direction: column;
+    /* position: relative; */
+    background-color: var(--white);
+    justify-content: space-around;
+    text-align: center;
+    align-content: center;
+    padding: 20px;
+    width: 250px;
+    height: 125px;
+    margin: 10px 5px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+.mang-sub-container-card-title{
+    color: rgb(126, 126, 126);
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.mang-sub-container-card-amount{
+    font-size: 1.5rem;
+    font-weight: 600;
+    justify-content: center;
+}
+.own.overview .ownOverviewContainerCard1,
+.own.overview .ownOverviewContainerCard2 {
+    /* width: 250px;
+    height: 125px;
+    margin: 20px;
+    padding: 5px;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25); */
+    display: flex;
+    flex-direction: column;
+    /* position: relative; */
+    background-color: var(--white);
+    justify-content: space-around;
+    text-align: center;
+    align-content: center;
+    padding: 20px;
+    width: 250px;
+    height: 125px;
+    margin: 10px 5px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+.own.overview .CardTitle {
+    text-align: center;
+    color: #50515A;
+    padding-top: 20px;
+}
+
+.own.overview .CardAmmount {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.own.overview .ownOverviewContainerCard3 {
+    width: 100px;
+    height: 60px;
+    margin: 20px;
+    padding: 5px;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+.own.overview .ownOverviewCardContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        'ownOverviewContainerCard1 ownOverviewContainerCard2'
+        'ownOverviewContainerCard3 ownOverviewContainerCard3';
+    justify-items: center;
+}
+
+.own.overview .ownOverviewContainerCard1 {
+    grid-area: ownOverviewContainerCard1;
+}
+
+/* .own.overview .ownOverviewContainerCard1:hover,
+.own.overview .ownOverviewContainerCard2:hover{
+        background-color: #037AFF;
+        color: white;
+        box-shadow: 0px 0px 12px  #037AFF ;
+        transition: 0.3s;
+} */
+.own.overview .ownOverviewContainerCard2 {
+    grid-area: ownOverviewContainerCard2;
+}
+
+.own.overview .ownOverviewContainerCard3 {
+    grid-area: ownOverviewContainerCard3;
+    padding: 10px 0 20px 0;
+}
+
+.ownOverviewChart {
+    display: flex;
+    height: 250px;
+    align-items: center;
+}
+
+#ownOverviewChartAvailableEmployees,
+#ownOverviewChartIncome,
+#ownOverviewChartSalaryStatus {
+    width: 400px;
+    height: 200px;
+}
+
+.own.overview .ownOverviewCharts {
+    display: flex;
+    justify-content: center;
+}
+
+/*####################################################################################################################################################
+Owner Overview Ends
+##################################################################################################################################################### */
 
 
 
 
-#ownCloseSalonContainer{
-     width: 550px;
- } 
 
- .own.close-salon .ownCloseSalonHead{
-     text-align: center;
- }
- .own.close-salon .ownCloseSalonLable{
-     font-size: 14px;
-      font-weight: 600;
-      text-align: start;
- }
- 
- .own.close-salon .ownCloseSalonDetail1,
- .own.close-salon .ownCloseSalonDetail2{
-     display: inline-block;
- }
- 
- .own.close-salon .ownCloseSalonGrid1 input[type = "date"], #ownCloseSalonTextArea, select {
-     width: 100%;
-     font-weight: 400;
-     padding: 8px 10px;
-     border-radius: 6px;
-     border: none;
-     background-color : #EAEAEA;
-     margin-top: 5px;
- 
-  }
-  #ownCloseSalonTextArea{
-      width: 450px;
-  }
- 
-  .own.close-salon .ownCloseSalonGrid1 input:focus,
-  #ownCloseSalonTextArea:focus{
-      border-color: none;
-      outline: none;
-  }
- 
-  .own.close-salon .ownCloseSalonErrortext{
-     font-size: 12px;
-     color: red ;
-     padding-right: 40px;
-     font-weight: 600;
-  }
- 
-  .own.close-salon .ownCloseSalonMessage{
-      font-size: 14px;
-      padding-top: 5px;
-      font-weight: 600;
-  }
- 
-  .own.close-salon .ownCloseSalonErrorViewReservaions{
-     color: #037AFF;
-     text-align: start;
-     font-size: 14px;
-     cursor: pointer;
-     font-weight: 600;
-     text-decoration: underline;
-  }
- 
- 
-  .own.close-salon .ownCloseSalonGrid3{
-      display: grid;
-      justify-self: center;
-      padding-top: 10px;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 80px;
-      grid-template-areas: 
-      'ownRemStaffbtn1 ownRemStaffbtn2' }
- 
- 
-      .own.close-salon .ownRemStaffbtn1{
-      grid-area: ownRemStaffbtn1;
-  }
- 
-  .own.close-salon .ownRemStaffbtn2{
-     grid-area: ownRemStaffbtn2;
- }
- 
- .own.close-salon .ownRemStaffbtn2 .btn{  
-     background: #3ABD5F;
- }
- 
- 
- 
- 
- /* ------------------------------------------------------ */
- /* --------------STYLES ADDED BY RAVINDU -----------------*/
- /* ------------------------------------------------------ */
- 
+/*#####################################################################################################################################################
+Close Salon Starts
+##################################################################################################################################################### */
 
+/* #ownCloseSalonContainer {
+    width: 600px;
+}
 
+.own.close-salon .ownCloseSalonHead {
+    text-align: center;
+}
+
+.own.close-salon .ownCloseSalonLable {
+    font-size: 14 px;
+    font-weight: 600;
+    text-align: start;
+}  */
+
+/* ?????????????????????????????????? */
+/* .own.close-salon .ownCloseSalonDetail1 {
+    display: inline-block;
+    padding-bottom: 15px;
+} */ 
+
+/* ?????????????????????????????????? */
+
+/* .own.close-salon .ownCloseSalonGrid1 input[type="date"],
+#ownCloseSalonTextArea,
+.own select {
+    width: 100%;
+    font-weight: 400;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: none;
+    background-color: #EAEAEA;
+    margin-top: 5px;
+}
+
+#ownCloseSalonTextArea {
+    width: 500px;
+    resize: none;
+}
+
+.own.close-salon .ownCloseSalonGrid1 input:focus,
+#ownCloseSalonTextArea:focus {
+    border-color: none;
+    outline: none;
+}
+
+.own.close-salon .ownCloseSalonErrortext {
+    font-size: 14px;
+    color: #DA2346;
+    padding-right: 50px;
+    font-weight: 600;
+}
+
+.own.close-salon .ownCloseSalonMessage {
+    font-size: 14px;
+    padding-top: 5px;
+    font-weight: 600;
+}
+
+.own.close-salon .ownCloseSalonErrorViewReservaions {
+    color: #037AFF;
+    text-align: start;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.ownCloseSalonGrid1 {
+    padding-top: 20px;
+}
+
+.ownCloseSalonGrid2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+ */
+.own.close-salon .ownCloseSalonGrid3 {
+    display: grid;
+    padding-top: 20px;
+    justify-self: center;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+        'ownCloseSalonbtn1 ownCloseSalonbtn2'
+}
 
 
+.own.close-salon .ownCloseSalonbtn1 {
+    grid-area: ownCloseSalonbtn1;
+    justify-self: center;
 
+}
+
+.own.close-salon .ownCloseSalonbtn2 {
+    grid-area: ownCloseSalonbtn2;
+    justify-self: center;
+}
 
 
 /* 
@@ -175,134 +478,121 @@ Close Salon ends
 Customers Starts
 ##################################################################################################################################################### */
 
+/* -----------Styles for Remove Customer--------------- */
 
+.own.customers .modal-box {
+    display: grid;
+    justify-content: center;
+    width: 500px;
+}
 
-
-
-
-/* -----------Styles for Remove Staff--------------- */
-/* Move required styles to common stylesheet where necessary */
-
-/* ------------------------------------------------------ */
-/* --------------STYLES ADDED BY RAVINDU -----------------*/
-/* ------------------------------------------------------ */
 .own.customers .ownRemCusHead {
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     text-align: center;
- }
+}
 
- .own.customers .container {
-  
+.own.customers .container {
+
     width: 40%;
     min-width: 330px;
     background-color: #ffffff;
     padding: 35px 50px;
     margin-left: 30px;
     border-radius: 6px;
-    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);  
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
 
- }
-
- .own.customers .ownRemCusLabel1,
- .own.customers .ownRemCusLabel2{ 
-     font-size: 14px;
-     font-weight: 600;
-     text-align: start;
- }
- .own.customers .ownRemCusData1,
- .own.customers .ownRemCusData2
- {
+.own.customers .ownRemCusLabel1,
+.own.customers .ownRemCusLabel2 {
     font-size: 14px;
     font-weight: 600;
-    color: #50515A;
     text-align: start;
- }
- .own.customers .ownRemCusDetails{
-   text-align: center;
-   align-items: end;
+    padding-left: 30px;
+    color: #50515A;
+}
+
+.own.customers .ownRemCusData1,
+.own.customers .ownRemCusData2 {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.own.customers .ownRemCusDetails {
+    text-align: center;
+    align-items: center;
 }
 
 
 .own.customers .ownRemCusErrortext {
-     font-size: 10px;
-     color: red ;
-     padding-top: 5px;
- }
- .own.customers .ownRemCusError{
-    text-align: center;
-}
-.own.customers button {
-    border: none;
-    padding: 7px 20px;
-    background: linear-gradient(130deg,
-          #037AFF,
-          #037AFF);
-    color: #ffffff;
-    border-radius: 6px;
-    font-family: 'Poppins';
+    padding-top: 5px;
     font-size: 14px;
-    font-weight: 400;
- }
+    color: #DA2346;
+    font-weight: 600;
+}
 
- .own.customers .ownRemCusbtn1 .btn{
-     background: #EAEAEA;
-     color: black;
- }
- 
- .own.customers.ownRemCusDetails{
+.own.customers .ownRemCusError {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.own.customers .ownRemCusDetails {
     display: grid;
     width: 400px;
-    grid-template-columns: 1fr 1fr;
-
-    grid-template-areas: 
-    'ownRemCusLabel1 ownRemCusData1'
-    'ownRemCusLabel2 ownRemCusData2';
+    padding-left: 20px;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+        'ownRemCusLabel1 ownRemCusData1'
+        'ownRemCusLabel2 ownRemCusData2';
 }
-.own.customers .ownRemCusError{
+
+.own.customers .ownRemCusError {
     display: grid;
     grid-template-columns: 100%;
-    grid-template-areas: 
-    'ownRemCusErrortext';
-    
+    grid-template-areas:
+        'ownRemCusErrortext';
 }
-.own.customers .ownRemCusButtons{
+
+.own.customers .ownRemCusButtons {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-    'ownRemCusbtn1 ownRemCusbtn2';
-    text-align:  center;
-    padding-top: 5px;
+    grid-template-areas:
+        'ownRemCusbtn1 ownRemCusbtn2';
+    text-align: center;
+    padding-top: 10px;
 }
 
 
-.own.customers .ownRemCusLabel1{
+.own.customers .ownRemCusLabel1 {
     grid-area: ownRemCusLabel1;
 }
-.own.customers .ownRemCusData1{
+
+.own.customers .ownRemCusData1 {
     grid-area: ownRemCusData1;
+
 }
-.own.customers .ownRemCusLabel2{
+
+.own.customers .ownRemCusLabel2 {
     grid-area: ownRemCusLabel2;
 }
-.own.customers .ownRemCusData2{
+
+.own.customers .ownRemCusData2 {
     grid-area: ownRemCusData2;
 }
-.own.customers .ownRemCusErrortext{
+
+.own.customers .ownRemCusErrortext {
     grid-area: ownRemCusErrortext;
 }
-.own.customers .ownRemCusbtn1{
-    grid-area: ownRemCusbtn1;
 
-    
+.own.customers .ownRemCusbtn1 {
+    grid-area: ownRemCusbtn1;
 }
-.own.customers .ownRemCusbtn2{
+
+.own.customers .ownRemCusbtn2 {
     grid-area: ownRemCusbtn2;
 }
- 
- 
- /* ------------------------------------------------------ */
- /* -----------END OF STYLES ADDED BY RAVINDU--------------*/
- /* ------------------------------------------------------ */
+
 
 /* 
 #####################################################################################################################################################
@@ -318,174 +608,263 @@ Customers Endss
 ##################################################################################################################################################### */
 
 
-.own.rates .ownRatesDate{
+.own.rates .ownRatesDate {
     padding-left: 40px;
 }
-.own.rates .ownRateMonthlabel{
+
+.ownRatesInputMonth {
+    width: 240px;
+    border: none;
+    height: 40px;
+    border-radius: 6px;
+    text-align: center;
+    padding: 5px;
+    place-content: "--Select Month--";
+}
+
+.ownRatesInputMonth:focus {
+    outline: none;
+}
+
+.own.rates .ownRateMonthlabel {
     font-size: 12px;
     font-weight: 600;
 }
+
 /* Main headings styles */
 .own.rates .ownRatesLeaveLimitHeadbar h1,
 .own.rates .ownRatesCommisionRateHeadbar h1,
 .own.rates .ownRatesMinManagersHeadbar h1,
-.own.rates .ownRatesBasicSalaryHeadbar h1{
-   font-size: 16px;
-   font-weight: 250px;
-   padding-left: 10px;
+.own.rates .ownRatesBasicSalaryHeadbar h1 {
+    font-size: 16px;
+    font-weight: 250px;
+    padding-left: 10px;
 }
+
 /* Leave Limits styles */
-.own.rates .ownRatesLeaveLimitsLabel{
-   font-size: 14px;
-   font-weight: 400;
-   color: #50515A;
-   padding-left: 10px;
+.own.rates .ownRatesLeaveLimitsLabel {
+    font-size: 14px;
+    font-weight: 400;
+    color: #50515A;
+    padding-left: 10px;
 }
-.own.rates .ownRatesLeaveLimitsText{
-   text-align: center;
+
+.own.rates .ownRatesLeaveLimitsText {
+    text-align: center;
 }
-.own.rates .ownRatesLeaveLimitsDetails input{
-   float: right;
-   /* border-radius: 6px; */
-   border: none;
-   background-color: #EAEAEA;
+
+.own.rates .ownRatesLeaveLimitsDetails input {
+    float: right;
+    /* border-radius: 6px; */
+    border: none;
+    background-color: #EAEAEA;
 }
-.own.rates .ownRatesLeaveLimitsDetails{
-   padding-top: 20px;
+
+.own.rates .ownRatesLeaveLimitsDetails {
+    padding-top: 20px;
 }
 
 /* commision rate styles */
 /* Minimum Managers styles */
 .own.rates .ownRatesComissionRate input,
-.own.rates .ownRatesMinManagers input{
-   
-   border: none;
-   background-color: #EAEAEA;
-   height: 30px;
+.own.rates .ownRatesMinManagers input {
+    border: none;
+    background-color: #EAEAEA;
+    height: 30px;
 }
+
 .own.rates .ownRatesCommisionRateDetails,
-.own.rates .ownRatesMinManagersDetails{
-   text-align: center;
-   padding-top: 40px;
+.own.rates .ownRatesMinManagersDetails {
+    text-align: center;
+    padding-top: 40px;
 }
+
 .own.rates .ownRatesCommisionRateText,
-.own.rates .ownRatesMinManagersText{
-   text-align: center;
+.own.rates .ownRatesMinManagersText {
+    text-align: center;
 }
+
 /* Basic salary styles */
-.own.rates .ownRatesBasicSalaryHeadbar{
-   padding-left: 10px;
-   padding-top: 20px;
+.own.rates .ownRatesBasicSalaryHeadbar {
+    padding-left: 10px;
+    padding-top: 20px;
 }
 
 .own.rates .ownRatesBasicSalary1 input,
 .own.rates .ownRatesBasicSalary2 input,
-.own.rates .ownRatesBasicSalary3 input{
-   border: none;
-   background-color: #EAEAEA;
-   height: 30px;
+.own.rates .ownRatesBasicSalary3 input {
+    border: none;
+    background-color: #EAEAEA;
+    height: 30px;
 }
+
 .own.rates .ownRatesBasicSalarytext1,
 .own.rates .ownRatesBasicSalarytext2,
-.own.rates .ownRatesBasicSalarytext3{
-   text-align: center;
-   padding-top: 20px;
+.own.rates .ownRatesBasicSalarytext3 {
+    text-align: center;
+    padding-top: 20px;
 }
-.own.rates .ownRatesBasicSalaryText{
-   text-align: center;
+
+.own.rates .ownRatesBasicSalaryText {
+    text-align: center;
 }
 
 .own.rates .ownRatesBasicSalary1,
 .own.rates .ownRatesBasicSalary2,
-.own.rates .ownRatesBasicSalary3{
-   color: #50515A;
-   font-weight: 500;
-   text-align: center;
+.own.rates .ownRatesBasicSalary3 {
+    color: #50515A;
+    font-weight: 500;
+    text-align: center;
 }
 
 /* grid styles */
 
 .own.rates .ownRatesLeaveLimit,
 .own.rates .ownRatesComissionRate,
-.own.rates .ownRatesMinManagers{
-   height: 150px;
-   width: 350px;
-   background-color: white;
-   border-radius: 6px;
-   box-shadow: 4px 4px 4px  #dad6d6;    
-}
-.own.rates .ownRatesBasicSalary{
-   height: 200px;
-   width: 1096px;
-   background-color: white;
-   border-radius: 6px;
-   box-shadow: 4px 4px 4px  #dad6d6; 
-   
-}
-.own.rates .ownRatesBasicSalaryContainer{
-   padding-left: 60px;
+.own.rates .ownRatesMinManagers {
+    height: 150px;
+    width: 350px;
+    margin: 20px;
+    padding: 5px;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
 }
 
-.own.rates .ownRateGridArea2{
-   display: grid;
-   grid-template-columns: 1fr 1fr 1fr;
-   /* grid-gap: 10px 40px; */
-   grid-template-areas: 
-   'ownRatesLeaveLimit ownRatesComissionRate ownRatesMinManagers';
-   justify-content: center;
-   padding: 40px;
+.own.rates .ownRatesBasicSalary {
+    height: 200px;
+    width: 80%;
+    margin: 20px;
+    padding: 5px;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+.own.rates .ownRatesBasicSalaryContainer {
+    display: flex;
+    padding: 40px;
+    justify-content: center;
+}
+
+.own.rates .ownRateGridArea2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-gap: 10px 40px; */
+    grid-template-areas:
+        'ownRatesLeaveLimit ownRatesComissionRate ownRatesMinManagers';
+    justify-content: center;
+    padding: 40px;
+}
+
+.own.rates .ownRatesBasicSalary {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas:
+        'ownRatesBasicSalaryHeadbar'
+        'ownRatesBasicSalaryContent';
 
 }
 
-.own.rates .ownRatesBasicSalary{
-   display: grid;
-   grid-template-columns: 100%;
-   grid-template-areas: 
-   'ownRatesBasicSalaryHeadbar'
-   'ownRatesBasicSalaryContent';
-   
+.own.rates .ownRatesBasicSalaryContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        'ownRatesBasicSalary1 ownRatesBasicSalary2 ownRatesBasicSalary3';
 }
 
-.own.rates .ownRatesBasicSalaryContent{
-   display: grid;
-   grid-template-columns: 1fr 1fr 1fr;
-   grid-template-areas: 
-   'ownRatesBasicSalary1 ownRatesBasicSalary2 ownRatesBasicSalary3';
-   justify-content: center;
+.own.rates .ownRatesLeaveLimit {
+    grid-area: ownRatesLeaveLimit;
+    padding: 10px;
 }
 
-.own.rates .ownRatesLeaveLimit{
-   grid-area: ownRatesLeaveLimit;
-   padding: 10px;
+.own.rates .ownRatesComissionRate {
+    grid-area: ownRatesComissionRate;
+    padding: 10px;
 }
 
-.own.rates .ownRatesComissionRate{
-   grid-area: ownRatesComissionRate;
-   padding: 10px;
-}
-.own.rates .ownRatesMinManagers{
-   grid-area: ownRatesMinManagers;
-   padding: 10px;
+.own.rates .ownRatesMinManagers {
+    grid-area: ownRatesMinManagers;
+    padding: 10px;
 }
 
-.own.rates .ownRatesBasicSalary{
-   grid-area: ownRatesBasicSalary;
-}
-.own.rates .ownRatesBasicSalaryHeadbar{
-   grid-area: ownRatesBasicSalaryHeadbar;
-}
-.own.rates .ownRatesBasicSalaryContent{
-   grid-area: ownRatesBasicSalaryContent;
+.own.rates .ownRatesBasicSalary {
+    grid-area: ownRatesBasicSalary;
 }
 
-.own.rates .ownRatesBasicSalary1{
-   grid-area: ownRatesBasicSalary1;
+.own.rates .ownRatesBasicSalaryHeadbar {
+    grid-area: ownRatesBasicSalaryHeadbar;
 }
-.own.rates .ownRatesBasicSalary2{
-   grid-area: ownRatesBasicSalary2;
+
+.own.rates .ownRatesBasicSalaryContent {
+    grid-area: ownRatesBasicSalaryContent;
 }
-.own.rates .ownRatesBasicSalary3{
-   grid-area: ownRatesBasicSalary3;
+
+.own.rates .ownRatesBasicSalary1 {
+    grid-area: ownRatesBasicSalary1;
+}
+
+.own.rates .ownRatesBasicSalary2 {
+    grid-area: ownRatesBasicSalary2;
+}
+
+.own.rates .ownRatesBasicSalary3 {
+    grid-area: ownRatesBasicSalary3;
+}
+
+
+@media screen and (max-width: 1400px) {
+    .own.rates .ownRateGridArea2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            'ownRatesLeaveLimit ownRatesComissionRate'
+            'ownRatesMinManagers ownRatesMinManagers ';
+    }
+    .ownRatesMinManagersContainer{
+        justify-self: center;
+    }
+    .ownRatesComissionRate,
+    .ownRatesLeaveLimit{
+        width: 100%;
+    }
+    .ownRatesMinManagers{
+        width: 500px;
+    }
+}
+
+
+
+@media screen and (max-width: 1000px) {
+    .own.rates .ownRateGridArea2 {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            'ownRatesLeaveLimit'
+            'ownRatesComissionRate'
+            'ownRatesMinManagers';
+    }
+
+    .own.rates .ownRatesBasicSalaryContent {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            'ownRatesBasicSalary1'
+            'ownRatesBasicSalary2'
+            'ownRatesBasicSalary3';
+
+    }
+
+    .own.rates .ownRatesBasicSalary {
+        width: 350px;
+        height: 400px;
+        justify-self: center;
+    }
+
+    .own.rates .ownRatesBasicSalaryContainer {
+        padding-left: 0;
+    }
+
 }
 
 
@@ -497,53 +876,53 @@ Customers Endss
  Rates Endss
 ##################################################################################################################################################### */
 
-/* -----------Styles for Resources--------------- */
-/* Move required styles to common stylesheet where necessary */
-
-/* ------------------------------------------------------ */
-/* --------------STYLES ADDED BY RAVINDU -----------------*/
-/* ------------------------------------------------------ */
-
-/* --------------------------------------------------------------------------------------------------------- */
-
-/* ------------------------------------------------------------ */
+/* ---------------------------------------------------------- */
 /* -----------Styles for Remove Resources Starts--------------- */
-/* ------------------------------------------------------------ */
-#ownResRemContainer{
-    width: 500px;
-        height: 200px;
+/* ---------------------------------------------------------- */
+
+
+#ownResRemContainer {
+    width: 400px;
+    height: 200px;
 }
-.own.resources .ownRemResHead{
+
+.own.resources .ownRemResHead {
     padding-bottom: 10px;
     text-align: center;
- }
- .own.resources .ownResRem_ResourceDeatils{
-     text-align: center;
-     color: #50515A;
- }
- .own.resources .ownResRemButtons{
-     padding-top: 20px;
- }
- .own.resources .ownResRemBtn1 .btn{
+}
+
+.own.resources .ownResRem_ResourceDeatils {
+    text-align: center;
+    color: #50515A;
+}
+
+.own.resources .ownResRemButtons {
+    padding-top: 20px;
+}
+
+.own.resources .ownResRemBtn1 .btn {
     background: #EAEAEA;
     color: black;
 }
 
-.own.resources .ownResRemButtons{
+.own.resources .ownResRemButtons {
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-areas: 
-    'ownResRemBtn1 ownResRemBtn2';
+    grid-template-areas:
+        'ownResRemBtn1 ownResRemBtn2';
     text-align: center;
 }
-.own.resources .ownResRemBtn1{
+
+.own.resources .ownResRemBtn1 {
     grid-area: ownResRemBtn1;
-    padding-left: 20px; 
+    padding-left: 20px;
 }
-.own.resources .ownResRemBtn2{
+
+.own.resources .ownResRemBtn2 {
     grid-area: ownResRemBtn2;
-    padding-right: 20px; 
+    padding-right: 20px;
 }
+
 
 
 /* ---------------------------------------------------------- */
@@ -557,97 +936,101 @@ Customers Endss
 /* -----------Styles for Add Resources Starts------------------ */
 /* ------------------------------------------------------------ */
 
-#ownResAddContainer{
-        width: 500px;
-        height: 300px;
+#ownResAddContainer {
+    width: 500px;
+    height: 300px;
 }
-.own.resources .ownResAddHead{
+
+.own.resources .ownResAddHead {
     text-align: center;
-
 }
 
-.own.resources .ownResAddDetails{
+.own.resources .ownResAddDetails {
     text-align: left;
     padding-top: 40px;
 }
+
 .own.resources .ownResAddLabel1,
-.own.resources .ownResAddLabel2{
-   
+.own.resources .ownResAddLabel2 {
+
     font-size: 16px;
-    font-weight: 600; 
+    font-weight: 600;
     margin-bottom: 10px;
 }
-#ownResAddQuantity{
+
+#ownResAddQuantity {
     margin: 0;
+    width: 70px;
+    height: 40px;
 }
 
 .own.resources .ownResAddDetail1,
-.own.resources .ownResAddDetail2{
-  text-align: left;
+.own.resources .ownResAddDetail2 {
+    text-align: left;
 }
 
-.own.resources .ownResAddLabeltext{
+.own.resources .ownResAddLabeltext {
     border-radius: 6px;
-    width: 200px;
+    width: 300px;
     height: 40px;
 }
+
 .own.resources .ownResAddDetail1 input[type="text"],
-.own.resources .ownResAddDetail2 #ownResAddQuantity{
+.own.resources .ownResAddDetail2 #ownResAddQuantity {
 
-    background-color : #EAEAEA; 
+    background-color: #EAEAEA;
     padding-left: 5px;
-    Border : none; 
-  
-  }
-  .own.resources .ownResAddDetail1 input[type="text"]:focus,
-  .own.resources .ownResAddDetail2 #ownResAddQuantity:focus{
-        outline: none;
-        border-color: #6f6df4;
-     }
-     .own.resources .ownResAddBtn1 .btn{
-    background: #EAEAEA; 
-    color: black; 
-}
-.own.resources .ownResAddBtn2 .btn{  
-    background: #3ABD5F;
+    Border: none;
+
 }
 
-.own.resources .ownResAddBtn1{
-    padding-left: 20px;    
+.own.resources .ownResAddDetail1 input[type="text"]:focus,
+.own.resources .ownResAddDetail2 #ownResAddQuantity:focus {
+    outline: none;
 }
-.own.resources .ownResAddBtn2{
-    padding-right: 20px;    
+
+.own.resources .ownResAddBtn1 {
+    padding-left: 20px;
+}
+
+.own.resources .ownResAddBtn2 {
+    padding-right: 20px;
 }
 
 
-.own.resources .ownResAddDetails{
+.own.resources .ownResAddDetails {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-areas: 
-    'ownResAddDetail1 ownResAddDetail2';
+    grid-template-areas:
+        'ownResAddDetail1 ownResAddDetail2';
 }
 
 
-.own.resources .ownResAddButtons{
+.own.resources .ownResAddButtons {
     display: grid;
-    grid-template-columns: 1fr 1fr ;
-    grid-template-areas: 
-    'ownResAddBtn1 ownResAddBtn2';
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        'ownResAddBtn1 ownResAddBtn2';
     text-align: center;
     padding-top: 60px;
 }
-.own.resources .ownResAddBtn1{
+
+.own.resources .ownResAddBtn1 {
     grid-area: ownResAddBtn1;
 }
-.own.resources .ownResAddBtn2{
+
+.own.resources .ownResAddBtn2 {
     grid-area: ownResAddBtn2;
-    
+
 }
-.own.resources .ownResAddDetail1{
+
+.own.resources .ownResAddDetail1 {
     grid-area: ownResAddDetail1;
 }
-.own.resources .ownResAddDetail2{
+
+.own.resources .ownResAddDetail2 {
     grid-area: ownResAddDetail2;
+    justify-self: center;
 }
 
 
@@ -673,151 +1056,155 @@ Customers Endss
  Salaries Starts
 ##################################################################################################################################################### */
 
-/* -----------Styles for Salaries--------------- */
-/* Move required styles to common stylesheet where necessary */
-
-/* ------------------------------------------------------ */
-/* --------------STYLES ADDED BY RAVINDU -----------------*/
-/* ------------------------------------------------------ */
-
 
 /* ------------------------- owner salary report styles --------------------------- */
 
 /* ----------------------------Headings styles -------------*/
-.own.salaries .SalaryReportContainer{
-    background-color: white;
+.own.salaries .content {
+    height: 100%;
 }
-.own.salaries .ownSalaryReportHeadings{
-    text-align: center;
-}
-.own.salaries .ownSalaryReportHead1{
-   font-size: 30px;
-   font-weight: 600;
-}
-.own.salaries .ownSalaryReportHead2{
-   font-size: 16px;
-   font-weight: 450;
 
+.own.salaries .ownSalaryReportHeadings {
+    text-align: center;
+    padding: 30px;
 }
-.own.salaries .ownSalaryReportHead3{
-   font-size: 18px;
-   font-weight: 800;
-   color: #8A8888;
+
+.own.salaries .ownSalaryReportHead3 {
+    color: #8A8888;
 }
 
 /* ----------------------------Salary Report Staff Member Details Styles-------------- */
-
-.own.salaries .ownSalaryReportStaffMemberDetails,
-.own.salaries .ownSalaryReportEarningDetails,
-.own.salaries .ownSalaryReportDeductionsDetails{
-    padding-left: 10px;
-
-}
 .own.salaries .ownSalaryReportStaffMemberDetailHead,
-.own.salaries .ownSalaryReportEarningDetailsHead,
-.own.salaries .ownSalaryReportDeductionsDetailHead,
-.own.salaries .ownSalaryReportSubTotalDetailHead{
-    font-size: 16px;
-    font-weight: 500;
+.own.salaries .ownSalaryReportSalaryDetailssHead {
+    font-size: 18px;
+    font-weight: 600;
+    padding-bottom: 10px;
 }
 
-.own.salaries .ownSalaryReportStaffMemberDetailsContent{
-    background-color: #EAEAEA;
-    padding: 10px;
+.own.salaries .ownSalaryReportStaffMemberDetailsContent {
+    padding: 40px;
     float: right;
-    height: 120px;
-    width: 500px;
+    width: 450px;
+    margin: 0;
+    border-radius: 6px;
+    background-color: var(--white);
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
 
 }
 
-.own.salaries .ownSalaryReportEarningDetailsContent{
-    background-color: #EAEAEA;
-    padding: 10px;
-    float: right;
-    height: 120px;
-    width: 500px;
-}
-.own.salaries .ownSalaryReportDeductionsDetailsContent{
-    background-color: #EAEAEA;
-    padding: 10px;
+.own.salaries .ownSalaryReportSalaryDetailsContent {
+    padding: 40px;
     float: left;
-    height: 120px;
-    width: 500px;
-}
-.own.salaries .ownSalaryReportSubTotalDetailsContent{
-    background-color: #EAEAEA;
-    padding: 10px;
-    height: 40px;
-    width: 500px;
-}
-.own.salaries .ownSalaryReportPaidDetailsContent{
-    background-color: #EAEAEA;
-    padding: 10px;
-    width: 500px; 
-    height: 60px;  
+    /* height: 400px; */
+    width: 450px;
+    margin: 0;
+    border-radius: 6px;
+    background-color: var(--white);
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
 }
 
 .own.salaries .ownSalaryReportStaffMemberDetailsContentData,
-.own.salaries .ownSalaryReportEarningDetailsContentData,
-.own.salaries .ownSalaryReportDeductionsDetailsContentData,
-.own.salaries .ownSalaryReportSubTotalDetailsContentData,
-.own.salaries .ownSalaryReportPaidDetailsContentData{
+.own.salaries .ownSalaryReportSalaryDetailsContentData,
+.own.salaries .ownSalaryReportDeductionsDetailsContentData {
     float: left;
-    font-size: 14px;
-    font-weight: 400px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #50515A;
+
 }
+
 .own.salaries .ownSalaryReportStaffMemberDetailsContentValue,
-.own.salaries .ownSalaryReportEarningDetailsContentValue,
-.own.salaries .ownSalaryReportDeductionsDetailsContentValue,
-.own.salaries .ownSalaryReportSubTotalDetailsContentValue,
-.own.salaries .ownSalaryReportPaidDetailsContentValue{
+.own.salaries .ownSalaryReportSalaryDetailsContentValue {
     float: right;
-    font-size: 14px;
-    font-weight: 400px;
-    color:#50515A ;
+    font-size: 16px;
+    font-weight: 600;
 }
+
+.own.salaries .ownSalaryReportDeductionsDetailsContentValue {
+    float: right;
+    font-size: 16px;
+    font-weight: 600;
+    color: #DA2346;
+}
+
+.own.salaries .ownSalaryReportTotalSalaryContentData {
+    float: left;
+    font-size: 16px;
+    font-weight: 700;
+    color: #50515A;
+}
+
+.own.salaries .ownSalaryReportTotalSalaryContentValue {
+    float: right;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.ownSalaryReportTotalSalaryStatusLabel {
+    color: #38A36D;
+    font-weight: 500;
+}
+
+.ownSalaryReportTotalSalaryStatus {
+    background-color: #C0F0D1;
+    width: 100px;
+    height: 35px;
+    float: right;
+    border-radius: 6px;
+    /* border-style: solid;
+    border-color: #38A36D;
+    border-width: 2px; */
+    text-align: center;
+    padding-top: 5px;
+}
+
 /* Arrange the grid areas */
-.own.salaries .SalaryReportContainer{
+.own.salaries .SalaryReportContainer {
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-areas: 
-    'ownSalaryReportHeadings ownSalaryReportHeadings'
-    'ownSalaryReportStaffMemberDetails ownSalaryReportDeductionsDetails'
-    'ownSalaryReportEarningDetails ownSalaryReportSubTotalDetails'
-    'ownSalaryReportEarningDetails ownSalaryReportPaidDetails'
+    height: 100%;
+    padding-bottom: 45px;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-template-areas:
+        'ownSalaryReportStaffMemberDetails ownSalaryReportSalaryDetails'
 }
 
 /* Assign grid areas */
-.own.salaries .ownSalaryReportHeadings{
-    grid-area: ownSalaryReportHeadings;
-    padding: 5px;
-}
-.own.salaries .ownSalaryReportStaffMemberDetails{
+.own.salaries .ownSalaryReportStaffMemberDetails {
     grid-area: ownSalaryReportStaffMemberDetails;
-    padding: 5px;
-    
+    width: 450px;
+    justify-self: right;
 }
-.own.salaries .ownSalaryReportEarningDetails{
-    grid-area: ownSalaryReportEarningDetails;
-    padding: 5px;
-  
-}
-.own.salaries .ownSalaryReportDeductionsDetails{
-    grid-area: ownSalaryReportDeductionsDetails;
-    padding: 5px ;
-}
-.own.salaries .ownSalaryReportSubTotalDetails{
-    grid-area: ownSalaryReportSubTotalDetails;
-    padding: 5px;
-}
-.own.salaries .ownSalaryReportPaidDetails{
-    grid-area: ownSalaryReportPaidDetails;
-    padding: 5px;
+
+.own.salaries .ownSalaryReportSalaryDetails {
+    grid-area: ownSalaryReportSalaryDetails;
+    width: 450px;
+    justify-self: left;
 }
 
 
+@media screen and (max-width: 830px) {
+    .own.salaries .SalaryReportContainer {
+        display: grid;
+        height: 100vh;
+        grid-template-columns: 1fr;
+        grid-row-gap: 20px;
+        align-self: center;
+        grid-template-areas:
+            'ownSalaryReportStaffMemberDetails'
+            'ownSalaryReportSalaryDetails';
+    }
+
+    .own.salaries .ownSalaryReportStaffMemberDetails {
+        justify-self: center;
+    }
+
+    .own.salaries .ownSalaryReportSalaryDetails {
+        justify-self: center;
+    }
 
 
+}
 
 
 /* 
@@ -850,75 +1237,62 @@ Customers Endss
 
 #ownRemstaffWrapper {
     display: block;
-    width: 400px;
+    width: 450px;
 }
 
-.own.staff .ownRemstaffContainer {
-    display: grid;
-}
-
-.own.staff .ownRemStaffHead {
-    padding-bottom: 10px;
+.own.Remstaff .ownRemStaffHead {
+    padding-bottom: 20px;
     text-align: center;
 }
 
-
-
-.own.staff .staffLable {
+.own.Remstaff .staffLable {
     font-size: 14px;
     font-weight: 600;
     text-align: start;
     display: block;
+    color: #50515A;
+    padding-bottom: 2px;
 }
 
-.own.staff .staffData {
-    font-size: 14px;
+.own.Remstaff .staffData {
+    font-size: 16px;
     font-weight: 600;
-    color: #50515A;
     text-align: start;
 }
 
-.own.staff .staffDetails {
-
-    width: 300px;
+.own.Remstaff .staffDetails {
+    width: 400px;
     height: 120px;
+    padding-bottom: 20px;
 }
 
-
-.own.staff .remStaffErrortext {
-    font-size: 12px;
-    color: red;
+.own.Remstaff .remStaffErrortext {
+    font-size: 14px;
+    color: #DA2346;
+    font-weight: 600;
 }
 
-.own.staff .remStaffErrorAnchortag {
+.own.Remstaff .remStaffErrorAnchortag {
     cursor: auto;
 }
 
-.own.staff .remStaffErrorViewReservaions {
+.own.Remstaff .remStaffErrorViewReservaions {
     color: #037AFF;
-    text-align: start;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
-
-
-
+    text-decoration: underline;
 }
 
-.own.staff .remStaffError {
+.own.Remstaff .remStaffError {
     text-align: left;
-    width: 300px;
+    width: 400px;
     height: 40px;
-
 }
-
-
-
-
-
 
 /* 
 --------------------------------------------- */
-.own.staff button {
+/* .own.Remstaff button {
     border: none;
     padding: 7px 20px;
     background: linear-gradient(130deg,
@@ -928,75 +1302,66 @@ Customers Endss
     border-radius: 6px;
     font-size: 14px;
     font-weight: 400;
-}
+} */
 
-.own.staff .ownRemStaffbtn1 .btn {
-    background: #EAEAEA;
-    color: black;
-}
-
-
-.own.staff .staffDetails {
+.own.Remstaff .staffDetails {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-self: center;
     grid-template-areas:
         'staffDetail1 staffDetail2'
         'staffDetail3 staffDetail3'
-
 }
 
-.own.staff .remStaffError {
+.own.Remstaff .remStaffError {
     display: grid;
     grid-template-columns: 100%;
     justify-self: center;
     grid-template-areas:
         'remStaffErrortext'
         'viewReservaions';
-
 }
 
-.own.staff .remButtons {
+.own.Remstaff .remButtons {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 40px;
+    padding-top: 40px;
     grid-template-areas:
         'ownRemStaffbtn1 ownRemStaffbtn2';
     text-align: center;
-    padding-top: 5px;
 }
 
-.own.staff .staffDetail1 {
+.ownRem.staff .staffDetail1 {
     grid-area: staffDetail1;
-
 }
 
-.own.staff .staffDetail2 {
+.own.Remstaff .staffDetail2 {
     grid-area: staffDetail2;
 }
 
-.own.staff .staffDetail3 {
+.own.Remstaff .staffDetail3 {
     grid-area: staffDetail3;
+    padding-top: 10px;
 }
 
-.own.staff .remStaffErrortext {
+.own.Remstaff .remStaffErrortext {
     grid-area: remStaffErrortext;
 }
 
-.own.staff .viewReservaions {
+.own.Remstaff .viewReservaions {
     grid-area: viewReservaions;
 }
 
-.own.staff .ownRemStaffbtn1 {
+.own.Remstaff .ownRemStaffbtn1 {
     grid-area: ownRemStaffbtn1;
     justify-self: right;
 }
 
-.own.staff .ownRemStaffbtn2 {
+.own.Remstaff .ownRemStaffbtn2 {
     grid-area: ownRemStaffbtn2;
     justify-self: left;
 }
-
 
 /* ------------------------------------------------------------------------------------------------------ */
 /* ----------------------------------- Remove Staff styles ends------------------------------------------ */
@@ -1009,33 +1374,27 @@ Customers Endss
 /* ------------------------------------------------------------------------------------------------------ */
 
 
-.ownViewStaffBody {
-    height: 100vh;
-}
 
-.ownViewStaffContainer {
-    height: calc(100vh - 35px);
-}
 
 .ownViewStaffContainerHead {
     text-align: center;
-    padding: 20px;
+    padding-top: 30px;
 
 }
 
-/* .ownAddstaffLineContainer{
-    padding-top: 5px 10px;
-} */
-
-
 /* ######################################################## */
 
-.ownViewStaffCard1Details,
-.ownViewStaffCard2Details,
-.ownViewStaffCard3Details {
+.ownViewStaffCard1Details {
 
     padding-left: 100px;
 
+}
+.ownViewStaffCard2Details,
+.ownViewStaffCard3Details{
+    padding-left: 10px;
+}
+.ownViewStaffCardDetailsLabel{
+    width: 100px;
 }
 
 /* ######################################################## */
@@ -1060,7 +1419,7 @@ Customers Endss
 .ownViewStaffCard3 {
     font-weight: 500;
     margin: 0;
-    padding: 5px;
+    padding: 20px;
     border-radius: 6px;
     background-color: var(--white);
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
@@ -1088,7 +1447,6 @@ Customers Endss
     font-size: 24px;
     font-weight: 600;
 }
-
 
 .ownViewStaffProfileDetailsStaffId {
     font-size: 20px;
@@ -1140,8 +1498,10 @@ Customers Endss
 .ownViewStaffCards {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    height: 100%;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
+    padding-bottom: 30px;
     grid-template-areas:
         'ownViewStaffProfileDetails ownViewStaffCard2'
         'ownViewStaffProfileDetails ownViewStaffCard2'
@@ -1161,13 +1521,11 @@ Customers Endss
     grid-template-columns: 1fr 2fr;
     grid-template-areas:
         'ownViewStaffProfileDetailsImg ownViewStaffProfileDetailsInfo';
-
 }
 
 .ownViewStaffProfileDetailsImg {
     grid-area: ownViewStaffProfileDetailsImg;
     justify-self: center;
-
 }
 
 .ownViewStaffProfileDetailsInfo {
@@ -1178,7 +1536,7 @@ Customers Endss
 
 /*---------------------------------------------- Basic Info Grid areas and styles -------------------------------------------*/
 .ownViewStaffCardrow {
-    word-wrap: break-word;
+    /* word-wrap: break-word; */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     /* gap: 20px; */
@@ -1187,10 +1545,16 @@ Customers Endss
 
 /*################################################################## Responsive styles ####################################################*/
 
-@media screen and (max-width: 830px) {
+@media screen and (max-width: 1220px) {
+
+    .ownViewStaffContainerHead {
+        text-align: center;
+        padding: 30px;
+    }
     .ownViewStaffCards {
         display: grid;
         grid-template-columns: 1fr;
+        grid-template-rows:auto;
         grid-gap: 20px;
         grid-template-areas:
             'ownViewStaffProfileDetails'
@@ -1206,7 +1570,6 @@ Customers Endss
         justify-self: center;
         align-self: center;
     }
-
 }
 
 /* ------------------------------------------------------------------------------------------------------ */
@@ -1225,9 +1588,7 @@ Customers Endss
 
 /* -----------------------------------body styles starts----------------------------------------- */
 .ownAddstaffBody {
-
     width: 100vw;
-
 }
 
 /* -----------------------------------body styles endss----------------------------------------- */
@@ -1240,16 +1601,13 @@ Customers Endss
 
 /* -----------------------------------container styles starts---------------------------------- */
 .ownAddstaffContainer {
-
     max-width: 800px;
     width: 100%;
     background: white;
-    padding: 25px;
+    padding: 55px;
     border-radius: 6px;
     display: grid;
     justify-self: center;
-
-
 }
 
 /* -----------------------------------container styles ends------------------------------------- */
@@ -1259,14 +1617,12 @@ Customers Endss
     height: 2px;
     max-width: 800px;
     width: 100%;
-    background-color: lightgray;
+    background-color: #eaeaea;
     border-radius: 6px;
-
 }
 
 .ownAddstaffLineContainer {
     padding: 25px 40px;
-
 }
 
 
@@ -1304,7 +1660,7 @@ Customers Endss
     justify-content: center;
     align-items: center;
     padding: 50px 10px;
-    background: #eaeaea;
+    background: #EAEAEA;
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -1317,9 +1673,7 @@ Customers Endss
 }
 
 .ownAddstaffContainer .ownAddstaffFormGroupImage .ownAddstaffBasicinfoFilesubBtn .ownAddstaffBasicinfoIcon {
-
     align-items: center;
-
 }
 
 .ownAddstaffContainer .ownAddstaffFormGroupImage .ownAddstaffBasicinfoFilesubBtn .ownAddstaffBasicinfoImagewrapper:hover {
@@ -1329,7 +1683,6 @@ Customers Endss
 
 /* Form image wrapper styles */
 .ownAddstaffContainer .ownAddstaffFormGroupImage .ownAddstaffBasicinfoImagewrapper {
-
     margin-bottom: 10px;
 }
 
@@ -1358,7 +1711,7 @@ Customers Endss
     height: 42px;
 }
 
-/*--------------------------------------------------- Butoon styles starts ----------------------------------------*/
+/*--------------------------------------------------- Button styles starts ----------------------------------------*/
 .ownAddstaffbutton {
     background-color: #6f6df4;
     color: white;
@@ -1382,8 +1735,7 @@ Customers Endss
 
 /* --------------------------- Form template styles --------------------------------------------------------------*/
 
-.ownAddstaffContainer form input[type="text"],
-select {
+.ownAddstaffContainer form input[type="text"] {
     width: 100%;
     font-weight: 400;
     padding: 8px 10px;
@@ -1392,8 +1744,7 @@ select {
     margin-top: 5px;
 }
 
-.ownAddstaffContainer form input[type="date"],
-select {
+.ownAddstaffContainer form input[type="date"] {
     width: 100%;
     font-weight: 400;
     padding: 8px 10px;
@@ -1403,15 +1754,15 @@ select {
 }
 
 .ownAddstaffContainer input[type="radio"],
-input[type="checkbox"] {
+.ownAddstaffContainer input[type="checkbox"] {
     margin-left: 3px;
     margin-right: 8px;
     transform: scale(1.5);
 }
 
-.ownAddstaffContainer form input:focus,
-.ownAddstaffFormGroupADD .homeAdd:focus,
-.dropdownselectbox:focus {
+.own.staff .ownAddstaffContainer form input:focus,
+.own.staff .ownAddstaffFormGroupADD .homeAdd:focus,
+.own.staff .dropdownselectbox:focus {
     outline: none;
     border-color: #6f6df4;
 }
@@ -1484,7 +1835,8 @@ input[type="checkbox"] {
     grid-template-columns: 1fr 1fr;
     grid-gap: 15px;
     grid-template-areas:
-        'ownAddstaffFormGroupACCNUM ownAddstaffFormGroupACCNAME';
+        'ownAddstaffFormGroupACCNUM ownAddstaffFormGroupACCNUM '
+        'ownAddstaffFormGroupBankNAME ownAddstaffFormGroupACCNAME';
 }
 
 .ownUpdateStaffDisable {
@@ -1720,5 +2072,3 @@ input[type="checkbox"] {
 #####################################################################################################################################################
 Staff Ends
 ##################################################################################################################################################### */
-
-

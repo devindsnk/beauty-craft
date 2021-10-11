@@ -6,7 +6,9 @@ body {
     background: var(--theme-bgwhite);
 }
 
+
 /* Full page container */
+
 .main-container {
     width: 100vw;
     min-height: 100vh;
@@ -16,7 +18,9 @@ body {
     align-items: center;
 }
 
-/* Common container for reg and singin */
+
+/* Common container for reg and signin */
+
 .form-container {
     display: flex;
     justify-content: center;
@@ -28,13 +32,13 @@ body {
     height: 450px;
 }
 
-.reg-container {
+.reg-container, .reset-container {
     width: 650px;
     height: fit-content;
 }
 
 @media (max-width: 768px) {
-    .reg-container {
+    .reg-container, .reset-container{
         width: 80%;
     }
 }
@@ -46,15 +50,11 @@ body {
 }
 
 @media (max-width: 520px) {
-    .reg-container {
+    .reg-container, .reset-container {
         min-width: 416px;
-    }
-
-    .reg-container {
         width: 100vw;
     }
 }
-
 
 .form {
     width: 100%;
@@ -86,7 +86,8 @@ body {
     margin-bottom: 20px;
 }
 
-.form-container input[type=text], .form-container input[type=password] {
+.form-container input[type="text"],
+.form-container input[type="password"] {
     display: block;
     border-radius: 5px;
     padding: 5px 20px;
@@ -100,11 +101,11 @@ body {
     letter-spacing: 4px;
 }
 
-.login-container input[type=text] {
+.login-container input[type="text"] {
     /* margin: 20px 0; */
 }
 
-.reg-container input[type=text] {
+.reg-container input[type="text"] {
     /* padding: 5px 20px; */
     /* margin-top: 5px; */
 }
@@ -142,12 +143,14 @@ body {
 }
 
 .form-container .btn {
-    height: 35px;
-    width: 100px;
+    padding: 7px;
+    font-weight: 500;
+    font-size: 14px;
 }
 
 .form-container .btn.middle {
     margin-top: 27px;
+    width: 100px;
 }
 
 .footer-container {
@@ -158,8 +161,13 @@ body {
 
 .footer-container .btn {
     margin: 20px auto 20px auto;
+    width: 130px;
 }
 
 .footer-container p {
     text-align: center;
+}
+
+a{
+    color: var(--theme-purple);
 }

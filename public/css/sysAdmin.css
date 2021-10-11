@@ -1,0 +1,255 @@
+/* Full page container */
+
+.content.admin {
+    /* width: 100vw;
+    min-height: 100vh; */
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content.admin .ownAddstaffContainer.contentBox,
+.reg-container.form-container.contentBox {
+    margin-top: 50px;
+}
+
+.reg-container.form-container.contentBox input {
+    background: white;
+}
+
+.reg-container label.label {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+/* Common container for reg and singin */
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    padding: 25px 50px;
+}
+
+.login-container {
+    width: 450px;
+    height: 450px;
+}
+
+.content.admin .reg-container {
+    width: 650px;
+    height: fit-content;
+}
+
+@media (max-width: 768px) {
+    .reg-container {
+        width: 80%;
+    }
+}
+
+@media (max-width: 656px) {
+    .form-container .btn.middle {
+        margin-top: 0 !important;
+    }
+}
+
+@media (max-width: 520px) {
+    .reg-container {
+        min-width: 416px;
+    }
+    .reg-container {
+        width: 100vw;
+    }
+}
+
+.form {
+    width: 100%;
+}
+
+.form .title {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.form .row {
+    width: 100%;
+    height: max-content;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0 25px;
+}
+
+.form .row-last {
+    margin-bottom: 10px !important;
+}
+
+.form .column.spec {
+    margin-top: 23px;
+}
+
+
+/* form input[type="password"] {
+    width: 100%;
+    font-weight: 400;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1.2px solid #c4cae0;
+    margin-top: 5px;
+    background-color: saddlebrown;
+} */
+
+.form-container input[type="text"],
+.form-container input[type="password"] {
+    display: block;
+    border-radius: 6px;
+    padding: 5px 20px;
+    border: 1.2px solid #c4cae0;
+    height: 40px;
+    width: 100%;
+    background-color: var(--theme-lightgrey);
+}
+
+.form .rowitem {
+    margin-bottom: 0;
+}
+
+.form .pin {
+    letter-spacing: 4px;
+}
+
+.login-container input[type="text"] {
+    /* margin: 20px 0; */
+}
+
+.reg-container input[type="text"] {
+    /* padding: 5px 20px; */
+    /* margin-top: 5px; */
+}
+
+.form .radio-container {
+    margin-top: 5px;
+}
+
+.form .radio-group {
+    align-self: center;
+    display: inline;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.form .radio-group span {
+    font-size: 14px;
+}
+
+.form .error {
+    display: block;
+    font-size: 13px;
+    color: var(--theme-red);
+}
+
+.form hr {
+    margin-bottom: 10px;
+    color: var(--theme-lightgrey);
+    margin: 30px 20px 20px 20px;
+    height: 2px;
+}
+
+.login-container .forgot-password {
+    display: block;
+    margin-left: auto;
+    width: 100%;
+}
+
+.form-container .btn {
+    height: 50px;
+    width: 150px;
+    text-align: center;
+    border-radius: 6px;
+    border: none;
+    background-color: var(--theme-blue);
+    color: white;
+    font-size: 16px;
+}
+
+.form-container .btn.middle {
+    margin-top: 29px;
+    width: 100px;
+    height: 40px;
+    background-color: var(--theme-black);
+    color: white;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-items: right;
+    align-items: flex-end;
+}
+
+.footer-container .btn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-container p {
+    text-align: center;
+}
+
+.content.systemlogdownload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.systemlog button {
+    border-radius: 6px;
+    font-size: 17px;
+    font-weight: 600;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 50px;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+}
+
+i.fa.fa-download {
+    margin-right: 15px;
+}
+
+.ownAddstaffbutton.btn {
+    background-color: var(--theme-blue);
+    width: 150px;
+    height: 50px;
+    padding: 0;
+}
+
+.admin .ownAddstaffContainer {
+    width: 650px;
+}
+
+label.ownAddstaffBasicinfoImagewrapper {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 50px 10px; */
+    background: #eaeaea;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 160px;
+    width: 160px;
+    margin-right: 20px;
+}
+
+.ownAddstaffbutton.2 {
+    background-color: #6f6df4;
+    color: white;
+    border: 1px solid;
+    height: 50px;
+    width: 150px;
+    font-size: 16px;
+    border-radius: 6px;
+    text-align: center;
+    align-self: right;
+}

@@ -1,43 +1,209 @@
 /* ------------Styles of the modal template------------- */
 
+
 /* ------------------------------------------------------ */
+
+
 /* --------------STYLES ADDED BY DEVIN -------------------*/
+
+
 /* ------------------------------------------------------ */
 
 .modal-container {
-   background-color: rgba(0, 0, 0, 0.3);
-   position: fixed;
-   top: 0;
-   left: 0;
-   height: 100vh;
-   width: 100vw;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    z-index: 3;
 }
 
 .modal-box {
-   padding: 30px 50px;
-   background-color: white;
+    padding: 30px 50px;
+    background-color: white;
 }
 
 .normal .modal-box {
-   border-radius: 6px;
-   width: 600px;
-   max-width: 100%;
-   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    width: 600px;
+    max-width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .full .modal-box {
-   width: 100vw;
-   height: 100vh;
+    width: 100vw;
+    height: 100vh;
 }
 
 .modal-container.show {
-   visibility: visible;
+    visibility: visible;
 }
 
+
 /* ------------------------------------------------------ */
+
+
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
+
+
+/* ------------------------------------------------------ */
+
+
+/* ------------Styles of the Add items modal template------------- */
+
+
+/* ------------------------------------------------------ */
+
+
+/* --------------STYLES ADDED BY RAVINDU -----------------*/
+
+
+/* ------------------------------------------------------ */
+
+
+/* ----------------------------------------modal buttons starts ----------------------------------------*/
+
+.ModalGreenButton {
+    background-color: #1bc657;
+    color: white;
+}
+
+.ModalBlueButton {
+    background-color: var(--theme-blue);
+    color: white;
+}
+
+.ModalCancelButton {
+    background-color: var(--theme-lightgrey);
+    color: black;
+}
+
+.ModalButton {
+    font-size: 16px;
+    font-weight: 500;
+    height: 40px;
+    width: 160px;
+    border: none;
+    padding: 7px 20px;
+    border-radius: 6px;
+}
+
+
+/* ----------------------------------------modal buttons Endss ----------------------------------------*/
+
+
+/* --------------------------------------------------------------------------------------------------- */
+
+
+/* ----------------------------------------Add Item modal starts ---------------------------------------*/
+
+.modal-box.addItems {
+    padding: 30px 50px 35px 50px;
+}
+
+.modal-container.normal.addItems {
+    width: 600px;
+}
+
+.addItemsModalHead {
+    text-align: center;
+}
+
+.addItemsModalLable {
+    font-size: 14 px;
+    font-weight: 600;
+    text-align: start;
+}
+
+.addItemsModalDetail1 {
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.addItemsModalGrid1 input[type="date"],
+.addItemsModalTextArea {
+    font-weight: 400;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1.2px solid #c4cae0;
+    margin-top: 5px;
+}
+
+.addItemsModalGrid1 input[type="date"] {
+    width: 300px;
+}
+
+.addItemsModalTextArea {
+    width: 100%;
+    resize: none;
+}
+
+.addItemsModalGrid1 input:focus,
+.addItemsModalTextArea:focus {
+    border-color: none;
+    outline: none;
+    border-color: #6f6df4;
+}
+
+.addItemsModalErrortext {
+    font-size: 14px;
+    color: #da2346;
+    padding-right: 50px;
+    font-weight: 600;
+}
+
+.addItemsModalMessage {
+    font-size: 14px;
+    padding-top: 5px;
+    font-weight: 600;
+}
+
+.addItemsModalErrorLable {
+    color: #037aff;
+    text-align: start;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.addItemsModalGrid2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.addItemsModalGrid3 {
+    display: grid;
+    padding-top: 27px;
+    justify-self: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    'addItemsModalbtn1 addItemsModalbtn2';
+}
+
+.addItemsModalGrid3 .addItemsModalbtn1 {
+    grid-area: addItemsModalbtn1;
+    justify-self: center;
+}
+
+.addItemsModalGrid3 .addItemsModalbtn2 {
+    grid-area: addItemsModalbtn2;
+    justify-self: center;
+}
+
+
+/* ----------------------------------------modal buttons ends ----------------------------------------*/
+
+
+/* ------------------------------------------------------ */
+
+
+/* -----------END OF STYLES ADDED BY RAVINDU -------------*/
+
+
 /* ------------------------------------------------------ */

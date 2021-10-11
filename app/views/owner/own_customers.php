@@ -15,6 +15,14 @@
 
    <!--Content-->
    <div class="content own customers">
+
+
+      <?php require APPROOT . "/views/common/customersTable.php" ?>
+
+
+
+
+
       <h3>This is main option 1</h3>
       <div class="container">
          <button class="btnOpen normal" type="button">Remove Customer</button>
@@ -43,10 +51,10 @@
             <!-- main grid 3 starts -->
             <div class="ownRemCusButtons">
                <div class="ownRemCusbtn1">
-                  <button class="btn btnClose normal">Cancel</button>
+                  <button class="btn btnClose normal ownCancelButton">Cancel</button>
                </div>
                <div class="ownRemCusbtn2">
-                  <button class="btn">Proceed</button>
+                  <button class="btn ownProceedBlueButton">Proceed</button>
                </div>
             </div>
             <!-- main grid 3 ends -->
@@ -55,24 +63,6 @@
          </div>
       </div>
       <!------------------- Remove Staff Container ends ----------------------------->
-      <!------------------- Add Staff Container starts ----------------------------->
-      <div class="modal-container full">
-         <div class="modal-box">
-            <h1>This is a full modal</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste enim odit, nulla consequuntur
-               corporis
-               provident sint magni necessitatibus animi molestias quas eos perspiciatis doloribus porro? Fugit amet
-               recusandae distinctio.</p>
-            <button class="btn btnClose full">Save</button>
-
-         </div>
-
-
-      </div>
-
-
-
-
    </div>
    <!--End Content-->
 

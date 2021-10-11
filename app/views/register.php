@@ -18,7 +18,7 @@
          <form action="<?php echo URLROOT; ?>/customer/register" method="post" class="form">
             <h1 class="title">Get Registered</h1>
 
-            <div class="row">
+            <div class="rowitem">
                <div class="column">
                   <div class="text-group">
                      <label class="label" for="name">Name</label>
@@ -58,7 +58,7 @@
                   <span class="error"><?php echo $data['mobileNo_error']; ?></span>
                </div>
                <div class="column">
-                  <button type="submit" name="action" value="getPIN" class="btn middle">Get PIN</button>
+                  <button type="submit" name="action" value="getPIN" class="btn btn-filled btn-black middle">Get PIN</button>
                </div>
             </div>
             <hr>
@@ -88,7 +88,7 @@
             </div>
 
             <div class="footer-container">
-               <button type="submit" name="action" value="register" class="btn">Register</button>
+               <button type="submit" name="action" value="register" class="btn btn-filled btn-theme-purple">Register</button>
                <p>Already have an account? <a href="<?php echo URLROOT ?>/user/signin">Sign in</a></p>
             </div>
 

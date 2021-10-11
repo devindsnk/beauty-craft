@@ -43,6 +43,7 @@ class OwnDashboard extends Controller
    }
    public function staff()
    {
-      $this->view('owner/own_overview');
+      $this->view('owner/own_staff');
    }
+   
 }

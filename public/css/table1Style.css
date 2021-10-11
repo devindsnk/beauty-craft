@@ -5,14 +5,14 @@
 /* ------------------------------------------------------ */
 
 .table-container{
-  height: 50%;
+  /* height: 50%; */
   margin-bottom: 20px;
   overflow: scroll;
   overflow-y: visible;
   overflow-x: hidden;
   direction: ltr;
   scrollbar-width: thin;
-  scrollbar-color: #f3f0dd #F2F2F7;
+  scrollbar-color: #c4cae0 #F2F2F7;
 }
 
 .table-container::-webkit-scrollbar {
@@ -83,9 +83,9 @@
   border-bottom: 0;
 }
 
-.table1-responsive span{
+.table1-responsive span, .table2-responsive span{
   display: inline-block;
-  width: 90px;
+  width: max-content;
 }
 
 .selected_row {
@@ -128,11 +128,7 @@
   display: block;
 }
 
-/* .table1 button{
-  background: none;
-} */
-
-.table1 .table-btn{
+.table1 .table-btn, .table2 .table-btn{
   border: none;
   padding: 3px 2px;
   border-radius: 6px;
@@ -140,26 +136,26 @@
   font-weight: 500;
 }
 
-.table1 .paid-btn{
+.table1 .green-status-btn, .table2 .green-status-btn{
   width: 80px;
   background-color: #C0F0D1;
   color:#38A36D;
 }
 
-.table1 .not-paid-btn{
+.table1 .red-status-btn, .table2 .red-status-btn{
   width: 80px;
   background-color: #FFC5CA;
   color:#DC3545;
 }
 
-.table1 .pay-now-btn{
+.table1 .black-action-btn, .table2 .black-action-btn{
   cursor: pointer;
   width: 82px;
   color: #fff;
   background-color: var(--theme-black);
 }
 
-.table1 .pay-now-btn:hover {
+.table1 .black-action-btn:hover, .table2 .black-action-btn:hover {
   background-color: #6c757d;
 }
 
@@ -167,7 +163,7 @@
   margin: 10px 10px 10px 0px;
 }
 
-.table1 .check-btn{
+.table1 .check-btn, .table2 .check-btn{
   width: 90px;
   height: 25px;
   background-color: #3ABD5F;
@@ -175,20 +171,20 @@
 
 }
 
-.table1 .uncheck-btn{
+.table1 .uncheck-btn, .table2 .uncheck-btn{
   width: 90px;
   height: 25px;
   background-color: #FE3D4F;
   color: #FFFFFF;
 }
 
-.table1 .img-profile-picture{
+.table1 .img-profile-picture, .table2 .img-profile-picture{
   height: 40px;
   width: 40px;
   border-radius: 100%;
 }
 
-.table1 .img-view-edit-update{
+.table1 .img-view-edit-update, .table2 .img-view-edit-update{
   margin-inline: 3px;
   width: 20px;
   height: 20px;

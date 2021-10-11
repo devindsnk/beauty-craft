@@ -14,6 +14,10 @@ class ReceptDashboard extends Controller
    {
       $this->view('receptionist/recept_reservations');
    }
+   public function newReservation()
+   {
+      $this->view('receptionist/recept_newReservation');
+   }
    public function recallRequests()
    {
       $this->view('receptionist/recept_recallRequests');
