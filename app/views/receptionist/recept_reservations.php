@@ -15,7 +15,9 @@
 
    <!--Content-->
    <div class="content recept reservations">
-      <h3>This is main option 1</h3>
+
+      <?php require APPROOT . "/views/common/reservationsTable.php" ?>
+
    </div>
    <!--End Content-->
 

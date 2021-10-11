@@ -19,7 +19,7 @@
          <li class="mainOption">
             <a class="optionLink <?php if ($selectedMain == "DailyView") echo " selected" ?>" href="<?php echo URLROOT ?>/ReceptDashboard/dailyView">
                <div class="optionIcon">
-                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
+                  <i class="sidenav-icon ci-calendar"></i>
                </div>
                <div class="optionTitle">Daily View</div>
             </a>
@@ -30,7 +30,7 @@
          <li class="mainOption menuOption">
             <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="<?php echo URLROOT ?>/ReceptDashboard/reservations">
                <div class="optionIcon">
-                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
+                  <i class="sidenav-icon ci-tasks"></i>
                </div>
                <div class="optionTitle">Reservations</div>
             </a>
@@ -41,7 +41,7 @@
          <li class="mainOption menuOption">
             <a class="optionLink <?php if ($selectedMain == "RecallRequests") echo " selected" ?>" href="<?php echo URLROOT ?>/ReceptDashboard/recallRequests">
                <div class="optionIcon">
-                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
+                  <i class="sidenav-icon ci-refresh-left"></i>
                </div>
                <div class="optionTitle">Recall Requests</div>
             </a>
@@ -52,7 +52,7 @@
          <li class="mainOption menuOption">
             <a class="optionLink <?php if ($selectedMain == "Sales") echo " selected" ?>" href="<?php echo URLROOT ?>/ReceptDashboard/sales">
                <div class="optionIcon">
-                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
+                  <i class="sidenav-icon ci-receipt"></i>
                </div>
                <div class="optionTitle">Sales</div>
             </a>
@@ -63,7 +63,7 @@
          <li class="mainOption menuOption">
             <a class="optionLink <?php if ($selectedMain == "Services") echo " selected" ?>" href="<?php echo URLROOT ?>/ReceptDashboard/services">
                <div class="optionIcon">
-                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
+                  <i class="sidenav-icon ci-elements "></i>
                </div>
                <div class="optionTitle">Services</div>
             </a>
@@ -74,7 +74,7 @@
          <li class="mainOption">
             <a class="optionLink <?php if ($selectedMain == "Customers") echo " selected" ?>" href="<?php echo URLROOT ?>/ReceptDashboard/customers">
                <div class="optionIcon">
-                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
+                  <i class="sidenav-icon ci-people"></i>
                </div>
                <div class="optionTitle">Customers</div>
             </a>
@@ -85,7 +85,7 @@
          <li class="mainOption">
             <a class="optionLink <?php if ($selectedMain == "StaffMembers") echo " selected" ?>" href="<?php echo URLROOT ?>/ReceptDashboard/staffMembers">
                <div class="optionIcon">
-                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
+                  <i class="sidenav-icon ci-briefcase "></i>
                </div>
                <div class="optionTitle">Staff Members</div>
             </a>
@@ -96,7 +96,7 @@
          <li class="mainOption menuOption">
             <a class="optionLink <?php if ($selectedMain == "Leaves") echo " selected" ?>" href="<?php echo URLROOT ?>/ReceptDashboard/leaves">
                <div class="optionIcon">
-                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
+                  <i class="sidenav-icon ci-save-remove "></i>
                </div>
                <div class="optionTitle">Leaves</div>
             </a>

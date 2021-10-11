@@ -5,6 +5,20 @@
 /* ------------------------------------------------------ */
 
 /* Custom menu icon */
+/* .ci{
+   display: block;
+} */
+
+
+/* Custom close icon */
+.ci-x-white {
+   background: url(../../public/svg/x-white.svg);
+   height: 32px;
+   width: 32px;
+   display: block;
+   background-size: contain;
+}
+
 .ci-menu-white {
    background: url(../../public/svg/menu-white.svg);
    height: 32px;
@@ -12,14 +26,96 @@
    background-size: contain;
 }
 
-/* Custom close icon */
-.ci-x-white {
-   background: url(../../public/svg/x-white.svg);
-   height: 24px;
-   width: 24px;
-   display: block;
+.sidenav-icon{
+   height: 26px;
+   width: 26px;
+}
+
+.table-icon{
+   display: inline-block;
+   height: 20px;
+   width: 20px;
+}
+
+.ci-elements {
+   background: url(../../public/svg/element-equal.svg);
+   background-repeat: no-repeat;
    background-size: contain;
 }
+
+.ci-receipt {
+   background: url(../../public/svg/receipt-2.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+
+.ci-people {
+   background: url(../../public/svg/people.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+
+.ci-briefcase {
+   background: url(../../public/svg/briefcase.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+
+.ci-refresh-left {
+   background: url(../../public/svg/refresh-left-square.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+
+.ci-save-remove {
+   background: url(../../public/svg/save-remove.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+
+.ci-tasks {
+   background: url(../../public/svg/task-square.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+
+.ci-calendar {
+   background: url(../../public/svg/menu-board.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+   
+}
+
+.ci-trash {
+   background: url(../../public/svg/trash.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+
+.ci-edit {
+   background: url(../../public/svg/edit.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+
+.ci-view-more {
+   background: url(../../public/svg/view-more.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+
+.ci-overview {
+   background: url(../../public/svg/overview.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+
+.ci-analytics {
+   background: url(../../public/svg/analytics.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+
 
 
 /* ------------------------------------------------------ */

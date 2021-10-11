@@ -26,9 +26,15 @@
 /* header section */
 
 .layout-template-1 header {
+    background-color: var(--theme-bgwhite);
     grid-area: header;
     display: flex;
     justify-content: space-between;
+    height: 80px;
+    /* width: calc(100vw - 265px);
+    position: fixed;
+    top: 0;
+    right: 0; */
 }
 
 .header-left {
