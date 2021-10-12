@@ -23,6 +23,7 @@ class Staff extends Controller
             'staffAccNum' => trim($_POST['staffAccNum']),
             'staffAccHold' => trim($_POST['staffAccHold']),
             'staffAccBank' => trim($_POST['staffAccBank']),
+            'staffAccBranch' => trim($_POST['staffAccBranch']),
             'staffFname_error' => '',
             'staffLname_error' => '',
             'gender_error' => '',
@@ -35,6 +36,7 @@ class Staff extends Controller
             'staffAccNum_error' => '',
             'staffAccHold_error' => '',
             'staffAccBank_error' => '',
+            'staffAccBranch_error' => '',
          ];
 
          // Validating fname
@@ -122,11 +124,19 @@ class Staff extends Controller
             $data['staffAccBank_error']  = "Only letters are allowed";
           }
 
+          // Validating branch name
+         if (empty($data['staffAccBranch'])) {
+            $data['staffAccBranch_error'] = "Please enter branch name";
+         }
+         // else if (!preg_match("/^[a-zA-Z-' ]*$/",$data['staffAccBank'])) {
+         //    $data['staffAccBank_error']  = "Only letters are allowed";
+         //  }
+
        
 
          if (
             empty($data['staffFname_error']) && empty($data['staffLname_error']) && empty($data['gender_error']) && empty($data['staffNIC_error']) && empty($data['staffDOB_error']) && empty($data['staffType_error']) && empty($data['staffHomeAdd_error']) && empty($data['staffContactNum_error']) && empty($data['staffEmail_error']) &&
-            empty($data['staffAccNum_error']) && empty($data['staffAccHold_error']) && empty($data['staffAccBank_error'])
+            empty($data['staffAccNum_error']) && empty($data['staffAccHold_error']) && empty($data['staffAccBank_error']) && empty($data['staffAccBranch_error'])
          ) {
             $this->staffModel->addStaffDetails($data);
             $this->staffModel->addBankDetails($data);
@@ -150,6 +160,7 @@ class Staff extends Controller
             'staffAccNum' => '',
             'staffAccHold' => '',
             'staffAccBank' => '',
+            'staffAccBranch' => '',
             'staffFname_error' => '',
             'staffLname_error' => '',
             'gender_error' => '',
@@ -162,6 +173,8 @@ class Staff extends Controller
             'staffAccNum_error' => '',
             'staffAccHold_error' => '',
             'staffAccBank_error' => '',
+            'staffAccBranch_error' => '',
+            
          ];
          $this->view('owner/own_staffAdd', $data);
       }

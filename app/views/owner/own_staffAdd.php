@@ -70,7 +70,7 @@
                         </div>
                         <div class="ownAddstaffFormGroupNIC">
                             <label class="ownAddstaffLabels">NIC</label>
-                            <input type="text" name="staffNIC" id="NIC" placeholder="Your NIC here" value="<?php echo $data['staffNIC'];?>">
+                            <input type="text" name="staffNIC" id="NIC" placeholder="Your NIC here" value="<?php echo $data['staffNIC'];?>" maxlength = "12">
                             <span class="error"><?php echo $data['staffNIC_error'];?></span>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                         <div class="ownAddstaffFormGroupADD">
                             <label class="ownAddstaffLabels">Address</label> 
                             <textarea class="homeAdd" name="staffHomeAdd" rows="4"
-                                cols="50" placeholder="Your address here" value="<?php echo $data['staffHomeAdd'];?>"></textarea>
+                                cols="50" placeholder="Your address here" value="<?php echo $data['staffHomeAdd'];?> " maxlength = "100"></textarea>
                                 <span class="error"><?php echo $data['staffHomeAdd_error'];?></span>
                         </div>
                     </div>
@@ -119,12 +119,12 @@
                     <div class="ownAddstaffMaingrid4">
                         <div class="ownAddstaffFormGroupTP">
                             <label class="ownAddstaffLabels">Contact Number</label>
-                            <input type="text" name="staffContactNum" id="contactnum" placeholder="Your contact number here" value="<?php echo $data['staffContactNum'];?>">
+                            <input type="text" name="staffContactNum" id="contactnum" placeholder="Your contact number here" value="<?php echo $data['staffContactNum'];?>" maxlength = "10">
                             <span class="error"><?php echo $data['staffContactNum_error'];?></span>
                         </div>
                         <div class="ownAddstaffFormGroupMAIL">
                             <label class="ownAddstaffLabels">E-mail</label> 
-                            <input type="text" name="staffEmail" id="email" placeholder="Your email here"  value="<?php echo $data['staffEmail'];?>">
+                            <input type="text" name="staffEmail" id="email" placeholder="Your email here"  value="<?php echo $data['staffEmail'];?>" maxlength = "50">
                             <span class="error"><?php echo $data['staffEmail_error'];?></span>
                         </div>
                     </div>
@@ -144,18 +144,23 @@
                     <div class="ownAddstaffMaingrid5">
                         <div class="ownAddstaffFormGroupACCNUM">
                             <label class="ownAddstaffLabels">Account Number</label> 
-                            <input type="text" name="staffAccNum" id="accnum" placeholder="Your account number here" value="<?php echo $data['staffAccNum'];?>">
+                            <input type="text" name="staffAccNum" id="accnum" placeholder="Your account number here" value="<?php echo $data['staffAccNum'];?>" maxlength = "30">
                             <span class="error"><?php echo $data['staffAccNum_error'];?></span>
                         </div>
                         <div class="ownAddstaffFormGroupACCNAME">
                             <label class="ownAddstaffLabels">Account Holders Name</label> 
-                            <input type="text" name="staffAccHold" id="acchold" placeholder="Your account holders name here" value="<?php echo $data['staffAccHold'];?>">
+                            <input type="text" name="staffAccHold" id="acchold" placeholder="Your account holders name here" value="<?php echo $data['staffAccHold'];?>" maxlength = "40">
                             <span class="error"><?php echo $data['staffAccHold_error'];?></span>
                         </div>
                         <div class="ownAddstaffFormGroupBankNAME">
                             <label class="ownAddstaffLabels">Bank Name</label> 
-                            <input type="text" name="staffAccBank" id="accbank" placeholder="Your bank name here" value="<?php echo $data['staffAccBank'];?>">
+                            <input type="text" name="staffAccBank" id="accbank" placeholder="Your bank name here" value="<?php echo $data['staffAccBank'];?>" maxlength = "40">
                             <span class="error"><?php echo $data['staffAccBank_error'];?></span>
+                        </div>
+                        <div class="ownAddstaffFormGroupBranchNAME">
+                            <label class="ownAddstaffLabels">Branch Name</label> 
+                            <input type="text" name="staffAccBranch" id="accbranch" placeholder="Your branch name here" value="<?php echo $data['staffAccBranch'];?>" maxlength = "40">
+                            <span class="error"><?php echo $data['staffAccBranch_error'];?></span>
                         </div>
                     </div>
                     <!------------------ maingrid5 end ---------------------------------------------------------------->

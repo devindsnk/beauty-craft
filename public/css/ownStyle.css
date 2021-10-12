@@ -1,122 +1,4 @@
-/*------------------------------------- Common Styles for owner starts --------------------------------------------*/
-.ownAddGreenButton {
-    background-color: #1BC657;
-    color: white;
-    font-size: 14px;
-    font-weight: 400;
-    height: 35px;
-    width: 130px;
-    border: none;
-    padding: 7px 20px;
-    border-radius: 6px;
-}
-
-.ownProceedBlueButton {
-    background-color: var(--theme-blue);
-    color: white;
-    font-size: 14px;
-    font-weight: 500;
-    height: 35px;
-    width: 130px;
-    border: none;
-    padding: 7px 20px;
-    border-radius: 6px; 
-}
-
-.ownCancelButton {
-    background-color: var(--theme-lightgrey);
-    color: black;
-    font-size: 14px;
-    font-weight: 500;
-    height: 35px;
-    width: 130px;
-    border: none;
-    padding: 7px 20px;
-    border-radius: 6px;
-}
-
-/* ########################################### */
-
-.own.customers .ownRemCusButtons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-        'ownRemCusbtn1 ownRemCusbtn2';
-    text-align: center;
-    padding-top: 10px;
-}
-
-
-.own.customers .ownRemCusLabel1 {
-    grid-area: ownRemCusLabel1;
-}
-
-/* ########################################### */
-
-/* common Model Styles starts */
-.commonModelHead {
-    /* padding: 20px; */
-    text-align: center;
-}
-
-/* .commonModelDetails{
-    text-align: center;
-} */
-/* .commonModelDetailsLabel{
-    padding-bottom: 20px;
-} */
-
-.commonModelDetailsLabel {
-    font-weight: 600;
-}
-
-.commonModelContainer {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-row-gap: 30px;
-    grid-template-areas:
-        'commonModelHead'
-        'commonModelDetails'
-        'commonModelButtons';
-}
-
-.commonModelDetails {
-    grid-area: commonModelDetails;
-}
-
-.commonModelButtons {
-    grid-area: commonModelButtons;
-}
-
-.commonModelHead {
-    grid-area: commonModelHead;
-}
-
-.commonModelButtons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 80px;
-    grid-template-areas:
-        'commonModelBtn1 commonModelBtn2';
-}
-
-.commonModelBtn1 {
-    grid-area: commonModelBtn1;
-    justify-self: right;
-}
-
-.commonModelBtn2 {
-    grid-area: commonModelBtn2;
-    justify-self: left;
-}
-
-
-
-
-
-/* common Model Styles ends */
-
-/* #################################################################################################################### */
+/* 
 .modal-container.normal.addItems {
     width: 600px;
 }
@@ -131,13 +13,12 @@
     text-align: start;
 }
 
-/* ?????????????????????????????????? */
 .addItemsModalDetail1 {
     display: inline-block;
     padding-bottom: 15px;
 }
 
-/* ?????????????????????????????????? */
+
 
 .addItemsModalnGrid1 input[type="date"],
 #addItemsModalTextArea,
@@ -214,7 +95,7 @@ select {
     justify-self: center;
 }
 
-
+ */
 
 
 
@@ -442,6 +323,8 @@ select {
 }
 
  */
+
+ 
 .own.close-salon .ownCloseSalonGrid3 {
     display: grid;
     padding-top: 20px;
@@ -1835,8 +1718,8 @@ Customers Endss
     grid-template-columns: 1fr 1fr;
     grid-gap: 15px;
     grid-template-areas:
-        'ownAddstaffFormGroupACCNUM ownAddstaffFormGroupACCNUM '
-        'ownAddstaffFormGroupBankNAME ownAddstaffFormGroupACCNAME';
+        'ownAddstaffFormGroupACCNUM ownAddstaffFormGroupACCNAME'
+        'ownAddstaffFormGroupBankNAME ownAddstaffFormGroupBranchNAME';
 }
 
 .ownUpdateStaffDisable {
@@ -1915,6 +1798,10 @@ Customers Endss
 
 .ownAddstaffFormGroupACCNAME {
     grid-area: ownAddstaffFormGroupACCNAME;
+    padding-bottom: 10px;
+}
+.ownAddstaffFormGroupBranchNAME{
+    grid-area: ownAddstaffFormGroupBranchNAME;
     padding-bottom: 10px;
 }
 
