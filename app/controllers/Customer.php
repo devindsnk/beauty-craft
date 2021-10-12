@@ -174,7 +174,6 @@ class Customer extends Controller
             {
                $this->view('register', $data);
             }
-            die("Registered");
          }
          else
          {
@@ -200,5 +199,17 @@ class Customer extends Controller
          ];
          $this->view('register', $data);
       }
+   }
+   public function profile()
+   {
+      $this->view('customer/cust_profile');
+   }
+   public function changePassword()
+   {
+      $this->view('customer/cust_changePassword');
+   }
+   public function myReservation()
+   {
+      $this->view('customer/cust_myReservation');
    }
 }

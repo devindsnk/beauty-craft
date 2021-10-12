@@ -15,7 +15,9 @@
 
    <!--Content-->
    <div class="content recept staff-members">
-      <h3>This is main option 1</h3>
+
+      <?php require APPROOT . "/views/common/staffTable.php" ?>
+
    </div>
    <!--End Content-->
 

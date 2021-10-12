@@ -21,35 +21,64 @@
             <button class="btnOpen normal" type="button">Add Resources</button>
             <button class="btnOpen normal" type="button">Update Resources</button>
         </div>
+        <!---------------------------------------------------------------------------------->
+        <!-- Resources Table starts -------------------------------------------------------->
+        <!---------------------------------------------------------------------------------->
+
+
+     
+         <!---------------------------------------------------------------------------------->
+        <!-- Resources Table ends -------------------------------------------------------->
+        <!---------------------------------------------------------------------------------->
+
         <div class="modal-container normal">
             <div class="modal-box" id="commonModelContainer">
 
                 <!--------------------------------------->
                 <!-- Start adding content here for modal -->
                 <!--------------------------------------->
-                <div class="commonModelContainer">
-                <h1 class="commonModelHead">Title</h1>
-                <!-- main grid 1 starts -->
-               
-                    <div class="commonModelDetails">
-                        <span class="commonModelDetailsLabel">Subtitle</span>
-                        <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet voluptate molestias non,
-                            quisquam expedita ratione ex deserunt, maiores aliquam tempora cum cupiditate? Veritatis
-                            laboriosam vitae consectetur impedit sit, eius odit.</p>
-                    </div>
                 
-                    <!-- main grid 1 ends -->
-                    <!-- main grid 2 starts -->
-                    <div class="commonModelButtons">
-                        <div class="commonModelBtn1">
-                            <button class="btn btnClose normal ownCancelButton">Cancel</button>
-                        </div>
-                        <div class="commonModelBtn2">
-                            <button class="btn ownAddGreenButton">Add</button>
-                        </div>
+
+                <h1 class="ownResAddHead">Add Resources</h1>
+                <!-- main grid 1 starts -->
+                <div class="ownResAddDetails">
+                    <div class="ownResAddDetail1">
+                        <label class="ownResAddLabel1">Resource Name</label> <br>
+                        <input type="text" class="ownResAddLabeltext" placeholder="--Type in--">
                     </div>
-                <!-- main grid 2 ends -->
+                    <div class="ownResAddDetail2">
+                        <label class="ownResAddLabel2">Quantity</label> <br>
+                        <select id="ownResAddQuantity" name="ownResAddQuantity">
+                            <option value="one">1</option>
+                            <option value="two">2</option>
+                            <option value="three">3</option>
+                            <option value="four">4</option>
+                            <option value="five">5</option>
+                            <option value="six">6</option>
+                            <option value="seven">7</option>
+                            <option value="eight">8</option>
+                            <option value="nine">9</option>
+                            <option value="ten">10</option>
+                        </select>
+                    </div>
                 </div>
+                <!-- main grid 1 ends -->
+                <!-- main grid 2 starts -->
+                <div class="ownResAddButtons">
+                    <div class="ownResAddBtn1">
+                        <button class="btn btnClose normal ModalCancelButton  ModalButton ">Cancel</button>
+                    </div>
+                    <div class="ownResAddBtn2">
+                        <button class="btn  ModalGreenButton ModalButton">Add</button>
+                    </div>
+                </div>
+                <!-- main grid 2 ends -->
+
+            </div>
+            <!-- main grid 2 ends -->
+
+
+
 
                 <!--------------------------------------->
                 <!-- end adding content here for modal -->
@@ -88,10 +117,10 @@
                 <!-- main grid 2 starts -->
                 <div class="ownResAddButtons">
                     <div class="ownResAddBtn1">
-                        <button class="btn btnClose normal ownCancelButton">Cancel</button>
+                        <button class="btn btnClose normal ModalGreenButton  ModalButton ">Cancel</button>
                     </div>
                     <div class="ownResAddBtn2">
-                        <button class="btn ownAddGreenButton">Add</button>
+                        <button class="btn ModalCancelButton ModalButton">Add</button>
                     </div>
                 </div>
                 <!-- main grid 2 ends -->
@@ -102,7 +131,29 @@
 
             <!--------------------------------------------------------------------------------- Add resource ends ---------------------------------------------------------------->
 
-
+            <div class="commonModelContainer">
+                <h1 class="commonModelHead">Title</h1>
+                <!-- main grid 1 starts -->
+               
+                    <div class="commonModelDetails">
+                        <span class="commonModelDetailsLabel">Subtitle</span>
+                        <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet voluptate molestias non,
+                            quisquam expedita ratione ex deserunt, maiores aliquam tempora cum cupiditate? Veritatis
+                            laboriosam vitae consectetur impedit sit, eius odit.</p>
+                    </div>
+                
+                    <!-- main grid 1 ends -->
+                    <!-- main grid 2 starts -->
+                    <div class="commonModelButtons">
+                        <div class="commonModelBtn1">
+                            <button class="btn btnClose normal ownCancelButton">Cancel</button>
+                        </div>
+                        <div class="commonModelBtn2">
+                            <button class="btn ownAddGreenButton">Add</button>
+                        </div>
+                    </div>
+                <!-- main grid 2 ends -->
+                </div>
 
 
             <!--------------------------------------------------------------------------------- Remove resource starts ---------------------------------------------------------------->
@@ -120,16 +171,16 @@
             <!-- main grid 2 starts -->
             <div class="ownResRemButtons">
                 <div class="ownResRemBtn1">
-                    <button class="btn btnClose normal">Cancel</button>
+                    <button class="btn btnClose normal ModalCancelButton ModalButton">Cancel</button>
                 </div>
                 <div class="ownResRemBtn2">
-                    <button class="btn">Proceed</button>
+                    <button class="btn ModalBlueButton ModalButton">Proceed</button>
                 </div>
             </div>
             <!-- main grid 2 ends -->
 
 
-            <!-- ----------------------------------------------------------------------------------Remove resource starts -------------------------------------------------------------->
+            <!-- ----------------------------------------------------------------------------------Remove resource ends -------------------------------------------------------------->
 
             <button class="btn btnClose full">Save</button>
 

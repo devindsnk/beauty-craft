@@ -13,9 +13,14 @@
    $userLevel = "Manager";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
-   
+
    <!--Content-->
    <div class="content">
+
+
+      <?php require APPROOT . "/views/common/servicesTable.php" ?>
+
+
 
       <h3>This is main option 1</h3>
       <a href="<?php echo URLROOT ?>/services/addNewService"><button>New Service</button></a>

@@ -16,6 +16,9 @@
 
    <!--Content-->
    <div class="content">
+
+      <?php require APPROOT . "/views/common/staffTable.php" ?>
+
    </div>
    <!--End Content-->
 

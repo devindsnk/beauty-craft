@@ -3,11 +3,14 @@ class Pages extends Controller
 {
    public function __construct()
    {
-      // $this->employeeModel = $this->model('Employee');
    }
 
    public function home()
    {
-      $this->view('home');
+      $this->view('index');
+   }
+   public function notFound()
+   {
+      $this->view('404');
    }
 }

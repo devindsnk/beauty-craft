@@ -5,6 +5,7 @@
 /* ------------------------------------------------------ */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 :root {
   --theme-purple: #444BF8;
@@ -13,16 +14,16 @@
   --theme-black: #252631;
   --theme-bgwhite: #F2F2F7;
   --theme-grey: #50515A;
-  --theme-lightgrey : #EAEAEA;
+  --theme-lightgrey: #EAEAEA;
   --white: #FFFFFF;
   --black: #000000;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 5px;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
   border-radius: 5px;
 }
 
@@ -93,8 +94,187 @@ footer {
   transition: 0.3s ease-in-out;
 }
 
+
+
+/* Common template for pages with tables */
+
+.content .page-top-main-container {
+  margin: 30px 0 10px 0;
+  padding: 0 70px;
+  display: flex;
+  justify-content: right;
+  width: 100%;
+}
+
+.content .page-top-main-container .btn {
+  font-weight: 500;
+  padding: 7px;
+  width: 120px;
+}
+
+.content .filter-options .options-container {
+  display: flex;
+  padding: 30px 70px;
+  width: 100%;
+  min-width: 330px;
+}
+
+.content .filter-options .options-container .left-section {
+  width: 100%;
+  margin-right: auto;
+}
+
+.content .filter-options .options-container .right-section {
+  margin-left: 30px;
+}
+
+.content .filter-options .options-container .btn {
+  margin-top: 26px;
+  font-weight: 500;
+  padding: 7px;
+  width: 120px;
+}
+
+@media (max-width: 940px) {
+  .content .filter-options .options-container {
+    flex-direction: column;
+  }
+
+  .content .filter-options .options-container .right-section {
+    margin-left: auto;
+  }
+
+  .content .filter-options .options-container .btn {
+    margin-top: 0px;
+  }
+}
+
+/* End of Common template for pages with tables */
+
+
+/* Common button styles */
+
+.btn {
+  display: block;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.btn.btn-filled {
+  border: none;
+  color: var(--white);
+}
+
+.btn.btn-outlined {
+  background-color: transparent;
+}
+
+.btn.btn-filled.btn-theme-purple {
+  background-color: var(--theme-purple);
+}
+
+.btn.btn-filled.btn-red {
+  background-color: var(--theme-red);
+}
+
+.btn.btn-filled.btn-black {
+  background-color: var(--theme-black);
+}
+
+.btn.btn-outlined.btn-black {
+  border: 2px solid var(--theme-black);
+  color: var(--theme-black);
+}
+
+.btn.btn-outlined.btn-red {
+  border: 2px solid var(--theme-red);
+  color: var(--theme-red);
+}
+
+.btn.btn-filled.btn-blue {
+  background-color: var(--theme-blue);
+}
+
+.btn.btn-outlined.btn-theme-purple {
+  border: 2px solid var(--theme-purple);
+  color: var(--theme-purple);
+}
+
+/* End of Common button styles */
+
+/* Common styles for top right close btn */
+
+.top-right-closeBtn {
+  color: var(--theme-grey);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: ease-in-out 0.3s;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-right-closeBtn:hover {
+  color: var(--black);
+}
+
+/* End of Common styles for top right close btn */
+
+
+/* error page styles */
+
+.error404 .main-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+}
+
+.error404 .inner-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: min-content;
+  width: min-content;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.error404 .inner-container h1 {
+  display: block;
+  font-size: 280px;
+  font-weight: 700;
+  color: var(--theme-black);
+}
+
+.error404 .btn{
+  margin-top: 20px;
+  padding: 7px;
+  width: 150px;
+}
+
+@media (max-width: 768px) {
+  .error404 .inner-container h1 {
+    font-size: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .error404 .inner-container h1 {
+    display: block;
+    font-size: 250px;
+    font-weight: 700;
+    line-height: 300px;
+    color: var(--theme-black);
+  }
+}
+
+/* end of error page styles */
+
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
 /* ------------------------------------------------------ */
-
-
