@@ -160,14 +160,16 @@
 									<?php foreach($data['sResArray'] as $sResource) : ?>
 
 										<div class="divIndiv">
-											
+											<?php  $findResource = 1; ?>
 											<input type="checkbox" name="resourceCheckbox[]" value="<?php echo $sResource->resourceID; ?>">
 
 											<label class="lableInDiv" id="checkedItem">
 												<?php echo $sResource->resourceID; ?> - <?php echo $sResource->name; ?> 
 											</label>
+											
+											<?php $resName =  $sResource->resourceID ?>
 
-											<select class="dropdownSelectBox-small quantity-align resCount" name="serviceResCount">
+											<select class="dropdownSelectBox-small quantity-align resCount" name="<?php $resName ?>">
 												<option class="unbold" value="0" option selected="true" >0</option>
 
 													<?php $Qcount= $sResource->quantity;?>
@@ -200,7 +202,7 @@
 
 			<!-- submit service button -->
 			<div class="button-Add-Div">
-	    		<button type="submit" class="buttonAdd" name="action" value="addService">Add</button>
+	    		<button type="submit" class="buttonAdd btn btn-filled btn-blue" name="action" value="addService">Add</button>
 	    	</div>
 
 		</div>

@@ -22,6 +22,12 @@
 				<div class="row">
 					<div class="column">
 						<div class="text-group">
+							<div class="labels"><label class="labels" for="serviceID"> Service ID</label></div>
+							<input type="text" name="" id="serviceID" placeholder="00001" disabled>
+						</div>
+					</div>
+					<div class="column">
+						<div class="text-group">
 							<div class="labels"><label class="labels" for="serviceName"> Service Name</label></div>
 							<input type="text" name="" id="serviceName" placeholder="Service 01" disabled>
 						</div>
@@ -39,7 +45,7 @@
 
 						
 						<!-- Service price -->
-						<div class="row4">
+						<div class="row5">
 							<div class="labels"><label class="labels" for="servicePrice">Price</label></div>
 							<input type="text" name="" id="servicePrice" placeholder="Rs.500.00" disabled>
 						</div>
@@ -132,7 +138,7 @@
 								<div class="labels"><label class="labels">Interval Duration</label></div>
 								<input type="text" name="" id="" placeholder="10 min" disabled>
 							</div>
-							<div class="row4" id="">
+							<div class="row5" id="">
 								<div class="labels"><label class="labels">Slot Duration</label></div>
 								<input type="text" name="" id="" placeholder="30 min" disabled>
 							</div>

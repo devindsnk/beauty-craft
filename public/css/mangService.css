@@ -185,16 +185,11 @@
 }
 
 .buttonAdd{
-    background-color: #444BF8;
     margin-top: 20px;
-    color: white;
     width: 150px;
-    height: 40px;
-    right: 0;
-    font-family: inherit;
+    font-weight: 500;
     font-size: 16px;
-    border: none;
-    border-radius: 6px;
+    padding: 7px;
     cursor: pointer;
 }
 .add-type-btn, .confirm-service-btn{
@@ -315,6 +310,9 @@
 }
 .row4{
     margin-top: 95px;
+}
+.row5{
+    margin-top: 110px;
 }
 .service-full-model{
    background-color: var(--theme-bgwhite);

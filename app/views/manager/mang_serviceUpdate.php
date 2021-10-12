@@ -186,7 +186,7 @@
 
 			<!-- submit service button -->
 			<div class="button-Add-Div">
-				<button class="buttonAdd">Save</button>
+				<button class="buttonAdd btn btn-filled btn-blue">Save</button>
 			</div>
 		</div>
 

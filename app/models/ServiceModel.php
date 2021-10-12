@@ -40,21 +40,23 @@ class ServiceModel{
 
     }
 
-    public function addTimeSlot($data){
-        
+    public function addTimeSlot($data, $slotNo){
+        $slotNo++;
+
         $slotDuration = $data['sSlot1Duration'];
 
-        $this->db->query("INSERT INTO timeslots (serviceID, slotNo, duration) SELECT MAX(serviceID), '1', '$slotDuration'  FROM services");
+        $this->db->query("INSERT INTO timeslots (serviceID, slotNo, duration) SELECT MAX(serviceID), '$slotNo', '$slotDuration'  FROM services");
 
         $this->db->execute();
 
     }
 
-    public function addResourcesToService($data){
-
+    public function addResourcesToService($data, $slotNo){
+        $slotNo++;
+        $SelectedResCount = $$data['sSelectedResCount'];
         foreach($data['sSelectedResourse'] as $SelectedResourse){
 
-            $this->db->query("INSERT INTO resourceallocation (serviceID, slotNo, resourceID, requiredQuantity) SELECT MAX(serviceID), '1', '$SelectedResourse', '10' FROM services");
+            $this->db->query("INSERT INTO resourceallocation (serviceID, slotNo, resourceID, requiredQuantity) SELECT MAX(serviceID), '1', '$SelectedResourse', '$SelectedResCount' FROM services");
 
             $this->db->execute();
         }
