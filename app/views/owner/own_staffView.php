@@ -8,7 +8,7 @@
          <h1 class="header-topic">Staff Member Details</h1>
       </div>
       <div class="header-right verticalCenter">
-         <a href="<?php echo URLROOT ?>/OwnDashboard/staff"><i class="fal fa-times fa-2x header-closebtn"></i></a>
+         <a href="<?php echo URLROOT ?>/OwnDashboard/staff" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
       </div>
    </header>
    <div class="content contentNewRes">
@@ -34,8 +34,7 @@
                <!-- section break line endss -->
                <div class="ownViewStaffProfileGrid">
                   <div class="ownViewStaffProfileDetailsImg">
-                     <img src="<?php echo URLROOT ?>/public//imgs/img_avatar.png" alt="Avatar"
-                        class="ownViewStaffProfileDetailsImgCircle">
+                     <img src="<?php echo URLROOT ?>/public//imgs/img_avatar.png" alt="Avatar" class="ownViewStaffProfileDetailsImgCircle">
                   </div>
                   <div class="ownViewStaffProfileDetailsInfo">
                      <span class="ownViewStaffProfileDetailsName">Devin Dissanayake</span> <br>

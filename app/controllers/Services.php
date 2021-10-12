@@ -18,8 +18,8 @@ class Services extends Controller
       //       'sPrice' => '',
 
       //    ]
-         $this->view('manager/mang_serviceAdd');
-         // $this->view('manager/mang_serviceAdd', $data);
+      $this->view('manager/mang_serviceAdd');
+      // $this->view('manager/mang_serviceAdd', $data);
       // }
    }
    public function addService2()

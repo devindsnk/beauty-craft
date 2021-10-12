@@ -2,8 +2,17 @@
    public function __construct() {
       $this->LeaveModel=$this->model('LeaveModel');
    }
+<<<<<<< HEAD
 
    public function overview() {
+=======
+   public function home()
+   {
+      redirect('SerProvDashboard/overview');
+   }
+   public function overview()
+   {
+>>>>>>> a86a5cbb838f06284cbc77773eb54279a89b2708
       $this->view('serviceProvider/serProv_overview');
    }
 

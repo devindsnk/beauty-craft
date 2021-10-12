@@ -14,6 +14,8 @@
 
 <body>
    <div class="main-container">
+      <a href="<?php echo URLROOT ?>" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
+
       <div class="reset-container form-container contentBox">
          <form action="<?php echo URLROOT; ?>/user/resetPassword" method="post" class="form">
             <h1 class="title">Reset Password</h1>
