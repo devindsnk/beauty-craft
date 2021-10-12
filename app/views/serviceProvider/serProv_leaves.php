@@ -71,7 +71,8 @@
 
                <tbody>
                   <tr>
-                     <td class="column-center-align"><?php echo $data['leave']->leaveDate; ?></td>
+                     
+                     <td class="column-center-align">2021-09-08</td>
                      <td class="column-center-align">2021-09-05</td>
                      <td class="column-center-align">2021-09-06</td>
                      <td class="column-center-align">
