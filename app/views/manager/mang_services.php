@@ -17,10 +17,7 @@
    <!--Content-->
    <div class="content">
 
-
       <?php require APPROOT . "/views/common/servicesTable.php" ?>
-
-
 
       <h3>This is main option 1</h3>
       <a href="<?php echo URLROOT ?>/services/addNewService"><button>New Service</button></a>
@@ -29,24 +26,6 @@
       <a href="<?php echo URLROOT ?>/services/viewService2"><button>View Service2</button></a>
       <a href="<?php echo URLROOT ?>/services/updateService"><button>Update Service</button></a>
       <button class="btnOpen normal">Delete Service</button></a>
-      
-
-      <!-- Service delete model -->
-      <div class="modal-container normal">
-         <div class="modal-box">
-               <div class="confirm-model-head">
-                  <h1>Delete Service</h1>
-               </div>
-               <div class="confirm-model-head">
-                  <p>Are you sure you want to delete the service? <br> This action cannot be undone after proceeding.</p>
-               </div>
-               <div class="confirm-model-head">
-                  <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
-                  <button class="btn btnClose normal ModalButton ModalBlueButton">Confirm</button>
-               </div>
-         </div>
-      </div>
-      <!-- End of Service delete model -->
 
    </div>
    <!--End Content-->
