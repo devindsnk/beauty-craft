@@ -1,3 +1,6 @@
+/* ------------------------------------------------------ */
+/* -------------STYLES ADDED BY SANJANA ----------------- */
+/* ------------------------------------------------------ */
 
 .mang hr{
     margin-top: 25px;
@@ -11,6 +14,14 @@
     margin: 10px -10px 10px -10px;
 }
 
+.labels{
+    font-weight: 600;
+}
+.labels2{
+    font-size: 14px;
+    font-weight: 400;
+}
+
 .mang.a{
     text-decoration: none;
 }
@@ -19,6 +30,7 @@
     font-size: 14px;
     margin: auto;
 }
+
 .lableInDiv2{
     font-size: 14px;
     margin-top: 5px;
@@ -39,9 +51,10 @@
     display: flex;
     flex-direction: column;
     width: 50%;
+    min-width: 330px;
 	margin: auto;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     overflow-x: auto;
     align-content: center;
     justify-content: center;
@@ -49,10 +62,8 @@
 
 .newService-sub{
     min-width: 380px;
-    padding: 20px;
-    /* padding-left: 0;
-    padding-right: 0; */
-    margin: 20px 10px;
+    padding: 30px 30px 15px 30px;
+    margin: 0px 10px 10px 10px;
     background-color: white;
     border-radius: 6px;
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
@@ -75,9 +86,9 @@
 .hold-service-div{
     display: flex;
     flex-direction: row;
-    /* justify-content: ; */
     text-align: center;
     padding: 10px;
+    padding-left: 0;
 }
 
 .newService-sub-sub{
@@ -95,13 +106,14 @@
 }
 
 .anotheSlot{
-    padding-left: 20px;
+    text-align: center;
+    padding: 10px;
 }
 
 .checkbox-div{
-	height: 200px;
+	height: 220px;
     width: 100%;
-    min-width: 290px;
+    /* min-width: 290px; */
     /* padding: 10px 10px; */
     background-color: white;
     padding: 0;
@@ -135,7 +147,6 @@
 }
 
 .dropdownSelectBox-small{
-    /* display: none; */
     height: 25px;
     width: 80px;
     border-radius: 6px;
@@ -158,7 +169,7 @@
     height: 35px;
     right: 0;
     /* margin:auto; */
-    margin-top: 20px;
+    margin-top: 10px;
     font-family: inherit;
     font-size: 16px;
     border: none;
@@ -168,8 +179,9 @@
 
 .button-Add-Div{
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
+    padding: 7px;
 }
 
 .buttonAdd{
@@ -185,13 +197,20 @@
     border-radius: 6px;
     cursor: pointer;
 }
-.add-type-btn{
+.add-type-btn, .confirm-service-btn{
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
     background-color: #3ABD5F;
+    color: #FFF;
     height: 35px;
     width: 100px;
     margin-top: 20px;
 }
 .close-type-btn{
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
     background-color: #EAEAEA;
     color: #000;
     height: 35px;
@@ -199,20 +218,30 @@
     margin-top: 20px;
 }
 .close-slot, .btn-remove-service{
-    width: 50px;
-    height: 50px;
+    /* width: 50px;
+    height: 50px; */
     font-weight: 800;
     color: #000000;
 }
 
-.btn-remove, .btn-remove-service{
-    padding-right: 10px;
+.btn-remove-service{
+    padding-top: 10px;
+}
+
+.btn-remove{
+    width: 100%;
+    text-align: right;
 }
 .close-slot:hover {
     color: red;
 }
 
 /* View service extra*/
+
+.newservice input:disabled{
+    background-color: white;
+    color: #000;
+}
 .view-Div{
     margin-left: 0px;
     padding: 8px 20px 8px 20px;
@@ -278,7 +307,22 @@
         
     }
 } */
-
-.row .row3{
-    margin-top: 90px;
+.row1{
+    margin-top: 10px;
 }
+.row3{
+    margin-top: 35px;
+}
+.row4{
+    margin-top: 95px;
+}
+.service-full-model{
+   background-color: var(--theme-bgwhite);
+   width: 100vw;
+   max-height: 100vh;
+   overflow-y: auto;
+}
+
+/* ------------------------------------------------------ */
+/* ----------END OF STYLES ADDED BY SANJANA-------------- */
+/* ------------------------------------------------------ */

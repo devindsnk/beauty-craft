@@ -117,7 +117,7 @@
          <!--chart-container-->
          <div class="chart-container">
             <div class="chart-head"> 
-               <p>Total Yearly Income</p>
+               <p>Annual Income</p>
             </div>
             <canvas id="myChart1" width="290" height="200"></canvas>
          </div>
@@ -126,7 +126,7 @@
          <!--chart-container-->
          <div class="chart-container">
             <div class="chart-head"> 
-               <p>Total Yearly Reservations</p>
+               <p>Annual Reservations</p>
             </div>
             <canvas id="myChart2" width="290" height="200"></canvas>
          </div>

@@ -17,21 +17,17 @@
    <!--Content-->
    <div class="content">
 
-
       <?php require APPROOT . "/views/common/servicesTable.php" ?>
 
-
-
       <h3>This is main option 1</h3>
-      <a href="<?php echo URLROOT ?>/services/addService"><button>New Service</button></a>
+      <a href="<?php echo URLROOT ?>/services/addNewService"><button>New Service</button></a>
       <a href="<?php echo URLROOT ?>/services/addService2"><button>New Service2</button></a>
+      <a href="<?php echo URLROOT ?>/services/viewService"><button>View Service</button></a>
+      <a href="<?php echo URLROOT ?>/services/viewService2"><button>View Service2</button></a>
+      <a href="<?php echo URLROOT ?>/services/updateService"><button>Update Service</button></a>
       <button class="btnOpen normal">Delete Service</button></a>
 
    </div>
-
-
-   <!-- End of New service type model -->
-
    <!--End Content-->
 
    <script type="text/javascript" src="<?php echo URLROOT ?>/public/js/modals.js"></script>

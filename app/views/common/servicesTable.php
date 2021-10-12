@@ -130,18 +130,19 @@
    </div>
 </div>
 
-<!-- New service type model -->
+<!-- Service delete model -->
 <div class="modal-container remove-service">
    <div class="modal-box">
-      <div class="new-type-head">
+      <div class="confirm-model-head">
          <h1>Delete Service</h1>
       </div>
-      <div class="new-type-head">
-         <p>Are you sure the.........!!!</p>
+      <div class="confirm-model-head">
+         <p>Are you sure you want to delete the service? <br> This action cannot be undone after proceeding.</p>
       </div>
-      <div class="new-type-head">
-         <button class="btn btnClose normal close-type-btn">Close</button>
-         <button class="btn btnClose normal close-type-btn">Confirm</button>
+      <div class="confirm-model-head">
+         <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
+         <button class="btn btnClose normal ModalButton ModalBlueButton">Confirm</button>
       </div>
    </div>
 </div>
+<!-- End of Service delete model -->

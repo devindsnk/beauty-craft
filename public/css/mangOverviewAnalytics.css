@@ -1,0 +1,311 @@
+/* ---- This has styles for mang_overview & mang_analytics ---- */
+
+/* ------------------------------------------------------------ */
+/* ----------------STYLES ADDED BY SANJANA -------------------- */
+/* ------------------------------------------------------------ */
+
+.mang-sub-container1-head{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 30px;
+    width: 100%;
+    height: auto;
+}
+
+.mang-sub-container1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    height: auto;
+    padding: 20px 20px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mang-sub-container-card{
+    display: flex;
+    flex-direction: column;
+    /* position: relative; */
+    background-color: var(--white);
+    justify-content: space-around;
+    text-align: center;
+    align-content: center;
+    padding: 20px;
+    width: 250px;
+    height: 125px;
+    margin: 10px 5px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+.mang-sub-container-card-title{
+    color: rgb(126, 126, 126);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.mang-sub-container-card-amount{
+    font-size: 1.5rem;
+    font-weight: 600;
+    justify-content: center;
+}
+
+.mang-sub-container2,
+.mang-sub-container3{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mang .chart-container,
+.mang .table-container{
+    padding: 40px;
+    width: 50%;
+    height: 50%;
+    justify-content: space-around;
+}
+
+.mang .chart-head,
+.table-head{
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 10px 10px;
+}
+/* .mang .table-head{
+    padding-left: 40px;
+} */
+
+/* table of overall analytics */
+.mang .table-cont{
+    background-color: var(--white);
+    padding: 10px 10px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+}
+
+.mang table{
+    width: 100%;
+}
+.mang td ,th{
+    padding: 5px 5px;
+}
+.mang td{
+    border-top: 2px solid #eaeaea;
+}
+/* End of table of overall analytics */
+
+.align-right{
+    float: right;
+}
+.align-left{
+    float: left;
+}
+
+/* search box container */
+.mang .select-box-container{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+/* .mang input[type = "text"] {
+    width: 220px;
+    height: 50px;
+    font-weight: 400;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1.2px solid #c4cae0;
+    margin-top: 5px;
+ } */
+ .mang input[type = "date"]{
+    width: 100%;
+    height: 37px;
+    font-weight: 400;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1.2px solid #c4cae0;
+    margin-top: 5px;
+ }
+ /* .mang select {
+    width: 220px;
+    height: 50px;
+    font-weight: 400;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1.2px solid #c4cae0;
+    margin-top: 5px;
+ } */
+.mang .searching-btn{
+    width: 180px;
+    height: 40px;
+    background-color: #252631;
+    margin-top: 25px;
+    border-radius: 6px;
+    color: var(--white);
+    font-size: 16px;
+}
+.mang form{
+    align-items: center;
+}
+/* End of search box container */
+
+/* for card */
+@media screen and (max-width: 1305px) {
+    .mang-sub-container-card{
+        width: 400px;
+    }
+}
+/* for card */
+@media screen and (max-width: 768px) {
+    .mang-sub-container-card{
+        width: 270px;
+    }
+    .mang-sub-container-card-amount{
+        margin-top: 10%;
+    }
+    .mang .chart-container{
+        width:500px;
+        flex-wrap: wrap;
+    }
+    .mang .table-container{
+        width: 400px;
+    }
+}
+/* for table */
+@media screen and (max-width: 1296px) {
+    .mang .table-container{
+        width: 560px;
+    }
+    
+}
+/* for chart */
+@media screen and (max-width: 1099px) {
+    .mang .chart-container{
+        width:500px;
+        flex-wrap: wrap;
+    }
+
+}
+
+@media screen and (max-width: 1454px) {
+    .mang .searching-btn{
+        width: 338px;
+    }
+}
+
+
+
+/* accept|reject leave requests */
+
+.leave-requests-main{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    min-width: 330px;
+	margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow-x: auto;
+    align-content: center;
+    justify-content: center;
+}
+
+.leave-request-main-head{
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.mang-sub-container1.leave-sub-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.contentBox.leave-sub-container-card{
+    width: 250px;
+    height: 60px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    align-content: center;
+    padding: 15px 20px 15px 20px;
+    margin-top: 15px;
+}
+
+.leave-requests-sub{
+    min-width: 380px;
+    padding: 30px;
+    margin: 20px 10px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+.leave-requests-button-div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+}
+    /* styles for leave request model */
+    .leave-request input[type = "date"]{
+        width: 200px;
+        height: 40px;
+        font-weight: 400;
+        padding: 8px 10px;
+        border-radius: 6px;
+        border: 1.2px solid #c4cae0;
+        margin-top: 10px;
+    }
+
+    .leave-request textarea {
+        resize: none;
+        width: 100%;
+        border: 1.2px solid #c4cae0;
+        border-radius: 6px;
+        padding: 10px;
+        margin-top: 10px;
+    }
+    /* End of styles for leave request model */
+
+.leave-request input:disabled , .leave-request textarea:disabled{
+    background-color: white;
+    color: #000;
+}
+
+.buttonLeaveRequest{
+    margin-top: 20px;
+    width: 150px;
+    padding: 7px;
+    cursor: pointer;
+}
+
+
+/* for leave request accept|reject card */
+@media screen and (max-width: 1110px) {
+    .mang-sub-container1.leave-sub-container{
+        justify-content: space-evenly;
+    }
+    
+    .contentBox.leave-sub-container-card{
+        width: 500px;
+    }
+}
+
+/* End of accept|reject leave requests */
+
+/* ------------------------------------------------------ */
+/* ----------END OF STYLES ADDED BY SANJANA-------------- */
+/* ------------------------------------------------------ */

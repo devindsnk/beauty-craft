@@ -17,6 +17,26 @@
    <!--Content-->
    <div class="content">
       <h3>This is main option 1</h3>
+      <a href="<?php echo URLROOT ?>/leaves/leaveRequest"><button>Leave Request</button></a>
+      <button class="btnOpen normal">Delete Leave Request</button></a>
+
+      <!-- Leave request delete model -->
+      <div class="modal-container normal">
+         <div class="modal-box">
+               <div class="confirm-model-head">
+                  <h1>Delete Leave Request ?</h1>
+               </div>
+               <div class="confirm-model-head">
+                  <p>Are you sure you want to delete the leave request? <br> This action cannot be undone after proceeding.</p>
+               </div>
+               <div class="confirm-model-head">
+                  <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
+                  <button class="btn btnClose normal ModalButton ModalBlueButton">proceed</button>
+               </div>
+         </div>
+      </div>
+      <!-- End of Leave request delete model -->
+
    </div>
    <!--End Content-->
 
