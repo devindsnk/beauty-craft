@@ -4,8 +4,6 @@
    </div>
 <?php endif; ?>
 
-
-
 <form class="form filter-options" action="">
    <div class="options-container">
       <div class="left-section">

@@ -7,8 +7,7 @@
          <h1 class="header-topic">New Reservation</h1>
       </div>
       <div class="header-right verticalCenter">
-         <i class="fal fa-times fa-2x header-closebtn"></i>
-         <!-- <i class="fas fa-times fa-2x header-closebtn"></i> -->
+         <a href="" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
       </div>
    </header>
 

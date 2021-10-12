@@ -14,6 +14,7 @@
 
 <body>
    <div class="main-container">
+      <a href="<?php echo URLROOT ?>" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
       <div class="reg-container form-container contentBox">
          <form action="<?php echo URLROOT; ?>/customer/register" method="post" class="form">
             <h1 class="title">Get Registered</h1>

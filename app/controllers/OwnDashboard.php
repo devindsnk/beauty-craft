@@ -5,6 +5,10 @@ class OwnDashboard extends Controller
    {
       // $this->employeeModel = $this->model('Employee');
    }
+   public function home()
+   {
+      redirect('OwnDashboard/overview');
+   }
    public function analytics()
    {
       $this->view('owner/own_analytics');
@@ -45,5 +49,4 @@ class OwnDashboard extends Controller
    {
       $this->view('owner/own_staff');
    }
-   
 }

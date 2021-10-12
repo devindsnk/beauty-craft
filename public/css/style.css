@@ -202,23 +202,78 @@ footer {
 
 /* End of Common button styles */
 
-/* Common styles for staff table */
-.content .staff-table tr .col-2 {
-  width: 300px;
+/* Common styles for top right close btn */
+
+.top-right-closeBtn {
+  color: var(--theme-grey);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: ease-in-out 0.3s;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.content .staff-table tr .col-3 {
+
+.top-right-closeBtn:hover {
+  color: var(--black);
+}
+
+/* End of Common styles for top right close btn */
+
+
+/* error page styles */
+
+.error404 .main-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+}
+
+.error404 .inner-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: min-content;
+  width: min-content;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.error404 .inner-container h1 {
+  display: block;
+  font-size: 280px;
+  font-weight: 700;
+  color: var(--theme-black);
+}
+
+.error404 .btn{
+  margin-top: 20px;
+  padding: 7px;
   width: 150px;
 }
-.content .staff-table tr .col-7 {
-  width: 130px;
+
+@media (max-width: 768px) {
+  .error404 .inner-container h1 {
+    font-size: 250px;
+  }
 }
-.content .staff-table tr .col-8 {
-  width: 20px;
+
+@media (max-width: 768px) {
+  .error404 .inner-container h1 {
+    display: block;
+    font-size: 250px;
+    font-weight: 700;
+    line-height: 300px;
+    color: var(--theme-black);
+  }
 }
 
-
-
-/* End of Common styles for staff table */
+/* end of error page styles */
 
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/

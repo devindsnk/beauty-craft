@@ -5,7 +5,10 @@ class ReceptDashboard extends Controller
    {
       // $this->employeeModel = $this->model('Employee');
    }
-
+   public function home()
+   {
+      redirect('ReceptDashboard/dailyView');
+   }
    public function dailyView()
    {
       $this->view('receptionist/recept_dailyView');

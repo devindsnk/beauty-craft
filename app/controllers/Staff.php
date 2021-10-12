@@ -9,7 +9,8 @@ class Staff extends Controller
 
    public function addStaff()
    {
-      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      if ($_SERVER['REQUEST_METHOD'] == 'POST')
+      {
          $data = [
             'staffFname' => trim($_POST['staffFname']),
             'staffLname' => trim($_POST['staffLname']),
@@ -38,73 +39,90 @@ class Staff extends Controller
          ];
 
          // Validating fname
-         if (empty($data['staffFname'])) {
+         if (empty($data['staffFname']))
+         {
             $data['staffFname_error'] = "Please enter First Name";
          }
 
          // Validating lname
-         if (empty($data['staffLname'])) {
+         if (empty($data['staffLname']))
+         {
             $data['staffLname_error'] = "Please enter Last Name";
          }
 
          // Validating gender
-         if (empty($data['gender'])) {
+         if (empty($data['gender']))
+         {
             $data['gender_error'] = "Please select gender";
          }
 
          // Validating nic
-         if (empty($data['staffNIC'])) {
+         if (empty($data['staffNIC']))
+         {
             $data['staffNIC_error'] = "Please enter NIC number";
          }
 
          // Validating date of birth
-         if (empty($data['staffDOB'])) {
+         if (empty($data['staffDOB']))
+         {
             $data['staffDOB_error'] = "Please enter Date of birth";
          }
          // Validating staff type
-         if (empty($data['staffType'])) {
+         if (empty($data['staffType']))
+         {
             $data['staffType_error'] = "Please select staff type";
          }
          // Validating address
-         if (empty($data['staffHomeAdd'])) {
+         if (empty($data['staffHomeAdd']))
+         {
             $data['staffHomeAdd_error'] = "Please enter address";
          }
 
          // Validating contact num
-         if (empty($data['staffContactNum'])) {
+         if (empty($data['staffContactNum']))
+         {
             $data['staffContactNum_error'] = "Please enter contact number";
          }
          // Validating email
-         if (empty($data['staffEmail'])) {
+         if (empty($data['staffEmail']))
+         {
             $data['staffEmail_error'] = "Please enter email";
          }
-         
+
          // Validating account number
-         if (empty($data['staffAccNum'])) {
+         if (empty($data['staffAccNum']))
+         {
             $data['staffAccNum_error'] = "Please enter bank account number";
          }
          // Validating account holder's name
-         if (empty($data['staffAccHold'])) {
+         if (empty($data['staffAccHold']))
+         {
             $data['staffAccHold_error'] = "Please enter bank account holders name";
          }
          // Validating bank name
-         if (empty($data['staffAccBank'])) {
+         if (empty($data['staffAccBank']))
+         {
             $data['staffAccBank_error'] = "Please enter bank name";
          }
-       
+
 
          if (
             empty($data['staffFname_error']) && empty($data['staffLname_error']) && empty($data['gender_error']) && empty($data['staffNIC_error']) && empty($data['staffDOB_error']) && empty($data['staffType_error']) && empty($data['staffHomeAdd_error']) && empty($data['staffContactNum_error']) && empty($data['staffEmail_error']) &&
             empty($data['staffAccNum_error']) && empty($data['staffAccHold_error']) && empty($data['staffAccBank_error'])
-         ) {
+         )
+         {
             $this->staffModel->addStaffDetails($data);
             $this->staffModel->addBankDetails($data);
-            $this->userModel->registerUser($data['staffContactNum'] ,$data['staffNIC'] ,$data['staffType']);
+            $this->userModel->registerUser($data['staffContactNum'], $data['staffNIC'], $data['staffType']);
             header('location: ' . URLROOT . '/OwnDashboard/staff');
-         } else {
+         }
+         else
+         {
             $this->view('owner/own_staffAdd', $data);
          }
-      } else {
+      }
+      else
+      {
 
          $data = [
             'staffFname' => '',
@@ -147,6 +165,4 @@ class Staff extends Controller
    {
       $this->view('owner/own_salaryReportView');
    }
-
-
 }

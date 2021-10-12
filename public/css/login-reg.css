@@ -53,8 +53,11 @@ body {
     .reg-container, .reset-container {
         min-width: 416px;
         width: 100vw;
+        height: 100vh;
     }
 }
+
+/* Form design for login reg n resetpassword */
 
 .form {
     width: 100%;
@@ -101,15 +104,6 @@ body {
     letter-spacing: 4px;
 }
 
-.login-container input[type="text"] {
-    /* margin: 20px 0; */
-}
-
-.reg-container input[type="text"] {
-    /* padding: 5px 20px; */
-    /* margin-top: 5px; */
-}
-
 .form .radio-container {
     margin-top: 5px;
 }
@@ -136,11 +130,7 @@ body {
     color: var(--theme-lightgrey);
 }
 
-.login-container .forgot-password {
-    display: block;
-    margin-left: auto;
-    width: 100%;
-}
+/* End of Form design for login reg n resetpassword */
 
 .form-container .btn {
     padding: 7px;
@@ -166,8 +156,17 @@ body {
 
 .footer-container p {
     text-align: center;
+    font-size: 14px;
+}
+
+.login-container .forgot-password {
+    display: block;
+    margin-left: auto;
+    width: 100%;
 }
 
 a{
     color: var(--theme-purple);
+    font-size: 14px;
 }
+

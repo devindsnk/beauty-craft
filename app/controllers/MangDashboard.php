@@ -5,7 +5,10 @@ class MangDashboard extends Controller
    {
       // $this->employeeModel = $this->model('Employee');
    }
-
+   public function home()
+   {
+      redirect('MangDashboard/overview');
+   }
    public function overview()
    {
       $this->view('manager/mang_overview');
