@@ -1,6 +1,6 @@
 <?php if ($userLevel == "Receptionist") : ?>
    <div class="page-top-main-container">
-      <a href="" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
+      <a href="<?php echo URLROOT ?>/reservations/addNew" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
    </div>
 <?php endif; ?>
 
@@ -86,8 +86,10 @@
                <td class="column-center-align">
                   <span>
                      <a href="#"><i class="ci-view-more table-icon"></i></a>
-                     <a href="#"><i class="ci-edit table-icon"></i></a>
-                     <a href="#"><i class="ci-trash table-icon"></i></a>
+                     <?php if ($userLevel == "Receptionist") : ?>
+                        <a href="#"><i class="ci-edit table-icon"></i></a>
+                        <a href="#"><i class="ci-trash table-icon"></i></a>
+                     <?php endif; ?>
                   </span>
                </td>
             </tr>
@@ -105,8 +107,10 @@
                <td class="column-center-align">
                   <span>
                      <a href="#"><i class="ci-view-more table-icon"></i></a>
-                     <a href="#"><i class="ci-edit table-icon"></i></a>
-                     <a href="#"><i class="ci-trash table-icon"></i></a>
+                     <?php if ($userLevel == "Receptionist") : ?>
+                        <a href="#"><i class="ci-edit table-icon"></i></a>
+                        <a href="#"><i class="ci-trash table-icon"></i></a>
+                     <?php endif; ?>
                   </span>
                </td>
             </tr>
@@ -124,8 +128,10 @@
                <td class="column-center-align">
                   <span>
                      <a href="#"><i class="ci-view-more table-icon"></i></a>
-                     <a href="#"><i class="ci-edit table-icon"></i></a>
-                     <a href="#"><i class="ci-trash table-icon"></i></a>
+                     <?php if ($userLevel == "Receptionist") : ?>
+                        <a href="#"><i class="ci-edit table-icon"></i></a>
+                        <a href="#"><i class="ci-trash table-icon"></i></a>
+                     <?php endif; ?>
                   </span>
                </td>
             </tr>

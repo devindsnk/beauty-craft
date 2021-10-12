@@ -80,7 +80,7 @@
                      <a href="<?php echo URLROOT ?>/services/viewService"><i class="ci-view-more table-icon"></i></a>
                      <?php if ($userLevel == "Owner" || $userLevel == "Manager") : ?>
                         <a href="<?php echo URLROOT ?>/services/updateService"><i class="ci-edit table-icon"></i></a>
-                        <a href="#"><i class="ci-trash table-icon"></i></a>
+                        <a href="#"><i class="ci-trash table-icon btnRemoveService"></i></a>
                      <?php endif; ?>
                   </span>
                </td>
@@ -100,7 +100,7 @@
                      <a href="<?php echo URLROOT ?>/services/viewService"><i class="ci-view-more table-icon"></i></a>
                      <?php if ($userLevel == "Owner" || $userLevel == "Manager") : ?>
                         <a href="<?php echo URLROOT ?>/services/updateService"><i class="ci-edit table-icon"></i></a>
-                        <a href="#"><i class="ci-trash table-icon"></i></a>
+                        <a href="#"><i class="ci-trash table-icon btnRemoveService"></i></a>
                      <?php endif; ?>
                   </span>
                </td>
@@ -120,7 +120,7 @@
                      <a href="<?php echo URLROOT ?>/services/viewService"><i class="ci-view-more table-icon"></i></a>
                      <?php if ($userLevel == "Owner" || $userLevel == "Manager") : ?>
                         <a href="<?php echo URLROOT ?>/services/updateService"><i class="ci-edit table-icon"></i></a>
-                        <a href="#"><i class="ci-trash table-icon"></i></a>
+                        <a href="#"><i class="ci-trash table-icon btnRemoveService"></i></a>
                      <?php endif; ?>
                   </span>
                </td>
@@ -129,3 +129,20 @@
       </table>
    </div>
 </div>
+
+<!-- Service delete model -->
+<div class="modal-container remove-service">
+   <div class="modal-box">
+      <div class="confirm-model-head">
+         <h1>Delete Service</h1>
+      </div>
+      <div class="confirm-model-head">
+         <p>Are you sure you want to delete the service? <br> This action cannot be undone after proceeding.</p>
+      </div>
+      <div class="confirm-model-head">
+         <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
+         <button class="btn btnClose normal ModalButton ModalBlueButton">Confirm</button>
+      </div>
+   </div>
+</div>
+<!-- End of Service delete model -->

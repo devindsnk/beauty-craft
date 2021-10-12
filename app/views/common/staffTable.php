@@ -81,7 +81,7 @@
                      <a href="<?php echo URLROOT ?>/staff/viewStaff"><i class="ci ci-view-more table-icon"></i></a>
                      <?php if ($userLevel == "Owner") : ?>
                         <a href="<?php echo URLROOT ?>/staff/updateStaff"><i class="ci ci-edit table-icon"></i></a>
-                        <a href="#"><i class="ci ci-trash table-icon btnRemoveService"></i></a>
+                        <a href="#"><i class="ci ci-trash table-icon btnRemoveStaff"></i></a>
                      <?php endif; ?>
                   </span>
                </td>
@@ -102,7 +102,7 @@
                      <a href="<?php echo URLROOT ?>/staff/viewStaff"><i class="ci ci-view-more table-icon"></i></a>
                      <?php if ($userLevel == "Owner") : ?>
                         <a href="<?php echo URLROOT ?>/staff/updateStaff"><i class="ci ci-edit table-icon"></i></a>
-                        <a href="#"><i class="ci ci-trash table-icon btnRemoveService"></i></a>
+                        <a href="#"><i class="ci ci-trash table-icon btnRemoveStaff"></i></a>
                      <?php endif; ?>
                   </span>
                </td>
@@ -123,7 +123,7 @@
                      <a href="<?php echo URLROOT ?>/staff/viewStaff"><i class="ci ci-view-more table-icon"></i></a>
                      <?php if ($userLevel == "Owner") : ?>
                         <a href="<?php echo URLROOT ?>/staff/updateStaff"><i class="ci ci-edit table-icon"></i></a>
-                        <a href="#"><i class="ci ci-trash table-icon btnRemoveService"></i></a>
+                        <a href="#"><i class="ci ci-trash table-icon btnRemoveStaff"></i></a>
                      <?php endif; ?>
                   </span>
                </td>
@@ -133,3 +133,52 @@
       </table>
    </div>
 </div>
+
+
+<!------------------- Remove Staff modal starts ----------------------------->
+<div class="modal-container remove-staff">
+   <div class="modal-box " id="ownRemstaffWrapper">
+      <div class="ownRemstaffContainer">
+         <h1 class="ownRemStaffHead">Remove Staff</h1>
+
+         <!-- start main grid 1 -->
+         <div class="staffDetails">
+            <div class="staffDetail1">
+               <label class="staffLable">Staff Id</label>
+               <span class="staffData">M001</span>
+            </div>
+            <div class="staffDetail2">
+               <label class="staffLable">Type</label>
+               <span class="staffData">Service Provider</span>
+            </div>
+            <div class="staffDetail3">
+               <label class="staffLable">Name</label>
+               <span class="staffData">Ravindu Madhubhashana</span>
+            </div>
+         </div>
+         <!-- main grid 1 ends -->
+
+         <!-- main grid 2 starts -->
+         <div class="remStaffError">
+            <label class="remStaffErrortext">Cannot proceed. Has upcoming reservations</label>
+            <a href="#" class="remStaffErrorAnchortag"> <label class="remStaffErrorViewReservaions">View
+                  Reservaions</label></a>
+         </div>
+         <!-- main grid 2 ends -->
+
+         <!-- main grid 3 starts -->
+         <div class="remButtons">
+            <div class="ownRemStaffbtn1">
+               <button class="btn btnClose ownCancelButton">Cancel</button>
+            </div>
+            <div class="ownRemStaffbtn2">
+               <button class="btn ownProceedBlueButton">Proceed</button>
+            </div>
+         </div>
+         <!-- main grid 3 ends -->
+
+      </div>
+   </div>
+</div>
+
+<!------------------- Remove Staff Container ends ----------------------------->

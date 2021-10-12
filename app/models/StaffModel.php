@@ -43,12 +43,14 @@ class StaffModel
       $this->db->bind(':mobileNo', $data['staffContactNum']);
       $result = $this->db->resultSet();
       $staffID = $result[0]->staffID;
-      $this->db->query("INSERT INTO bankdetails(staffID, accountNo, bankName, holdersName) VALUES(:staffID, :accountNo, :bankName, :holdersName)");
+      $this->db->query("INSERT INTO bankdetails(staffID, accountNo, bankName, holdersName,branchName) VALUES(:staffID, :accountNo, :bankName, :holdersName, :branchName)");
       
       $this->db->bind(':staffID', $staffID);
       $this->db->bind(':accountNo', $data['staffAccNum']);
       $this->db->bind(':bankName', $data['staffAccBank']);
       $this->db->bind(':holdersName', $data['staffAccHold']);
+      $this->db->bind(':branchName', $data[' staffAccBranch']);
+     
 
       $this->db->execute();
    }
