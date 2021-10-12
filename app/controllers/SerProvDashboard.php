@@ -5,7 +5,10 @@ class SerProvDashboard extends Controller
    {
       // $this->employeeModel = $this->model('Employee');
    }
-
+   public function home()
+   {
+      redirect('SerProvDashboard/overview');
+   }
    public function overview()
    {
       $this->view('serviceProvider/serProv_overview');
@@ -18,6 +21,4 @@ class SerProvDashboard extends Controller
    {
       $this->view('serviceProvider/serProv_leaves');
    }
-   
-   
 }

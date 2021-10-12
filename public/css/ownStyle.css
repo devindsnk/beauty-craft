@@ -22,7 +22,7 @@
 
 .addItemsModalnGrid1 input[type="date"],
 #addItemsModalTextArea,
-select {
+.own select {
     width: 100%;
     font-weight: 400;
     padding: 8px 10px;
@@ -270,7 +270,7 @@ Close Salon Starts
 
 /* .own.close-salon .ownCloseSalonGrid1 input[type="date"],
 #ownCloseSalonTextArea,
-select {
+.own select {
     width: 100%;
     font-weight: 400;
     padding: 8px 10px;
@@ -1596,17 +1596,10 @@ Customers Endss
 
 /*--------------------------------------------------- Button styles starts ----------------------------------------*/
 .ownAddstaffbutton {
-    background-color: #6f6df4;
-    color: white;
-    border: 1px solid;
-    height: 50px;
-    width: 200px;
+
+    width: 150px;
     padding: 10px;
-    font-size: 16px;
-    border-radius: 6px;
-    padding-right: 20px;
-    text-align: center;
-    align-items: center;
+   
 }
 
 .ownAddstaffButton {

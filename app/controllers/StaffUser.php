@@ -18,6 +18,4 @@ class StaffUser extends Controller
    {
       $this->view('serviceProvider/serProv_leaves');
    }
-   
-   
 }
