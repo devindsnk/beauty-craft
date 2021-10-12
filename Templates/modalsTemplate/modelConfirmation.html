@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/css/style.css">
+    <link rel="stylesheet" href="../../public/css/modalStyle.css">
+
+   <style type="text/css">
+
+        .container {
+            width: 20%;
+            min-width: 330px;
+            background-color: #ffffff;
+            padding: 35px 50px;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            border-radius: 8px;
+            box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .modal-box p {
+            font-size: 14px;
+        }
+
+        .container button {
+            border: none;
+            padding: 7px 20px;
+            background: linear-gradient(130deg,
+                    #6f6df4,
+                    #4c46f5);
+            color: #ffffff;
+            border-radius: 6px;
+            font-family: 'Poppins';
+            font-size: 14px;
+            font-weight: 400;
+        }
+    </style>
+    <title>Confirmation box</title>
+</head>
+<body>
+
+    <div class="container">
+        <button class="btnOpen normal" type="button">Confirmation box Modal</button>
+     </div>
+
+    <!-- Confirmation box model -->
+    <div class="modal-container normal">
+        <div class="modal-box">
+                <div class="confirm-model-head">
+                    <h1>Delete Leave Request ?</h1>
+                </div>
+                <div class="confirm-model-head">
+                    <p>Are you sure you want to delete the leave request? <br> This action cannot be undone after proceeding.</p>
+                </div>
+                <div class="confirm-model-head">
+                    <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
+                    <button class="btn btnClose normal ModalButton ModalBlueButton">proceed</button>
+                </div>
+        </div>
+    </div>
+    <!-- End of Confirmation box model -->
+
+    <script type="text/javascript" src="../../public/js/modals.js"></script>
+
+</body>
+</html>

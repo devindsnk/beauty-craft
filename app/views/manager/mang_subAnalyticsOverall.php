@@ -189,8 +189,8 @@
             datasets: [{ 
                 data: [35000,11400,50600,30600,40700,11100,13300,45000,42000.23500,17500,12400],
                 label: "No of reservations",
-                borderColor: "rgb(62,149,205)",
-                backgroundColor: "rgb(62,149,205,0.1)",
+                borderColor: "#e5989b",
+                backgroundColor: "#ffb4a2",
               }
             ]
           },
@@ -204,8 +204,8 @@
             datasets: [{ 
                 data: [70,90,44,60,83,90,100,30,80.35,45,39],
                 label: "Income",
-                borderColor: "#3cba9f",
-                backgroundColor: "#71d1bd",
+                borderColor: "#b392ac",
+                backgroundColor: "#e8c2ca",
                 borderWidth:2
               }
             ]
@@ -231,14 +231,14 @@
             datasets: [{ 
                 data: [200,490,100],
                 label: "No of Reservations",
-                borderColor:[ "#3cba9f",
-                              "#ffa500",
-                              "#c45850",
+                borderColor:[ "#d2b7e5",
+                              "#9163cb",
+                              "#6247aa",
                ],
                 backgroundColor:[
-                  "rgb(60,186,159,0.1)",
-                  "rgb(255,165,0,0.1)",
-                  "rgb(196,88,80,0.1)",
+                  "#dec9e9",
+                  "#b185db",
+                  "#815ac0 ",
                 ],
                 borderWidth:2
               }
