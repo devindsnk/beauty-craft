@@ -68,7 +68,7 @@
                   <span>
                      <a href="#"><i class="ci-view-more table-icon"></i></a>
                      <?php if ($userLevel == "Owner") : ?>
-                        <a href="#"><i class="ci-trash table-icon"></i></a>
+                        <a href="#"><i class="ci-trash table-icon btnRemoveCustomer"></i></a>
                      <?php endif; ?>
                   </span>
                </td>
@@ -87,7 +87,7 @@
                   <span>
                      <a href="#"><i class="ci-view-more table-icon"></i></a>
                      <?php if ($userLevel == "Owner") : ?>
-                        <a href="#"><i class="ci-trash table-icon"></i></a>
+                        <a href="#"><i class="ci-trash table-icon btnRemoveCustomer"></i></a>
                      <?php endif; ?>
                   </span>
                </td>
@@ -97,3 +97,38 @@
       </table>
    </div>
 </div>
+
+<!------------------- Remove Customer Container starts ----------------------------->
+<div class="modal-container remove-customer">
+   <div class="modal-box">
+      <h1 class="ownRemCusHead own">Remove Customer</h1>
+      <!-- start main grid 1 -->
+      <div class="ownRemCusDetails">
+
+         <label class="ownRemCusLabel1">Customer Id</label>
+         <span class="ownRemCusData1">M001</span>
+         <br>
+         <label class="ownRemCusLabel2">Name</label>
+         <span class="ownRemCusData2">Ravindu Madhubhashana</span>
+         <br>
+      </div>
+      <!-- main grid 1 ends -->
+
+      <!-- main grid 2 starts -->
+      <div class="ownRemCusError">
+         <label class="ownRemCusErrortext">Cannot proceed. Has upcoming reservations</label>
+      </div>
+      <!-- main grid 2 ends -->
+      <!-- main grid 3 starts -->
+      <div class="ownRemCusButtons">
+         <div class="ownRemCusbtn1">
+            <button class="btn btnClose normal ownCancelButton">Cancel</button>
+         </div>
+         <div class="ownRemCusbtn2">
+            <button class="btn ownProceedBlueButton">Proceed</button>
+         </div>
+      </div>
+      <!-- main grid 3 ends -->
+   </div>
+</div>
+<!------------------- Remove Customer Container ends ----------------------------->

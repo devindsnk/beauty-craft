@@ -80,7 +80,7 @@
                      <a href="<?php echo URLROOT ?>/services/viewService"><i class="ci-view-more table-icon"></i></a>
                      <?php if ($userLevel == "Owner" || $userLevel == "Manager") : ?>
                         <a href="<?php echo URLROOT ?>/services/updateService"><i class="ci-edit table-icon"></i></a>
-                        <a href="#"><i class="ci-trash table-icon"></i></a>
+                        <a href="#"><i class="ci-trash table-icon btnRemoveService"></i></a>
                      <?php endif; ?>
                   </span>
                </td>
@@ -100,7 +100,7 @@
                      <a href="<?php echo URLROOT ?>/services/viewService"><i class="ci-view-more table-icon"></i></a>
                      <?php if ($userLevel == "Owner" || $userLevel == "Manager") : ?>
                         <a href="<?php echo URLROOT ?>/services/updateService"><i class="ci-edit table-icon"></i></a>
-                        <a href="#"><i class="ci-trash table-icon"></i></a>
+                        <a href="#"><i class="ci-trash table-icon btnRemoveService"></i></a>
                      <?php endif; ?>
                   </span>
                </td>
@@ -120,12 +120,28 @@
                      <a href="<?php echo URLROOT ?>/services/viewService"><i class="ci-view-more table-icon"></i></a>
                      <?php if ($userLevel == "Owner" || $userLevel == "Manager") : ?>
                         <a href="<?php echo URLROOT ?>/services/updateService"><i class="ci-edit table-icon"></i></a>
-                        <a href="#"><i class="ci-trash table-icon"></i></a>
+                        <a href="#"><i class="ci-trash table-icon btnRemoveService"></i></a>
                      <?php endif; ?>
                   </span>
                </td>
             </tr>
          </tbody>
       </table>
+   </div>
+</div>
+
+<!-- New service type model -->
+<div class="modal-container remove-service">
+   <div class="modal-box">
+      <div class="new-type-head">
+         <h1>Delete Service</h1>
+      </div>
+      <div class="new-type-head">
+         <p>Are you sure the.........!!!</p>
+      </div>
+      <div class="new-type-head">
+         <button class="btn btnClose normal close-type-btn">Close</button>
+         <button class="btn btnClose normal close-type-btn">Confirm</button>
+      </div>
    </div>
 </div>

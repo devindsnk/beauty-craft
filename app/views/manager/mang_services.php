@@ -29,21 +29,7 @@
 
    </div>
 
-   <!-- New service type model -->
-   <div class="modal-container normal">
-      <div class="modal-box">
-         <div class="new-type-head">
-            <h1>Delete Service</h1>
-         </div>
-         <div class="new-type-head">
-            <p>Are you sure the.........!!!</p>
-         </div>
-         <div class="new-type-head">
-            <button class="btn btnClose normal close-type-btn">Close</button>
-            <button class="btn btnClose normal close-type-btn">Confirm</button>
-         </div>
-      </div>
-   </div>
+
    <!-- End of New service type model -->
 
    <!--End Content-->
