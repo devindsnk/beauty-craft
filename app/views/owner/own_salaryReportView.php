@@ -1,6 +1,26 @@
 <?php require APPROOT . "/views/inc/header.php" ?>
 
-<body>
+<body class="layout-template-2">
+
+<!-- ########################################################################################################################### -->
+
+<header class="full-header">
+      <div class="header-center verticalCenter">
+         <h1 class="header-topic"></h1>
+      </div>
+      <div class="header-right verticalCenter">
+         <a href="<?php echo URLROOT ?>/OwnDashboard/salaries"><i class="fal fa-times fa-2x header-closebtn"></i></a>
+         <!-- <i class="fas fa-times fa-2x header-closebtn"></i> -->
+      </div>
+   </header>
+   <div class="content contentNewRes">
+
+
+
+
+
+
+
     <div class="content own salaries">
             <div class="ownSalaryReportHeadings">
                 <h1 class="ownSalaryReportHead2">Staff Member Salary Report</h1> 

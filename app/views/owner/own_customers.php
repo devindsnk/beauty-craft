@@ -15,6 +15,14 @@
 
    <!--Content-->
    <div class="content own customers">
+
+
+      <?php require APPROOT . "/views/common/customersTable.php" ?>
+
+
+
+
+
       <h3>This is main option 1</h3>
       <div class="container">
          <button class="btnOpen normal" type="button">Remove Customer</button>

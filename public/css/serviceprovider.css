@@ -428,14 +428,15 @@
     border-radius: 6px;
 }
 
-.serprov button.btn.btnClose.normal {
+
+/* button.btn.btnClose.normal {
     height: 45px;
     width: 110px;
     font-size: 18px;
     background-color: #eaeaea;
     border: none;
     border-radius: 6px;
-}
+} */
 
 .serprov .modal-container.new {
     height: 100%;

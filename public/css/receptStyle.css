@@ -5,7 +5,8 @@
 /* --------------STYLES ADDED BY DEVIN -------------------*/
 /* ------------------------------------------------------ */
 
-/* Common button styles */  /*Currently moved to style.css check for conflicts*/
+/* Common button styles */
+/*Currently moved to style.css check for conflicts*/
 
 /* .recept .btn{
    display: block;
@@ -41,7 +42,8 @@
 
 /* End of Common button styles */
 
-/* Common template for pages with tables */  /*Currently moved to style.css check for conflicts*/
+/* Common template for pages with tables */
+/*Currently moved to style.css check for conflicts*/
 
 /* .recept.content .top-container {
    margin: 30px 0 10px 0;
@@ -125,7 +127,7 @@
    padding-bottom: 0;
 }
 
-.recept.recall-request .sub-container .btn-container .btn{
+.recept.recall-request .sub-container .btn-container .btn {
    font-weight: 500;
    padding: 5px;
    width: 120px;
@@ -200,8 +202,147 @@
 .recept .desc-container {
    margin-top: 20px;
 }
+
 /* End of Styles of recall request page */
 
+/* Styles of new reservation page */
+
+
+
+/* .recept.newRes .main-container {
+   
+   
+} */
+
+.main-container {
+   display: grid;
+   grid-template-columns: 400px 400px;
+   gap: 25px;
+   width: 100%;
+   /* margin-left: auto;
+   margin-right: auto; */
+   justify-content: center;
+   align-content: center;
+}
+
+.row{
+   width: 400px;
+}
+
+.box-1 {
+   width: max-content;
+}
+
+.box-2 {
+   width: max-content;
+}
+
+.serviceSelection {
+   display: flex;
+}
+
+.recept.newRes .contentBox {
+   padding: 22px;
+}
+
+/* 
+.recept.newRes .resDetails {
+   width: 400px;
+}
+
+.recept.newRes .cusDetails {
+   width: 400px;
+} */
+
+.recept.newRes .cusDetails .btn-main {
+   margin: 10px auto;
+   padding: 6px;
+   width: 200px;
+}
+
+.profile-info {
+   display: flex;
+   /* align-content: center; */
+   padding: 0 0 0 10px;
+   margin: 15px 0 30px;
+   border-radius: 6px;
+   height: 70px;
+   background-color: var(--theme-lightgrey);
+}
+
+.profile-info div {
+   display: inline-block;
+
+}
+
+.profile-info .img-container {
+   display: flex;
+   align-content: center;
+   margin-right: 15px;
+}
+
+.profile-info .img-container img {
+   margin-top: auto;
+   margin-bottom: auto;
+}
+
+.profile-info .text-container {
+   height: 100%;
+   width: 100%;
+   display: flex;
+   align-content: center;
+   flex-direction: column;
+}
+
+.profile-info div label {
+   margin-top: auto;
+   display: block;
+}
+
+.profile-info .text-container .contact-no {
+   color: var(--theme-grey);
+   margin-top: 0;
+   margin-bottom: auto;
+   font-size: 14px;
+}
+
+.profile-remove {
+   margin: 7px 7px 0 0;
+   position: relative;
+   right: 0;
+}
+
+.price-calc .tag {
+   height: 45px;
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   border-bottom: 1px solid var(--theme-lightgrey);
+}
+
+.total.tag {
+   border: none;
+}
+
+.total.tag p {
+   font-weight: 600;
+}
+
+.price-calc .price-tag .price {
+   margin-right: 0;
+}
+
+.num-text {
+   font-family: "Roboto", sans-serif;
+}
+
+.mini {
+   width: 100px !important;
+}
+
+/* End of Styles of new reservation page */
 
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/

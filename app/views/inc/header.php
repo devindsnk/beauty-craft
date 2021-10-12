@@ -14,6 +14,7 @@
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/style.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/sideNav.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/layoutTemplate1.css" />
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/layoutTemplate2.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/table1Style.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/table2Style.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/modalStyle.css" />

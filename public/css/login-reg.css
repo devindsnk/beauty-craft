@@ -19,7 +19,7 @@ body {
 }
 
 
-/* Common container for reg and singin */
+/* Common container for reg and signin */
 
 .form-container {
     display: flex;
@@ -32,13 +32,13 @@ body {
     height: 450px;
 }
 
-.reg-container {
+.reg-container, .reset-container {
     width: 650px;
     height: fit-content;
 }
 
 @media (max-width: 768px) {
-    .reg-container {
+    .reg-container, .reset-container{
         width: 80%;
     }
 }
@@ -50,10 +50,8 @@ body {
 }
 
 @media (max-width: 520px) {
-    .reg-container {
+    .reg-container, .reset-container {
         min-width: 416px;
-    }
-    .reg-container {
         width: 100vw;
     }
 }
@@ -145,12 +143,14 @@ body {
 }
 
 .form-container .btn {
-    height: 35px;
-    width: 100px;
+    padding: 7px;
+    font-weight: 500;
+    font-size: 14px;
 }
 
 .form-container .btn.middle {
     margin-top: 27px;
+    width: 100px;
 }
 
 .footer-container {
@@ -161,8 +161,13 @@ body {
 
 .footer-container .btn {
     margin: 20px auto 20px auto;
+    width: 130px;
 }
 
 .footer-container p {
     text-align: center;
+}
+
+a{
+    color: var(--theme-purple);
 }
