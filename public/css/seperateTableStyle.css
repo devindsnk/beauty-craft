@@ -1,0 +1,17 @@
+/* Seperate styles for staff table */
+.content .staff-table tr .col-2 {
+   width: 300px;
+ }
+ 
+ .content .staff-table tr .col-3 {
+   width: 150px;
+ }
+ 
+ .content .staff-table tr .col-7 {
+   width: 130px;
+ }
+ 
+ .content .staff-table tr .col-8 {
+   width: 20px;
+ }
+ /* End of Seperate styles for staff table */

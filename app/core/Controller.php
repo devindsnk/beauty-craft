@@ -26,7 +26,12 @@ class Controller
       }
       else
       {
-         die('View does not exist');
+         //Page not found
+         redirect('pages/notFound');
       }
+   }
+   public function notFound()
+   {
+      redirect('pages/notFound');
    }
 }

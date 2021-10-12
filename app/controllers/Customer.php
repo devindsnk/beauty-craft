@@ -174,7 +174,6 @@ class Customer extends Controller
             {
                $this->view('register', $data);
             }
-            die("Registered");
          }
          else
          {
@@ -213,6 +212,4 @@ class Customer extends Controller
    {
       $this->view('customer/cust_myReservation');
    }
-
-
 }
