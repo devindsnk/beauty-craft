@@ -241,15 +241,3 @@ label.ownAddstaffBasicinfoImagewrapper {
     width: 160px;
     margin-right: 20px;
 }
-
-.ownAddstaffbutton.2 {
-    background-color: #6f6df4;
-    color: white;
-    border: 1px solid;
-    height: 50px;
-    width: 150px;
-    font-size: 16px;
-    border-radius: 6px;
-    text-align: center;
-    align-self: right;
-}

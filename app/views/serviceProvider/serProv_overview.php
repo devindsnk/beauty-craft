@@ -4,16 +4,16 @@
 <body class="layout-template-1">
 
     <?php
-   $selectedMain = "Overview";
-   require APPROOT . "/views/serviceProvider/serProv_sideNav.php"
-   ?>
+    $selectedMain = "Overview";
+    require APPROOT . "/views/serviceProvider/serProv_sideNav.php"
+    ?>
 
     <?php
-   $title = "Overview";
-   $username = "Ruwanthi Munasinghe";
-   $userLevel = "Service Provider";
-   require APPROOT . "/views/inc/headerBar.php"
-   ?>
+    $title = "Overview";
+    $username = "Ruwanthi Munasinghe";
+    $userLevel = "Service Provider";
+    require APPROOT . "/views/inc/headerBar.php"
+    ?>
 
     <!--Content-->
     <div class="content serprov">
@@ -49,7 +49,7 @@
                                 <span>Confirmed</span>
                             </div>
                             <div class="sub-container2-card-link">
-                                <button class="btnOpen normal" type="button">More Info</button>
+                                <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
                             </div>
                         </div>
                         <div class="sub-container2-card">
@@ -67,7 +67,7 @@
                                 <span>Confirmed</span>
                             </div>
                             <div class="sub-container2-card-link">
-                                <button class="btnOpen normal" type="button">More Info</button>
+                                <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
                             </div>
                         </div>
                         <div class="sub-container2-card">
@@ -85,7 +85,7 @@
                                 <span>Confirmed</span>
                             </div>
                             <div class="sub-container2-card-link">
-                                <button class="btnOpen normal" type="button">More Info</button>
+                                <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
                             </div>
                         </div>
                         <div class="sub-container2-card">
@@ -103,7 +103,7 @@
                                 <span>Confirmed</span>
                             </div>
                             <div class="sub-container2-card-link">
-                                <button class="btnOpen normal" type="button">More Info</button>
+                                <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
                             </div>
                         </div>
                         <div class="sub-container2-card">
@@ -121,7 +121,7 @@
                                 <span>Confirmed</span>
                             </div>
                             <div class="sub-container2-card-link">
-                                <button class="btnOpen normal" type="button">More Info</button>
+                                <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
                             </div>
                         </div>
                         <div class="sub-container2-card">
@@ -139,7 +139,7 @@
                                 <span>Confirmed</span>
                             </div>
                             <div class="sub-container2-card-link">
-                                <button class="btnOpen normal" type="button">More Info</button>
+                                <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
                             </div>
                         </div>
                         <div class="sub-container2-card">
@@ -157,7 +157,7 @@
                                 <span>Confirmed</span>
                             </div>
                             <div class="sub-container2-card-link">
-                                <button class="btnOpen normal" type="button">More Info</button>
+                                <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
                             </div>
                         </div>
                         <div class="sub-container2-card">
@@ -175,7 +175,7 @@
                                 <span>Confirmed</span>
                             </div>
                             <div class="sub-container2-card-link">
-                                <button class="btnOpen normal" type="button">More Info</button>
+                                <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
                             </div>
                         </div>
                         <div class="sub-container2-card">
@@ -193,7 +193,7 @@
                                 <span>Confirmed</span>
                             </div>
                             <div class="sub-container2-card-link">
-                                <button class="btnOpen normal" type="button">More Info</button>
+                                <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
                             </div>
                         </div>
 
@@ -208,7 +208,7 @@
             </div>
 
             <!-- modal -->
-            <div class="modal-container normal">
+            <div class="modal-container reservation-more-info">
                 <div class="modal-box">
                     <h1>Reservation details</h1>
                     <div class="modelcontent">
@@ -261,18 +261,17 @@
                             <div class="btnalign">
                                 <div class="2">
                                 <button class="btn btnClose normal">Close</button>
-                                </div>
-                           <div class="2">
-                               <button class="btn btnOpen new"type="button">Recall</button>
-                              </div> 
+
+                                <button class="btnOpen btnResRecall" type="button">Recall</button>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- end modal -->
-            
-            <div class="modal-container new">
+
+            <div class="modal-container reservation-recall">
                 <div class="modal-box">
                     <h1>Recall request</h1>
                     <div class="modelcontent">
@@ -311,7 +310,7 @@
                         <div class="modalbutton">
                             <div>
                                 <button class="btn btnClose new">Close</button>
-                                
+
                             </div>
                             <div>
                                 <button class="btnOpen new" type="button">Send Request</button></a>
@@ -329,4 +328,3 @@
         <!--End Content-->
 
         <?php require APPROOT . "/views/inc/footer.php" ?>
-      

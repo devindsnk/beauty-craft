@@ -1,18 +1,12 @@
-// const btnOpenN = document.querySelector(".btnOpen.normal");
-// const btnOpenF = document.querySelector(".btnOpen.full");
-// const modalContainerN = document.querySelector(".modal-container.normal");
-// const modalContainerF = document.querySelector(".modal-container.full");
-// const btnCloseN = document.querySelector(".btnClose.normal");
-// const btnCloseF = document.querySelector(".btnClose.full");
+// Script Files related all modals
 
+// Contains the modal to toggle
 var modalToToggle = null;
 
+// Remove Service Modal Section
 const removeServiceModal = document.querySelector('.remove-service');
-// const testServiceModal = document.querySelector('.test-service');
-
-
-const btnRemoveServiceList = document.querySelectorAll('.btnRemoveService');
-btnRemoveServiceList.forEach(btn => {
+const removeServiceBtnList = document.querySelectorAll('.btnRemoveService');
+removeServiceBtnList.forEach(btn => {
    btn.addEventListener("click",
       function () {
          modalToToggle = removeServiceModal;
@@ -21,46 +15,64 @@ btnRemoveServiceList.forEach(btn => {
    );
 });
 
+// Remove Staff Modal Section
+const removeStaffModal = document.querySelector('.remove-staff');
+const removeStaffBtnList = document.querySelectorAll('.btnRemoveStaff');
+removeStaffBtnList.forEach(btn => {
+   btn.addEventListener("click",
+      function () {
+         modalToToggle = removeStaffModal;
+         toggleModal();
+      }
+   );
+});
 
-// const btnTest = document.querySelector('.btnTest');
-// btnTest.addEventListener("click",
-//    function () {
-//       modalToToggle = testServiceModal;
-//       toggleModal();
-//    }
-// );
+// Remove Customer Modal Section
+const removeCustomerModal = document.querySelector('.remove-customer');
+const removeCustomerBtnList = document.querySelectorAll('.btnRemoveCustomer');
+removeCustomerBtnList.forEach(btn => {
+   btn.addEventListener("click",
+      function () {
+         modalToToggle = removeCustomerModal;
+         toggleModal();
+      }
+   );
+});
 
+// Reservation More info Modal Section
+const resMoreInfoModal = document.querySelector('.reservation-more-info');
+const resMoreInfoBtnList = document.querySelectorAll('.btnResMoreInfo');
+resMoreInfoBtnList.forEach(btn => {
+   btn.addEventListener("click",
+      function () {
+         modalToToggle = resMoreInfoModal;
+         toggleModal();
+      }
+   );
+});
+
+
+// Reservation Recall Modal Section
+const resRecallModal = document.querySelector('.reservation-recall');
+const resRecallBtn = document.querySelector('.btnResRecall');
+resRecallBtn.addEventListener("click",
+   function () {
+      toggleModal();
+      modalToToggle = resRecallModal;
+      toggleModal();
+   }
+);
+
+
+
+
+// Common section for all close buttons
 const btnCloseList = document.querySelectorAll('.btnClose');
 btnCloseList.forEach(btn => {
    btn.addEventListener("click", toggleModal);
 });
 
-
+// Common section for all modal toggle operations
 function toggleModal() {
    modalToToggle.classList.toggle("show");
 }
-   
-// const btnOpenO = document.querySelector(".btnOpen.new");
-// const modalContainerO = document.querySelector(".modal-container.new");
-// const btnCloseO = document.querySelector(".btnClose.new");
-
-// btnOpenN.addEventListener("click", toggleModalN);
-// btnCloseN.addEventListener("click", toggleModalN);
-// btnOpenF.addEventListener("click", toggleModalF);
-// btnCloseF.addEventListener("click", toggleModalF);
-
-// btnOpenO.addEventListener("click", toggleModalO);
-// btnOpenO.addEventListener("click", toggleModalN);
-// btnCloseO.addEventListener("click", toggleModalO);
-
-// function toggleModalN() {
-//     modalContainerN.classList.toggle("show");
-// }
-
-// function toggleModalF() {
-//     modalContainerF.classList.toggle("show");
-// }
-
-// function toggleModalO() {
-//     modalContainerO.classList.toggle("show");
-// }

@@ -60,12 +60,12 @@
        </div>
        <!-- main grid 2 ends -->
 
-       <!-- main grid 3 starts -->
-       <div class="ownCloseSalonGrid3">
-          <div class="ownCloseSalonbtn1">
+        <!-- main grid 3 starts -->
+        <div class="addItemsModalGrid3">
+          <div class="addItemsModalbtn1">
              <button class="btn btnClose normal ModalCancelButton ModalButton">Cancel</button>
           </div>
-          <div class="ownCloseSalonbtn2">
+          <div class="addItemsModalbtn2">
              <button class="btn ModalGreenButton ModalButton">Proceed</button>
           </div>
        </div>
@@ -73,6 +73,126 @@
     </div>
  </div>
       <!-- ----------------------------------------------------------------------------------------------------------------------- -->
+
+
+<!-- ########################################################################################################################################## -->
+
+
+
+
+
+<div class="table-container">
+        <div class="table2 table2-responsive">
+           <table class="table2-hover">
+              <!--Table head-->
+              <thead>
+                 <tr>
+                    <th class="">Close date</th>
+                    <th class="">Reason</th>
+                 </tr>
+              </thead>
+              <!--End of table head-->
+
+              <!--Table body-->
+              <tbody>
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">2020.12.12</td>
+                    <td data-lable="Service Provider">Sample_Reason</td>
+                 </tr>
+                 <!--End of table row-->
+
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">2020.12.12</td>
+                    <td data-lable="Service Provider">Sample_Reason</td>
+                 </tr>
+                 <!--End of table row-->
+
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">2020.12.12</td>
+                    <td data-lable="Service Provider">Sample_Reason</td>
+                 </tr>
+                 <!--End of table row-->
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">2020.12.12</td>
+                    <td data-lable="Service Provider">Sample_Reason</td>
+                 </tr>
+                 <!--End of table row-->
+
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">2020.12.12</td>
+                    <td data-lable="Service Provider">Sample_Reason</td>
+                 </tr>
+                 <!--End of table row-->
+
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">2020.12.12</td>
+                    <td data-lable="Service Provider">Sample_Reason</td>
+                 </tr>
+                 <!--End of table row-->
+
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">2020.12.12</td>
+                    <td data-lable="Service Provider">Sample_Reason</td>
+                 </tr>
+                 <!--End of table row-->
+
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">2020.12.12</td>
+                    <td data-lable="Service Provider">Sample_Reason</td>
+                 </tr>
+                 <!--End of table row-->
+
+
+                 <!--Table row-->
+                 <tr>
+                    <td data-lable="Reservation No">2020.12.12</td>
+                    <td data-lable="Service Provider">Sample_Reason</td>
+                 </tr>
+                 <!--End of table row-->
+
+               
+
+              
+                 
+              </tbody>
+              <!--End of table body-->
+
+           </table>
+        </div>
+      </div>
+      <!--End Content-->
+
+
+
+
+
+
+
+
+
+<!-- ######################################################################################################################################################### -->
+
+
+
+
+
+
    </div>
    <!--End Content-->
 

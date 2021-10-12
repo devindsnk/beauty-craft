@@ -210,5 +210,14 @@
 
 /* -----------END OF STYLES ADDED BY RAVINDU -------------*/
 
+.confirm-model-head {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+   text-align: center;
+   padding: 15px;
+}
+
+/* End ofConfirmation box model */
 
 /* ------------------------------------------------------ */
