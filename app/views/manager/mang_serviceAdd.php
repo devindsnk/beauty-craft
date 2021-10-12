@@ -24,17 +24,17 @@
 					
 					<!-- service name -->
 					<div class="row">
-                        <div class="column">
+					<div class="column">
                             <div class="text-group">
                                 <label class="labels" for="serviceName"> Service Name</label>
-                                <input type="text" name="" id="sName" placeholder="--Enter the service name here--" value="<?php echo $data['sName']; ?>">
+                                <input type="text" name="sName" id="sName" placeholder="--Type In--" value="<?php echo $data['sName']; ?>">
                             </div>
                             <span class="error"><?php echo $data['sName_error']; ?></span>
                         </div>
                     </div>
 					<!-- end of service name -->
 
-					<!-- service type -->
+					<!--  -->
                     <div class="row">
 
                         <div class="column">
@@ -43,62 +43,51 @@
                             <select class="dropdownSelectBox" name="serviceType">
                                 <option class="unbold" value="val1" option selected="true" disabled="disabled" >Select One</option>
 
-								
-								<?php foreach($data['sType'] as $sType) : ?>
+								<?php foreach($data['sTypesArray'] as $sType) : ?>
 									
 									<option value="<?php echo $sType->type; ?>"><?php echo $sType->type; ?></option>
 
 								<?php endforeach; ?>
 
                             </select>
-							<!-- end of service type -->
 
-							<!-- Service type button -->
-                            <div class="row2 quantity-align">
-                                <button class="buttonNew  btnOpen normal">New</button>
-                            </div>
-							<!-- End of service type button -->
+							<div class="row1">
+								<label class="labels2" for="servicePrice">OR</label>
+								<input type="text" name="sNewType" id="sNewType" placeholder="--Type In--" value="<?php echo $data['sNewType']; ?>">
+								
+                                <span class="error paddingLeft"><?php echo $data['sSelectedAllType_error']; ?></span>
+
+							</div>
+							<!-- end of service type -->
 
 							<!-- Service price -->
                             <div class="row3">
                                 <label class="labels" for="servicePrice">Price</label>
-                                <input type="text" name="sPrice" placeholder="--Rs.0.00--"> value="<?php echo $data['sPrice']; ?>"
+                                <input type="text" name="sPrice" placeholder="--Type In--" value="<?php echo $data['sPrice']; ?>">
                                 <span class="error paddingLeft"> <?php echo $data['sPrice_error']; ?></span>
                             </div>
 							<!-- End of ervice price -->
                         </div>
 
-						<!-- Employees -->
+						<!-- Service Providers -->
                         <div class="column">
-							<label class="labels" for="serviceEmp">Employee</label>
+							<label class="labels" for="serviceEmp">Service Provider</label>
 							<div class="checkbox-div">
-								<!-- <div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
-								<div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
-								<div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
-								<div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr">
-								<div class="divIndiv"><input type="checkbox" name=""><lable class="lableInDiv">Emp111, Sanjana</lable></div><hr class="resHr"> -->
 
-								<?php
-									// $records2 = mysqli_query($db, "SELECT staffID,fname,lname From staff WHERE staffType='serviceProvider"); 
-
-									// while($sStaff = mysqli_fetch_array($records2))
-									// {
-										
-									// 	echo "<div class='divIndiv'><input type='checkbox' name=''><lable class='lableInDiv'>" . $sStaff['staffID'] . " - " . $sStaff['fname'] . " " . $sStaff['lname'] . "</lable></div><hr class='resHr'";
-									// }	
-								?>  
-
-								<?php foreach($data['sProv'] as $sProv) : ?>
-									<div class="divIndiv"><input type="checkbox" name="">
+								<?php foreach($data['sProvArray'] as $sProv) : ?>
+									<div class="divIndiv"><input type="checkbox" name="serProvCheckbox[]" value="<?php echo $sProv->staffID; ?>">
 										<lable class="lableInDiv">
-											<?php echo $sProv->staffID; ?> - <?php echo $sProv->fname; ?> <?php echo $sProv->lname; ?>
+											<?php echo $sProv->staffID; ?> - <?php echo $sProv->fName; ?> <?php echo $sProv->lName; ?>
 										</lable>
 									</div><hr class="resHr">
 								<?php endforeach; ?>
-								
+
 							</div>
+							<span class="error paddingLeft"><?php echo $data['sSelectedSProve_error']; ?></span>
+
                         </div>
-						<!-- End of employees -->
+						<!-- End of Service Providers -->
+
                     </div>
 
 
@@ -136,14 +125,17 @@
 
 							<div class="column">
 								<!-- duration -->
-								<label class="labels paddingBottom">Duration</label><br>
-								<select class="dropdownSelectBox">
-									<option value="val1">15 min</option>
-									<option value="val2">30 min</option>
-									<option value="val1">45 min</option>
-									<option value="val1">60 min</option>
-									<option value="val1">75 min</option>
+								<label class="labels paddingBottom">Duration (mins) </label><br>
+								<select class="dropdownSelectBox" name="slot1Duration">
+									<option class="unbold" value="val0" option selected="true" disabled="disabled" >Select duration</option>
+									<option value=15>15</option>
+									<option value=30>30</option>
+									<option value=45>45</option>
+									<option value=60>60</option>
+									<option value=75>75</option>
 								</select>
+								<span class="error paddingLeft"><?php echo $data['sSlot1Duration_error']; ?></span>
+
 							</div>
 							<!-- end of duration -->
 
@@ -151,85 +143,39 @@
 							<div class="column" id="resorceDetails1">
 								<label class="labels paddingBottom">Resources & Quantity</label><br>
 								<div class="checkbox-div">
-									<div class="divIndiv"><label class="lableInDiv" id="checkedItem">Res001, Resource 01</label>
-									<select class="dropdownSelectBox-small quantity-align" id="selectcount">
-										<option value="val1">0</option>
-										<option value="val1">1</option>
-										<option value="val2">2</option>
-										<option value="val1">3</option>
-										<option value="val2">4</option>
-										<option value="val1">5</option>
-										<option value="val2">6</option>
-									</select>
-									</div>
-									<hr class="resHr">
-
-									<div class="divIndiv"><label class="lableInDiv">Res001, Resource 01</label>
-									<select class="dropdownSelectBox-small quantity-align">
-										<option value="val1">0</option>
-										<option value="val1">1</option>
-										<option value="val2">2</option>
-										<option value="val1">3</option>
-										<option value="val2">4</option>
-										<option value="val1">5</option>
-										<option value="val2">6</option>
-									</select><br>
-									</div>
-									<hr class="resHr">
-
-									<div class="divIndiv"><label class="lableInDiv">Res002, Resource 02</label>
-									<select class="dropdownSelectBox-small quantity-align">
-										<option value="val1">0</option>
-										<option value="val1">1</option>
-										<option value="val2">2</option>
-										<option value="val1">3</option>
-										<option value="val2">4</option>
-										<option value="val1">5</option>
-										<option value="val2">6</option>
-									</select><br>
-									</div>
-									<hr class="resHr">
-
-									<?php
-										// $records3 = mysqli_query($db, "SELECT resourceID, rname, quantity From resources"); 
-
-										// while($sResource = mysqli_fetch_array($records3))
-										// {
-											
-										// 	echo "<div class='divIndiv'><label class='lableInDiv' id='checkedItem'>" . $sResource['resourceID'] . " - " . $sResource['rname'] . "</label><select class='dropdownSelectBox-small quantity-align resCount'></select><br></div><hr class='resHr'>";
-
-										// }	
-									?>  
 									
-									<?php foreach($data['sResource'] as $sResource) : ?>
+									<?php foreach($data['sResArray'] as $sResource) : ?>
 										<div class="divIndiv">
+											<input type="checkbox" name="resourceCheckbox[]" value="<?php echo $sResource->resourceID; ?>">
 											<label class="lableInDiv" id="checkedItem">
-												<?php echo $sResource->resourceID; ?> - <?php echo $sResource->rname; ?>
+												<?php echo $sResource->resourceID; ?> - <?php echo $sResource->name; ?> 
 											</label>
-											<select class='dropdownSelectBox-small quantity-align resCount'>
 
+											<select class="dropdownSelectBox-small quantity-align resCount" name="serviceResCount">
+												<option class="unbold" value="0" option selected="true" >0</option>
 
-											</select><br></div><hr class='resHr'>
+													<?php $Qcount= $sResource->quantity;?>
+
+													<?php for ($i=1; $i <= $Qcount; $i++): ?>
+													
+													<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+
+													<?php endfor; ?>
+
+											</select>
+										</div>
+										<hr class='resHr'>
 
 									<?php endforeach; ?>
 
-									<!-- <script>
-										$(function(){
-											var $select = $(".resCount");
-											for (i=1;i<=100;i++){
-												$select.append($('<option></option>').val(i).html(i))
-											}
-										});
-									</script> -->
-
 								</div>
-								<span class="error paddingLeft"> <?php echo " error message"; ?></span>
+								<!-- <span class="error paddingLeft">error</span> -->
+
 							</div>
 							<!-- end of quantity -->
 							
 						</div>
 						<!-- slot 1-->
-					<!-- </form> -->
 				</div>
 			</div>
 
@@ -244,6 +190,8 @@
 	    	</div>
 
 		</div>
+	</form>
+	
     <?php require APPROOT . "/views/inc/footer.php" ?>
 
 	<!-- <div class="newService-sub" id="fullSlotDetail'+j+'">
