@@ -12,6 +12,7 @@
    $title = "Leaves";
    $username = "Ruwanthi Munasinghe";
    $userLevel = "Service Provider";
+   
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 
@@ -23,7 +24,7 @@
          <div class="leavecountcardright">2</div>
       </div>
       <div class="page-top-main-container">
-       <a href="" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
+       <a href="" class="btn btn-filled btn-theme-purple btn-main" id="addnewbtn">Add New</a>
       </div>
       </div>
 
@@ -70,7 +71,7 @@
 
                <tbody>
                   <tr>
-                     <td class="column-center-align">2021-09-10</td>
+                     <td class="column-center-align"><?php echo $data['leave']->leaveDate; ?></td>
                      <td class="column-center-align">2021-09-05</td>
                      <td class="column-center-align">2021-09-06</td>
                      <td class="column-center-align">
@@ -120,6 +121,44 @@
             </table>
          </div>
       </div>
+            <!-- Take leave model -->
+      <!-- <div class="modal-container normal leaverequstmodal"> -->
+         <div class="modal-box leave_request">
+               <div class="new-type-head">
+                  <h1>Take a Leave</h1>
+               </div>
+               <form action="<?php echo URLROOT; ?>/SerProvDashboard/leaves" class="form" method="POST">
+
+                  <div class="row">
+                     <div class="column">
+                           <div class="text-group">
+                              <label class="labels" for="serviceName">Date</label><br>
+                              <input type="date" name="date" id="takeLeaveDate" placeholder="--Select a date--" value="<?php echo $data['date']; ?>">
+                           </div>
+                           <span class="error"> <?php echo $data['date_error']; ?></span>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="column">
+                           <div class="text-group">
+                              <label class="labels" for="serviceName">Reason</label><br>
+                              <input type="text" name ="reason" id="takeLeaveReason" placeholder="-- Type in --" class="" value="<?php echo $data['reason']; ?>">
+                                <span class="error"> <?php echo $data['reason_error']; ?></span>
+                              <!-- <textarea name ="reason" id="takeLeaveReason" placeholder="-- Type in --" class="" require></textarea> -->
+                           </div>
+                     </div>
+                  </div>
+
+                  <div class="new-type-head">
+                     <button class="btn btnClose normal close-type-btn">Close</button>
+                     <input type="submit" value ="Request"  class="btn btnClose normal confirm-service-btn">
+                     <!-- <button class="btn btnClose normal confirm-service-btn">Request</button> -->
+                  </div>
+
+               </form>
+         </div>
+      <!-- </div> -->
+      <!-- End of Take leave model -->
 
 
    </div>
