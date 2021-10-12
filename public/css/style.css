@@ -15,6 +15,8 @@
   --theme-bgwhite: #F2F2F7;
   --theme-grey: #50515A;
   --theme-lightgrey: #EAEAEA;
+  --error-red: #DA2346;
+  --success-green: #1BC657;
   --white: #FFFFFF;
   --black: #000000;
 }
@@ -158,6 +160,8 @@ footer {
   display: block;
   border-radius: 6px;
   text-align: center;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .btn.btn-filled {
@@ -173,8 +177,8 @@ footer {
   background-color: var(--theme-purple);
 }
 
-.btn.btn-filled.btn-red {
-  background-color: var(--theme-red);
+.btn.btn-filled.btn-error-red {
+  background-color: var(--error-red);
 }
 
 .btn.btn-filled.btn-black {
@@ -186,9 +190,9 @@ footer {
   color: var(--theme-black);
 }
 
-.btn.btn-outlined.btn-red {
-  border: 2px solid var(--theme-red);
-  color: var(--theme-red);
+.btn.btn-outlined.btn-error-red {
+  border: 2px solid var(--error-red);
+  color: var(--error-red);
 }
 
 .btn.btn-filled.btn-blue {
@@ -200,6 +204,9 @@ footer {
   color: var(--theme-purple);
 }
 
+.btn.btn-filled.btn-success-green {
+  background-color: var(--success-green);
+}
 /* End of Common button styles */
 
 /* Common styles for top right close btn */

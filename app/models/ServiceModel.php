@@ -34,14 +34,18 @@ class ServiceModel{
         foreach($data['sSelectedProv'] as $SelectedProv){
 
             $this->db->query("INSERT INTO serviceproviders (serviceID, staffID) SELECT MAX(serviceID), '$SelectedProv' FROM services");
+
             $this->db->execute();
         }
 
     }
 
     public function addTimeSlot($data){
+        
+        $slotDuration = $data['sSlot1Duration'];
 
-        $this->db->query("INSERT INTO timeslots (serviceID, slotNo, duration) SELECT MAX(serviceID), '' FROM services");
+        $this->db->query("INSERT INTO timeslots (serviceID, slotNo, duration) SELECT MAX(serviceID), '1', '$slotDuration'  FROM services");
+
         $this->db->execute();
 
     }
@@ -51,6 +55,7 @@ class ServiceModel{
         foreach($data['sSelectedResourse'] as $SelectedResourse){
 
             $this->db->query("INSERT INTO resourceallocation (serviceID, slotNo, resourceID, requiredQuantity) SELECT MAX(serviceID), '1', '$SelectedResourse', '10' FROM services");
+
             $this->db->execute();
         }
 

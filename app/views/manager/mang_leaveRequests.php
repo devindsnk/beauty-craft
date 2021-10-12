@@ -71,10 +71,10 @@
 
             <div class="leave-requests-button-div">
                     <div class="">
-                        <button class="buttonLeaveRequest buttonApprove">Approve</button>
+                        <button class="buttonLeaveRequest btn btn-filled btn-success-green">Approve</button>
                     </div>
                     <div class="">
-                        <button class="buttonLeaveRequest buttonReject">Reject</button>
+                        <button class="buttonLeaveRequest btn btn-filled btn-error-red">Reject</button>
                     </div>
                 </div>
             </div>

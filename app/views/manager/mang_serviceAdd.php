@@ -128,11 +128,24 @@
 								<label class="labels paddingBottom">Duration (mins) </label><br>
 								<select class="dropdownSelectBox" name="slot1Duration">
 									<option class="unbold" value="val0" option selected="true" disabled="disabled" >Select duration</option>
-									<option value=15>15</option>
+									<!-- <option value=15>15</option>
 									<option value=30>30</option>
 									<option value=45>45</option>
 									<option value=60>60</option>
-									<option value=75>75</option>
+									<option value=75>75</option> -->
+
+									<?php for ($i=10; $i <= 120; $i+=10): ?>
+
+										<?php if ($i == 60 || $i == 120):?>
+											<option value="<?php echo $i; ?>"> <?php echo ($i/60) ; ?> h </option>
+										<?php elseif ($i > 60 && $i < 120 ): ?>
+											<option value="<?php echo $i; ?>"> <?php echo ($i/$i) ; ?> h <?php echo ($i %  60) ; ?> mins</option>
+										<?php else :?>
+											<option value="<?php echo $i; ?>"> <?php echo $i; ?> mins </option>
+										<?php endif; ?>
+
+									<?php endfor; ?>
+
 								</select>
 								<span class="error paddingLeft"><?php echo $data['sSlot1Duration_error']; ?></span>
 
@@ -145,8 +158,11 @@
 								<div class="checkbox-div">
 									
 									<?php foreach($data['sResArray'] as $sResource) : ?>
+
 										<div class="divIndiv">
+											
 											<input type="checkbox" name="resourceCheckbox[]" value="<?php echo $sResource->resourceID; ?>">
+
 											<label class="lableInDiv" id="checkedItem">
 												<?php echo $sResource->resourceID; ?> - <?php echo $sResource->name; ?> 
 											</label>
@@ -169,8 +185,6 @@
 									<?php endforeach; ?>
 
 								</div>
-								<!-- <span class="error paddingLeft">error</span> -->
-
 							</div>
 							<!-- end of quantity -->
 							

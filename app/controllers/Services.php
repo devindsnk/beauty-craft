@@ -81,7 +81,13 @@ class Services extends Controller
 
                $this->ServiceModel->addServiceProvider($data);
 
-               $this->ServiceModel->addResourcesToService($data);
+               $this->ServiceModel->addTimeSlot($data);
+
+               // if(empty($data['sSelectedResCount'])){
+
+               //    $this->ServiceModel->addResourcesToService($data);
+
+               // }
 
                header('location: ' . URLROOT . '/MangDashboard/services');
             }else{

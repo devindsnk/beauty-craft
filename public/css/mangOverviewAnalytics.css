@@ -80,9 +80,9 @@
     font-weight: 600;
     padding: 10px 10px;
 }
-.mang .table-head{
+/* .mang .table-head{
     padding-left: 40px;
-}
+} */
 
 /* table of overall analytics */
 .mang .table-cont{
@@ -287,21 +287,11 @@
 
 .buttonLeaveRequest{
     margin-top: 20px;
-    color: white;
     width: 150px;
-    height: 40px;
-    border: none;
-    border-radius: 6px;
+    padding: 7px;
     cursor: pointer;
 }
 
-.buttonApprove{
-    background-color: #3ABD5F;
-}
-
-.buttonReject{
-    background-color: #DC3545;
-}
 
 /* for leave request accept|reject card */
 @media screen and (max-width: 1110px) {

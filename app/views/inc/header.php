@@ -31,8 +31,8 @@
    <!-- <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/ownStyle.css" /> -->
   
 
-   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/mang_overviewAnalytics.css" />
-   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/mang_service.css"/>
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/mangOverviewAnalytics.css" />
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/mangService.css"/>
 
    <!-- service provider style added by Ruwanthi -->
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/serviceprovider.css" />
