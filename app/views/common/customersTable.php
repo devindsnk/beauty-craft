@@ -122,10 +122,10 @@
       <!-- main grid 3 starts -->
       <div class="ownRemCusButtons">
          <div class="ownRemCusbtn1">
-            <button class="btn btnClose normal ownCancelButton">Cancel</button>
+            <button class="btn btnClose normal ModalCancelButton ModalButton">Cancel</button>
          </div>
          <div class="ownRemCusbtn2">
-            <button class="btn ownProceedBlueButton">Proceed</button>
+            <button class="btn ModalBlueButton ModalButton">Proceed</button>
          </div>
       </div>
       <!-- main grid 3 ends -->

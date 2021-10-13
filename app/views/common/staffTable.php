@@ -20,9 +20,9 @@
                <div class="dropdown-group">
                   <label class="label" for="lName">Staff Type</label>
                   <select>
-                     <option value="" selected>Any</option>
-                     <option value="volvo">Active</option>
-                     <option value="saab">Inactive</option>
+                     <option value="" selected>Receptionist</option>
+                     <option value="volvo">Manager</option>
+                     <option value="saab">Service Provider</option>
                   </select>
                </div>
                <span class="error"> <?php echo " "; ?></span>

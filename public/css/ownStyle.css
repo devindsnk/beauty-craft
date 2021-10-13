@@ -1,109 +1,10 @@
-/* 
-.modal-container.normal.addItems {
-    width: 600px;
-}
-
-.addItemsModalHead {
-    text-align: center;
-}
-
-.addItemsModalLable {
-    font-size: 14 px;
-    font-weight: 600;
-    text-align: start;
-}
-
-.addItemsModalDetail1 {
-    display: inline-block;
-    padding-bottom: 15px;
-}
-
-
-
-.addItemsModalnGrid1 input[type="date"],
-#addItemsModalTextArea,
-.own select {
-    width: 100%;
-    font-weight: 400;
+.ownTableFormDate input[type="date"],
+.ownTableFormDate input[type="month"]{
     padding: 8px 10px;
     border-radius: 6px;
-    border: none;
-    background-color: #EAEAEA;
+    border: 1.2px solid #c4cae0;
     margin-top: 5px;
 }
-
-#addItemsModalTextArea {
-    width: 500px;
-    resize: none;
-}
-
-.addItemsModalGrid1 input:focus,
-#addItemsModalTextArea:focus {
-    border-color: none;
-    outline: none;
-}
-
-.addItemsModalErrortext {
-    font-size: 14px;
-    color: #DA2346;
-    padding-right: 50px;
-    font-weight: 600;
-}
-
-.addItemsModalMessage {
-    font-size: 14px;
-    padding-top: 5px;
-    font-weight: 600;
-}
-
-.addItemsModalErrorViewReservaions {
-    color: #037AFF;
-    text-align: start;
-    font-size: 14px;
-    cursor: pointer;
-    font-weight: 600;
-    text-decoration: underline;
-}
-
-.addItemsModalGrid1 {
-    padding-top: 20px;
-}
-
-.addItemsModalGrid2 {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.addItemsModalGrid3 {
-    display: grid;
-    padding-top: 20px;
-    justify-self: center;
-    grid-template-columns: 50% 50%;
-    grid-template-areas:
-        'ownCloseSalonbtn1 ownCloseSalonbtn2'
-}
-
-
-.modal-container.normal.addItems .addItemsModalbtn1 {
-    grid-area: addItemsModalbtn1;
-    justify-self: center;
-
-}
-
-.modal-container.normal.addItems .addItemsModalbtn2 {
-    grid-area: addItemsModalbtn2;
-    justify-self: center;
-}
-
- */
-
-
-
-/* #################################################################################################################### */
-
-
-/*-------------------------------------- Common styles for owner ends --------------------------------------------*/
-
 
 /* ------------------------------------------------------ */
 /* --------------STYLES ADDED BY RAVINDU -----------------*/
@@ -246,86 +147,27 @@ Owner Overview Ends
 Close Salon Starts
 ##################################################################################################################################################### */
 
-/* #ownCloseSalonContainer {
-    width: 600px;
+
+/* .own.close-salon .table2{
+    
+    width: 1000px;
+  
+}
+.own.close-salon .tabel-container{
+    align-items: center;
 }
 
-.own.close-salon .ownCloseSalonHead {
-    text-align: center;
-}
 
-.own.close-salon .ownCloseSalonLable {
-    font-size: 14 px;
-    font-weight: 600;
-    text-align: start;
-}  */
-
-/* ?????????????????????????????????? */
-/* .own.close-salon .ownCloseSalonDetail1 {
-    display: inline-block;
-    padding-bottom: 15px;
-} */ 
-
-/* ?????????????????????????????????? */
-
-/* .own.close-salon .ownCloseSalonGrid1 input[type="date"],
-#ownCloseSalonTextArea,
-.own select {
-    width: 100%;
-    font-weight: 400;
-    padding: 8px 10px;
-    border-radius: 6px;
-    border: none;
-    background-color: #EAEAEA;
-    margin-top: 5px;
-}
-
-#ownCloseSalonTextArea {
-    width: 500px;
-    resize: none;
-}
-
-.own.close-salon .ownCloseSalonGrid1 input:focus,
-#ownCloseSalonTextArea:focus {
-    border-color: none;
-    outline: none;
-}
-
-.own.close-salon .ownCloseSalonErrortext {
-    font-size: 14px;
-    color: #DA2346;
-    padding-right: 50px;
-    font-weight: 600;
-}
-
-.own.close-salon .ownCloseSalonMessage {
-    font-size: 14px;
-    padding-top: 5px;
-    font-weight: 600;
-}
-
-.own.close-salon .ownCloseSalonErrorViewReservaions {
-    color: #037AFF;
-    text-align: start;
-    font-size: 14px;
-    cursor: pointer;
-    font-weight: 600;
-    text-decoration: underline;
-}
-
-.ownCloseSalonGrid1 {
-    padding-top: 20px;
-}
-
-.ownCloseSalonGrid2 {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
+@media (max-width:  925px){
+    .own.close-salon .table2{
+        width: 100%;
+    }
  */
 
  
-.own.close-salon .ownCloseSalonGrid3 {
+
+ 
+/* .own.close-salon .ownCloseSalonGrid3 {
     display: grid;
     padding-top: 20px;
     justify-self: center;
@@ -344,7 +186,7 @@ Close Salon Starts
 .own.close-salon .ownCloseSalonbtn2 {
     grid-area: ownCloseSalonbtn2;
     justify-self: center;
-}
+} */
 
 
 /* 

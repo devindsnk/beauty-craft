@@ -204,8 +204,8 @@ class Staff extends Controller
    {
       $this->view('owner/own_staffView');
    }
-   public function salaryReport()
-   {
-      $this->view('owner/own_salaryReportView');
-   }
+//    public function salaryReport()
+//    {
+//       $this->view('owner/own_salaryReportView');
+//    }
 }
