@@ -49,7 +49,7 @@ class Services extends Controller
             
          ];
          
-         die($data['sSelectedResCount']);
+         // die($data['sSelectedResCount']);
 
          $data['sProvArray'] = $sProvGetArray;
          $data['sTypesArray'] = $sTypeGetArray;
@@ -149,6 +149,20 @@ class Services extends Controller
      
    }
 
+   
+   public function getServices(){
+      
+      $sDetails = $this->ServiceModel->getServiceDetails();
+
+      $GetServicesArray = [
+         'services' => $sDetails
+      ];
+      print_r($sDetails);
+
+      $this->view('common/servicesTable', $GetServicesArray);
+      
+   }
+
    public function getServiceProvider(){
       
       $sProv = $this->ServiceModel->getServiceProviderDetails();
@@ -175,20 +189,20 @@ class Services extends Controller
       // print_r($sResource);
       
       return $sResource;
+
+
+      // $data2 = [
+      //    'res' => $sResource
+      // ];
+
+      // $this->view('manager/mang_serviceAdd', $data2);
    }
 
-   public function addService2()
-   {
-      $this->view('manager/mang_serviceAdd2');
-   }
    public function viewService()
    {
       $this->view('manager/mang_serviceView');
    }
-   public function viewService2()
-   {
-      $this->view('manager/mang_serviceView2');
-   }
+   
    public function updateService()
    {
       $this->view('manager/mang_serviceUpdate');
