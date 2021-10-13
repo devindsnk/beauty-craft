@@ -24,7 +24,7 @@
          <div class="leavecountcardright">2</div>
       </div>
       <div class="page-top-main-container">
-       <a href="" class="btn btn-filled btn-theme-purple btn-main" id="addnewbtn">Add New</a>
+       <button class="btn btn-filled btn-theme-purple btnleaveRequest">Add New</button>
       </div>
       </div>
 
@@ -122,11 +122,11 @@
             </table>
          </div>
       </div>
-            <!-- Take leave model -->
-      <!-- <div class="modal-container normal leaverequstmodal"> -->
+            <!-- Request leave model -->
+      <div class="modal-container leaverequest <?php if($data['haveErrors']) echo "show"?>">
          <div class="modal-box leave_request">
                <div class="new-type-head">
-                  <h1>Take a Leave</h1>
+                  <h1>Request Leave</h1>
                </div>
                <form action="<?php echo URLROOT; ?>/SerProvDashboard/leaves" class="form" method="POST">
 
@@ -143,22 +143,28 @@
                      <div class="column">
                            <div class="text-group">
                               <label class="labels" for="serviceName">Reason</label><br>
-                              <input type="text" name ="reason" id="takeLeaveReason" placeholder="-- Type in --" class="" value="<?php echo $data['reason']; ?>">
+                              <!-- <textarea class="addItemsModalTextArea" id="takeLeaveReason" name="addItemsModalTextArea"  value="<?php echo $data['reason']; ?>" rows="4" cols="50"placeholder="Type the reason here"> </textarea> -->
+                              <textarea type="text" name ="reason" id="takeLeaveReason" placeholder="-- Type in --" class="" value="<?php echo $data['reason']; ?>"></textarea>
                                 <span class="error"> <?php echo $data['reason_error']; ?></span>
                               <!-- <textarea name ="reason" id="takeLeaveReason" placeholder="-- Type in --" class="" require></textarea> -->
                            </div>
                      </div>
                   </div>
 
-                  <div class="new-type-head">
-                     <button class="btn btnClose normal close-type-btn">Close</button>
-                     <input type="submit" value ="Request"  class="btn btnClose normal confirm-service-btn">
+                  <div class="modalbutton">
+                     <div class="1">
+                     <button type = "submit" name="action" value="cancel" class="btn btnClose ">Cancel</button>
+                     </div>
+                     <div class="2">
+                     <button type="submit" name="action" value="addleave"class="confirm-service-btn">Request</button>
+                     </div>
                      <!-- <button class="btn btnClose normal confirm-service-btn">Request</button> -->
                   </div>
-
+                  
                </form>
+                 
          </div>
-      <!-- </div> -->
+      </div>
       <!-- End of Take leave model -->
 
 

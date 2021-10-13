@@ -18,45 +18,54 @@
    public function leaves() {
      
       if ($_SERVER['REQUEST_METHOD']=='POST') {
+         
+
          $data=[ 'date'=>trim($_POST['date']),
          'reason'=>trim($_POST['reason']),
          'date_error'=>'',
          'reason_error'=>'',
          '$staffID'=>'00005',
+         'haveErrors' => 0
          // '$staffID'=>$_SERVER['staffID'],
+       ];
+         if($_POST['action']=="addleave"){
+               $today = date('Y-m-d');
+               if (empty($data['date'])) {
+                  $data['date_error']="Please enter date";
+               }
+               if ((($data['date'])<$today)) {
+                  $data['date_error']="Please enter valid date";
+               }
 
+               if (empty($data['reason'])) {
+                  $data['reason_error']="Please mention the reason";
+               }
 
+               if (empty($data['date_error']) && empty($data['reason_error'])) {
+                  $this->LeaveModel->requestleave($data);
+                  //redirect to this view
+                  $data=[ 'date'=>'',
+               'reason'=>'',
+               'date_error'=>'',
+               'reason_error'=>'',
+               'haveErrors' => 0
+               ];
+               $this->view('serviceProvider/serProv_leaves', $data);
 
-         ];
+               }
 
-         $today = date('Y-m-d');
-         if (empty($data['date'])) {
-            $data['date_error']="Please enter date";
+               else {
+                  $data['haveErrors'] = 1;
+                  $this->view('serviceProvider/serProv_leaves', $data);
+                  }
          }
-         if ((($data['date'])<$today)) {
-            $data['date_error']="Please enter valid date";
-         }
-
-         if (empty($data['reason'])) {
-            $data['reason_error']="Please mention the reason";
-         }
-
-         if (empty($data['date_error']) && empty($data['reason_error'])) {
-            $this->LeaveModel->requestleave($data);
-            //redirect to this view
-            $data=[ 'date'=>'',
-         'reason'=>'',
-         'date_error'=>'',
-         'reason_error'=>'',
-         ];
-         $this->view('serviceProvider/serProv_leaves', $data);
-
-         }
-
-         else {
+         else if($_POST['action']=="cancel"){
+            $data['haveErrors'] = 0;
             $this->view('serviceProvider/serProv_leaves', $data);
          }
-
+         else{
+            die("something went wrong");
+         }
       }
 
       else {
@@ -64,6 +73,7 @@
          'reason'=>'',
          'date_error'=>'',
          'reason_error'=>'',
+         'haveErrors' => 0
          ];
          $this->view('serviceProvider/serProv_leaves', $data);
       }

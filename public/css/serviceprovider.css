@@ -222,10 +222,6 @@
     height: 100%;
 }
 
-.serprov .modal-box {
-    height: 600px;
-}
-
 .serprov .modelcontent {
     height: 550px;
     width: 100%;
@@ -282,15 +278,17 @@
     justify-content: flex-start;
     align-items: flex-end;
     height: 10%;
+    margin-top: 2px;
     /* background-color: yellow; */
 }
 
 .serprov .modalbutton {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    flex-direction: row;
+    /* justify-content: space-evenly; */
+    align-items: flex-end;
+    margin-bottom: 30px;
     /* background-color: tomato; */
-    height: 24%;
 }
 
 .btnalign {
@@ -382,74 +380,86 @@
     font-size: 16px;
 }
 
-
-/* 
-.Reservationnote-note {
-    margin-bottom: 10px;
-}
-
-.Reservationnote-note span {
-    font-size: 16px;
-}
-
-.savechange {
-    text-align: right;
-    font-size: 16px;
-    padding-bottom: 10px;
-}
-
-.modalbutton {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-
-    /* padding-left: 50px; }*/
-
 .serprov .modaldetails-name span.name {
     font-size: 16px;
     margin-bottom: 5px;
 }
 
-.serprov button.btn.btnClose.normal {
-    height: 45px;
-    width: 110px;
-    font-size: 18px;
-    background-color: #eaeaea;
+.btn.btnClose.normal {
+    background-color: var(--theme-lightgrey);
+    color: black;
+}
+
+.btnOpen.btnResRecall {
+    background-color: var(--theme-blue);
+    color: white;
 }
 
 .serprov button.btnOpen.new {
-    height: 45px;
-    width: 110px;
-    font-size: 18px;
-    background-color: var(--theme-blue);
-    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    height: 40px;
+    width: 160px;
     border: none;
+    padding: 7px 20px;
     border-radius: 6px;
+    background-color: #1bc657;
+    color: white;
 }
 
-
-/* button.btn.btnClose.normal {
-    height: 45px;
-    width: 110px;
-    font-size: 18px;
-    background-color: #eaeaea;
-    border: none;
-    border-radius: 6px;
-} */
-
-.serprov .modal-container.new {
+.modal-container.new {
     height: 100%;
     width: 100%;
 }
 
-.serprov .modal-container.new .modal-box {
-    height: 500px;
-    width: 600px;
+.reservation-more-info .modal-box {
+    height: 600px !important;
+    width: 600px !important;
+}
+
+
+/* recall request modal */
+
+.reservation-recall .modal-box {
+    height: 470px !important;
+    width: 600px !important;
+}
+
+.more-details-modalbtnsection {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.more-details-modalbtnsection Button {
+    font-size: 16px;
+    font-weight: 500;
+    height: 40px;
+    width: 160px;
+    border: none;
+    padding: 7px 20px;
+    border-radius: 6px;
 }
 
 
 /* ---------------leave request ----------------- */
+
+.leavereason-input {
+    height: 100px;
+    overflow-wrap: break-word;
+}
+
+.text-group textarea {
+    resize: none;
+    width: 100%;
+    height: 80px;
+}
+
+.leaverequest .modal-box {
+    height: 420px;
+    width: 500px;
+}
 
 .content.serprov.leave {
     width: 70%;
@@ -471,11 +481,6 @@
 .serprov.leave .dropdown-group {
     width: 70%;
 }
-
-
-/* .page-top-main-container {
-    justify-content: space-between !important;
-} */
 
 .leavecountcard {
     display: flex;
