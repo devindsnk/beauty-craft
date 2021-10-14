@@ -26,7 +26,7 @@
 
 
    <!-- UserBasedStylesheets -->
-   <!-- <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/sysAdmin.css" /> -->
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/sysAdmin.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/receptStyle.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/ownStyle.css" />
   
