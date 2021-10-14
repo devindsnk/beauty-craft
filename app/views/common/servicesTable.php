@@ -78,7 +78,7 @@
                   </td>
                   <td data-lable="Action" class="column-center-align">
                      <span>
-                        <a href="<?php echo URLROOT ?>/services/viewService"><i class="ci-view-more table-icon"></i></a>
+                        <a href="<?php echo URLROOT ?>/services/viewService/<?php echo $sDetails->serviceID; ?>"><i class="ci-view-more table-icon"></i></a>
                         <?php if ($userLevel == "Owner" || $userLevel == "Manager") : ?>
                            <a href="<?php echo URLROOT ?>/services/updateService"><i class="ci-edit table-icon"></i></a>
                            <a href="#"><i class="ci-trash table-icon btnRemoveService"></i></a>

@@ -72,7 +72,7 @@ class ServiceModel{
 
         return $result;
     }
-
+    
     public function getServiceProviderDetails(){
         // die("hello");
         
@@ -97,6 +97,53 @@ class ServiceModel{
 
     public function getResourceDetails(){
         $this->db->query("SELECT resourceID, name, quantity From resources");
+
+        $result = $this->db->resultSet();
+
+        return $result;
+    }
+
+    public function getOneServiceDetail($serviceID){
+        // die("hello");
+
+        $this->db->query("SELECT * 
+                          FROM services 
+                          WHERE serviceID='$serviceID'
+                          "); 
+        
+        $result = $this->db->resultSet();
+        // print_r($result);
+
+        return $result;
+    }
+
+    public function getOneServicesSProvDetail($serviceID){
+
+        $this->db->query("SELECT serviceproviders.staffID,staff.fName,staff.lName 
+                          FROM staff 
+                          
+                          INNER JOIN serviceproviders
+                          ON serviceproviders.staffID = staff.staffID
+                          WHERE serviceproviders.serviceID='$serviceID'
+
+                          "); 
+
+        $result = $this->db->resultSet();
+        // print_r($result);
+
+        return $result;
+    }
+
+    public function getAllocatedResourceDetails($serviceID){
+
+        $this->db->query("SELECT resources.resourceID,resources.name,resourceallocation.requiredQuantity 
+                          FROM resources 
+                          
+                          INNER JOIN resourceallocation
+                          ON resources.resourceID = resourceallocation.resourceID
+                          WHERE resourceallocation.serviceID='$serviceID'
+
+                          "); 
 
         $result = $this->db->resultSet();
 

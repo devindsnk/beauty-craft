@@ -149,20 +149,6 @@ class Services extends Controller
      
    }
 
-   
-   public function getServices(){
-      
-      $sDetails = $this->ServiceModel->getServiceDetails();
-
-      $GetServicesArray = [
-         'services' => $sDetails
-      ];
-      print_r($sDetails);
-
-      $this->view('common/servicesTable', $GetServicesArray);
-      
-   }
-
    public function getServiceProvider(){
       
       $sProv = $this->ServiceModel->getServiceProviderDetails();
@@ -190,17 +176,24 @@ class Services extends Controller
       
       return $sResource;
 
-
-      // $data2 = [
-      //    'res' => $sResource
-      // ];
-
-      // $this->view('manager/mang_serviceAdd', $data2);
    }
 
-   public function viewService()
+   public function viewService($serviceID)
    {
-      $this->view('manager/mang_serviceView');
+      // die('success');
+      $sOneDetails = $this->ServiceModel->getOneServiceDetail($serviceID);
+      $sSprovDetails = $this->ServiceModel->getOneServicesSProvDetail($serviceID);
+      $sAllocatedResDetails = $this->ServiceModel->getAllocatedResourceDetails($serviceID);
+      
+      $GetOneServicesArray = [
+         'services' => $sOneDetails,
+         'sProv' => $sSprovDetails,
+         'sRes' => $sAllocatedResDetails
+      ];
+      
+      // print_r($GetOneServicesArray);
+
+      $this->view('manager/mang_serviceView', $GetOneServicesArray);
    }
    
    public function updateService()

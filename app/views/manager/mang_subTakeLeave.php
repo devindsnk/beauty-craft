@@ -18,7 +18,7 @@
    <div class="content">
 
       <div class="page-top-main-container">
-         <a href="<?php echo URLROOT ?>/services/addNewService" class="btn btn-filled btn-theme-purple btn-main">Take Leave</a>
+         <a href="#" class="btn btn-filled btn-theme-purple btn-main">Take Leave</a>
       </div>
 
       <div class="table-container">
