@@ -4,6 +4,7 @@ class OwnDashboard extends Controller
    public function __construct()
    {
       // $this->employeeModel = $this->model('Employee');
+      $this->staffModel = $this->model('StaffModel');
    }
    public function home()
    {
@@ -47,6 +48,10 @@ class OwnDashboard extends Controller
    }
    public function staff()
    {
-      $this->view('owner/own_staff');
+      $staffDetails=$this->staffModel->getStaffDetails();
+
+      $GetStaffArray =['staff' => $staffDetails];
+      $this->view('owner/own_staff',$GetStaffArray );
+
    }
 }

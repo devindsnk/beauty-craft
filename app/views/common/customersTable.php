@@ -65,8 +65,8 @@
                   <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
                </td>
                <td class="column-center-align">
-                  <span>
-                     <a href="#"><i class="ci-view-more table-icon"></i></a>
+                  <span> 
+                      <a href="<?php echo URLROOT ?>/customerView/cusDetailView"><i class="ci-view-more table-icon"></i></a>
                      <?php if ($userLevel == "Owner") : ?>
                         <a href="#"><i class="ci-trash table-icon btnRemoveCustomer"></i></a>
                      <?php endif; ?>
@@ -85,9 +85,9 @@
                </td>
                <td class="column-center-align">
                   <span>
-                     <a href="#"><i class="ci-view-more table-icon"></i></a>
+                     <a href="<?php echo URLROOT ?>/customerView/cusDetailView"><i class="ci-view-more table-icon"></i></a>
                      <?php if ($userLevel == "Owner") : ?>
-                        <a href="#"><i class="ci-trash table-icon btnRemoveCustomer"></i></a>
+                        <a href="#"><i class="ci-trash table-icon btnRemoveCustomer "></i></a>
                      <?php endif; ?>
                   </span>
                </td>

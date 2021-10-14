@@ -202,10 +202,15 @@ class Staff extends Controller
    }
    public function viewStaff()
    {
+      // die('Success');
+      // $StaffDetails = $this->staffModel->getOneStaffDetails($staffID);
+      // $bankDetails = $this->staffModel->getBankDetails($staffID);
+
+      // $GetViewStaffArray =[
+      //    // 'staff'=> $StaffDetails,
+      //    'bank' => $bankDetails
+      // ];
       $this->view('owner/own_staffView');
-   }
-//    public function salaryReport()
-//    {
-//       $this->view('owner/own_salaryReportView');
-//    }
+   }  
+
 }

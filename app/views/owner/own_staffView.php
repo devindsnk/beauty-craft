@@ -13,7 +13,10 @@
    </header>
    <div class="content contentNewRes">
 
+   
+
       <div class="ownViewStaffContainer">
+      <?php foreach($data ['staff'] as $staffBankD) ?>
          <!-------------------------------- View staff container starts ------------------------------------->
 
          <!------------------------------------ Card container starts ---------------------------------------------->
@@ -37,8 +40,8 @@
                      <img src="<?php echo URLROOT ?>/public//imgs/img_avatar.png" alt="Avatar" class="ownViewStaffProfileDetailsImgCircle">
                   </div>
                   <div class="ownViewStaffProfileDetailsInfo">
-                     <span class="ownViewStaffProfileDetailsName">Devin Dissanayake</span> <br>
-                     <span class="ownViewStaffProfileDetailsStaffId">Staff ID : C00001</span>
+                     <span class="ownViewStaffProfileDetailsName"><?php echo $staffBankD->fName ?> <?php echo $staffBankD->lName ?></span> <br>
+                     <span class="ownViewStaffProfileDetailsStaffId">Staff ID :<?php echo $staffBankD->StaffID ?></span>
                   </div>
                </div>
             </div>
@@ -74,7 +77,7 @@
                      </div>
                      <div class="ownViewStaffCardcolumn">
                         <span class="ownViewStaffCardDetailsValue">
-                           Devin
+                        <?php echo $staffBankD->fName?>
                         </span>
                      </div>
                   </div>
@@ -89,7 +92,7 @@
                      </div>
                      <div class="ownViewStaffCardcolumn">
                         <span class="ownViewStaffCardDetailsValue">
-                           Dissanayake
+                        <?php echo $staffBankD->lName ?>
                         </span>
                      </div>
                   </div>
@@ -104,7 +107,7 @@
                      </div>
                      <div class="ownViewStaffCardcolumn">
                         <span class="ownViewStaffCardDetailsValue">
-                           Male
+                        <?php echo $staffBankD->gender ?>
                         </span>
                      </div>
                   </div>
@@ -119,7 +122,7 @@
                      </div>
                      <div class="ownViewStaffCardcolumn">
                         <span class="ownViewStaffCardDetailsValue">
-                           Manager
+                        <?php echo $staffBankD->staffType ?>
                         </span>
                      </div>
                   </div>
@@ -133,7 +136,7 @@
                      </div>
                      <div class="ownViewStaffCardcolumn">
                         <span class="ownViewStaffCardDetailsValue">
-                           981234567
+                        <?php echo $staffBankD->nic ?>
                         </span>
                      </div>
                   </div>
@@ -147,7 +150,7 @@
                      </div>
                      <div class="ownViewStaffCardcolumn">
                         <span class="ownViewStaffCardDetailsValue">
-                           12/12/1998
+                        <?php echo $staffBankD->dob ?>
                         </span>
                      </div>
                   </div>
@@ -162,7 +165,7 @@
                      </div>
                      <div class="ownViewStaffCardcolumn">
                         <span class="ownViewStaffCardDetailsValue">
-                           12/12/2020
+                        <?php echo $staffBankD->fName ?>
                         </span>
                      </div>
                   </div>
@@ -204,10 +207,7 @@
                      <div class="ownViewStaffCardcolumn">
                         <div class="ownViewStaffCardDetailsValue">
                            <address>
-                              4149 Glen Falls Road, <br>
-                              Philadelphia, <br>
-                              PA, <br>
-                              Pennsylvania
+                           <?php echo $staffBankD->address ?>
                            </address>
                         </div>
                      </div>
@@ -222,7 +222,7 @@
                      </div>
                      <div class="ownViewStaffCardcolumn">
                         <span class="ownViewStaffCardDetailsValue">
-                           0711234567
+                        <?php echo $staffBankD->mobileNo ?>
                         </span>
                      </div>
                   </div>
@@ -235,7 +235,7 @@
                      </div>
                      <div class="ownViewStaffCardcolumn">
                         <span class="ownViewStaffCardDetailsValue">
-                           devindissanayake@gmail.com
+                        <?php echo $staffBankD->email ?>
                         </span>
                      </div>
                   </div>
@@ -271,7 +271,7 @@
 
                      <div class="ownViewStaffCardcolumn">
                         <span class="ownViewStaffCardDetailsValue">
-                           Sampath Bank
+                        <?php echo $staffBankD->bankName ?>
                         </span>
                      </div>
                   </div>
@@ -285,7 +285,7 @@
 
                      <div class="ownViewStaffCardcolumn">
                         <span class="ownViewStaffCardDetailsValue">
-                           81923456
+                        <?php echo $staffBankD->holdersName?>
                         </span>
                      </div>
                   </div>
@@ -298,7 +298,7 @@
                      </div>
                      <div class="ownViewStaffCardcolumn">
                         <span class="ownViewStaffCardDetailsValue">
-                           N.D. Dissanayake
+                        <?php echo $staffBankD->branchName ?>
                         </span>
                      </div>
                   </div>

@@ -57,27 +57,44 @@
                <th class="column-center-align col-1">Staff ID</th>
                <th class="column-center-align col-2">Name</th>
                <th class="column-center-align col-3">Staff Type</th>
-               <th class="column-center-align col-4">Contact No</th>
+               <th class="column-center-align col-4">Mobile No</th>
                <th class="column-center-align col-5">Gender</th>
                <th class="column-center-align col-6">Joined Date</th>
                <th class="column-center-align col-7">Status</th>
                <th class="col-8"></th>
             </tr>
          </thead>
-
+     
          <tbody>
+ 
+         <?php foreach($data['staff'] as $staffD) : ?>
             <tr>
-               <td data-lable="Staff ID" class="column-center-align">R000001</td>
-               <td data-lable="Name" class="column-center-align">Devin Dissanayake</td>
-               <td data-lable="Staff Type" class="column-center-align">Receptionist</td>
-               <td data-lable="Contact No" class="column-left-align">0717679714</td>
-               <td data-lable="Gender" class="column-left-align">M</td>
-               <td data-lable="Joined Date" class="column-left-align">2021-10-07</td>
-               <td data-lable="Status" class="column-center-align">
-                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
+               <td data-lable="Staff ID" class="column-center-align"><?php echo $staffD->staffID; ?></td>
+               <td data-lable="Name" class="column-center-align"><?php echo $staffD->fName; ?> <?php echo $staffD->lName; ?></td>
+               <td data-lable="Staff Type" class="column-center-align">
+               <?php if($staffD->staffType==1) :?>
+                            Manager
+                  <?php elseif ($staffD->staffType == 2) : ?>
+                            Receptionist
+                  <?php else: ?> 
+                            Service Provider
+                  <?php endif; ?>
                </td>
-               <td class="column-center-align">
-                  <span>
+               <td data-lable="Contact No" class="column-left-align"><?php echo $staffD->mobileNo; ?></td>
+               <td data-lable="Gender" class="column-left-align"><?php echo $staffD->gender; ?></td>
+               <td data-lable="Joined Date" class="column-left-align"><?php echo $staffD->joinedDate; ?></td>
+               <td data-lable="Status" class="column-center-align">
+                  <!-- Staff memeber states >> Removed = 0 Active =1 Disabled =2 -->
+                  <?php if($staffD->status==0) :?>
+                           <button type="button" class="table-btn red-status-btn text-uppercase "> Removed </button> 
+                  <?php elseif ($staffD->status == 1) : ?>
+                  <button type="button" class="table-btn green-status-btn text-uppercase"> Active </button> 
+                  <?php else: ?> 
+                  <button type="button" class="table-btn yellow-status-btn text-uppercase "> Disabled </button> 
+                  <?php endif; ?>
+               </td>
+               <td class="column-center-align"> 
+                  <span> 
                      <a href="<?php echo URLROOT ?>/staff/viewStaff"><i class="ci ci-view-more table-icon"></i></a>
                      <?php if ($userLevel == "Owner") : ?>
                         <a href="<?php echo URLROOT ?>/staff/updateStaff"><i class="ci ci-edit table-icon"></i></a>
@@ -86,48 +103,8 @@
                   </span>
                </td>
             </tr>
+            <?php endforeach; ?>
 
-            <tr>
-               <td data-lable="Staff ID" class="column-center-align">R000001</td>
-               <td data-lable="Name" class="column-center-align">Devin Dissanayake</td>
-               <td data-lable="Staff Type" class="column-center-align">Receptionist</td>
-               <td data-lable="Contact No" class="column-left-align">0717679714</td>
-               <td data-lable="Gender" class="column-left-align">M</td>
-               <td data-lable="Joined Date" class="column-left-align">2021-10-07</td>
-               <td data-lable="Status" class="column-center-align">
-                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
-               </td>
-               <td class="column-center-align">
-                  <span>
-                     <a href="<?php echo URLROOT ?>/staff/viewStaff"><i class="ci ci-view-more table-icon"></i></a>
-                     <?php if ($userLevel == "Owner") : ?>
-                        <a href="<?php echo URLROOT ?>/staff/updateStaff"><i class="ci ci-edit table-icon"></i></a>
-                        <a href="#"><i class="ci ci-trash table-icon btnRemoveStaff"></i></a>
-                     <?php endif; ?>
-                  </span>
-               </td>
-            </tr>
-
-            <tr>
-               <td data-lable="Staff ID" class="column-center-align">R000001</td>
-               <td data-lable="Name" class="column-center-align">Devin Dissanayake</td>
-               <td data-lable="Staff Type" class="column-center-align">Receptionist</td>
-               <td data-lable="Contact No" class="column-left-align">0717679714</td>
-               <td data-lable="Gender" class="column-left-align">M</td>
-               <td data-lable="Joined Date" class="column-left-align">2021-10-07</td>
-               <td data-lable="Status" class="column-center-align">
-                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
-               </td>
-               <td class="column-center-align">
-                  <span>
-                     <a href="<?php echo URLROOT ?>/staff/viewStaff"><i class="ci ci-view-more table-icon"></i></a>
-                     <?php if ($userLevel == "Owner") : ?>
-                        <a href="<?php echo URLROOT ?>/staff/updateStaff"><i class="ci ci-edit table-icon"></i></a>
-                        <a href="#"><i class="ci ci-trash table-icon btnRemoveStaff"></i></a>
-                     <?php endif; ?>
-                  </span>
-               </td>
-            </tr>
 
          </tbody>
       </table>

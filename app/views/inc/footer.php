@@ -1,9 +1,9 @@
 <!--Footer-->
 <footer>
-   <P>
+   <!-- <P>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, ducimus laboriosam saepe numquam veniam velit
       dolorem rem debitis fugit quasi illum nostrum, aliquid quam nulla labore necessitatibus excepturi culpa soluta!
-   </P>
+   </P> -->
 </footer>
 <!--End Footer-->
 
