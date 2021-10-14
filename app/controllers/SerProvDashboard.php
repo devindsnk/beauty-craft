@@ -16,6 +16,8 @@
    }
 
    public function leaves() {
+
+      $leaveData=$this->LeaveModel->getLeaveByID();
      
       if ($_SERVER['REQUEST_METHOD']=='POST') {
          
@@ -24,7 +26,8 @@
          'reason'=>trim($_POST['reason']),
          'date_error'=>'',
          'reason_error'=>'',
-         '$staffID'=>'00005',
+         'staffID'=>'00005',
+         'tableData'=>$leaveData,
          'haveErrors' => 0
          // '$staffID'=>$_SERVER['staffID'],
        ];
@@ -44,14 +47,8 @@
                if (empty($data['date_error']) && empty($data['reason_error'])) {
                   $this->LeaveModel->requestleave($data);
                   //redirect to this view
-                  $data=[ 'date'=>'',
-               'reason'=>'',
-               'date_error'=>'',
-               'reason_error'=>'',
-               'haveErrors' => 0
-               ];
-               $this->view('serviceProvider/serProv_leaves', $data);
 
+               redirect('serProvDashboard/leaves');
                }
 
                else {
@@ -73,19 +70,13 @@
          'reason'=>'',
          'date_error'=>'',
          'reason_error'=>'',
+          'tableData'=>$leaveData,
          'haveErrors' => 0
          ];
          $this->view('serviceProvider/serProv_leaves', $data);
       }
    }
 
-   PUBLIC FUNCTION Show($staffID){
-
-$leave=$this->LeaveModel->getLeaveByID($staffID);
-$data =[];
-$this->view('serviceProvider/serProv_leaves', $data);
-
-   }
 
 
 
@@ -99,4 +90,3 @@ $this->view('serviceProvider/serProv_leaves', $data);
 
 
 }
-

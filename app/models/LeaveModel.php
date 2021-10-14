@@ -2,7 +2,6 @@
 class LeaveModel
 {
    private $db;
-
    public function __construct()
    {
       $this->db = new Database;
@@ -16,7 +15,6 @@ class LeaveModel
 
       $res = $this->db->query("INSERT INTO generalleaves (staffID, leaveDate, requestedDate, reason) VALUES('000001', :date , '{$today}', :reason)");
      
-
       $this->db->bind(':date', $data['date']);
       $this->db->bind(':reason', $data['reason']);
 
@@ -24,12 +22,13 @@ class LeaveModel
 
    }
 
-   // public function getLeaveByID(){
-   //    $this->db->('SELECT * FROM generalleaves WHERE staffID ='000001'');
-   //    $this->db->bind(':staffID',$staffID);
-   //    $row =$this->db->single();
-   //    return $row;
-   // }
+   public function getLeaveByID(){
+      $this->db->query("SELECT * FROM generalleaves WHERE staffID =000001");
+    
+      $result = $this->db->resultSet();
+        print_r($result);
+      return $result;
+   }
 
   
 }
