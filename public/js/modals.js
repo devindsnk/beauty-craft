@@ -33,6 +33,19 @@ removeCustomerBtnList.forEach((btn) => {
     });
 });
 
+// Edit Service Modal Section
+const editLeaveModal = document.querySelector(".edit-leave");
+const editLeaveBtnList = document.querySelectorAll(".btnEditLeave");
+console.log(editLeaveModal);
+if (editLeaveBtnList) {
+    editLeaveBtnList.forEach((btn) => {
+        btn.addEventListener("click", function() {
+            modalToToggle = editLeaveModal;
+            toggleModal();
+        });
+    });
+}
+
 // Reservation Recall Modal Section
 const resRecallModal = document.querySelector(".reservation-recall");
 const resRecallBtn = document.querySelector(".btnResRecall");
@@ -72,7 +85,6 @@ const btnCloseList = document.querySelectorAll(".btnClose");
 btnCloseList.forEach((btn) => {
     btn.addEventListener("click", toggleModal);
 });
-
 // Common section for all modal toggle operations
 function toggleModal() {
     modalToToggle.classList.toggle("show");

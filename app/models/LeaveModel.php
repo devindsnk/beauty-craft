@@ -23,7 +23,7 @@ class LeaveModel
    }
 
    public function getLeaveByID(){
-      $this->db->query("SELECT * FROM generalleaves WHERE staffID =000001");
+      $this->db->query("SELECT * FROM generalleaves WHERE staffID =000001 ORDER BY leaveDate");
     
       $result = $this->db->resultSet();
         print_r($result);

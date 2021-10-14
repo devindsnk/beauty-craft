@@ -75,69 +75,28 @@
 
                      <td class="column-center-align"><?php echo $leave->leaveDate; ?></td>
                      <td class="column-center-align"><?php echo $leave->requestedDate; ?></td>
-                     <td class="column-center-align"><?php echo $leave->respondedStaffID; ?></td>
+                     <td class="column-center-align"><?php echo $leave->respondedStaffID; ?><?php if(!($leave->respondedStaffID)) echo 'Not yet Responded' ?></td>
+                     <!-- leave Approved=1 pending=0 rejected=2 -->
                      <td class="column-center-align">
-                        <button type="button" class="table-btn green-status-btn text-uppercase"><?php echo $leave->status; ?></button>
-                     </td>
+                           <?php if($leave->status==0) :?>
+                              <button type="button" class="table-btn yello-status-btn text-uppercase "> Pending </button> 
+                           <?php elseif ($leave->status == 1) : ?>
+                              <button type="button" class="table-btn green-status-btn text-uppercase"> Approved </button> 
+                           <?php else: ?> 
+                              <button type="button" class="table-btn red-status-btn text-uppercase "> Rejected </button> 
+                           <?php endif; ?>
+                     </td> 
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <a href="#"><i class="ci-edit table-icon"></i></a>
-                           <a href="#"><i class="ci-trash table-icon"></i></a>
+                           <button class="editicon btnEditLeave"><a><i class="ci-edit table-icon"></i></a></button>
+                           
+                           <button class="editicon btnDeleteLeaveRequest"><a><i class="ci-trash table-icon"></i></a></button>
                         </span>
                      </td>
 
                   </tr>
 
                   <?php endforeach; ?>
-
-                  <!-- <tr>
-                     
-                     <td class="column-center-align">2021-09-08</td>
-                     <td class="column-center-align">2021-09-05</td>
-                     <td class="column-center-align">2021-09-06</td>
-                     <td class="column-center-align">
-                           <button type="button" class="table-btn green-status-btn text-uppercase">Approved</button>
-                     </td>
-                  <td data-lable="Action" class="column-center-align">
-                        <span>
-                           <a href="#"><i class="ci-edit table-icon"></i></a>
-                           <a href="#"><i class="ci-trash table-icon"></i></a>
-                        </span>
-                     </td>
-                     
-                  </tr>
-
-                  <tr>
-                     <td class="column-center-align">2021-09-08</td>
-                     <td class="column-center-align">2021-09-09</td>
-                     <td class="column-center-align">N/A</td>
-                    
-                     <td class="column-center-align">
-                        <button type="button" class="table-btn yellow-status-btn text-uppercase">pending</button>
-                     </td>
-                     <td data-lable="Action" class="column-center-align">
-                        <span>
-                            <a href="#"><i class="ci-edit table-icon"></i></a>
-                           <a href="#"><i class="ci-trash table-icon"></i></a>
-                        </span>
-                     </td>
-                  </tr>
-
-                  <tr>
-                     <td class="column-center-align">2021-09-05</td>
-                     <td class="column-center-align">2021-09-03</td>
-                     <td class="column-center-align">2021-09-04</td>
-                     
-                     <td class="column-center-align">
-                        <button type="button" class="table-btn red-status-btn text-uppercase">Rejected</button>
-                     </td>
-                     <td data-lable="Action" class="column-center-align">
-                        <span>
-                           <a href="#"><i class="ci-edit table-icon"></i></a>
-                           <a href="#"><i class="ci-trash table-icon"></i></a>
-                        </span>
-                     </td>
-                  </tr> -->
                </tbody>
             </table>
          </div>
@@ -174,13 +133,12 @@
                </div>
 
                <div class="modalbutton">
-                  <div class="1">
-                     <button type="submit" name="action" value="cancel" class="btn btnClose ">Cancel</button>
+                  <div class="btn1">
+                     <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
                   </div>
-                  <div class="2">
+                  <div class="btn2">
                      <button type="submit" name="action" value="addleave" class="confirm-service-btn">Request</button>
                   </div>
-                  <!-- <button class="btn btnClose normal confirm-service-btn">Request</button> -->
                </div>
 
             </form>
@@ -188,6 +146,49 @@
          </div>
       </div>
       <!-- End of Take leave model -->
+
+      <!-- edit leave Request model -->
+      <div class="modal-container edit-leave">
+         <div class="modal-box leave_request">
+            <div class="new-type-head">
+               <h1>Edit Leave</h1>
+            </div>
+            <form >
+
+               <div class="row">
+                  <div class="column">
+                     <div class="text-group">
+                        <label class="labels" for="serviceName">Date</label><br>
+                        <input type="date"  placeholder="--Select a date--">
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="column">
+                     <div class="text-group">
+                        <label class="labels" for="serviceName">Reason</label><br>
+                       
+                        <textarea type="text" placeholder="-- Type in --"> </textarea>
+                      
+                     </div> 
+                  </div>
+               </div>
+
+               <div class="modalbutton">
+                  <div class="btn1">
+                     <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
+                  </div>
+                  <div class="btn2">
+                     <button type="submit" name="action" value="addleave" class="confirm-service-btn">Save Changes</button>
+                  </div>
+               </div>
+
+            </form>
+
+         </div>
+
+      </div>
+      <!-- end edit request model -->
 
 
    </div>
