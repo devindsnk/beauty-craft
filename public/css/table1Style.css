@@ -166,13 +166,13 @@
 }
 
 .table1 .btn-position{
-  margin: 10px 10px 10px 0px;
+  margin: 20px 10px 10px 0px;
 }
 
 .table1 .check-btn, .table2 .check-btn{
   width: 90px;
   padding: 4px;
-  background-color: #037AFF;
+  background-color: var(--theme-purple);
   color: #FFFFFF;
 
 }
@@ -180,7 +180,7 @@
 .table1 .uncheck-btn, .table2 .uncheck-btn{
   width: 90px;
   padding: 2px;
-  border: 2px solid #037AFF;
+  border: 2px solid var(--theme-purple);
   color: #000;
 }
 
@@ -190,8 +190,11 @@
   border-radius: 100%;
 }
 
-.table1 .img-view-edit-update, .table2 .img-view-edit-update{
+.table1 .img-gap, .table2 .img-gap{
   margin-inline: 6px;
+}
+
+.table1 .img-view-edit-update, .table2 .img-view-edit-update{
   width: 20px;
   height: 20px;
 }
