@@ -5,7 +5,9 @@
 
 
 /* ------------------------------------------------------ */
-
+.content.serprov{
+    height: 100%;
+}
 .serprov .sub-container1 {
     display: flex;
     /* justify-content: space-evenly; */
@@ -70,7 +72,7 @@
 }
 
 .reservationlist {
-    height: 670px;
+    height: 650px;
 }
 
 .serprov .scroll-area {
@@ -97,12 +99,15 @@
     background-color: #ffffff;
     margin-bottom: 1.25rem;
     border-radius: 6px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
-.serprov .sub-container2-card-name {
+.serprov .sub-container2-card-name,.sub-container2-card-ts {
     width: 25%;
     display: flex;
     align-items: center;
+    display: block;
 }
 
 .serprov .sub-container2-card-time {
@@ -119,12 +124,13 @@
     display: block;
 }
 
-.serprov .sub-container2-card-name {
+/* .serprov .sub-container2-card-name {
     display: block;
-}
+} */
 
 .serprov .sub-container2-card-cstname {
     font-size: 16px;
+    display: block;
 }
 
 .serprov .sub-container2-card-name .name {
@@ -182,8 +188,55 @@
     }
 }
 
-@media Screen and (max-width: 980px) {
-    .sub-container1-card-title {
+
+
+@media Screen and (max-width: 1020px) {
+    .sub-container2-card{
+        height: 120px !important;
+        margin-left: 50px;
+        display: grid !important;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 3fr 1fr;
+        grid-template-areas:"area1 area2"
+                            "area3 area4" ;
+    }
+    .sub-container2-card-ts{
+        grid-area: area1 !important;
+        
+        width: 100%;
+    }
+    .sub-container2-card-name{
+        grid-area: area3 !important;
+        width: 100% !important;
+        display: inline !important;
+        
+        
+    }
+    .sub-container2-card-name span{
+        width: 100% !important;
+        color: rgba(0, 0, 0, 0.7) !important;
+        font-size: 16px !important;
+        font-weight: 500 !important;
+        display: inline !important;
+    }
+    .confbtn{
+        grid-area: area2 !important;
+        width: 100%;
+        display: flex;
+        justify-content: right;
+    }
+    .sub-container2-card-link{
+        grid-area: area4 !important;
+        width: 100%;
+         display: flex;
+        justify-content: right;
+        text-align: right;
+    }
+    .serprov .sub-container2-card button
+    {
+        text-align: right;
+    }
+    /* .sub-container1-card-title {
         font-size: 1.2rem;
     }
     .sub-container2-card {
@@ -214,7 +267,7 @@
         width: 100%;
         text-align: center;
         border-top: 2px solid var(--theme-black);
-    }
+    } */
 }
 
 .serprov .modal-container.normal {

@@ -102,16 +102,7 @@ deleteTakeLeaveBtnList.forEach(btn => {
                     toggleModal();
                 }
             );
-            const resRecallModal = document.querySelector(".reservation-recall");
-            const resRecallBtn = document.querySelector(".btnResRecall");
-            // console.log(resRecallModal);
-            if (resRecallBtn) {
-                resRecallBtn.addEventListener("click", function() {
-                    toggleModal();
-                    modalToToggle = resRecallModal;
-                    toggleModal();
-                });
-            }
+
 
             //Leave Request Modal Secrtion
             const leaveRequestModal = document.querySelector(".leaverequest");

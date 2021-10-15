@@ -33,20 +33,22 @@
             <!--sub-container2-card-->
             <div class="reservationlist">
                 <div class="scroll-area">
-                    <div class="webview">
+
                         <div class="sub-container2-card">
                             <!--sub-container2-card-timetype-->
-                            <div class="sub-container2-card-name">
+                            <div class="sub-container2-card-ts">
                                 <span class="sub-container2-card-time"> 10.30 - 11.00 </span>
                                 <span class="sub-container2-card-service">Ladies hair cut</span>
                             </div>
                             <!--sub-container2-card-timetype-->
                             <div class="sub-container2-card-name">
-                                <span class="sub-container2-card-cstname">Customer Name</span><br>
+                                <span class="sub-container2-card-cstname">Customer</span>
                                 <span class="name">Ruwanthi Munasinghe</span>
                             </div>
+                            <div class="confbtn">
                             <div class="confirm-status">
                                 <span>Confirmed</span>
+                            </div>
                             </div>
                             <div class="sub-container2-card-link">
                                 <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
@@ -54,17 +56,19 @@
                         </div>
                         <div class="sub-container2-card">
                             <!--sub-container2-card-timetype-->
-                            <div class="sub-container2-card-name">
+                            <div class="sub-container2-card-ts">
                                 <span class="sub-container2-card-time"> 10.30 - 11.00 </span>
                                 <span class="sub-container2-card-service">Ladies hair cut</span>
                             </div>
                             <!--sub-container2-card-timetype-->
                             <div class="sub-container2-card-name">
-                                <span class="sub-container2-card-cstname">Customer Name</span><br>
+                                <span class="sub-container2-card-cstname">Customer</span>
                                 <span class="name">Ruwanthi Munasinghe</span>
                             </div>
+                            <div class="confbtn">
                             <div class="confirm-status">
                                 <span>Confirmed</span>
+                            </div>
                             </div>
                             <div class="sub-container2-card-link">
                                 <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
@@ -72,17 +76,19 @@
                         </div>
                         <div class="sub-container2-card">
                             <!--sub-container2-card-timetype-->
-                            <div class="sub-container2-card-name">
+                            <div class="sub-container2-card-ts">
                                 <span class="sub-container2-card-time"> 10.30 - 11.00 </span>
                                 <span class="sub-container2-card-service">Ladies hair cut</span>
                             </div>
                             <!--sub-container2-card-timetype-->
                             <div class="sub-container2-card-name">
-                                <span class="sub-container2-card-cstname">Customer Name</span><br>
+                                <span class="sub-container2-card-cstname">Customer</span>
                                 <span class="name">Ruwanthi Munasinghe</span>
                             </div>
+                            <div class="confbtn">
                             <div class="confirm-status">
                                 <span>Confirmed</span>
+                            </div>
                             </div>
                             <div class="sub-container2-card-link">
                                 <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
@@ -90,17 +96,19 @@
                         </div>
                         <div class="sub-container2-card">
                             <!--sub-container2-card-timetype-->
-                            <div class="sub-container2-card-name">
+                            <div class="sub-container2-card-ts">
                                 <span class="sub-container2-card-time"> 10.30 - 11.00 </span>
                                 <span class="sub-container2-card-service">Ladies hair cut</span>
                             </div>
                             <!--sub-container2-card-timetype-->
                             <div class="sub-container2-card-name">
-                                <span class="sub-container2-card-cstname">Customer Name</span><br>
+                                <span class="sub-container2-card-cstname">Customer</span>
                                 <span class="name">Ruwanthi Munasinghe</span>
                             </div>
+                            <div class="confbtn">
                             <div class="confirm-status">
                                 <span>Confirmed</span>
+                            </div>
                             </div>
                             <div class="sub-container2-card-link">
                                 <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
@@ -108,17 +116,19 @@
                         </div>
                         <div class="sub-container2-card">
                             <!--sub-container2-card-timetype-->
-                            <div class="sub-container2-card-name">
+                            <div class="sub-container2-card-ts">
                                 <span class="sub-container2-card-time"> 10.30 - 11.00 </span>
                                 <span class="sub-container2-card-service">Ladies hair cut</span>
                             </div>
                             <!--sub-container2-card-timetype-->
                             <div class="sub-container2-card-name">
-                                <span class="sub-container2-card-cstname">Customer Name</span><br>
+                                <span class="sub-container2-card-cstname">Customer</span>
                                 <span class="name">Ruwanthi Munasinghe</span>
                             </div>
+                            <div class="confbtn">
                             <div class="confirm-status">
                                 <span>Confirmed</span>
+                            </div>
                             </div>
                             <div class="sub-container2-card-link">
                                 <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
@@ -126,17 +136,19 @@
                         </div>
                         <div class="sub-container2-card">
                             <!--sub-container2-card-timetype-->
-                            <div class="sub-container2-card-name">
+                            <div class="sub-container2-card-ts">
                                 <span class="sub-container2-card-time"> 10.30 - 11.00 </span>
                                 <span class="sub-container2-card-service">Ladies hair cut</span>
                             </div>
                             <!--sub-container2-card-timetype-->
                             <div class="sub-container2-card-name">
-                                <span class="sub-container2-card-cstname">Customer Name</span><br>
+                                <span class="sub-container2-card-cstname">Customer</span>
                                 <span class="name">Ruwanthi Munasinghe</span>
                             </div>
+                            <div class="confbtn">
                             <div class="confirm-status">
                                 <span>Confirmed</span>
+                            </div>
                             </div>
                             <div class="sub-container2-card-link">
                                 <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
@@ -144,58 +156,25 @@
                         </div>
                         <div class="sub-container2-card">
                             <!--sub-container2-card-timetype-->
-                            <div class="sub-container2-card-name">
+                            <div class="sub-container2-card-ts">
                                 <span class="sub-container2-card-time"> 10.30 - 11.00 </span>
                                 <span class="sub-container2-card-service">Ladies hair cut</span>
                             </div>
                             <!--sub-container2-card-timetype-->
                             <div class="sub-container2-card-name">
-                                <span class="sub-container2-card-cstname">Customer Name</span><br>
+                                <span class="sub-container2-card-cstname">Customer</span>
                                 <span class="name">Ruwanthi Munasinghe</span>
                             </div>
+                            <div class="confbtn">
                             <div class="confirm-status">
                                 <span>Confirmed</span>
+                            </div>
                             </div>
                             <div class="sub-container2-card-link">
                                 <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
                             </div>
                         </div>
-                        <div class="sub-container2-card">
-                            <!--sub-container2-card-timetype-->
-                            <div class="sub-container2-card-name">
-                                <span class="sub-container2-card-time"> 10.30 - 11.00 </span>
-                                <span class="sub-container2-card-service">Ladies hair cut</span>
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                            <div class="sub-container2-card-name">
-                                <span class="sub-container2-card-cstname">Customer Name</span><br>
-                                <span class="name">Ruwanthi Munasinghe</span>
-                            </div>
-                            <div class="confirm-status">
-                                <span>Confirmed</span>
-                            </div>
-                            <div class="sub-container2-card-link">
-                                <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
-                            </div>
-                        </div>
-                        <div class="sub-container2-card">
-                            <!--sub-container2-card-timetype-->
-                            <div class="sub-container2-card-name">
-                                <span class="sub-container2-card-time"> 10.30 - 11.00 </span>
-                                <span class="sub-container2-card-service">Ladies hair cut</span>
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                            <div class="sub-container2-card-name">
-                                <span class="sub-container2-card-cstname">Customer Name</span><br>
-                                <span class="name">Ruwanthi Munasinghe</span>
-                            </div>
-                            <div class="confirm-status">
-                                <span>Confirmed</span>
-                            </div>
-                            <div class="sub-container2-card-link">
-                                <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
-                            </div>
-                        </div>
+            
 
                         <!-- end web view -->
                     </div>
@@ -321,6 +300,7 @@
 
 
         </div>
+    </div>
 
         <!--End Content-->
 
