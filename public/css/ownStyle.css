@@ -1,108 +1,14 @@
-/* 
-.modal-container.normal.addItems {
-    width: 600px;
-}
-
-.addItemsModalHead {
-    text-align: center;
-}
-
-.addItemsModalLable {
-    font-size: 14 px;
-    font-weight: 600;
-    text-align: start;
-}
-
-.addItemsModalDetail1 {
-    display: inline-block;
-    padding-bottom: 15px;
-}
-
-
-
-.addItemsModalnGrid1 input[type="date"],
-#addItemsModalTextArea,
-.own select {
-    width: 100%;
-    font-weight: 400;
+.ownTableFormDate input[type="date"],
+.ownTableFormDate input[type="month"]{
     padding: 8px 10px;
     border-radius: 6px;
-    border: none;
-    background-color: #EAEAEA;
+    border: 1.2px solid #c4cae0;
     margin-top: 5px;
 }
 
-#addItemsModalTextArea {
-    width: 500px;
-    resize: none;
+.ownResourceTable{
+    width: 400px;
 }
-
-.addItemsModalGrid1 input:focus,
-#addItemsModalTextArea:focus {
-    border-color: none;
-    outline: none;
-}
-
-.addItemsModalErrortext {
-    font-size: 14px;
-    color: #DA2346;
-    padding-right: 50px;
-    font-weight: 600;
-}
-
-.addItemsModalMessage {
-    font-size: 14px;
-    padding-top: 5px;
-    font-weight: 600;
-}
-
-.addItemsModalErrorViewReservaions {
-    color: #037AFF;
-    text-align: start;
-    font-size: 14px;
-    cursor: pointer;
-    font-weight: 600;
-    text-decoration: underline;
-}
-
-.addItemsModalGrid1 {
-    padding-top: 20px;
-}
-
-.addItemsModalGrid2 {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.addItemsModalGrid3 {
-    display: grid;
-    padding-top: 20px;
-    justify-self: center;
-    grid-template-columns: 50% 50%;
-    grid-template-areas:
-        'ownCloseSalonbtn1 ownCloseSalonbtn2'
-}
-
-
-.modal-container.normal.addItems .addItemsModalbtn1 {
-    grid-area: addItemsModalbtn1;
-    justify-self: center;
-
-}
-
-.modal-container.normal.addItems .addItemsModalbtn2 {
-    grid-area: addItemsModalbtn2;
-    justify-self: center;
-}
-
- */
-
-
-
-/* #################################################################################################################### */
-
-
-/*-------------------------------------- Common styles for owner ends --------------------------------------------*/
 
 
 /* ------------------------------------------------------ */
@@ -246,107 +152,10 @@ Owner Overview Ends
 Close Salon Starts
 ##################################################################################################################################################### */
 
-/* #ownCloseSalonContainer {
-    width: 600px;
-}
-
-.own.close-salon .ownCloseSalonHead {
-    text-align: center;
-}
-
-.own.close-salon .ownCloseSalonLable {
-    font-size: 14 px;
-    font-weight: 600;
-    text-align: start;
-}  */
-
-/* ?????????????????????????????????? */
-/* .own.close-salon .ownCloseSalonDetail1 {
-    display: inline-block;
-    padding-bottom: 15px;
-} */ 
-
-/* ?????????????????????????????????? */
-
-/* .own.close-salon .ownCloseSalonGrid1 input[type="date"],
-#ownCloseSalonTextArea,
-.own select {
-    width: 100%;
-    font-weight: 400;
-    padding: 8px 10px;
-    border-radius: 6px;
-    border: none;
-    background-color: #EAEAEA;
-    margin-top: 5px;
-}
-
-#ownCloseSalonTextArea {
-    width: 500px;
-    resize: none;
-}
-
-.own.close-salon .ownCloseSalonGrid1 input:focus,
-#ownCloseSalonTextArea:focus {
-    border-color: none;
-    outline: none;
-}
-
-.own.close-salon .ownCloseSalonErrortext {
-    font-size: 14px;
-    color: #DA2346;
-    padding-right: 50px;
-    font-weight: 600;
-}
-
-.own.close-salon .ownCloseSalonMessage {
-    font-size: 14px;
-    padding-top: 5px;
-    font-weight: 600;
-}
-
-.own.close-salon .ownCloseSalonErrorViewReservaions {
-    color: #037AFF;
-    text-align: start;
-    font-size: 14px;
-    cursor: pointer;
-    font-weight: 600;
-    text-decoration: underline;
-}
-
-.ownCloseSalonGrid1 {
-    padding-top: 20px;
-}
-
-.ownCloseSalonGrid2 {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
- */
-
- 
-.own.close-salon .ownCloseSalonGrid3 {
-    display: grid;
-    padding-top: 20px;
-    justify-self: center;
-    grid-template-columns: 50% 50%;
-    grid-template-areas:
-        'ownCloseSalonbtn1 ownCloseSalonbtn2'
-}
-
-
-.own.close-salon .ownCloseSalonbtn1 {
-    grid-area: ownCloseSalonbtn1;
-    justify-self: center;
-
-}
-
-.own.close-salon .ownCloseSalonbtn2 {
-    grid-area: ownCloseSalonbtn2;
-    justify-self: center;
-}
-
-
+.content.own.close-salon{
+    width: 70%;
+    margin: auto;
+} 
 /* 
 #####################################################################################################################################################
 Close Salon ends
@@ -470,17 +279,338 @@ Customers Starts
 
 .own.customers .ownRemCusbtn1 {
     grid-area: ownRemCusbtn1;
+   justify-self: center;
 }
 
 .own.customers .ownRemCusbtn2 {
     grid-area: ownRemCusbtn2;
+    justify-self: center;
 }
 
+/* -----------Styles for View Customer--------------- */
+
+
+/* card head styles */
+.own.ViewCustomer .CardHead {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+
+}
+/* labels and values styles */
+.own.ViewCustomer .CardDetailsLabel,
+.own.ViewCustomer .CardDetailsValue {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--theme-grey);
+
+}
+
+/* Image styles */
+.own.ViewCustomer .CardHeadLabel {
+    text-align: center;
+}
+
+.own.ViewCustomer .ProfileDetailsImgCircle {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* profile details card styles */
+
+.own.ViewCustomer .ProfileDetailsName {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.own.ViewCustomer .ProfileDetailsStaffId {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--theme-grey);
+}
+
+/*---------------------------------- Assign grid areas and grid arrange styles starts----------------------------------- */
+
+
+/*------------------------------- Card grid areas and styles -------------------------------------------- */
+
+.own.ViewCustomer .Card1 {
+    grid-area: Card1;
+    width: 600px;
+    justify-self: center;
+    padding: 30px;
+}
+
+.own.ViewCustomer .Card2 {
+
+    grid-area: Card2;
+    width: 600px;
+    justify-self: center;
+    padding: 30px;
+
+}
+
+.own.ViewCustomer .Card3 {
+    grid-area:Card3;
+    width: 600px;
+    justify-self: center;
+    padding: 30px;
+}
+
+.own.ViewCustomer .Cards {
+    display: grid;
+    grid-template-columns: 100%;
+    height: 100%;
+    grid-gap: 20px;
+    padding-bottom: 30px;
+    grid-template-areas:
+        'Card1'
+        'Card2'
+        'Card3'
+}
+
+/*---------------------------------------------- Profile Grid areas and styles -------------------------------------------*/
+
+
+.own.ViewCustomer .ProfileGrid {
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+        'ProfileDetailsImg ProfileDetailsInfo';
+}
+
+.own.ViewCustomer .ProfileDetailsImg {
+    grid-area: ProfileDetailsImg;
+    justify-self: center;
+}
+
+.own.ViewCustomer .ProfileDetailsInfo {
+    grid-area: ProfileDetailsInfo;
+    align-self: center;
+    justify-self: center;
+}
+
+/*---------------------------------------------- Basic Info Grid areas and styles -------------------------------------------*/
+
+.own.ViewCustomer .Cardrow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    margin: 20px;
+}
+
+.own.ViewCustomer .Card2Details .Cardcolumn span{
+ text-align: end;
+}
 
 /* 
 #####################################################################################################################################################
 Customers Endss
 ##################################################################################################################################################### */
+
+
+.ownViewStaffContainerHead {
+    text-align: center;
+    padding-top: 30px;
+
+}
+
+/* ######################################################## */
+
+.ownViewStaffCard1Details {
+
+    padding-left: 100px;
+
+}
+.ownViewStaffCard2Details,
+.ownViewStaffCard3Details{
+    padding-left: 10px;
+}
+.ownViewStaffCardDetailsLabel{
+    width: 100px;
+}
+
+/* ######################################################## */
+
+
+
+.ownViewStaffCards .ownViewStaffCardHeadLabel {
+    text-align: center;
+}
+
+.ownViewStaffProfileDetailsImgCircle {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* all cards heading styles */
+.ownViewStaffProfileDetails,
+.ownViewStaffCard1,
+.ownViewStaffCard2,
+.ownViewStaffCard3 {
+    font-weight: 500;
+    margin: 0;
+    padding: 20px;
+    border-radius: 6px;
+    background-color: var(--white);
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* All cards label styles */
+
+.ownViewStaffCardDetailsLabel {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--theme-grey);
+
+}
+
+/* All cards values styles */
+
+.ownViewStaffCardDetailsValue {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* profile details card styles */
+
+.ownViewStaffProfileDetailsName {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.ownViewStaffProfileDetailsStaffId {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--theme-grey);
+}
+
+
+
+/*---------------------------------- Assign grid areas and grid arrange styles starts----------------------------------- */
+
+
+/*------------------------------- Card grid areas and styles -------------------------------------------- */
+.ownViewStaffProfileDetails {
+
+    grid-area: ownViewStaffProfileDetails;
+    width: 600px;
+    height: 240px;
+    justify-self: right;
+    align-self: flex-end;
+
+}
+
+.ownViewStaffCard1 {
+    grid-area: ownViewStaffCard1;
+    width: 600px;
+    height: 460px;
+    justify-self: right;
+    justify-self: self-end;
+}
+
+.ownViewStaffCard2 {
+
+    grid-area: ownViewStaffCard2;
+    width: 600px;
+    height: 400px;
+    justify-self: left;
+    align-self: flex-end;
+
+}
+
+.ownViewStaffCard3 {
+    grid-area: ownViewStaffCard3;
+    width: 600px;
+    height: 300px;
+    justify-self: left;
+}
+
+.ownViewStaffCards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    padding-bottom: 30px;
+    grid-template-areas:
+        'ownViewStaffProfileDetails ownViewStaffCard2'
+        'ownViewStaffProfileDetails ownViewStaffCard2'
+        'ownViewStaffCard1 ownViewStaffCard2'
+        'ownViewStaffCard1 ownViewStaffCard3'
+        'ownViewStaffCard1 ownViewStaffCard3'
+}
+
+
+
+/*---------------------------------------------- Profile Grid areas and styles -------------------------------------------*/
+
+
+.ownViewStaffProfileGrid {
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+        'ownViewStaffProfileDetailsImg ownViewStaffProfileDetailsInfo';
+}
+
+.ownViewStaffProfileDetailsImg {
+    grid-area: ownViewStaffProfileDetailsImg;
+    justify-self: center;
+}
+
+.ownViewStaffProfileDetailsInfo {
+    grid-area: ownViewStaffProfileDetailsInfo;
+    align-self: center;
+    justify-self: center;
+}
+
+/*---------------------------------------------- Basic Info Grid areas and styles -------------------------------------------*/
+.ownViewStaffCardrow {
+    /* word-wrap: break-word; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    /* gap: 20px; */
+    margin: 20px;
+}
+
+/*################################################################## Responsive styles ####################################################*/
+
+@media screen and (max-width: 1220px) {
+
+    .ownViewStaffContainerHead {
+        text-align: center;
+        padding: 30px;
+    }
+    .ownViewStaffCards {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows:auto;
+        grid-gap: 20px;
+        grid-template-areas:
+            'ownViewStaffProfileDetails'
+            'ownViewStaffCard1'
+            'ownViewStaffCard2'
+            'ownViewStaffCard3'
+    }
+
+    .ownViewStaffProfileDetails,
+    .ownViewStaffCard1,
+    .ownViewStaffCard2,
+    .ownViewStaffCard3 {
+        justify-self: center;
+        align-self: center;
+    }
+}
+
+
+
+
+
 
 
 
@@ -759,6 +889,17 @@ Customers Endss
  Rates Endss
 ##################################################################################################################################################### */
 
+
+/* 
+#####################################################################################################################################################
+ Resources Starts
+##################################################################################################################################################### */
+
+.content.own.resources{
+    width: 80%;
+    margin: auto;
+} 
+
 /* ---------------------------------------------------------- */
 /* -----------Styles for Remove Resources Starts--------------- */
 /* ---------------------------------------------------------- */
@@ -833,15 +974,9 @@ Customers Endss
     padding-top: 40px;
 }
 
-.own.resources .ownResAddLabel1,
-.own.resources .ownResAddLabel2 {
 
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
 
-#ownResAddQuantity {
+.ownResAddDetail2 .addItemsSelect {
     margin: 0;
     width: 70px;
     height: 40px;
@@ -858,19 +993,6 @@ Customers Endss
     height: 40px;
 }
 
-.own.resources .ownResAddDetail1 input[type="text"],
-.own.resources .ownResAddDetail2 #ownResAddQuantity {
-
-    background-color: #EAEAEA;
-    padding-left: 5px;
-    Border: none;
-
-}
-
-.own.resources .ownResAddDetail1 input[type="text"]:focus,
-.own.resources .ownResAddDetail2 #ownResAddQuantity:focus {
-    outline: none;
-}
 
 .own.resources .ownResAddBtn1 {
     padding-left: 20px;
@@ -1524,7 +1646,8 @@ Customers Endss
 
 .ownAddstaffContainer .ownAddstaffBasicinfo,
 .ownAddstaffContainer .ownAddstaffContactdetails,
-.ownAddstaffContainer .ownAddstaffBankdetails {
+.ownAddstaffContainer .ownAddstaffBankdetails,
+.ownAddstaffContainer .ownUpdateStaffFormGroupDisable {
     padding: 20px;
 }
 

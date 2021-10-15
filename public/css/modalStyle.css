@@ -126,7 +126,8 @@
 }
 
 .addItemsModalGrid1 input[type="date"],
-.addItemsModalTextArea {
+.addItemsModalTextArea,
+.addItemsModalGrid1 input[type="text"]{
     font-weight: 400;
     padding: 8px 10px;
     border-radius: 6px;
@@ -144,7 +145,8 @@
 }
 
 .addItemsModalGrid1 input:focus,
-.addItemsModalTextArea:focus {
+.addItemsModalTextArea:focus,
+.addItemsSelect:focus {
     border-color: none;
     outline: none;
     border-color: #6f6df4;
