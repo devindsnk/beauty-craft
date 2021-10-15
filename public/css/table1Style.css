@@ -1,96 +1,103 @@
 /* ------This is a common stylesheet for every view------ */
 
-/* ------------------------------------------------------ */
-/* -------------STYLES ADDED BY SANJANA ----------------- */
+
 /* ------------------------------------------------------ */
 
-.table-container{
-  /* height: 50%; */
-  margin-bottom: 20px;
-  overflow: scroll;
-  overflow-y: visible;
-  overflow-x: hidden;
-  direction: ltr;
-  scrollbar-width: thin;
-  scrollbar-color: #c4cae0 #F2F2F7;
+
+/* -------------STYLES ADDED BY SANJANA ----------------- */
+
+
+/* ------------------------------------------------------ */
+
+.table-container {
+    /* height: 50%; */
+    margin-bottom: 20px;
+    overflow: scroll;
+    overflow-y: visible;
+    overflow-x: hidden;
+    direction: ltr;
+    scrollbar-width: thin;
+    scrollbar-color: #c4cae0 #f2f2f7;
 }
 
 .table-container::-webkit-scrollbar {
-  width: 11px;
+    width: 11px;
 }
 
 .table-container::-webkit-scrollbar-track {
-  background: #F2F2F7;
+    background: #f2f2f7;
 }
 
 .table-container::-webkit-scrollbar-thumb {
-  background-color: #c4cae0;
-  border-radius: 6px;
-  border: 3px solid #c4cae0;
+    background-color: #c4cae0;
+    border-radius: 6px;
+    border: 3px solid #c4cae0;
 }
 
-.table1-responsive{
-  /* height: 400px; */
-  padding: 40px 40px;
-  min-width: 500px;
+.table1-responsive {
+    /* height: 400px; */
+    padding: 40px 40px;
+    min-width: 500px;
 }
 
-.table1 table{
-  font-size: 13px;
-  width: 100%;
-  border-collapse: collapse;
-  background-color: var(--white);
-  color: #1b1e24;
-  padding: 15px;
-  margin: auto;
-  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
-  border-radius: 6px;
+.table1 table {
+    font-size: 13px;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--white);
+    color: #1b1e24;
+    padding: 15px;
+    margin: auto;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
 }
 
-.table1 table thead th{
-  font-size: 15px;
-  font-weight: 600;
-  padding: 20px 15px;
-  padding-bottom: 20px;
-  border-spacing: 10px;
-  background-color: var(--theme-black);
-  color: var(--white);
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 2;
+.table1 table thead th {
+    font-size: 15px;
+    font-weight: 600;
+    padding: 20px 15px;
+    padding-bottom: 20px;
+    border-spacing: 10px;
+    background-color: var(--theme-black);
+    color: var(--white);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
 
-.table1 table th:first-child{
-  border-radius:6px 0 0 0;
+.table1 table th:first-child {
+    border-radius: 6px 0 0 0;
 }
 
-.table1 table th:last-child{
-  border-radius:0 6px 0 0;
+.table1 table th:last-child {
+    border-radius: 0 6px 0 0;
 }
 
-.table1 table tr td:first-child{
-  padding-left: 20px;
+.table1 table tr td:first-child {
+    padding-left: 20px;
 }
 
 .table1 table td {
-  padding: 5px 15px;
-  border-top: none;
-  border-bottom: 1px solid #eaeaea;
+    padding: 5px 15px;
+    border-top: none;
+    border-bottom: 1px solid #eaeaea;
 }
 
-.table2 table tr:last-child td{
-  border-bottom: 0;
+.table2 table tr:last-child td {
+    border-bottom: 0;
 }
 
-.table1-responsive span, .table2-responsive span{
-  display: inline-block;
-  width: max-content;
+.table1-responsive span,
+.table2-responsive span {
+    display: inline-block;
+    width: max-content;
 }
 
 .selected_row {
-  background-color: #f4f5f7 !important;
+    background-color: #f4f5f7 !important;
 }
+
 
 /* .table1 input[type="checkbox"]{
   appearance: none;
@@ -106,7 +113,6 @@
   justify-content: center;
   outline: none;
 }
-
 .table1 input[type="checkbox"]:after{
   font-family: "Font Awesome 5 Free";
   content: "\f00c";
@@ -116,178 +122,188 @@
   display: none;
 } */
 
-.table1 input[type="checkbox"]:hover{
-  background-color: #343435;
+.table1 input[type="checkbox"]:hover {
+    background-color: #343435;
 }
 
-.table1 input[type="checkbox"]:checked{
-  background-color: var(--theme-black);
+.table1 input[type="checkbox"]:checked {
+    background-color: var(--theme-black);
 }
 
-.table1 input[type="checkbox"]:checked:after{
-  display: block;
+.table1 input[type="checkbox"]:checked:after {
+    display: block;
 }
 
-.table1 .table-btn, .table2 .table-btn{
-  border: none;
-  padding: 3px 2px;
-  border-radius: 6px;
-  transition-duration: 0.4s;
-  font-weight: 500;
+.table1 .table-btn,
+.table2 .table-btn {
+    border: none;
+    padding: 3px 2px;
+    border-radius: 6px;
+    transition-duration: 0.4s;
+    font-weight: 500;
 }
 
-.table1 .green-status-btn, .table2 .green-status-btn{
-  width: 80px;
-  background-color: #C0F0D1;
-  color:#3ABD5F;
+.table1 .green-status-btn,
+.table2 .green-status-btn {
+    width: 80px;
+    background-color: #c0f0d1;
+    color: #3abd5f;
 }
 
-.table1 .red-status-btn, .table2 .red-status-btn{
-  width: 80px;
-  background-color: #FFC5CA;
-  color:#DC3545;
+.table1 .red-status-btn,
+.table2 .red-status-btn {
+    width: 80px;
+    background-color: #ffc5ca;
+    color: #dc3545;
 }
 
-.table1 .yellow-status-btn, .table2 .yellow-status-btn{
-  width: 80px;
-  background-color: #FFE9A7;
-  color:#DFAB11;
+.table1 .yellow-status-btn,
+.table2 .yellow-status-btn {
+    width: 80px;
+    background-color: #ffe9a7;
+    color: #dfab11;
 }
 
-.table1 .black-action-btn, .table2 .black-action-btn{
-  cursor: pointer;
-  width: 82px;
-  color: #fff;
-  background-color: var(--theme-black);
+.table1 .black-action-btn,
+.table2 .black-action-btn {
+    cursor: pointer;
+    width: 82px;
+    color: #fff;
+    background-color: var(--theme-black);
 }
 
-.table1 .black-action-btn:hover, .table2 .black-action-btn:hover {
-  background-color: #6c757d;
+.table1 .black-action-btn:hover,
+.table2 .black-action-btn:hover {
+    background-color: #6c757d;
 }
 
-.table1 .btn-position{
-  margin: 20px 10px 10px 0px;
+.table1 .btn-position {
+    margin: 20px 10px 10px 0px;
 }
 
-.table1 .check-btn, .table2 .check-btn{
-  width: 90px;
-  padding: 4px;
-  background-color: var(--theme-purple);
-  color: #FFFFFF;
-
+.table1 .check-btn,
+.table2 .check-btn {
+    width: 90px;
+    padding: 4px;
+    background-color: var(--theme-purple);
+    color: #ffffff;
 }
 
-.table1 .uncheck-btn, .table2 .uncheck-btn{
-  width: 90px;
-  padding: 2px;
-  border: 2px solid var(--theme-purple);
-  color: #000;
+.table1 .uncheck-btn,
+.table2 .uncheck-btn {
+    width: 90px;
+    padding: 2px;
+    border: 2px solid var(--theme-purple);
+    color: #000;
 }
 
-.table1 .img-profile-picture, .table2 .img-profile-picture{
-  height: 40px;
-  width: 40px;
-  border-radius: 100%;
+.table1 .img-profile-picture,
+.table2 .img-profile-picture {
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
 }
 
-.table1 .img-gap, .table2 .img-gap{
-  margin-inline: 6px;
+.table1 .img-gap,
+.table2 .img-gap {
+    margin-inline: 6px;
 }
 
-.table1 .img-view-edit-update, .table2 .img-view-edit-update{
-  width: 20px;
-  height: 20px;
+.table1 .img-view-edit-update,
+.table2 .img-view-edit-update {
+    width: 20px;
+    height: 20px;
 }
 
-.view-img:hover{
-  outline: 2px solid rgb(20, 4, 247);
+.view-img:hover {
+    outline: 2px solid rgb(20, 4, 247);
 }
-.edit-img:hover{
-  outline: 2px solid rgb(30, 255, 0);
+
+.edit-img:hover {
+    outline: 2px solid rgb(30, 255, 0);
 }
-.trash-img:hover{
-  outline: 2px solid red;
+
+.trash-img:hover {
+    outline: 2px solid red;
 }
 
 .text-uppercase {
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
 
-.column-right-align{
-  text-align: right;
-}
-
-.column-left-align{
-  text-align: left;
-}
-
-.column-center-align{
-  text-align: center;
-}
-
-@media (max-width:  1200px){ 
-  
-  .table1 table{
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-  }
-  .table1 table thead{
-    display: none;
-  }
-
-  .table1 table tbody,.table1 table tr, .table1 table td{
-    font-size: 14px;
-    display: block;
-    width: 100%;
-  }
-
-  .table1 table tr{
-    margin-bottom: 25px;
-    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
-    background-color: white;
-    border-radius: 6px;
-    padding: 10px;
-  }
-
-  .table1 table tbody tr td{
+.column-right-align {
     text-align: right;
-    padding: 8px;
-    position: relative;
-    border-bottom: none;
-  }
-
-  .table1-hover table tbody tr:hover td{
-    background:none;
-  }
-
-  .table1 tbody tr td:nth-child(1){
-    max-height: 0;
-    width: 80px;
-    margin-left: auto;
-    top: 25px;
-    padding: 10px 10px 10px 40px;
-  }
-
-  .table1 tbody tr td:nth-child(2){
-    width: 80px;
-  }
-  
-  .table1 table tbody tr td:nth-last-child(){
-    border-bottom: 0;
-  }
-
-  .table1 table td:before{
-    content: attr(data-lable);
-    position: absolute;
-    left: 0;
-    width: 50%;
-    padding-left: 10px;
-    font-weight: 600;
-    text-align: left;
-  }
 }
+
+.column-left-align {
+    text-align: left;
+}
+
+.column-center-align {
+    text-align: center;
+}
+
+@media (max-width: 1200px) {
+    .table1 table {
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+    }
+    .table1 table thead {
+        display: none;
+    }
+    .table1 table tbody,
+    .table1 table tr,
+    .table1 table td {
+        font-size: 14px;
+        display: block;
+        width: 100%;
+    }
+    .table1 table tr {
+        margin-bottom: 25px;
+        box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+        background-color: white;
+        border-radius: 6px;
+        padding: 10px;
+    }
+    .table1 table tbody tr td {
+        text-align: right;
+        padding: 8px;
+        position: relative;
+        border-bottom: none;
+    }
+    .table1-hover table tbody tr:hover td {
+        background: none;
+    }
+    .table1 tbody tr td:nth-child(1) {
+        max-height: 0;
+        width: 80px;
+        margin-left: auto;
+        top: 25px;
+        padding: 10px 10px 10px 40px;
+    }
+    .table1 tbody tr td:nth-child(2) {
+        width: 80px;
+    }
+    .table1 table tbody tr td:nth-last-child() {
+        border-bottom: 0;
+    }
+    .table1 table td:before {
+        content: attr(data-lable);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 10px;
+        font-weight: 600;
+        text-align: left;
+    }
+}
+
 
 /* ------------------------------------------------------ */
+
+
 /* ----------END OF STYLES ADDED BY SANJANA-------------- */
+
+
 /* ------------------------------------------------------ */

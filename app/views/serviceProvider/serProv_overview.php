@@ -258,12 +258,12 @@
                             <button>Save Changes</button>
                         </div>
                         <div class="modalbutton">
-                            <div>
+                                <div class="more-details-modalbtnsection">
                                 <button class="btn btnClose normal">Close</button>
 
                                 <button class="btnOpen btnResRecall" type="button">Recall</button>
 
-                            </div>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -271,8 +271,15 @@
             <!-- end modal -->
 
             <div class="modal-container reservation-recall">
-                <div class="modal-box">
+                <div class="modal-box addItems">
                     <h1>Recall request</h1>
+                    <div class="modaldetails">
+                            <div class="modaldetails-name">
+                                <span class="service">Hair Color-short</span><br>
+                                <span class="name">Ruwanthi Munasinghe</span>
+                            </div>
+
+                    </div>
                     <div class="modelcontent">
                         <div class="modaldatetime">
                             <div class="modaldatetime-time">
@@ -284,14 +291,7 @@
                                 <span>2020</span>
                             </div>
                         </div>
-                        <div class="modaldetails">
-                            <div class="modaldetails-name">
-                                <span class="service">Hair Color-short</span><br>
-                                <span class="name">Ruwanthi Munasinghe</span>
-                            </div>
-
-                        </div>
-
+                    
                         <div class="Reservationnote">
                             <div class="Reservationnote-name">
                                 <span>Reason</span>
@@ -307,12 +307,10 @@
 
 
                         <div class="modalbutton">
-                            <div>
-                                <button class="btn btnClose new">Close</button>
+                            <div class="more-details-modalbtnsection">
+                                <button class="btn btnClose new">Cancel</button>
 
-                            </div>
-                            <div>
-                                <button class="btnOpen new" type="button">Send Request</button></a>
+                                <button class="btnOpen new" type="button">Proceed</button>
                             </div>
                         </div>
                     </div>
