@@ -4,6 +4,7 @@ class MangDashboard extends Controller
    public function __construct()
    {
       // $this->employeeModel = $this->model('Employee');
+      $this->serviceModel = $this->model('ServiceModel');;
    }
    public function home()
    {
@@ -27,7 +28,14 @@ class MangDashboard extends Controller
    }
    public function services()
    {
-      $this->view('manager/mang_services');
+      $sDetails = $this->serviceModel->getServiceDetails();
+
+      $GetServicesArray = [
+         'services' => $sDetails
+      ];
+      // print_r($sDetails);
+
+      $this->view('manager/mang_services',  $GetServicesArray);
    }
    public function resources()
    {

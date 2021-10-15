@@ -16,70 +16,45 @@
 
    <!--Content-->
    <div class="content">
-      <div class="mang-sub-container1-head mang">
-         <form action="" class="form">
-            <!-- <div class="select-box-container">
-                  <label class="label" for="serviceName">Service</label>
-                  <select name="services" id="services">
-                     <option value="" disabled selected>--Select--</option>
-                     <option value="volvo">Service 01</option>
-                     <option value="saab">Service 02</option>
-                     <option value="mercedes">Service 03</option>
-                     <option value="audi">Service 04</option>
-                  </select>
-            </div>
 
-            <div class="select-box-container">
-                  <label class="label" for="serviceFromDate">From</label>
-                  <input type="date" name="" id="serviceFromDate" placeholder="--select--">
-            </div>
+      <form class="form filter-options" action="">
+         <div class="options-container mang">
+            <div class="left-section">
+               <div class="row">
+                  <div class="column">
+                     <div class="dropdown-group">
+                        <label class="label" for="serviceName">Service</label>
+                        <select>
+                           <option value="" selected>Select</option>
+                           <option value="Service 01">Service 01</option>
+                           <option value="Service 02">Service 02</option>
+                        </select>
+                     </div>
+                     <span class="error"> <?php echo " "; ?></span>
+                  </div>
+                  <div class="column">
+                     <div class="text-group">
+                        <label class="label" for="serviceFromDate">From</label>
+                        <input type="date" name="" id="serviceFromDate" placeholder="--select--">
+                     </div>
+                     <span class="error"></span>
+                  </div>
 
-            <div class="select-box-container">
-                  <label class="label" for="serviceFromDate">To</label>
-                  <input type="date" name="" id="serviceFromDate" placeholder="--select--">
-            </div>
-
-            <div class="select-box-container">
-               <button class="searching-btn align-right">Search</button>
-            </div> -->
-
-            <div class="row">
-
-               <div class="column">
-                  <div class="dropdown-group">
-                     <label class="labels" for="serviceName">Service</label><br>
-                     <select name="services" id="services">
-                        <option value="" disabled selected>--Select--</option>
-                        <option value="Service 01">Service 01</option>
-                        <option value="Service 02">Service 02</option>
-                        <option value="Service 03">Service 03</option>
-                        <option value="Service 04">Service 04</option>
-                     </select>
+                  <div class="column">
+                     <div class="text-group">
+                        <label class="label" for="serviceToDate">To</label>
+                        <input type="date" name="" id="serviceToDate" placeholder="--select--">
+                     </div>
+                     <span class="error"></span>
                   </div>
                </div>
-               <div class="column">
-                  <div class="text-group">
-                     <label class="labels" for="serviceFromDate">From</label><br>
-                     <input type="date" name="" id="serviceFromDate" placeholder="--select--">
-                  </div>
-                  <span class="error"></span>
-               </div>
-               <div class="column">
-                  <div class="text-group">
-                     <label class="labels" for="serviceToDate">To</label><br>
-                     <input type="date" name="" id="serviceToDate" placeholder="--select--">
-                  </div>
-                  <span class="error"></span>
-               </div>
-               <div class="column">
-                  <div class="select-box-container">
-                     <button class="searching-btn align-right">Search</button>
-                  </div>
-               </div>
-
             </div>
-         </form>
-      </div>
+            <div class="right-section">
+               <a href="" class="btn btn-filled btn-black">Search</a>
+               <!-- <button class="btn btn-search">Search</button> -->
+            </div>
+         </div>
+      </form>
 
       <!--sub-container1-->
       <div class="mang-sub-container1 mang">
@@ -309,9 +284,8 @@
         });
 
          let today = new Date().toISOString().substr(0, 10);
-         document.querySelector("#serviceFromDate").value = today;
+         document.querySelector("#serviceToDate").value = today;
 
-         document.querySelector("#serviceToDate").valueAsDate = new Date();
    </script>
 
    <?php require APPROOT . "/views/inc/footer.php" ?>

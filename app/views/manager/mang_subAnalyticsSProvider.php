@@ -16,74 +16,44 @@
 
    <!--Content-->
    <div class="content">
-      <div class="mang-sub-container1-head mang">
-         <form action="" class="form">
-         <!-- <div class="select-box-container">
-            <form action="">
-               <label class="label" for="serviceName">Employee</label>
-               <select name="services" id="services">
-                     <option value="" disabled selected>--Select--</option>
-                     <option value="volvo">Employee 01</option>
-                     <option value="saab">Employee 02</option>
-                     <option value="mercedes">Employee 03</option>
-                     <option value="audi">Employee 04</option>
-                  </select>
-            </form>
-         </div>
-
-         <div class="select-box-container">
-            <form action="">
-               <label class="label" for="serviceFromDate">From</label>
-               <input type="date" name="" id="serviceFromDate" placeholder="--select--">
-            </form>
-         </div>
-
-         <div class="select-box-container">
-            <form action="">
-               <label class="label" for="serviceFromDate">To</label>
-               <input type="date" name="" id="serviceFromDate" placeholder="--select--">
-            </form>
-         </div>
-
-         <div class="select-box-container">
-            <button class="searching-btn align-right">Search</button>
-         </div> -->
-
-         <div class="row">
-               <div class="column">
-                  <div class="dropdown-group">
-                     <label class="labels" for="serviceProviderName">Service Provider</label>
-                     <select name="serviceProvider" id="serviceProvider">
-                        <option value="" disabled selected>--Select--</option>
-                        <option value="ServiceProvider 01">Service Provider 01</option>
-                        <option value="ServiceProvider 02">Service Provider 02</option>
-                        <option value="ServiceProvider 03">Service Provider 03</option>
-                        <option value="ServiceProvider 04">Service Provider 04</option>
-                     </select>
+      <form class="form filter-options" action="">
+         <div class="options-container mang">
+            <div class="left-section">
+               <div class="row">
+                  <div class="column">
+                     <div class="dropdown-group">
+                        <label class="label" for="serviceName">Serice Provider</label>
+                        <select>
+                           <option value="" selected>Select</option>
+                           <option value="Service Provider 01">Service Provider 01</option>
+                           <option value="Service Provider 02">Service Provider 02</option>
+                        </select>
+                     </div>
+                     <span class="error"> <?php echo " "; ?></span>
                   </div>
-               </div>
-               <div class="column">
-                  <div class="text-group">
-                     <label class="labels" for="serviceProviderFromDate">From</label>
-                     <input type="date" name="" id="serviceProviderFromDate" placeholder="--select--">
+                  <div class="column">
+                     <div class="text-group">
+                        <label class="label" for="serviceProviderFromDate">From</label>
+                        <input type="date" name="" id="serviceProviderFromDate" placeholder="--select--">
+                     </div>
+                     <span class="error"></span>
                   </div>
-                  <span class="error"></span>
-               </div>
-               <div class="column">
-                  <div class="text-group">
-                     <label class="labels" for="serviceProviderToDate">To</label>
-                     <input type="date" name="" id="serviceProviderToDate" placeholder="--select--">
-                  </div>
-                  <span class="error"></span>
-               </div>
-               <div class="column">
-                  <div class="select-box-container">
-                     <button class="searching-btn align-right">Search</button>
+
+                  <div class="column">
+                     <div class="text-group">
+                        <label class="label" for="serviceProviderToDate">To</label>
+                        <input type="date" name="" id="serviceProviderToDate" placeholder="--select--">
+                     </div>
+                     <span class="error"></span>
                   </div>
                </div>
             </div>
-         </form>
-      </div>
+            <div class="right-section">
+               <a href="" class="btn btn-filled btn-black">Search</a>
+               <!-- <button class="btn btn-search">Search</button> -->
+            </div>
+         </div>
+      </form>
 
       <!--sub-container1-->
       <div class="mang-sub-container1 mang">
@@ -278,9 +248,8 @@
         });
 
          let today = new Date().toISOString().substr(0, 10);
-         document.querySelector("#serviceFromDate").value = today;
+         document.querySelector("#serviceProviderToDate").value = today;
 
-         document.querySelector("#serviceToDate").valueAsDate = new Date();
    </script>
 
    <?php require APPROOT . "/views/inc/footer.php" ?>
