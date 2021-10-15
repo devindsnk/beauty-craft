@@ -200,17 +200,11 @@ class Staff extends Controller
    {
       $this->view('owner/own_staffUpdate');
    }
-   public function viewStaff()
+   public function viewStaff($staffID)
    {
-      // die('Success');
-      // $StaffDetails = $this->staffModel->getOneStaffDetails($staffID);
-      // $bankDetails = $this->staffModel->getBankDetails($staffID);
-
-      // $GetViewStaffArray =[
-      //    // 'staff'=> $StaffDetails,
-      //    'bank' => $bankDetails
-      // ];
-      $this->view('owner/own_staffView');
+      $bankDetails = $this->staffModel->getBankDetails($staffID);
+      
+      $this->view('owner/own_staffView',$bankDetails[0]);
    }  
 
 }

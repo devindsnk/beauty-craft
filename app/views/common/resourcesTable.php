@@ -109,6 +109,122 @@
 
 <!-- Remove Resource model -->
 <div class="modal-container remove-resource">
+        <div class="modal-box">
+                <div class="confirm-model-head">
+                    <h1>Remove Resource</h1>
+                </div>
+                <div class="confirm-model-head">
+                    <p>Are you sure you want to Remove the Resource? <br> This action cannot be undone after proceeding.</p>
+                </div>
+                <div class="confirm-model-head">
+                    <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
+                    <button class="btn btnClose normal ModalButton ModalBlueButton">proceed</button>
+                </div>
+        </div>
+    </div>
+
+<!-- End of Remove Resource model -->
+
+
+
+  <!--------------------------------------------------------------------------------- Add resource starts ---------------------------------------------------------------->
+  <div class="modal-container add-resource">
+    <div class="modal-box addItems">
+       <h1 class="addItemsModalHead">Add Resources</h1>
+       <!-- start main grid 1 -->
+
+       <div class="addItemsModalGrid1 ownResAddDetails">
+       <div class="ownResAddDetail1">
+                    <label class="addItemsModalLable">Resource Name</label> <br>
+                    <input type="text" class="ownResAddLabeltext" placeholder="--Type in--">
+                </div>
+                <div class="ownResAddDetail2">
+                    <label class="addItemsModalLable">Quantity</label> <br>
+                    <select   class="addItemsSelect" name="ownResAddQuantity">
+                        <option value="one">1</option>
+                        <option value="two">2</option>
+                        <option value="three">3</option>
+                        <option value="four">4</option>
+                        <option value="five">5</option>
+                        <option value="six">6</option>
+                        <option value="seven">7</option>
+                        <option value="eight">8</option>
+                        <option value="nine">9</option>
+                        <option value="ten">10</option>
+                    </select>
+                </div>
+       </div>
+
+       <!-- main grid 1 ends -->
+
+       <!-- main grid 3 starts -->
+       <div class="addItemsModalGrid3">
+          <div class="addItemsModalbtn1">
+             <button class="btn btnClose normal ModalCancelButton ModalButton">Cancel</button>
+          </div>
+          <div class="addItemsModalbtn2">
+             <button class="btn ModalGreenButton ModalButton">Proceed</button>
+          </div>
+       </div>
+       <!-- main grid 3 ends -->
+    </div>
+ </div>
+
+
+         <!--------------------------------------------------------------------------------- Add resource ends ---------------------------------------------------------------->
+
+
+<!--------------------------------------------------------------------------------- Update resource starts ---------------------------------------------------------------->
+  <div class="modal-container update-resource">
+    <div class="modal-box addItems">
+       <h1 class="addItemsModalHead">Add Resources</h1>
+       <!-- start main grid 1 -->
+
+       <div class="addItemsModalGrid1 ownResAddDetails">
+       <div class="ownResAddDetail1">
+                    <label class="addItemsModalLable">Resource Name</label> <br>
+                    <input type="text" class="ownResAddLabeltext" placeholder="--Type in--">
+                </div>
+                <div class="ownResAddDetail2">
+                    <label class="addItemsModalLable">Quantity</label> <br>
+                    <select   class="addItemsSelect" name="ownResAddQuantity">
+                        <option value="one">1</option>
+                        <option value="two">2</option>
+                        <option value="three">3</option>
+                        <option value="four">4</option>
+                        <option value="five">5</option>
+                        <option value="six">6</option>
+                        <option value="seven">7</option>
+                        <option value="eight">8</option>
+                        <option value="nine">9</option>
+                        <option value="ten">10</option>
+                    </select>
+                </div>
+       </div>
+
+       <!-- main grid 1 ends -->
+
+       <!-- main grid 3 starts -->
+       <div class="addItemsModalGrid3">
+          <div class="addItemsModalbtn1">
+             <button class="btn btnClose normal ModalCancelButton ModalButton">Cancel</button>
+          </div>
+          <div class="addItemsModalbtn2">
+             <button class="btn ModalGreenButton ModalButton">Proceed</button>
+          </div>
+       </div>
+       <!-- main grid 3 ends -->
+    </div>
+ </div>
+         <!--------------------------------------------------------------------------------- Update resource ends ---------------------------------------------------------------->
+
+
+
+
+   
+
+   
+<div class="modal-container remove-resource">
    <div class="modal-box">
       <div class="confirm-model-head">
          <h1>Remove Resource</h1>
@@ -122,93 +238,4 @@
       </div>
    </div>
 </div>
-<!-- End of Remove Resource model -->
 
-
-
-  <!--------------------------------------------------------------------------------- Add resource starts ---------------------------------------------------------------->
-  <div class="modal-container add-resource">
-   <div class="modal-box">
-  <h1 class="ownResAddHead">Add Resources</h1>
-            <!-- main grid 1 starts -->
-            <div class="ownResAddDetails">
-                <div class="ownResAddDetail1">
-                    <label class="ownResAddLabel1">Resource Name</label> <br>
-                    <input type="text" class="ownResAddLabeltext" placeholder="--Type in--">
-                </div>
-                <div class="ownResAddDetail2">
-                    <label class="ownResAddLabel2">Quantity</label> <br>
-                    <select id="ownResAddQuantity" name="ownResAddQuantity">
-                        <option value="one">1</option>
-                        <option value="two">2</option>
-                        <option value="three">3</option>
-                        <option value="four">4</option>
-                        <option value="five">5</option>
-                        <option value="six">6</option>
-                        <option value="seven">7</option>
-                        <option value="eight">8</option>
-                        <option value="nine">9</option>
-                        <option value="ten">10</option>
-                    </select>
-                </div>
-            </div>
-            <!-- main grid 1 ends -->
-            <!-- main grid 2 starts -->
-            <div class="ownResAddButtons">
-                <div class="ownResAddBtn1">
-                    <button class="btn btnClose normal ModalGreenButton ModalButton ">Cancel</button>
-                </div>
-                <div class="ownResAddBtn2">
-                    <button class="btn ModalCancelButton ModalButton">Add</button>
-                </div>
-            </div>
-            <!-- main grid 2 ends -->
-
-        </div>
-        <!-- main grid 2 ends -->
-</div>
-         <!--------------------------------------------------------------------------------- Add resource ends ---------------------------------------------------------------->
-
-
-<!--------------------------------------------------------------------------------- Update resource starts ---------------------------------------------------------------->
-  <div class="modal-container update-resource">
-   <div class="modal-box">
-  <h1 class="ownResAddHead">Update Resources</h1>
-            <!-- main grid 1 starts -->
-            <div class="ownResAddDetails">
-                <div class="ownResAddDetail1">
-                    <label class="ownResAddLabel1">Resource Name</label> <br>
-                    <input type="text" class="ownResAddLabeltext" placeholder="--Type in--">
-                </div>
-                <div class="ownResAddDetail2">
-                    <label class="ownResAddLabel2">Quantity</label> <br>
-                    <select id="ownResAddQuantity" name="ownResAddQuantity">
-                        <option value="one">1</option>
-                        <option value="two">2</option>
-                        <option value="three">3</option>
-                        <option value="four">4</option>
-                        <option value="five">5</option>
-                        <option value="six">6</option>
-                        <option value="seven">7</option>
-                        <option value="eight">8</option>
-                        <option value="nine">9</option>
-                        <option value="ten">10</option>
-                    </select>
-                </div>
-            </div>
-            <!-- main grid 1 ends -->
-            <!-- main grid 2 starts -->
-            <div class="ownResAddButtons">
-                <div class="ownResAddBtn1">
-                    <button class="btn btnClose normal ModalGreenButton  ModalButton">Cancel</button>
-                </div>
-                <div class="ownResAddBtn2">
-                    <button class="btn ModalCancelButton ModalButton">Add</button>
-                </div>
-            </div>
-            <!-- main grid 2 ends -->
-
-        </div>
-        <!-- main grid 2 ends -->
-</div>
-         <!--------------------------------------------------------------------------------- Update resource ends ---------------------------------------------------------------->

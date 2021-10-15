@@ -152,48 +152,10 @@ Owner Overview Ends
 Close Salon Starts
 ##################################################################################################################################################### */
 
-
-/* .own.close-salon .table2{
-    
-    width: 1000px;
-  
-}
-.own.close-salon .tabel-container{
-    align-items: center;
-}
-
-
-@media (max-width:  925px){
-    .own.close-salon .table2{
-        width: 100%;
-    }
- */
-
- 
-
- 
-/* .own.close-salon .ownCloseSalonGrid3 {
-    display: grid;
-    padding-top: 20px;
-    justify-self: center;
-    grid-template-columns: 50% 50%;
-    grid-template-areas:
-        'ownCloseSalonbtn1 ownCloseSalonbtn2'
-}
-
-
-.own.close-salon .ownCloseSalonbtn1 {
-    grid-area: ownCloseSalonbtn1;
-    justify-self: center;
-
-}
-
-.own.close-salon .ownCloseSalonbtn2 {
-    grid-area: ownCloseSalonbtn2;
-    justify-self: center;
-} */
-
-
+.content.own.close-salon{
+    width: 70%;
+    margin: auto;
+} 
 /* 
 #####################################################################################################################################################
 Close Salon ends
@@ -317,10 +279,12 @@ Customers Starts
 
 .own.customers .ownRemCusbtn1 {
     grid-area: ownRemCusbtn1;
+   justify-self: center;
 }
 
 .own.customers .ownRemCusbtn2 {
     grid-area: ownRemCusbtn2;
+    justify-self: center;
 }
 
 /* -----------Styles for View Customer--------------- */
@@ -925,6 +889,17 @@ Customers Endss
  Rates Endss
 ##################################################################################################################################################### */
 
+
+/* 
+#####################################################################################################################################################
+ Resources Starts
+##################################################################################################################################################### */
+
+.content.own.resources{
+    width: 80%;
+    margin: auto;
+} 
+
 /* ---------------------------------------------------------- */
 /* -----------Styles for Remove Resources Starts--------------- */
 /* ---------------------------------------------------------- */
@@ -999,15 +974,9 @@ Customers Endss
     padding-top: 40px;
 }
 
-.own.resources .ownResAddLabel1,
-.own.resources .ownResAddLabel2 {
 
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
 
-#ownResAddQuantity {
+.ownResAddDetail2 .addItemsSelect {
     margin: 0;
     width: 70px;
     height: 40px;
@@ -1024,19 +993,6 @@ Customers Endss
     height: 40px;
 }
 
-.own.resources .ownResAddDetail1 input[type="text"],
-.own.resources .ownResAddDetail2 #ownResAddQuantity {
-
-    background-color: #EAEAEA;
-    padding-left: 5px;
-    Border: none;
-
-}
-
-.own.resources .ownResAddDetail1 input[type="text"]:focus,
-.own.resources .ownResAddDetail2 #ownResAddQuantity:focus {
-    outline: none;
-}
 
 .own.resources .ownResAddBtn1 {
     padding-left: 20px;
@@ -1690,7 +1646,8 @@ Customers Endss
 
 .ownAddstaffContainer .ownAddstaffBasicinfo,
 .ownAddstaffContainer .ownAddstaffContactdetails,
-.ownAddstaffContainer .ownAddstaffBankdetails {
+.ownAddstaffContainer .ownAddstaffBankdetails,
+.ownAddstaffContainer .ownUpdateStaffFormGroupDisable {
     padding: 20px;
 }
 

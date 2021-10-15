@@ -108,20 +108,20 @@
 
 
 <!-- Remove close date model -->
-<div class="modal-container remove-closeDate">
-   <div class="modal-box">
-      <div class="confirm-model-head">
-         <h1>Remove Close Date</h1>
-      </div>
-      <div class="confirm-model-head">
-         <p>Are you sure you want to Remove the Close Date?</p>
-      </div>
-      <div class="confirm-model-head">
-         <button class="btn btnClose normal ModalButton ModalCancelButton">Cancel</button>
-         <button class="btn btnClose normal ModalButton ModalBlueButton">Proceed</button>
-      </div>
-   </div>
-</div>
+<div class="modal-container remove-closeDate">>
+        <div class="modal-box">
+                <div class="confirm-model-head">
+                    <h1>Remove Resource</h1>
+                </div>
+                <div class="confirm-model-head">
+                    <p>Are you sure you want to Remove the Resource? <br> This action cannot be undone after proceeding.</p>
+                </div>
+                <div class="confirm-model-head">
+                    <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
+                    <button class="btn btnClose normal ModalButton ModalBlueButton">proceed</button>
+                </div>
+        </div>
+    </div>
 <!-- End of Remove close date model -->
 
 

@@ -80,9 +80,9 @@
                             Service Provider
                   <?php endif; ?>
                </td>
-               <td data-lable="Contact No" class="column-left-align"><?php echo $staffD->mobileNo; ?></td>
-               <td data-lable="Gender" class="column-left-align"><?php echo $staffD->gender; ?></td>
-               <td data-lable="Joined Date" class="column-left-align"><?php echo $staffD->joinedDate; ?></td>
+               <td data-lable="Contact No" class="column-center-align"><?php echo $staffD->mobileNo; ?></td>
+               <td data-lable="Gender" class="column-center-align"><?php echo $staffD->gender; ?></td>
+               <td data-lable="Joined Date" class="column-center-align"><?php echo $staffD->joinedDate; ?></td>
                <td data-lable="Status" class="column-center-align">
                   <!-- Staff memeber states >> Removed = 0 Active =1 Disabled =2 -->
                   <?php if($staffD->status==0) :?>
@@ -95,7 +95,7 @@
                </td>
                <td class="column-center-align"> 
                   <span> 
-                     <a href="<?php echo URLROOT ?>/staff/viewStaff"><i class="ci ci-view-more table-icon"></i></a>
+                     <a href="<?php echo URLROOT ?>/staff/viewStaff/<?php echo $staffD->staffID ?>"><i class="ci ci-view-more table-icon"></i></a>
                      <?php if ($userLevel == "Owner") : ?>
                         <a href="<?php echo URLROOT ?>/staff/updateStaff"><i class="ci ci-edit table-icon"></i></a>
                         <a href="#"><i class="ci ci-trash table-icon btnRemoveStaff"></i></a>
@@ -116,7 +116,7 @@
 <div class="modal-container remove-staff">
    <div class="modal-box " id="ownRemstaffWrapper">
       <div class="ownRemstaffContainer">
-         <h1 class="ownRemStaffHead">Remove Staff</h1>
+         <h1 class="confirm-model-head confirm-model-head">Remove Staff</h1>
 
          <!-- start main grid 1 -->
          <div class="staffDetails">
@@ -146,10 +146,10 @@
          <!-- main grid 3 starts -->
          <div class="remButtons">
             <div class="ownRemStaffbtn1">
-               <button class="btn btnClose ownCancelButton">Cancel</button>
+               <button class="btn btnClose normal ModalButton ModalCancelButton">Cancel</button>
             </div>
             <div class="ownRemStaffbtn2">
-               <button class="btn ownProceedBlueButton">Proceed</button>
+               <button class="btn btnClose normal ModalButton ModalBlueButton">Proceed</button>
             </div>
          </div>
          <!-- main grid 3 ends -->

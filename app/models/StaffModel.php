@@ -77,14 +77,12 @@ class StaffModel
 
    public function getBankDetails($staffID){
 
-      // die('Bankhere');
       $this->db->query("SELECT * FROM bankdetails
                         INNER JOIN staff 
                         ON staff.staffID = bankdetails.staffID
                         WHERE bankdetails.staffID ='$staffID'");
 
       $result= $this->db->resultSet();
-      // print_r($result);
 
       return $result;
    }
