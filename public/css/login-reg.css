@@ -6,12 +6,12 @@ body {
     background: var(--theme-bgwhite);
 }
 
-
-/* Full page container */
-
 .main-container {
     width: 100vw;
     min-height: 100vh;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../../public/imgs/bg2.jpeg);
+    background-position: top;
+    background-size: cover;
     height: fit-content;
     display: flex;
     justify-content: center;
@@ -170,3 +170,11 @@ a{
     font-size: 14px;
 }
 
+
+.top-left-logo{
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    height: 70px;
+    display: block;
+}

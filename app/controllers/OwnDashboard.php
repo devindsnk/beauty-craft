@@ -5,6 +5,7 @@ class OwnDashboard extends Controller
    {
       // $this->employeeModel = $this->model('Employee');
       $this->staffModel = $this->model('StaffModel');
+      $this->serviceModel = $this->model('ServiceModel');
    }
    public function home()
    {
@@ -44,14 +45,18 @@ class OwnDashboard extends Controller
    }
    public function services()
    {
-      $this->view('owner/own_services');
+      $sDetails = $this->serviceModel->getServiceDetails();
+
+      $GetServicesArray = [
+         'services' => $sDetails
+      ];
+      $this->view('owner/own_services', $GetServicesArray);
    }
    public function staff()
    {
-      $staffDetails=$this->staffModel->getStaffDetails();
+      $staffDetails = $this->staffModel->getStaffDetails();
 
-      $GetStaffArray =['staff' => $staffDetails];
-      $this->view('owner/own_staff',$GetStaffArray );
-
+      $GetStaffArray = ['staff' => $staffDetails];
+      $this->view('owner/own_staff', $GetStaffArray);
    }
 }

@@ -68,7 +68,7 @@
                </div>
                <div class="right-section btn-container">
                   <a href="" class="btn btn-outlined btn-black">Edit</a>
-                  <a href="" class="btn btn-filled btn-red">Cancel</a>
+                  <a href="" class="btn btn-filled btn-error-red">Cancel</a>
                </div>
             </div>
          </div>
@@ -124,7 +124,7 @@
                </div>
                <div class="right-section btn-container">
                   <a href="" class="btn btn-outlined btn-black">Edit</a>
-                  <a href="" class="btn btn-filled btn-red">Cancel</a>
+                  <a href="" class="btn btn-filled btn-error-red">Cancel</a>
                </div>
             </div>
          </div>
@@ -180,7 +180,7 @@
                </div>
                <div class="right-section btn-container">
                   <a href="" class="btn btn-outlined btn-black">Edit</a>
-                  <a href="" class="btn btn-filled btn-red">Cancel</a>
+                  <a href="" class="btn btn-filled btn-error-red">Cancel</a>
                </div>
             </div>
          </div>
@@ -236,7 +236,7 @@
                </div>
                <div class="right-section btn-container">
                   <a href="" class="btn btn-outlined btn-black">Edit</a>
-                  <a href="" class="btn btn-filled btn-red">Cancel</a>
+                  <a href="" class="btn btn-filled btn-error-red">Cancel</a>
                </div>
             </div>
          </div>

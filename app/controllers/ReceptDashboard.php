@@ -4,6 +4,8 @@ class ReceptDashboard extends Controller
    public function __construct()
    {
       // $this->employeeModel = $this->model('Employee');
+      $this->serviceModel = $this->model('ServiceModel');
+      $this->staffModel = $this->model('StaffModel');
    }
    public function home()
    {
@@ -31,7 +33,12 @@ class ReceptDashboard extends Controller
    }
    public function services()
    {
-      $this->view('receptionist/recept_services');
+      $sDetails = $this->serviceModel->getServiceDetails();
+
+      $GetServicesArray = [
+         'services' => $sDetails
+      ];
+      $this->view('receptionist/recept_services', $GetServicesArray);
    }
    public function customers()
    {
@@ -39,7 +46,10 @@ class ReceptDashboard extends Controller
    }
    public function staffMembers()
    {
-      $this->view('receptionist/recept_staffMembers');
+      $staffDetails = $this->staffModel->getStaffDetails();
+
+      $GetStaffArray = ['staff' => $staffDetails];
+      $this->view('receptionist/recept_staffMembers', $GetStaffArray);
    }
    public function leaves()
    {

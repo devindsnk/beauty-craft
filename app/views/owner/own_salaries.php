@@ -92,8 +92,7 @@
                      <td data-lable="" class="column-center-align">
                         <input type="checkbox" class="" name="chk" />
                      </td>
-                     <td data-lable="" class="column-center-align"><img class="img-profile-picture"
-                           src="<?php echo URLROOT?>/public/imgs/person2.jpg" /></td>
+                     <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person2.jpg" /></td>
                      <td data-lable="Staff Member Name">Sanjana Rajapaksha</td>
                      <td data-lable="Staff ID">S001</td>
                      <td data-lable="Staff Type">Manager</td>
@@ -103,13 +102,13 @@
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <a href="<?php echo URLROOT?>/salary/salaryReport"><i
-                                 class="img-view-edit-update ci-view-more table-icon"></i></a>
+                           <a href="<?php echo URLROOT ?>/salary/salaryReport"><i class="img-view-edit-update ci-view-more table-icon"></i></a>
                         </span>
                      </td>
                      <td data-lable="More" class="column-center-align">
-                        <a class="btnSalaryPayment" class=""><button type="button"
-                              class="table-btn black-action-btn text-uppercase">Pay Now</button></a>
+                        <a class="btnSalaryPayment" class="">
+                           <button type="button" class="table-btn black-action-btn text-uppercase ">Pay Now</button>
+                        </a>
                      </td>
                   </tr>
                   <!--End of table row-->
@@ -119,20 +118,17 @@
                      <td data-lable="" class="column-center-align">
                         <input type="checkbox" name="chk" />
                      </td>
-                     <td data-lable="" class="column-center-align"><img class="img-profile-picture"
-                           src="<?php echo URLROOT?>/public/imgs/person1.jpg" /></td>
+                     <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person1.jpg" /></td>
                      <td data-lable="Staff Member Name">Ravindu Madhubhashana</td>
                      <td data-lable="Staff ID">S001</td>
                      <td data-lable="Staff Type">Owner</td>
                      <td data-lable="Salary" class="column-right-align">Rs.25000.00</td>
                      <td data-lable="Paid Status" class="column-center-align">
-                        <a href="#"><button type="button"
-                              class="table-btn green-status-btn text-uppercase">Paid</button></a>
+                        <a href="#"><button type="button" class="table-btn green-status-btn text-uppercase">Paid</button></a>
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <a href="<?php echo URLROOT?>/salary/salaryReport"><i
-                                 class="img-view-edit-update ci-view-more table-icon"></i></a>
+                           <a href="<?php echo URLROOT ?>/salary/salaryReport"><i class="img-view-edit-update ci-view-more table-icon"></i></a>
                         </span>
                      </td>
                      <td data-lable="More" class="column-center-align">
@@ -147,8 +143,7 @@
                      <td data-lable="" class="column-center-align">
                         <input type="checkbox" name="chk" />
                      </td>
-                     <td data-lable="" class="column-center-align"><img class="img-profile-picture"
-                           src="<?php echo URLROOT?>/public/imgs/person3.jpg" /></td>
+                     <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person3.jpg" /></td>
                      <td data-lable="Staff Member Name">Ruwanthi Munasinghe</td>
                      <td data-lable="Staff ID">S001</td>
                      <td data-lable="Staff Type">Service Provider</td>
@@ -159,8 +154,7 @@
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <a href="<?php echo URLROOT?>/salary/salaryReport"><i
-                                 class="img-view-edit-update ci-view-more table-icon"></i></a>
+                           <a href="<?php echo URLROOT ?>/salary/salaryReport"><i class="img-view-edit-update ci-view-more table-icon"></i></a>
                         </span>
                      </td>
                      <td data-lable="More" class="column-center-align">
@@ -175,20 +169,17 @@
                      <td data-lable="" class="column-center-align">
                         <input type="checkbox" name="chk" />
                      </td>
-                     <td data-lable="" class="column-center-align"><img class="img-profile-picture"
-                           src="<?php echo URLROOT?>/public/imgs/person1.jpg" /></td>
+                     <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person1.jpg" /></td>
                      <td data-lable="Staff Member Name">Devin Dissanayake</td>
                      <td data-lable="Staff ID">S001</td>
                      <td data-lable="Staff Type">Receptionist</td>
                      <td data-lable="Salary" class="column-right-align">Rs.25000.00</td>
                      <td data-lable="Paid Status" class="column-center-align">
-                        <a href="#"><button type="button"
-                              class="table-btn green-status-btn text-uppercase">Paid</button></a>
+                        <a href="#"><button type="button" class="table-btn green-status-btn text-uppercase">Paid</button></a>
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <a href="<?php echo URLROOT?>/salary/salaryReport"><i
-                                 class="img-view-edit-update ci-view-more table-icon"></i></a>
+                           <a href="<?php echo URLROOT ?>/salary/salaryReport"><i class="img-view-edit-update ci-view-more table-icon"></i></a>
                         </span>
                      </td>
                      <td data-lable="More" class="column-center-align">
@@ -203,8 +194,7 @@
                      <td data-lable="" class="column-center-align">
                         <input type="checkbox" name="chk" />
                      </td>
-                     <td data-lable="" class="column-center-align"><img class="img-profile-picture"
-                           src="<?php echo URLROOT?>/public/imgs/person4.jpg" /></td>
+                     <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person4.jpg" /></td>
                      <td data-lable="Staff Member Name">Pubudu Wijekon</td>
                      <td data-lable="Staff ID">S001</td>
                      <td data-lable="Staff Type">Service Provider</td>
@@ -215,8 +205,7 @@
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <a href="<?php echo URLROOT?>/salary/salaryReport"><i
-                                 class="img-view-edit-update ci-view-more table-icon"></i></a>
+                           <a href="<?php echo URLROOT ?>/salary/salaryReport"><i class="img-view-edit-update ci-view-more table-icon"></i></a>
                      </td>
                      <td data-lable="More" class="column-center-align">
                         <a href="#"><button type="button" class="table-btn black-action-btn text-uppercase">Pay
@@ -230,20 +219,17 @@
                      <td data-lable="" class="column-center-align">
                         <input type="checkbox" name="chk" />
                      </td>
-                     <td data-lable="" class="column-center-align"><img class="img-profile-picture"
-                           src="<?php echo URLROOT?>/public/imgs/person5.jpg" /></td>
+                     <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person5.jpg" /></td>
                      <td data-lable="Staff Member Name">Sumudu Perera</td>
                      <td data-lable="Staff ID">S001</td>
                      <td data-lable="Staff Type">Receptionist</td>
                      <td data-lable="Salary" class="column-right-align">Rs.25000.00</td>
                      <td data-lable="Paid Status" class="column-center-align">
-                        <a href="#"><button type="button"
-                              class="table-btn green-status-btn text-uppercase">Paid</button></a>
+                        <a href="#"><button type="button" class="table-btn green-status-btn text-uppercase">Paid</button></a>
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <a href="<?php echo URLROOT?>/salary/salaryReport"><i
-                                 class="img-view-edit-update ci-view-more table-icon"></i></a>
+                           <a href="<?php echo URLROOT ?>/salary/salaryReport"><i class="img-view-edit-update ci-view-more table-icon"></i></a>
                         </span>
                      </td>
                      <td data-lable="More" class="column-center-align">
