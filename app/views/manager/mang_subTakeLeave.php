@@ -17,45 +17,73 @@
    <!--Content-->
    <div class="content">
 
+      <div class="page-top-main-container">
+         <a href="#" class="btn btn-filled btn-theme-purple btn-main">Take Leave</a>
+      </div>
+
+      <div class="table-container">
+         <div class="table2 table2-responsive">
+            <table class="table2-hover">
+
+               <thead>
+                  <tr>
+                     <!-- <th class="column-center-align col-1">Staff ID</th> -->
+                     <th class="column-center-align col-2">Leave Date</th>
+                     <th class="column-center-align col-3">Marked Date</th>
+                     <th class="column-center-align col-4 column-center-align">Reason</th>
+                     <th class="col-8"></th>
+                  </tr>
+               </thead>
+
+               <tbody>
+                  <tr>
+                     <!-- <td data-lable="Reservation ID" class="column-center-align">M000001</td> -->
+                     <td data-lable="Leave Date" class="column-center-align">2021-10-07</td>
+                     <td data-lable="Marked Date" class="column-center-align">2021-10-05</td>
+                     <td data-lable="Reason" class="column-center-align">Going to the hospital</td>
+                     <td class="column-center-align">
+                        <span>
+                           <a href="#"><i class="ci-edit table-icon"></i></a>
+                           <a href="#"><i class="ci-trash table-icon"></i></a>
+                        </span>
+                     </td>
+                  </tr>
+
+                  <tr>
+                     <!-- <td data-lable="Reservation ID" class="column-center-align">M000001</td> -->
+                     <td data-lable="Leave Date" class="column-center-align">2021-10-07</td>
+                     <td data-lable="Marked Date" class="column-center-align">2021-10-05</td>
+                     <td data-lable="Reason" class="column-center-align">Going to the hospital</td>
+                     <td class="column-center-align">
+                        <span>
+                           <a href="#"><i class="ci-edit table-icon"></i></a>
+                           <a href="#"><i class="ci-trash table-icon"></i></a>
+                        </span>
+                     </td>
+                  </tr>
+
+                  <tr>
+                     <!-- <td data-lable="Reservation ID" class="column-center-align">M000001</td> -->
+                     <td data-lable="Leave Date" class="column-center-align">2021-10-07</td>
+                     <td data-lable="Marked Date" class="column-center-align">2021-10-05</td>
+                     <td data-lable="Reason" class="column-center-align">Going to the hospital</td>
+                     <td class="column-center-align">
+                        <span>
+                           <a href="#"><i class="ci-edit table-icon"></i></a>
+                           <a href="#"><i class="ci-trash table-icon"></i></a>
+                        </span>
+                     </td>
+                  </tr>
+
+               </tbody>
+            </table>
+         </div>
+      </div>
       <button class="btnOpen normal">Take Leave</button></a>
       <button class="btnOpen normal">Edit Leave</button></a>
+      <button class="btnOpen normal">Delete Leave Request</button></a>
 
       <!-- Take leave model -->
-      <!-- <div class="modal-container normal">
-         <div class="modal-box leave-request">
-               <div class="new-type-head">
-                  <h1>Take a Leave</h1>
-               </div>
-               <form action="" class="form">
-
-                  <div class="row">
-                     <div class="column">
-                           <div class="text-group">
-                              <label class="labels" for="serviceName">Date</label><br>
-                              <input type="date" name="" id="takeLeaveDate" placeholder="--Select a date--">
-                           </div>
-                           <span class="error"> <?php echo "Limit has exceeded for the date "; ?></span>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="column">
-                           <div class="text-group">
-                              <label class="labels" for="serviceName">Reason</label><br>
-                              <textarea id="takeLeaveReason" placeholder="-- Type in --" class="" name="" rows="4" cols="50"></textarea>
-                           </div>
-                     </div>
-                  </div>
-
-                  <div class="new-type-head">
-                     <button class="btn btnClose normal close-type-btn">Close</button>
-                     <button class="btn btnClose normal confirm-service-btn">Take</button>
-                  </div>
-
-               </form>
-         </div>
-      </div> -->
-      <!-- End of Take leave model -->
-
       <div class="modal-container normal">
          <div class="modal-box addItems">
             <h1 class="addItemsModalHead">TakeLeave</h1>
@@ -87,10 +115,10 @@
             </form>
          </div>
       </div>
-
+      <!-- End of take leave model -->
 
       <!-- Edit taken leave model -->
-      <div class="modal-container normal">
+      <!-- <div class="modal-container normal">
          <div class="modal-box leave-request">
                <div class="new-type-head">
                   <h1>Edit Leave</h1>
@@ -122,8 +150,25 @@
 
                </form>
          </div>
-      </div>
+      </div> -->
       <!-- End of Edit taken leave model -->
+
+      <!-- Leave delete model -->
+      <div class="modal-container normal">
+         <div class="modal-box">
+               <div class="confirm-model-head">
+                  <h1>Delete Leave Request ?</h1>
+               </div>
+               <div class="confirm-model-head">
+                  <p>Are you sure you want to delete the leave request? <br> This action cannot be undone after proceeding.</p>
+               </div>
+               <div class="confirm-model-head">
+                  <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
+                  <button class="btn btnClose normal ModalButton ModalBlueButton">proceed</button>
+               </div>
+         </div>
+      </div>
+      <!-- End of Leave delete model -->
 
    </div>
    <!--End Content-->

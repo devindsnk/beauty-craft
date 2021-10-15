@@ -169,7 +169,7 @@
 
                         <div class="ownUpdateStaffFormGroupDisable">
                             <div class="ownUpdateStaffFormGroupDisableLable">
-                                <h3 class="subhead">Disable Staff member</h3>
+                                <h3 class="subhead">Temporarily Disable</h3>
                             </div>
                             <div class="ownUpdateStaffFormGroupDisableTogle">
                                 <input type="checkbox" class="toglecheckbox">

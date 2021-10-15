@@ -54,4 +54,39 @@ class StaffModel
 
       $this->db->execute();
    }
+
+   public function getStaffDetails(){
+      $this->db->query('SELECT * FROM staff');
+
+      $result= $this->db->resultSet();
+
+      return $result;
+   }
+
+   public function getOneStaffDetails($staffID){
+
+
+      $this->db->query("SELECT * FROM staff
+                        WHERE staffID = '$staffID'");
+
+      $result= $this->db->resultSet();
+     
+
+      return $result;
+   }
+
+   public function getBankDetails($staffID){
+
+      $this->db->query("SELECT * FROM bankdetails
+                        INNER JOIN staff 
+                        ON staff.staffID = bankdetails.staffID
+                        WHERE bankdetails.staffID ='$staffID'");
+
+      $result= $this->db->resultSet();
+
+      return $result;
+   }
+
+
+
 }
