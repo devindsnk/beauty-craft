@@ -53,15 +53,15 @@ resMoreInfoBtnList.forEach(btn => {
 
 
 // Reservation Recall Modal Section
-// const resRecallModal = document.querySelector('.reservation-recall');
-// const resRecallBtn = document.querySelector('.btnResRecall');
-// resRecallBtn.addEventListener("click",
-//    function () {
-//       toggleModal();
-//       modalToToggle = resRecallModal;
-//       toggleModal();
-//    }
-// );
+const resRecallModal = document.querySelector('.reservation-recall');
+const resRecallBtn = document.querySelector('.btnResRecall');
+resRecallBtn.addEventListener("click",
+   function () {
+      toggleModal();
+      modalToToggle = resRecallModal;
+      toggleModal();
+   }
+);
 
 
 // Resources rmemove Modal Section
