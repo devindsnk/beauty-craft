@@ -71,7 +71,18 @@
                   <td class="column-center-align"><?php echo $sDetails->serviceID; ?></td>
                   <td class="column-center-align"><?php echo $sDetails->name; ?></td>
                   <td class="column-center-align"><?php echo $sDetails->type; ?></td>
-                  <td class="column-center-align"><?php echo $sDetails->totalDuration; ?></td>
+                  <?php $i =$sDetails->totalDuration; ?>
+								<?php if ($i == 60 || $i == 120):?>
+                           <td class="column-center-align"><?php echo ($i/60) ; ?> h</td>
+                           
+								<?php elseif ($i > 60 && $i < 120 ): ?>
+                           <td class="column-center-align"><?php echo ($i/$i) ; ?> h <?php echo ($i %  60) ; ?> mins</td>
+
+								<?php else :?>
+                           <td class="column-center-align"><?php echo $i; ?> mins</td>
+                           
+								<?php endif; ?>
+                  <!-- <td class="column-center-align"><?php echo $sDetails->totalDuration; ?></td> -->
                   <td class="column-right-align"><?php echo $sDetails->price; ?></td>
                   <td class="column-center-align">
                      <button type="button" class="table-btn green-status-btn text-uppercase"><?php echo $sDetails->status; ?></button>

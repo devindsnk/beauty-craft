@@ -22,7 +22,7 @@
       <button class="btnOpen normal">Delete Service</button></a>
 
       <!-- Service delete model -->
-      <div class="modal-container normal">
+      <div class="modal-container remove-service">
          <div class="modal-box">
                <div class="confirm-model-head">
                   <h1>Delete Service</h1>
@@ -31,8 +31,8 @@
                   <p>Are you sure you want to delete the service? <br> This action cannot be undone after proceeding.</p>
                </div>
                <div class="confirm-model-head">
-                  <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
-                  <button class="btn btnClose normal ModalButton ModalBlueButton">Confirm</button>
+                  <button class="btn btnClose remove-service ModalButton ModalCancelButton">Close</button>
+                  <button class="btn btnClose remove-service ModalButton ModalBlueButton">Confirm</button>
                </div>
          </div>
       </div>
