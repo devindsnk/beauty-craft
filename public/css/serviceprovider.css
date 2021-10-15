@@ -467,6 +467,12 @@ button.editicon {
 
 /* ---------------leave request ----------------- */
 
+.modalbutton button {
+    width: 160px;
+    height: 40px;
+    font-size: 16px;
+}
+
 .leavereason-input {
     height: 100px;
     overflow-wrap: break-word;
@@ -476,6 +482,7 @@ button.editicon {
     resize: none;
     width: 100%;
     height: 80px;
+    padding: 5px 0 px 5px;
 }
 
 .leaverequest .modal-box {

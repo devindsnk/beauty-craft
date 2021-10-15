@@ -33,7 +33,7 @@ removeCustomerBtnList.forEach((btn) => {
     });
 });
 
-// Edit Service Modal Section
+// Edit Leave Modal Section
 const editLeaveModal = document.querySelector(".edit-leave");
 const editLeaveBtnList = document.querySelectorAll(".btnEditLeave");
 console.log(editLeaveModal);
@@ -41,6 +41,19 @@ if (editLeaveBtnList) {
     editLeaveBtnList.forEach((btn) => {
         btn.addEventListener("click", function() {
             modalToToggle = editLeaveModal;
+            toggleModal();
+        });
+    });
+}
+
+// Delete Leave Modal Section
+const deleteLeaveModal = document.querySelector(".delete-leave");
+const deleteLeaveBtnList = document.querySelectorAll(".btnDeleteLeave");
+console.log(deleteLeaveModal);
+if (deleteLeaveBtnList) {
+    deleteLeaveBtnList.forEach((btn) => {
+        btn.addEventListener("click", function() {
+            modalToToggle = deleteLeaveModal;
             toggleModal();
         });
     });

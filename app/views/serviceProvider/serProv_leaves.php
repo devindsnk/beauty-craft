@@ -88,9 +88,9 @@
                      </td> 
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <button class="editicon btnEditLeave"><a><i class="ci-edit table-icon"></i></a></button>
+                           <button class="editicon btnEditLeave"><a href="#" data-a=""><i class="ci-edit table-icon"></i></a></button>
                            
-                           <button class="editicon btnDeleteLeaveRequest"><a><i class="ci-trash table-icon"></i></a></button>
+                           <button class="editicon btnDeleteLeave"><a><i class="ci-trash table-icon"></i></a></button>
                         </span>
                      </td>
 
@@ -123,11 +123,10 @@
                   <div class="column">
                      <div class="text-group">
                         <label class="labels" for="serviceName">Reason</label><br>
-                        <!-- <textarea class="addItemsModalTextArea" id="takeLeaveReason" name="addItemsModalTextArea"  value="<?php echo $data['reason']; ?>" rows="4" cols="50"placeholder="Type the reason here"> </textarea> -->
+                       
                         <textarea type="text" name="reason" id="takeLeaveReason" placeholder="-- Type in --" class=""
                            value="<?php echo $data['reason']; ?>"></textarea>
-                        <span class="error"> <?php echo $data['reason_error']; ?></span>
-                        <!-- <textarea name ="reason" id="takeLeaveReason" placeholder="-- Type in --" class="" require></textarea> -->
+                        <span class="error"> <?php echo $data['reason_error']; ?></span>                       
                      </div>
                   </div>
                </div>
@@ -159,7 +158,7 @@
                   <div class="column">
                      <div class="text-group">
                         <label class="labels" for="serviceName">Date</label><br>
-                        <input type="date"  placeholder="--Select a date--">
+                        <input type="date" vale="2021-10-15"  placeholder="--Select a date--" value="<?php echo $leave->leaveDate; ?>">
                      </div>
                   </div>
                </div>
@@ -168,7 +167,7 @@
                      <div class="text-group">
                         <label class="labels" for="serviceName">Reason</label><br>
                        
-                        <textarea type="text" placeholder="-- Type in --"> </textarea>
+                        <textarea type="text" placeholder="-- Type in --"><?php echo $leave->reason; ?> </textarea>
                       
                      </div> 
                   </div>
@@ -179,7 +178,7 @@
                      <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
                   </div>
                   <div class="btn2">
-                     <button type="submit" name="action" value="addleave" class="confirm-service-btn">Save Changes</button>
+                     <button type="submit" name="action" value="addleave" class="edit-leave confirm-service-btn">Save Changes</button>
                   </div>
                </div>
 
@@ -188,8 +187,26 @@
          </div>
 
       </div>
-      <!-- end edit request model -->
+      <!-- end edit leave model -->
 
+ <!-- delete leave Request model -->
+      <div class="modal-container delete-leave">
+         <div class="modal-box leave_delete">
+            <h4>Delete leave modal</h4>
+            <div class="modalbutton">
+                  <div class="btn1">
+                     <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
+                  </div>
+                  <div class="btn2">
+                     <button type="submit" name="action" value="deleteLeave" class="delete leave confirm-service-btn">Proceed</button>
+                  </div>
+               </div>
+
+            </div>
+
+      </div>
+
+ <!-- end delete leave request model -->
 
    </div>
    <!--End Content-->
