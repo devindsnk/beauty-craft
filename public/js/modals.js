@@ -59,16 +59,6 @@ if (deleteLeaveBtnList) {
     });
 }
 
-<<
-<< << < HEAD
-// Take Leave Modal Section
-const takeLeaveModal = document.querySelector(".take-leave");
-const takeLeaveBtnList = document.querySelector(".btnTakenLeave");
-takeLeaveBtnList.addEventListener("click", function () {
-    modalToToggle = takeLeaveModal;
-    toggleModal();
-}); ===
-=== =
 // Reservation Recall Modal Section
 const resRecallModal = document.querySelector('.reservation-recall');
 const resRecallBtn = document.querySelector('.btnResRecall');
@@ -88,8 +78,7 @@ takeLeaveBtnList.addEventListener("click",
         modalToToggle = takeLeaveModal;
         toggleModal();
     }
-); >>>
->>> > e26a90d4e394e5a199107c8ee4ecfe41536e5679
+);
 
 // // Edit taken Leave Modal Section
 const editTakenLeaveModal = document.querySelector('.edit-taken-leave');
