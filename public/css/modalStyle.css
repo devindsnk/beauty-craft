@@ -40,10 +40,6 @@
     height: 100vh;
 }
 
-.leaverequstmodal.show {
-    visibility: visible;
-}
-
 .modal-container.show {
     visibility: visible;
 }
@@ -131,7 +127,7 @@
 
 .addItemsModalGrid1 input[type="date"],
 .addItemsModalTextArea,
-.addItemsModalGrid1 input[type="text"]{
+.addItemsModalGrid1 input[type="text"] {
     font-weight: 400;
     padding: 8px 10px;
     border-radius: 6px;
