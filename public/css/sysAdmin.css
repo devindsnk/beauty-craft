@@ -216,12 +216,6 @@ i.fa.fa-download {
     margin-right: 15px;
 }
 
-.ownAddstaffbutton.btn {
-    background-color: var(--theme-blue);
-    width: 150px;
-    height: 50px;
-    padding: 0;
-}
 
 .admin .ownAddstaffContainer {
     width: 650px;

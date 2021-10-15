@@ -258,12 +258,12 @@
                             <button>Save Changes</button>
                         </div>
                         <div class="modalbutton">
-                                <div class="more-details-modalbtnsection">
+                            <div class="more-details-modalbtnsection">
                                 <button class="btn btnClose normal">Close</button>
 
                                 <button class="btnOpen btnResRecall" type="button">Recall</button>
 
-                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -274,10 +274,10 @@
                 <div class="modal-box addItems">
                     <h1>Recall request</h1>
                     <div class="modaldetails">
-                            <div class="modaldetails-name">
-                                <span class="service">Hair Color-short</span><br>
-                                <span class="name">Ruwanthi Munasinghe</span>
-                            </div>
+                        <div class="modaldetails-name">
+                            <span class="service">Hair Color-short</span><br>
+                            <span class="name">Ruwanthi Munasinghe</span>
+                        </div>
 
                     </div>
                     <div class="modelcontent">
@@ -291,7 +291,7 @@
                                 <span>2020</span>
                             </div>
                         </div>
-                    
+
                         <div class="Reservationnote">
                             <div class="Reservationnote-name">
                                 <span>Reason</span>
@@ -316,12 +316,9 @@
                     </div>
                 </div>
             </div>
-
-
-
-
         </div>
+    </div>
 
-        <!--End Content-->
+    <!--End Content-->
 
-        <?php require APPROOT . "/views/inc/footer.php" ?>
+    <?php require APPROOT . "/views/inc/footer.php" ?>

@@ -116,6 +116,17 @@
    background-size: contain;
 }
 
+.ci-3dots-vertical {
+   background: url(../../public/svg/3dots-vertical.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+
+.ci-3dots-horizontal {
+   background: url(../../public/svg/3dots-horizontal.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
 
 
 /* ------------------------------------------------------ */

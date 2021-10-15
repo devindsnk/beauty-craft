@@ -23,7 +23,10 @@ function hideSideMenu() {
 // profile menu event listener
 var profileIcon = document.querySelector(".profileIcon");
 var profileMenu = document.querySelector(".profile_menu");
-profileIcon.addEventListener("click", toggleProfileMenu);
+if (profileIcon) {
+   profileIcon.addEventListener("click", toggleProfileMenu);
+}
+
 
 // Collapse the profile menu if outside is clicked
 document.addEventListener('click', function (event) {
