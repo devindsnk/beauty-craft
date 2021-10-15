@@ -30,7 +30,7 @@
 }
 
 .table1-responsive{
-  height: 400px;
+  /* height: 400px; */
   padding: 40px 40px;
   min-width: 500px;
 }
@@ -139,13 +139,19 @@
 .table1 .green-status-btn, .table2 .green-status-btn{
   width: 80px;
   background-color: #C0F0D1;
-  color:#38A36D;
+  color:#3ABD5F;
 }
 
 .table1 .red-status-btn, .table2 .red-status-btn{
   width: 80px;
   background-color: #FFC5CA;
   color:#DC3545;
+}
+
+.table1 .yellow-status-btn, .table2 .yellow-status-btn{
+  width: 80px;
+  background-color: #FFE9A7;
+  color:#DFAB11;
 }
 
 .table1 .black-action-btn, .table2 .black-action-btn{
@@ -160,22 +166,22 @@
 }
 
 .table1 .btn-position{
-  margin: 10px 10px 10px 0px;
+  margin: 20px 10px 10px 0px;
 }
 
 .table1 .check-btn, .table2 .check-btn{
   width: 90px;
-  height: 25px;
-  background-color: #3ABD5F;
+  padding: 4px;
+  background-color: var(--theme-purple);
   color: #FFFFFF;
 
 }
 
 .table1 .uncheck-btn, .table2 .uncheck-btn{
   width: 90px;
-  height: 25px;
-  background-color: #FE3D4F;
-  color: #FFFFFF;
+  padding: 2px;
+  border: 2px solid var(--theme-purple);
+  color: #000;
 }
 
 .table1 .img-profile-picture, .table2 .img-profile-picture{
@@ -184,10 +190,23 @@
   border-radius: 100%;
 }
 
+.table1 .img-gap, .table2 .img-gap{
+  margin-inline: 6px;
+}
+
 .table1 .img-view-edit-update, .table2 .img-view-edit-update{
-  margin-inline: 3px;
   width: 20px;
   height: 20px;
+}
+
+.view-img:hover{
+  outline: 2px solid rgb(20, 4, 247);
+}
+.edit-img:hover{
+  outline: 2px solid rgb(30, 255, 0);
+}
+.trash-img:hover{
+  outline: 2px solid red;
 }
 
 .text-uppercase {
