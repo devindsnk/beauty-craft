@@ -14,7 +14,10 @@
 
 <body>
    <div class="main-container">
-      <a href="<?php echo URLROOT ?>" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
+      <a href="<?php echo URLROOT ?>">
+         <img src="<?php echo URLROOT ?>/public/imgs/logoTextWhite.png" alt="logo" class="top-left-logo">
+      </a>
+      <a href="<?php echo URLROOT ?>" class="top-right-closeBtn white-red-hover"><i class="fal fa-times fa-2x "></i></a>
 
       <div class="reset-container form-container contentBox">
          <form action="<?php echo URLROOT; ?>/user/resetPassword" method="post" class="form">

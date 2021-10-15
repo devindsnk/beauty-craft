@@ -121,8 +121,4 @@
 
    </div>
 
-
-
-   <footer>All rights reservered. Beauty Craft</footer>
-
-</body>
+   <?php require APPROOT . "/views/inc/footer.php" ?>

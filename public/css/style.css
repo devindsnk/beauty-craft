@@ -11,12 +11,17 @@
   --theme-purple: #444BF8;
   --theme-red: #FE3D4F;
   --theme-blue: #037AFF;
+  --bg-theme-blue: #DBEBFD;
   --theme-black: #252631;
   --theme-bgwhite: #F2F2F7;
   --theme-grey: #50515A;
   --theme-lightgrey: #EAEAEA;
   --error-red: #DA2346;
+  --bg-error-red: #FFD8DF;
   --success-green: #1BC657;
+  --bg-success-green: #C0F0D1;
+  --warning-yellow: #FFBF02;
+  --bg-warning-yellow: #FFF6DC;
   --white: #FFFFFF;
   --black: #000000;
 }
@@ -63,12 +68,21 @@ h3 {
 }
 
 footer {
-  height: 35px;
-  /* edited by ravindu */
-  background-color: lime;
   width: 100%;
+  padding-right: 10px;
+  height: 28px;
   margin: auto;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+footer p{
+  font-size: 14px;
+  text-align: right;
+  color: var(--theme-grey);
+  display: block;
 }
 
 .verticalCenter {
@@ -101,7 +115,7 @@ footer {
 /* Common template for pages with tables */
 
 .content .page-top-main-container {
-  margin: 30px 0 10px 0;
+  margin-top: 20px;
   padding: 0 70px;
   display: flex;
   justify-content: right;
@@ -116,9 +130,13 @@ footer {
 
 .content .filter-options .options-container {
   display: flex;
-  padding: 30px 70px;
+  padding: 15px 70px 10px;
   width: 100%;
   min-width: 330px;
+}
+
+.content .filter-options .options-container label{
+  margin-top: 10px;
 }
 
 .content .filter-options .options-container .left-section {
@@ -131,7 +149,7 @@ footer {
 }
 
 .content .filter-options .options-container .btn {
-  margin-top: 26px;
+  margin-top: 35px;
   font-weight: 500;
   padding: 7px;
   width: 120px;
@@ -162,6 +180,7 @@ footer {
   text-align: center;
   font-weight: 500;
   font-size: 16px;
+  box-shadow:  rgba(67, 90, 111, 0.3) 0px 0px 1px, rgba(67, 90, 111, 0.47) 0px 2px 4px -2px;
 }
 
 .btn.btn-filled {
@@ -178,8 +197,13 @@ footer {
 }
 
 .btn.btn-filled.btn-error-red {
+  /* transition: 0.4s ease-in-out; */
   background-color: var(--error-red);
 }
+
+/* .btn.btn-filled.btn-error-red:hover {
+  background-color: #d63452;
+} */
 
 .btn.btn-filled.btn-black {
   background-color: var(--theme-black);
@@ -207,7 +231,36 @@ footer {
 .btn.btn-filled.btn-success-green {
   background-color: var(--success-green);
 }
+
 /* End of Common button styles */
+
+
+/* Common styles for status boxes */
+
+.status-tag {
+  display: block;
+  border-radius: 6px;
+  padding: 4px;
+  text-align: center;
+  width: 120px;
+  /*Remove this later*/
+}
+
+.status-error-red {
+  background-color: var(--bg-error-red);
+  color: var(--error-red);
+}
+
+.status-success-green {
+  background-color: var(--bg-success-green);
+  color: var(--success-green);
+}
+
+/* End of Common styles for status boxes */
+
+
+
+
 
 /* Common styles for top right close btn */
 
@@ -228,6 +281,15 @@ footer {
   color: var(--black);
 }
 
+
+.white-red-hover {
+  color: var(--theme-lightgrey) !important;
+}
+
+.white-red-hover:hover {
+  color: var(--theme-red) !important;
+}
+
 /* End of Common styles for top right close btn */
 
 
@@ -240,7 +302,7 @@ footer {
   align-items: center;
 }
 
-.error404 .inner-container{
+.error404 .inner-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -258,7 +320,7 @@ footer {
   color: var(--theme-black);
 }
 
-.error404 .btn{
+.error404 .btn {
   margin-top: 20px;
   padding: 7px;
   width: 150px;
