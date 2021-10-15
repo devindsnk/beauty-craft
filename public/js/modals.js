@@ -13,6 +13,7 @@ removeServiceBtnList.forEach((btn) => {
     });
 });
 
+
 // Remove Staff Modal Section
 const removeStaffModal = document.querySelector(".remove-staff");
 const removeStaffBtnList = document.querySelectorAll(".btnRemoveStaff");
@@ -33,31 +34,19 @@ removeCustomerBtnList.forEach((btn) => {
     });
 });
 
-// Edit Leave Modal Section
-const editLeaveModal = document.querySelector(".edit-leave");
-const editLeaveBtnList = document.querySelectorAll(".btnEditLeave");
-if (editLeaveBtnList) {
-    editLeaveBtnList.forEach((btn) => {
-        btn.addEventListener("click", function () {
-            modalToToggle = editLeaveModal;
-            toggleModal();
-        });
-    });
-}
 
-// Delete Leave Modal Section
-const deleteLeaveModal = document.querySelector(".delete-leave");
-const deleteLeaveBtnList = document.querySelectorAll(".btnDeleteLeave");
-if (deleteLeaveBtnList) {
-    deleteLeaveBtnList.forEach((btn) => {
-        btn.addEventListener("click", function () {
-            modalToToggle = deleteLeaveModal;
-            toggleModal();
-        });
+// Reservation More info Modal Section
+const resMoreInfoModal = document.querySelector(".reservation-more-info");
+const resMoreInfoBtnList = document.querySelectorAll(".btnResMoreInfo");
+resMoreInfoBtnList.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = resMoreInfoModal;
+        toggleModal();
     });
-}
+});
 
-// Reservation Recall Modal Section
+
+// Reservation Recall Request Modal Section
 const resRecallModal = document.querySelector('.reservation-recall');
 const resRecallBtn = document.querySelector('.btnResRecall');
 if (resRecallBtn) {
@@ -70,6 +59,9 @@ if (resRecallBtn) {
     );
 }
 
+/* ------------------------------------------------------------------- */
+/* ----------------------- Manager Leaves ---------------------------- */
+
 // Take Leave Modal Section
 const takeLeaveModal = document.querySelector('.take-leave');
 const takeLeaveBtn = document.querySelector('.btnTakenLeave');
@@ -81,7 +73,6 @@ if (takeLeaveBtn) {
         }
     );
 }
-
 
 // Edit taken Leave Modal Section
 const editTakenLeaveModal = document.querySelector('.edit-taken-leave');
@@ -106,6 +97,8 @@ deleteTakeLeaveBtnList.forEach(btn => {
         });
 });
 
+/* ------------------------------------------------------------------- */
+/* ----------------------- General Leaves ---------------------------- */
 
 //Leave Request Modal Secrtion
 const leaveRequestModal = document.querySelector(".leaverequest");
@@ -117,15 +110,32 @@ if (leaveRequestBtn) {
     });
 }
 
-// Reservation More info Modal Section
-const resMoreInfoModal = document.querySelector(".reservation-more-info");
-const resMoreInfoBtnList = document.querySelectorAll(".btnResMoreInfo");
-resMoreInfoBtnList.forEach((btn) => {
-    btn.addEventListener("click", function () {
-        modalToToggle = resMoreInfoModal;
-        toggleModal();
+// Edit Leave Request Modal Section
+const editLeaveModal = document.querySelector(".edit-leave");
+const editLeaveBtnList = document.querySelectorAll(".btnEditLeave");
+if (editLeaveBtnList) {
+    editLeaveBtnList.forEach((btn) => {
+        btn.addEventListener("click", function () {
+            modalToToggle = editLeaveModal;
+            toggleModal();
+        });
     });
-});
+}
+
+// Delete Leave Request Modal Section
+const deleteLeaveModal = document.querySelector(".delete-leave");
+const deleteLeaveBtnList = document.querySelectorAll(".btnDeleteLeave");
+if (deleteLeaveBtnList) {
+    deleteLeaveBtnList.forEach((btn) => {
+        btn.addEventListener("click", function () {
+            modalToToggle = deleteLeaveModal;
+            toggleModal();
+        });
+    });
+}
+
+/* ------------------------------------------------------------------- */
+/* ------------------------ Common Section --------------------------- */
 
 // Common section for all close buttons
 const btnCloseList = document.querySelectorAll(".btnClose");
@@ -133,7 +143,11 @@ btnCloseList.forEach((btn) => {
     btn.addEventListener("click", toggleModal);
 });
 
+
 // Common section for all modal toggle operations
 function toggleModal() {
     modalToToggle.classList.toggle("show");
 }
+
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
