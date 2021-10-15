@@ -7,7 +7,7 @@ var modalToToggle = null;
 const removeServiceModal = document.querySelector(".remove-service");
 const removeServiceBtnList = document.querySelectorAll(".btnRemoveService");
 removeServiceBtnList.forEach((btn) => {
-    btn.addEventListener("click", function () {
+    btn.addEventListener("click", function() {
         modalToToggle = removeServiceModal;
         toggleModal();
     });
@@ -17,7 +17,7 @@ removeServiceBtnList.forEach((btn) => {
 const removeStaffModal = document.querySelector(".remove-staff");
 const removeStaffBtnList = document.querySelectorAll(".btnRemoveStaff");
 removeStaffBtnList.forEach((btn) => {
-    btn.addEventListener("click", function () {
+    btn.addEventListener("click", function() {
         modalToToggle = removeStaffModal;
         toggleModal();
     });
@@ -27,7 +27,7 @@ removeStaffBtnList.forEach((btn) => {
 const removeCustomerModal = document.querySelector(".remove-customer");
 const removeCustomerBtnList = document.querySelectorAll(".btnRemoveCustomer");
 removeCustomerBtnList.forEach((btn) => {
-    btn.addEventListener("click", function () {
+    btn.addEventListener("click", function() {
         modalToToggle = removeCustomerModal;
         toggleModal();
     });
@@ -39,7 +39,7 @@ const editLeaveBtnList = document.querySelectorAll(".btnEditLeave");
 console.log(editLeaveModal);
 if (editLeaveBtnList) {
     editLeaveBtnList.forEach((btn) => {
-        btn.addEventListener("click", function () {
+        btn.addEventListener("click", function() {
             modalToToggle = editLeaveModal;
             toggleModal();
         });
@@ -52,7 +52,7 @@ const deleteLeaveBtnList = document.querySelectorAll(".btnDeleteLeave");
 console.log(deleteLeaveModal);
 if (deleteLeaveBtnList) {
     deleteLeaveBtnList.forEach((btn) => {
-        btn.addEventListener("click", function () {
+        btn.addEventListener("click", function() {
             modalToToggle = deleteLeaveModal;
             toggleModal();
         });
@@ -63,7 +63,7 @@ if (deleteLeaveBtnList) {
 const resRecallModal = document.querySelector('.reservation-recall');
 const resRecallBtn = document.querySelector('.btnResRecall');
 resRecallBtn.addEventListener("click",
-    function () {
+    function() {
         toggleModal();
         modalToToggle = resRecallModal;
         toggleModal();
@@ -74,30 +74,30 @@ resRecallBtn.addEventListener("click",
 const takeLeaveModal = document.querySelector('.take-leave');
 const takeLeaveBtnList = document.querySelector('.btnTakenLeave');
 takeLeaveBtnList.addEventListener("click",
-    function () {
+    function() {
         modalToToggle = takeLeaveModal;
         toggleModal();
     }
 );
 
-// // Edit taken Leave Modal Section
+// Edit taken Leave Modal Section
 const editTakenLeaveModal = document.querySelector('.edit-taken-leave');
 const editTakeLeaveBtnList = document.querySelectorAll('.btnEditTakenLeave');
 editTakeLeaveBtnList.forEach(btn => {
     btn.addEventListener("click",
-        function () {
+        function() {
             modalToToggle = editTakenLeaveModal;
             toggleModal();
         }
     );
 });
 
-// // delete taken Leave Modal Section
+// Edit taken Leave Modal Section
 const deleteTakenLeaveModal = document.querySelector('.delete-taken-leave');
 const deleteTakeLeaveBtnList = document.querySelectorAll('.btnDeleteTakenLeave');
 deleteTakeLeaveBtnList.forEach(btn => {
             btn.addEventListener("click",
-                function () {
+                function() {
                     modalToToggle = deleteTakenLeaveModal;
                     toggleModal();
                 }
@@ -106,7 +106,7 @@ deleteTakeLeaveBtnList.forEach(btn => {
             const resRecallBtn = document.querySelector(".btnResRecall");
             // console.log(resRecallModal);
             if (resRecallBtn) {
-                resRecallBtn.addEventListener("click", function () {
+                resRecallBtn.addEventListener("click", function() {
                     toggleModal();
                     modalToToggle = resRecallModal;
                     toggleModal();
@@ -118,7 +118,7 @@ deleteTakeLeaveBtnList.forEach(btn => {
             const leaveRequestBtn = document.querySelector(".btnleaveRequest");
             // console.log(leaveRequestModal);
             if (leaveRequestBtn) {
-                leaveRequestBtn.addEventListener("click", function () {
+                leaveRequestBtn.addEventListener("click", function() {
                     modalToToggle = leaveRequestModal;
                     toggleModal();
                 });
@@ -129,7 +129,7 @@ deleteTakeLeaveBtnList.forEach(btn => {
             const resMoreInfoBtnList = document.querySelectorAll(".btnResMoreInfo");
             console.log(resMoreInfoBtnList);
             resMoreInfoBtnList.forEach((btn) => {
-                btn.addEventListener("click", function () {
+                btn.addEventListener("click", function() {
                     modalToToggle = resMoreInfoModal;
                     toggleModal();
                 });
