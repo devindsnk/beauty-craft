@@ -71,7 +71,6 @@ if (resRecallBtn) {
     });
 }
 
-<<<<<<< HEAD
 //Leave Request Modal Secrtion
 const leaveRequestModal = document.querySelector(".leaverequest");
 const leaveRequestBtn = document.querySelector(".btnleaveRequest");
@@ -82,84 +81,6 @@ if (leaveRequestBtn) {
         toggleModal();
     });
 }
-=======
-// Resources rmemove Modal Section
-const removeResourceModal = document.querySelector('.remove-resource');
-const removeResourceBtnList = document.querySelectorAll('.btnRemoveResource');
-removeResourceBtnList .forEach(btn => {
-   btn.addEventListener("click",
-      function () {
-         modalToToggle = removeResourceModal;
-         toggleModal();
-      }
-   );
-});
-
-//  Resources add Modal Section
-const addResourceModal = document.querySelector('.add-resource');
-const addResourceBtnList = document.querySelectorAll('.btnAddResource');
-addResourceBtnList .forEach(btn => {
-   btn.addEventListener("click",
-      function () {
-         modalToToggle = addResourceModal;
-         toggleModal();
-      }
-   );
-});
-
-//  Resources update Modal Section
-const updateResourceModal = document.querySelector('.update-resource');
-const updateResourceBtnList = document.querySelectorAll('.btnUpdateResource');
-updateResourceBtnList .forEach(btn => {
-   btn.addEventListener("click",
-      function () {
-         modalToToggle = updateResourceModal;
-         toggleModal();
-      }
-   );
-});
-
-
-//  Close date remove Modal Section
-const removeCloseDateModal = document.querySelector('.remove-closeDate');
-const removeCloseDateModalBtnList = document.querySelectorAll('.btnRemoveCloseDate');
-removeCloseDateModalBtnList .forEach(btn => {
-   btn.addEventListener("click",
-      function () {
-         modalToToggle = removeCloseDateModal;
-         toggleModal();
-      }
-   );
-});
-
-//  Close date add Modal Section
-const addCloseDateModal = document.querySelector('.add-closeDate');
-const addCloseDateModalBtnList = document.querySelectorAll('.btnAddCloseDate');
-addCloseDateModalBtnList .forEach(btn => {
-   btn.addEventListener("click",
-      function () {
-         modalToToggle = addCloseDateModal;
-         toggleModal();
-      }
-   );
-});
-
-
-//  Salary Payment Modal Section
-const salaryPaymentModal = document.querySelector('.salary-payment');
-const salaryPaymentModalBtnList = document.querySelectorAll('.btnSalaryPayment');
-salaryPaymentModalBtnList .forEach(btn => {
-   btn.addEventListener("click",
-      function () {
-         modalToToggle = salaryPaymentModal;
-         toggleModal();
-      }
-   );
-});
-
-
-
->>>>>>> b6cb32658e3d9298221fb195f17b294ae33e6de5
 
 // Reservation More info Modal Section
 const resMoreInfoModal = document.querySelector(".reservation-more-info");

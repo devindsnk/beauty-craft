@@ -79,7 +79,7 @@
                      <!-- leave Approved=1 pending=0 rejected=2 -->
                      <td class="column-center-align">
                            <?php if($leave->status==0) :?>
-                              <button type="button" class="table-btn yello-status-btn text-uppercase "> Pending </button> 
+                              <button type="button" class="table-btn yellow-status-btn text-uppercase "> Pending </button> 
                            <?php elseif ($leave->status == 1) : ?>
                               <button type="button" class="table-btn green-status-btn text-uppercase"> Approved </button> 
                            <?php else: ?> 
