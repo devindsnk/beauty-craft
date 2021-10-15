@@ -63,8 +63,39 @@ resRecallBtn.addEventListener("click",
    }
 );
 
+// Take Leave Modal Section
+const takeLeaveModal = document.querySelector('.take-leave');
+const takeLeaveBtnList = document.querySelector('.btnTakenLeave');
+takeLeaveBtnList.addEventListener("click",
+   function () {
+      modalToToggle = takeLeaveModal;
+      toggleModal();
+   }
+);
 
+// Edit taken Leave Modal Section
+const editTakenLeaveModal = document.querySelector('.edit-taken-leave');
+const editTakeLeaveBtnList = document.querySelectorAll('.btnEditTakenLeave');
+editTakeLeaveBtnList.forEach(btn => {
+   btn.addEventListener("click",
+      function () {
+         modalToToggle = editTakenLeaveModal;
+         toggleModal();
+      }
+   );
+});
 
+// Edit taken Leave Modal Section
+const deleteTakenLeaveModal = document.querySelector('.delete-taken-leave');
+const deleteTakeLeaveBtnList = document.querySelectorAll('.btnDeleteTakenLeave');
+deleteTakeLeaveBtnList.forEach(btn => {
+   btn.addEventListener("click",
+      function () {
+         modalToToggle = deleteTakenLeaveModal;
+         toggleModal();
+      }
+   );
+});
 
 // Common section for all close buttons
 const btnCloseList = document.querySelectorAll('.btnClose');
