@@ -181,7 +181,7 @@
   width: 90px;
   padding: 2px;
   border: 2px solid var(--theme-purple);
-  color: #000;
+  color: var(--theme-grey);
 }
 
 .table1 .img-profile-picture, .table2 .img-profile-picture{
@@ -199,7 +199,7 @@
   height: 20px;
 }
 
-.view-img:hover{
+/* .view-img:hover{
   outline: 2px solid rgb(20, 4, 247);
 }
 .edit-img:hover{
@@ -207,7 +207,7 @@
 }
 .trash-img:hover{
   outline: 2px solid red;
-}
+} */
 
 .text-uppercase {
   text-transform: uppercase;
