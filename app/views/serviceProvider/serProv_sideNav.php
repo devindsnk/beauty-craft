@@ -30,7 +30,7 @@
          <li class="mainOption menuOption">
             <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="<?php echo URLROOT ?>/SerProvDashboard/reservations">
                <div class="optionIcon">
-                  <i class="sidenav-icon ci-elements "></i>
+                  <i class="sidenav-icon ci-tasks"></i>
                </div>
                <div class="optionTitle">Reservations</div>
             </a>
@@ -41,7 +41,7 @@
          <li class="mainOption menuOption">
             <a class="optionLink <?php if ($selectedMain == "Leaves") echo " selected" ?>" href="<?php echo URLROOT ?>/SerProvDashboard/leaves">
                <div class="optionIcon">
-                  <i class="sidenav-icon ci-elements "></i>
+                  <i class="sidenav-icon ci-save-remove "></i>
                </div>
                <div class="optionTitle">Leaves</div>
             </a>

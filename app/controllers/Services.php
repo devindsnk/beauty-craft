@@ -137,11 +137,11 @@ class Services extends Controller
          // $data['sTypesArray'] = $this->getServiceType();
          // $data['sResArray'] = $this->getResource();
 
-         print_r($data['sProvArray']);
+         // print_r($data['sProvArray']);
          
-         print_r($data['sTypesArray']);
+         // print_r($data['sTypesArray']);
         
-         print_r($data['sResArray']);
+         // print_r($data['sResArray']);
          
 
          $this->view('manager/mang_serviceAdd', $data);
