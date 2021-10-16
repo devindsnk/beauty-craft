@@ -236,38 +236,7 @@
     {
         text-align: right;
     }
-    /* .sub-container1-card-title {
-        font-size: 1.2rem;
-    }
-    .sub-container2-card {
-        display: none;
-    }
-    .mob-subcontainer2-card {
-        display: block;
-        align-items: center;
-    }
-    .sub-container2-card-timeservice {
-        display: block;
-    }
-    .sub-container2-card-name {
-        height: 60%;
-        font-weight: 400;
-        font-size: 18px;
-        display: block;
-    }
-    .sub-container2-card-timeservice {
-        width: 100%;
-        height: 100%;
-        display: block;
-    }
-    .details {
-        display: flex;
-    }
-    .sub-container2-card-link {
-        width: 100%;
-        text-align: center;
-        border-top: 2px solid var(--theme-black);
-    } */
+
 }
 
 .serprov .modal-container.normal {
@@ -557,7 +526,6 @@ button.editicon {
     margin: 0 auto 0 auto;
     width: 100%;
     min-width: 330px;
-    padding: 0 40px 0 40px;
 }
 
 .serprov.leave .dropdown-group {
@@ -580,7 +548,7 @@ button.editicon {
     flex-direction: row;
     justify-content: space-between !important;
     align-items: center;
-    margin-left: 40px;
+    margin-left: 70px;
 }
 
 .leavecountcardleft {
@@ -597,7 +565,7 @@ button.editicon {
 
 .content.serprov.leave .page-top-main-container {
     margin: 30px 0 10px 0;
-    padding: 0 40px;
+  
     display: flex;
     justify-content: right;
     width: 100%;
