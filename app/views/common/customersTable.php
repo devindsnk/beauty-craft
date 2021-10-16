@@ -66,9 +66,9 @@
                </td>
                <td class="column-center-align">
                   <span> 
-                      <a href="<?php echo URLROOT ?>/customerView/cusDetailView"><i class="ci-view-more table-icon"></i></a>
+                      <a href="<?php echo URLROOT ?>/customerView/cusDetailView"><i class="ci-view-more table-icon img-gap"></i></a>
                      <?php if ($userLevel == "Owner") : ?>
-                        <a href="#"><i class="ci-trash table-icon btnRemoveCustomer"></i></a>
+                        <a href="#"><i class="ci-trash table-icon btnRemoveCustomer img-gap"></i></a>
                      <?php endif; ?>
                   </span>
                </td>
@@ -85,9 +85,9 @@
                </td>
                <td class="column-center-align">
                   <span>
-                     <a href="<?php echo URLROOT ?>/customerView/cusDetailView"><i class="ci-view-more table-icon"></i></a>
+                     <a href="<?php echo URLROOT ?>/customerView/cusDetailView"><i class="ci-view-more table-icon img-gap"></i></a>
                      <?php if ($userLevel == "Owner") : ?>
-                        <a href="#"><i class="ci-trash table-icon btnRemoveCustomer "></i></a>
+                        <a href="#"><i class="ci-trash table-icon btnRemoveCustomer img-gap"></i></a>
                      <?php endif; ?>
                   </span>
                </td>

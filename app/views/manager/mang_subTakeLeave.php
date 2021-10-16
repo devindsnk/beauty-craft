@@ -43,8 +43,8 @@
                      <td data-lable="Reason" class="column-center-align">Going to the hospital</td>
                      <td class="column-center-align">
                         <span>
-                           <a href="#"><i class="ci-edit table-icon"></i></a>
-                           <a href="#"><i class="ci-trash table-icon"></i></a>
+                           <a href="#"><i class="ci-edit table-icon img-gap"></i></a>
+                           <a href="#"><i class="ci-trash table-icon img-gap"></i></a>
                         </span>
                      </td>
                   </tr>
@@ -56,8 +56,8 @@
                      <td data-lable="Reason" class="column-center-align">Going to the hospital</td>
                      <td class="column-center-align">
                         <span>
-                           <a href="#"><i class="ci-edit table-icon"></i></a>
-                           <a href="#"><i class="ci-trash table-icon"></i></a>
+                           <a href="#"><i class="ci-edit table-icon img-gap"></i></a>
+                           <a href="#"><i class="ci-trash table-icon img-gap"></i></a>
                         </span>
                      </td>
                   </tr>
@@ -69,8 +69,8 @@
                      <td data-lable="Reason" class="column-center-align">Going to the hospital</td>
                      <td class="column-center-align">
                         <span>
-                           <a href="#"><i class="ci-edit table-icon"></i></a>
-                           <a href="#"><i class="ci-trash table-icon"></i></a>
+                           <a href="#"><i class="ci-edit table-icon img-gap"></i></a>
+                           <a href="#"><i class="ci-trash table-icon img-gap"></i></a>
                         </span>
                      </td>
                   </tr>

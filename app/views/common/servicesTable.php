@@ -68,31 +68,31 @@
          <tbody>
             <?php foreach($data['services'] as $sDetails) : ?>
                <tr>
-                  <td class="column-center-align"><?php echo $sDetails->serviceID; ?></td>
-                  <td class="column-center-align"><?php echo $sDetails->name; ?></td>
-                  <td class="column-center-align"><?php echo $sDetails->type; ?></td>
+                  <td data-lable="Servie ID" data-lable="" class="column-center-align"><?php echo $sDetails->serviceID; ?></td>
+                  <td data-lable="Service" class="column-center-align"><?php echo $sDetails->name; ?></td>
+                  <td data-lable="Type" class="column-center-align"><?php echo $sDetails->type; ?></td>
                   <?php $i =$sDetails->totalDuration; ?>
 								<?php if ($i == 60 || $i == 120):?>
-                           <td class="column-center-align"><?php echo ($i/60) ; ?> h</td>
+                           <td data-lable="Total Duration" class="column-center-align"><?php echo ($i/60) ; ?> h</td>
                            
 								<?php elseif ($i > 60 && $i < 120 ): ?>
-                           <td class="column-center-align"><?php echo ($i/$i) ; ?> h <?php echo ($i %  60) ; ?> mins</td>
+                           <td data-lable="Total Duration" class="column-center-align"><?php echo ($i/$i) ; ?> h <?php echo ($i %  60) ; ?> mins</td>
 
 								<?php else :?>
-                           <td class="column-center-align"><?php echo $i; ?> mins</td>
+                           <td data-lable="Total Duration" class="column-center-align"><?php echo $i; ?> mins</td>
                            
 								<?php endif; ?>
                   <!-- <td class="column-center-align"><?php echo $sDetails->totalDuration; ?></td> -->
-                  <td class="column-right-align"><?php echo $sDetails->price; ?></td>
-                  <td class="column-center-align">
+                  <td data-lable="Price" class="column-right-align"><?php echo $sDetails->price; ?></td>
+                  <td data-lable="Status" class="column-center-align">
                      <button type="button" class="table-btn green-status-btn text-uppercase"><?php echo $sDetails->status; ?></button>
                   </td>
-                  <td data-lable="Action" class="column-center-align">
+                  <td data-lable="" class="column-center-align">
                      <span>
-                        <a href="<?php echo URLROOT ?>/services/viewService/<?php echo $sDetails->serviceID; ?>"><i class="ci-view-more table-icon"></i></a>
+                        <a href="<?php echo URLROOT ?>/services/viewService/<?php echo $sDetails->serviceID; ?>"><i class="ci-view-more table-icon img-gap"></i></a>
                         <?php if ($userLevel == "Owner" || $userLevel == "Manager") : ?>
-                           <a href="<?php echo URLROOT ?>/services/updateService"><i class="ci-edit table-icon"></i></a>
-                           <a href="#"><i class="ci-trash table-icon btnRemoveService"></i></a>
+                           <a href="<?php echo URLROOT ?>/services/updateService"><i class="ci-edit table-icon img-gap"></i></a>
+                           <a href="#"><i class="ci-trash table-icon btnRemoveService img-gap"></i></a>
                         <?php endif; ?>
                      </span>
                   </td>
