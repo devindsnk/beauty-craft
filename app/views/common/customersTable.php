@@ -41,7 +41,6 @@
 <div class="table-container">
    <div class="table2 table2-responsive">
       <table class="table2-hover">
-
          <thead>
             <tr>
                <th class="column-center-align col-1">Customer ID</th>

@@ -127,7 +127,7 @@
 
 .addItemsModalGrid1 input[type="date"],
 .addItemsModalTextArea,
-.addItemsModalGrid1 input[type="text"]{
+.addItemsModalGrid1 input[type="text"] {
     font-weight: 400;
     padding: 8px 10px;
     border-radius: 6px;
@@ -184,8 +184,7 @@
     padding-top: 27px;
     justify-self: center;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-    'addItemsModalbtn1 addItemsModalbtn2';
+    grid-template-areas: "addItemsModalbtn1 addItemsModalbtn2";
 }
 
 .addItemsModalGrid3 .addItemsModalbtn1 {
@@ -208,13 +207,15 @@
 /* -----------END OF STYLES ADDED BY RAVINDU -------------*/
 
 .confirm-model-head {
-   display: flex;
-   flex-direction: row;
-   justify-content: space-evenly;
-   text-align: center;
-   padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+    padding: 15px;
 }
 
+
 /* End ofConfirmation box model */
+
 
 /* ------------------------------------------------------ */

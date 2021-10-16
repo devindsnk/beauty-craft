@@ -8,9 +8,9 @@
         </div>
         <div class="header-right verticalCenter">
         <a href= "<?php echo URLROOT;        
-         if ($userType == "Owner") echo "/OwnDashboard/customers"; 
-         elseif ($userType == "Manager") echo "/MangDashboard/customers";   
-         elseif ($userType == "Receptionist") echo "/ReceptDashboard/customers"; 
+         if ($userType == "Owner") echo "/OwnDashboard/staff"; 
+         elseif ($userType == "Manager") echo "/MangDashboard/staffMembers";   
+         elseif ($userType == "Receptionist") echo "/ReceptDashboard/staffMembers"; 
          ?>"
          
             class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>

@@ -172,6 +172,16 @@
     display: none;
 }
 
+@media Screen and (max-width: 1254px) {
+    .serprov .sub-container2-card-name .name {
+        font-size: 18px;
+    }
+    .serprov .sub-container2-card-service {
+        font-size: 20px;
+        display: block;
+    }
+}
+
 @media Screen and (max-width: 980px) {
     .sub-container1-card-title {
         font-size: 1.2rem;
@@ -210,10 +220,6 @@
 .serprov .modal-container.normal {
     width: 100%;
     height: 100%;
-}
-
-.serprov .modal-box {
-    height: 600px;
 }
 
 .serprov .modelcontent {
@@ -272,15 +278,31 @@
     justify-content: flex-start;
     align-items: flex-end;
     height: 10%;
+    margin-top: 2px;
     /* background-color: yellow; */
 }
 
 .serprov .modalbutton {
     display: flex;
     flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.serprov .modalbutton input:focus,
+.serprov .modalbutton textarea:focus {
+    border-color: none;
+    outline: none;
+    border-color: #6f6df4;
+}
+
+.btnalign {
+    display: flex;
+    flex-direction: row;
     justify-content: space-around;
-    /* background-color: tomato; */
-    height: 24%;
+    /* align-items:sp; */
 }
 
 .serprov .modaldatetime-time {
@@ -365,67 +387,165 @@
     font-size: 16px;
 }
 
-
-/* 
-.Reservationnote-note {
-    margin-bottom: 10px;
-}
-
-.Reservationnote-note span {
-    font-size: 16px;
-}
-
-.savechange {
-    text-align: right;
-    font-size: 16px;
-    padding-bottom: 10px;
-}
-
-.modalbutton {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-
-    /* padding-left: 50px; }*/
-
 .serprov .modaldetails-name span.name {
     font-size: 16px;
     margin-bottom: 5px;
 }
 
-.serprov button.btn.btnClose.normal {
-    height: 45px;
-    width: 110px;
-    font-size: 18px;
-    background-color: #eaeaea;
+.btn.btnClose.normal {
+    background-color: var(--theme-lightgrey);
+    color: black;
 }
 
-button.btnOpen.new {
-    height: 35px;
-    width: 150px;
-    font-size: 18px;
+.btnOpen.btnResRecall {
     background-color: var(--theme-blue);
     color: white;
-    border: none;
-    border-radius: 6px;
 }
 
-/* button.btn.btnClose.normal {
-    height: 45px;
-    width: 110px;
-    font-size: 18px;
-    background-color: #eaeaea;
+.serprov button.btnOpen.new {
+    font-size: 16px;
+    font-weight: 500;
+    height: 40px;
+    width: 160px;
     border: none;
+    padding: 7px 20px;
     border-radius: 6px;
-} */
+    background-color: #1bc657;
+    color: white;
+}
 
 .modal-container.new {
     height: 100%;
     width: 100%;
 }
 
-.modal-container.new .modal-box {
-    height: 500px;
-    width: 600px;
+.reservation-more-info .modal-box {
+    height: 600px !important;
+    width: 600px !important;
+}
+
+
+/* recall request modal */
+
+.reservation-recall .modal-box {
+    height: 470px !important;
+    width: 600px !important;
+}
+
+.more-details-modalbtnsection {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.more-details-modalbtnsection Button {
+    font-size: 16px;
+    font-weight: 500;
+    height: 40px;
+    width: 160px;
+    border: none;
+    padding: 7px 20px;
+    border-radius: 6px;
+}
+
+
+/* tableicon */
+
+.serprov.leave .table2.table2-responsive {
+    height: 600px;
+}
+
+button.editicon {
+    border: none;
+    background-color: transparent;
+}
+
+
+/* end table icon */
+
+
+/* ---------------leave request ----------------- */
+
+.modalbutton button {
+    width: 160px;
+    height: 40px;
+    font-size: 16px;
+}
+
+.leavereason-input {
+    height: 100px;
+    overflow-wrap: break-word;
+}
+
+.text-group textarea {
+    resize: none;
+    width: 100%;
+    height: 80px;
+    padding: 5px 0 px 5px;
+}
+
+.leaverequest .modal-box {
+    height: 420px;
+    width: 500px;
+}
+
+.content.serprov.leave {
+    width: 70%;
+    margin: 0 auto 0 auto;
+}
+
+.content.serprov.leave .row.statusopt {
+    width: 12%;
+}
+
+.content.serprov.leave .filter-options .options-container {
+    display: flex;
+    margin: 0 auto 0 auto;
+    width: 100%;
+    min-width: 330px;
+    padding: 0 40px 0 40px;
+}
+
+.serprov.leave .dropdown-group {
+    width: 70%;
+}
+
+.leavecountcard {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 20px;
+    background-color: var(--white);
+    height: 50px;
+    width: 400px;
+    border-radius: 6px;
+}
+
+.cardandbutton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between !important;
+    align-items: center;
+    margin-left: 40px;
+}
+
+.leavecountcardleft {
+    font-weight: 500;
+    font-size: 18px;
+    padding-right: 10px;
+    color: var(--theme-grey);
+}
+
+.leavecountcardright {
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.content.serprov.leave .page-top-main-container {
+    margin: 30px 0 10px 0;
+    padding: 0 40px;
+    display: flex;
+    justify-content: right;
+    width: 100%;
 }

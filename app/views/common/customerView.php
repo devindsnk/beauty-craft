@@ -130,7 +130,7 @@
             <div class="Card3 contentBox ">
                <!-- Contact Details Head  -->
                <div class="CardHead">
-                  <h3 class="CardHeadLabel">Reservations Summary</h3>
+                  <h3 class="HeadLabel">Reservations Summary</h3>
                </div>
                <!-- Contact Details  -->
 

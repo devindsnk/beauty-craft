@@ -7,11 +7,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: scroll;
 }
 
 .content.admin .ownAddstaffContainer.contentBox,
 .reg-container.form-container.contentBox {
     margin-top: 50px;
+    height: 700px;
+    overflow: scroll;
+}
+
+.admin .reg-container {
+    height: 700px;
+    overflow: scroll;
 }
 
 .reg-container.form-container.contentBox input {
@@ -39,7 +47,7 @@
 
 .content.admin .reg-container {
     width: 650px;
-    height: fit-content;
+    padding-top: 50px;
 }
 
 @media (max-width: 768px) {
@@ -118,15 +126,6 @@
     letter-spacing: 4px;
 }
 
-.login-container input[type="text"] {
-    /* margin: 20px 0; */
-}
-
-.reg-container input[type="text"] {
-    /* padding: 5px 20px; */
-    /* margin-top: 5px; */
-}
-
 .form .radio-container {
     margin-top: 5px;
 }
@@ -148,7 +147,7 @@
     color: var(--theme-red);
 }
 
-.form hr {
+.content.admin hr {
     margin-bottom: 10px;
     color: var(--theme-lightgrey);
     margin: 30px 20px 20px 20px;
@@ -217,12 +216,6 @@ i.fa.fa-download {
     margin-right: 15px;
 }
 
-.ownAddstaffbutton.btn {
-    background-color: var(--theme-blue);
-    width: 150px;
-    height: 50px;
-    padding: 0;
-}
 
 .admin .ownAddstaffContainer {
     width: 650px;

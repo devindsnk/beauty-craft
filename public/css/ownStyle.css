@@ -294,16 +294,26 @@ Customers Starts
 /* card head styles */
 .own.ViewCustomer .CardHead {
     display: flex;
-    padding: 20px;
+    padding: 10px;
+    padding-bottom: 20px;
     align-items: center;
-
 }
+
+/* card head label styles */
+.own.ViewCustomer .HeadLabel{
+    font-size: 20px;
+    /* color: var(--theme-grey); */
+}
+
 /* labels and values styles */
-.own.ViewCustomer .CardDetailsLabel,
-.own.ViewCustomer .CardDetailsValue {
+.own.ViewCustomer .CardDetailsLabel {
     font-size: 16px;
     font-weight: 600;
-    color: var(--theme-grey);
+
+}
+.own.ViewCustomer .CardDetailsValue{
+    font-size: 16px;
+    /* font-weight: 600; */
 
 }
 
@@ -349,7 +359,7 @@ Customers Starts
     grid-area: Card2;
     width: 600px;
     justify-self: center;
-    padding: 30px;
+    padding: 10px;
 
 }
 
@@ -357,7 +367,7 @@ Customers Starts
     grid-area:Card3;
     width: 600px;
     justify-self: center;
-    padding: 30px;
+    padding: 10px;
 }
 
 .own.ViewCustomer .Cards {
