@@ -79,9 +79,8 @@
             </table>
          </div>
       </div>
-      <button class="btnOpen normal">Take Leave</button></a>
-      <button class="btnOpen normal">Edit Leave</button></a>
-      <button class="btnOpen normal">Delete Leave Request</button></a>
+      <button class="btnOpen btnEditTakenLeave">Edit Leave</button></a>
+      <button class="btnOpen btnDeleteTakenLeave">Delete Leave Request</button></a>
 
       <!-- Take leave model -->
       <div class="modal-container take-leave">
@@ -97,8 +96,7 @@
                   </div>
                   <div class="addItemsModalDetail2">
                      <label class="addItemsModalLable">Reason</label>
-                     <textarea class="addItemsModalTextArea" name="addItemsModalTextArea" rows="4" cols="50"
-                        placeholder="Type the reason here"> </textarea>
+                     <textarea class="addItemsModalTextArea" name="addItemsModalTextArea" rows="4" cols="50" placeholder="Type the reason here"> </textarea>
                   </div>
                </div>
                <!-- main grid 1 ends -->
@@ -131,8 +129,7 @@
                   </div>
                   <div class="addItemsModalDetail2">
                      <label class="addItemsModalLable">Reason</label>
-                     <textarea class="addItemsModalTextArea" name="addItemsModalTextArea" rows="4" cols="50"
-                        placeholder="Type the reason here"> </textarea>
+                     <textarea class="addItemsModalTextArea" name="addItemsModalTextArea" rows="4" cols="50" placeholder="Type the reason here"> </textarea>
                   </div>
                </div>
                <!-- main grid 1 ends -->
@@ -154,16 +151,16 @@
       <!-- Leave delete model -->
       <div class="modal-container delete-taken-leave">
          <div class="modal-box">
-               <div class="confirm-model-head">
-                  <h1>Delete Taken Leave ?</h1>
-               </div>
-               <div class="confirm-model-head">
-                  <p>Are you sure you want to delete the taken leave? <br> This action cannot be undone after proceeding.</p>
-               </div>
-               <div class="confirm-model-head">
-                  <button class="btn btnClose ModalButton ModalCancelButton">Close</button>
-                  <button class="btn btnClose ModalButton ModalBlueButton">proceed</button>
-               </div>
+            <div class="confirm-model-head">
+               <h1>Delete Taken Leave ?</h1>
+            </div>
+            <div class="confirm-model-head">
+               <p>Are you sure you want to delete the taken leave? <br> This action cannot be undone after proceeding.</p>
+            </div>
+            <div class="confirm-model-head">
+               <button class="btn btnClose ModalButton ModalCancelButton">Close</button>
+               <button class="btn btnClose ModalButton ModalBlueButton">proceed</button>
+            </div>
          </div>
       </div>
       <!-- End of Leave delete model -->
