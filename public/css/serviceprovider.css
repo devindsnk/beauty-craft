@@ -5,9 +5,7 @@
 
 
 /* ------------------------------------------------------ */
-.content.serprov{
-    height: 100%;
-}
+
 .serprov .sub-container1 {
     display: flex;
     /* justify-content: space-evenly; */
@@ -310,7 +308,6 @@
     align-items: flex-end;
     justify-content: space-between;
     width: 100%;
-    margin-top: 30px;
 }
 
 .serprov .modalbutton input:focus,
@@ -384,8 +381,8 @@
 
 .serprov .savechange button {
     background: transparent;
-    font-size: 18px;
-    color: var(--theme-black);
+    font-size: 16px;
+    color: var(--theme-grey);
     font-weight: 600;
     text-align: right;
     text-decoration: none;
@@ -439,6 +436,11 @@
 .modal-container.new {
     height: 100%;
     width: 100%;
+}
+.more-details-modalbtnsection{
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-around !important;
 }
 
 .reservation-more-info .modal-box {

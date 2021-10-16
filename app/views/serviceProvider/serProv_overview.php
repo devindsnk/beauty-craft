@@ -178,10 +178,10 @@
 
                         <!-- end web view -->
                     </div>
-                    <div class="mobview">
+                    <!-- <div class="mobview">
 
-                        <!--End mobile sub-container2-card-->
-                    </div>
+                        End mobile sub-container2-card
+                    </div> -->
                     <!--End scroll area-->
                 </div>
             </div>
@@ -236,7 +236,7 @@
                         <div class="savechange">
                             <button>Save Changes</button>
                         </div>
-                        <div class="modalbutton">
+                        <div class="modalbutton-more">
                             <div class="more-details-modalbtnsection">
                                 <button class="btn btnClose normal">Close</button>
 
@@ -285,7 +285,7 @@
                         </div>
 
 
-                        <div class="modalbutton">
+                        <div class="modalbutton-more">
                             <div class="more-details-modalbtnsection">
                                 <button class="btn btnClose new">Cancel</button>
 
