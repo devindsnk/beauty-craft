@@ -514,7 +514,7 @@ button.editicon {
     width: 500px;
 }
 
-.content.serprov.leave {
+.leaverequesttable {
     width: 70%;
     margin: 0 auto 0 auto;
 }
@@ -530,7 +530,7 @@ button.editicon {
     min-width: 330px;
 }
 
-.serprov.leave .dropdown-group {
+.leaverequesttable .dropdown-group {
     width: 70%;
 }
 

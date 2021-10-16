@@ -29,6 +29,37 @@ class LeaveModel
       //   print_r($result);
       return $result;
    }
+   public function getLeaveLimit(){
+      $this->db->query("SELECT leaveLimit FROM leavelimits WHERE changedDate =(SELECT MAX(changedDate)FROM leavelimits)");
+     
+    
+      $result = $this->db->single();
+      //   print_r($result);
+      return $result;
+   }
+//   leave Approved=1 pending=0 rejected=2 
+   public function getLeaveCount(){
+     $staffID='000001';
+      $this->db->query("SELECT COUNT(*)  FROM generalleaves WHERE (MONTH(leaveDate)=MONTH(now()) and YEAR(leaveDate)=YEAR(now())) AND (staffID=staffID) AND (status=1)");
+      $this->db->bind(':staffID',$staffID);
+      $result = $this->db->single();
 
-  
+      // print_r($result);
+      //  print_r($result);
+      
+      return $result;
+   }
+
+ public function checkExsistingDate($date){
+
+      $this->db->query("SELECT * FROM generalleaves WHERE leavedate ='$date'");
+    
+      $result = $this->db->resultSet();
+      //   print_r($result);
+      if(!empty($result)){
+         return $result;
+   
+      }
+   }
+
 }

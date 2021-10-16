@@ -18,6 +18,10 @@
    public function leaves() {
 
       $leaveData=$this->LeaveModel->getLeaveByID();
+      $leaveLimit=$this->getLeaveLimit();
+     
+      $LeaveCount=$this->LeaveModel->getLeaveCount();
+      
      
       if ($_SERVER['REQUEST_METHOD']=='POST') {
          
@@ -28,9 +32,16 @@
          'reason_error'=>'',
          'staffID'=>'00005',
          'tableData'=>$leaveData,
-         'haveErrors' => 0
+         'haveErrors' => 0,
+         'reasonentered'=>'',
+         'leaveLimit'=>$leaveLimit,
+         'LeaveCount'=>$LeaveCount,
          // '$staffID'=>$_SERVER['staffID'],
        ];
+       //to get enter reason
+       $checkDate=$this->LeaveModel->checkExsistingDate($data['date']) ;
+
+       $data['reasonentered']=$data['reason'];
          if($_POST['action']=="addleave"){
                $today = date('Y-m-d');
                if (empty($data['date'])) {
@@ -42,6 +53,9 @@
 
                if (empty($data['reason'])) {
                   $data['reason_error']="Please mention the reason";
+               }
+               if(!empty($checkDate)){
+                  $data['date_error']="Date you entered is already Exist.";
                }
 
                if (empty($data['date_error']) && empty($data['reason_error'])) {
@@ -70,13 +84,24 @@
          'reason'=>'',
          'date_error'=>'',
          'reason_error'=>'',
-          'tableData'=>$leaveData,
-         'haveErrors' => 0
+         'tableData'=>$leaveData,
+         'haveErrors' => 0,
+         'reasonentered'=>'',
+         'leaveLimit'=>$leaveLimit,
+         'LeaveCount'=>$LeaveCount,
          ];
          $this->view('serviceProvider/serProv_leaves', $data);
       }
    }
+   public function getLeaveLimit(){
+      
+      $leaveLimit = $this->LeaveModel->getLeaveLimit();
+      // die("error");
+      
+      // print_r($leaveLimit);
 
+      return $leaveLimit;
+   }
 
 
 

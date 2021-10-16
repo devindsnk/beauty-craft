@@ -2,7 +2,7 @@
          <div class="cardandbutton">
             <div class="leavecountcard">
                <div class="leavecountcardleft">Remaining Leave Count</div>
-               <div class="leavecountcardright">2</div>
+               <div class="leavecountcardright"><?php echo $data['leaveLimit']; ?></div>
             </div>
             <div class="page-top-main-container">
                <button class="btn btn-filled btn-theme-purple btnleaveRequest">Add New</button>
@@ -16,11 +16,11 @@
                      <div class="column">
                         <div class="dropdown-group">
                            <label class="label" for="lName">Status</label>
-                           <select name="cars" id="cars">
-                              <option value="" selected>All</option>
-                              <option value="volvo">Approved</option>
-                              <option value="saab">Pending</option>
-                              <option value="mercedes">Rejected</option>
+                           <select name="lstatus" id="lstatus">
+                              <option value="All" selected>All</option>
+                              <option value="Approved">Approved</option>
+                              <option value="Pending">Pending</option>
+                              <option value="Rejected">Rejected</option>
                            </select>
                         </div>
                         <span class="error"> <?php echo " "; ?></span>
@@ -37,7 +37,7 @@
 
          <div class="table-container">
             <div class="table2 table2-responsive">
-               <table class="table2-hover">
+               <table class="table2-hover" id="leaveReqTable">
 
                   <thead>
                      <tr>
@@ -54,19 +54,19 @@
                      <?php foreach($data['tableData'] as $leave) :?>
                      <tr>
 
-                        <td class="column-center-align"><?php echo $leave->leaveDate; ?></td>
-                        <td class="column-center-align"><?php echo $leave->requestedDate; ?></td>
-                        <td class="column-center-align">
+                        <td data-lable="Leave Date" class="column-center-align"><?php echo $leave->leaveDate; ?></td>
+                        <td data-lable="Requested date"class="column-center-align"><?php echo $leave->requestedDate; ?></td>
+                        <td data-lable="Responded Staff ID"class="column-center-align">
                            <?php echo $leave->respondedStaffID; ?><?php if(!($leave->respondedStaffID)) echo 'Not yet Responded' ?>
                         </td>
                         <!-- leave Approved=1 pending=0 rejected=2 -->
-                        <td class="column-center-align">
+                        <td data-lable="Status"class="column-center-align">
                            <?php if($leave->status==0) :?>
-                           <button type="button" class="table-btn yellow-status-btn text-uppercase "> Pending </button>
+                           <button type="button" class="table-btn yellow-status-btn text-uppercase " value="Pending"> Pending </button>
                            <?php elseif ($leave->status == 1) : ?>
-                           <button type="button" class="table-btn green-status-btn text-uppercase"> Approved </button>
+                           <button type="button" class="table-btn green-status-btn text-uppercase" value="Approved"> Approved </button>
                            <?php else: ?>
-                           <button type="button" class="table-btn red-status-btn text-uppercase "> Rejected </button>
+                           <button type="button" class="table-btn red-status-btn text-uppercase value="Rejected"> Rejected </button>
                            <?php endif; ?>
                         </td>
                         <td data-lable="Action" class="column-center-align">
@@ -146,7 +146,7 @@
                         <div class="text-group">
                            <label class="labels" for="serviceName">Date</label><br>
                            <input type="date" vale="2021-10-15" placeholder="--Select a date--"
-                              value="<?php echo $leave->leaveDate; ?>">
+                              value="<?php echo $data['leaveData']; ?>">
                         </div>
                      </div>
                   </div>
@@ -155,7 +155,8 @@
                         <div class="text-group">
                            <label class="labels" for="serviceName">Reason</label><br>
 
-                           <textarea type="text" placeholder="-- Type in --"><?php echo $leave->reason; ?> </textarea>
+                           <textarea type="text" placeholder="-- Type in --" value="<?php echo $data['reason']; ?>"><?php if ($data['reason'] == $data['reasonenterd']) echo $data['reason'] ; ?>
+ </textarea>
 
                         </div>
                      </div>
@@ -201,3 +202,4 @@
 
          <!-- end delete leave request model -->
       </div>
+ <script src="<?php echo URLROOT ?>/public/js/tableFilter.js"></script>

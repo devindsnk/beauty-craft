@@ -15,7 +15,7 @@
 
    <!--Content-->
    <div class="content recept leaves">
-      <h3>This is main option 1</h3>
+      <?php require APPROOT . "/views/common/leaveRequestTable.php" ?>
    </div>
    <!--End Content-->
 
