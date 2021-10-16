@@ -154,7 +154,8 @@ Close Salon Starts
 
 .content.own.close-salon{
     width: 70%;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
 } 
 /* 
 #####################################################################################################################################################
@@ -895,10 +896,7 @@ Customers Endss
  Resources Starts
 ##################################################################################################################################################### */
 
-.content.own.resources{
-    width: 80%;
-    margin: auto;
-} 
+
 
 /* ---------------------------------------------------------- */
 /* -----------Styles for Remove Resources Starts--------------- */
@@ -1682,10 +1680,10 @@ Customers Endss
     align-items: center;
 }
 
-.ownAddstaffContainer .ownAddstaffFormGroupImage .ownAddstaffBasicinfoFilesubBtn .ownAddstaffBasicinfoImagewrapper:hover {
+/* .ownAddstaffContainer .ownAddstaffFormGroupImage .ownAddstaffBasicinfoFilesubBtn .ownAddstaffBasicinfoImagewrapper:hover {
     transform: translate(-5px);
     box-shadow: 0;
-}
+} */
 
 /* Form image wrapper styles */
 .ownAddstaffContainer .ownAddstaffFormGroupImage .ownAddstaffBasicinfoImagewrapper {

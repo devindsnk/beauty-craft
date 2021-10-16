@@ -65,7 +65,7 @@ h3 {
 footer {
   height: 35px;
   /* edited by ravindu */
-  background-color: lime;
+  /* background-color: lime; */
   width: 100%;
   margin: auto;
   overflow: hidden;
@@ -284,4 +284,21 @@ footer {
 
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
+/* ------------------------------------------------------ */
+
+/* ------------------------------------------------------ */
+/* --------------STYLES ADDED BY RAVINDU-------------------*/
+/* ------------------------------------------------------ */
+
+
+/* resizing styles of resources content */
+.content.resources{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+} 
+
+
+/* ------------------------------------------------------ */
+/* -----------END OF STYLES ADDED BY RAVINDU ---------------*/
 /* ------------------------------------------------------ */

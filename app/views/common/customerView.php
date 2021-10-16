@@ -11,7 +11,17 @@
       </div>
       <div class="header-right verticalCenter">
       <!-- you have to specify the user roll ?????????????????????????????????????????????????????????????????????????? -->
-         <a href="#" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>  
+
+     
+         <a href= "<?php
+         echo URLROOT;         
+         if ($userType == 'Owner') echo "/OwnDashboard/customers"; 
+         elseif ($userType == 'Manager') echo "/MangDashboard/customers";   
+         elseif ($userType == 'Receptionist') echo "/ReceptDashboard/customers"; 
+         ?>"
+         
+            class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
+            
       </div>
    </header>
    <div class="content contentNewRes own ViewCustomer">

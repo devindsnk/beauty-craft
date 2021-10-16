@@ -2,14 +2,18 @@
 
 <body class="ownViewStaffBody layout-template-2">
 
-<!-- <?php print_r($data); ?> -->
     <header class="full-header">
         <div class="header-center verticalCenter">
             <h1 class="header-topic">Staff Member Details</h1>
         </div>
         <div class="header-right verticalCenter">
-            <a href="<?php echo URLROOT ?>/OwnDashboard/staff" class="top-right-closeBtn"><i
-                    class="fal fa-times fa-2x "></i></a>
+        <a href= "<?php echo URLROOT;        
+         if ($userType == "Owner") echo "/OwnDashboard/customers"; 
+         elseif ($userType == "Manager") echo "/MangDashboard/customers";   
+         elseif ($userType == "Receptionist") echo "/ReceptDashboard/customers"; 
+         ?>"
+         
+            class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
         </div>
     </header>
     <div class="content contentNewRes">
@@ -202,9 +206,9 @@
                             </div>
                             <div class="ownViewStaffCardcolumn">
                                 <div class="ownViewStaffCardDetailsValue">
-                                    <address>
+                                    <p>
                                         <?php echo $data->address; ?>
-                                    </address>
+                                    </p>
                                 </div>
                             </div>
                         </div>

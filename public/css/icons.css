@@ -121,3 +121,41 @@
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
 /* ------------------------------------------------------ */
+
+
+
+
+
+
+/* ------------------------------------------------------ */
+/* ----------- STYLES ADDED BY RAVINDU -------------------*/
+/* ------------------------------------------------------ */
+
+.ci-close-salon {
+   background: url(../../public/svg/key.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+
+.ci-rates {
+   background: url(../../public/svg/percentage.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+
+.ci-salaries {
+   background: url(../../public/svg/dollar-square.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+
+.ci-resources {
+   background: url(../../public/svg/3d-rotate.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+
+
+/* ------------------------------------------------------ */
+/* ----------- END OF STYLES ADDED BY RAVINDU ------------*/
+/* ------------------------------------------------------ */

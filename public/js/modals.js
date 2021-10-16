@@ -40,16 +40,16 @@ removeCustomerBtnList.forEach(btn => {
 });
 
 // Reservation More info Modal Section
-const resMoreInfoModal = document.querySelector('.reservation-more-info');
-const resMoreInfoBtnList = document.querySelectorAll('.btnResMoreInfo');
-resMoreInfoBtnList.forEach(btn => {
-   btn.addEventListener("click",
-      function () {
-         modalToToggle = resMoreInfoModal;
-         toggleModal();
-      }
-   );
-});
+// const resMoreInfoModal = document.querySelector('.reservation-more-info');
+// const resMoreInfoBtnList = document.querySelectorAll('.btnResMoreInfo');
+// resMoreInfoBtnList.forEach(btn => {
+//    btn.addEventListener("click",
+//       function () {
+//          modalToToggle = resMoreInfoModal;
+//          toggleModal();
+//       }
+//    );
+// });
 
 
 // Reservation Recall Modal Section
