@@ -14,11 +14,11 @@ public function checkLeaveDate($data){
        $this->db->bind(':staffID',$staffID);
       $result = $this->db->single();
 
-
-      // die($result);
-      //  print_r($result);
-      // die($result);
-      return $result;
+//$num2 = ($data['leaveCount']->{'COUNT(*)'});
+     // echo $result->{'COUNT(*)'};
+       //print_r($result);
+      
+      return $result->{'COUNT(*)'};
 }
 
 
@@ -45,14 +45,18 @@ public function checkLeaveDate($data){
       //   print_r($result);
       return $result;
    }
+   
    public function getLeaveLimit(){
       $this->db->query("SELECT leaveLimit FROM leavelimits WHERE changedDate =(SELECT MAX(changedDate)FROM leavelimits)");
-     
-    
+   
       $result = $this->db->single();
-      //   print_r($result);
-      return $result;
+         
+        // echo $result->leaveLimit;
+         
+      return $result->leaveLimit;
    }
+
+
 //   leave Approved=1 pending=0 rejected=2 
    public function getLeaveCount(){
      $staffID='000001';
@@ -63,7 +67,7 @@ public function checkLeaveDate($data){
       // die($result);
       //  print_r($result);
       // die($result);
-      return $result;
+      return $result->{'COUNT(*)'};
    }
 
  public function checkExsistingDate($date){

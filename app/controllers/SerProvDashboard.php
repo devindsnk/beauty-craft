@@ -18,14 +18,13 @@
    public function leaves() {
 
       $leaveData=$this->LeaveModel->getLeaveByID();
-      $leaveLimit=$this->getLeaveLimit();
-     
+      //to get latest leave limit
+      $leaveLimit=$this->LeaveModel->getLeaveLimit();
+     //to get current month leave count
       $leaveCount=$this->LeaveModel->getLeaveCount();
-     
-      // print_r($leaveCount);
-      // die("hello");
-      
-     
+       $remainingLeaveCount= $leaveLimit - $leaveCount;
+      //echo  $remainingLeaveCount;
+  
       if ($_SERVER['REQUEST_METHOD']=='POST') {
          
 
@@ -37,8 +36,9 @@
          'tableData'=>$leaveData,
          'haveErrors' => 0,
          'reasonentered'=>'',
-         'leaveLimit'=>$leaveLimit,
-         'leaveCount'=>$leaveCount,
+         'remainingCount'=> $remainingLeaveCount,
+         
+         
          
        ];
        //to get enter reason
@@ -62,13 +62,27 @@
                }
 
                if (empty($data['date_error']) && empty($data['reason_error'])) {
-                  $leavesOfSelectedMonth=$this->LeaveModel->requestleave($data);
+                  //leave count according to selected date
+                  $leavesOfSelectedMonth=$this->LeaveModel->checkLeaveDate($data);
+                 // echo $leavesOfSelectedMonth;
+                 
                   
-
+                 // echo $data['leaveLimit'];
+                  if($leaveLimit <= $leavesOfSelectedMonth)
+                  {
+                     
+                     $data['haveErrors'] = 1;
+                     
+                  }
+                  else{
+                  // print_r($data['leavesOfSelectedMonth']);
+                  // die("selected  month leave count ");
                   $this->LeaveModel->requestleave($data);
-                  //redirect to this view
-
-               redirect('serProvDashboard/leaves');
+                 // redirect to this view
+                 redirect('serProvDashboard/leaves');
+                  }
+               //redirect('serProvDashboard/leaves');
+               $this->view('serviceProvider/serProv_leaves', $data);
                }
 
                else {
@@ -93,8 +107,8 @@
          'tableData'=>$leaveData,
          'haveErrors' => 0,
          'reasonentered'=>'',
-         'leaveLimit'=>$leaveLimit,
-         'leaveCount'=>$leaveCount,
+         'remainingCount'=> $remainingLeaveCount,
+         
          ];
          
          $this->view('serviceProvider/serProv_leaves', $data);
