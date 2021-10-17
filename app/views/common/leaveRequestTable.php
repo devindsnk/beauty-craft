@@ -1,14 +1,28 @@
+
+<?php 
+
+$num1 = ($data['leaveLimit']->{'leaveLimit'}); 
+$num2 = ($data['leaveCount']->{'COUNT(*)'});
+
+// print_r($num1);
+// print_r($num2);
+// print($num1-$num2);
+$num3 = number_format($num1)-number_format($num2);
+// echo $num3;
+?>
+
+
 <div class="leaverequesttable">
          <div class="cardandbutton">
             <div class="leavecountcard">
                <div class="leavecountcardleft">Remaining Leave Count</div>
-               <div class="leavecountcardright"><?php echo $data['leaveLimit']; ?></div>
+               <div class="leavecountcardright"><?php echo $num3; ?></div>
             </div>
             <div class="page-top-main-container">
                <button class="btn btn-filled btn-theme-purple btnleaveRequest">Add New</button>
             </div>
          </div>
-
+         <span class="leavelimitmsg"><?php if($num3<=0) echo "Your Leave limit exceed"; ?></span>
          <form class="form filter-options" action="">
             <div class="options-container">
                <div class="left-section">

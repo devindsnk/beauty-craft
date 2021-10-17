@@ -533,6 +533,11 @@ button.editicon {
 .leaverequesttable .dropdown-group {
     width: 70%;
 }
+span.leavelimitmsg{
+    color:var(--theme-red);
+    font-size: 13px;
+    margin-left: 70px;
+}
 
 .leavecountcard {
     display: flex;
