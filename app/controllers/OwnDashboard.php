@@ -11,10 +11,6 @@ class OwnDashboard extends Controller
    {
       redirect('OwnDashboard/overview');
    }
-   public function analytics()
-   {
-      $this->view('owner/own_analytics');
-   }
    public function closeSalon()
    {
       $this->view('owner/own_closeSalon');
@@ -23,6 +19,12 @@ class OwnDashboard extends Controller
    {
       $this->view('owner/own_customers');
    }
+
+   public function cusDetailView()
+   {
+      $this->view('common/customerView');
+   }
+   
    public function overview()
    {
       $this->view('owner/own_overview');
@@ -55,8 +57,20 @@ class OwnDashboard extends Controller
    public function staff()
    {
       $staffDetails = $this->staffModel->getStaffDetails();
-
       $GetStaffArray = ['staff' => $staffDetails];
       $this->view('owner/own_staff', $GetStaffArray);
+   }
+
+   public function analyticsOverall()
+   {
+      $this->view('owner/own_subAnalyticsOverall');
+   }
+   public function analyticsService()
+   {
+      $this->view('owner/own_subAnalyticsService');
+   }
+   public function analyticsSProvider()
+   {
+      $this->view('owner/own_subAnalyticsSProvider');
    }
 }

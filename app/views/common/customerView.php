@@ -15,9 +15,9 @@
      
          <a href= "<?php
          echo URLROOT;         
-         if ($userType == 'Owner') echo "/OwnDashboard/customers"; 
-         elseif ($userType == 'Manager') echo "/MangDashboard/customers";   
-         elseif ($userType == 'Receptionist') echo "/ReceptDashboard/customers"; 
+         if ($userType == 2) echo "/OwnDashboard/customers"; 
+         elseif ($userType == 3) echo "/MangDashboard/customers";   
+         elseif ($userType == 4) echo "/ReceptDashboard/customers"; 
          ?>"
          
             class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
@@ -56,7 +56,7 @@
                   <div class="ownAddstaffLines">
                   </div>
                </div> -->
-               <hr>
+               <hr id="sectionBreackLine">
                <!-- section break line endss -->
 
                <div class="Card1Details">
@@ -135,7 +135,7 @@
                <!-- Contact Details  -->
 
                <!-- section break line starts -->
-               <hr>
+               <hr class="sectionBreackLine">
                <!-- section break line endss -->
 
                <div class="Card2Details">

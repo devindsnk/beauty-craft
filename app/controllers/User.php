@@ -186,3 +186,13 @@ class User extends Controller
       redirect('home');
    }
 }
+
+
+// USER LEVEL TYPES
+
+// System admin => 1
+// Owner => 2
+// Manager => 3
+// Receptionist => 4
+// Service Provider => 5
+// Customer => 6

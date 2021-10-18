@@ -28,7 +28,7 @@
             <!-- Staff member details starts  -->
             <div class="SalaryReportContainer">
                 <div class="ownSalaryReportStaffMemberDetails">
-                    <div class="ownSalaryReportStaffMemberDetailHead">
+                    <div class="ownSalaryReportDetailsHead">
                         <label class="ownSalaryReportStaffMemberDetailHeadLabel">Staff member details</label>
                     </div>
                     <div class="ownSalaryReportStaffMemberDetailsContent">
@@ -48,9 +48,33 @@
 
                 </div>
                 <!-- Staff member details ends  -->
+
+                <!-- Staff member details starts  -->
+                <div class="ownSalaryReportBankDetails">
+                    <div class="ownSalaryReportDetailsHead">
+                        <label class="ownSalaryReportBankDetailsHeadLabel">Bank details</label>
+                    </div>
+                    <div class="ownSalaryReportBankDetailsContent">
+
+                        <label class="ownSalaryReportBankDetailsContentData">Bank Account Number</label>
+                        <label class="ownSalaryReportBankDetailsContentValue">6648236822</label>
+                        <br> <br>
+                        <label class="ownSalaryReportBankDetailsContentData">Bank Name</label>
+                        <label class="ownSalaryReportBankDetailsContentValue">Sampath</label>
+                        <br> <br>
+                        <label class="ownSalaryReportBankDetailsContentData">Branch Name</label>
+                        <label class="ownSalaryReportBankDetailsContentValue">Kottawa</label>
+                        <br> <br>
+                        <label class="ownSalaryReportBankDetailsContentData">Holders Name</label>
+                        <label class="ownSalaryReportBankDetailsContentValue">Devin</label>
+                    </div>
+
+                </div>
+                <!-- Staff member details ends  -->
+
                 <!-- Earning details starts  -->
                 <div class="ownSalaryReportSalaryDetails">
-                    <div class="ownSalaryReportSalaryDetailssHead">
+                    <div class="ownSalaryReportDetailsHead">
                         <label class="ownSalaryReportSalaryDetailsHeadLabel">Salary Breakdown</label>
                     </div>
 

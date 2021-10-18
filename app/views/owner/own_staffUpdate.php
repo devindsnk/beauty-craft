@@ -155,6 +155,12 @@
                                     <input type="text" name="acchold" id="acchold" placeholder="Your bank name here">
                                     <span class="error">Sorry, that user name is taken </span>
                                 </div>
+                                <div class="ownAddstaffFormGroupBranchNAME">
+                                    <label class="ownAddstaffLabels">Branch Name</label>
+                                    <input type="text" name="staffAccBranch" id="accbranch"
+                                        placeholder="Your branch name here" maxlength="40">
+                                    <span class="error">Sorry, that user name is taken </span>
+                                </div>
                             </div>
                             <!------------------ maingrid5 end ---------------------------------------------------------------->
                             <!----------------------------------------- Bank Details ends --------------------------------------------------------------------------->
@@ -178,7 +184,7 @@
                     </div>
                     <!----------------------------------------- form submit button starts ------------------------------------------------------------------------>
                     <div class="ownAddstaffButton">
-                        <button class="ownAddstaffbutton">Save</button>
+                        <button class="ownAddstaffbutton btn btn-filled btn-theme-purple">Save</button>
                     </div>
                     <!----------------------------------------- form submit button ends -------------------------------------------------------------------------->
                 </form>
