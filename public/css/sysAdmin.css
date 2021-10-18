@@ -3,18 +3,18 @@
 .content.admin {
     /* width: 100vw;
     min-height: 100vh; */
-    height: fit-content;
+    height: calc(100vh - 108 px) !important;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: scroll;
+   overflow:scroll;
 }
 
 .content.admin .ownAddstaffContainer.contentBox,
 .reg-container.form-container.contentBox {
     margin-top: 50px;
-    height: 700px;
-    overflow: scroll;
+
+    
 }
 
 .admin .reg-container {

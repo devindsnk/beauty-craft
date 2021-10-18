@@ -18,7 +18,7 @@
 
    <!--Content-->
    <div class="content admin">
-     
+     <div class="formadmin">
 
       <div class="ownAddstaffContainer contentBox">
         <div class="ownAddStaff_Formheading">
@@ -163,6 +163,7 @@
             <!----------------------------------------- form submit button ends -------------------------------------------------------------------------->
         </form>
 
+    </div>
     </div>
 
 
