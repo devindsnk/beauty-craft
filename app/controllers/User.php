@@ -152,23 +152,23 @@ class User extends Controller
    {
       switch ($_SESSION['userType'])
       {
-         case 'customer':
+         case 1:
+            redirect('sysAdminDashboard/home');
+            break;
+         case 2:
+            redirect('ownDashboard/home');
+            break;
+         case 3:
+            redirect('mangDashboard/home');
+            break;
+         case 4:
+            redirect('receptDashboard/home');
+            break;
+         case 5:
+            redirect('serProvDashboard/home');
+            break;
+         case 6:
             redirect('home');
-            break;
-         case 'receptionist':
-            redirect('receptDashboard/dailyView');
-            break;
-         case 'serviceProvider':
-            redirect('serProvDashboard/overview');
-            break;
-         case 'manager':
-            redirect('mangDashboard/overview');
-            break;
-         case 'owner':
-            redirect('ownDashboard/overview');
-            break;
-         case 'admin':
-            redirect('owner/overview');
             break;
          default:
             die("USER TYPE ERROR");

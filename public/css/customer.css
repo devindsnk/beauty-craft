@@ -1,8 +1,12 @@
+.nav-black {
+    background-color: var(--theme-black);
+}
+
 .content {
     display: grid;
     grid-template-columns: 5fr 12fr 1fr;
     grid-template-rows: 155px calc(100vh - 155px);
-    grid-template-areas: "header header header" "sidebar content space";
+    grid-template-areas: "header header header""sidebar content space";
 }
 
 .container {

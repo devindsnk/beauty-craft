@@ -20,7 +20,7 @@ session_start();
 
 </head>
 
-<body class="landingPage">
+<body class="landingPage customerPages">
    <header>
       <nav>
          <div class="logo">
@@ -69,7 +69,7 @@ session_start();
       <div class="profile_menu">
          <ul>
             <li>
-               <?php if ($_SESSION['userType'] == 'customer') : ?>
+               <?php if ($_SESSION['userType'] == 6) : ?>
                   <i class="far fa-user"></i>
                   <a href="#">My Reservations</a>
                <?php else : ?>
@@ -79,7 +79,7 @@ session_start();
             </li>
             <li>
                <i class="far fa-cog"></i>
-               <a href="#">Account Settings</a>
+               <a href="<?php echo URLROOT ?>/custDashboard/profileSettings">Profile Settings</a>
             </li>
             <li>
                <i class="far fa-sign-out"></i>

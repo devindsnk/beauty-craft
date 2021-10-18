@@ -212,5 +212,4 @@ class Customer extends Controller
    {
       $this->view('customer/cust_myReservation');
    }
-  
 }
