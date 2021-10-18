@@ -3,13 +3,13 @@
          <div class="cardandbutton">
             <div class="leavecountcard">
                <div class="leavecountcardleft">Remaining Leaves</div>
-               <div class="leavecountcardright"><?php echo $data['remainingCount']; ?></div>
+               <div class="leavecountcardright"><?php if($userLevel=="Service Provider"){echo $data['remainingCount'];} else echo 2; ?></div>
             </div>
             <div class="page-top-main-container">
                <button class="btn btn-filled btn-theme-purple btnleaveRequest">Add New</button>
             </div>
          </div>
-         <span class="leavelimitmsg"><?php if($data['remainingCount']<0) echo "Your Leave limit exceed"; ?></span>
+         <span class="leavelimitmsg"><?php if($userLevel=="Service Provider"){if($data['remainingCount']<0) echo "Your Leave limit exceed";} ?></span>
          <form class="form filter-options" action="">
             <div class="options-container">
                <div class="left-section">
