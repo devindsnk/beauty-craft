@@ -1,26 +1,33 @@
 <?php
-class ServiceModel{
+class ServiceModel
+{
     private $db;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->db = new Database;
     }
 
-    public function service($data){
+    public function service($data)
+    {
         $this->addService($data);
     }
 
-    public function addService($data){
+    public function addService($data)
+    {
         // die("hello");
 
-        if (empty($data['sSelectedType'])){
+        if (empty($data['sSelectedType']))
+        {
             $this->db->query("INSERT INTO services (name, price, type, totalDuration, status) VALUES(:sName, :sPrice, :sNewType, :sSlot1Duration, 'active')");
             $this->db->bind(':sNewType', $data['sNewType']);
-        }else{
+        }
+        else
+        {
             $this->db->query("INSERT INTO services (name, price, type, totalDuration, status) VALUES(:sName, :sPrice, :sSelectedType, :sSlot1Duration,'active')");
             $this->db->bind(':sSelectedType', $data['sSelectedType']);
         }
-        
+
 
         $this->db->bind(':sName', $data['sName']);
         $this->db->bind(':sPrice', $data['sPrice']);
@@ -29,18 +36,20 @@ class ServiceModel{
         $this->db->execute();
     }
 
-    public function addServiceProvider($data){
+    public function addServiceProvider($data)
+    {
 
-        foreach($data['sSelectedProv'] as $SelectedProv){
+        foreach ($data['sSelectedProv'] as $SelectedProv)
+        {
 
             $this->db->query("INSERT INTO serviceproviders (serviceID, staffID) SELECT MAX(serviceID), '$SelectedProv' FROM services");
 
             $this->db->execute();
         }
-
     }
 
-    public function addTimeSlot($data, $slotNo){
+    public function addTimeSlot($data, $slotNo)
+    {
         $slotNo++;
 
         $slotDuration = $data['sSlot1Duration'];
@@ -48,36 +57,36 @@ class ServiceModel{
         $this->db->query("INSERT INTO timeslots (serviceID, slotNo, duration) SELECT MAX(serviceID), '$slotNo', '$slotDuration'  FROM services");
 
         $this->db->execute();
-
     }
 
-    public function addResourcesToService($data, $slotNo){
+    public function addResourcesToService($data, $slotNo)
+    {
         $slotNo++;
         $SelectedResCount = $$data['sSelectedResCount'];
-        foreach($data['sSelectedResourse'] as $SelectedResourse){
+        foreach ($data['sSelectedResourse'] as $SelectedResourse)
+        {
 
             $this->db->query("INSERT INTO resourceallocation (serviceID, slotNo, resourceID, requiredQuantity) SELECT MAX(serviceID), '1', '$SelectedResourse', '$SelectedResCount' FROM services");
 
             $this->db->execute();
         }
-
     }
 
-    public function getServiceDetails(){
+    public function getServiceDetails()
+    {
 
-        $this->db->query("SELECT * FROM services"); 
-        
+        $this->db->query("SELECT * FROM services");
         $result = $this->db->resultSet();
-        // print_r($result);
 
         return $result;
     }
-    
-    public function getServiceProviderDetails(){
+
+    public function getServiceProviderDetails()
+    {
         // die("hello");
-        
-        $this->db->query("SELECT staffID,fName,lName FROM staff WHERE staffType=1"); 
-        
+
+        $this->db->query("SELECT staffID,fName,lName FROM staff WHERE staffType=1");
+
         $result = $this->db->resultSet();
 
         // print_r($result);
@@ -85,7 +94,8 @@ class ServiceModel{
         return $result;
     }
 
-    public function getServiceTypeDetails(){
+    public function getServiceTypeDetails()
+    {
         // die("hello");
 
         $this->db->query("SELECT DISTINCT type From services");
@@ -95,7 +105,8 @@ class ServiceModel{
         return $result;
     }
 
-    public function getResourceDetails(){
+    public function getResourceDetails()
+    {
         $this->db->query("SELECT resourceID, name, quantity From resources");
 
         $result = $this->db->resultSet();
@@ -103,21 +114,23 @@ class ServiceModel{
         return $result;
     }
 
-    public function getOneServiceDetail($serviceID){
+    public function getOneServiceDetail($serviceID)
+    {
         // die("hello");
 
         $this->db->query("SELECT * 
                           FROM services 
                           WHERE serviceID='$serviceID'
-                          "); 
-        
+                          ");
+
         $result = $this->db->resultSet();
         // print_r($result);
 
         return $result;
     }
 
-    public function getOneServicesSProvDetail($serviceID){
+    public function getOneServicesSProvDetail($serviceID)
+    {
 
         $this->db->query("SELECT serviceproviders.staffID,staff.fName,staff.lName 
                           FROM staff 
@@ -126,7 +139,7 @@ class ServiceModel{
                           ON serviceproviders.staffID = staff.staffID
                           WHERE serviceproviders.serviceID='$serviceID'
 
-                          "); 
+                          ");
 
         $result = $this->db->resultSet();
         // print_r($result);
@@ -134,7 +147,8 @@ class ServiceModel{
         return $result;
     }
 
-    public function getAllocatedResourceDetails($serviceID){
+    public function getAllocatedResourceDetails($serviceID)
+    {
 
         $this->db->query("SELECT resources.resourceID,resources.name,resourceallocation.requiredQuantity 
                           FROM resources 
@@ -143,7 +157,7 @@ class ServiceModel{
                           ON resources.resourceID = resourceallocation.resourceID
                           WHERE resourceallocation.serviceID='$serviceID'
 
-                          "); 
+                          ");
 
         $result = $this->db->resultSet();
 

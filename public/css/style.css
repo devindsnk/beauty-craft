@@ -78,7 +78,7 @@ footer {
   justify-content: right;
 }
 
-footer p{
+footer p {
   font-size: 14px;
   text-align: right;
   color: var(--theme-grey);
@@ -135,7 +135,7 @@ footer p{
   min-width: 330px;
 }
 
-.content .filter-options .options-container label{
+.content .filter-options .options-container label {
   margin-top: 10px;
 }
 
@@ -180,7 +180,7 @@ footer p{
   text-align: center;
   font-weight: 500;
   font-size: 16px;
-  box-shadow:  rgba(67, 90, 111, 0.3) 0px 0px 1px, rgba(67, 90, 111, 0.47) 0px 2px 4px -2px;
+  box-shadow: rgba(67, 90, 111, 0.3) 0px 0px 1px, rgba(67, 90, 111, 0.47) 0px 2px 4px -2px;
 }
 
 .btn.btn-filled {
@@ -194,6 +194,10 @@ footer p{
 
 .btn.btn-filled.btn-theme-purple {
   background-color: var(--theme-purple);
+}
+
+.btn.btn-filled.btn-theme-red {
+  background-color: var(--theme-red);
 }
 
 .btn.btn-filled.btn-error-red {
@@ -340,6 +344,10 @@ footer p{
     line-height: 300px;
     color: var(--theme-black);
   }
+}
+
+.font-numeric {
+  font-family: "Roboto", sans-serif;
 }
 
 /* end of error page styles */

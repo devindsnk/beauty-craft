@@ -1,5 +1,5 @@
 <?php require APPROOT . "/views/customer/cust_headerBar.php" ?>
-<div class="content">
+<div class="content main-content-template">
     <div class="sidebar">
         <div class="sidebarcontent">
             <div class="list">
@@ -20,7 +20,6 @@
             </div>
             <div class="line"></div>
         </div>
-
     </div>
     <div class="container">
         <div class="item item1">

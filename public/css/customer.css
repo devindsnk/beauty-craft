@@ -2,7 +2,7 @@
     background-color: var(--theme-black);
 }
 
-.content {
+.main-content-template {
     display: grid;
     grid-template-columns: 5fr 12fr 1fr;
     grid-template-rows: 155px calc(100vh - 155px);
@@ -211,3 +211,110 @@ label.proflabel {
 /* button.sidenavbttn.option:hover {
     font-weight: 500;
 } */
+
+/* Styles of My reservations  */
+.cust.my-reservations .main-container {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.cust.my-reservations .sub-container {
+    align-self: center;
+    padding: 30px;
+    min-width: 500px;
+    width: 80%;
+    height: min-content;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 12px 0;
+}
+
+.cust.my-reservations .sub-container .btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-top: auto;
+    padding-bottom: 0;
+}
+
+.cust.my-reservations .sub-container .btn-container .btn {
+    font-weight: 500;
+    padding: 5px;
+    width: 120px;
+    margin-top: 10px;
+}
+
+.cust.my-reservations .sub-container .row {
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: auto 120px;
+    gap: 0 15px;
+}
+
+.cust.my-reservations .sub-container .row-inner {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.cust.my-reservations .sub-container .date-box {
+    border-radius: 6px;
+    height: max-content;
+    background-color: var(--theme-lightgrey);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+
+.cust .text-group span,
+.cust .date-box span {
+    display: block;
+    width: 100%;
+}
+
+.cust .sub-container .text-group {
+    margin-bottom: 15px;
+}
+
+.cust .text-group .title {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--theme-grey);
+}
+
+.cust .text-group .content {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--theme-black);
+}
+
+.cust .text-group .description {
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--theme-black);
+}
+
+.cust .date-box .mondate {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--theme-purple);
+}
+
+.cust .date-box .year {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--theme-grey);
+}
+
+.cust .desc-container {
+    margin-top: 20px;
+}
+
+.main-container {
+    margin: 0 150px;
+}

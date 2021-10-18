@@ -10,6 +10,7 @@
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/style.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/home.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/customer.css" />
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/formStyle.css" />
 </head>
 
 <body class=customerPages>

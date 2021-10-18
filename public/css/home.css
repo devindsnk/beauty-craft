@@ -228,6 +228,7 @@
    transition: 0.3s;
    visibility: hidden;
    opacity: 0;
+   overflow: hidden;
 }
 
 .customerPages .profile_menu ul li {

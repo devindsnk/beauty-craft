@@ -71,7 +71,7 @@ session_start();
             <li>
                <?php if ($_SESSION['userType'] == 6) : ?>
                   <i class="far fa-user"></i>
-                  <a href="#">My Reservations</a>
+                  <a href="<?php echo URLROOT ?>/custDashboard/myReservations">My Reservations</a>
                <?php else : ?>
                   <i class="far fa-user"></i>
                   <a href="<?php echo URLROOT ?>/user/provideIntialView">Dashboard</a>
