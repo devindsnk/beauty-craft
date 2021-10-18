@@ -15,6 +15,7 @@
     width: 100%;
     margin: auto;
     overflow:scroll;
+    padding-top: 50px;
 
 }
 
@@ -170,12 +171,13 @@
 }
 
 .form-container .btn {
-    height: 50px;
-    width: 150px;
+    width: 160px;
+    padding-top: 7px;
+    padding-bottom: 7px;
     text-align: center;
     border-radius: 6px;
     border: none;
-    background-color: var(--theme-blue);
+    background-color: var(--theme-purple);
     color: white;
     font-size: 16px;
 }
@@ -242,4 +244,10 @@ label.ownAddstaffBasicinfoImagewrapper {
     height: 160px;
     width: 160px;
     margin-right: 20px;
+}
+.btn.btn-filled.btn-theme-purple.addstaffadmin{
+    width: 160px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    
 }

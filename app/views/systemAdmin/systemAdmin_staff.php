@@ -158,7 +158,9 @@
             </div>
             <!----------------------------------------- form submit button starts ------------------------------------------------------------------------>
             <div class="ownAddstaffButton">
-                <button class="ownAddstaffbutton 2 btn">Create Account</button>
+               <div class="footer-container">
+               <button type="submit" class="btn btn-filled btn-theme-purple addstaffadmin">Create account</button>
+            </div>
             </div>
             <!----------------------------------------- form submit button ends -------------------------------------------------------------------------->
         </form>
