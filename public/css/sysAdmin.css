@@ -10,9 +10,18 @@
    overflow:scroll;
 }
 
+.formadmin{
+    height: 800px;
+    width: 100%;
+    margin: auto;
+    overflow:scroll;
+
+}
+
 .content.admin .ownAddstaffContainer.contentBox,
 .reg-container.form-container.contentBox {
     margin-top: 50px;
+    margin: auto;
 
     
 }
