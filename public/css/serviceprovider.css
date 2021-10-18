@@ -577,3 +577,21 @@ span.leavelimitmsg{
     justify-content: right;
     width: 100%;
 }
+/* resevation list day input */
+.sub-container1-card-content .day{
+    background-color:lightgray;
+    hight: 10px;
+    width: 100px;
+
+}
+.sub-container1-card-content .mainsection{
+    display:flex;
+    flex-direction:row-reverse;
+
+
+}
+.sub-container1-card-content .selecteddate{
+    border:none;
+     background-color:lightgray;
+
+}

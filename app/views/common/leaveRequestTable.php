@@ -1,21 +1,4 @@
 
-<?php 
-//print_r($data);
- //echo $data['leavesOfSelectedMonth']; 
-//$num1 = ($data['leaveLimit']->{'leaveLimit'}); 
-//$num2 = ($data['leaveCount']->{'COUNT(*)'});
-// $num3 = ($data['leavesOfSelectedMonth']->{'COUNT(*)'});
-// print_r($num1);
-// print_r($num2);
-//print_r($num3);
-// print($num1-$num2);
-//$num3 = number_format($num1)-number_format($num2);
-// echo $num3;
-?>
-<script>
-
-</script>
-
 <div class="leaverequesttable">
          <div class="cardandbutton">
             <div class="leavecountcard">
@@ -220,4 +203,28 @@
 
          <!-- end delete leave request model -->
       </div>
+
+<?php echo $data['leaveexceed'] ?>
+	<script>
+      var leaveExceedStatus =<?php echo $data['leaveexceed']; ?>;
+
+      if (leaveExceedStatus==1){
+         if (confirm("Your Leave Limit is Exceeded,Do you want to Send leave Request ?") == true) {
+			 var leaveExceedStatus=0;
+		} else {
+			var leaveExceedStatus=1;
+		}
+  window.location.href="<?php echo URLROOT; ?>/SerProvDashboard/leaves?leaveResponnse="+leaveExceedStatus;
+      }
+   
+
+
+
+<?php $exceedMsgResponse = "<script>document.write(http://localhost/beauty-craft/SerProvDashboard)</script>"?> 
+    </script>
+<?php echo $exceedMsgResponse;?>
+
+
+
+
  <script src="<?php echo URLROOT ?>/public/js/tableFilter.js"></script>

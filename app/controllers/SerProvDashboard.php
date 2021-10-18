@@ -37,9 +37,8 @@
          'haveErrors' => 0,
          'reasonentered'=>'',
          'remainingCount'=> $remainingLeaveCount,
-         
-         
-         
+         'leaveexceed'=>0,
+      
        ];
        //to get enter reason
        $checkDate=$this->LeaveModel->checkExsistingDate($data['date']) ;
@@ -65,13 +64,30 @@
                   //leave count according to selected date
                   $leavesOfSelectedMonth=$this->LeaveModel->checkLeaveDate($data);
                  // echo $leavesOfSelectedMonth;
-                 
-                  
+           
                  // echo $data['leaveLimit'];
                   if($leaveLimit <= $leavesOfSelectedMonth)
                   {
-                     
+                     $data['leaveexceed']=1;
                      $data['haveErrors'] = 1;
+                     $this->view('serviceProvider/serProv_leaves', $data);
+                   //  echo $_GET['leaveExceedStatus'];
+                    // die ('success');
+                    $leaveResponse=1;
+                    $leaveResponse=$_GET['leaveResponnse'];
+                    // die ($leaveResponse);
+                    $this->view('serviceProvider/serProv_leaves');
+                    if($leaveResponse==1){
+                       echo "success";
+                     //  $this->view('serviceProvider/serProv_leaves');
+                    }
+                     if($leaveResponse==0)
+                    {
+                       echo "fail";
+                       $this->LeaveModel->requestleave($data);
+                        // redirect to this view
+                      //  redirect('serProvDashboard/leaves');
+                    }
                      
                   }
                   else{
@@ -82,7 +98,7 @@
                  redirect('serProvDashboard/leaves');
                   }
                //redirect('serProvDashboard/leaves');
-               $this->view('serviceProvider/serProv_leaves', $data);
+              // $this->view('serviceProvider/serProv_leaves', $data);
                }
 
                else {
@@ -108,6 +124,7 @@
          'haveErrors' => 0,
          'reasonentered'=>'',
          'remainingCount'=> $remainingLeaveCount,
+         'leaveexceed'=>0,
          
          ];
          
