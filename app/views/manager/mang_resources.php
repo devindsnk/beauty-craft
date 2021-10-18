@@ -15,8 +15,8 @@
    ?>
 
    <!--Content-->
-   <div class="content">
-      <?php require APPROOT . "/views/common/resourcesTable.php" ?>
+   <div class="content resources">
+   <?php require APPROOT . "/views/common/resourcesTable.php" ?>
    </div>
    <!--End Content-->
 

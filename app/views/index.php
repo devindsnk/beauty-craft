@@ -18,6 +18,10 @@ session_start();
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/home.css">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/icons.css">
 
+
+
+
+
 </head>
 
 <body class="landingPage customerPages">
@@ -92,8 +96,522 @@ session_start();
    <div class="features section">
       <span class="title">WHY CHOOSE US</span>
    </div>
-   <div class="services section">
+   <div class="services section ">
       <span class="title">OUR SERVICES</span>
+
+      <div class="slideshow-container">
+         <!-- slide 1 -->
+         <div class="mySlides fade">
+            <div class="cardContainer">
+               <!-- card 1 -->
+               <div class="card1">
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
+                  </div>
+                  <div class="cardDetails">
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Mens’ Haircut
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs.500
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Ladies’ Haircut (Long Hair)
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs.500
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Ladies’ Haircut (Short Hair)
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs.400
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn ">
+                           <label class="CardDetailsLabel">
+                              Kids’ Haircut
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs.350
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids’ Haircut
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs.350
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- card 2 -->
+               <div class="card2">
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
+                  </div>
+                  <div class="cardDetails">
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- slide 2 -->
+
+         <div class="mySlides fade">
+            <div class="cardContainer">
+               <!-- card 1 -->
+               <div class="card1">
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
+                  </div>
+                  <div class="cardDetails">
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- card 2 -->
+               <div class="card2">
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
+                  </div>
+                  <div class="cardDetails">
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+
+
+         <!-- slide 2 -->
+
+         <div class="mySlides fade">
+            <div class="cardContainer">
+               <!-- card 1 -->
+               <div class="card1">
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
+                  </div>
+                  <div class="cardDetails">
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- card 2 -->
+               <div class="card2">
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
+                  </div>
+                  <div class="cardDetails">
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+
+         <!-- slide 2 -->
+
+         <div class="mySlides fade">
+            <div class="cardContainer">
+               <!-- card 1 -->
+               <div class="card1">
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
+                  </div>
+                  <div class="cardDetails">
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- card 2 -->
+               <div class="card2">
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
+                  </div>
+                  <div class="cardDetails">
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                     <div class="cardRow">
+                        <div class="cardColumn">
+                           <label class="CardDetailsLabel">
+                              Kids Hair cuts
+                           </label>
+                        </div>
+                        <div class="cardColumn">
+                           <span class="CardDetailsValue">
+                              Rs. 20000
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+
+
+
+         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+         <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+      </div>
+      <br>
+
+      <div style="text-align:center">
+         <span class="dot" onclick="currentSlide(1)"></span>
+         <span class="dot" onclick="currentSlide(2)"></span>
+         <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+
+
+
+
    </div>
 
    <div class="team section">
@@ -122,6 +640,7 @@ session_start();
 
    </footer>
    <script src="<?php echo URLROOT ?>/public/js/home.js"></script>
+
 </body>
 
 </html>
