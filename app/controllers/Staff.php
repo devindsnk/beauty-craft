@@ -19,6 +19,7 @@ class Staff extends Controller
             'staffDOB' => trim($_POST['staffDOB']),
             'staffType' => isset($_POST['staffType']) ? trim($_POST['staffType']) : '',
             'staffHomeAdd' => trim($_POST['staffHomeAdd']),
+            'staffHomeAddTyped'=>'',
             'staffContactNum' => trim($_POST['staffContactNum']),
             'staffEmail' => trim($_POST['staffEmail']),
             'staffAccNum' => trim($_POST['staffAccNum']),
@@ -39,7 +40,7 @@ class Staff extends Controller
             'staffAccBank_error' => '',
             'staffAccBranch_error' => '',
          ];
-
+            $data['staffHomeAddTyped']= $data['staffHomeAdd'];
          // Validating fname
          if (empty($data['staffFname']))
          {
@@ -151,6 +152,8 @@ class Staff extends Controller
             empty($data['staffFname_error']) && empty($data['staffLname_error']) && empty($data['gender_error']) && empty($data['staffNIC_error']) && empty($data['staffDOB_error']) && empty($data['staffType_error']) && empty($data['staffHomeAdd_error']) && empty($data['staffContactNum_error']) && empty($data['staffEmail_error']) &&
             empty($data['staffAccNum_error']) && empty($data['staffAccHold_error']) && empty($data['staffAccBank_error']) && empty($data['staffAccBranch_error'])
          ) {
+
+            // print_r($data);
             $this->staffModel->addStaffDetails($data);
             $this->staffModel->addBankDetails($data);
             $this->userModel->registerUser($data['staffContactNum'], $data['staffNIC'], $data['staffType']);
@@ -191,6 +194,7 @@ class Staff extends Controller
             'staffAccHold_error' => '',
             'staffAccBank_error' => '',
             'staffAccBranch_error' => '',
+            'staffHomeAddTyped'=>'',
             
          ];
          $this->view('owner/own_staffAdd', $data);
@@ -203,8 +207,12 @@ class Staff extends Controller
    public function viewStaff($staffID)
    {
       $bankDetails = $this->staffModel->getBankDetails($staffID);
-      
       $this->view('owner/own_staffView',$bankDetails[0]);
    }  
+
+   public function RemStaffReservations()
+   {
+      $this->view('owner/own_RemStaffViewReservations');
+   }
 
 }

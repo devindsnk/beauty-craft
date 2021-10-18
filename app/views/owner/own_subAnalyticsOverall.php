@@ -4,18 +4,19 @@
    <?php
    $selectedMain = "Analytics";
    $selectedSub = "OverallAnalytics";
-   require APPROOT . "/views/manager/mang_sideNav.php"
+   require APPROOT . "/views/owner/own_sideNav.php"
    ?>
 
    <?php
    $title = "Overall Analytics";
-   $username = "Sanjana Rajapaksha";
-   $userLevel = "Manager";
+   $username = "Ravindu Madhubhashaan";
+   $userLevel = "Owner";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 
-   <!--Content-->
-   <div class="content">
+    <!--Content-->
+
+    <div class="content">
     <?php require APPROOT . "/views/common/SubAnalyticsOverall.php" ?>
     </div>
 

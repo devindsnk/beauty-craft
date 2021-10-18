@@ -57,7 +57,7 @@
             </div>
             <div class="right-section">
                <a href="" class="btn btn-filled btn-black">Search</a>
-               <!-- <button class="btn btn-search">Search</button> -->
+               <a href="#" class="btn btn-filled btn-theme-purple btnSalaryPay"></i> Mark As Paid</a>
             </div>
          </div>
       </form>
@@ -107,7 +107,7 @@
                      </td>
                      <td data-lable="More" class="column-center-align">
                         <a class="btnSalaryPayment" class="">
-                           <button type="button" class="table-btn black-action-btn text-uppercase ">Pay Now</button>
+                           <button type="button" class="table-btn black-action-btn text-uppercase btnSalaryPay">Pay Now</button>
                         </a>
                      </td>
                   </tr>
@@ -132,7 +132,7 @@
                         </span>
                      </td>
                      <td data-lable="More" class="column-center-align">
-                        <a href="#"><button type="button" class="table-btn black-action-btn text-uppercase">Pay
+                        <a href="#"><button type="button" class="table-btn black-action-btn text-uppercase btnSalaryPay">Pay
                               Now</button></a>
                      </td>
                   </tr>
@@ -158,7 +158,7 @@
                         </span>
                      </td>
                      <td data-lable="More" class="column-center-align">
-                        <a href="#"><button type="button" class="table-btn black-action-btn text-uppercase">Pay
+                        <a href="#"><button type="button" class="table-btn black-action-btn text-uppercase btnSalaryPay">Pay
                               Now</button></a>
                      </td>
                   </tr>
@@ -183,7 +183,7 @@
                         </span>
                      </td>
                      <td data-lable="More" class="column-center-align">
-                        <a href="#"><button type="button" class="table-btn black-action-btn text-uppercase">Pay
+                        <a href="#"><button type="button" class="table-btn black-action-btn text-uppercase btnSalaryPay">Pay
                               Now</button></a>
                      </td>
                   </tr>
@@ -208,7 +208,7 @@
                            <a href="<?php echo URLROOT ?>/salary/salaryReport"><i class="img-view-edit-update ci-view-more table-icon"></i></a>
                      </td>
                      <td data-lable="More" class="column-center-align">
-                        <a href="#"><button type="button" class="table-btn black-action-btn text-uppercase">Pay
+                        <a href="#"><button type="button" class="table-btn black-action-btn text-uppercase btnSalaryPay">Pay
                               Now</button></a>
                      </td>
                   </tr>
@@ -225,7 +225,7 @@
                      <td data-lable="Staff Type">Receptionist</td>
                      <td data-lable="Salary" class="column-right-align">Rs.25000.00</td>
                      <td data-lable="Paid Status" class="column-center-align">
-                        <a href="#"><button type="button" class="table-btn green-status-btn text-uppercase">Paid</button></a>
+                        <a href="#"><button type="button" class="table-btn green-status-btn text-uppercase btnRemoveService">Paid</button></a>
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
@@ -233,7 +233,7 @@
                         </span>
                      </td>
                      <td data-lable="More" class="column-center-align">
-                        <a href="#"><button type="button" class="table-btn black-action-btn text-uppercase">Pay
+                        <a href="#"><button type="button" class="table-btn black-action-btn text-uppercase btnSalaryPay">Pay
                               Now</button></a>
                      </td>
                   </tr>
@@ -255,16 +255,9 @@
    </div>
 
    <!--End Content-->
-
-
-   <?php require APPROOT . "/views/inc/footer.php" ?>
-
-
-
-
-
+   
    <!-- Validate the salary payment model -->
-   <div class="modal-container salary-payment">
+   <div class="modal-container ">
       <div class="modal-box">
          <div class="confirm-model-head">
             <h1>Salary Payment</h1>
@@ -274,8 +267,32 @@
          </div>
          <div class="confirm-model-head">
             <button class="btn btnClose normal ModalButton ModalCancelButton">Cancel</button>
-            <button class="btn btnClose normal ModalButton ModalBlueButton">Proceed</button>
+            <button class="btn normal ModalButton ModalBlueButton">Proceed</button>
          </div>
       </div>
    </div>
    <!-- End of Validate the salary payment model -->
+
+   <!-- Remove close date model -->
+<div class="modal-container salary-payment">>
+        <div class="modal-box">
+                <div class="confirm-model-head">
+                    <h1>Salary Payment</h1>
+                </div>
+                <div class="confirm-model-head">
+                    <p>Are you sure you want to mark this as paid?<br> This action cannot be undone after proceeding.</p>
+                </div>
+                <div class="confirm-model-head">
+                    <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
+                    <button class="btn normal ModalButton ModalBlueButton">proceed</button>
+                </div>
+        </div>
+    </div>
+<!-- End of Remove close date model -->
+
+
+   <?php require APPROOT . "/views/inc/footer.php" ?>
+
+
+
+

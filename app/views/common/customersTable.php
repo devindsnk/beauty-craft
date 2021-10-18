@@ -65,7 +65,7 @@
                </td>
                <td class="column-center-align">
                   <span> 
-                      <a href="<?php echo URLROOT ?>/customerView/cusDetailView"><i class="ci-view-more table-icon"></i></a>
+                      <a href="<?php echo URLROOT ?>/OwnDashboard/cusDetailView"><i class="ci-view-more table-icon"></i></a>
                      <?php if ($userLevel == "Owner") : ?>
                         <a href="#"><i class="ci-trash table-icon btnRemoveCustomer"></i></a>
                      <?php endif; ?>
@@ -84,7 +84,7 @@
                </td>
                <td class="column-center-align">
                   <span>
-                     <a href="<?php echo URLROOT ?>/customerView/cusDetailView"><i class="ci-view-more table-icon"></i></a>
+                     <a href="<?php echo URLROOT ?>/OwnDashboard/cusDetailView"><i class="ci-view-more table-icon"></i></a>
                      <?php if ($userLevel == "Owner") : ?>
                         <a href="#"><i class="ci-trash table-icon btnRemoveCustomer "></i></a>
                      <?php endif; ?>

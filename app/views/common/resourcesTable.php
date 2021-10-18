@@ -118,14 +118,12 @@
                 </div>
                 <div class="confirm-model-head">
                     <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
-                    <button class="btn btnClose normal ModalButton ModalBlueButton">proceed</button>
+                    <button class="btn normal ModalButton ModalBlueButton">proceed</button>
                 </div>
         </div>
     </div>
 
 <!-- End of Remove Resource model -->
-
-
 
   <!--------------------------------------------------------------------------------- Add resource starts ---------------------------------------------------------------->
   <div class="modal-container add-resource">
@@ -175,6 +173,49 @@
 
 
 <!--------------------------------------------------------------------------------- Update resource starts ---------------------------------------------------------------->
+
+<div class="modal-container ">
+    <div class="modal-box addItems">
+       <h1 class="addItemsModalHead"> Resources</h1>
+       <!-- start main grid 1 -->
+
+       <div class="addItemsModalGrid1 ownResAddDetails">
+       <div class="addItemsModalDetail1">
+                    <label class="addItemsModalLable">Resource Name</label> <br>
+                    <input type="text" class="ownResAddLabeltext" placeholder="--Type in--">
+                </div>
+                <div class="ownResAddDetail2">
+                    <label class="addItemsModalLable">Quantity</label> <br>
+                    <select   class="addItemsSelect" name="ownResAddQuantity">
+                        <option value="one">1</option>
+                        <option value="two">2</option>
+                        <option value="three">3</option>
+                        <option value="four">4</option>
+                        <option value="five">5</option>
+                        <option value="six">6</option>
+                        <option value="seven">7</option>
+                        <option value="eight">8</option>
+                        <option value="nine">9</option>
+                        <option value="ten">10</option>
+                    </select>
+                </div>
+       </div>
+
+       <!-- main grid 1 ends -->
+
+       <!-- main grid 3 starts -->
+       <div class="addItemsModalGrid3">
+          <div class="addItemsModalbtn1">
+             <button class="btn btnClose normal ModalCancelButton ModalButton">Cancel</button>
+          </div>
+          <div class="addItemsModalbtn2">
+             <button class="btn ModalGreenButton ModalButton">Proceed</button>
+          </div>
+       </div>
+       <!-- main grid 3 ends -->
+    </div>
+ </div>
+
   <div class="modal-container update-resource">
     <div class="modal-box addItems">
        <h1 class="addItemsModalHead">Add Resources</h1>
@@ -221,21 +262,11 @@
 
 
 
-   
 
-   
-<div class="modal-container remove-resource">
-   <div class="modal-box">
-      <div class="confirm-model-head">
-         <h1>Remove Resource</h1>
-      </div>
-      <div class="confirm-model-head">
-         <p>Are you sure you want to Remove the Resource?</p>
-      </div>
-      <div class="confirm-model-head">
-         <button class="btn btnClose normal ModalButton ModalCancelButton">Cancel</button>
-         <button class="btn btnClose normal ModalButton ModalBlueButton">Proceed</button>
-      </div>
-   </div>
-</div>
+
+
+
+         
+
+
 
