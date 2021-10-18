@@ -30,7 +30,7 @@
          <li class="mainOption menuOption">
             <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/reservations">
                <div class="optionIcon">
-                  <i class="sidenav-icon ci-elements "></i>
+                  <i class="sidenav-icon ci-tasks "></i>
                </div>
                <div class="optionTitle">Reservations</div>
             </a>
@@ -41,7 +41,7 @@
          <li class="mainOption menuOption">
             <a class="optionLink <?php if ($selectedMain == "StaffMembers") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/staffMembers">
                <div class="optionIcon">
-                  <i class="sidenav-icon ci-elements "></i>
+                  <i class="sidenav-icon ci-briefcase "></i>
                </div>
                <div class="optionTitle">Staff Members</div>
             </a>
@@ -52,7 +52,7 @@
          <li class="mainOption">
             <a class="optionLink <?php if ($selectedMain == "Customers") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/customers">
                <div class="optionIcon">
-                  <i class="sidenav-icon ci-elements "></i>
+                  <i class="sidenav-icon ci-people "></i>
                </div>
                <div class="optionTitle">Customers</div>
             </a>
@@ -85,7 +85,7 @@
          <li class="mainOption">
             <a class="optionLink <?php if ($selectedMain == "Leaves") echo " selected" ?>">
                <div class="optionIcon">
-                  <i class="sidenav-icon ci-elements "></i>
+                  <i class="sidenav-icon ci-save-remove "></i>
                </div>
                <div class="optionTitle">Leaves</div>
                <div class="optionArrow <?php if ($selectedMain == "Leaves") echo " rotated180" ?>">
@@ -119,7 +119,7 @@
          <li class="mainOption">
             <a class="optionLink <?php if ($selectedMain == "Analytics") echo " selected" ?>">
                <div class="optionIcon">
-                  <i class="sidenav-icon ci-elements "></i>
+                  <i class="sidenav-icon ci-analytics "></i>
                </div>
                <div class="optionTitle">Analytics</div>
                <div class="optionArrow <?php if ($selectedMain == "Analytics") echo " rotated180" ?>">

@@ -229,8 +229,8 @@
             datasets: [{ 
                 data: [70,90,44,60,83,90,100,30,80.35,45,39],
                 label: "Income",
-                borderColor: "#ff758f",
-                backgroundColor: "#ffb3c1",
+                borderColor: "#f08080",
+                backgroundColor: "#f8ad9d",
                 borderWidth:2
               }
             ]

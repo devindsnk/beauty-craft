@@ -11,8 +11,8 @@ class ServiceModel{
     }
 
     public function addService($data){
-        // die("hello");
-
+        // var_dump($_POST['serProvCheckbox']);
+        // die('succes');
         if (empty($data['sSelectedType'])){
             $this->db->query("INSERT INTO services (name, price, type, totalDuration, status) VALUES(:sName, :sPrice, :sNewType, :sSlot1Duration, 'active')");
             $this->db->bind(':sNewType', $data['sNewType']);
@@ -31,8 +31,9 @@ class ServiceModel{
 
     public function addServiceProvider($data){
 
+       
         foreach($data['sSelectedProv'] as $SelectedProv){
-
+            // print_r($SelectedProv);
             $this->db->query("INSERT INTO serviceproviders (serviceID, staffID) SELECT MAX(serviceID), '$SelectedProv' FROM services");
 
             $this->db->execute();
@@ -56,7 +57,7 @@ class ServiceModel{
         $SelectedResCount = $$data['sSelectedResCount'];
         foreach($data['sSelectedResourse'] as $SelectedResourse){
 
-            $this->db->query("INSERT INTO resourceallocation (serviceID, slotNo, resourceID, requiredQuantity) SELECT MAX(serviceID), '1', '$SelectedResourse', '$SelectedResCount' FROM services");
+            $this->db->query("INSERT INTO resourceallocation (serviceID, slotNo, resourceID, requiredQuantity) SELECT MAX(serviceID), '$slotNo', '$SelectedResourse', '$SelectedResCount' FROM services");
 
             $this->db->execute();
         }

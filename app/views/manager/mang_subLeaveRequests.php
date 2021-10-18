@@ -76,6 +76,7 @@
                      <th class="column-center-align col-5 column-center-align">Reason</th>
                      <th class="column-center-align col-6">Status</th>
                      <th class="col-8"></th>
+                     <th class="col-9"></th>
                   </tr>
                </thead>
 
@@ -94,6 +95,9 @@
                            <a href="<?php echo URLROOT ?>/leaves/leaveRequest"><i class="ci-view-more table-icon img-gap"></i></a>
                         </span>
                      </td>
+                     <td class="column-center-align">
+                        <a href="#"><button type="button" class="table-btn black-action-btn">Approve</button></a>
+                     </td> 
                   </tr>
 
                   <tr>
@@ -110,6 +114,9 @@
                            <a href="<?php echo URLROOT ?>/leaves/leaveRequest"><i class="ci-view-more table-icon img-gap"></i></a>
                         </span>
                      </td>
+                     <td class="column-center-align">
+                        <a href="#"><button type="button" class="table-btn black-action-btn">Approve</button></a>
+                     </td> 
                   </tr>
 
                   <tr>
@@ -126,17 +133,16 @@
                            <a href="<?php echo URLROOT ?>/leaves/leaveRequest"><i class="ci-view-more table-icon img-gap"></i></a>
                         </span>
                      </td>
+                     <td class="column-center-align">
+                        <a href="#"><button type="button" class="table-btn black-action-btn">Approve</button></a>
+                     </td> 
                   </tr>
 
                </tbody>
             </table>
          </div>
       </div>
-
-      <h3>This is main option 1</h3>
-      <a href="<?php echo URLROOT ?>/leaves/leaveRequest"><button>Leave Request</button></a>
       
-
    </div>
    <!--End Content-->
 

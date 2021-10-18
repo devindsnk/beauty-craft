@@ -190,7 +190,7 @@
                 data: [35000,11400,50600,30600,40700,11100,13300,45000,42000.23500,17500,12400],
                 label: "No of reservations",
                 borderColor: "#e5989b",
-                backgroundColor: "#ffb4a2",
+                backgroundColor: "#ffd166",
               }
             ]
           },
@@ -205,7 +205,7 @@
                 data: [70,90,44,60,83,90,100,30,80.35,45,39],
                 label: "Income",
                 borderColor: "#b392ac",
-                backgroundColor: "#e8c2ca",
+                backgroundColor: "#8d99ae",
                 borderWidth:2
               }
             ]

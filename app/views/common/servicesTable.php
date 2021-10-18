@@ -59,7 +59,7 @@
                <th class="column-center-align col-2">Service</th>
                <th class="column-center-align col-3">Type</th>
                <th class="column-center-align col-4">Total Duration</th>
-               <th class="column-center-align col-5">Price</th>
+               <th class="column-right-align col-5">Price</th>
                <th class="column-center-align col-6">Status</th>
                <th class="col-7"></th>
             </tr>
@@ -83,7 +83,7 @@
                            
 								<?php endif; ?>
                   <!-- <td class="column-center-align"><?php echo $sDetails->totalDuration; ?></td> -->
-                  <td data-lable="Price" class="column-right-align"><?php echo $sDetails->price; ?></td>
+                  <td data-lable="Price" class="column-right-align"><?php echo number_format($sDetails->price, 2, '.', ' '); ?> LKR</td>
                   <td data-lable="Status" class="column-center-align">
                      <button type="button" class="table-btn green-status-btn text-uppercase"><?php echo $sDetails->status; ?></button>
                   </td>
@@ -173,8 +173,8 @@
          <p>Are you sure you want to delete the service? <br> This action cannot be undone after proceeding.</p>
       </div>
       <div class="confirm-model-head">
-         <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
-         <button class="btn btnClose normal ModalButton ModalBlueButton">Confirm</button>
+         <button class="btn btnClose ModalButton ModalCancelButton">Close</button>
+         <button class="btn btnClose ModalButton ModalBlueButton">Confirm</button>
       </div>
    </div>
 </div>

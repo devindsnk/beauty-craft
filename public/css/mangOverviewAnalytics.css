@@ -149,7 +149,7 @@
 /* for table */
 @media screen and (max-width: 1296px) {
     .mang .table-container{
-        width: 560px;
+        width: 500px;
     }
     
 }
@@ -211,7 +211,7 @@
 }
 
 .leave-requests-sub{
-    min-width: 380px;
+    min-width: 360px;
     padding: 30px;
     margin: 20px 10px;
     background-color: white;
