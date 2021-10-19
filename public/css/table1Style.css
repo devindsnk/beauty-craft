@@ -161,6 +161,12 @@
   background-color: var(--theme-black);
 }
 
+.table1 .gray-action-btn, .table2 .gray-action-btn{
+  width: 82px;
+  color: #fff;
+  background-color: #6c757d;
+}
+
 .table1 .black-action-btn:hover, .table2 .black-action-btn:hover {
   background-color: #6c757d;
 }
