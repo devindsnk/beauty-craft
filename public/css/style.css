@@ -14,6 +14,7 @@
   --bg-theme-blue: #DBEBFD;
   --theme-black: #252631;
   --theme-bgwhite: #F2F2F7;
+  --theme-bggrey: #8A8888;
   --theme-grey: #50515A;
   --theme-lightgrey: #EAEAEA;
   --error-red: #DA2346;
@@ -227,7 +228,7 @@ footer p {
   background-color: var(--theme-blue);
 }
 
-.btn.btn-outlined.btn-theme-purple  {
+.btn.btn-outlined.btn-theme-purple {
   border: 2px solid var(--theme-purple);
   color: var(--theme-purple);
 }
@@ -352,6 +353,10 @@ footer p {
 
 /* end of error page styles */
 
+.hideElement {
+  visibility: hidden;
+}
+
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
 /* ------------------------------------------------------ */
@@ -362,22 +367,24 @@ footer p {
 
 
 /* resizing styles of resources content */
-.content.resources{
+.content.resources {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-} 
+}
 
 /* #################################################################### */
 
-.services.section .title{
+.services.section .title {
   color: var(--white);
 }
-.services.section .cardContainer{
+
+.services.section .cardContainer {
   width: 1000px;
   height: auto;
 }
-.services.section .cardHead{
+
+.services.section .cardHead {
   background-color: var(--theme-black);
   color: var(--white);
   border-radius: 6px 6px 0 0;
@@ -394,21 +401,21 @@ footer p {
   margin: 20px;
 }
 
-.services.section .cardDetails{
+.services.section .cardDetails {
   flex-direction: column;
   justify-content: space-evenly;
   align-content: center;
   padding: 20px;
-  
+
 }
 
 
-.services.section .cardContainer{
+.services.section .cardContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr; 
+  grid-template-columns: 1fr 1fr;
   grid-gap: 15px;
   grid-template-areas:
-  'servsecCard1 servsecCard2 '
+    'servsecCard1 servsecCard2 '
 }
 
 .services.section .card1 {
@@ -426,24 +433,28 @@ footer p {
   border-radius: 6px;
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
 }
+
 .services.section .CardDetailsValue,
-.services.section .CardDetailsLabel{
+.services.section .CardDetailsLabel {
   font-weight: 500;
 }
-.services.section .Llength{
+
+.services.section .Llength {
   width: 400px;
 }
-.services.section .CardDetailsValue{
+
+.services.section .CardDetailsValue {
   float: right;
-  color:var(--theme-red);  
+  color: var(--theme-red);
 }
+
 /* ##################################################################### */
 
 
 
 
 
-.services.section{
+.services.section {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: stretch;
@@ -455,6 +466,7 @@ footer p {
   background-size: cover;
   position: relative;
 }
+
 .services.section .mySlides {
   display: none;
 }
@@ -543,21 +555,21 @@ footer p {
 
 @-webkit-keyframes fade {
   from {
-     opacity: .4
+    opacity: .4
   }
 
   to {
-     opacity: 1
+    opacity: 1
   }
 }
 
 @keyframes fade {
   from {
-     opacity: .4
+    opacity: .4
   }
 
   to {
-     opacity: 1
+    opacity: 1
   }
 }
 
@@ -566,9 +578,10 @@ footer p {
 
   .prev,
   .next {
-     font-size: 14px
+    font-size: 14px
   }
 }
+
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY RAVINDU ---------------*/
 /* ------------------------------------------------------ */

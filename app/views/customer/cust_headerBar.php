@@ -13,7 +13,7 @@
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/formStyle.css" />
 </head>
 
-<body class=customerPages>
+<body class="customerPages">
    <nav class=nav-black>
       <div class="logo">
          <a href="../index.html">

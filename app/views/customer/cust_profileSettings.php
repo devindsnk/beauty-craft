@@ -1,26 +1,11 @@
-<?php require APPROOT . "/views/customer/cust_headerBar.php" ?>
+<?php
+$selectedOption = "profileSettings";
+require APPROOT . "/views/customer/cust_headerBar.php";
+?>
 <div class="content main-content-template">
-    <div class="sidebar">
-        <div class="sidebarcontent">
-            <div class="list">
-                <div class="sidenavbtn1">
-                    <a href="<?php echo URLROOT ?>/custDashboard/myReservations">
-                        <button class="sidenavbttn option">My Reservations</button>
-                    </a>
-                </div>
-                <div class="sidenavbtn2">
-                    <a href="<?php echo URLROOT ?>/custDashboard/profileSettings">
-                        <button class="sidenavbttn selected">Profile Settings</button>
-                    </a>
-                </div>
-                <div class="sidenavbtn3"><a href="<?php echo URLROOT ?>/Customer/changePassword">
-                        <button class="sidenavbttn option">Change Password</button></a>
-                </div>
-
-            </div>
-            <div class="line"></div>
-        </div>
-    </div>
+    <?php
+    require APPROOT . "/views/customer/cust_sideNav.php"
+    ?>
     <div class="container">
         <div class="item item1">
             <div class="profileimg">
@@ -65,7 +50,7 @@
         </div>
         <div class="item item5">
             <div class="savebutton">
-                <button>Save</button>
+                <button class="btn btn-filled btn-theme-red btnSave">Save</button>
             </div>
         </div>
     </div>

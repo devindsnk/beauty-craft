@@ -20,19 +20,4 @@ class CustDashboard extends Controller
    {
       $this->view('customer/cust_profileSettings');
    }
-   public function newReservation()
-   {
-      $this->getServiceProvider();
-      $this->view('customer/cust_addNewReservation');
-   }
-
-   public function getServiceProvider()
-   {
-      $sProvList = $this->serviceModel->getServiceProviderDetails();
-      // die("error");
-
-      print_r($sProvList);
-
-      return $sProvList;
-   }
 }

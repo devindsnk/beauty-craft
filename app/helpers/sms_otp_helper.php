@@ -59,26 +59,27 @@ function removePIN($pinModel, $mobileNo, $type)
 
 function sendSMS($mobileNo, $text)
 {
-   // $user = SMS_USER;
-   // $password = SMS_PASS;
+   $user = SMS_USER;
+   $password = SMS_PASS;
 
-   // $to = "94" . substr($mobileNo, 1, 9);
-   // $baseurl = "http://www.textit.biz/sendmsg";
+   $to = "94" . substr($mobileNo, 1, 9);
+   $baseurl = "http://www.textit.biz/sendmsg";
 
-   // $url = "$baseurl/?id=$user&pw=$password&to=$to&text=$text";
-   // $ret = file($url);
-   // $res = explode(":", $ret[0]);
+   $url = "$baseurl/?id=$user&pw=$password&to=$to&text=$text";
+   $ret = file($url);
+   $res = explode(":", $ret[0]);
 
-   // if (trim($res[0]) == "OK")
-   // {
-   //    die("Message Sent - ID : " . $res[1]);
-   // }
-   // else
-   // {
-   //    die("Sent Failed - Error : " . $res[1]);
-   // }
-   echo $mobileNo, $text;
-   return true;
+   if (trim($res[0]) == "OK")
+   {
+      echo $mobileNo, $text;
+      return true;
+      // die("Message Sent - ID : " . $res[1]);
+   }
+   else
+   {
+      return false;
+      // die("Sent Failed - Error : " . $res[1]);
+   }
 }
 
 function generateOTP()

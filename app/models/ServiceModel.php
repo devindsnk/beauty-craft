@@ -74,7 +74,6 @@ class ServiceModel
 
     public function getServiceDetails()
     {
-
         $this->db->query("SELECT * FROM services");
         $result = $this->db->resultSet();
 

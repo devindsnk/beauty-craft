@@ -35,13 +35,6 @@
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
                   </div>
-                  <div class="column">
-                     <div class="text-group">
-                        <label class="label" for="fName">Date</label>
-                        <input type="text" name="" id="fName" placeholder="Your first name here">
-                     </div>
-                     <span class="error"> <?php echo " "; ?></span>
-                  </div>
                </div>
             </div>
             <div class="right-section">

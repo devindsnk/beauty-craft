@@ -136,6 +136,153 @@
                </td>
             </tr>
 
+            <tr>
+               <td data-lable="Reservation ID" class="column-center-align">C000001</td>
+               <td data-lable="Date" class="column-center-align">2021-10-07</td>
+               <td data-lable="Time" class="column-center-align">09:30 AM</td>
+               <td data-lable="Service" class="column-left-align">Hair Cut - Mens</td>
+               <td data-lable="Service Provider" class="column-left-align">Devin Dissanayake</td>
+               <td data-lable="Customer" class="column-left-align">Ravindu Madhubhashana</td>
+               <td data-lable="Status" class="column-center-align">
+                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
+               </td>
+               <td class="column-center-align">
+                  <span>
+                     <a href="#"><i class="ci-view-more table-icon"></i></a>
+                     <?php if ($userLevel == "Receptionist") : ?>
+                        <a href="#"><i class="ci-edit table-icon"></i></a>
+                        <a href="#"><i class="ci-trash table-icon"></i></a>
+                     <?php endif; ?>
+                  </span>
+               </td>
+            </tr>
+
+            <tr>
+               <td data-lable="Reservation ID" class="column-center-align">C000001</td>
+               <td data-lable="Date" class="column-center-align">2021-10-07</td>
+               <td data-lable="Time" class="column-center-align">09:30 AM</td>
+               <td data-lable="Service" class="column-left-align">Hair Cut - Mens</td>
+               <td data-lable="Service Provider" class="column-left-align">Devin Dissanayake</td>
+               <td data-lable="Customer" class="column-left-align">Ravindu Madhubhashana</td>
+               <td data-lable="Status" class="column-center-align">
+                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
+               </td>
+               <td class="column-center-align">
+                  <span>
+                     <a href="#"><i class="ci-view-more table-icon"></i></a>
+                     <?php if ($userLevel == "Receptionist") : ?>
+                        <a href="#"><i class="ci-edit table-icon"></i></a>
+                        <a href="#"><i class="ci-trash table-icon"></i></a>
+                     <?php endif; ?>
+                  </span>
+               </td>
+            </tr>
+
+            <tr>
+               <td data-lable="Reservation ID" class="column-center-align">C000001</td>
+               <td data-lable="Date" class="column-center-align">2021-10-07</td>
+               <td data-lable="Time" class="column-center-align">09:30 AM</td>
+               <td data-lable="Service" class="column-left-align">Hair Cut - Mens</td>
+               <td data-lable="Service Provider" class="column-left-align">Devin Dissanayake</td>
+               <td data-lable="Customer" class="column-left-align">Ravindu Madhubhashana</td>
+               <td data-lable="Status" class="column-center-align">
+                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
+               </td>
+               <td class="column-center-align">
+                  <span>
+                     <a href="#"><i class="ci-view-more table-icon"></i></a>
+                     <?php if ($userLevel == "Receptionist") : ?>
+                        <a href="#"><i class="ci-edit table-icon"></i></a>
+                        <a href="#"><i class="ci-trash table-icon"></i></a>
+                     <?php endif; ?>
+                  </span>
+               </td>
+            </tr>
+
+            <tr>
+               <td data-lable="Reservation ID" class="column-center-align">C000001</td>
+               <td data-lable="Date" class="column-center-align">2021-10-07</td>
+               <td data-lable="Time" class="column-center-align">09:30 AM</td>
+               <td data-lable="Service" class="column-left-align">Hair Cut - Mens</td>
+               <td data-lable="Service Provider" class="column-left-align">Devin Dissanayake</td>
+               <td data-lable="Customer" class="column-left-align">Ravindu Madhubhashana</td>
+               <td data-lable="Status" class="column-center-align">
+                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
+               </td>
+               <td class="column-center-align">
+                  <span>
+                     <a href="#"><i class="ci-view-more table-icon"></i></a>
+                     <?php if ($userLevel == "Receptionist") : ?>
+                        <a href="#"><i class="ci-edit table-icon"></i></a>
+                        <a href="#"><i class="ci-trash table-icon"></i></a>
+                     <?php endif; ?>
+                  </span>
+               </td>
+            </tr>
+
+            <tr>
+               <td data-lable="Reservation ID" class="column-center-align">C000001</td>
+               <td data-lable="Date" class="column-center-align">2021-10-07</td>
+               <td data-lable="Time" class="column-center-align">09:30 AM</td>
+               <td data-lable="Service" class="column-left-align">Hair Cut - Mens</td>
+               <td data-lable="Service Provider" class="column-left-align">Devin Dissanayake</td>
+               <td data-lable="Customer" class="column-left-align">Ravindu Madhubhashana</td>
+               <td data-lable="Status" class="column-center-align">
+                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
+               </td>
+               <td class="column-center-align">
+                  <span>
+                     <a href="#"><i class="ci-view-more table-icon"></i></a>
+                     <?php if ($userLevel == "Receptionist") : ?>
+                        <a href="#"><i class="ci-edit table-icon"></i></a>
+                        <a href="#"><i class="ci-trash table-icon"></i></a>
+                     <?php endif; ?>
+                  </span>
+               </td>
+            </tr>
+
+            <tr>
+               <td data-lable="Reservation ID" class="column-center-align">C000001</td>
+               <td data-lable="Date" class="column-center-align">2021-10-07</td>
+               <td data-lable="Time" class="column-center-align">09:30 AM</td>
+               <td data-lable="Service" class="column-left-align">Hair Cut - Mens</td>
+               <td data-lable="Service Provider" class="column-left-align">Devin Dissanayake</td>
+               <td data-lable="Customer" class="column-left-align">Ravindu Madhubhashana</td>
+               <td data-lable="Status" class="column-center-align">
+                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
+               </td>
+               <td class="column-center-align">
+                  <span>
+                     <a href="#"><i class="ci-view-more table-icon"></i></a>
+                     <?php if ($userLevel == "Receptionist") : ?>
+                        <a href="#"><i class="ci-edit table-icon"></i></a>
+                        <a href="#"><i class="ci-trash table-icon"></i></a>
+                     <?php endif; ?>
+                  </span>
+               </td>
+            </tr>
+
+            <tr>
+               <td data-lable="Reservation ID" class="column-center-align">C000001</td>
+               <td data-lable="Date" class="column-center-align">2021-10-07</td>
+               <td data-lable="Time" class="column-center-align">09:30 AM</td>
+               <td data-lable="Service" class="column-left-align">Hair Cut - Mens</td>
+               <td data-lable="Service Provider" class="column-left-align">Devin Dissanayake</td>
+               <td data-lable="Customer" class="column-left-align">Ravindu Madhubhashana</td>
+               <td data-lable="Status" class="column-center-align">
+                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
+               </td>
+               <td class="column-center-align">
+                  <span>
+                     <a href="#"><i class="ci-view-more table-icon"></i></a>
+                     <?php if ($userLevel == "Receptionist") : ?>
+                        <a href="#"><i class="ci-edit table-icon"></i></a>
+                        <a href="#"><i class="ci-trash table-icon"></i></a>
+                     <?php endif; ?>
+                  </span>
+               </td>
+            </tr>
+
          </tbody>
       </table>
    </div>

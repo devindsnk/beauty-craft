@@ -12,8 +12,13 @@
    margin-bottom: 20px;
 }
 
-.form input[type = "text"], select {
+.form input[type="text"],
+input[type="date"],
+select,
+textarea {
    width: 100%;
+   resize: none;
+   font-size: 14px;
    font-weight: 400;
    padding: 8px 10px;
    border-radius: 6px;
@@ -21,18 +26,21 @@
    margin-top: 5px;
 }
 
-.form input[type="radio"], input[type="checkbox"]{
+.form input[type="radio"],
+input[type="checkbox"] {
    margin-left: 3px;
    margin-right: 8px;
    /* transform: scale(1.5); */
 }
 
-.form input:focus{
+.form input:focus,
+.form textarea:focus,
+select:focus {
    outline: none;
    border-color: #6f6df4;
 }
 
-.form .label{
+.form .label {
    color: #1c093c;
    font-size: 14px;
    font-weight: 500;
@@ -40,32 +48,38 @@
    width: 100%;
 }
 
-.form .text-group{
+.form .text-group {
    width: 100%;
 }
 
-.form .radio-container{
+.form .radio-container {
    margin-top: 5px;
 }
 
-.form .radio-group{
+.form .radio-group {
    align-self: center;
    display: inline;
    cursor: pointer;
    margin-right: 15px;
 }
 
-.form .checkbox-group{
+.form .checkbox-group {
    margin-top: 5px;
 }
 
-.form .radio-group span, .form .checkbox-group span{
+.form .radio-group span,
+.form .checkbox-group span {
    font-size: 13px;
 }
 
-.form .error{
+.form .error {
    font-size: 12px;
    color: #DC3545;
+}
+
+.filter-options input,
+.filter-options select {
+   max-width: 300px;
 }
 
 /* ------------------------------------------------------ */

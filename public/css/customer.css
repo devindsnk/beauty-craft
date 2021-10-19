@@ -2,19 +2,22 @@
     background-color: var(--theme-black);
 }
 
+.outer-container {
+    height: calc(100vh - 150px);
+}
+
 .main-content-template {
     display: grid;
-    grid-template-columns: 5fr 12fr 1fr;
-    grid-template-rows: 155px calc(100vh - 155px);
-    grid-template-areas: "header header header""sidebar content space";
+    padding-top: 50px;
+    grid-template-columns: 4fr 12fr;
+    grid-template-areas: "sidebar content";
 }
 
 .container {
     grid-area: content;
-    height: 600px;
+    height: 100%;
     width: 800px;
     margin-top: 7px;
-    max-height: 600px;
     /* max-width: 800px; */
     display: flex;
     flex-direction: column;
@@ -129,15 +132,10 @@ label.proflabel {
     border-radius: 6px;
 }
 
-.item5 button {
-    background-color: #ff463f;
-    width: 150px;
-    height: 50px;
-    border-radius: 6px;
-    border: none;
-    color: white;
-    font-size: 20px;
-    font-weight: 500;
+.btnSave {
+    margin-top: 14px;
+    padding: 7px;
+    width: 120px;
 }
 
 .passwordinput {
@@ -184,46 +182,54 @@ label.proflabel {
     margin-right: 35px;
 }
 
-.sidenavbtn1 button,
-.sidenavbtn2 button,
-.sidenavbtn3 button {
-    color: #50515a;
+.customerPages .sidenavbtn {
+    display: block;
+    color: var(--theme-grey);
+
+    padding: 7px;
     width: 200px;
-    height: 35px;
     margin-right: 28px;
     text-align: left;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     border: none;
     border-radius: 6px;
-    background-color: transparent;
-    /* background-color: wheat; */
     padding-left: 10px;
     margin-bottom: 15px;
 }
 
-.sidenavbttn.selected {
+.sidenavbtn.selected {
     background-color: #dddddd;
     font-weight: 600;
 }
 
+/*------------------ Styles of My reservations ------------------------- */
+.cust.new-res .goBackBtn {
+    padding: 5px;
+    width: 130px;
+    margin-bottom: 20px;
+}
 
-/* button.sidenavbttn.option:hover {
-    font-weight: 500;
-} */
-
-/* Styles of My reservations  */
-.cust.my-reservations .main-container {
+.cust.my-reservations {
     width: 100%;
-    padding: 20px 0;
-    display: flex;
-    flex-direction: column;
+    height: calc(100vh - 200px);
+    padding-right: 300px;
+    overflow-y: scroll;
+
+}
+
+.outer-container .newResBtn {
+    padding: 7px;
+    width: 170px;
+    margin-left: auto;
+    margin-right: 80px;
 }
 
 .cust.my-reservations .sub-container {
     align-self: center;
     padding: 30px;
     min-width: 500px;
+    max-width: 700px;
     width: 80%;
     height: min-content;
     display: flex;
@@ -315,6 +321,22 @@ label.proflabel {
     margin-top: 20px;
 }
 
-.main-container {
-    margin: 0 150px;
+/* New Res */
+.cust.new-res .main-container {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.cust.new-res h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    /* display: block;
+    margin-left: auto;
+    margin-right: auto; */
+}
+
+.addResBtn {
+    width: 200px;
+    padding: 7px;
+    margin-left: auto;
 }

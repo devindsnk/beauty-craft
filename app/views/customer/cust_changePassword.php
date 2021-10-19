@@ -1,27 +1,11 @@
-<?php require APPROOT . "/views/customer/cust_headerBar.php" ?>
+<?php
+$selectedOption = "changePassword";
+require APPROOT . "/views/customer/cust_headerBar.php";
+?>
 <div class="content main-content-template">
-    <div class="sidebar">
-        <div class="sidebarcontent">
-            <div class="list">
-                <div class="sidenavbtn1">
-                    <a href="<?php echo URLROOT ?>/custDashboard/myReservations">
-                        <button class="sidenavbttn">My Reservations</button>
-                    </a>
-                </div>
-                <div class="sidenavbtn2">
-                    <a href="<?php echo URLROOT ?>/custDashboard/profileSettings">
-                        <button class="sidenavbttn">Profile Settings</button>
-                    </a>
-                </div>
-                <div class="sidenavbtn3">
-                    <button class="sidenavbttn selected">Change Password</button>
-                </div>
-
-            </div>
-            <div class="line"></div>
-        </div>
-
-    </div>
+    <?php
+    require APPROOT . "/views/customer/cust_sideNav.php"
+    ?>
     <div class="container">
         <div class="item item6">
             <div class="profname">
@@ -48,7 +32,7 @@
         </div>
         <div class="item item5">
             <div class="savebutton">
-                <button>Save</button>
+                <button class="btn btn-filled btn-theme-red btnSave">Save</button>
             </div>
         </div>
     </div>
