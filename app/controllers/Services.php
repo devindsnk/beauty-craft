@@ -28,9 +28,7 @@ class Services extends Controller
 
             'sSlot1Duration' => isset($_POST['slot1Duration']) ? trim($_POST['slot1Duration']) : '',
 
-            'sSelectedResourse' => isset($_POST['resourceCheckbox']) ? $_POST['resourceCheckbox'] : '',
-            
-            'sSelectedResCount' => isset($_POST['$resName']) ? trim($_POST['$resName']) : '' ,
+            'sSelectedResCount' => isset($_POST['resourceCount']) ?($_POST['resourceCount']) : '',
 
             'sTypesArray' => [],
             'sProvArray' => [],
@@ -41,11 +39,10 @@ class Services extends Controller
             'sSelectedSProve_error' => '',
             'sPrice_error' => '',
             'sSlot1Duration_error' => '',
-            'sSelectedResourse_error' => '',
             'sSelectedResCount_error' => '',
             
          ];
-         
+
          $data['sProvArray'] = $sProvGetArray;
          $data['sTypesArray'] = $sTypeGetArray;
          $data['sResArray'] = $sResGetArray;
@@ -72,13 +69,7 @@ class Services extends Controller
             if (empty($data['sSlot1Duration'])) {
                $data['sSlot1Duration_error'] = "Please enter slot1 duration";
             }
-            if (empty($data['sSelectedResourse'])) {
-               $data['sSelectedResourse_error'] = "Please checked the check box";
-            }
-            if (empty($data['sSelectedResCount'])) {
-               $data['sSelectedResCount_error'] = "Please select a count";
-            }
-
+           
             if(empty($data['sName_error']) && empty($data['sPrice_error']) && empty($data['sSelectedAllType_error']) && empty($data['sSelectedSProve_error']) && empty($data['sSlot1Duration_error'])){
                
                $this->ServiceModel->addService($data);
@@ -87,14 +78,20 @@ class Services extends Controller
 
                $this->ServiceModel->addTimeSlot($data, $slotNo);
 
-               if(empty($data['sSelectedResourse_error']) ){
-
-                  $this->ServiceModel->addResourcesToService($data, $slotNo);
-
-               }
+               $this->ServiceModel->addResourcesToService($data, $slotNo);
 
                header('location: ' . URLROOT . '/MangDashboard/services');
             }else{
+
+               $selectesResCount =count($data['sSelectedResCount']);
+               
+               for ($i=0; $i < $selectesResCount; $i++){
+
+                  if($data['sSelectedResCount'][$i]!=0){
+
+                        $data['sSelectedResCount_error'] = "Please enter resource quantity again";
+                  }
+               }
                $this->view('manager/mang_serviceAdd', $data);
             }
 
@@ -112,6 +109,7 @@ class Services extends Controller
             'sSelectedProv' => [], 
             'sSlot1Duration' => '',
             'sSelectedResourse' => '',
+            'sSelectedResCount' => '',
 
             'sTypesArray' => [],
             'sProvArray' => [],
@@ -122,19 +120,13 @@ class Services extends Controller
             'sSelectedSProve_error' => '',
             'sPrice_error' => '',
             'sSlot1Duration_error' => '',
-            'sSelectedResourse_error' => '',
+            'sSelectedResCount_error' => '',
          ];
 
 
          $data['sProvArray'] = $sProvGetArray;
          $data['sTypesArray'] = $sTypeGetArray;
          $data['sResArray'] = $sResGetArray;
-
-         // print_r($data['sProvArray']);
-         
-         // print_r($data['sTypesArray']);
-        
-         // print_r($data['sResArray']);
 
          $this->view('manager/mang_serviceAdd', $data);
       }

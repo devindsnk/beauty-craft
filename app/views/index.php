@@ -18,6 +18,46 @@ session_start();
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/home.css">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/icons.css">
 
+   <script>
+      var slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+         showSlides(slideIndex += n);
+      }
+
+      function currentSlide(n) {
+         showSlides(slideIndex = n);
+         }
+
+         function showSlides(n) {
+         var i;
+         var slides = document.getElementsByClassName("mySlides");
+         var dots = document.getElementsByClassName("dot");
+         if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+               slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+               dots[i].className = dots[i].className.replace(" active", "");
+            }
+         slides[slideIndex-1].style.display = "block";
+         dots[slideIndex-1].className += " active";
+      }
+
+      const element = document.querySelector("#horizontal_slider");
+
+         element.addEventListener('wheel', (event) => {
+         event.preventDefault();
+
+         element.scrollBy({
+            left: event.deltaY < 0 ? -30 : 30,
+            
+         });
+      });
+   </script>
+
 </head>
 
 <body class="landingPage">
@@ -96,15 +136,103 @@ session_start();
       <span class="title">OUR SERVICES</span>
    </div>
 
-   <div class="team section">
+   <div class="team section MOT-section">
       <span class="title">MEET OUR TEAM</span>
+      <div class="horizontal_slider " id="horizontal_slider">
+         <section>
+            <div class="MOT-box">
+               <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" class="pro-img" alt="">
+               
+               <p class="pro-name">Devin Dissanayake</p>
+            </div>
+         </section>
+         <section>
+            <div class="MOT-box">
+               <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" class="pro-img" alt="">
+               
+               <p class="pro-name">Devin Dissanayake</p>
+            </div>
+         </section> 
+         <section>
+            <div class="MOT-box">
+               <img src="<?php echo URLROOT ?>/public/imgs/person3.jpg" class="pro-img" alt="">
+               
+               <p class="pro-name">Devin Dissanayake</p>
+            </div>
+         </section>  
+         <section>
+         <div class="MOT-box">
+               <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" class="pro-img" alt="">
+               
+               <p class="pro-name">Devin Dissanayake</p>
+            </div>
+         </section>
+         <section>
+            <div class="MOT-box">
+               <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" class="pro-img" alt="">
+               
+               <p class="pro-name">Devin Dissanayake</p>
+            </div>
+         </section> 
+         <section>
+            <div class="MOT-box">
+               <img src="<?php echo URLROOT ?>/public/imgs/person3.jpg" class="pro-img" alt="">
+               
+               <p class="pro-name">Devin Dissanayake</p>
+            </div>
+         </section>  
+      </div>
    </div>
    <div class="gallery section">
       <span class="title">GALLERY</span>
    </div>
-   <div class="testimonials section">
+   <div class="testimonials section WTS-section">
       <span class="title">WHAT THEY SAY</span>
+
+      <div class="slideshow-container">
+
+         <div class="mySlides">
+            <q>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laudantium voluptas animi amet beatae aliquid
+            praesentium quisquam repellat consequatur rem, quas, voluptatum nisi ipsa, earum nihil sequi corrupti commodi
+            alias?</q>
+            <div class="img-div">
+               <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" alt="">
+               <p class="author">- Ruwanthi Munasinghe</p>
+            </div>
+         </div>
+
+         <div class="mySlides">
+            <q>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ducimus labore a earum unde! Dolor asperiores
+            rerum deleniti architecto, ab fugiat delectus veniam aut laboriosam nostrum, autem natus dolores, cupiditate quam.
+            Sed a voluptatibus doloribus iste exercitationem vel doloremque cumque reprehenderit officia, repellendus labore
+            quasi quam inventore cum nesciunt excepturi eligendi nostrum incidunt quibusdam culpa ab delectus beatae.</q>
+            <div class="img-div">
+               <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" alt="">
+               <p class="author">- Sanjana Rajapaksha</p>
+            </div>
+         </div>
+
+         <div class="mySlides">
+            <q>Voluptatibus, excepturi consequatur! Rerum, ab sapiente magni vel voluptatum eum, nulla neque accusantium placeat
+            amet quam blanditiis. Officiis exercitationem inventore molestias quam, magni, natus necessitatibus minima,
+            laboriosam eveniet et similique. Consequatur tenetur sint dicta alias. Omnis amet dolor quae sint quia similique.</q>
+            <div class="img-div">
+               <img src="<?php echo URLROOT ?>/public/imgs/person3.jpg" alt="">
+               <p class="author">- Devin Dissanayake</p>
+            </div>
+         </div>
+
+         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+         <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+
+      <div class="dot-container">
+         <span class="dot" onclick="currentSlide(1)"></span>
+         <span class="dot" onclick="currentSlide(2)"></span>
+         <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
    </div>
+   
    <div>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laudantium voluptas animi amet beatae aliquid
       praesentium quisquam repellat consequatur rem, quas, voluptatum nisi ipsa, earum nihil sequi corrupti commodi

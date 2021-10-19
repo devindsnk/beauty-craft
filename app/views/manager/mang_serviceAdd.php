@@ -12,16 +12,11 @@
 					class="fal fa-times fa-2x "></i></a>
 		</div>
 	</header>
-		<!-- <div class="btn-remove-service quantity-align mang">
-			<a href="#newServiceMain" name="remove" id="" class="close-service-window"><span onclick="Previous()"><i class='fas fa-times fa-2x'></i></span></a><br/>
-		</div> -->
+		
 	<div class="content contentNewRes">
 		<form class="form" action="<?php echo URLROOT; ?>/services/addNewService" method="post">
 
 			<div class="newService-main newservice" id="newServiceMain">
-				<!-- <div class="newService-main-head">
-					<h1>New Service</h1>
-				</div> -->
 				
 				<!-- Basic information -->
 				<div class="newService-sub-head">
@@ -85,9 +80,11 @@
 
 									<?php foreach($data['sProvArray'] as $sProv) : ?>
 										<div class="divIndiv"><input type="checkbox" name="serProvCheckbox[]" value="<?php echo $sProv->staffID; ?>" 
-											<?php foreach($data['sSelectedProv'] as $selectedSP){
-												if ($selectedSP == $sProv->staffID) echo 'checked';
-											}
+											<?php if(!empty($data['sSelectedProv'])){
+													foreach($data['sSelectedProv'] as $selectedSP){
+														if ($selectedSP == $sProv->staffID) echo 'checked';
+													}
+												}
 											?>>
 											<lable class="lableInDiv">
 												<?php echo $sProv->staffID; ?> - <?php echo $sProv->fName; ?> <?php echo $sProv->lName; ?>
@@ -164,27 +161,26 @@
 								<div class="column" id="resorceDetails1">
 									<label class="labels paddingBottom">Resources & Quantity</label><br>
 									<div class="checkbox-div">
-										
+									<?php $resIDArray =  [] ;?>
 										<?php foreach($data['sResArray'] as $sResource) : ?>
 
 											<div class="divIndiv">
 												<?php  $findResource = 1; ?>
-												<input type="checkbox" name="resourceCheckbox[]" value="<?php echo $sResource->resourceID; ?>">
 
 												<label class="lableInDiv" id="checkedItem">
 													<?php echo $sResource->resourceID; ?> - <?php echo $sResource->name; ?> 
 												</label>
 												
-												<?php $resName =  $sResource->resourceID ?>
+												<?php $resID =  $sResource->resourceID ?>
 
-												<select class="dropdownSelectBox-small quantity-align resCount" name="<?php $resName ?>">
+												<select class="dropdownSelectBox-small quantity-align resCount" name="resourceCount[]">
 													<option class="unbold" value="0" option selected="true" >0</option>
 
 														<?php $Qcount= $sResource->quantity;?>
 
 														<?php for ($i=1; $i <= $Qcount; $i++): ?>
 														
-														<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+														<option value="<?php echo $i; ?>" <?php if ($data['sSelectedResCount'] == $i) echo 'selected';?> ><?php echo $i; ?></option>
 
 														<?php endfor; ?>
 
@@ -195,6 +191,7 @@
 										<?php endforeach; ?>
 
 									</div>
+									<span class="error paddingLeft"><?php echo $data['sSelectedResCount_error']; ?></span>
 								</div>
 								<!-- end of Resource & quantity -->
 								
@@ -217,73 +214,4 @@
 		</form>
 	</div>
 	
-	
     <?php require APPROOT . "/views/inc/footer.php" ?>
-
-	<!-- <div class="newService-sub" id="fullSlotDetail'+j+'">
-		<div class="btn-remove quantity-align"> 
-			<a href="#slotdetails'+j+'" name="remove" id="'+i+'" class="close-slot">X</a>
-		</div> 
-
-		<div class="newService-sub-sub" >      
-			<h4>'+i+'</h4>
-			<div class="row">
-				<div class="column">
-
-					<div class="row2" id="intervaldetails'+j+'">
-						<label class="labels">Interval Duration</label><br>
-						<select class="dropdownSelectBox">
-							<option value="val1">1 min</option>
-							<option value="val2">2 min</option>
-							<option value="val1">3 min</option>
-						</select>
-					</div>
-
-					<div class="row3" id="slotdetails'+i+'">
-						<label class="labels">Slot Duration</label><br>
-						<select class="dropdownSelectBox"> 
-							<option value="val1">1 min</option>
-							<option value="val2">2 min</option>
-						</select>
-					</div>
-					
-				</div>
-				
-				<div class="column" id="resorcedetails'+i+'">
-				<label>Resources and Quantity</label>
-					<div class="checkbox-div">
-						<div class="divIndiv">
-							<label class="labels">Res111, Resource1</label>
-							<select class="dropdownSelectBox-small quantity-align">
-								<option value="val1">0</option>
-								<option value="val1">1</option>
-								<option value="val2">2</option>
-								<option value="val1">3</option>
-							</select>
-						</div>
-						<hr class="resHr">
-						<div class="divIndiv">
-							<label class="labels">Res111, Resource1</label>
-							<select class="dropdownSelectBox-small quantity-align">
-								<option value="val1">0</option>
-								<option value="val1">1</option>
-								<option value="val2">2</option>
-								<option value="val1">3</option>
-							</select>
-						</div>
-						<hr class="resHr">
-						<div class="divIndiv">
-							<label class="labels">Res111, Resource1</label>
-							<select class="dropdownSelectBox-small quantity-align">
-								<option value="val1">0</option>
-								<option value="val1">1</option>
-								<option value="val2">2</option>
-								<option value="val1">3</option>
-							</select>
-						</div>
-						<hr class="resHr">
-					</div>
-				</div>
-			</div>
-		</div>      
-	</div> -->

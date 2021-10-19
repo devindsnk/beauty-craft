@@ -27,23 +27,23 @@
          <!--End Sidebar Item-->
 
          <!--Sidebar Item-->
-         <li class="mainOption menuOption">
-            <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/reservations">
+         <li class="mainOption">
+            <a class="optionLink <?php if ($selectedMain == "Services") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/services">
                <div class="optionIcon">
-                  <i class="sidenav-icon ci-tasks "></i>
+                  <i class="sidenav-icon ci-elements "></i>
                </div>
-               <div class="optionTitle">Reservations</div>
+               <div class="optionTitle">Services</div>
             </a>
          </li>
          <!--End Sidebar Item-->
 
          <!--Sidebar Item-->
          <li class="mainOption menuOption">
-            <a class="optionLink <?php if ($selectedMain == "StaffMembers") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/staffMembers">
+            <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/reservations">
                <div class="optionIcon">
-                  <i class="sidenav-icon ci-briefcase "></i>
+                  <i class="sidenav-icon ci-tasks "></i>
                </div>
-               <div class="optionTitle">Staff Members</div>
+               <div class="optionTitle">Reservations</div>
             </a>
          </li>
          <!--End Sidebar Item-->
@@ -60,23 +60,12 @@
          <!--End Sidebar Item-->
 
          <!--Sidebar Item-->
-         <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Services") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/services">
+         <li class="mainOption menuOption">
+            <a class="optionLink <?php if ($selectedMain == "StaffMembers") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/staffMembers">
                <div class="optionIcon">
-                  <i class="sidenav-icon ci-elements "></i>
+                  <i class="sidenav-icon ci-briefcase "></i>
                </div>
-               <div class="optionTitle">Services</div>
-            </a>
-         </li>
-         <!--End Sidebar Item-->
-
-         <!--Sidebar Item-->
-         <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Resources") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/resources">
-               <div class="optionIcon">
-                  <i class="sidenav-icon ci-elements "></i>
-               </div>
-               <div class="optionTitle">Resources</div>
+               <div class="optionTitle">Staff Members</div>
             </a>
          </li>
          <!--End Sidebar Item-->
@@ -112,6 +101,17 @@
                <!--End Sidebar Sub Item-->
             </ul>
             <!--End Sidebar Sub Menu-->
+         </li>
+         <!--End Sidebar Item-->
+
+         <!--Sidebar Item-->
+         <li class="mainOption">
+            <a class="optionLink <?php if ($selectedMain == "Resources") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/resources">
+               <div class="optionIcon">
+                  <i class="sidenav-icon ci-resources "></i>
+               </div>
+               <div class="optionTitle">Resources</div>
+            </a>
          </li>
          <!--End Sidebar Item-->
 
