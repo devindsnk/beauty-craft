@@ -101,10 +101,10 @@
                 </div>
             </div>
 
-            <div class="modal-container normal">
-                <div class="modal-box">
+            <div class="modal-container normal change-password">
+                <div class="modal-box addItems">
                     <h1>Change Password</h1>
-                    <div class="pwditem1">
+                    <div class="pwditem0">
                         <div class="pwditemleft">
                             <span>Current Password</span>
                             <input class="changepwd" type="password" placeholder="Current password" name="cpw" required>
@@ -121,14 +121,20 @@
                             <input class="changepwd" type="password" placeholder="Confirm password" name="cpw" required>
                         </div>
                     </div>
-                    <div class="pwditem1">
+                    <div class="pwditem2">
 
-                        <button class="btn btnClose normal">Close </button>
-                        <button class="btnOpen new" type="button">Save Password</button>
+                        <div class="addItemsModalGrid3">
+                            <div class="addItemsModalbtn1">
+                                <button class="btn btnClose normal ModalCancelButton ModalButton">Cancel</button>
+                            </div>
+                            <div class="addItemsModalbtn2">
+                                <button class="btn ModalGreenButton ModalButton">Proceed</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
     </div>
-        <?php require APPROOT . "/views/inc/footer.php" ?>
+    <?php require APPROOT . "/views/inc/footer.php" ?>

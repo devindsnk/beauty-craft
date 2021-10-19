@@ -327,10 +327,10 @@ span.item2type {
     text-align: center;
 }
 
-.pwditem1 {
+.pwditem1,.pwditem0 {
     /* background-color: saddlebrown; */
     width: 100%;
-    height: 28%;
+    height: 100px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -359,27 +359,23 @@ span.item2type {
 
 .changepwd {
     width: 80%;
-    height: 45px;
+    height: 40px;
     border: 1px rgba(0, 0, 0, 0.5) solid;
     border-radius: 6px;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 400;
     padding-left: 10px;
 }
 
-.pwditem1 span {
-    font-size: 18px;
+.pwditem1 span,.pwditem0 span {
+    font-size: 16px;
     font-weight: 600;
     padding-bottom: 5px;
 }
 
-.pwditem1 button {
-    height: 50px;
-    width: 150px;
-    border-radius: 6px;
-    border: none;
-    font-size: 18px;
-    font-weight: 500;
+.pwditem1 .addItemsModalGrid3{
+    display: flex;
+    
 }
 
 button.btn.btnClose.normal {
@@ -392,6 +388,6 @@ button.btnOpen.new {
 }
 
 .profview .normal .modal-box {
-    width: 500px;
-    height: 5000px;
+    width: 600px;
+    height: 450px;
 }

@@ -418,36 +418,36 @@
 .item-inner {
    height: 100%;
  background-size: cover;
- background-image: url('https://bepos.io/wp-content/uploads/2021/07/dd4878_c76b1d0a081e419db50ab88689475bb1_mv2.webp');
+ background-image: url('../../public/imgs/gallery10.jpg');
  padding-top: 100%;
 }
 
 .item:nth-child(5) .item-inner {
- background-image: url('https://www.mirrorsbeautylounge.com/mirror-admin/public/images/categories/Protein%20hair%20treatments%20mobile.jpg');
+ background-image: url('../../public/imgs/gallery1.jpg');
 }
 .item:nth-child(3) .item-inner {
- background-image: url('https://media.istockphoto.com/photos/women-with-beautiful-long-black-hair-at-treatment-in-hairstylist-picture-id1298696127?k=20&m=1298696127&s=612x612&w=0&h=I6-eaw92UIqu4Q0bn4QrGClrwwFhx_IA5-MNO8aqWmY=');
+ background-image: url('../../public/imgs/gallery2.jpg');
 }
 .item:nth-child(4) .item-inner {
- background-image: url('https://frankiesbiggleswade.co.uk/wp-content/uploads/2019/07/cute-boy.jpg');
+ background-image: url('../../public/imgs/gallery3.jpg');
 }
 .item:nth-child(2) .item-inner {
- background-image: url('https://www.wearegurgaon.com/wp-content/uploads/2020/03/beard-trip-deal-levante-salon-gurgaon.jpg');
+ background-image: url('../../public/imgs/gallery4.jpg');
 }
 .item:nth-child(6) .item-inner {
- background-image: url('https://p300-americantownscom.netdna-ssl.com/img/article/de-nail-salon-1.jpg');
+ background-image: url('../../public/imgs/gallery5.jpg');
 }
 .item:nth-child(7) .item-inner {
- background-image: url('https://5.imimg.com/data5/FO/ZW/CS/SELLER-11170123/tape-hair-extensions-500x500.jpg');
+ background-image: url('../../public/imgs/gallery6.jpg');
 }
 .item:nth-child(8) .item-inner {
- background-image: url('https://www.lotusmakeupstudio.in/images/home.jpg');
+ background-image: url('../../public/imgs/gallery7.jpg');
 }
 .item:nth-child(9) .item-inner {
- background-image: url('https://lh3.googleusercontent.com/proxy/cDCT89JrZ482DZNCI24gpZqjkBnpmIN6T-Nx6nx4zC0XN8vSylU767JSBRfZ43cHQnxXx7gfPwm3SaeNceMpAwbMVa55CBqU447EJgleyozwQaFDDv5G9R4vzOMmU2wmpqaxrg');
+ background-image: url('../../public/imgs/gallery8.jpg');
 }
 .item:nth-child(10) .item-inner {
- background-image: url('https://www.hji.co.uk/wp-content/efs/2020/03/barbers.jpg');
+ background-image: url('../../public/imgs/gallery9.jpg');
 }
 
 

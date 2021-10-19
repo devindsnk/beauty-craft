@@ -153,13 +153,24 @@
     font-weight: 600;
 }
 
-.serprov .confirm-status {
-    padding: 5px 30px;
+.serprov .confirm-status.blue {
+    padding: 5px 0;
+    width: 165px;
+    background-color: #DBEBFD;
+    color: #037AFF;
+    font-weight: 600;
+    border-radius: 6px;
+  
+    text-align: center;
+}
+.serprov .confirm-status.green {
+    padding: 5px 0;
+    width: 165px;
     background-color: #c0f0d1;
     color: #3abd5f;
     font-weight: 600;
     border-radius: 6px;
-    max-width: 152px;
+  
     text-align: center;
 }
 
@@ -462,7 +473,10 @@
     justify-content: space-around;
     height: 100%;
 }
+.btnOpen.btnResRecall.hide{
+    display: none;
 
+}
 .more-details-modalbtnsection Button {
     font-size: 16px;
     font-weight: 500;
@@ -579,19 +593,64 @@ span.leavelimitmsg{
 }
 /* resevation list day input */
 .sub-container1-card-content .day{
-    background-color:lightgray;
-    hight: 10px;
+   
+   
     width: 100px;
 
 }
 .sub-container1-card-content .mainsection{
     display:flex;
     flex-direction:row-reverse;
+    justify-content: center;
 
 
 }
-.sub-container1-card-content .selecteddate{
+/* .sub-container1-card-content .selecteddate{
     border:none;
      background-color:lightgray;
 
+} */
+/* reservation page calendar */
+input#date_input.selecteddate  {
+    width: 160px;
+    height: 40px;
+    border: none;
+    padding: 0 10px;
+    font-size: 15px;
+}
+.sub-container1-card-content .mainsection form{
+    display: flex;
+    flex-direction: initial;
+}
+.sub-container1-card-content .mainsection a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+.sub-container1-card-content .mainsection a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.sub-container1-card-content .mainsection .previous {
+  background-color: #EAEAEA;
+  color: black;
+}
+
+.sub-container1-card-content .mainsection .next {
+  background-color: #EAEAEA;
+  color: black;
+}
+
+.sub-container1-card-content .mainsection .round {
+  border-radius: 10%;
+}
+.sub-container1-card-content.res{
+    padding: 8px 10px;
+    width: fit-content;
+}
+.sub-container1-card-content .mainsection{
+    display:flex;
+    align-items: center;
 }
