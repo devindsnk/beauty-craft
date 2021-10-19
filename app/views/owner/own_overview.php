@@ -74,7 +74,7 @@
             
             <div class="ownOverviewChart1">
             <div class="chartHead"> 
-               <p>Total </p>
+               <p> Staff Members </p>
             </div>
                <canvas id="ownOverviewChartAvailableEmployees"></canvas>
             </div>
@@ -83,7 +83,7 @@
             <!-- owner overview chart2 card starts -->
             <div class="ownOverviewChart2">
             <div class="chartHead"> 
-               <p>Total Income</p>
+               <p>Salary</p>
             </div>
                <canvas id="ownOverviewChartIncome"></canvas>
             </div>
@@ -92,7 +92,7 @@
             <!-- owner overview chart3 card starts -->
             <div class="ownOverviewChart3">
             <div class="chartHead"> 
-               <p>Total Income</p>
+               <p>Income</p>
             </div>
                <canvas id="ownOverviewChartSalaryStatus"></canvas>
             </div>
