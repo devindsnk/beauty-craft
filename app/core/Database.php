@@ -14,7 +14,7 @@ class Database
    private $pass = DB_PASS;
    private $dbname = DB_NAME;
 
-   private $dbh;
+   private  $dbh = null;
    private $statement;
    private $error;
 
@@ -28,7 +28,10 @@ class Database
 
       try
       {
+         // if ($this->dbh == null)
+         // {
          $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
+         // }
       }
       catch (PDOException $e)
       {
@@ -36,6 +39,13 @@ class Database
          echo $this->error;
       }
    }
+
+
+
+   // public function getConnection()
+   // {
+   //    return $this->dbh;
+   // }
 
    public function query($sql)
    {

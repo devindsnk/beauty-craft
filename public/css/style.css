@@ -223,7 +223,7 @@ footer p{
   background-color: var(--theme-blue);
 }
 
-.btn.btn-outlined.btn-theme-purple {
+.btn.btn-outlined.btn-theme-purple  {
   border: 2px solid var(--theme-purple);
   color: var(--theme-purple);
 }
@@ -346,4 +346,221 @@ footer p{
 
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
+/* ------------------------------------------------------ */
+
+/* ------------------------------------------------------ */
+/* --------------STYLES ADDED BY RAVINDU-------------------*/
+/* ------------------------------------------------------ */
+
+
+/* resizing styles of resources content */
+.content.resources{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+} 
+
+/* #################################################################### */
+
+.services.section .title{
+  color: var(--white);
+}
+.services.section .cardContainer{
+  width: 1000px;
+  height: auto;
+}
+.services.section .cardHead{
+  background-color: var(--theme-black);
+  color: var(--white);
+  border-radius: 6px 6px 0 0;
+  height: 50px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.services.section .cardRow {
+  /* word-wrap: break-word; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  /* gap: 20px; */
+  margin: 20px;
+}
+
+.services.section .cardDetails{
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  padding: 20px;
+  
+}
+
+
+.services.section .cardContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  grid-gap: 15px;
+  grid-template-areas:
+  'servsecCard1 servsecCard2 '
+}
+
+.services.section .card1 {
+  grid-area: servsecCard1;
+  background-color: var(--white);
+  height: 500px;
+  border-radius: 6px;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+.services.section .card2 {
+  grid-area: servsecCard2;
+  padding-bottom: 10px;
+  background-color: var(--white);
+  border-radius: 6px;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+.services.section .CardDetailsValue,
+.services.section .CardDetailsLabel{
+  font-weight: 500;
+}
+.services.section .Llength{
+  width: 400px;
+}
+.services.section .CardDetailsValue{
+  float: right;
+  color:var(--theme-red);  
+}
+/* ##################################################################### */
+
+
+
+
+
+.services.section{
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: stretch;
+  padding: 10px 30px;
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url("../imgs/bg1.jpeg");
+  background-image: linear-gradient(rgba(33, 34, 37, 0.7), rgba(73, 74, 78, 0.7)), url("../imgs/bg1.jpeg");
+  background-position: top;
+  background-size: cover;
+  position: relative;
+}
+.services.section .mySlides {
+  display: none;
+}
+
+/* Slideshow container */
+.services.section .slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.services.section .prev,
+.services.section .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin: -60px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.services.section .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.services.section .prev:hover,
+.services.section .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.services.section .text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.services.section .numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.services.section .dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+
+.services.section .active,
+.services.section .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.services.section .fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+     opacity: .4
+  }
+
+  to {
+     opacity: 1
+  }
+}
+
+@keyframes fade {
+  from {
+     opacity: .4
+  }
+
+  to {
+     opacity: 1
+  }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+
+  .prev,
+  .next {
+     font-size: 14px
+  }
+}
+/* ------------------------------------------------------ */
+/* -----------END OF STYLES ADDED BY RAVINDU ---------------*/
 /* ------------------------------------------------------ */

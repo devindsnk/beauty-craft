@@ -11,7 +11,17 @@
       </div>
       <div class="header-right verticalCenter">
       <!-- you have to specify the user roll ?????????????????????????????????????????????????????????????????????????? -->
-         <a href="#" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>  
+
+     
+         <a href= "<?php
+         echo URLROOT;         
+         if ($userType == 2) echo "/OwnDashboard/customers"; 
+         elseif ($userType == 3) echo "/MangDashboard/customers";   
+         elseif ($userType == 4) echo "/ReceptDashboard/customers"; 
+         ?>"
+         
+            class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
+            
       </div>
    </header>
    <div class="content contentNewRes own ViewCustomer">
@@ -46,7 +56,7 @@
                   <div class="ownAddstaffLines">
                   </div>
                </div> -->
-               <hr>
+               <hr id="sectionBreackLine">
                <!-- section break line endss -->
 
                <div class="Card1Details">
@@ -120,12 +130,12 @@
             <div class="Card3 contentBox ">
                <!-- Contact Details Head  -->
                <div class="CardHead">
-                  <h3 class="CardHeadLabel">Reservations Summary</h3>
+                  <h3 class="HeadLabel">Reservations Summary</h3>
                </div>
                <!-- Contact Details  -->
 
                <!-- section break line starts -->
-               <hr>
+               <hr class="sectionBreackLine">
                <!-- section break line endss -->
 
                <div class="Card2Details">
