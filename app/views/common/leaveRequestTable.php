@@ -1,3 +1,21 @@
+
+<script>
+   var leaveExceedStatus = <?php echo ($data['leaveexceed']); ?> ;
+
+   if (leaveExceedStatus == 1) {
+      if (confirm("Your Leave Limit is Exceeded,Do you want to Send leave Request ?") == true) {
+         var leaveExceedStatus = 0;
+      } else {
+         var leaveExceedStatus = 1;
+      }
+      window.location.href = "<?php echo URLROOT; ?>/SerProvDashboard/leaves/leaveResponse=" + leaveExceedStatus;
+   }
+// console.log(leaveExceedStatus);
+
+</script>
+
+
+
 <div class="leaverequesttable">
    <div class="cardandbutton">
       <div class="leavecountcard">
@@ -63,7 +81,7 @@
                   </td>
                   <!-- leave Approved=1 pending=0 rejected=2 -->
                   <td data-lable="Status" class="column-center-align">
-                     <?php if($leave->status==0) :?>
+                     <?php if($leave->status==2) :?>
                      <button type="button" class="table-btn yellow-status-btn text-uppercase " value="Pending"> Pending
                      </button>
                      <?php elseif ($leave->status == 1) : ?>
@@ -91,8 +109,8 @@
       </div>
    </div>
    <!-- Request leave model -->
-   <div class="modal-container leaverequest <?php if($data['haveErrors']) echo "show"?>">
-      <div class="modal-box leave_request ">
+   <div class="modal-container normal leaverequest <?php if($data['haveErrors']) echo "show"?>">
+      <div class="modal-box addItems leave_request ">
          <div class="new-type-head">
             <h1>Request Leave</h1>
          </div>
@@ -102,7 +120,7 @@
                <div class="column">
                   <div class="text-group">
                      <label class="labels" for="serviceName">Date</label><br>
-                     <input type="date" name="date" id="takeLeaveDate" placeholder="--Select a date--"
+                     <input class="addItemsModalDate" type="date" name="date" id="takeLeaveDate" placeholder="--Select a date--"
                         value="<?php echo $data['date']; ?>">
                   </div>
                   <span class="error"> <?php echo $data['date_error']; ?></span>
@@ -113,7 +131,7 @@
                   <div class="text-group">
                      <label class="labels" for="serviceName">Reason</label><br>
 
-                     <textarea type="text" name="reason" id="takeLeaveReason" placeholder="-- Type in --" class=""
+                     <textarea type="text" name="reason" id="takeLeaveReason" placeholder="-- Type in --" class="addItemsModalTextArea"
                         value="<?php echo $data['reason']; ?>"></textarea>
                      <span class="error"> <?php echo $data['reason_error']; ?></span>
                   </div>

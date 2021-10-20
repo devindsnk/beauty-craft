@@ -70,8 +70,8 @@ require APPROOT . "/views/inc/headerBar.php"
                                           class="ci-trash table-icon"></i></a></button></span></td>
                         </tr>
                         <tr>
-                           <td data-lable="Leave Date" class="column-center-align">2021-10-19</td>
-                           <td data-lable="Requested date" class="column-center-align">2021-10-16</td>
+                           <td data-lable="Leave Date" class="column-center-align">2021-10-10</td>
+                           <td data-lable="Requested date" class="column-center-align">2021-10-6</td>
                            <td data-lable="Responded Staff ID" class="column-center-align">Not yet Responded </td>
 
                            <td data-lable="Status" class="column-center-align">
@@ -88,8 +88,8 @@ require APPROOT . "/views/inc/headerBar.php"
                                           class="ci-trash table-icon"></i></a></button></span></td>
                         </tr>
                         <tr>
-                           <td data-lable="Leave Date" class="column-center-align">2021-10-19</td>
-                           <td data-lable="Requested date" class="column-center-align">2021-10-16</td>
+                           <td data-lable="Leave Date" class="column-center-align">2021-9-19</td>
+                           <td data-lable="Requested date" class="column-center-align">2021-9-16</td>
                            <td data-lable="Responded Staff ID" class="column-center-align">000005 </td>
 
                            <td data-lable="Status" class="column-center-align">
@@ -102,8 +102,8 @@ require APPROOT . "/views/inc/headerBar.php"
                                           class="ci-trash table-icon"></i></a></button></span></td>
                         </tr>
                         <tr>
-                           <td data-lable="Leave Date" class="column-center-align">2021-10-19</td>
-                           <td data-lable="Requested date" class="column-center-align">2021-10-16</td>
+                           <td data-lable="Leave Date" class="column-center-align">2021-8-20</td>
+                           <td data-lable="Requested date" class="column-center-align">2021-8-18</td>
                            <td data-lable="Responded Staff ID" class="column-center-align">000005 </td>
 
                            <td data-lable="Status" class="column-center-align"><button type="button"
