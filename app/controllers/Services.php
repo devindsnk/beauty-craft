@@ -176,10 +176,10 @@ class Services extends Controller
    }
    public function serviceReport()
    {
-      $this->view('manager/mang_serviceReport');
+      $this->view('common/serviceReport');
    }
    public function serviceProviderReport()
    {
-      $this->view('manager/mang_serviceProviderReport');
+      $this->view('common/serviceProviderReport');
    }
 }

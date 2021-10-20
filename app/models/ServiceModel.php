@@ -13,10 +13,10 @@ class ServiceModel{
     public function addService($data){
        
         if (empty($data['sSelectedType'])){
-            $this->db->query("INSERT INTO services (name, price, type, totalDuration, status) VALUES(:sName, :sPrice, :sNewType, :sSlot1Duration, 'active')");
+            $this->db->query("INSERT INTO services (name, price, type, totalDuration, status) VALUES(:sName, :sPrice, :sNewType, :sSlot1Duration, 1)");
             $this->db->bind(':sNewType', $data['sNewType']);
         }else{
-            $this->db->query("INSERT INTO services (name, price, type, totalDuration, status) VALUES(:sName, :sPrice, :sSelectedType, :sSlot1Duration,'active')");
+            $this->db->query("INSERT INTO services (name, price, type, totalDuration, status) VALUES(:sName, :sPrice, :sSelectedType, :sSlot1Duration,1)");
             $this->db->bind(':sSelectedType', $data['sSelectedType']);
         }
         
@@ -81,7 +81,7 @@ class ServiceModel{
     
     public function getServiceProviderDetails(){
         
-        $this->db->query("SELECT staffID,fName,lName FROM staff WHERE staffType=1"); 
+        $this->db->query("SELECT staffID,fName,lName FROM staff WHERE staffType=5"); 
         
         $result = $this->db->resultSet();
 
