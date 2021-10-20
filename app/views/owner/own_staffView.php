@@ -7,13 +7,12 @@
             <h1 class="header-topic">Staff Member Details</h1>
         </div>
         <div class="header-right verticalCenter">
-        <a href= "<?php echo URLROOT;    
-         if ($userType == 2){ echo "/OwnDashboard/staff";} 
-         elseif ($userType == 3) {echo "/MangDashboard/staffMembers";}   
-         elseif ($userType == 4) {echo "/ReceptDashboard/staffMembers";}
-         ?>"
-         
-            class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
+        <a href= "<?php
+         echo URLROOT;         
+         if ($userType == 2) echo "/OwnDashboard/staff"; 
+         elseif ($userType == 3) echo "/MangDashboard/staffMembers";   
+         elseif ($userType == 4) echo "/ReceptDashboard/staffMembers"; 
+         ?>" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
         </div>
     </header>
     <div class="content contentNewRes">

@@ -358,10 +358,10 @@ footer p{
 
 
 /* resizing styles of resources content */
-.content.resources{
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+.content.resources .page-top-main-container,
+.content.resources .options-container,
+.content.resources .table2-responsive{
+  padding: 0 200px;
 } 
 
 /* #################################################################### */
