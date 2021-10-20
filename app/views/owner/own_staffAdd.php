@@ -32,7 +32,7 @@
                             <!------------------ maingrid1 start --------------------------------------------------------->
                             <div class="ownAddstaffMaingrid1">
 
-                                <div class="ownAddstaffFormGroupImage">
+                                <!-- <div class="ownAddstaffFormGroupImage">
                                     <div class="ownAddstaffBasicinfoFilesubBtn">
                                         <label for="ownAddstaffBasicinfoImagesub"
                                             class="ownAddstaffBasicinfoImagewrapper">
@@ -43,7 +43,7 @@
                                             <span class="ownAddstaffBasicinfoImagetitle">Add Image</span>
                                         </label>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="ownAddstaffFormGroupFname">
                                     <label class="ownAddstaffLabels">First Name</label>
