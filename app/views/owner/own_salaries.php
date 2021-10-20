@@ -57,7 +57,7 @@
             </div>
             <div class="right-section">
                <a href="" class="btn btn-filled btn-black">Search</a>
-               <!-- <button class="btn btn-search">Search</button> -->
+               <a href="#" class="btn btn-filled btn-theme-purple btnSalaryPay"></i> Mark As Paid</a>
             </div>
          </div>
       </form>
@@ -71,7 +71,7 @@
                <!--Table head-->
                <thead>
                   <tr>
-                     <th class="column-center-align"></th>
+                     <!-- <th class="column-center-align"></th> -->
                      <!--<th></th>-->
                      <th colspan="2">Staff Member Name</th>
                      <th>Staff ID</th>
@@ -92,7 +92,7 @@
                      <td data-lable="" class="column-center-align">
                         <input type="checkbox" class="" name="chk" />
                      </td>
-                     <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person2.jpg" /></td>
+                     <!-- <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person2.jpg" /></td> -->
                      <td data-lable="Staff Member Name">Sanjana Rajapaksha</td>
                      <td data-lable="Staff ID">S001</td>
                      <td data-lable="Staff Type">Manager</td>
@@ -107,7 +107,7 @@
                      </td>
                      <td data-lable="More" class="column-center-align">
                         <a class="btnSalaryPayment" class="">
-                           <button type="button" class="table-btn black-action-btn text-uppercase ">Pay Now</button>
+                           <button type="button" class="table-btn black-action-btn text-uppercase btnSalaryPay">Pay Now</button>
                         </a>
                      </td>
                   </tr>
@@ -118,7 +118,7 @@
                      <td data-lable="" class="column-center-align">
                         <input type="checkbox" name="chk" />
                      </td>
-                     <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person1.jpg" /></td>
+                     <!-- <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person1.jpg" /></td> -->
                      <td data-lable="Staff Member Name">Ravindu Madhubhashana</td>
                      <td data-lable="Staff ID">S001</td>
                      <td data-lable="Staff Type">Owner</td>
@@ -132,7 +132,7 @@
                         </span>
                      </td>
                      <td data-lable="More" class="column-center-align">
-                        <a href="#"><button type="button" class="table-btn black-action-btn text-uppercase">Pay
+                        <a href="#"><button type="button" class="table-btn black-action-btn text-uppercase btnSalaryPay">Pay
                               Now</button></a>
                      </td>
                   </tr>
@@ -143,7 +143,7 @@
                      <td data-lable="" class="column-center-align">
                         <input type="checkbox" name="chk" />
                      </td>
-                     <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person3.jpg" /></td>
+                     <!-- <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person3.jpg" /></td> -->
                      <td data-lable="Staff Member Name">Ruwanthi Munasinghe</td>
                      <td data-lable="Staff ID">S001</td>
                      <td data-lable="Staff Type">Service Provider</td>
@@ -158,7 +158,7 @@
                         </span>
                      </td>
                      <td data-lable="More" class="column-center-align">
-                        <a href="#"><button type="button" class="table-btn black-action-btn text-uppercase">Pay
+                        <a href="#"><button type="button" class="table-btn black-action-btn text-uppercase btnSalaryPay">Pay
                               Now</button></a>
                      </td>
                   </tr>
@@ -169,7 +169,7 @@
                      <td data-lable="" class="column-center-align">
                         <input type="checkbox" name="chk" />
                      </td>
-                     <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person1.jpg" /></td>
+                     <!-- <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person1.jpg" /></td> -->
                      <td data-lable="Staff Member Name">Devin Dissanayake</td>
                      <td data-lable="Staff ID">S001</td>
                      <td data-lable="Staff Type">Receptionist</td>
@@ -183,7 +183,7 @@
                         </span>
                      </td>
                      <td data-lable="More" class="column-center-align">
-                        <a href="#"><button type="button" class="table-btn black-action-btn text-uppercase">Pay
+                        <a href="#"><button type="button" class="table-btn black-action-btn text-uppercase btnSalaryPay">Pay
                               Now</button></a>
                      </td>
                   </tr>
@@ -194,7 +194,7 @@
                      <td data-lable="" class="column-center-align">
                         <input type="checkbox" name="chk" />
                      </td>
-                     <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person4.jpg" /></td>
+                     <!-- <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person4.jpg" /></td> -->
                      <td data-lable="Staff Member Name">Pubudu Wijekon</td>
                      <td data-lable="Staff ID">S001</td>
                      <td data-lable="Staff Type">Service Provider</td>
@@ -208,7 +208,7 @@
                            <a href="<?php echo URLROOT ?>/salary/salaryReport"><i class="img-view-edit-update ci-view-more table-icon"></i></a>
                      </td>
                      <td data-lable="More" class="column-center-align">
-                        <a href="#"><button type="button" class="table-btn black-action-btn text-uppercase">Pay
+                        <a href="#"><button type="button" class="table-btn black-action-btn text-uppercase btnSalaryPay">Pay
                               Now</button></a>
                      </td>
                   </tr>
@@ -219,13 +219,13 @@
                      <td data-lable="" class="column-center-align">
                         <input type="checkbox" name="chk" />
                      </td>
-                     <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person5.jpg" /></td>
+                     <!-- <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person5.jpg" /></td> -->
                      <td data-lable="Staff Member Name">Sumudu Perera</td>
                      <td data-lable="Staff ID">S001</td>
                      <td data-lable="Staff Type">Receptionist</td>
                      <td data-lable="Salary" class="column-right-align">Rs.25000.00</td>
                      <td data-lable="Paid Status" class="column-center-align">
-                        <a href="#"><button type="button" class="table-btn green-status-btn text-uppercase">Paid</button></a>
+                        <a href="#"><button type="button" class="table-btn green-status-btn text-uppercase btnRemoveService">Paid</button></a>
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
@@ -233,7 +233,7 @@
                         </span>
                      </td>
                      <td data-lable="More" class="column-center-align">
-                        <a href="#"><button type="button" class="table-btn black-action-btn text-uppercase">Pay
+                        <a href="#"><button type="button" class="table-btn black-action-btn text-uppercase btnSalaryPay">Pay
                               Now</button></a>
                      </td>
                   </tr>
@@ -255,16 +255,9 @@
    </div>
 
    <!--End Content-->
-
-
-   <?php require APPROOT . "/views/inc/footer.php" ?>
-
-
-
-
-
+   
    <!-- Validate the salary payment model -->
-   <div class="modal-container salary-payment">
+   <div class="modal-container ">
       <div class="modal-box">
          <div class="confirm-model-head">
             <h1>Salary Payment</h1>
@@ -274,8 +267,32 @@
          </div>
          <div class="confirm-model-head">
             <button class="btn btnClose normal ModalButton ModalCancelButton">Cancel</button>
-            <button class="btn btnClose normal ModalButton ModalBlueButton">Proceed</button>
+            <button class="btn normal ModalButton ModalBlueButton">Proceed</button>
          </div>
       </div>
    </div>
    <!-- End of Validate the salary payment model -->
+
+   <!-- Remove close date model -->
+<div class="modal-container salary-payment">>
+        <div class="modal-box">
+                <div class="confirm-model-head">
+                    <h1>Salary Payment</h1>
+                </div>
+                <div class="confirm-model-head">
+                    <p>Are you sure you want to mark this as paid?<br> This action cannot be undone after proceeding.</p>
+                </div>
+                <div class="confirm-model-head">
+                    <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
+                    <button class="btn normal ModalButton ModalBlueButton">proceed</button>
+                </div>
+        </div>
+    </div>
+<!-- End of Remove close date model -->
+
+
+   <?php require APPROOT . "/views/inc/footer.php" ?>
+
+
+
+

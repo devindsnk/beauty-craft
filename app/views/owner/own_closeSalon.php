@@ -27,7 +27,7 @@
                   <div class="column">
                      <div class="text-group ownTableFormDate">
                         <label class="label" for="fName">Month</label>
-                        <input type="month" name="" >
+                        <input type="month" name="" value="" >
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
                   </div>
@@ -118,7 +118,7 @@
                 </div>
                 <div class="confirm-model-head">
                     <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
-                    <button class="btn btnClose normal ModalButton ModalBlueButton">proceed</button>
+                    <button class="btn normal ModalButton ModalBlueButton">proceed</button>
                 </div>
         </div>
     </div>

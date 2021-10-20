@@ -5,10 +5,76 @@ var modalToToggle = null;
 
 // Remove Service Modal Section
 const removeServiceModal = document.querySelector(".remove-service");
+console.log(removeServiceModal);
 const removeServiceBtnList = document.querySelectorAll(".btnRemoveService");
+console.log(removeServiceBtnList);
 removeServiceBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
         modalToToggle = removeServiceModal;
+        toggleModal();
+    });
+});
+
+// Remove Resource Modal Section
+const removeResourceModal = document.querySelector(".remove-resource");
+const removeResourceBtnList = document.querySelectorAll(".btnRemoveResource");
+removeResourceBtnList.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = removeResourceModal;
+        toggleModal();
+    });
+});
+
+// Update Resource Modal Section
+const updateResourceModal = document.querySelector(".update-resource");
+const updateResourceBtnList = document.querySelectorAll(".btnUpdateResource");
+updateResourceBtnList.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = updateResourceModal;
+        toggleModal();
+    });
+});
+
+
+// Add Resource Modal Section
+const addResourceModal = document.querySelector(".add-resource");
+const addResourceBtnList = document.querySelectorAll(".btnAddResource");
+addResourceBtnList.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = addResourceModal;
+        toggleModal();
+    });
+});
+
+
+// Salary payment Modal Section
+const salaryPayModal = document.querySelector(".salary-payment");
+const salaryPayBtnList = document.querySelectorAll(".btnSalaryPay");
+salaryPayBtnList.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = salaryPayModal;
+        toggleModal();
+    });
+});
+
+
+// Add Close Date Modal Section
+const addCloseDateModal = document.querySelector(".add-closeDate");
+const addCloseDateBtnList = document.querySelectorAll(".btnAddCloseDate");
+addCloseDateBtnList.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = addCloseDateModal;
+        toggleModal();
+    });
+});
+
+
+// Remove Close Date Modal Section
+const removeCloseDateModal = document.querySelector(".remove-closeDate");
+const removeCloseDateBtnList = document.querySelectorAll(".btnRemoveCloseDate");
+removeCloseDateBtnList.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = removeCloseDateModal;
         toggleModal();
     });
 });
@@ -58,6 +124,7 @@ if (resRecallBtn) {
         }
     );
 }
+
 
 /* ------------------------------------------------------------------- */
 /* ----------------------- Manager Leaves ---------------------------- */
@@ -131,6 +198,20 @@ if (deleteLeaveBtnList) {
             modalToToggle = deleteLeaveModal;
             toggleModal();
         });
+    });
+}
+
+/* ------------------------------------------------------------------- */
+/* ---------------------- Staff Changepassword ----------------------- */
+
+//Password reset-staff Modal Secrtion
+const changePasswordModal = document.querySelector(".change-password");
+const changePasswordBtn = document.querySelector(".changepw");
+console.log(changePasswordModal);
+if (changePasswordBtn) {
+    changePasswordBtn.addEventListener("click", function () {
+        modalToToggle = changePasswordModal;
+        toggleModal();
     });
 }
 

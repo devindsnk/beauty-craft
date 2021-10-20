@@ -1,4 +1,4 @@
-<?php require APPROOT . "/views/inc/header.php" ?> 
+<?php require APPROOT . "/views/inc/header.php" ?>
 
 <body class="layout-template-1">
    <?php
@@ -21,88 +21,81 @@
             <!-- owner overview available managers card starts -->
 
             <div class="ownOverviewContainerCard1">
-               <!-- <div class="sub-container-card"> -->
-               <div class="CardTitle" mang-sub-container-card-title>
-                  <P>Available Managers</P>
-               </div>
-               <div class="CardAmmount mang-sub-container-card-amount">
-                  <p>5</p>
-                  <!-- </div> -->
-               </div>
+            <div class="mang-sub-container-card-title"> 
+               <p>Available Managers</p>
             </div>
+            <div class="mang-sub-container-card-amount"> 
+               <p>5</p>
+            </div>
+         </div>
             <!-- owner overview available managers card ends -->
 
+
+
             <!-- owner overview total income card starts -->
-            <div class="ownOverviewContainerCard2">               
-                  <div class="CardTitle mang-sub-container-card-title">
-                     <P>Total Income</P>
-                  </div>
-                  <div class="CardAmmount mang-sub-container-card-amount">
-                     <p>4000000.00 LKR</p>
-                  </div>
+            <div class="ownOverviewContainerCard2">
+            <div class="mang-sub-container-card-title"> 
+               <p>Total Income</p>
             </div>
+            <div class="mang-sub-container-card-amount"> 
+               <p>400000.00 LKR</p>
+            </div>
+         </div>
             <!-- owner overview total income card ends -->
 
-            <!-- owner overview resource card starts -->
-            <div class="ownOverviewContainerCard3">
-               <div class="sub-container-card">
-                  <div class="resource bar">
-                     <!-- ------------------------------------------------------------------------------------- -->
-                     <!-- <div class="menu-wrapper">
-                        <ul class="menu">
-                           <li class="item">
-                              <span>Resource 1</span>
-                              <span>4</span>
-                           </li>
-                           <li class="item">
-                              <span>Resource 1</span>
-                              <span>4</span>
-                           </li>
-                           <li class="item">
-                              <span>Resource 1</span>
-                              <span>4</span>
-                           </li>
-                           <li class="item">
-                              <span>Resource 1</span>
-                              <span>4</span>
-                           </li>
-                           
-                        </ul>
+            
 
-                        <div class="paddles">
-                           <button class="left-paddle paddle hidden">
-                              < </button> <button class="right-paddle paddle">
-                                 >
-                           </button>
-                        </div>
-
-                     </div> -->
-
-                  </div>
+            <!-- <div class="ownOverviewContainerCard3">
+               <div class="wrapper">
+               <div class="item">Box 1</div>
+               <div class="item">Box 2</div>
+               <div class="item">Box 3</div>
+               <div class="item">Box 4</div>
+               <div class="item">Box 5</div>
+               <div class="item">Box 6</div>
                </div>
+            </div> -->
+            <!-- owner overview available managers card starts -->
+            <div class="ownOverviewContainerCard3">
+            <div class="mang-sub-container-card-title"> 
+               <p>Total Customers</p>
             </div>
-            <!-- owner overview resource card ends -->
+            <div class="mang-sub-container-card-amount"> 
+               <p>260</p>
+            </div>
+         </div>
+
          </div>
 
          <!-- owner overview charts card starts -->
          <div class="ownOverviewCharts">
 
             <!-- owner overview chart1 card starts -->
-            <div class="ownOverviewChart">
+            
+            <div class="ownOverviewChart1">
+            <div class="chartHead"> 
+               <p> Staff Members  </p>
+            </div>
                <canvas id="ownOverviewChartAvailableEmployees"></canvas>
             </div>
             <!-- owner overview chart1 card ends -->
 
             <!-- owner overview chart2 card starts -->
-            <div class="ownOverviewChart">
+            <div class="ownOverviewChart2">
+            <div class="chartHead"> 
+               <p>Income </p>
+            </div>
                <canvas id="ownOverviewChartIncome"></canvas>
             </div>
             <!-- owner overview chart2 card ends -->
 
             <!-- owner overview chart3 card starts -->
-            <div class="ownOverviewChart">
-               <canvas id="ownOverviewChartSalaryStatus"></canvas>
+            <!-- <div class="ownOverviewChart3">
+            <div class="chartHead"> 
+               <p>Income</p>
             </div>
+               <canvas id="ownOverviewChartSalaryStatus"></canvas>
+            </div> -->
             <!-- owner overview chart3 card ends -->
 
          </div>
