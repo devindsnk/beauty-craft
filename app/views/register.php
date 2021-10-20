@@ -14,12 +14,16 @@
 
 <body>
    <div class="main-container">
-      <a href="<?php echo URLROOT ?>" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
+      <a href="<?php echo URLROOT ?>">
+         <img src="<?php echo URLROOT ?>/public/imgs/logoTextWhite.png" alt="logo" class="top-left-logo logo-textWhite">
+         <img src="<?php echo URLROOT ?>/public/imgs/logoTextBlack.png" alt="logo" class="top-left-logo logo-textBlack">
+      </a>
+      <a href="<?php echo URLROOT ?>" class="top-right-closeBtn white-red-hover"><i class="fal fa-times fa-2x "></i></a>
       <div class="reg-container form-container contentBox">
          <form action="<?php echo URLROOT; ?>/customer/register" method="post" class="form">
             <h1 class="title">Get Registered</h1>
 
-            <div class="rowitem">
+            <div class="row">
                <div class="column">
                   <div class="text-group">
                      <label class="label" for="name">Name</label>

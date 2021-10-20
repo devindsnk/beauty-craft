@@ -17,10 +17,9 @@
 
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "SystemLog") echo " selected" ?>" 
-            href="<?php echo URLROOT ?>/SysAdminDashboard/systemlog">
+            <a class="optionLink <?php if ($selectedMain == "SystemLog") echo " selected" ?>" href="<?php echo URLROOT ?>/SysAdminDashboard/systemlog">
                <div class="optionIcon">
-                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
+                  <i class="sidenav-icon ci-analytics "></i>
                </div>
                <div class="optionTitle">System Log</div>
             </a>
@@ -29,9 +28,9 @@
 
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "CreateAccount") echo " selected" ?>" >
+            <a class="optionLink <?php if ($selectedMain == "CreateAccount") echo " selected" ?>">
                <div class="optionIcon">
-                  <img src="<?php echo URLROOT ?>/public/icons/overview-white.png" />
+                  <i class="sidenav-icon ci-analytics "></i>
                </div>
                <div class="optionTitle">Create Account</div>
                <div class="optionArrow <?php if ($selectedMain == "CreateAccount") echo " rotated180" ?>">
@@ -42,8 +41,7 @@
             <ul class="subMenu <?php if ($selectedMain == "CreateAccount") echo " expanded" ?>">
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
-                  <a class="optionLink <?php if ($selectedSub == "Staff") echo " selected" ?>"
-                     href="<?php echo URLROOT ?>/SysAdminDashboard/staff">
+                  <a class="optionLink <?php if ($selectedSub == "Staff") echo " selected" ?>" href="<?php echo URLROOT ?>/SysAdminDashboard/staff">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Staff</div>
                   </a>
@@ -51,8 +49,7 @@
                <!--End Sidebar Sub Item-->
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
-                  <a class="optionLink <?php if ($selectedSub == "Customer") echo " selected" ?>"
-                     href="<?php echo URLROOT ?>/SysAdminDashboard/Customer">
+                  <a class="optionLink <?php if ($selectedSub == "Customer") echo " selected" ?>" href="<?php echo URLROOT ?>/SysAdminDashboard/Customer">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Customer</div>
                   </a>

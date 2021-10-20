@@ -14,7 +14,10 @@
 
 <body>
    <div class="main-container">
-      <a href="<?php echo URLROOT ?>" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
+      <a href="<?php echo URLROOT ?>">
+         <img src="<?php echo URLROOT ?>/public/imgs/logoTextWhite.png" alt="logo" class="top-left-logo">
+      </a>
+      <a href="<?php echo URLROOT ?>" class="top-right-closeBtn white-red-hover"><i class="fal fa-times fa-2x "></i></a>
 
       <div class="reset-container form-container contentBox">
          <form action="<?php echo URLROOT; ?>/user/resetPassword" method="post" class="form">
@@ -23,8 +26,8 @@
             <div class="row row-last">
                <div class="text-group">
                   <label class="label" for="mobileNo">Mobile No</label>
-                  <input type="text" name="mobileNo" placeholder="Your mobile no here" value="<?php echo "" ?>">
-                  <span class="error"><?php echo " " ?></span>
+                  <input type="text" name="mobileNo" placeholder="Your mobile no here" value="<?php echo $data['mobileNo'] ?>">
+                  <span class="error"><?php echo $data['mobileNo_error']; ?></span>
                </div>
                <div class="column">
                   <button type="submit" name="action" value="getPIN" class="btn btn-filled btn-black middle">Get PIN</button>
@@ -35,7 +38,7 @@
                <div class="text-group">
                   <label class="label" for="pin">PIN</label>
                   <input type="text" class="pin" name="pin" maxlength="6" placeholder="PIN">
-                  <span class="error"><?php echo "" ?></span>
+                  <span class="error"><?php echo $data['pin_error']; ?></span>
                </div>
             </div>
 
@@ -44,14 +47,14 @@
                   <div class="text-group">
                      <label class="label" for="password">New Password</label>
                      <input type="password" name="password" placeholder="Enter password here">
-                     <span class="error"><?php echo " " ?></span>
+                     <span class="error"><?php echo $data['newPassword_error']; ?></span>
                   </div>
                </div>
                <div class="column">
                   <div class="text-group">
                      <label class="label" for="confirmPassword">Confirm New Password</label>
                      <input type="password" name="confirmPassword" placeholder="Enter password again">
-                     <span class="error"><?php echo " " ?></span>
+                     <span class="error"><?php echo $data['confirmNewPassword_error']; ?></span>
                   </div>
                </div>
             </div>

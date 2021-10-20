@@ -15,8 +15,8 @@
    ?>
 
    <!--Content-->
-   <div class="content">
-      <h3>This is main option 1</h3>
+   <div class="content resources">
+   <?php require APPROOT . "/views/common/resourcesTable.php" ?>
    </div>
    <!--End Content-->
 

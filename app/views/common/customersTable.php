@@ -41,7 +41,6 @@
 <div class="table-container">
    <div class="table2 table2-responsive">
       <table class="table2-hover">
-
          <thead>
             <tr>
                <th class="column-center-align col-1">Customer ID</th>
@@ -65,8 +64,8 @@
                   <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
                </td>
                <td class="column-center-align">
-                  <span>
-                     <a href="#"><i class="ci-view-more table-icon"></i></a>
+                  <span> 
+                      <a href="<?php echo URLROOT ?>/OwnDashboard/cusDetailView"><i class="ci-view-more table-icon"></i></a>
                      <?php if ($userLevel == "Owner") : ?>
                         <a href="#"><i class="ci-trash table-icon btnRemoveCustomer"></i></a>
                      <?php endif; ?>
@@ -85,9 +84,9 @@
                </td>
                <td class="column-center-align">
                   <span>
-                     <a href="#"><i class="ci-view-more table-icon"></i></a>
+                     <a href="<?php echo URLROOT ?>/OwnDashboard/cusDetailView"><i class="ci-view-more table-icon"></i></a>
                      <?php if ($userLevel == "Owner") : ?>
-                        <a href="#"><i class="ci-trash table-icon btnRemoveCustomer"></i></a>
+                        <a href="#"><i class="ci-trash table-icon btnRemoveCustomer "></i></a>
                      <?php endif; ?>
                   </span>
                </td>
@@ -122,10 +121,10 @@
       <!-- main grid 3 starts -->
       <div class="ownRemCusButtons">
          <div class="ownRemCusbtn1">
-            <button class="btn btnClose normal ownCancelButton">Cancel</button>
+            <button class="btn btnClose normal ModalCancelButton ModalButton">Cancel</button>
          </div>
          <div class="ownRemCusbtn2">
-            <button class="btn ownProceedBlueButton">Proceed</button>
+            <button class="btn ModalBlueButton ModalButton">Proceed</button>
          </div>
       </div>
       <!-- main grid 3 ends -->

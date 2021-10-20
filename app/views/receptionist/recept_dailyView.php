@@ -15,103 +15,117 @@
 
    <!--Content-->
    <div class="content recept daily-view">
-      <h3>This is main option 1</h3>
-      <p>
-         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, itaque. Recusandae, omnis officiis! Quia aliquid sunt vel facere quas facilis cupiditate tenetur atque explicabo! Excepturi magni ullam sint autem doloremque.
+      <div class="page-top-main-container">
+         <a href="<?php echo URLROOT ?>/reservations/addNew" class="btn btn-filled btn-theme-purple btn-main">Add
+            New</a>
+      </div>
 
-         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum doloribus nostrum harum officia alias error, impedit dignissimos explicabo beatae saepe perferendis quaerat, illo mollitia modi adipisci eum ipsum dolorem natus.
+      <form class="form filter-options" action="">
+         <div class="options-container">
+            <div class="left-section">
+               <div class="row">
+                  <div class="column">
+                     <div class="dropdown-group">
+                        <label class="label" for="lName">Service Provider</label>
+                        <select>
+                           <option value="" selected>Any</option>
+                           <option value="volvo">Active</option>
+                           <option value="saab">Inactive</option>
+                        </select>
+                     </div>
+                     <span class="error"> <?php echo " "; ?></span>
+                  </div>
+                  <div class="column">
+                     <div class="text-group">
+                        <label class="label" for="fName">Date</label>
+                        <input type="text" name="" id="fName" placeholder="Your first name here">
+                     </div>
+                     <span class="error"> <?php echo " "; ?></span>
+                  </div>
+               </div>
+            </div>
+            <div class="right-section">
+               <a href="" class="btn btn-filled btn-black">Search</a>
+               <!-- <button class="btn btn-search">Search</button> -->
+            </div>
+         </div>
 
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ratione voluptatum reiciendis fugit! Sequi, molestiae distinctio nobis tempore consequatur quo exercitationem at cupiditate corporis enim debitis iste deleniti dignissimos magni.
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dolores cum aperiam, quia rem consectetur at nesciunt qui libero, veritatis, maxime maiores veniam officia rerum perspiciatis pariatur dolore? Consectetur, quidem?
+      </form>
 
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores delectus est accusamus repellendus sint? Quibusdam corporis eveniet fugiat exercitationem illum doloremque vitae placeat expedita, ut mollitia iusto qui amet ratione?
 
-         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non incidunt velit unde magni eos sit reiciendis nesciunt quisquam enim quibusdam commodi, id molestias ut aspernatur illo temporibus, quis saepe veniam!
-
-         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, itaque. Recusandae, omnis officiis! Quia aliquid sunt vel facere quas facilis cupiditate tenetur atque explicabo! Excepturi magni ullam sint autem doloremque.
-
-         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum doloribus nostrum harum officia alias error, impedit dignissimos explicabo beatae saepe perferendis quaerat, illo mollitia modi adipisci eum ipsum dolorem natus.
-
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ratione voluptatum reiciendis fugit! Sequi, molestiae distinctio nobis tempore consequatur quo exercitationem at cupiditate corporis enim debitis iste deleniti dignissimos magni.
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dolores cum aperiam, quia rem consectetur at nesciunt qui libero, veritatis, maxime maiores veniam officia rerum perspiciatis pariatur dolore? Consectetur, quidem?
-
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores delectus est accusamus repellendus sint? Quibusdam corporis eveniet fugiat exercitationem illum doloremque vitae placeat expedita, ut mollitia iusto qui amet ratione?
-
-         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non incidunt velit unde magni eos sit reiciendis nesciunt quisquam enim quibusdam commodi, id molestias ut aspernatur illo temporibus, quis saepe veniam!
-
-         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, itaque. Recusandae, omnis officiis! Quia aliquid sunt vel facere quas facilis cupiditate tenetur atque explicabo! Excepturi magni ullam sint autem doloremque.
-
-         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum doloribus nostrum harum officia alias error, impedit dignissimos explicabo beatae saepe perferendis quaerat, illo mollitia modi adipisci eum ipsum dolorem natus.
-
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ratione voluptatum reiciendis fugit! Sequi, molestiae distinctio nobis tempore consequatur quo exercitationem at cupiditate corporis enim debitis iste deleniti dignissimos magni.
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dolores cum aperiam, quia rem consectetur at nesciunt qui libero, veritatis, maxime maiores veniam officia rerum perspiciatis pariatur dolore? Consectetur, quidem?
-
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores delectus est accusamus repellendus sint? Quibusdam corporis eveniet fugiat exercitationem illum doloremque vitae placeat expedita, ut mollitia iusto qui amet ratione?
-
-         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non incidunt velit unde magni eos sit reiciendis nesciunt quisquam enim quibusdam commodi, id molestias ut aspernatur illo temporibus, quis saepe veniam!
-
-         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, itaque. Recusandae, omnis officiis! Quia aliquid sunt vel facere quas facilis cupiditate tenetur atque explicabo! Excepturi magni ullam sint autem doloremque.
-
-         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum doloribus nostrum harum officia alias error, impedit dignissimos explicabo beatae saepe perferendis quaerat, illo mollitia modi adipisci eum ipsum dolorem natus.
-
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ratione voluptatum reiciendis fugit! Sequi, molestiae distinctio nobis tempore consequatur quo exercitationem at cupiditate corporis enim debitis iste deleniti dignissimos magni.
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dolores cum aperiam, quia rem consectetur at nesciunt qui libero, veritatis, maxime maiores veniam officia rerum perspiciatis pariatur dolore? Consectetur, quidem?
-
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores delectus est accusamus repellendus sint? Quibusdam corporis eveniet fugiat exercitationem illum doloremque vitae placeat expedita, ut mollitia iusto qui amet ratione?
-
-         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non incidunt velit unde magni eos sit reiciendis nesciunt quisquam enim quibusdam commodi, id molestias ut aspernatur illo temporibus, quis saepe veniam!
-
-         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, itaque. Recusandae, omnis officiis! Quia aliquid sunt vel facere quas facilis cupiditate tenetur atque explicabo! Excepturi magni ullam sint autem doloremque.
-
-         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum doloribus nostrum harum officia alias error, impedit dignissimos explicabo beatae saepe perferendis quaerat, illo mollitia modi adipisci eum ipsum dolorem natus.
-
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ratione voluptatum reiciendis fugit! Sequi, molestiae distinctio nobis tempore consequatur quo exercitationem at cupiditate corporis enim debitis iste deleniti dignissimos magni.
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dolores cum aperiam, quia rem consectetur at nesciunt qui libero, veritatis, maxime maiores veniam officia rerum perspiciatis pariatur dolore? Consectetur, quidem?
-
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores delectus est accusamus repellendus sint? Quibusdam corporis eveniet fugiat exercitationem illum doloremque vitae placeat expedita, ut mollitia iusto qui amet ratione?
-
-         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non incidunt velit unde magni eos sit reiciendis nesciunt quisquam enim quibusdam commodi, id molestias ut aspernatur illo temporibus, quis saepe veniam!
-
-         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum doloribus nostrum harum officia alias error, impedit dignissimos explicabo beatae saepe perferendis quaerat, illo mollitia modi adipisci eum ipsum dolorem natus.
-
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ratione voluptatum reiciendis fugit! Sequi, molestiae distinctio nobis tempore consequatur quo exercitationem at cupiditate corporis enim debitis iste deleniti dignissimos magni.
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dolores cum aperiam, quia rem consectetur at nesciunt qui libero, veritatis, maxime maiores veniam officia rerum perspiciatis pariatur dolore? Consectetur, quidem?
-
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores delectus est accusamus repellendus sint? Quibusdam corporis eveniet fugiat exercitationem illum doloremque vitae placeat expedita, ut mollitia iusto qui amet ratione?
-
-         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non incidunt velit unde magni eos sit reiciendis nesciunt quisquam enim quibusdam commodi, id molestias ut aspernatur illo temporibus, quis saepe veniam!
-
-         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, itaque. Recusandae, omnis officiis! Quia aliquid sunt vel facere quas facilis cupiditate tenetur atque explicabo! Excepturi magni ullam sint autem doloremque.
-
-         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum doloribus nostrum harum officia alias error, impedit dignissimos explicabo beatae saepe perferendis quaerat, illo mollitia modi adipisci eum ipsum dolorem natus.
-
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ratione voluptatum reiciendis fugit! Sequi, molestiae distinctio nobis tempore consequatur quo exercitationem at cupiditate corporis enim debitis iste deleniti dignissimos magni.
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dolores cum aperiam, quia rem consectetur at nesciunt qui libero, veritatis, maxime maiores veniam officia rerum perspiciatis pariatur dolore? Consectetur, quidem?
-
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores delectus est accusamus repellendus sint? Quibusdam corporis eveniet fugiat exercitationem illum doloremque vitae placeat expedita, ut mollitia iusto qui amet ratione?
-
-         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non incidunt velit unde magni eos sit reiciendis nesciunt quisquam enim quibusdam commodi, id molestias ut aspernatur illo temporibus, quis saepe veniam!
-
-         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum doloribus nostrum harum officia alias error, impedit dignissimos explicabo beatae saepe perferendis quaerat, illo mollitia modi adipisci eum ipsum dolorem natus.
-
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ratione voluptatum reiciendis fugit! Sequi, molestiae distinctio nobis tempore consequatur quo exercitationem at cupiditate corporis enim debitis iste deleniti dignissimos magni.
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dolores cum aperiam, quia rem consectetur at nesciunt qui libero, veritatis, maxime maiores veniam officia rerum perspiciatis pariatur dolore? Consectetur, quidem?
-
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores delectus est accusamus repellendus sint? Quibusdam corporis eveniet fugiat exercitationem illum doloremque vitae placeat expedita, ut mollitia iusto qui amet ratione?
-
-         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non incidunt velit unde magni eos sit reiciendis nesciunt quisquam enim quibusdam commodi, id molestias ut aspernatur illo temporibus, quis saepe veniam!
-
-         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, itaque. Recusandae, omnis officiis! Quia aliquid sunt vel facere quas facilis cupiditate tenetur atque explicabo! Excepturi magni ullam sint autem doloremque.
-
-         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum doloribus nostrum harum officia alias error, impedit dignissimos explicabo beatae saepe perferendis quaerat, illo mollitia modi adipisci eum ipsum dolorem natus.
-
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ratione voluptatum reiciendis fugit! Sequi, molestiae distinctio nobis tempore consequatur quo exercitationem at cupiditate corporis enim debitis iste deleniti dignissimos magni.
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dolores cum aperiam, quia rem consectetur at nesciunt qui libero, veritatis, maxime maiores veniam officia rerum perspiciatis pariatur dolore? Consectetur, quidem?
-
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores delectus est accusamus repellendus sint? Quibusdam corporis eveniet fugiat exercitationem illum doloremque vitae placeat expedita, ut mollitia iusto qui amet ratione?
-
-         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non incidunt velit unde magni eos sit reiciendis nesciunt quisquam enim quibusdam commodi, id molestias ut aspernatur illo temporibus, quis saepe veniam!
-      </p>
+      <div class="res-card-container">
+         <div class="titleBox">
+            <div class="service-column">Service</div>
+            <div class="service-prov-column">Service Provider</div>
+            <div class="customer-column">Customer</div>
+            <div class="contact-column">Contact No</div>
+         </div>
+         <div class="contentBox res-card">
+            <div class="time-box column">09:30 am</div>
+            <div class="service-name-box column">Hair Cuts - Ladies</div>
+            <div class="service-prov-box column">Service Provider Name</div>
+            <div class="customer-box column">Customer Name</div>
+            <div class="contact-box column">0717679714</div>
+            <div class="status-box column">
+               <span class="status-tag status-success-green">Cancelled</span>
+            </div>
+            <div class="opt-box">
+               <a href="#"><i class="ci-3dots-vertical table-icon"></i></a>
+            </div>
+         </div>
+         <div class="contentBox res-card">
+            <div class="time-box column">09:30 am</div>
+            <div class="service-name-box column">Hair Cuts - Ladies</div>
+            <div class="service-prov-box column">Service Provider Name</div>
+            <div class="customer-box column">Customer Name</div>
+            <div class="contact-box column">0717679714</div>
+            <div class="status-box column">
+               <span class="status-tag status-success-green">Cancelled</span>
+            </div>
+            <div class="opt-box">
+               <a href="#"><i class="ci-3dots-vertical table-icon"></i></a>
+            </div>
+         </div>
+         <div class="contentBox res-card">
+            <div class="time-box column">09:30 am</div>
+            <div class="service-name-box column">Hair Cuts - Ladies</div>
+            <div class="service-prov-box column">Service Provider Name</div>
+            <div class="customer-box column">Customer Name</div>
+            <div class="contact-box column">0717679714</div>
+            <div class="status-box column">
+               <span class="status-tag status-success-green">Cancelled</span>
+            </div>
+            <div class="opt-box">
+               <a href="#"><i class="ci-3dots-vertical table-icon"></i></a>
+            </div>
+         </div>
+         <div class="contentBox res-card">
+            <div class="time-box column">09:30 am</div>
+            <div class="service-name-box column">Hair Cuts - Ladies</div>
+            <div class="service-prov-box column">Service Provider Name</div>
+            <div class="customer-box column">Customer Name</div>
+            <div class="contact-box column">0717679714</div>
+            <div class="status-box column">
+               <span class="status-tag status-success-green">Cancelled</span>
+            </div>
+            <div class="opt-box">
+               <a href="#"><i class="ci-3dots-vertical table-icon"></i></a>
+            </div>
+         </div>
+         <div class="contentBox res-card">
+            <div class="time-box column">09:30 am</div>
+            <div class="service-name-box column">Hair Cuts - Ladies</div>
+            <div class="service-prov-box column">Service Provider Name</div>
+            <div class="customer-box column">Customer Name</div>
+            <div class="contact-box column">0717679714</div>
+            <div class="status-box column">
+               <span class="status-tag status-success-green">Cancelled</span>
+            </div>
+            <div class="opt-box">
+               <a href="#"><i class="ci-3dots-vertical table-icon"></i></a>
+            </div>
+         </div>
+      </div>
    </div>
    <!--End Content-->
 

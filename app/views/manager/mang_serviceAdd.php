@@ -4,10 +4,9 @@
     <!-- New service container -->
 	<form class="form" action="<?php echo URLROOT; ?>/services/addNewService" method="post">
 
-        <div class="btn-remove-service mang">
-            <!-- <a href="#newServiceMain" name="remove" id="" class="close-service-window"><span onclick="Previous()">X</span></a> -->
-			<a href="#newServiceMain" name="remove" id="" class="close-service-window"><span onclick="Previous()"><i class='fas fa-arrow-left fa-2x'></i></span></a><br/>
-        </div>
+		<div class="btn-remove-service quantity-align mang">
+			<a href="#newServiceMain" name="remove" id="" class="close-service-window"><span onclick="Previous()"><i class='fas fa-times fa-2x'></i></span></a><br/>
+		</div>
 
 		<div class="newService-main newservice" id="newServiceMain">
 			<div class="newService-main-head">
@@ -160,14 +159,16 @@
 									<?php foreach($data['sResArray'] as $sResource) : ?>
 
 										<div class="divIndiv">
-											
+											<?php  $findResource = 1; ?>
 											<input type="checkbox" name="resourceCheckbox[]" value="<?php echo $sResource->resourceID; ?>">
 
 											<label class="lableInDiv" id="checkedItem">
 												<?php echo $sResource->resourceID; ?> - <?php echo $sResource->name; ?> 
 											</label>
+											
+											<?php $resName =  $sResource->resourceID ?>
 
-											<select class="dropdownSelectBox-small quantity-align resCount" name="serviceResCount">
+											<select class="dropdownSelectBox-small quantity-align resCount" name="<?php $resName ?>">
 												<option class="unbold" value="0" option selected="true" >0</option>
 
 													<?php $Qcount= $sResource->quantity;?>
@@ -200,7 +201,7 @@
 
 			<!-- submit service button -->
 			<div class="button-Add-Div">
-	    		<button type="submit" class="buttonAdd" name="action" value="addService">Add</button>
+	    		<button type="submit" class="buttonAdd btn btn-filled btn-blue" name="action" value="addService">Add</button>
 	    	</div>
 
 		</div>

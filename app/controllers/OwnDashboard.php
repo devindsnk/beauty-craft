@@ -4,14 +4,12 @@ class OwnDashboard extends Controller
    public function __construct()
    {
       // $this->employeeModel = $this->model('Employee');
+      $this->staffModel = $this->model('StaffModel');
+      $this->serviceModel = $this->model('ServiceModel');
    }
    public function home()
    {
       redirect('OwnDashboard/overview');
-   }
-   public function analytics()
-   {
-      $this->view('owner/own_analytics');
    }
    public function closeSalon()
    {
@@ -21,6 +19,12 @@ class OwnDashboard extends Controller
    {
       $this->view('owner/own_customers');
    }
+
+   public function cusDetailView()
+   {
+      $this->view('common/customerView');
+   }
+   
    public function overview()
    {
       $this->view('owner/own_overview');
@@ -43,10 +47,30 @@ class OwnDashboard extends Controller
    }
    public function services()
    {
-      $this->view('owner/own_services');
+      $sDetails = $this->serviceModel->getServiceDetails();
+
+      $GetServicesArray = [
+         'services' => $sDetails
+      ];
+      $this->view('owner/own_services', $GetServicesArray);
    }
    public function staff()
    {
-      $this->view('owner/own_staff');
+      $staffDetails = $this->staffModel->getStaffDetails();
+      $GetStaffArray = ['staff' => $staffDetails];
+      $this->view('owner/own_staff', $GetStaffArray);
+   }
+
+   public function analyticsOverall()
+   {
+      $this->view('owner/own_subAnalyticsOverall');
+   }
+   public function analyticsService()
+   {
+      $this->view('owner/own_subAnalyticsService');
+   }
+   public function analyticsSProvider()
+   {
+      $this->view('owner/own_subAnalyticsSProvider');
    }
 }

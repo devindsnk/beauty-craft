@@ -16,26 +16,126 @@
 
    <!--Content-->
    <div class="content">
-      <h3>This is main option 1</h3>
-      <a href="<?php echo URLROOT ?>/leaves/leaveRequest"><button>Leave Request</button></a>
-      <button class="btnOpen normal">Delete Leave Request</button></a>
 
-      <!-- Leave request delete model -->
-      <div class="modal-container normal">
-         <div class="modal-box">
-               <div class="confirm-model-head">
-                  <h1>Delete Leave Request ?</h1>
+   <form class="form filter-options" action="">
+      <div class="options-container">
+         <div class="left-section mang">
+            <div class="row">
+               <div class="column">
+                  <div class="text-group">
+                     <label class="label" for="staffID">Staff ID</label>
+                     <input type="text" name="" id="staffID" placeholder="StaffID here">
+                  </div>
+                  <span class="error"> <?php echo " "; ?></span>
                </div>
-               <div class="confirm-model-head">
-                  <p>Are you sure you want to delete the leave request? <br> This action cannot be undone after proceeding.</p>
+               <div class="column">
+                  <div class="text-group">
+                     <label class="label" for="leaaveDate">Leave Date</label>
+                     <input type="date" name="" id="leaaveDate" placeholder="--select--">
+                  </div>
+                  <span class="error"></span>
                </div>
-               <div class="confirm-model-head">
-                  <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
-                  <button class="btn btnClose normal ModalButton ModalBlueButton">proceed</button>
+               <div class="column">
+                  <div class="text-group">
+                     <label class="label" for="respStaffID">Responded Staff ID</label>
+                     <input type="text" name="" id="respStaffID" placeholder="Responded StaffID here">
+                  </div>
+                  <span class="error"> <?php echo " "; ?></span>
                </div>
+
+               <div class="column">
+                  <div class="dropdown-group">
+                     <label class="label" for="lName">Status</label>
+                     <select>
+                        <option value="" selected>Any</option>
+                        <option value="">Approved</option>
+                        <option value="">Pending</option>
+                        <option value="">Rejected</option>
+                     </select>
+                  </div>
+                  <span class="error"> <?php echo " "; ?></span>
+               </div>
+            </div>
+         </div>
+         <div class="right-section">
+            <a href="" class="btn btn-filled btn-black">Search</a>
+            <!-- <button class="btn btn-search">Search</button> -->
          </div>
       </div>
-      <!-- End of Leave request delete model -->
+   </form>
+   <div class="table-container">
+         <div class="table2 table2-responsive">
+            <table class="table2-hover">
+
+               <thead>
+                  <tr>
+                     <th class="column-center-align col-1">Staff ID</th>
+                     <th class="column-center-align col-2">Leave Date</th>
+                     <th class="column-center-align col-3">Responded Staff ID</th>
+                     <th class="column-center-align col-4">Requested Date</th>
+                     <th class="column-center-align col-5 column-center-align">Reason</th>
+                     <th class="column-center-align col-6">Status</th>
+                     <th class="col-8"></th>
+                  </tr>
+               </thead>
+
+               <tbody>
+                  <tr>
+                     <td data-lable="Staff ID" class="column-center-align">R000001</td>
+                     <td data-lable="Leave Date" class="column-center-align">2021-10-07</td>
+                     <td data-lable="Responded Staff ID" class="column-center-align">M000001</td>
+                     <td data-lable="Requested Date" class="column-center-align">2021-10-05</td>
+                     <td data-lable="Reason" class="column-center-align">Going to the hospital</td>
+                     <td data-lable="Status" class="column-center-align">
+                        <button type="button" class="table-btn red-status-btn text-uppercase">Pending</button>
+                     </td>
+                     <td class="column-center-align">
+                        <span>
+                           <a href="<?php echo URLROOT ?>/leaves/leaveRequest"><i class="ci-view-more table-icon"></i></a>
+                        </span>
+                     </td>
+                  </tr>
+
+                  <tr>
+                     <td data-lable="Staff ID" class="column-center-align">R000001</td>
+                     <td data-lable="Leave Date" class="column-center-align">2021-10-07</td>
+                     <td data-lable="Responded Staff ID" class="column-center-align">M000001</td>
+                     <td data-lable="Requested Date" class="column-center-align">2021-10-05</td>
+                     <td data-lable="Reason" class="column-center-align">Going to the hospital</td>
+                     <td data-lable="Status" class="column-center-align">
+                        <button type="button" class="table-btn green-status-btn text-uppercase">Approved</button>
+                     </td>
+                     <td class="column-center-align">
+                        <span>
+                           <a href="<?php echo URLROOT ?>/leaves/leaveRequest"><i class="ci-view-more table-icon"></i></a>
+                        </span>
+                     </td>
+                  </tr>
+
+                  <tr>
+                     <td data-lable="Staff ID" class="column-center-align">R000001</td>
+                     <td data-lable="Leave Date" class="column-center-align">2021-10-07</td>
+                     <td data-lable="Responded Staff ID" class="column-center-align">M000001</td>
+                     <td data-lable="Requested Date" class="column-center-align">2021-10-05</td>
+                     <td data-lable="Reason" class="column-center-align">Going to the hospital</td>
+                     <td data-lable="Status" class="column-center-align">
+                        <button type="button" class="table-btn red-status-btn text-uppercase">Pending</button>
+                     </td>
+                     <td class="column-center-align">
+                        <span>
+                           <a href="<?php echo URLROOT ?>/leaves/leaveRequest"><i class="ci-view-more table-icon"></i></a>
+                        </span>
+                     </td>
+                  </tr>
+
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+      <h3>This is main option 1</h3>
+      <a href="<?php echo URLROOT ?>/leaves/leaveRequest"><button>Leave Request</button></a>
+      
 
    </div>
    <!--End Content-->

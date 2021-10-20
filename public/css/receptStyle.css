@@ -225,7 +225,7 @@
    align-content: center;
 }
 
-.row{
+.row {
    width: 400px;
 }
 
@@ -343,6 +343,101 @@
 }
 
 /* End of Styles of new reservation page */
+
+
+
+.res-card-container {
+   padding: 10px;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+
+.titleBox{
+   display: flex;
+   flex-direction: row;
+   width: max-content;
+}
+
+.titleBox div{
+   display: flex;
+   justify-content: center;
+}
+
+.titleBox .service-column{
+   width: 220px;
+}
+.titleBox .service-prov-column{
+   width: 250px;
+}
+.titleBox .customer-column{
+   /* min-width: 250px; */
+}
+.titleBox .contact-column{
+   /* min-width: 110px; */
+}
+
+.res-card {
+   padding: 0;
+   margin: 12px;
+   /* width: 80%; */
+   width: max-content;
+   display: flex;
+   overflow: hidden;
+   /* display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
+   /* padding: 20px; */
+}
+
+.res-card div {
+   font-size: 15px;
+   font-weight: 400px;
+   color: var(--theme-black);
+   display: flex;
+   align-items: center;
+   padding: 15px 15px;
+}
+
+.res-card .time-box {
+   font-size: 17px;
+   display: flex;
+   justify-content: center;
+   width: 130px;
+   padding-left: 20px;
+   padding-right: 15px;
+   background-color: var(--theme-grey);
+   color: var(--white);
+}
+
+.service-name-box {
+   min-width: 220px;
+}
+
+.service-prov-box {
+   min-width: 250px;
+}
+
+.customer-box {
+   min-width: 250px;
+}
+
+.contact-box {
+   min-width: 110px;
+}
+
+.status-tag{
+   width: 150px;
+}
+
+.opt-box a{
+   display: flex;
+   align-content: center;
+}
+
+/* Styles of daily view page */
+
+
+/* End of Styles of daily view page */
 
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/

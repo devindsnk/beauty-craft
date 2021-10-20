@@ -1,6 +1,6 @@
 <?php if ($userLevel == "Owner" || $userLevel == "Manager") : ?>
    <div class="page-top-main-container">
-      <a href="<?php echo URLROOT ?>/services/addService2" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
+      <a href="<?php echo URLROOT ?>/services/addNewService" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
    </div>
 <?php endif; ?>
 
@@ -66,7 +66,40 @@
          </thead>
 
          <tbody>
-            <tr>
+            <?php foreach($data['services'] as $sDetails) : ?>
+               <tr>
+                  <td class="column-center-align"><?php echo $sDetails->serviceID; ?></td>
+                  <td class="column-center-align"><?php echo $sDetails->name; ?></td>
+                  <td class="column-center-align"><?php echo $sDetails->type; ?></td>
+                  <?php $i =$sDetails->totalDuration; ?>
+								<?php if ($i == 60 || $i == 120):?>
+                           <td class="column-center-align"><?php echo ($i/60) ; ?> h</td>
+                           
+								<?php elseif ($i > 60 && $i < 120 ): ?>
+                           <td class="column-center-align"><?php echo ($i/$i) ; ?> h <?php echo ($i %  60) ; ?> mins</td>
+
+								<?php else :?>
+                           <td class="column-center-align"><?php echo $i; ?> mins</td>
+                           
+								<?php endif; ?>
+                  <!-- <td class="column-center-align"><?php echo $sDetails->totalDuration; ?></td> -->
+                  <td class="column-right-align"><?php echo $sDetails->price; ?></td>
+                  <td class="column-center-align">
+                     <button type="button" class="table-btn green-status-btn text-uppercase"><?php echo $sDetails->status; ?></button>
+                  </td>
+                  <td data-lable="Action" class="column-center-align">
+                     <span>
+                        <a href="<?php echo URLROOT ?>/services/viewService/<?php echo $sDetails->serviceID; ?>"><i class="ci-view-more table-icon"></i></a>
+                        <?php if ($userLevel == "Owner" || $userLevel == "Manager") : ?>
+                           <a href="<?php echo URLROOT ?>/services/updateService"><i class="ci-edit table-icon"></i></a>
+                           <a href="#"><i class="ci-trash table-icon btnRemoveService"></i></a>
+                        <?php endif; ?>
+                     </span>
+                  </td>
+               </tr>
+            <?php endforeach; ?>
+
+            <!-- <tr>
                <td class="column-center-align">S000001</td>
                <td class="column-center-align">Hair Cut - Mens</td>
                <td class="column-center-align">Hair Cuts</td>
@@ -124,7 +157,7 @@
                      <?php endif; ?>
                   </span>
                </td>
-            </tr>
+            </tr> -->
          </tbody>
       </table>
    </div>

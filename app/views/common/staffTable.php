@@ -1,7 +1,7 @@
 <?php if ($userLevel == "Owner") : ?>
-   <div class="page-top-main-container">
-      <a href="<?php echo URLROOT ?>/staff/addStaff" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
-   </div>
+<div class="page-top-main-container">
+   <a href="<?php echo URLROOT ?>/staff/addStaff" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
+</div>
 <?php endif; ?>
 
 <form class="form filter-options" action="">
@@ -20,9 +20,9 @@
                <div class="dropdown-group">
                   <label class="label" for="lName">Staff Type</label>
                   <select>
-                     <option value="" selected>Any</option>
-                     <option value="volvo">Active</option>
-                     <option value="saab">Inactive</option>
+                     <option value="" selected>Receptionist</option>
+                     <option value="volvo">Manager</option>
+                     <option value="saab">Service Provider</option>
                   </select>
                </div>
                <span class="error"> <?php echo " "; ?></span>
@@ -57,7 +57,7 @@
                <th class="column-center-align col-1">Staff ID</th>
                <th class="column-center-align col-2">Name</th>
                <th class="column-center-align col-3">Staff Type</th>
-               <th class="column-center-align col-4">Contact No</th>
+               <th class="column-center-align col-4">Mobile No</th>
                <th class="column-center-align col-5">Gender</th>
                <th class="column-center-align col-6">Joined Date</th>
                <th class="column-center-align col-7">Status</th>
@@ -66,68 +66,51 @@
          </thead>
 
          <tbody>
-            <tr>
-               <td data-lable="Staff ID" class="column-center-align">R000001</td>
-               <td data-lable="Name" class="column-center-align">Devin Dissanayake</td>
-               <td data-lable="Staff Type" class="column-center-align">Receptionist</td>
-               <td data-lable="Contact No" class="column-left-align">0717679714</td>
-               <td data-lable="Gender" class="column-left-align">M</td>
-               <td data-lable="Joined Date" class="column-left-align">2021-10-07</td>
-               <td data-lable="Status" class="column-center-align">
-                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
-               </td>
-               <td class="column-center-align">
-                  <span>
-                     <a href="<?php echo URLROOT ?>/staff/viewStaff"><i class="ci ci-view-more table-icon"></i></a>
-                     <?php if ($userLevel == "Owner") : ?>
-                        <a href="<?php echo URLROOT ?>/staff/updateStaff"><i class="ci ci-edit table-icon"></i></a>
-                        <a href="#"><i class="ci ci-trash table-icon btnRemoveStaff"></i></a>
-                     <?php endif; ?>
-                  </span>
-               </td>
-            </tr>
 
+            <?php foreach($data['staff'] as $staffD) : ?>
             <tr>
-               <td data-lable="Staff ID" class="column-center-align">R000001</td>
-               <td data-lable="Name" class="column-center-align">Devin Dissanayake</td>
-               <td data-lable="Staff Type" class="column-center-align">Receptionist</td>
-               <td data-lable="Contact No" class="column-left-align">0717679714</td>
-               <td data-lable="Gender" class="column-left-align">M</td>
-               <td data-lable="Joined Date" class="column-left-align">2021-10-07</td>
+               <td data-lable="Staff ID" class="column-center-align"><?php echo $staffD->staffID; ?></td>
+               <td data-lable="Name" class="column-center-align"><?php echo $staffD->fName; ?>
+                  <?php echo $staffD->lName; ?></td>
+               <td data-lable="Staff Type" class="column-center-align">
+               <?php if($staffD->staffType == 3){ 
+                        echo 'Manager';}
+                     elseif($staffD->staffType == 4){
+                        echo 'Receptionist';}
+                     elseif($staffD->staffType == 5){
+                        echo 'Service Provider';}?>
+               </td>
+               <td data-lable="Contact No" class="column-center-align"><?php echo $staffD->mobileNo; ?></td>
+               <td data-lable="Gender" class="column-center-align">
+                  <?php if($staffD->gender == 'M'){ 
+                           echo 'Male';}
+                        elseif($staffD->gender == 'F'){
+                           echo 'Female';}?>
+               </td>
+               <td data-lable="Joined Date" class="column-center-align"><?php echo $staffD->joinedDate; ?></td>
                <td data-lable="Status" class="column-center-align">
-                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
+                  <!-- Staff memeber states >> Removed = 0 Active =1 Disabled =2 -->
+                  <?php if($staffD->status==0) :?>
+                  <button type="button" class="table-btn red-status-btn text-uppercase "> Removed </button>
+                  <?php elseif ($staffD->status == 1) : ?>
+                  <button type="button" class="table-btn green-status-btn text-uppercase"> Active </button>
+                  <?php else: ?>
+                  <button type="button" class="table-btn yellow-status-btn text-uppercase "> Disabled </button>
+                  <?php endif; ?>
                </td>
                <td class="column-center-align">
                   <span>
-                     <a href="<?php echo URLROOT ?>/staff/viewStaff"><i class="ci ci-view-more table-icon"></i></a>
+                     <a href="<?php echo URLROOT ?>/staff/viewStaff/<?php echo $staffD->staffID ?>"><i
+                           class="ci ci-view-more table-icon"></i></a>
                      <?php if ($userLevel == "Owner") : ?>
-                        <a href="<?php echo URLROOT ?>/staff/updateStaff"><i class="ci ci-edit table-icon"></i></a>
-                        <a href="#"><i class="ci ci-trash table-icon btnRemoveStaff"></i></a>
+                     <a href="<?php echo URLROOT ?>/staff/updateStaff"><i class="ci ci-edit table-icon"></i></a>
+                     <a href="#"><i class="ci ci-trash table-icon btnRemoveStaff"></i></a>
                      <?php endif; ?>
                   </span>
                </td>
             </tr>
+            <?php endforeach; ?>
 
-            <tr>
-               <td data-lable="Staff ID" class="column-center-align">R000001</td>
-               <td data-lable="Name" class="column-center-align">Devin Dissanayake</td>
-               <td data-lable="Staff Type" class="column-center-align">Receptionist</td>
-               <td data-lable="Contact No" class="column-left-align">0717679714</td>
-               <td data-lable="Gender" class="column-left-align">M</td>
-               <td data-lable="Joined Date" class="column-left-align">2021-10-07</td>
-               <td data-lable="Status" class="column-center-align">
-                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
-               </td>
-               <td class="column-center-align">
-                  <span>
-                     <a href="<?php echo URLROOT ?>/staff/viewStaff"><i class="ci ci-view-more table-icon"></i></a>
-                     <?php if ($userLevel == "Owner") : ?>
-                        <a href="<?php echo URLROOT ?>/staff/updateStaff"><i class="ci ci-edit table-icon"></i></a>
-                        <a href="#"><i class="ci ci-trash table-icon btnRemoveStaff"></i></a>
-                     <?php endif; ?>
-                  </span>
-               </td>
-            </tr>
 
          </tbody>
       </table>
@@ -139,7 +122,7 @@
 <div class="modal-container remove-staff">
    <div class="modal-box " id="ownRemstaffWrapper">
       <div class="ownRemstaffContainer">
-         <h1 class="ownRemStaffHead">Remove Staff</h1>
+         <h1 class="confirm-model-head confirm-model-head">Remove Staff</h1>
 
          <!-- start main grid 1 -->
          <div class="staffDetails">
@@ -161,7 +144,7 @@
          <!-- main grid 2 starts -->
          <div class="remStaffError">
             <label class="remStaffErrortext">Cannot proceed. Has upcoming reservations</label>
-            <a href="#" class="remStaffErrorAnchortag"> <label class="remStaffErrorViewReservaions">View
+            <a href="<?php echo URLROOT ?>/staff/RemStaffReservations" class="remStaffErrorAnchortag"> <label class="remStaffErrorViewReservaions">View
                   Reservaions</label></a>
          </div>
          <!-- main grid 2 ends -->
@@ -169,10 +152,10 @@
          <!-- main grid 3 starts -->
          <div class="remButtons">
             <div class="ownRemStaffbtn1">
-               <button class="btn btnClose ownCancelButton">Cancel</button>
+               <button class="btn btnClose normal ModalButton ModalCancelButton">Cancel</button>
             </div>
             <div class="ownRemStaffbtn2">
-               <button class="btn ownProceedBlueButton">Proceed</button>
+               <button class="btn normal ModalButton ModalBlueButton">Proceed</button>
             </div>
          </div>
          <!-- main grid 3 ends -->

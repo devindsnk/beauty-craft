@@ -48,8 +48,12 @@
 							<!-- end of service type -->
 
 							<!-- Service type button -->
-							<div class="row2 quantity-align">
-								<button class="buttonNew  btnOpen normal">New</button>
+							<div class="row1">
+								<label class="labels2" for="servicePrice">OR</label>
+								<input type="text" name="sNewType" id="sNewType" placeholder="--Type In--" value="<?php  ?>">
+								
+                                <span class="error paddingLeft"><?php ?></span>
+
 							</div>
 							<!-- End of service type button -->
 
@@ -186,7 +190,7 @@
 
 			<!-- submit service button -->
 			<div class="button-Add-Div">
-				<button class="buttonAdd">Save</button>
+				<button class="buttonAdd btn btn-filled btn-blue">Save</button>
 			</div>
 		</div>
 
