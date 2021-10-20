@@ -28,10 +28,10 @@
                <thead>
                   <tr>
                      <!-- <th class="column-center-align col-1">Staff ID</th> -->
-                     <th class="column-center-align col-2">Leave Date</th>
-                     <th class="column-center-align col-3">Marked Date</th>
-                     <th class="column-center-align col-4 column-center-align">Reason</th>
-                     <th class="col-8"></th>
+                     <th class="column-center-align col-1">Leave Date</th>
+                     <th class="column-center-align col-2">Marked Date</th>
+                     <th class="column-center-align col-3 column-center-align">Reason</th>
+                     <th class="col-4"></th>
                   </tr>
                </thead>
 
@@ -43,8 +43,8 @@
                      <td data-lable="Reason" class="column-center-align">Going to the hospital</td>
                      <td class="column-center-align">
                         <span>
-                           <a href="#"><i class="ci-edit table-icon"></i></a>
-                           <a href="#"><i class="ci-trash table-icon"></i></a>
+                           <a href="#"><i class="ci-edit btnEditTakenLeave table-icon img-gap"></i></a>
+                           <a href="#"><i class="ci-trash btnDeleteTakenLeave table-icon img-gap"></i></a>
                         </span>
                      </td>
                   </tr>
@@ -56,8 +56,8 @@
                      <td data-lable="Reason" class="column-center-align">Going to the hospital</td>
                      <td class="column-center-align">
                         <span>
-                           <a href="#"><i class="ci-edit table-icon"></i></a>
-                           <a href="#"><i class="ci-trash table-icon"></i></a>
+                           <a href="#"><i class="ci-edit btnEditTakenLeave table-icon img-gap"></i></a>
+                           <a href="#"><i class="ci-trash btnDeleteTakenLeave table-icon img-gap"></i></a>
                         </span>
                      </td>
                   </tr>
@@ -69,8 +69,8 @@
                      <td data-lable="Reason" class="column-center-align">Going to the hospital</td>
                      <td class="column-center-align">
                         <span>
-                           <a href="#"><i class="ci-edit table-icon"></i></a>
-                           <a href="#"><i class="ci-trash table-icon"></i></a>
+                           <a href="#"><i class="ci-edit btnEditTakenLeave table-icon img-gap"></i></a>
+                           <a href="#"><i class="ci-trash btnDeleteTakenLeave table-icon img-gap"></i></a>
                         </span>
                      </td>
                   </tr>
@@ -79,8 +79,6 @@
             </table>
          </div>
       </div>
-      <button class="btnOpen btnEditTakenLeave">Edit Leave</button></a>
-      <button class="btnOpen btnDeleteTakenLeave">Delete Leave Request</button></a>
 
       <!-- Take leave model -->
       <div class="modal-container take-leave">
@@ -118,7 +116,7 @@
       <!-- Edit Taken leave model -->
       <div class="modal-container edit-taken-leave">
          <div class="modal-box addItems">
-            <h1 class="addItemsModalHead">Edit Taken Leave</h1>
+            <h1 class="addItemsModalHead">Edit Leave</h1>
             <form action="" class="form">
                <!-- start main grid 1 -->
                <div class="addItemsModalGrid1">
@@ -152,10 +150,10 @@
       <div class="modal-container delete-taken-leave">
          <div class="modal-box">
             <div class="confirm-model-head">
-               <h1>Delete Taken Leave ?</h1>
+               <h1>Delete Leave</h1>
             </div>
             <div class="confirm-model-head">
-               <p>Are you sure you want to delete the taken leave? <br> This action cannot be undone after proceeding.</p>
+               <p>Are you sure you want to delete the leave? <br> This action cannot be undone after proceeding.</p>
             </div>
             <div class="confirm-model-head">
                <button class="btn btnClose ModalButton ModalCancelButton">Close</button>

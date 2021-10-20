@@ -18,10 +18,6 @@ session_start();
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/home.css">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/icons.css">
 
-
-
-
-
 </head>
 
 <body class="landingPage">
@@ -630,15 +626,144 @@ session_start();
 
    </div>
 
-   <div class="team section">
+   <div class="team section MOT-section">
       <span class="title">MEET OUR TEAM</span>
+      <div class="horizontal_slider " id="horizontal_slider">
+         <section>
+            <div class="MOT-box">
+               <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" class="pro-img" alt="">
+               
+               <p class="pro-name">Devin Dissanayake</p>
+            </div>
+         </section>
+         <section>
+            <div class="MOT-box">
+               <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" class="pro-img" alt="">
+               
+               <p class="pro-name">Ravindu Madhubhashana</p>
+            </div>
+         </section> 
+         <section>
+            <div class="MOT-box">
+               <img src="<?php echo URLROOT ?>/public/imgs/person3.jpg" class="pro-img" alt="">
+               
+               <p class="pro-name">Ruwanthi Munasinghe</p>
+            </div>
+         </section>  
+         <section>
+         <div class="MOT-box">
+               <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" class="pro-img" alt="">
+               
+               <p class="pro-name">Sanjana Rajapaksha</p>
+            </div>
+         </section>
+         <section>
+            <div class="MOT-box">
+               <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" class="pro-img" alt="">
+               
+               <p class="pro-name">Devin Dissanayake</p>
+            </div>
+         </section> 
+         <section>
+            <div class="MOT-box">
+               <img src="<?php echo URLROOT ?>/public/imgs/person3.jpg" class="pro-img" alt="">
+               
+               <p class="pro-name">Sumudu Perera</p>
+            </div>
+         </section>  
+      </div>
    </div>
    <div class="gallery section">
       <span class="title">GALLERY</span>
+      <div class="gallarycontent">
+         <div class="grid">
+ <div class="grid-inner">
+  <div class="item">
+   <div class="item-inner"></div>
+  </div>
+  <div class="item">
+   <div class="item-inner"></div>
+  </div>
+  <div class="item">
+   <div class="item-inner"></div>
+  </div>
+  <div class="item">
+   <div class="item-inner"></div>
+  </div>
+  <div class="item">
+   <div class="item-inner"></div>
+  </div>
+  <div class="item">
+   <div class="item-inner"></div>
+  </div>
+  <div class="item">
+   <div class="item-inner"></div>
+  </div>
+  <div class="item">
+   <div class="item-inner"></div>
+  </div>
+  <div class="item">
+   <div class="item-inner"></div>
+  </div>
+  <div class="item">
+   <div class="item-inner"></div>
+  </div>
+ 
+ </div>
+</div>
+
+      </div>
+     
    </div>
-   <div class="testimonials section">
-      <span class="title">WHAT THEY SAY</span>
+   <div class="testimonials section WTS-section">
+      <div class="WTS-section-head">
+         <span class="title">WHAT THEY SAY</span>
+      </div>
+
+      <div class="slideshow-container">
+
+         <div class="mySlides">
+            <q>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laudantium voluptas animi amet beatae aliquid
+            praesentium quisquam repellat consequatur rem, quas, voluptatum nisi ipsa, earum nihil sequi corrupti commodi
+            alias?</q>
+            <div class="img-div">
+               <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" alt="">
+               <p class="author">- Ruwanthi Munasinghe</p>
+            </div>
+         </div>
+
+         <div class="mySlides">
+            <q>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ducimus labore a earum unde! Dolor asperiores
+            rerum deleniti architecto, ab fugiat delectus veniam aut laboriosam nostrum, autem natus dolores, cupiditate quam.
+            Sed a voluptatibus doloribus iste exercitationem vel doloremque cumque reprehenderit officia, repellendus labore
+            quasi quam inventore cum nesciunt excepturi eligendi nostrum incidunt quibusdam culpa ab delectus beatae.</q>
+            <div class="img-div">
+               <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" alt="">
+               <p class="author">- Sanjana Rajapaksha</p>
+            </div>
+         </div>
+
+         <div class="mySlides">
+            <q>Voluptatibus, excepturi consequatur! Rerum, ab sapiente magni vel voluptatum eum, nulla neque accusantium placeat
+            amet quam blanditiis. Officiis exercitationem inventore molestias quam, magni, natus necessitatibus minima,
+            laboriosam eveniet et similique. Consequatur tenetur sint dicta alias. Omnis amet dolor quae sint quia similique.</q>
+            <div class="img-div">
+               <img src="<?php echo URLROOT ?>/public/imgs/person3.jpg" alt="">
+               <p class="author">- Devin Dissanayake</p>
+            </div>
+         </div>
+
+         <a class="prev" onclick="plusSlides2(-1)">&#10094;</a>
+         <a class="next" onclick="plusSlides2(1)">&#10095;</a>
+      </div>
+
+      <div class="dot-container">
+         <span class="dot" onclick="currentSlide2(1)"></span>
+         <span class="dot" onclick="currentSlide2(2)"></span>
+         <span class="dot" onclick="currentSlide2(3)"></span>
+      </div>
    </div>
+   
    <div>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laudantium voluptas animi amet beatae aliquid
       praesentium quisquam repellat consequatur rem, quas, voluptatum nisi ipsa, earum nihil sequi corrupti commodi

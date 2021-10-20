@@ -127,6 +127,16 @@
    background-repeat: no-repeat;
    background-size: contain;
 }
+.ci-sysLog {
+   background: url(../../public/svg/systemLog.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+.ci-sysCreateAcc {
+   background: url(../../public/svg/sysCreateAcc.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
 
 
 /* ------------------------------------------------------ */

@@ -68,7 +68,7 @@
 
 .mang .chart-container,
 .mang .table-container{
-    padding: 40px;
+    padding: 20px 40px;
     width: 50%;
     height: 50%;
     justify-content: space-around;
@@ -76,13 +76,53 @@
 
 .mang .chart-head,
 .table-head{
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 22px;
+    font-weight: 500;
     padding: 10px 10px;
 }
-/* .mang .table-head{
-    padding-left: 40px;
-} */
+
+/* *************************** */
+.main-head{
+    font-size: 30px;
+    font-weight: 600;
+    padding: 20px 50px;
+}
+.head-hr{
+    margin: 5px 0px 5px 0px;
+    background-color: #c4cae0;
+}
+.content .page-top-main-container-sanalytics , .content .page-top-main-container-spanalytics{
+    margin-top: 20px;
+    padding: 0 70px;
+    display: flex;
+    justify-content: right;
+    width: 100%;
+  }
+.content .page-top-main-container-sanalytics .btn {
+    font-weight: 500;
+    padding: 7px;
+    width: 220px;
+}
+.content .page-top-main-container-spanalytics .btn {
+    font-weight: 500;
+    padding: 7px;
+    width: 290px;
+}
+
+.report-month-selector input[type="month"]{
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1.2px solid #c4cae0;
+    margin-top: 5px;
+}
+.text-special{
+    font-size: 16px;
+    font-weight: 600;
+}
+.spetial-row{
+    background-color: #f7f7f7;
+}
+/* *************************** */
 
 /* table of overall analytics */
 .mang .table-cont{
@@ -114,7 +154,7 @@
 
  .mang input[type = "date"]{
     width: 100%;
-    height: 38px;
+    height: 39px;
     font-weight: 400;
     padding: 8px 10px;
     border-radius: 6px;
@@ -149,7 +189,7 @@
 /* for table */
 @media screen and (max-width: 1296px) {
     .mang .table-container{
-        width: 560px;
+        width: 500px;
     }
     
 }
@@ -211,7 +251,7 @@
 }
 
 .leave-requests-sub{
-    min-width: 380px;
+    min-width: 360px;
     padding: 30px;
     margin: 20px 10px;
     background-color: white;

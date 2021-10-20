@@ -125,6 +125,7 @@ if (resRecallBtn) {
     );
 }
 
+
 /* ------------------------------------------------------------------- */
 /* ----------------------- Manager Leaves ---------------------------- */
 
@@ -197,6 +198,20 @@ if (deleteLeaveBtnList) {
             modalToToggle = deleteLeaveModal;
             toggleModal();
         });
+    });
+}
+
+/* ------------------------------------------------------------------- */
+/* ---------------------- Staff Changepassword ----------------------- */
+
+//Password reset-staff Modal Secrtion
+const changePasswordModal = document.querySelector(".change-password");
+const changePasswordBtn = document.querySelector(".changepw");
+console.log(changePasswordModal);
+if (changePasswordBtn) {
+    changePasswordBtn.addEventListener("click", function () {
+        modalToToggle = changePasswordModal;
+        toggleModal();
     });
 }
 

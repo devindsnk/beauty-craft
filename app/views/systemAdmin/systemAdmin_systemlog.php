@@ -19,7 +19,8 @@
    <!--Content-->
    <div class="content systemlogdownload">
 <div class="systemlog">
-<a href=""><button><i class="fa fa-download"></i>Download System Log File</button></a>
+<a href="<?php echo URLROOT ?>/public/logfile/syslog.txt" download><button "><i class="fa fa-download"></i>Download System Log File</button></a>
+
 </div>
 
    </div>

@@ -3,7 +3,6 @@
 /* ------------------------------------------------------ */
 
 .mang hr{
-    margin-top: 25px;
     text-align: center;
     width: 100%;
     border-color: #c4cae0;
@@ -22,8 +21,17 @@
     font-weight: 400;
 }
 
-.mang.a{
+.mang2 a { 
+    color: blue;
+}
+.mang2 a {
     text-decoration: none;
+}
+.mang2 a:link, .mang2 a:visited {
+    color: blue;
+}
+.mang2 a:hover {
+    color: red;
 }
 
 .lableInDiv{
@@ -61,7 +69,7 @@
 }
 
 .newService-sub{
-    min-width: 380px;
+    min-width: 360px;
     padding: 30px 30px 15px 30px;
     margin: 0px 10px 10px 10px;
     background-color: white;
@@ -296,13 +304,14 @@
     left: 30px;
 }
 
-/* @media(max-width: 950px) {
+/* @media screen and (max-width: 1388px)  {
     
     .checkbox-div{
         width: 250px;
         
     }
 } */
+
 .row1{
     margin-top: 10px;
 }
@@ -310,7 +319,7 @@
     margin-top: 35px;
 }
 .row4{
-    margin-top: 95px;
+    margin-top: 115px;
 }
 .row5{
     margin-top: 110px;

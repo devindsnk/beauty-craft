@@ -18,7 +18,13 @@
    public function leaves() {
 
       $leaveData=$this->LeaveModel->getLeaveByID();
-     
+      //to get latest leave limit
+      $leaveLimit=$this->LeaveModel->getLeaveLimit();
+     //to get current month leave count
+      $leaveCount=$this->LeaveModel->getLeaveCount();
+       $remainingLeaveCount= $leaveLimit - $leaveCount;
+      //echo  $remainingLeaveCount;
+  
       if ($_SERVER['REQUEST_METHOD']=='POST') {
          
 
@@ -28,9 +34,16 @@
          'reason_error'=>'',
          'staffID'=>'00005',
          'tableData'=>$leaveData,
-         'haveErrors' => 0
-         // '$staffID'=>$_SERVER['staffID'],
+         'haveErrors' => 0,
+         'reasonentered'=>'',
+         'remainingCount'=> $remainingLeaveCount,
+         'leaveexceed'=>0,
+      
        ];
+       //check exsisting dates
+       $checkDate=$this->LeaveModel->checkExsistingDate($data['date']) ;
+
+       $data['reasonentered']=$data['reason'];
          if($_POST['action']=="addleave"){
                $today = date('Y-m-d');
                if (empty($data['date'])) {
@@ -43,12 +56,49 @@
                if (empty($data['reason'])) {
                   $data['reason_error']="Please mention the reason";
                }
+               if(!empty($checkDate)){
+                  $data['date_error']="Date you entered is already Exist.";
+               }
 
                if (empty($data['date_error']) && empty($data['reason_error'])) {
+                  //leave count according to selected date
+                //  $month = date("m",strtotime($data['date']));
+                  $leavesOfSelectedMonth=$this->LeaveModel->checkLeaveDate($data);
+                 // echo $leavesOfSelectedMonth;
+           
+                 // echo $data['leaveLimit'];
+                  if($leaveLimit <= $leavesOfSelectedMonth)
+                  {
+                     $data['leaveexceed']=1;
+                    
+                     $this->view('serviceProvider/serProv_leaves', $data);
+                    
+                     echo $_GET['leaveResponse'];
+                    // die ('success');
+                   //  $leaveResponse=1;
+                    $leaveResponse=$_GET['leaveResponse'];
+                     
+                   // $this->view('serviceProvider/serProv_leaves');
+                    if($leaveResponse==0){
+                       echo "success";
+                         $this->LeaveModel->requestleave($data);
+                     //  $this->view('serviceProvider/serProv_leaves');
+                    }
+                     if($leaveResponse==1)
+                    {
+                       echo "fail";
+                     
+                        // redirect to this view
+                      //  redirect('serProvDashboard/leaves');
+                    }
+                     
+                  }
+                  else{
+                  $data['leaveexceed']=0;
                   $this->LeaveModel->requestleave($data);
-                  //redirect to this view
-
-               redirect('serProvDashboard/leaves');
+                 // redirect to this view
+                 redirect('serProvDashboard/leaves');
+                  }
                }
 
                else {
@@ -70,23 +120,40 @@
          'reason'=>'',
          'date_error'=>'',
          'reason_error'=>'',
-          'tableData'=>$leaveData,
-         'haveErrors' => 0
+         'tableData'=>$leaveData,
+         'haveErrors' => 0,
+         'reasonentered'=>'',
+         'remainingCount'=> $remainingLeaveCount,
+         'leaveexceed'=>0,
+         
          ];
+         
          $this->view('serviceProvider/serProv_leaves', $data);
       }
+      
+   }
+   public function checkReqMonthLeaveLimit($leaveReqdate){
+      $month = date("m",strtotime($leaveReqdate));
+      $year = date('Y',strtotime($leaveReqdate));
+      $data=[ 
+         'month'=>$month,
+         'year'=>$year,
+  
+         ];
+
+      $leavesOfSelectedMonth=$this->LeaveModel->getLeaveCountOfSelectedMonth($data);
+      $leaveLimit=$this->LeaveModel->getLeaveLimit();
+
+  if($leaveLimit <= $leavesOfSelectedMonth)
+    {
+      return true;
+     
+   }
+   else{
+      return false;     
    }
 
-
-
-
-
-
-
-
-
-
-
+}
 
 
 }
