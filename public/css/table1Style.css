@@ -2,11 +2,7 @@
 
 
 /* ------------------------------------------------------ */
-
-
 /* -------------STYLES ADDED BY SANJANA ----------------- */
-
-
 /* ------------------------------------------------------ */
 
 .table-container {
@@ -172,9 +168,14 @@
     background-color: var(--theme-black);
 }
 
-.table1 .black-action-btn:hover,
-.table2 .black-action-btn:hover {
-    background-color: #6c757d;
+.table1 .gray-action-btn, .table2 .gray-action-btn{
+  width: 82px;
+  color: #fff;
+  background-color: #6c757d;
+}
+
+.table1 .black-action-btn:hover, .table2 .black-action-btn:hover {
+  background-color: #6c757d;
 }
 
 .table1 .btn-position {
@@ -189,12 +190,11 @@
     color: #ffffff;
 }
 
-.table1 .uncheck-btn,
-.table2 .uncheck-btn {
-    width: 90px;
-    padding: 2px;
-    border: 2px solid var(--theme-purple);
-    color: #000;
+.table1 .uncheck-btn, .table2 .uncheck-btn{
+  width: 90px;
+  padding: 2px;
+  border: 2px solid var(--theme-purple);
+  color: var(--theme-grey);
 }
 
 .table1 .img-profile-picture,
@@ -215,17 +215,15 @@
     height: 20px;
 }
 
-.view-img:hover {
-    outline: 2px solid rgb(20, 4, 247);
-}
+/* .view-img:hover{
+  outline: 2px solid rgb(20, 4, 247);
 
 .edit-img:hover {
     outline: 2px solid rgb(30, 255, 0);
 }
-
-.trash-img:hover {
-    outline: 2px solid red;
-}
+.trash-img:hover{
+  outline: 2px solid red;
+} */
 
 .text-uppercase {
     text-transform: uppercase;
@@ -299,11 +297,6 @@
     }
 }
 
-
 /* ------------------------------------------------------ */
-
-
 /* ----------END OF STYLES ADDED BY SANJANA-------------- */
-
-
 /* ------------------------------------------------------ */
