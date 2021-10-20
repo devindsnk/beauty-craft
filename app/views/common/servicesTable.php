@@ -59,7 +59,7 @@
                <th class="column-center-align col-2">Service</th>
                <th class="column-center-align col-3">Type</th>
                <th class="column-center-align col-4">Total Duration</th>
-               <th class="column-center-align col-5">Price</th>
+               <th class="column-right-align col-5">Price</th>
                <th class="column-center-align col-6">Status</th>
                <th class="col-7"></th>
             </tr>
@@ -67,97 +67,58 @@
 
          <tbody>
             <?php foreach($data['services'] as $sDetails) : ?>
-               <tr>
-                  <td class="column-center-align"><?php echo $sDetails->serviceID; ?></td>
-                  <td class="column-center-align"><?php echo $sDetails->name; ?></td>
-                  <td class="column-center-align"><?php echo $sDetails->type; ?></td>
-                  <?php $i =$sDetails->totalDuration; ?>
-								<?php if ($i == 60 || $i == 120):?>
-                           <td class="column-center-align"><?php echo ($i/60) ; ?> h</td>
-                           
-								<?php elseif ($i > 60 && $i < 120 ): ?>
-                           <td class="column-center-align"><?php echo ($i/$i) ; ?> h <?php echo ($i %  60) ; ?> mins</td>
 
-								<?php else :?>
-                           <td class="column-center-align"><?php echo $i; ?> mins</td>
-                           
-								<?php endif; ?>
-                  <!-- <td class="column-center-align"><?php echo $sDetails->totalDuration; ?></td> -->
-                  <td class="column-right-align"><?php echo $sDetails->price; ?></td>
-                  <td class="column-center-align">
-                     <button type="button" class="table-btn green-status-btn text-uppercase"><?php echo $sDetails->status; ?></button>
+               <tr>
+                  <td data-lable="Servie ID" data-lable="" class="column-center-align"><?php echo $sDetails->serviceID; ?></td>
+
+                  <td data-lable="Service" class="column-center-align"><?php echo $sDetails->name; ?></td>
+
+                  <td data-lable="Type" class="column-center-align"><?php echo $sDetails->type; ?></td>
+
+                     <?php $i =$sDetails->totalDuration; ?>
+                     <?php if ($i == 60 || $i == 120):?>
+                        <td data-lable="Total Duration" class="column-center-align"><?php echo ($i/60) ; ?> h</td>
+                        
+                     <?php elseif ($i > 60 && $i < 120 ): ?>
+                        <td data-lable="Total Duration" class="column-center-align"><?php echo ($i/$i) ; ?> h <?php echo ($i %  60) ; ?> mins</td>
+
+                     <?php else :?>
+                        <td data-lable="Total Duration" class="column-center-align"><?php echo $i; ?> mins</td>
+                        
+                     <?php endif; ?>
+
+                  <td data-lable="Price" class="column-right-align"><?php echo number_format($sDetails->price, 2, '.', ' '); ?> LKR</td>
+
+                  <td data-lable="Status" class="column-center-align">
+                     <?php if ($sDetails->status == 0):?>
+                        <button type="button" class="table-btn red-status-btn text-uppercase">
+                           Removed
+                        </button>
+                     <?php elseif ($sDetails->status == 1): ?>
+                        <button type="button" class="table-btn green-status-btn text-uppercase">
+                           Active
+                        </button>
+                     <?php elseif ($sDetails->status == 2): ?>
+                        <button type="button" class="table-btn yellow-status-btn text-uppercase">
+                           Disabled
+                        </button>
+                     <?php endif; ?>
                   </td>
-                  <td data-lable="Action" class="column-center-align">
+
+                  <td data-lable="" class="column-center-align">
                      <span>
-                        <a href="<?php echo URLROOT ?>/services/viewService/<?php echo $sDetails->serviceID; ?>"><i class="ci-view-more table-icon"></i></a>
+                        <a href="<?php echo URLROOT ?>/services/viewService/<?php echo $sDetails->serviceID; ?>"><i class="ci-view-more table-icon img-gap"></i></a>
                         <?php if ($userLevel == "Owner" || $userLevel == "Manager") : ?>
-                           <a href="<?php echo URLROOT ?>/services/updateService"><i class="ci-edit table-icon"></i></a>
-                           <a href="#"><i class="ci-trash table-icon btnRemoveService"></i></a>
+                           <a href="<?php echo URLROOT ?>/services/updateService"><i class="ci-edit table-icon img-gap"></i></a>
+                           <a href="#"><i class="ci-trash table-icon btnRemoveService img-gap"></i></a>
                         <?php endif; ?>
                      </span>
                   </td>
+
                </tr>
+
             <?php endforeach; ?>
 
-            <!-- <tr>
-               <td class="column-center-align">S000001</td>
-               <td class="column-center-align">Hair Cut - Mens</td>
-               <td class="column-center-align">Hair Cuts</td>
-               <td class="column-center-align">1 h 20 mins</td>
-               <td class="column-right-align">900 LKR</td>
-               <td class="column-center-align">
-                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
-               </td>
-               <td data-lable="Action" class="column-center-align">
-                  <span>
-                     <a href="<?php echo URLROOT ?>/services/viewService"><i class="ci-view-more table-icon"></i></a>
-                     <?php if ($userLevel == "Owner" || $userLevel == "Manager") : ?>
-                        <a href="<?php echo URLROOT ?>/services/updateService"><i class="ci-edit table-icon"></i></a>
-                        <a href="#"><i class="ci-trash table-icon btnRemoveService"></i></a>
-                     <?php endif; ?>
-                  </span>
-               </td>
-            </tr>
-
-            <tr>
-               <td class="column-center-align">S000001</td>
-               <td class="column-center-align">Hair Cut - Mens</td>
-               <td class="column-center-align">Hair Cuts</td>
-               <td class="column-center-align">1 h 20 mins</td>
-               <td class="column-right-align">900 LKR</td>
-               <td class="column-center-align">
-                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
-               </td>
-               <td data-lable="Action" class="column-center-align">
-                  <span>
-                     <a href="<?php echo URLROOT ?>/services/viewService"><i class="ci-view-more table-icon"></i></a>
-                     <?php if ($userLevel == "Owner" || $userLevel == "Manager") : ?>
-                        <a href="<?php echo URLROOT ?>/services/updateService"><i class="ci-edit table-icon"></i></a>
-                        <a href="#"><i class="ci-trash table-icon btnRemoveService"></i></a>
-                     <?php endif; ?>
-                  </span>
-               </td>
-            </tr>
-
-            <tr>
-               <td class="column-center-align">S000001</td>
-               <td class="column-center-align">Hair Cut - Mens</td>
-               <td class="column-center-align">Hair Cuts</td>
-               <td class="column-center-align">1 h 20 mins</td>
-               <td class="column-right-align">900 LKR</td>
-               <td class="column-center-align">
-                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
-               </td>
-               <td data-lable="Action" class="column-center-align">
-                  <span>
-                     <a href="<?php echo URLROOT ?>/services/viewService"><i class="ci-view-more table-icon"></i></a>
-                     <?php if ($userLevel == "Owner" || $userLevel == "Manager") : ?>
-                        <a href="<?php echo URLROOT ?>/services/updateService"><i class="ci-edit table-icon"></i></a>
-                        <a href="#"><i class="ci-trash table-icon btnRemoveService"></i></a>
-                     <?php endif; ?>
-                  </span>
-               </td>
-            </tr> -->
          </tbody>
       </table>
    </div>
@@ -173,9 +134,18 @@
          <p>Are you sure you want to delete the service? <br> This action cannot be undone after proceeding.</p>
       </div>
       <div class="confirm-model-head">
-         <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
-         <button class="btn btnClose normal ModalButton ModalBlueButton">Confirm</button>
+         <button class="btn btnClose ModalButton ModalCancelButton">Close</button>
+         <button class="btn btnClose ModalButton ModalBlueButton">Confirm</button>
       </div>
    </div>
 </div>
 <!-- End of Service delete model -->
+
+<!-- service status 
+
+Removed = 0
+Active = 1
+Hold = 2
+
+-->
+

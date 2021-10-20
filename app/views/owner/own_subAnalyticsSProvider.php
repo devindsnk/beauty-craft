@@ -3,25 +3,23 @@
 <body class="layout-template-1">
    <?php
    $selectedMain = "Analytics";
-   require APPROOT . "/views/owner/own_sidenav.php"
+   $selectedSub = "ServiceProviderAnalytics";
+   require APPROOT . "/views/owner/own_sideNav.php"
    ?>
 
    <?php
-   $title = "Analytics";
+   $title = "Service Provider Analytics";
    $username = "Ravindu Madhubhashana";
    $userLevel = "Owner";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 
-   <!--Content-->
-   <div class="content">
-      <h3>This is main option 1</h3>
+    <!--Content-->
+    <div class="content">
+    <?php require APPROOT . "/views/common/SubAnalyticsSProvider.php" ?>
+    </div>
 
-
-
-
-   </div>
-   <!--End Content-->
+    <!--End Content-->
 
 
    <?php require APPROOT . "/views/inc/footer.php" ?>

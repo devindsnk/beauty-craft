@@ -19,8 +19,6 @@
 
       <?php require APPROOT . "/views/common/servicesTable.php" ?>
 
-      <button class="btnOpen normal">Delete Service</button></a>
-
       <!-- Service delete model -->
       <div class="modal-container remove-service">
          <div class="modal-box">

@@ -26,21 +26,21 @@
                      <label class="label" for="staffID">Staff ID</label>
                      <input type="text" name="" id="staffID" placeholder="StaffID here">
                   </div>
-                  <span class="error"> <?php echo " "; ?></span>
+                  <!-- <span class="error"> <?php echo " "; ?></span> -->
                </div>
                <div class="column">
                   <div class="text-group">
                      <label class="label" for="leaaveDate">Leave Date</label>
                      <input type="date" name="" id="leaaveDate" placeholder="--select--">
                   </div>
-                  <span class="error"></span>
+                  <!-- <span class="error"></span> -->
                </div>
                <div class="column">
                   <div class="text-group">
                      <label class="label" for="respStaffID">Responded Staff ID</label>
                      <input type="text" name="" id="respStaffID" placeholder="Responded StaffID here">
                   </div>
-                  <span class="error"> <?php echo " "; ?></span>
+                  <!-- <span class="error"> <?php echo " "; ?></span> -->
                </div>
 
                <div class="column">
@@ -53,7 +53,7 @@
                         <option value="">Rejected</option>
                      </select>
                   </div>
-                  <span class="error"> <?php echo " "; ?></span>
+                  <!-- <span class="error"> <?php echo " "; ?></span> -->
                </div>
             </div>
          </div>
@@ -76,6 +76,7 @@
                      <th class="column-center-align col-5 column-center-align">Reason</th>
                      <th class="column-center-align col-6">Status</th>
                      <th class="col-8"></th>
+                     <th class="col-9"></th>
                   </tr>
                </thead>
 
@@ -91,9 +92,12 @@
                      </td>
                      <td class="column-center-align">
                         <span>
-                           <a href="<?php echo URLROOT ?>/leaves/leaveRequest"><i class="ci-view-more table-icon"></i></a>
+                           <a href="<?php echo URLROOT ?>/leaves/leaveRequest"><i class="ci-view-more table-icon img-gap"></i></a>
                         </span>
                      </td>
+                     <td class="column-center-align">
+                        <a href="#"><button type="button" class="table-btn black-action-btn">Approve</button></a>
+                     </td> 
                   </tr>
 
                   <tr>
@@ -107,9 +111,12 @@
                      </td>
                      <td class="column-center-align">
                         <span>
-                           <a href="<?php echo URLROOT ?>/leaves/leaveRequest"><i class="ci-view-more table-icon"></i></a>
+                           <a href="<?php echo URLROOT ?>/leaves/leaveRequest"><i class="ci-view-more table-icon img-gap"></i></a>
                         </span>
                      </td>
+                     <td class="column-center-align">
+                        <a href="#"><button type="button" class="table-btn black-action-btn">Approve</button></a>
+                     </td> 
                   </tr>
 
                   <tr>
@@ -123,20 +130,19 @@
                      </td>
                      <td class="column-center-align">
                         <span>
-                           <a href="<?php echo URLROOT ?>/leaves/leaveRequest"><i class="ci-view-more table-icon"></i></a>
+                           <a href="<?php echo URLROOT ?>/leaves/leaveRequest"><i class="ci-view-more table-icon img-gap"></i></a>
                         </span>
                      </td>
+                     <td class="column-center-align">
+                        <a href="#"><button type="button" class="table-btn black-action-btn">Approve</button></a>
+                     </td> 
                   </tr>
 
                </tbody>
             </table>
          </div>
       </div>
-
-      <h3>This is main option 1</h3>
-      <a href="<?php echo URLROOT ?>/leaves/leaveRequest"><button>Leave Request</button></a>
       
-
    </div>
    <!--End Content-->
 

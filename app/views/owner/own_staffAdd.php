@@ -4,8 +4,6 @@
 
 <body class="ownAddstaffBody layout-template-2">
 
-    <!-- ########################################################################################################################### -->
-
     <header class="full-header">
         <div class="header-center verticalCenter">
             <h1 class="header-topic">Add New Staff Members</h1>
@@ -34,7 +32,7 @@
                             <!------------------ maingrid1 start --------------------------------------------------------->
                             <div class="ownAddstaffMaingrid1">
 
-                                <div class="ownAddstaffFormGroupImage">
+                                <!-- <div class="ownAddstaffFormGroupImage">
                                     <div class="ownAddstaffBasicinfoFilesubBtn">
                                         <label for="ownAddstaffBasicinfoImagesub"
                                             class="ownAddstaffBasicinfoImagewrapper">
@@ -45,7 +43,7 @@
                                             <span class="ownAddstaffBasicinfoImagetitle">Add Image</span>
                                         </label>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="ownAddstaffFormGroupFname">
                                     <label class="ownAddstaffLabels">First Name</label>
@@ -90,14 +88,17 @@
                                     <label class="ownAddstaffLabels"> Date Of Birth</label>
                                     <input type="date" name="staffDOB" class="Date"
                                         value="<?php echo $data['staffDOB']; ?>">
-
+                                    <span class="error"><?php echo $data['staffDOB_error']; ?></span>
                                 </div>
                                 <div class="ownAddstaffFormGroupStype">
                                     <label class="ownAddstaffLabels">Staff Type</label>
                                     <select name="staffType" class="dropdownselectbox">
-                                        <option value="1">Manager</option>
-                                        <option value="2">Receptionist</option>
-                                        <option value="3">Service Provider</option>
+                                        <option class="unbold" value="0" option selected="true" disabled="disabled" >Select One</option>
+
+                                        <option value= 3 <?php if ($data['staffType'] == 3) echo 'selected'; ?>
+                                                        >Manager</option>
+                                        <option value= 4 <?php if ($data['staffType'] == 4) echo 'selected'; ?>>Receptionist</option>
+                                        <option value= 5<?php if ($data['staffType'] == 5) echo 'selected'; ?>>Service Provider</option>
                                     </select>
                                     <span class="error"><?php echo $data['staffType_error']; ?></span>
                                 </div>
@@ -121,7 +122,7 @@
                                     <label class="ownAddstaffLabels">Address</label>
                                     <textarea class="homeAdd" name="staffHomeAdd" rows="4" cols="50"
                                         placeholder="Your address here"
-                                        value="<?php echo $data['staffHomeAdd']; ?>"></textarea>
+                                        value="<?php echo $data['staffHomeAdd']; ?>" ><?php if ($data['staffHomeAdd'] == $data['staffHomeAddTyped']) echo $data['staffHomeAdd'] ; ?></textarea>
                                     <span class="error"><?php echo $data['staffHomeAdd_error']; ?></span>
                                 </div>
                             </div>

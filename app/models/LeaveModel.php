@@ -7,6 +7,22 @@ class LeaveModel
       $this->db = new Database;
    }
 
+public function checkLeaveDate($data){
+ $staffID='000001';
+      $this->db->query("SELECT COUNT(*)  FROM generalleaves WHERE (MONTH(leaveDate)=MONTH(:date) and YEAR(leaveDate)=YEAR(:date)) AND (staffID=staffID) AND (status=1 OR status=0)");
+      $this->db->bind(':date', $data['date']);
+       $this->db->bind(':staffID',$staffID);
+      $result = $this->db->single();
+
+//$num2 = ($data['leaveCount']->{'COUNT(*)'});
+     // echo $result->{'COUNT(*)'};
+       //print_r($result);
+      
+      return $result->{'COUNT(*)'};
+}
+
+
+
    public function requestleave($data)
    {
 
@@ -29,6 +45,41 @@ class LeaveModel
       //   print_r($result);
       return $result;
    }
+   
+   public function getLeaveLimit(){
+      $this->db->query("SELECT leaveLimit FROM leavelimits WHERE changedDate =(SELECT MAX(changedDate)FROM leavelimits)");
+   
+      $result = $this->db->single();
+         
+        // echo $result->leaveLimit;
+         
+      return $result->leaveLimit;
+   }
 
-  
+
+//   leave Approved=1 pending=0 rejected=2 
+   public function getLeaveCount(){
+     $staffID='000001';
+      $this->db->query("SELECT COUNT(*)  FROM generalleaves WHERE (MONTH(leaveDate)=MONTH(now()) and YEAR(leaveDate)=YEAR(now())) AND (staffID=staffID) AND (status=1 OR status=0)");
+      $this->db->bind(':staffID',$staffID);
+      $result = $this->db->single();
+
+      // die($result);
+      //  print_r($result);
+      // die($result);
+      return $result->{'COUNT(*)'};
+   }
+
+ public function checkExsistingDate($date){
+
+      $this->db->query("SELECT * FROM generalleaves WHERE leavedate ='$date'");
+    
+      $result = $this->db->resultSet();
+      //   print_r($result);
+      if(!empty($result)){
+         return $result;
+   
+      }
+   }
+
 }
