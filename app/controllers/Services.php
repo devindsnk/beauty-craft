@@ -174,4 +174,12 @@ class Services extends Controller
    {
       $this->view('manager/mang_serviceUpdate');
    }
+   public function serviceReport()
+   {
+      $this->view('manager/mang_serviceReport');
+   }
+   public function serviceProviderReport()
+   {
+      $this->view('manager/mang_serviceProviderReport');
+   }
 }

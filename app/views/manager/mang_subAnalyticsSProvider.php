@@ -16,6 +16,11 @@
 
    <!--Content-->
    <div class="content">
+
+      <div class="page-top-main-container-spanalytics">
+         <a href="<?php echo URLROOT ?>/services/serviceProviderReport" class="btn btn-filled btn-theme-purple btn-main">Generate Service Provider Report</a>
+      </div>
+
       <form class="form filter-options" action="">
          <div class="options-container mang">
             <div class="left-section">
@@ -88,7 +93,7 @@
             <div class="chart-head"> 
                <p>Reservations</p>
             </div>
-            <canvas id="myChart5" width="290" height="200"></canvas>
+            <canvas id="myChart7" width="290" height="200"></canvas>
          </div>
          <!--End od chart-container-->
 
@@ -97,7 +102,7 @@
             <div class="chart-head"> 
                <p>Income</p>
             </div>
-            <canvas id="myChart6" width="290" height="200"></canvas>
+            <canvas id="myChart8" width="290" height="200"></canvas>
          </div>
          <!--End od chart-container-->
       </div>
@@ -205,47 +210,49 @@
    <script>
       
 
-      //mychart1
-      var ctx = document.getElementById('myChart5').getContext('2d');
+      
+      //mychart2
+      var ctx = document.getElementById('myChart7').getContext('2d');
       var myChart = new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
-            datasets: [{ 
-                data: [35000,11400,50600,30600,40700,11100,13300,45000,42000.23500,17500,12400],
-                label: "No of reservations",
-                borderColor: "#b07d62",
-                backgroundColor: "#d69f7e",
-              }
-            ]
-          },
-        });
-         //mychart2
-         var ctx = document.getElementById('myChart6').getContext('2d');
-         var myChart = new Chart(ctx, {
-            type: 'bar',
+         type: 'bar',
+         data: {
+         labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
+         datasets: [{ 
+               data: [70,90,44,60,83,90,100,30,80.35,45,39],
+               label: "Income",
+               borderColor: "#f08080",
+               backgroundColor: "#f8ad9d",
+               borderWidth:2
+            }
+         ]
+         },
+         options: {
+         scales: {
+            xAxes: [{ 
+               stacked: true    
+            }],
+            yAxes: [{
+               stacked:true
+            }],
+            }
+         },
+      });
+      //mychart1
+      var ctx = document.getElementById('myChart8').getContext('2d');
+      var myChart = new Chart(ctx, {
+            type: 'line',
             data: {
             labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
             datasets: [{ 
-                data: [70,90,44,60,83,90,100,30,80.35,45,39],
-                label: "Income",
-                borderColor: "#f08080",
-                backgroundColor: "#f8ad9d",
-                borderWidth:2
-              }
+                  lineTension: 0,
+                  data: [21200,19400,25000,30600,32000,15100,16300,23000,30000,23500,17500,12400],
+                  label: "No of reservations",
+                  borderColor: "#b07d62",
+                  backgroundColor: "#d69f7e",
+               }
             ]
-          },
-          options: {
-            scales: {
-               xAxes: [{ 
-                stacked: true    
-               }],
-               yAxes: [{
-                stacked:true
-               }],
-             }
-           },
-        });
+            },
+         });
 
          let today = new Date().toISOString().substr(0, 10);
          document.querySelector("#serviceProviderToDate").value = today;
