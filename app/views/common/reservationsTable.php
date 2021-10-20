@@ -1,4 +1,4 @@
-<?php if ($userLevel == "Receptionist") : ?>
+<?php if ($userType == "Receptionist") : ?>
    <div class="page-top-main-container">
       <a href="<?php echo URLROOT ?>/reservations/addNew" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
    </div>
@@ -55,7 +55,7 @@
 
 </form>
 
-<div class="table-container">
+<div class="table-container reservations-table">
    <div class="table2 table2-responsive">
       <table class="table2-hover">
 
@@ -73,69 +73,45 @@
          </thead>
 
          <tbody>
-            <tr>
-               <td data-lable="Reservation ID" class="column-center-align">C000001</td>
-               <td data-lable="Date" class="column-center-align">2021-10-07</td>
-               <td data-lable="Time" class="column-center-align">09:30 AM</td>
-               <td data-lable="Service" class="column-left-align">Hair Cut - Mens</td>
-               <td data-lable="Service Provider" class="column-left-align">Devin Dissanayake</td>
-               <td data-lable="Customer" class="column-left-align">Ravindu Madhubhashana</td>
-               <td data-lable="Status" class="column-center-align">
-                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
-               </td>
-               <td class="column-center-align">
-                  <span>
-                     <a href="#"><i class="ci-view-more table-icon img-gap"></i></a>
-                     <?php if ($userLevel == "Receptionist") : ?>
-                        <a href="#"><i class="ci-edit table-icon img-gap"></i></a>
-                        <a href="#"><i class="ci-trash table-icon img-gap"></i></a>
-                     <?php endif; ?>
-                  </span>
-               </td>
-            </tr>
+            <?php foreach ($data as $reservation) : ?>
+               <?php
+               $statusClassList = ["red-status-btn", "yellow-status-btn", "blue-status-btn", "grey-status-btn", "green-status-btn"];
+               $statusValueList  = ["Cancelled", "Pending", "Confirmed", "No Show", "Completed"];
+               $statusClass = $statusClassList[$reservation->status];
+               $statusValue = $statusValueList[$reservation->status];
 
-            <tr>
-               <td data-lable="Reservation ID" class="column-center-align">C000001</td>
-               <td data-lable="Date" class="column-center-align">2021-10-07</td>
-               <td data-lable="Time" class="column-center-align">09:30 AM</td>
-               <td data-lable="Service" class="column-left-align">Hair Cut - Mens</td>
-               <td data-lable="Service Provider" class="column-left-align">Devin Dissanayake</td>
-               <td data-lable="Customer" class="column-left-align">Ravindu Madhubhashana</td>
-               <td data-lable="Status" class="column-center-align">
-                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
-               </td>
-               <td class="column-center-align">
-                  <span>
-                     <a href="#"><i class="ci-view-more table-icon img-gap"></i></a>
-                     <?php if ($userLevel == "Receptionist") : ?>
-                        <a href="#"><i class="ci-edit table-icon img-gap"></i></a>
-                        <a href="#"><i class="ci-trash table-icon img-gap"></i></a>
-                     <?php endif; ?>
-                  </span>
-               </td>
-            </tr>
+               $startTime = $reservation->startTime;
+               $timeH24 = $startTime / 60;
+               $suffix;
+               if ($timeH24 >= 12) $suffix = "PM";
+               else $suffix = "AM";
+               if ($timeH24 == 12) $timeH = '12';
+               else $timeH = str_pad($timeH24 % 12, 2, "0", STR_PAD_LEFT);
+               $timeM = str_pad($startTime % 60, 2, "0", STR_PAD_LEFT);
+               ?>
 
-            <tr>
-               <td data-lable="Reservation ID" class="column-center-align">C000001</td>
-               <td data-lable="Date" class="column-center-align">2021-10-07</td>
-               <td data-lable="Time" class="column-center-align">09:30 AM</td>
-               <td data-lable="Service" class="column-left-align">Hair Cut - Mens</td>
-               <td data-lable="Service Provider" class="column-left-align">Devin Dissanayake</td>
-               <td data-lable="Customer" class="column-left-align">Ravindu Madhubhashana</td>
-               <td data-lable="Status" class="column-center-align">
-                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
-               </td>
-               <td class="column-center-align">
-                  <span>
-                     <a href="#"><i class="ci-view-more table-icon img-gap"></i></a>
-                     <?php if ($userLevel == "Receptionist") : ?>
-                        <a href="#"><i class="ci-edit table-icon img-gap"></i></a>
-                        <a href="#"><i class="ci-trash table-icon img-gap"></i></a>
-                     <?php endif; ?>
-                  </span>
-               </td>
-            </tr>
 
+               <tr>
+                  <td data-lable="Reservation ID" class="column-center-align font-numeric">R<?php echo $reservation->reservationID; ?></td>
+                  <td data-lable="Date" class="column-center-align"><?php echo $reservation->date; ?></td>
+                  <td data-lable="Time" class="column-center-align font-numeric"><?php echo $timeH . ":" . $timeM . " " . $suffix; ?></td>
+                  <td data-lable="Service" class="column-left-align"><?php echo $reservation->serviceName; ?></td>
+                  <td data-lable="Service Provider" class="column-left-align"><?php echo $reservation->staffFName . " " . $reservation->staffLName; ?></td>
+                  <td data-lable="Customer" class="column-left-align"><?php echo $reservation->custFName . " " . $reservation->custLName; ?></td>
+                  <td data-lable="Status" class="column-center-align">
+                     <button type="button" class="table-btn text-uppercase <?php echo $statusClass; ?> "><?php echo $statusValue ?></button>
+                  </td>
+                  <td class="column-center-align">
+                     <span>
+                        <a href="#"><i class="ci-view-more table-icon img-gap"></i></a>
+                        <?php if ($userLevel == "Receptionist") : ?>
+                           <a href="#"><i class="ci-edit table-icon img-gap"></i></a>
+                           <a href="#"><i class="ci-trash table-icon img-gap"></i></a>
+                        <?php endif; ?>
+                     </span>
+                  </td>
+               </tr>
+            <?php endforeach; ?>
          </tbody>
       </table>
    </div>

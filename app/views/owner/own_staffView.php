@@ -7,12 +7,12 @@
             <h1 class="header-topic">Staff Member Details</h1>
         </div>
         <div class="header-right verticalCenter">
-        <a href= "<?php
-         echo URLROOT;         
-         if ($userType == 2) echo "/OwnDashboard/staff"; 
-         elseif ($userType == 3) echo "/MangDashboard/staffMembers";   
-         elseif ($userType == 4) echo "/ReceptDashboard/staffMembers"; 
-         ?>" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
+            <a href="<?php
+                        echo URLROOT;
+                        if ($userTypeNo == 2) echo "/OwnDashboard/staff";
+                        elseif ($userTypeNo == 3) echo "/MangDashboard/staffMembers";
+                        elseif ($userTypeNo == 4) echo "/ReceptDashboard/staffMembers";
+                        ?>" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
         </div>
     </header>
     <div class="content contentNewRes">
@@ -45,7 +45,7 @@
                         </div> -->
                         <div class="ownViewStaffProfileDetailsInfo">
                             <span class="ownViewStaffProfileDetailsName"><?php echo $data->fName ?>
-                                <?php echo $data->lName ; ?></span> <br>
+                                <?php echo $data->lName; ?></span> <br>
                             <span class="ownViewStaffProfileDetailsStaffId">Staff ID :
                                 <?php echo $data->staffID; ?></span>
                         </div>
@@ -81,7 +81,7 @@
                             </div>
                             <div class="ownViewStaffCardcolumn">
                                 <span class="ownViewStaffCardDetailsValue">
-                                    <?php echo $data->fName;?>
+                                    <?php echo $data->fName; ?>
                                 </span>
                             </div>
                         </div>
@@ -111,10 +111,14 @@
                             </div>
                             <div class="ownViewStaffCardcolumn">
                                 <span class="ownViewStaffCardDetailsValue">
-                                    <?php if($data->gender == 'M'){ 
-                                             echo 'Male';}
-                                          elseif($data->gender == 'F'){
-                                          echo 'Female';}?>
+                                    <?php if ($data->gender == 'M')
+                                    {
+                                        echo 'Male';
+                                    }
+                                    elseif ($data->gender == 'F')
+                                    {
+                                        echo 'Female';
+                                    } ?>
                                 </span>
                             </div>
                         </div>
@@ -129,12 +133,18 @@
                             </div>
                             <div class="ownViewStaffCardcolumn">
                                 <span class="ownViewStaffCardDetailsValue">
-                                    <?php if($data->staffType == 3){ 
-                                             echo 'Manager';}
-                                          elseif($data->staffType == 4){
-                                          echo 'Receptionist';}
-                                          elseif($data->staffType == 5){
-                                          echo 'Service Provider';}?>
+                                    <?php if ($data->staffType == 3)
+                                    {
+                                        echo 'Manager';
+                                    }
+                                    elseif ($data->staffType == 4)
+                                    {
+                                        echo 'Receptionist';
+                                    }
+                                    elseif ($data->staffType == 5)
+                                    {
+                                        echo 'Service Provider';
+                                    } ?>
                                 </span>
                             </div>
                         </div>
@@ -291,7 +301,7 @@
 
                             <div class="ownViewStaffCardcolumn">
                                 <span class="ownViewStaffCardDetailsValue">
-                                    <?php echo $data->accountNo;?>
+                                    <?php echo $data->accountNo; ?>
                                 </span>
                             </div>
                         </div>

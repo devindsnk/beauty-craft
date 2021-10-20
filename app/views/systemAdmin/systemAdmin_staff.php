@@ -4,17 +4,15 @@
 <body class="layout-template-1">
 
     <?php
-   $selectedMain = "CreateAccount";
+    $selectedMain = "CreateAccount";
     $selectedSub = "Staff";
-   require APPROOT . "/views/systemAdmin/systemAdmin_sideNav.php"
-   ?>
+    require APPROOT . "/views/systemAdmin/systemAdmin_sideNav.php"
+    ?>
 
     <?php
-   $title = "Create Account";
-   $username = "Ruwanthi Munasinghe";
-   $userLevel = "System Admin";
-   require APPROOT . "/views/inc/headerBar.php"
-   ?>
+    $title = "Create Account";
+    require APPROOT . "/views/inc/headerBar.php"
+    ?>
 
     <!--Content-->
     <div class="content admin">
@@ -35,11 +33,9 @@
 
                                 <div class="ownAddstaffFormGroupImage">
                                     <div class="ownAddstaffBasicinfoFilesubBtn">
-                                        <label for="ownAddstaffBasicinfoImagesub"
-                                            class="ownAddstaffBasicinfoImagewrapper">
+                                        <label for="ownAddstaffBasicinfoImagesub" class="ownAddstaffBasicinfoImagewrapper">
                                             <input type="file" id="ownAddstaffBasicinfoImagesub" accept="image/*">
-                                            <img src="<?php echo URLROOT ?>/public/icons/add_graph_report_64px.png"
-                                                class="ownAddstaffBasicinfoIcon"> <br>
+                                            <img src="<?php echo URLROOT ?>/public/icons/add_graph_report_64px.png" class="ownAddstaffBasicinfoIcon"> <br>
                                             <span class="ownAddstaffBasicinfoImagetitle">Add Image</span>
                                         </label>
                                     </div>
@@ -47,14 +43,12 @@
 
                                 <div class="ownAddstaffFormGroupFname">
                                     <label class="ownAddstaffLabels">First Name</label>
-                                    <input type="text" name="firstname" id="ownAddstaffBasicinfoFirstname"
-                                        placeholder="Your first name here">
+                                    <input type="text" name="firstname" id="ownAddstaffBasicinfoFirstname" placeholder="Your first name here">
                                     <span class="error">Sorry, that user name is taken </span>
                                 </div>
                                 <div class="ownAddstaffFormGroupLname">
                                     <label class="ownAddstaffLabels">Last Name</label>
-                                    <input type="text" name="lastname" id="ownAddstaffLastname"
-                                        placeholder="Your last name here">
+                                    <input type="text" name="lastname" id="ownAddstaffLastname" placeholder="Your last name here">
                                     <span class="error">Sorry, that user name is taken </span>
                                 </div>
 
@@ -112,8 +106,7 @@
                             <div class="ownAddstaffMaingrid3">
                                 <div class="ownAddstaffFormGroupADD">
                                     <label class="ownAddstaffLabels">Home Address</label>
-                                    <textarea class="homeAdd" name="homeAdd" rows="4" cols="50"
-                                        placeholder="Your home address here"></textarea>
+                                    <textarea class="homeAdd" name="homeAdd" rows="4" cols="50" placeholder="Your home address here"></textarea>
                                     <span class="error">Sorry, that user name is taken </span>
                                 </div>
                             </div>
@@ -122,8 +115,7 @@
                             <div class="ownAddstaffMaingrid4">
                                 <div class="ownAddstaffFormGroupTP">
                                     <label class="ownAddstaffLabels">Contact Number</label>
-                                    <input type="text" name="contactnum" id="contactnum"
-                                        placeholder="Your contact number here">
+                                    <input type="text" name="contactnum" id="contactnum" placeholder="Your contact number here">
                                     <span class="error">Sorry, that user name is taken </span>
                                 </div>
                                 <div class="ownAddstaffFormGroupMAIL">
@@ -153,8 +145,7 @@
                                 </div>
                                 <div class="ownAddstaffFormGroupACCNAME">
                                     <label class="ownAddstaffLabels">Account Holders Name</label>
-                                    <input type="text" name="acchold" id="acchold"
-                                        placeholder="Your account holders name here">
+                                    <input type="text" name="acchold" id="acchold" placeholder="Your account holders name here">
                                     <span class="error">Sorry, that user name is taken </span>
                                 </div>
                             </div>

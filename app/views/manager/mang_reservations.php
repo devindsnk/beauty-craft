@@ -9,16 +9,12 @@
 
    <?php
    $title = "Reservations";
-   $username = "Sanjana Rajapaksha";
-   $userLevel = "Manager";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 
    <!--Content-->
    <div class="content">
-
       <?php require APPROOT . "/views/common/reservationsTable.php" ?>
-
    </div>
    <!--End Content-->
 

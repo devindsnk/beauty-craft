@@ -5,7 +5,7 @@
 /* ------------------------------------------------------ */
 
 /* Special Button Design */
-.landingPage .btn-landing {
+.customerPages .btn-landing {
    border: 2px solid var(--theme-red);
    border-radius: 6px;
    padding: 5px 10px;
@@ -18,16 +18,16 @@
    cursor: pointer;
 }
 
-.landingPage .btn-landing:hover {
+.customerPages .btn-landing:hover {
    background-position: -1px;
 }
 
-.landingPage .btn-landing a {
+.customerPages .btn-landing a {
    text-decoration: none;
    color: var(--white);
 }
 
-.landingPage .btn-landing span {
+.customerPages .btn-landing span {
    display: block;
    font-size: 14px;
 }
@@ -43,7 +43,7 @@
 }
 
 /* Header Navigation */
-.landingPage nav {
+.customerPages nav {
    display: flex;
    width: 100%;
    height: 100px;
@@ -52,28 +52,28 @@
    justify-content: space-between;
 }
 
-.landingPage nav .logo {
+.customerPages nav .logo {
    height: 100%;
 }
 
-.landingPage nav .logo a {
+.customerPages nav .logo a {
    display: block;
    height: 100%;
 }
 
-.landingPage nav .logo img {
+.customerPages nav .logo img {
    height: 70px;
 }
 
-.landingPage nav .links {
+.customerPages nav .links {
    height: 100%;
 }
 
-.landingPage nav .links ul {
+.customerPages nav .links ul {
    height: 100%;
 }
 
-.landingPage nav .links ul li {
+.customerPages nav .links ul li {
    display: inline-block;
    height: 100%;
    list-style: none;
@@ -82,7 +82,7 @@
    position: relative;
 }
 
-.landingPage nav .links ul li::after {
+.customerPages nav .links ul li::after {
    content: '';
    width: 0%;
    height: 2px;
@@ -92,16 +92,16 @@
    transition: 0.3s;
 }
 
-.landingPage nav .links ul li:hover::after {
+.customerPages nav .links ul li:hover::after {
    color: var(--white);
    width: 100%;
 }
 
-.landingPage nav .links ul li:hover a {
+.customerPages nav .links ul li:hover a {
    color: var(--white);
 }
 
-.landingPage nav .links ul li a {
+.customerPages nav .links ul li a {
    text-decoration: none;
    color: #DDDDDD;
    font-size: 16px;
@@ -109,21 +109,21 @@
    transition: 0.3s;
 }
 
-.landingPage nav .buttons {
+.customerPages nav .buttons {
    height: 100%;
    display: flex;
    align-content: center;
 }
 
-.landingPage nav .btnLogin,
-.landingPage nav .btnRegister {
+.customerPages nav .btnLogin,
+.customerPages nav .btnRegister {
    height: 35px;
    align-self: center;
    margin-left: 25px;
    /* display: none; */
 }
 
-.landingPage nav .buttons .profileIcon {
+.customerPages nav .buttons .profileIcon {
    border-radius: 100%;
    height: 48px;
    padding: 2px;
@@ -135,23 +135,23 @@
 }
 
 
-.landingPage nav .buttons .profileIcon img {
+.customerPages nav .buttons .profileIcon img {
    height: 40px;
    border-radius: 100%;
    align-self: center;
 }
 
-.landingPage nav .buttons .profileIcon:hover {
+.customerPages nav .buttons .profileIcon:hover {
    border: 2px solid var(--theme-red);
 }
 
-.landingPage nav .links .closeBtn {
+.customerPages nav .links .closeBtn {
    display: none;
    margin: 25px;
    cursor: pointer;
 }
 
-.landingPage nav .buttons .menuBtn {
+.customerPages nav .buttons .menuBtn {
    margin-left: 25px;
    display: none;
    cursor: pointer;
@@ -160,15 +160,15 @@
 
 
 @media(max-width: 1150px) {
-   .landingPage nav .links .closeBtn {
+   .customerPages nav .links .closeBtn {
       display: block;
    }
 
-   .landingPage nav .buttons .menuBtn {
+   .customerPages nav .buttons .menuBtn {
       display: block;
    }
 
-   .landingPage nav .links {
+   .customerPages nav .links {
       position: absolute;
       height: 100vh;
       width: 260px;
@@ -179,13 +179,13 @@
       transition: 0.7s ease-in-out;
    }
 
-   .landingPage nav .links ul {
+   .customerPages nav .links ul {
       display: flex;
       flex-direction: column;
       align-items: center;
    }
 
-   .landingPage nav .links ul li {
+   .customerPages nav .links ul li {
       height: 60px;
       margin: 0px;
       padding: 0;
@@ -193,21 +193,21 @@
 }
 
 @media(max-width: 550px) {
-   .landingPage nav {
+   .customerPages nav {
       height: 80px;
    }
 
-   .landingPage nav .logo img {
+   .customerPages nav .logo img {
       height: 50px;
    }
 
-   .landingPage nav .btnRegister {
+   .customerPages nav .btnRegister {
       display: none;
    }
 }
 
 @media(max-width: 375px) {
-   .landingPage nav .btnProfile {
+   .customerPages nav .btnProfile {
       max-width: 80px;
    }
 }
@@ -216,7 +216,7 @@
 
 
 /* Profile menu */
-.landingPage .profile_menu {
+.customerPages .profile_menu {
    position: absolute;
    top: 110px;
    right: 10px;
@@ -228,9 +228,10 @@
    transition: 0.3s;
    visibility: hidden;
    opacity: 0;
+   overflow: hidden;
 }
 
-.landingPage .profile_menu ul li {
+.customerPages .profile_menu ul li {
    list-style: none;
    padding: 6px 0;
    font-size: 16px;
@@ -238,38 +239,38 @@
    /* border-top: 1px solid rgba(0, 0, 0, 0.07); */
 }
 
-.landingPage .profile_menu ul li i {
+.customerPages .profile_menu ul li i {
    width: 15px;
    margin-right: 8px;
    transition: 0.5s;
    color: var(--theme-grey);
 }
 
-.landingPage .profile_menu ul li a {
+.customerPages .profile_menu ul li a {
    text-decoration: none;
    transition: 0.4s;
    color: var(--theme-grey);
    opacity: 0.95;
 }
 
-.landingPage .profile_menu ul li:hover a,
-.landingPage .profile_menu ul li:hover i {
+.customerPages .profile_menu ul li:hover a,
+.customerPages .profile_menu ul li:hover i {
    color: var(--theme-red);
    opacity: 1;
 }
 
-.landingPage .profileIcon.active {
+.customerPages .profileIcon.active {
    border: 2px solid var(--theme-red) !important;
 }
 
-.landingPage .profile_menu.active {
+.customerPages .profile_menu.active {
    top: 82px;
    visibility: visible;
    opacity: 1;
 }
 
 @media(max-width: 550px) {
-   .landingPage .profile_menu.active {
+   .customerPages .profile_menu.active {
       top: 72px;
    }
 
