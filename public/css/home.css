@@ -385,7 +385,7 @@
 
 
 /* ------------------------------------------------------ */
-/* ----------- STYLES ADDED BY RUWANTHI ------------------*/
+/* ----------- STYLES ADDED BY SANJANA ------------------*/
 /* ------------------------------------------------------ */
 
 /* MEET OUR TEAM */
@@ -401,7 +401,7 @@
    max-width: 1600px;
    margin: 0 auto;
 }
-.horizontal_slider::-webkit-scrollbar {
+/* .horizontal_slider::-webkit-scrollbar {
    width:0px;
    padding: 10px;
 }
@@ -413,7 +413,7 @@
    background-color: #c4cae0;
    border-radius: 6px;
    border: 3px solid #c4cae0;
-}
+} */
 .MOT-box{
    display: flex;
    justify-content: center;
@@ -424,9 +424,9 @@
    height: 470px;
    background: #080808;
    background: #505050;
-   background: -webkit-linear-gradient(bottom, #505050, #FFFFFF);
-   background: -moz-linear-gradient(bottom, #505050, #FFFFFF);
-   background: linear-gradient(to top, #505050, #FFFFFF);
+   background: -webkit-linear-gradient(bottom, #50515A, #EAEAEA);
+   background: -moz-linear-gradient(bottom, #50515A, #EAEAEA);
+   background: linear-gradient(to top, #50515A, #EAEAEA);
    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.75);
 }
 .MOT-box{
@@ -465,6 +465,11 @@
    padding: 10px 30px;
    background-color: rgba(22, 22, 22, 17%);
 }
+.WTS-section-head{
+   display: flex;
+   align-items: center;
+   height: 20%;
+}
 .WTS-section img{
    margin: 10px 30px;
    width: 50px;
@@ -481,6 +486,7 @@
    padding: 30px;
 }
 .slideshow-container {
+   height: 60%;
    position: relative;
 }
  
@@ -512,6 +518,7 @@
    color: white;
  }
 .WTS-section .dot-container {
+   height: 20%;
    text-align: center;
    padding: 20px;
  }
@@ -539,7 +546,7 @@
 /* END OF WHAT THEY SAY */
 
 /* ------------------------------------------------------ */
-/* -----------END OF STYLES ADDED BY DEVIN ---------------*/
+/* -----------END OF STYLES ADDED BY SANJANA ------------*/
 /* ------------------------------------------------------ */
 
 
