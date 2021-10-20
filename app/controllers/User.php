@@ -250,9 +250,11 @@ class User extends Controller
    private function createUserSession($user)
    {
       session_start();
-      $_SESSION['userMobileNo'] = $user->mobileNo;
-      $_SESSION['userType'] = $user->userType;
-      $_SESSION['userID'] = null; //Containes customer id or staff id
+      $_SESSION = [
+         'userMobileNo' => $user->mobileNo,
+         'userType' => $user->userType,
+         'userID' => null
+      ]; //Containes customer id or staff id
    }
 
    public function provideIntialView()

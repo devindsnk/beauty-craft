@@ -107,7 +107,6 @@ class ServiceModel
     public function getResourceDetails()
     {
         $this->db->query("SELECT resourceID, name, quantity From resources");
-
         $result = $this->db->resultSet();
 
         return $result;
@@ -128,6 +127,21 @@ class ServiceModel
         return $result;
     }
 
+    public function getServiceProvidersByService($serviceID)
+    {
+        $this->db->query("SELECT staff.staffID, staff.fName, staff.lName
+                            FROM staff 
+                            INNER JOIN serviceproviders 
+                            ON serviceproviders.staffID = staff.staffID
+                            WHERE serviceproviders.serviceID = '$serviceID'");
+
+        $result = $this->db->resultSet();
+        return $result;
+    }
+
+    //     SELECT Orders.OrderID, Customers.CustomerName
+    // FROM Orders
+    // INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
     public function getOneServicesSProvDetail($serviceID)
     {
 

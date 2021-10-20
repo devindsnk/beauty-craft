@@ -31,7 +31,7 @@
             <div class="column">
                <div class="dropdown-group">
                   <label class="label" for="lName">Service</label>
-                  <select name="serviceID" id="">
+                  <select name="serviceID" id="" class="serviceSelect">
                      <option value="">Service 1</option>
                      <option value="">Service 2</option>
                      <?php foreach ($data['servicesList'] as $service) : ?>
@@ -51,12 +51,12 @@
             <div class="column">
                <div class="dropdown-group">
                   <label class="label" for="lName">Service Provider</label>
-                  <select name="staffID" id="">
-                     <?php foreach ($data['sProvidersList'] as $sProvider) : ?>
+                  <select name="staffID" id="" class="serviceProviderSelect">
+                     <!-- <?php foreach ($data['sProvidersList'] as $sProvider) : ?>
                         <option value="<?php echo $sProvider->staffID ?>">
                            S<?php echo $sProvider->staffID . "  -  " .  $sProvider->fName . " " . $sProvider->lName; ?>
                         </option>
-                     <?php endforeach; ?>
+                     <?php endforeach; ?> -->
                   </select>
                </div>
             </div>
@@ -81,6 +81,7 @@
    </div>
 </div>
 <script src="<?php echo URLROOT ?>/public/js/home.js"></script>
+<script src="<?php echo URLROOT ?>/public/js/fetchRequests.js"></script>
 </body>
 
 </html>
