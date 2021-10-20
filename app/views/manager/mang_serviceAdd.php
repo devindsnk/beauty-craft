@@ -44,11 +44,13 @@
 							<!-- New service type -->
 							<label class="labels" for="serviceType">Service Type</label>
 							<select class="dropdownSelectBox" name="serviceType">
-								<option class="unbold" value="val1" option selected="true" disabled="disabled">Select One</option>
+								<option class="unbold" value="val1" option selected="true" disabled="disabled">Select One
+								</option>
 
 								<?php foreach ($data['sTypesArray'] as $sType) : ?>
 
-									<option value="<?php echo $sType->type; ?>" <?php if ($data['sSelectedType'] == $sType->type) echo 'selected'; ?>><?php echo $sType->type; ?></option>
+									<option value="<?php echo $sType->type; ?>" <?php if ($data['sSelectedType'] == $sType->type) echo 'selected'; ?>>
+										<?php echo $sType->type; ?></option>
 
 								<?php endforeach; ?>
 
@@ -138,14 +140,16 @@
 									<!-- duration -->
 									<label class="labels paddingBottom">Duration (mins) </label><br>
 									<select class="dropdownSelectBox" name="slot1Duration">
-										<option class="unbold" value="val0" option selected="true" disabled="disabled">Select duration</option>
+										<option class="unbold" value="val0" option selected="true" disabled="disabled">Select
+											duration</option>
 
 										<?php for ($i = 10; $i <= 120; $i += 10) : ?>
 
 											<?php if ($i == 60 || $i == 120) : ?>
 												<option value="<?php echo $i; ?>"> <?php echo ($i / 60); ?> h </option>
 											<?php elseif ($i > 60 && $i < 120) : ?>
-												<option value="<?php echo $i; ?>"> <?php echo ($i / $i); ?> h <?php echo ($i %  60); ?> mins</option>
+												<option value="<?php echo $i; ?>"> <?php echo ($i / $i); ?> h <?php echo ($i %  60); ?>
+													mins</option>
 											<?php else : ?>
 												<option value="<?php echo $i; ?>"> <?php echo $i; ?> mins </option>
 											<?php endif; ?>
@@ -181,7 +185,8 @@
 
 													<?php for ($i = 1; $i <= $Qcount; $i++) : ?>
 
-														<option value="<?php echo $i; ?>" <?php if ($data['sSelectedResCount'] == $i) echo 'selected'; ?>><?php echo $i; ?></option>
+														<option value="<?php echo $i; ?>" <?php if ($data['sSelectedResCount'] == $i) echo 'selected'; ?>><?php echo $i; ?>
+														</option>
 
 													<?php endfor; ?>
 
