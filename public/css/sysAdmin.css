@@ -18,6 +18,12 @@
     padding-top: 50px;
 
 }
+.content.admin .ownAddstaffBasicinfoFilesubBtn{
+display: none;
+}
+.content.admin .ownAddstaffContainer .error{
+    display: none;
+}
 
 .content.admin .ownAddstaffContainer.contentBox,
 .reg-container.form-container.contentBox {
