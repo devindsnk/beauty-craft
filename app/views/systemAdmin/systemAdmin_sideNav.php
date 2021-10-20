@@ -19,7 +19,7 @@
          <li class="mainOption">
             <a class="optionLink <?php if ($selectedMain == "SystemLog") echo " selected" ?>" href="<?php echo URLROOT ?>/SysAdminDashboard/systemlog">
                <div class="optionIcon">
-                  <i class="sidenav-icon ci-analytics "></i>
+                  <i class="sidenav-icon ci-sysLog "></i>
                </div>
                <div class="optionTitle">System Log</div>
             </a>
@@ -30,7 +30,7 @@
          <li class="mainOption">
             <a class="optionLink <?php if ($selectedMain == "CreateAccount") echo " selected" ?>">
                <div class="optionIcon">
-                  <i class="sidenav-icon ci-analytics "></i>
+                  <i class="sidenav-icon ci-sysCreateAcc "></i>
                </div>
                <div class="optionTitle">Create Account</div>
                <div class="optionArrow <?php if ($selectedMain == "CreateAccount") echo " rotated180" ?>">

@@ -34,7 +34,7 @@
         <div class="container">
             <div class="item item1">
                 <div class="profileimg">
-                <img src="https://www.pngall.com/wp-content/uploads/5/Profile-PNG-Clipart.png">
+                <img src="<?php echo URLROOT ?>/public/imgs/custProfileUpdate.png">
                 </div>
                 <div class="profbutton">
                     <button class="upload">Upload new picture</button>
@@ -47,11 +47,11 @@
             <div class="item item2">
                 <div class="profname">
                     <label class="proflabel">First Name </label> <br />
-                    <div class="fname" contenteditable="true">Ruwanthi</div>
+                    <div class="fname" contenteditable="true">Devin</div>
                 </div>
                 <div class="profname">
                     <label class="proflabel">Last Name </label> <br />
-                    <div class="fname" contenteditable="true">Munasinghe</div>
+                    <div class="fname" contenteditable="true">Dissanayake</div>
                 </div>
 
             </div>
@@ -59,7 +59,7 @@
                 <div class="profname">
                     <label class="proflabel">Gender </label> <br />
                     <div class="radiobutton">
-                            <input type="radio" id="gender" name="gender" value="Male">
+                            <input type="radio" id="gender" name="gender" value="Male" checked>
                             <label for="male">Male</label>
                             <input type="radio" id="css" name="gender" value="Female">
                             <label for="female">Female</label>
@@ -70,7 +70,7 @@
             <div class="item item4">
                 <div class="profname">
                     <label class="proflabel">Mobile Number </label> <br />
-                    <div class="fname" contenteditable="true">0703807405</div>
+                    <div class="fname" >0703807405</div>
                 </div>
             </div>
             <div class="item item5">
