@@ -19,7 +19,7 @@
          <li class="mainOption">
             <a class="optionLink <?php if ($selectedMain == "Overview") echo " selected" ?>" href="<?php echo URLROOT ?>/SerProvDashboard/overview">
                <div class="optionIcon">
-                  <i class="sidenav-icon ci-elements "></i>
+                  <i class="sidenav-icon ci-overview "></i>
                </div>
                <div class="optionTitle">Overview</div>
             </a>

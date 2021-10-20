@@ -219,6 +219,10 @@ footer p {
   color: var(--theme-black);
 }
 
+.btn.btn-filled.btn-grey {
+  background-color: var(--theme-grey);
+}
+
 .btn.btn-outlined.btn-error-red {
   border: 2px solid var(--error-red);
   color: var(--error-red);
