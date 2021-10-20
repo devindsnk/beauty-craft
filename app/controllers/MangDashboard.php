@@ -42,6 +42,7 @@ class MangDashboard extends Controller
    }
    public function resources()
    {
+      
       $this->view('manager/mang_resources');
    }
    public function leaveRequests()

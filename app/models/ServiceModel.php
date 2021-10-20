@@ -11,13 +11,12 @@ class ServiceModel{
     }
 
     public function addService($data){
-        // die("hello");
-
+       
         if (empty($data['sSelectedType'])){
-            $this->db->query("INSERT INTO services (name, price, type, totalDuration, status) VALUES(:sName, :sPrice, :sNewType, :sSlot1Duration, 'active')");
+            $this->db->query("INSERT INTO services (name, price, type, totalDuration, status) VALUES(:sName, :sPrice, :sNewType, :sSlot1Duration, 1)");
             $this->db->bind(':sNewType', $data['sNewType']);
         }else{
-            $this->db->query("INSERT INTO services (name, price, type, totalDuration, status) VALUES(:sName, :sPrice, :sSelectedType, :sSlot1Duration,'active')");
+            $this->db->query("INSERT INTO services (name, price, type, totalDuration, status) VALUES(:sName, :sPrice, :sSelectedType, :sSlot1Duration,1)");
             $this->db->bind(':sSelectedType', $data['sSelectedType']);
         }
         
@@ -31,6 +30,7 @@ class ServiceModel{
 
     public function addServiceProvider($data){
 
+       
         foreach($data['sSelectedProv'] as $SelectedProv){
 
             $this->db->query("INSERT INTO serviceproviders (serviceID, staffID) SELECT MAX(serviceID), '$SelectedProv' FROM services");
@@ -53,12 +53,19 @@ class ServiceModel{
 
     public function addResourcesToService($data, $slotNo){
         $slotNo++;
-        $SelectedResCount = $$data['sSelectedResCount'];
-        foreach($data['sSelectedResourse'] as $SelectedResourse){
+        
+        $i=0;
 
-            $this->db->query("INSERT INTO resourceallocation (serviceID, slotNo, resourceID, requiredQuantity) SELECT MAX(serviceID), '1', '$SelectedResourse', '$SelectedResCount' FROM services");
+        foreach($data['sResArray'] as $ResoursesArray){
 
-            $this->db->execute();
+            if($data['sSelectedResCount'][$i]!=0){
+                $selCount =$data['sSelectedResCount'][$i];
+                $this->db->query("INSERT INTO resourceallocation (serviceID, slotNo, resourceID, requiredQuantity) SELECT MAX(serviceID), '$slotNo', '$ResoursesArray->resourceID','$selCount' FROM services");
+
+                $this->db->execute();
+            }
+            $i++;
+
         }
 
     }
@@ -68,25 +75,20 @@ class ServiceModel{
         $this->db->query("SELECT * FROM services"); 
         
         $result = $this->db->resultSet();
-        // print_r($result);
 
         return $result;
     }
     
     public function getServiceProviderDetails(){
-        // die("hello");
         
-        $this->db->query("SELECT staffID,fName,lName FROM staff WHERE staffType=1"); 
+        $this->db->query("SELECT staffID,fName,lName FROM staff WHERE staffType=5"); 
         
         $result = $this->db->resultSet();
-
-        // print_r($result);
 
         return $result;
     }
 
     public function getServiceTypeDetails(){
-        // die("hello");
 
         $this->db->query("SELECT DISTINCT type From services");
 
@@ -96,6 +98,7 @@ class ServiceModel{
     }
 
     public function getResourceDetails(){
+
         $this->db->query("SELECT resourceID, name, quantity From resources");
 
         $result = $this->db->resultSet();
@@ -104,7 +107,6 @@ class ServiceModel{
     }
 
     public function getOneServiceDetail($serviceID){
-        // die("hello");
 
         $this->db->query("SELECT * 
                           FROM services 
@@ -112,7 +114,6 @@ class ServiceModel{
                           "); 
         
         $result = $this->db->resultSet();
-        // print_r($result);
 
         return $result;
     }
@@ -129,7 +130,6 @@ class ServiceModel{
                           "); 
 
         $result = $this->db->resultSet();
-        // print_r($result);
 
         return $result;
     }

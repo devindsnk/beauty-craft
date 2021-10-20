@@ -46,61 +46,22 @@
          </thead>
 
          <tbody>
+        
             <tr>
-               <td class="column-center-align">Resource 1</td>
-               <td class="column-center-align">R001</td>
-               <td class="column-center-align">4</td>
+            <?php foreach($data['resource'] as $resourceD) : ?>
+               <td class="column-center-align"><?php echo $resourceD->resourceID; ?></td>
+               <td class="column-center-align"><?php echo $resourceD->name; ?></td>
+               <td class="column-center-align"><?php echo $resourceD->quantity; ?></td>
                <td data-lable="Action" class="column-center-align">
                   <span>
                   <?php if ($userLevel == "Owner") : ?>
-                        <a href="#"><i class="ci-edit table-icon btnUpdateResource"></i></a>
-                        <a href="#"><i class="ci-trash table-icon btnRemoveResource"></i></a>
+                        <a href="#"><i class="ci-edit table-icon btnUpdateResource img-gap"></i></a>
+                        <a href="#"><i class="ci-trash table-icon btnRemoveResource img-gap"></i></a>
                      <?php endif; ?>
                   </span>
                </td>
             </tr>
-
-            <tr>
-               <td class="column-center-align">Resource 1</td>
-               <td class="column-center-align">R001</td>
-               <td class="column-center-align">4</td>
-               <td data-lable="Action" class="column-center-align">
-                  <span>
-                  <?php if ($userLevel == "Owner") : ?>
-                        <a href="#"><i class="ci-edit table-icon btnUpdateResource"></i></a>
-                        <a href="#"><i class="ci-trash table-icon btnRemoveResource"></i></a>
-                     <?php endif; ?>
-                  </span>
-               </td>
-            </tr>
-
-            <tr>
-               <td class="column-center-align">Resource 1</td>
-               <td class="column-center-align">R001</td>
-               <td class="column-center-align">4</td>
-               <td data-lable="Action" class="column-center-align">
-                  <span>
-                  <?php if ($userLevel == "Owner") : ?>
-                        <a href="#"><i class="ci-edit table-icon btnUpdateResource"></i></a>
-                        <a href="#"><i class="ci-trash table-icon btnRemoveResource"></i></a>
-                     <?php endif; ?>
-                  </span>
-               </td>
-            </tr>
-
-            <tr>
-               <td class="column-center-align">Resource 1</td>
-               <td class="column-center-align">R001</td>
-               <td class="column-center-align">4</td>
-               <td data-lable="Action" class="column-center-align">
-                  <span>
-                     <?php if ($userLevel == "Owner") : ?>
-                        <a href="#"><i class="ci-edit table-icon btnUpdateResource"></i></a>
-                        <a href="#"><i class="ci-trash table-icon btnRemoveResource"></i></a>
-                     <?php endif; ?>
-                  </span>
-               </td>
-            </tr>
+            <?php endforeach; ?>
            
          </tbody>
       </table>
@@ -123,33 +84,41 @@
         </div>
     </div>
 
+
+
 <!-- End of Remove Resource model -->
 
   <!--------------------------------------------------------------------------------- Add resource starts ---------------------------------------------------------------->
-  <div class="modal-container add-resource">
+  <div class="modal-container add-resource <?php if ($data['haveErrors']) echo 'show' ;?>">
     <div class="modal-box addItems">
-       <h1 class="addItemsModalHead">Add Resources</h1>
+       <form action="<?php echo URLROOT; ?>/OwnDashboard/resources" method="post">
+       <h1 class="addItemsModalHead">Add Resources</h1> 
        <!-- start main grid 1 -->
 
        <div class="addItemsModalGrid1 ownResAddDetails">
        <div class="ownResAddDetail1">
                     <label class="addItemsModalLable">Resource Name</label> <br>
-                    <input type="text" class="ownResAddLabeltext" placeholder="--Type in--">
+                    <input type="text" name="resourceName" class="ownResAddLabeltext" placeholder="--Type in--" value="<?php echo $data['resourceName'];?>" maxlength="40">
+                    <br>
+                    <span class="error" ><?php echo $data['resourceName_error'];?></span>
                 </div>
                 <div class="ownResAddDetail2">
                     <label class="addItemsModalLable">Quantity</label> <br>
-                    <select   class="addItemsSelect" name="ownResAddQuantity">
-                        <option value="one">1</option>
-                        <option value="two">2</option>
-                        <option value="three">3</option>
-                        <option value="four">4</option>
-                        <option value="five">5</option>
-                        <option value="six">6</option>
-                        <option value="seven">7</option>
-                        <option value="eight">8</option>
-                        <option value="nine">9</option>
-                        <option value="ten">10</option>
+                    <select   class="addItemsSelect" name="resourceQuantity" >
+                        <option class="unbold" value="0" option selected="true" disabled="disabled" >Select One</option>
+                        <option value= 1 <?php if ($data['resourceQuantity'] == 1) echo 'selected'; ?>>1</option>
+                        <option value= 2 <?php if ($data['resourceQuantity'] == 2) echo 'selected'; ?>>2</option>
+                        <option value= 3 <?php if ($data['resourceQuantity'] == 3) echo 'selected'; ?>>3</option>
+                        <option value= 4 <?php if ($data['resourceQuantity'] == 4) echo 'selected'; ?>>4</option>
+                        <option value= 5 <?php if ($data['resourceQuantity'] == 5) echo 'selected'; ?>>5</option>
+                        <option value= 6 <?php if ($data['resourceQuantity'] == 6) echo 'selected'; ?>>6</option>
+                        <option value= 7 <?php if ($data['resourceQuantity'] == 7) echo 'selected'; ?>>7</option>
+                        <option value= 8 <?php if ($data['resourceQuantity'] == 8) echo 'selected'; ?>>8</option>
+                        <option value= 9 <?php if ($data['resourceQuantity'] == 9) echo 'selected'; ?>>9</option>
+                        <option value= 10 <?php if ($data['resourceQuantity'] == 10) echo 'selected'; ?>>10</option>
                     </select>
+                    <br>
+                    <span class="error" ><?php echo $data['resourceQuantity_error']; ?></span>
                 </div>
        </div>
 
@@ -158,13 +127,14 @@
        <!-- main grid 3 starts -->
        <div class="addItemsModalGrid3">
           <div class="addItemsModalbtn1">
-             <button class="btn btnClose normal ModalCancelButton ModalButton">Cancel</button>
+             <button class="btn btnClose normal ModalCancelButton ModalButton " name="action" value ="cancel">Cancel</button>
           </div>
           <div class="addItemsModalbtn2">
-             <button class="btn ModalGreenButton ModalButton">Proceed</button>
+             <button class="btn ModalGreenButton ModalButton" name="action" value ="addResource">Proceed</button>
           </div>
        </div>
        <!-- main grid 3 ends -->
+       </form>
     </div>
  </div>
 
@@ -174,51 +144,9 @@
 
 <!--------------------------------------------------------------------------------- Update resource starts ---------------------------------------------------------------->
 
-<div class="modal-container ">
-    <div class="modal-box addItems">
-       <h1 class="addItemsModalHead"> Resources</h1>
-       <!-- start main grid 1 -->
-
-       <div class="addItemsModalGrid1 ownResAddDetails">
-       <div class="addItemsModalDetail1">
-                    <label class="addItemsModalLable">Resource Name</label> <br>
-                    <input type="text" class="ownResAddLabeltext" placeholder="--Type in--">
-                </div>
-                <div class="ownResAddDetail2">
-                    <label class="addItemsModalLable">Quantity</label> <br>
-                    <select   class="addItemsSelect" name="ownResAddQuantity">
-                        <option value="one">1</option>
-                        <option value="two">2</option>
-                        <option value="three">3</option>
-                        <option value="four">4</option>
-                        <option value="five">5</option>
-                        <option value="six">6</option>
-                        <option value="seven">7</option>
-                        <option value="eight">8</option>
-                        <option value="nine">9</option>
-                        <option value="ten">10</option>
-                    </select>
-                </div>
-       </div>
-
-       <!-- main grid 1 ends -->
-
-       <!-- main grid 3 starts -->
-       <div class="addItemsModalGrid3">
-          <div class="addItemsModalbtn1">
-             <button class="btn btnClose normal ModalCancelButton ModalButton">Cancel</button>
-          </div>
-          <div class="addItemsModalbtn2">
-             <button class="btn ModalGreenButton ModalButton">Proceed</button>
-          </div>
-       </div>
-       <!-- main grid 3 ends -->
-    </div>
- </div>
-
   <div class="modal-container update-resource">
     <div class="modal-box addItems">
-       <h1 class="addItemsModalHead">Add Resources</h1>
+       <h1 class="addItemsModalHead">Update Resources</h1>
        <!-- start main grid 1 -->
 
        <div class="addItemsModalGrid1 ownResAddDetails">

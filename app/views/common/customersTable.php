@@ -56,7 +56,7 @@
          <tbody>
             <tr>
                <td data-lable="Customer ID" class="column-center-align">C000001</td>
-               <td data-lable="Customer Name" class="column-left-align">Ravindu Madhubhashana</td>
+               <td data-lable="Customer Name" class="column-left-align">Devin Dissanayake</td>
                <td data-lable="Contact No" class="column-center-align">011123456789</td>
                <td data-lable="Gender" class="column-center-align">M</td>
                <td data-lable="Registered Date" class="column-center-align">2021-10-07</td>
@@ -65,28 +65,28 @@
                </td>
                <td class="column-center-align">
                   <span> 
-                      <a href="<?php echo URLROOT ?>/OwnDashboard/cusDetailView"><i class="ci-view-more table-icon"></i></a>
+                      <a href="<?php echo URLROOT ?>/customerView/cusDetailView"><i class="ci-view-more table-icon img-gap"></i></a>
                      <?php if ($userLevel == "Owner") : ?>
-                        <a href="#"><i class="ci-trash table-icon btnRemoveCustomer"></i></a>
+                        <a href="#"><i class="ci-trash table-icon btnRemoveCustomer img-gap"></i></a>
                      <?php endif; ?>
                   </span>
                </td>
             </tr>
 
             <tr>
-               <td data-lable="Customer ID" class="column-center-align">C000001</td>
-               <td data-lable="Customer Name" class="column-left-align">Ravindu Madhubhashana</td>
-               <td data-lable="Contact No" class="column-center-align">011123456789</td>
+               <td data-lable="Customer ID" class="column-center-align">C000002</td>
+               <td data-lable="Customer Name" class="column-left-align">Ruwanthi Munasighe</td>
+               <td data-lable="Contact No" class="column-center-align">0112356784</td>
                <td data-lable="Gender" class="column-center-align">M</td>
-               <td data-lable="Registered Date" class="column-center-align">2021-10-07</td>
+               <td data-lable="Registered Date" class="column-center-align">2021-10-08</td>
                <td data-lable="Status" class="column-center-align">
                   <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
                </td>
                <td class="column-center-align">
                   <span>
-                     <a href="<?php echo URLROOT ?>/OwnDashboard/cusDetailView"><i class="ci-view-more table-icon"></i></a>
+                     <a href="<?php echo URLROOT ?>/customerView/cusDetailView"><i class="ci-view-more table-icon img-gap"></i></a>
                      <?php if ($userLevel == "Owner") : ?>
-                        <a href="#"><i class="ci-trash table-icon btnRemoveCustomer "></i></a>
+                        <a href="#"><i class="ci-trash table-icon btnRemoveCustomer img-gap"></i></a>
                      <?php endif; ?>
                   </span>
                </td>

@@ -40,10 +40,10 @@
                     </div>
                     <!-- section break line endss -->
                     <div class="ownViewStaffProfileGrid">
-                        <div class="ownViewStaffProfileDetailsImg">
+                        <!-- <div class="ownViewStaffProfileDetailsImg">
                             <img src="<?php echo URLROOT ?>/public//imgs/img_avatar.png" alt="Avatar"
                                 class="ownViewStaffProfileDetailsImgCircle">
-                        </div>
+                        </div> -->
                         <div class="ownViewStaffProfileDetailsInfo">
                             <span class="ownViewStaffProfileDetailsName"><?php echo $data->fName ?>
                                 <?php echo $data->lName ; ?></span> <br>
