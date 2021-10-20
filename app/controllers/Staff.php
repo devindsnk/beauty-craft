@@ -65,7 +65,6 @@ class Staff extends Controller
          {
             $data['gender_error'] = "Please select gender";
          }
-
          // Validating nic
          if (empty($data['staffNIC']))
          {
@@ -74,11 +73,28 @@ class Staff extends Controller
          else if (preg_match ("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $data['staffNIC']) ){ 
             $data['staffNIC_error'] = "Only numeric values and letters are allowed";
          }  
+         elseif (!(strlen($data['staffNIC']) == 10) && !(strlen($data['staffNIC']) == 12) ){
+            $data['staffNIC_error'] = "Invalid NIC format";
+         }
+         elseif(strlen($data['staffNIC']) == 12 && !is_numeric($data['staffNIC'])){
+            $data['staffNIC_error'] = "Invalid nic format";
+         }
+         elseif ((strlen($data['staffNIC']) == 10)){
+         if(!is_numeric(substr($data['staffNIC'], 0, 9)) || (substr($data['staffNIC'],9,10))!="V"){
+            $data['staffNIC_error'] = "Invalid nic format";
+            }
+         }
+
+            // $data['staffNIC_error'] = "Invalid NIC format";
+        
+         // elseif (!(strlen($data['staffNIC']) == 10) && !preg_match ("/^[V]*$/", $data['staffNIC'])){
+         //    $data['staffNIC_error'] = "Invalid NIC format";
+         // }
 
          // Validating date of birth
          if (empty($data['staffDOB']))
          {
-            $data['staffDOB_error'] = "Please enter Date of birth";
+            $data['staffDOB_error'] = "Please select Date of birth";
          }
          // Validating staff type
          if (empty($data['staffType']))
@@ -97,7 +113,7 @@ class Staff extends Controller
             $data['staffContactNum_error'] = "Please enter contact number";
          }
          else if (!preg_match ("/^[0-9]*$/", $data['staffContactNum']) ){  
-            $data['staffContactNum_error'] = "Only numeric values are allowed.";
+            $data['staffContactNum_error'] = "Invalid contact number format";
          }  
 
          // Validating email
@@ -109,15 +125,14 @@ class Staff extends Controller
             $data['staffEmail_error'] = "Invalid email format";
          }
 
-         
-         
+      
          // Validating account number
          if (empty($data['staffAccNum']))
          {
             $data['staffAccNum_error'] = "Please enter bank account number";
          }
          else if (!preg_match ("/^[0-9]*$/", $data['staffAccNum']) ){  
-            $data['staffAccNum_error'] = "Only numeric values are allowed.";
+            $data['staffAccNum_error'] = "Invalid account number ormat";
          }  
 
          // Validating account holder's name
