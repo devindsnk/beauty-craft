@@ -83,7 +83,6 @@ class ServiceModel
     {
 
         $this->db->query("SELECT staffID,fName,lName FROM staff WHERE staffType=5");
-
         $result = $this->db->resultSet();
 
         return $result;
@@ -118,30 +117,15 @@ class ServiceModel
         return $result;
     }
 
-    public function getServiceProvidersByService($serviceID)
-    {
-        $this->db->query("SELECT staff.staffID, staff.fName, staff.lName
-                            FROM staff 
-                            INNER JOIN serviceproviders 
-                            ON serviceproviders.staffID = staff.staffID
-                            WHERE serviceproviders.serviceID = '$serviceID'");
-
-        $result = $this->db->resultSet();
-        return $result;
-    }
-
     public function getOneServicesSProvDetail($serviceID)
     {
 
         $this->db->query("SELECT serviceproviders.staffID,staff.fName,staff.lName 
                           FROM staff 
-                          
                           INNER JOIN serviceproviders
                           ON serviceproviders.staffID = staff.staffID
                           WHERE serviceproviders.serviceID='$serviceID'
-
                           ");
-
         $result = $this->db->resultSet();
 
         return $result;
@@ -149,18 +133,35 @@ class ServiceModel
 
     public function getAllocatedResourceDetails($serviceID)
     {
-
         $this->db->query("SELECT resources.resourceID,resources.name,resourceallocation.requiredQuantity 
                           FROM resources 
-                          
                           INNER JOIN resourceallocation
                           ON resources.resourceID = resourceallocation.resourceID
                           WHERE resourceallocation.serviceID='$serviceID'
-
                           ");
-
         $result = $this->db->resultSet();
 
         return $result;
+    }
+
+    public function getServiceProvidersByService($serviceID)
+    {
+        $this->db->query("SELECT staff.staffID, staff.fName, staff.lName
+                          FROM staff 
+                          INNER JOIN serviceproviders 
+                          ON serviceproviders.staffID = staff.staffID
+                          WHERE serviceproviders.serviceID = '$serviceID'");
+
+        $result = $this->db->resultSet();
+        return $result;
+    }
+
+    public function getServiceDuration($serviceID)
+    {
+        $this->db->query("SELECT totalDuration FROM services WHERE serviceID = :serviceID");
+        $this->db->bind(':serviceID', $serviceID);
+        $result = $this->db->single();
+
+        return $result->totalDuration;
     }
 }

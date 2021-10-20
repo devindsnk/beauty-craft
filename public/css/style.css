@@ -265,9 +265,22 @@ footer p {
   color: var(--success-green);
 }
 
+.status-blue {
+  background-color: var(--bg-theme-blue);
+  color: var(--theme-blue);
+}
+
+.status-grey {
+  background-color: var(--theme-lightgrey);
+  color: var(--theme-grey);
+}
+
+.status-warning-yellow {
+  background-color: var(--bg-warning-yellow);
+  color: var(--warning-yellow);
+}
+
 /* End of Common styles for status boxes */
-
-
 
 
 

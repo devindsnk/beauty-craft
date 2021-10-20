@@ -77,11 +77,8 @@ class Services extends Controller
             {
 
                $this->ServiceModel->addService($data);
-
                $this->ServiceModel->addServiceProvider($data);
-
                $this->ServiceModel->addTimeSlot($data, $slotNo);
-
                $this->ServiceModel->addResourcesToService($data, $slotNo);
 
                header('location: ' . URLROOT . '/MangDashboard/services');
@@ -153,6 +150,15 @@ class Services extends Controller
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($serviceProvidersList));
       // return json_encode($serviceProvidersList, JSON_NUMERIC_CHECK);
+   }
+
+   public function getServiceDuration($serviceID)
+   {
+      $serviceDuration = $this->ServiceModel->getServiceDuration($serviceID);
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($serviceDuration));
+      return json_encode($serviceDuration, JSON_NUMERIC_CHECK);
    }
 
    public function getServiceType()

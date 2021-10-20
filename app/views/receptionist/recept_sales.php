@@ -71,8 +71,8 @@
 
                <tbody>
                   <tr>
-                     <td data-lable="Invoice No" class="column-center-align">I000001</td>
-                     <td data-lable="Amount" class="column-left-align">750.00 LKR</td>
+                     <td data-lable="Invoice No" class="column-center-align font-numeric">I000001</td>
+                     <td data-lable="Amount" class="column-left-align font-numeric">750.00 LKR</td>
                      <td data-lable="Type" class="column-center-align">Payment</td>
                      <td data-lable="Date" class="column-center-align">2021-10-14</td>
                      <td data-lable="Status" class="column-center-align">

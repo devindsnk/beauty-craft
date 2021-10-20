@@ -1,16 +1,16 @@
 const serviceSelectDropDown = document.querySelector(".serviceSelect");
 const serviceProviderSelectDropDown = document.querySelector(".serviceProviderSelect");
+const serviceDurationBox = document.querySelector(".durationBox");
 
 serviceSelectDropDown.addEventListener('change',
    function () {
       updateServiceProvidersList();
-      // updateServiceDuration();
+      updateServiceDuration();
    }
 )
 
 
 function updateServiceProvidersList() {
-   console.log("Hi");
    fetch(`http://localhost:80/beauty-craft/Services/getServiceProvidersByService/${serviceSelectDropDown.value}`)
       .then(response => response.json())
       .then(sProvidersList => {
@@ -25,6 +25,18 @@ function updateServiceProvidersList() {
       });
 }
 
-// function updateServiceDuration() {
-//    console.log("Bye");
-// }
+function updateServiceDuration() {
+   fetch(`http://localhost:80/beauty-craft/services/getServiceDuration/${serviceSelectDropDown.value}`)
+      .then(response => response.json())
+      .then(serviceDuration => {
+         serviceProviderSelectDropDown.innerHTML = "";
+         serviceDurationBox.text = serviceDuration;
+         serviceDurationBox.value = serviceDuration;
+         // sProvidersList.forEach(sProvider => {
+         //    var option = document.createElement("option");
+         //    option.text = sProvider.staffID + " - " + sProvider.fName + " " + sProvider.lName;
+         //    option.value = sProvider.staffID;
+         //    serviceProviderSelectDropDown.appendChild(option);
+         // });
+      });
+}

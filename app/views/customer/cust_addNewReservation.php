@@ -32,10 +32,9 @@
                <div class="dropdown-group">
                   <label class="label" for="lName">Service</label>
                   <select name="serviceID" id="" class="serviceSelect">
-                     <option value="">Service 1</option>
-                     <option value="">Service 2</option>
+                     <option selected>Select </option>
                      <?php foreach ($data['servicesList'] as $service) : ?>
-                        <option value="<?php echo $service->serviceID ?>">S<?php echo $service->name ?></option>
+                        <option value="<?php echo $service->serviceID ?>"><?php echo $service->name ?></option>
                      <?php endforeach; ?>
                   </select>
                </div>
@@ -45,7 +44,7 @@
             <div class="column">
                <div class="text-group">
                   <label class="label" for="fName">Duration</label>
-                  <input type="text" name="duration" id="fName" disabled value=30>
+                  <input type="text" name="duration" id="fName" disabled class="durationBox">
                </div>
             </div>
             <div class="column">

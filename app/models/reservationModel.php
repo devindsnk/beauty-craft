@@ -25,7 +25,13 @@ class ReservationModel
 
    public function getAllReservations()
    {
-      $this->db->query("SELECT * FROM reservations");
+      $this->db->query("
+      SELECT reservations.reservationID, customers.fName AS custFName, customers.lName AS custLName, staff.fName AS staffFName, staff.lName AS staffLName,reservations.remarks, reservations.status, reservations.date, reservations.startTime, services.name AS serviceName
+      FROM reservations
+      INNER JOIN customers ON customers.customerID = reservations.customerID
+      INNER JOIN staff ON staff.staffID = reservations.staffID
+      INNER JOIN services ON services.serviceID = reservations.serviceID;
+      ");
       $result = $this->db->resultSet();
 
       return $result;
@@ -33,7 +39,14 @@ class ReservationModel
 
    public function getReservationsByCustomer($customerID)
    {
-      $this->db->query("SELECT * FROM reservations WHERE customerID = :customerID");
+      $this->db->query("
+      SELECT reservations.reservationID, customers.fName AS custFName, customers.lName AS custLName, staff.fName AS staffFName, staff.lName AS staffLName,reservations.remarks, reservations.status, reservations.date, reservations.startTime, services.name AS serviceName
+      FROM reservations
+      INNER JOIN customers ON customers.customerID = reservations.customerID
+      INNER JOIN staff ON staff.staffID = reservations.staffID
+      INNER JOIN services ON services.serviceID = reservations.serviceID
+      WHERE reservations.customerID = :customerID;
+      ");
       $this->db->bind(':customerID', $customerID);
       $result = $this->db->resultSet();
 
