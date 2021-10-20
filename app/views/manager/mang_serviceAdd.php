@@ -13,7 +13,7 @@
 		</div>
 	</header>
 		
-	<div class="content mang">
+	<div class="content mang2">
 		<form class="form" action="<?php echo URLROOT; ?>/services/addNewService" method="post">
 
 			<div class="newService-main newservice" id="newServiceMain">
