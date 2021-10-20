@@ -48,52 +48,12 @@
          <!--End of card4-->
       </div>
       <!--End of sub-container1-->
-
-      <!--sub-container2-->
-      <div class="mang-sub-container2 mang">
-         <!--chart-container-->
-         <div class="chart-container">
-            <div class="chart-head"> 
-               <p>Total Reservations</p>
-            </div>
-            <canvas id="myChart1" width="290" height="200"></canvas>
-         </div>
-         <!--End od chart-container-->
-
-         <!--chart-container-->
-         <div class="chart-container">
-            <div class="chart-head"> 
-               <p>Total Income</p>
-            </div>
-            <canvas id="myChart2" width="290" height="200"></canvas>
-         </div>
-         <!--End od chart-container-->
+      <div class="main-head"> 
+         <p>Last month prograss</p>
+         <hr class="head-hr">
       </div>
-      <!--End of sub-container2-->
-
-      <!--sub-container2-->
-      <div class="mang-sub-container2 mang">
-         <!--chart-container-->
-         <div class="chart-container">
-            <div class="chart-head"> 
-               <p>Reservation Overview</p>
-            </div>
-            <canvas id="myChart3" width="290" height="200"></canvas>
-         </div>
-         <!--End od chart-container-->
-
-         <!--chart-container-->
-         <div class="chart-container">
-            <div class="chart-head"> 
-               <p>Customer Population</p>
-            </div>
-            <canvas id="myChart4" width="290" height="200"></canvas>
-         </div>
-         <!--End od chart-container-->
-      </div>
-      <!--End of sub-container2-->
-
       <div class="mang-sub-container3 mang">
+         
          <div class="table-container">
             <div class="table-head"> 
                <p>Top 5 Employees</p>
@@ -161,101 +121,158 @@
             </div>
          </div>
       </div>
+
+      <!--sub-container2-->
+      <div class="mang-sub-container2 mang">
+         <!--chart-container-->
+         <div class="chart-container">
+            <div class="chart-head"> 
+               <p>Reservation Overview</p>
+            </div>
+            <canvas id="myChart1" width="290" height="200"></canvas>
+         </div>
+         <!--End od chart-container-->
+
+         <!--chart-container-->
+         <div class="chart-container">
+            <div class="chart-head"> 
+               <p>Customer Population</p>
+            </div>
+            <canvas id="myChart2" width="290" height="200"></canvas>
+         </div>
+         <!--End od chart-container-->
+      </div>
+      <!--End of sub-container2-->
+
+      <div class="main-head"> 
+         <p>Annual prograss</p>
+         <hr class="head-hr">
+      </div>
+
+      <!--sub-container2-->
+      <div class="mang-sub-container2 mang">
+         <!--chart-container-->
+         <div class="chart-container">
+            <div class="chart-head"> 
+               <p>Total Income</p>
+            </div>
+            <canvas id="myChart3" width="290" height="200"></canvas>
+         </div>
+         <!--End od chart-container-->
+
+         <!--chart-container-->
+         <div class="chart-container">
+            <div class="chart-head"> 
+               <p>Total Reservations</p>
+            </div>
+            <canvas id="myChart4" width="290" height="200"></canvas>
+         </div>
+         <!--End od chart-container-->
+      </div>
+      <!--End of sub-container2-->
+
+      
+
+      
    </div>
    <!--End Content-->
 
    <script>
+     
+         //mychart3
+         var ctx = document.getElementById('myChart1').getContext('2d');
+         var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+            labels: ["Online", "Walk-in"],
+            datasets: [{ 
+                  data: [490,100],
+                  label: "No of Reservations",
+                  borderColor:[ 
+                              "#9163cb",
+                              "#6247aa",
+               ],
+                  backgroundColor:[
+                  
+                  "#b185db",
+                  "#815ac0 ",
+                  ],
+                  borderWidth:2
+               }
+            ]
+            },
+            options: {
+            scales: {
+               xAxes: [{ 
+                  stacked: true    
+               }],
+               yAxes: [{
+                  stacked:true
+               }],
+               }
+            },
+         });
+
+         //mychart4
+         var ctx = document.getElementById('myChart2').getContext('2d');
+         var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+            labels: ["week 01", "week 02", "week 03", "week 04"],
+            datasets: [{ 
+               lineTension: 0,
+               data: [119,120,150,160],
+               label: "No of customers",
+               borderColor: "rgb(196,88,80)",
+               backgroundColor: "rgb(196,88,80,0.1)",
+               }
+            ]
+            },
+            options: {
+            bezierCurve : false,
+            },
+         });
+
       //mychart1
-      var ctx = document.getElementById('myChart1').getContext('2d');
+      var ctx = document.getElementById('myChart3').getContext('2d');
       var myChart = new Chart(ctx, {
-          type: 'line',
-          data: {
+            type: 'bar',
+            data: {
             labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
             datasets: [{ 
-                data: [35000,11400,50600,30600,40700,11100,13300,45000,42000.23500,17500,12400],
-                label: "No of reservations",
-                borderColor: "#e5989b",
-                backgroundColor: "#ffb4a2",
-              }
+                  data: [35000,11400,50600,30600,40700,11100,13300,45000,42000.23500,17500,12400],
+                  label: "No of reservations",
+                  borderColor: "#e5989b",
+                  backgroundColor: "#ffd166",
+               }
             ]
-          },
-        });
+            },
+         });
          //mychart2
-         var ctx = document.getElementById('myChart2').getContext('2d');
+         var ctx = document.getElementById('myChart4').getContext('2d');
          var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
             labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
             datasets: [{ 
-                data: [70,90,44,60,83,90,100,30,80.35,45,39],
-                label: "Income",
-                borderColor: "#b392ac",
-                backgroundColor: "#e8c2ca",
-                borderWidth:2
-              }
+                  data: [70,90,44,60,83,90,100,30,80.35,45,39],
+                  label: "Income",
+                  borderColor: "#b392ac",
+                  backgroundColor: "#8d99ae",
+                  borderWidth:2
+               }
             ]
-          },
-          options: {
+            },
+            options: {
             scales: {
                xAxes: [{ 
-                stacked: true    
+                  stacked: true    
                }],
                yAxes: [{
-                stacked:true
+                  stacked:true
                }],
-             }
-           },
-        });
+               }
+            },
+         });
 
-        //mychart3
-        var ctx = document.getElementById('myChart3').getContext('2d');
-         var myChart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-            labels: ["On-call", "Online", "Walk-in"],
-            datasets: [{ 
-                data: [200,490,100],
-                label: "No of Reservations",
-                borderColor:[ "#d2b7e5",
-                              "#9163cb",
-                              "#6247aa",
-               ],
-                backgroundColor:[
-                  "#dec9e9",
-                  "#b185db",
-                  "#815ac0 ",
-                ],
-                borderWidth:2
-              }
-            ]
-          },
-          options: {
-            scales: {
-               xAxes: [{ 
-                stacked: true    
-               }],
-               yAxes: [{
-                stacked:true
-               }],
-             }
-           },
-        });
-
-        //mychart4
-         var ctx = document.getElementById('myChart4').getContext('2d');
-         var myChart = new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
-            datasets: [{ 
-                data: [119,120,150,160,154,170,171,169,175,175,172,170],
-                label: "No of customers",
-                borderColor: "rgb(196,88,80)",
-                backgroundColor: "rgb(196,88,80,0.1)",
-              }
-            ]
-          },
-        });
     </script>
-   
-   
