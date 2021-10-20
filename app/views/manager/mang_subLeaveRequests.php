@@ -115,7 +115,7 @@
                         </span>
                      </td>
                      <td class="column-center-align">
-                        <a href="#"><button type="button" class="table-btn black-action-btn">Approve</button></a>
+                        <a href="#"><button type="button" class="table-btn gray-action-btn">Approve</button></a>
                      </td> 
                   </tr>
 
