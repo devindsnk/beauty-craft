@@ -9,7 +9,7 @@ class LeaveModel
 
 public function checkLeaveDate($data){
  $staffID='000001';
-      $this->db->query("SELECT COUNT(*)  FROM generalleaves WHERE (MONTH(leaveDate)=MONTH(:date) and YEAR(leaveDate)=YEAR(:date)) AND (staffID=staffID) AND (status=1 OR status=0)");
+      $this->db->query("SELECT COUNT(*)  FROM generalleaves WHERE (MONTH(leaveDate)=MONTH(:date) and YEAR(leaveDate)=YEAR(:date)) AND (staffID=staffID) AND (status=1 OR status=2)");
       $this->db->bind(':date', $data['date']);
        $this->db->bind(':staffID',$staffID);
       $result = $this->db->single();
@@ -57,10 +57,10 @@ public function checkLeaveDate($data){
    }
 
 
-//   leave Approved=1 pending=0 rejected=2 
+//   leave Approved=1 pending=2 rejected=0 
    public function getLeaveCount(){
      $staffID='000001';
-      $this->db->query("SELECT COUNT(*)  FROM generalleaves WHERE (MONTH(leaveDate)=MONTH(now()) and YEAR(leaveDate)=YEAR(now())) AND (staffID=staffID) AND (status=1 OR status=0)");
+      $this->db->query("SELECT COUNT(*)  FROM generalleaves WHERE (MONTH(leaveDate)=MONTH(now()) and YEAR(leaveDate)=YEAR(now())) AND (staffID=staffID) AND (status=1 OR status=2)");
       $this->db->bind(':staffID',$staffID);
       $result = $this->db->single();
 
@@ -81,5 +81,21 @@ public function checkLeaveDate($data){
    
       }
    }
+
+
+   public function getLeaveCountOfSelectedMonth($data){
+ $staffID='000001';
+      $this->db->query("SELECT COUNT(*)  FROM generalleaves WHERE (MONTH(leaveDate)=:month and YEAR(leaveDate)=:year) AND (staffID=:staffID) AND (status=1 OR status=2)");
+      $this->db->bind(':month', $data['month']);
+       $this->db->bind(':year', $data['year']);
+       $this->db->bind(':staffID',$staffID);
+      $result = $this->db->single();
+
+//$num2 = ($data['leaveCount']->{'COUNT(*)'});
+     // echo $result->{'COUNT(*)'};
+       //print_r($result);
+      
+      return $result->{'COUNT(*)'};
+}
 
 }
