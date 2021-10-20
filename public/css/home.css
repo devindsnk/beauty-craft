@@ -558,7 +558,9 @@
    height: 100vh;
    width: calc(100vw - 40px);
    margin: auto;
-   overflow:scroll ;
+   /* overflow:scroll ; */
+   overflow-y:auto ;
+
 }
 
 .grid {

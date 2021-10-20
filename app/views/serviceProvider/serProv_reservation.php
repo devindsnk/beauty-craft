@@ -51,7 +51,7 @@
                         <!--sub-container2-card-timetype-->
                         <div class="sub-container2-card-ts">
                             <span class="sub-container2-card-time"> 8.30 - 9.00 </span>
-                            <span class="sub-container2-card-service">Meckup</span>
+                            <span class="sub-container2-card-service">Makeup</span>
                         </div>
                         <!--sub-container2-card-timetype-->
                         <div class="sub-container2-card-name">
@@ -186,7 +186,7 @@
 
                     <div class="modaldetails">
                         <div class="modaldetails-name">
-                            <span class="service">Meckup</span><br>
+                            <span class="service">Makeup</span><br>
                             <span class="name">Sanjana Rajapaksha</span>
                         </div>
                         <div class="modaldetails-status">
