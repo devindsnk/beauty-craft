@@ -16,7 +16,7 @@ class StaffModel
 
    public function addStaffDetails($data)
    {
-      print_r($data);
+      // print_r($data);
       $this->db->query("INSERT INTO staff(fName, lName, staffType, mobileNo, gender, nic, address, email, dob, status) VALUES(:fName, :lName, :staffType , :mobileNo, :gender, :nic, :address, :email, :dob , '1')");
     //   $this->db->bind(':image', $data['image']);
       $this->db->bind(':fName', $data['staffFname']);
