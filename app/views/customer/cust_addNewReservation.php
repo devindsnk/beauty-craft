@@ -1,6 +1,6 @@
 <?php require APPROOT . "/views/customer/cust_headerBar.php"; ?>
 <!-- Configure this using session variables later -->
-<?php $userID = "000001"; ?>
+<?php $userID = "000042"; ?>
 
 <div class="content cust new-res">
    <div class="main-container">

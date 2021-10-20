@@ -3,7 +3,7 @@
       <a href="<?php echo URLROOT ?>/reservations/addNew" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
    </div>
 <?php endif; ?>
-
+<?php print_r($data); ?>
 <form class="form filter-options" action="">
    <div class="options-container">
       <div class="left-section">

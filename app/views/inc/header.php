@@ -10,6 +10,7 @@
 
    <!--Style Sheet-->
    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+   <link rel="shortcut icon" type="image/x-icon" href="<?php echo URLROOT ?>/icons/logoWhiteBG.ico">
    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 
    <!-- Common stylesheets -->
@@ -29,10 +30,10 @@
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/sysAdmin.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/receptStyle.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/ownStyle.css" />
-  
+
 
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/mangOverviewAnalytics.css" />
-   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/mangService.css"/>
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/mangService.css" />
 
    <!-- service provider style added by Ruwanthi -->
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/serviceprovider.css" />

@@ -1,5 +1,5 @@
 <?php
-class CustomerModel
+class ReservationModel
 {
    private $db;
 
@@ -8,15 +8,35 @@ class CustomerModel
       $this->db = new Database;
    }
 
-   public function registerCustomer($data)
+   public function addReservation($data)
    {
-      // $this->db->query("INSERT INTO customers (fName, lName, mobileNo, gender, status) VALUES(:fName, :lName, :mobileNo, :gender, 'active')");
+      $this->db->query("INSERT INTO reservations (customerID, serviceID, staffID, date, startTime, endTime, remarks, status) VALUES(:customerID, :serviceID, :staffID, :date, :startTime, :endTime, :remarks, 1)");
 
-      // $this->db->bind(':fName', $data['fName']);
-      // $this->db->bind(':lName', $data['lName']);
-      // $this->db->bind(':mobileNo', $data['mobileNo']);
-      // $this->db->bind(':gender', $data['gender']);
+      $this->db->bind(':customerID', $data['customerID']);
+      $this->db->bind(':serviceID', $data['serviceID']);
+      $this->db->bind(':staffID', $data['staffID']);
+      $this->db->bind(':date', $data['date']);
+      $this->db->bind(':startTime', $data['startTime']);
+      $this->db->bind(':endTime', $data['endTime']);
+      $this->db->bind(':remarks', $data['remarks']);
 
-      // $this->db->execute();
+      $this->db->execute();
+   }
+
+   public function getAllReservations()
+   {
+      $this->db->query("SELECT * FROM reservations");
+      $result = $this->db->resultSet();
+
+      return $result;
+   }
+
+   public function getReservationsByCustomer($customerID)
+   {
+      $this->db->query("SELECT * FROM reservations WHERE customerID = :customerID");
+      $this->db->bind(':customerID', $customerID);
+      $result = $this->db->resultSet();
+
+      return $result;
    }
 }

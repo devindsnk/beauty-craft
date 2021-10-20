@@ -1,9 +1,12 @@
 <?php
+// session_start();
+
 class Reservations extends Controller
 {
    public function __construct()
    {
       $this->serviceModel = $this->model('ServiceModel');
+      $this->reservationModel = $this->model('ReservationModel');
    }
    public function newReservationCust()
    {
@@ -13,13 +16,29 @@ class Reservations extends Controller
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
-         var_dump($_POST);
-         die("yo");
+         $data = [
+            'customerID' => trim($_POST['customerID']),
+            'serviceID' => trim($_POST['serviceID']),
+            'staffID' => trim($_POST['staffID']),
+            'date' => trim($_POST['date']),
+            'startTime' => trim($_POST['startTime']),
+            'endTime' => 0,
+            'remarks' => trim($_POST['remarks']),
+            // 'status' => trim($_POST['mobileNo']),
+
+            'serviceID_error' => trim($_POST['serviceID']),
+            'staffID_error' => trim($_POST['staffID']),
+            'date_error' => trim($_POST['date']),
+            'startTime_error' => trim($_POST['startTime']),
+            'remarks_error' => trim($_POST['remarks']),
+            'servicesList' => $servicesList
+         ];
+         $this->reservationModel->addReservation($data);
+         redirect('CustDashboard/myReservations');
       }
       else
       {
          $data = [
-            'sProvidersList' => $sProvidersList,
             'servicesList' => $servicesList
          ];
 
@@ -31,12 +50,22 @@ class Reservations extends Controller
    {
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
-         // $data = [
-         //    'mobileNo' => trim($_POST['mobileNo']),
-         //    'password' => trim($_POST['password']),
-         //    'mobileNo_error' => '',
-         //    'password_error' => ''
-         // ];
+         $data = [
+            'customerID' => trim($_POST['customerID']),
+            'serviceID' => trim($_POST['serviceID']),
+            'staffID' => trim($_POST['staffID']),
+            'date' => trim($_POST['date']),
+            'startTime' => trim($_POST['startTime']),
+            'endTime' => trim($_POST['endTime']),
+            'remarks' => trim($_POST['remarks']),
+            // 'status' => trim($_POST['mobileNo']),
+
+            'serviceID_error' => trim($_POST['serviceID']),
+            'staffID_error' => trim($_POST['staffID']),
+            'date_error' => trim($_POST['date']),
+            'startTime_error' => trim($_POST['startTime']),
+            'remarks_error' => trim($_POST['remarks'])
+         ];
       }
       else
       {
@@ -49,7 +78,6 @@ class Reservations extends Controller
          $this->view('receptionist/recept_newReservation', $data);
       }
    }
-
 
    public function getAllServiceProviders()
    {

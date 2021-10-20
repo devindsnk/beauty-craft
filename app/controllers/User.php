@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 
 class User extends Controller
 {
@@ -253,7 +253,7 @@ class User extends Controller
       $_SESSION = [
          'userMobileNo' => $user->mobileNo,
          'userType' => $user->userType,
-         'userID' => null
+         'userID' => '000042'
       ]; //Containes customer id or staff id
    }
 
