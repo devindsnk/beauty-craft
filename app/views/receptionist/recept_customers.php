@@ -15,9 +15,8 @@
 
    <!--Content-->
    <div class="content recept customers">
-      <h3>This is main option 1</h3>
 
-
+      <?php require APPROOT . "/views/common/customersTable.php" ?>
 
 
    </div>

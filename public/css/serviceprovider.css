@@ -69,8 +69,8 @@
     font-weight: 500;
 }
 
-.serprov .reservationlist {
-    height: 600px;
+.reservationlist {
+    height: 650px;
 }
 
 .serprov .scroll-area {
@@ -97,12 +97,15 @@
     background-color: #ffffff;
     margin-bottom: 1.25rem;
     border-radius: 6px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
-.serprov .sub-container2-card-name {
+.serprov .sub-container2-card-name,.sub-container2-card-ts {
     width: 25%;
     display: flex;
     align-items: center;
+    display: block;
 }
 
 .serprov .sub-container2-card-time {
@@ -119,12 +122,13 @@
     display: block;
 }
 
-.serprov .sub-container2-card-name {
+/* .serprov .sub-container2-card-name {
     display: block;
-}
+} */
 
 .serprov .sub-container2-card-cstname {
     font-size: 16px;
+    display: block;
 }
 
 .serprov .sub-container2-card-name .name {
@@ -149,13 +153,24 @@
     font-weight: 600;
 }
 
-.serprov .confirm-status {
-    padding: 5px 30px;
+.serprov .confirm-status.blue {
+    padding: 5px 0;
+    width: 165px;
+    background-color: #DBEBFD;
+    color: #037AFF;
+    font-weight: 600;
+    border-radius: 6px;
+  
+    text-align: center;
+}
+.serprov .confirm-status.green {
+    padding: 5px 0;
+    width: 165px;
     background-color: #c0f0d1;
     color: #3abd5f;
     font-weight: 600;
     border-radius: 6px;
-    max-width: 152px;
+  
     text-align: center;
 }
 
@@ -172,48 +187,70 @@
     display: none;
 }
 
-@media Screen and (max-width: 980px) {
-    .sub-container1-card-title {
-        font-size: 1.2rem;
-    }
-    .sub-container2-card {
-        display: none;
-    }
-    .mob-subcontainer2-card {
-        display: block;
-        align-items: center;
-    }
-    .sub-container2-card-timeservice {
-        display: block;
-    }
-    .sub-container2-card-name {
-        height: 60%;
-        font-weight: 400;
+@media Screen and (max-width: 1254px) {
+    .serprov .sub-container2-card-name .name {
         font-size: 18px;
+    }
+    .serprov .sub-container2-card-service {
+        font-size: 20px;
         display: block;
     }
-    .sub-container2-card-timeservice {
+}
+
+
+
+@media Screen and (max-width: 1020px) {
+    .sub-container2-card{
+        height: 120px !important;
+        margin-left: 50px;
+        display: grid !important;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 3fr 1fr;
+        grid-template-areas:"area1 area2"
+                            "area3 area4" ;
+    }
+    .sub-container2-card-ts{
+        grid-area: area1 !important;
+        
         width: 100%;
-        height: 100%;
-        display: block;
     }
-    .details {
+    .sub-container2-card-name{
+        grid-area: area3 !important;
+        width: 100% !important;
+        display: inline !important;
+        
+        
+    }
+    .sub-container2-card-name span{
+        width: 100% !important;
+        color: rgba(0, 0, 0, 0.7) !important;
+        font-size: 16px !important;
+        font-weight: 500 !important;
+        display: inline !important;
+    }
+    .confbtn{
+        grid-area: area2 !important;
+        width: 100%;
         display: flex;
+        justify-content: right;
     }
-    .sub-container2-card-link {
+    .sub-container2-card-link{
+        grid-area: area4 !important;
         width: 100%;
-        text-align: center;
-        border-top: 2px solid var(--theme-black);
+         display: flex;
+        justify-content: right;
+        text-align: right;
     }
+    .serprov .sub-container2-card button
+    {
+        text-align: right;
+    }
+
 }
 
 .serprov .modal-container.normal {
     width: 100%;
     height: 100%;
-}
-
-.serprov .modal-box {
-    height: 600px;
 }
 
 .serprov .modelcontent {
@@ -226,6 +263,7 @@
 
 .serprov .modal-box h1 {
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .serprov .modaldatetime {
@@ -271,15 +309,30 @@
     justify-content: flex-start;
     align-items: flex-end;
     height: 10%;
+    margin-top: 2px;
     /* background-color: yellow; */
 }
 
 .serprov .modalbutton {
     display: flex;
     flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.serprov .modalbutton input:focus,
+.serprov .modalbutton textarea:focus {
+    border-color: none;
+    outline: none;
+    border-color: #6f6df4;
+}
+
+.btnalign {
+    display: flex;
+    flex-direction: row;
     justify-content: space-around;
-    /* background-color: tomato; */
-    height: 24%;
+    /* align-items:sp; */
 }
 
 .serprov .modaldatetime-time {
@@ -294,7 +347,7 @@
 }
 
 .serprov .modaldatetime-time span {
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .serprov .confirm-status span {
@@ -318,6 +371,7 @@
     width: 100%;
     height: 100%;
     padding-top: 10px;
+    padding-left: 10px;
 }
 
 .serprov .modaldatetime {
@@ -338,8 +392,8 @@
 
 .serprov .savechange button {
     background: transparent;
-    font-size: 18px;
-    color: var(--theme-black);
+    font-size: 16px;
+    color: var(--theme-grey);
     font-weight: 600;
     text-align: right;
     text-decoration: none;
@@ -356,51 +410,247 @@
 
 .serprov .service {
     font-weight: 600;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .serprov .name {
     font-size: 16px;
 }
 
-
-/* 
-.Reservationnote-note {
-    margin-bottom: 10px;
-}
-
-.Reservationnote-note span {
-    font-size: 16px;
-}
-
-.savechange {
-    text-align: right;
-    font-size: 16px;
-    padding-bottom: 10px;
-}
-
-.modalbutton {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-
-    /* padding-left: 50px; }*/
-
 .serprov .modaldetails-name span.name {
     font-size: 16px;
     margin-bottom: 5px;
 }
 
-.serprov button.btn.btnClose.normal {
-    height: 45px;
-    width: 110px;
-    font-size: 18px;
-    background-color: #eaeaea;
+.btn.btnClose.normal {
+    background-color: var(--theme-lightgrey);
+    color: black;
 }
 
-.serprov .modalbutton button.btn.btnClose.normalrecall {
-    height: 45px;
-    width: 110px;
+.btnOpen.btnResRecall {
+    background-color: var(--theme-blue);
+    color: white;
+}
+
+.serprov button.btnOpen.new {
+    font-size: 16px;
+    font-weight: 500;
+    height: 40px;
+    width: 160px;
+    border: none;
+    padding: 7px 20px;
+    border-radius: 6px;
+    background-color: #1bc657;
+    color: white;
+}
+
+.modal-container.new {
+    height: 100%;
+    width: 100%;
+}
+.more-details-modalbtnsection{
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-around !important;
+}
+
+.reservation-more-info .modal-box {
+    height: 600px !important;
+    width: 600px !important;
+}
+
+
+/* recall request modal */
+
+.reservation-recall .modal-box {
+    height: 470px !important;
+    width: 600px !important;
+}
+
+.more-details-modalbtnsection {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    height: 100%;
+}
+.btnOpen.btnResRecall.hide{
+    display: none;
+
+}
+.more-details-modalbtnsection Button {
+    font-size: 16px;
+    font-weight: 500;
+    height: 40px;
+    width: 160px;
+    border: none;
+    padding: 7px 20px;
+    border-radius: 6px;
+}
+
+
+/* tableicon */
+
+.serprov.leave .table2.table2-responsive {
+    height: 600px;
+}
+
+button.editicon {
+    border: none;
+    background-color: transparent;
+}
+
+
+/* end table icon */
+
+
+/* ---------------leave request ----------------- */
+
+.modalbutton button {
+    width: 160px;
+    height: 40px;
+    font-size: 16px;
+}
+
+.leavereason-input {
+    height: 100px;
+    overflow-wrap: break-word;
+}
+
+.text-group textarea {
+    resize: none;
+    width: 100%;
+    height: 80px;
+    padding: 5px 0 px 5px;
+}
+
+.leaverequest .modal-box {
+    height: 420px;
+    width: 500px;
+}
+
+.leaverequesttable {
+    width: 70%;
+    margin: 0 auto 0 auto;
+}
+
+.content.serprov.leave .row.statusopt {
+    width: 12%;
+}
+
+.content.serprov.leave .filter-options .options-container {
+    display: flex;
+    margin: 0 auto 0 auto;
+    width: 100%;
+    min-width: 330px;
+}
+
+.leaverequesttable .dropdown-group {
+    width: 70%;
+}
+span.leavelimitmsg{
+    color:var(--theme-red);
+    font-size: 13px;
+    margin-left: 70px;
+}
+
+.leavecountcard {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 20px;
+    background-color: var(--white);
+    height: 50px;
+    width: 400px;
+    border-radius: 6px;
+}
+
+.cardandbutton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between !important;
+    align-items: center;
+    margin-left: 70px;
+}
+
+.leavecountcardleft {
+    font-weight: 500;
     font-size: 18px;
+    padding-right: 10px;
+    color: var(--theme-grey);
+}
+
+.leavecountcardright {
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.content.serprov.leave .page-top-main-container {
+    margin: 30px 0 10px 0;
+  
+    display: flex;
+    justify-content: right;
+    width: 100%;
+}
+/* resevation list day input */
+.sub-container1-card-content .day{
+   
+   
+    width: 100px;
+
+}
+.sub-container1-card-content .mainsection{
+    display:flex;
+    flex-direction:row-reverse;
+    justify-content: center;
+
+
+}
+/* .sub-container1-card-content .selecteddate{
+    border:none;
+     background-color:lightgray;
+
+} */
+/* reservation page calendar */
+input#date_input.selecteddate  {
+    width: 160px;
+    height: 40px;
+    border: none;
+    padding: 0 10px;
+    font-size: 15px;
+}
+.sub-container1-card-content .mainsection form{
+    display: flex;
+    flex-direction: initial;
+}
+.sub-container1-card-content .mainsection a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+.sub-container1-card-content .mainsection a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.sub-container1-card-content .mainsection .previous {
+  background-color: #EAEAEA;
+  color: black;
+}
+
+.sub-container1-card-content .mainsection .next {
+  background-color: #EAEAEA;
+  color: black;
+}
+
+.sub-container1-card-content .mainsection .round {
+  border-radius: 10%;
+}
+.sub-container1-card-content.res{
+    padding: 8px 10px;
+    width: fit-content;
+}
+.sub-container1-card-content .mainsection{
+    display:flex;
+    align-items: center;
 }

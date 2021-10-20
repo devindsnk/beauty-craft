@@ -12,18 +12,15 @@
    $title = "Leaves";
    $username = "Ruwanthi Munasinghe";
    $userLevel = "Service Provider";
+   
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 
    <!--Content-->
-   <div class="content">
-      <h3>This is leave page</h3>
-
-
-
-
+   <div class="content serprov leave">
+            <?php require APPROOT . "/views/common/leaveRequestTable.php" ?>
    </div>
    <!--End Content-->
 
 
- <?php require APPROOT . "/views/inc/footer.php" ?>
+   <?php require APPROOT . "/views/inc/footer.php" ?>

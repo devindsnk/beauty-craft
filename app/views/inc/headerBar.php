@@ -25,7 +25,7 @@
            </li>
            <li>
               <i class="far fa-cog"></i>
-              <a href="#">Profile Settings</a>
+              <a href="<?php echo URLROOT ?>/staffUser/profile">Profile Settings</a>
            </li>
            <li>
               <i class="far fa-sign-out"></i>

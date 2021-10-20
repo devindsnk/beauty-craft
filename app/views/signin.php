@@ -14,6 +14,10 @@
 
 <body>
     <div class="main-container">
+        <a href="<?php echo URLROOT ?>">
+            <img src="<?php echo URLROOT ?>/public/imgs/logoTextWhite.png" alt="logo" class="top-left-logo">
+        </a>
+        <a href="<?php echo URLROOT ?>" class="top-right-closeBtn white-red-hover"><i class="fal fa-times fa-2x"></i></a>
         <div class="login-container form-container contentBox">
             <form action="<?php echo URLROOT; ?>/user/signin" method="post" class="form">
                 <h1 class="title">Sign In</h1>
@@ -28,10 +32,10 @@
                     <span class="error"><?php echo $data['password_error']; ?></span>
                 </div>
 
-                <a href="" class="forgot-password">Forgot Password?</a>
+                <a href="<?php echo URLROOT ?>/user/resetPassword">Forgot Password?</a>
 
                 <div class="footer-container">
-                    <button class="btn">Sign In</button>
+                    <button class="btn btn-filled btn-theme-purple">Sign In</button>
                     <p>Don't have an account? <a href="<?php echo URLROOT ?>/customer/register">Register Here</a></p>
                 </div>
 

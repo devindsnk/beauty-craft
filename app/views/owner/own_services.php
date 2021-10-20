@@ -15,14 +15,11 @@
 
    <!--Content-->
    <div class="content">
-      <h3>This is main option 1</h3>
-      
 
-
-
+      <?php require APPROOT . "/views/common/servicesTable.php" ?>
 
    </div>
    <!--End Content-->
 
-   
-   <?php require APPROOT . "/views/inc/footer.php" ?>
+
+   <?php require APPROOT . "/views/inc/footer.php" ?> 

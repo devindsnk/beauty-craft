@@ -7,7 +7,7 @@
 .layout-template-2 {
    display: grid;
    grid-template-columns: 100%;
-   grid-template-rows: 80px calc(100vh - 115px) 35px;
+   grid-template-rows: 80px 1fr 28px;
    grid-template-areas:
       "header"
       "content"
@@ -26,20 +26,21 @@
 
 .layout-template-2 .header-center {
    justify-content: center;
-   width: calc(100vw - 90px);
+   /* width: auto; */
+   width: calc(100vw - 80px);
    padding-left: 70px;
-   background-color: coral;
+   /* background-color: coral; */
 }
 
 .layout-template-2 .header-right {
    justify-content: center;
-   width: 70px;
-   background-color: deeppink;
+   width: 80px;
+   /* background-color: deeppink; */
 }
 
 .layout-template-2 .content {
    grid-area: content;
-   background-color: darkorchid;
+   /* background-color: darkorchid; */
 }
 
 .layout-template-2 footer {

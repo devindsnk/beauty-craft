@@ -5,10 +5,7 @@ class Customer extends Controller
    {
       $this->customerModel = $this->model('CustomerModel');
       $this->userModel = $this->model('userModel');
-   }
-
-   public function sendOTP()
-   {
+      $this->pinModel = $this->model('pinVerifyHandlerModel');
    }
 
    public function register()
@@ -31,7 +28,7 @@ class Customer extends Controller
             'mobileNo_error' => '',
             'pin_error' => '',
             'password_error' => '',
-            'confirmPassword_error' => '',
+            'confirmPassword_error' => ''
          ];
 
          // If the pin is requested
@@ -45,30 +42,36 @@ class Customer extends Controller
             else
             {
                // Checking if already registered
-               $result = $this->customerModel->getCustomerData($data['mobileNo']);
+               $isUserExists = $this->userModel->checkUserExists($data['mobileNo']);
                // Handle already registered but inactive customers properly
-               if ($result)
+               if ($isUserExists)
                {
                   $data['mobileNo_error'] = "Number is already registered";
                }
                else
                { // If no issues
                   //GET otp
-                  $pin = getOTP();
-
-                  //Send otp
-                  $SMStext = urlencode("This is your OTP code: $pin");
-                  $SMSResponse = sendSMS($data['mobileNo'], $SMStext);
-
-                  // If sending pin fails
-                  if (!$SMSResponse)
+                  $pin = generatePIN($this->pinModel, $data['mobileNo'], 1);
+                  if ($pin)
                   {
-                     $data['mobileNo_error'] = "Check you mobile number again";
+                     // Send otp
+                     $SMStext = urlencode("This is your OTP code: $pin");
+                     $SMSResponse = sendSMS($data['mobileNo'], $SMStext);
+
+                     //If pin sent successfull then store the pin
+                     if ($SMSResponse)
+                     {
+                        storePIN($this->pinModel, $pin, $data['mobileNo'], 1);
+                     }
+                     // If sending pin sending fails
+                     else
+                     {
+                        $data['mobileNo_error'] = "Check you mobile number again";
+                     }
                   }
                   else
-                  {  //If pin sent successfull then enter record
-                     $this->customerModel->addVerificationPIN($data['mobileNo'], $pin);
-                     // handle invalid pins properly
+                  {
+                     $data['mobileNo_error'] = "PIN has been sent already";
                   }
                }
             }
@@ -126,45 +129,52 @@ class Customer extends Controller
                $data['confirmPassword_error'] = "Passwords dont't match";
             }
 
-
             if (
                empty($data['fName_error']) && empty($data['lName_error']) && empty($data['gender_error']) && empty($data['mobileNo_error']) &&
                empty($data['pin_error']) && empty($data['password_error']) && empty($data['confirmPassword_error'])
             )
             {
-               //    // try {
-               //    //    // First of all, let's begin a transaction
-               //    //    $this->db->beginTransaction();
-
-               //    //    // A set of queries; if one fails, an exception should be thrown
-               //    //    $this->customerModel->register($data);
-               //    //    $this->userModel->register($data);
-
-               //    //    // If we arrive here, it means that no exception was thrown
-               //    //    // i.e. no query has failed, and we can commit the transaction
-               //    //    $this->dbh->commit();
-               //    // } catch (\Throwable $e) {
-               //    //    // An exception has been thrown
-               //    //    // We must rollback the transaction
-               //    //    $this->dbh->rollback();
-               //    //    throw $e; // but the error must be handled anyway
-               //    // }
+               // $con = (new Database);
+               // $dbTemp = $con->getConnection();
 
                // PIN verification
-               $result = $this->customerModel->getVerificationPIN($data['mobileNo']);
+               $isVerified = verifyPIN($this->pinModel, $data['mobileNo'], $data['pin'], 1);
 
                //If pin is not requested or previously-used or incorrect
-               if (!$result || $result->valid == 0 || strcmp($data['pin'], $result->pin) != 0)
+               if (!$isVerified)
                {
                   $data['pin_error'] = "Incorrect PIN";
                   $this->view('register', $data);
                }
-               // Check for pin timeout here 
                else
                {
+                  // // $con = (new Database);
+                  // // $dbTemp = $con->getConnection();
+                  // try
+                  // {
+                  //    // First of all, let's begin a transaction
+                  //    $dbTemp->beginTransaction();
+
+                  //    // A set of queries; if one fails, an exception should be thrown
+                  //    $this->customerModel->registerCustomer($data, $con);
+                  //    // $this->userModel->registerUser($data, $con);
+                  //    // If we arrive here, it means that no exception was thrown
+                  //    // i.e. no query has failed, and we can commit the transaction
+                  //    $dbTemp->commit();
+                  // }
+                  // catch (\Throwable $e)
+                  // {
+                  //    print_r($e->getMessage());
+                  //    // An exception has been thrown
+                  //    // We must rollback the transaction
+                  //    $dbTemp->rollback();
+                  //    throw $e; // but the error must be handled anyway
+                  // 
+
+
                   $this->customerModel->registerCustomer($data);
-                  $this->customerModel->markPINInvalid($data['mobileNo']);
-                  $this->userModel->registerUser($data);
+                  $this->userModel->registerUser($data['mobileNo'], $data['password'], 1);
+                  removePIN($this->pinModel, $data['mobileNo'], 1);
 
                   // Provide success message here
                   header('location: ' . URLROOT . '/user/signin');
@@ -174,7 +184,6 @@ class Customer extends Controller
             {
                $this->view('register', $data);
             }
-            die("Registered");
          }
          else
          {
@@ -196,23 +205,24 @@ class Customer extends Controller
             'mobileNo_error' => '',
             'pin_error' => '',
             'password_error' => '',
-            'confirmPassword_error' => '',
+            'confirmPassword_error' => ''
          ];
          $this->view('register', $data);
       }
    }
+
    public function profile()
    {
       $this->view('customer/cust_profile');
    }
+
    public function changePassword()
    {
       $this->view('customer/cust_changePassword');
    }
+
    public function myReservation()
    {
       $this->view('customer/cust_myReservation');
    }
-
-
 }
