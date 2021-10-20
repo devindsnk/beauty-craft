@@ -37,8 +37,8 @@
             <div class="item item6">
                 <div class="profname">
                     <label class="proflabel">Current Password </label> <br />
-                      <div class="passwordinput">
-                    <input type="password" name="password" class="passwordinput" placeholder="Current Password" />
+                      <div class="passwordinputlabel">
+                    <input type="password" name="password" class="passwordinput pwd2" placeholder="Current Password" />
                     </div>
                 </div>
             </div>
@@ -46,13 +46,13 @@
                 <div class="profname">
                     <label class="proflabel">New Password </label> <br />
                     <div class="passwordinput">
-                    <input type="password" name="password" class="passwordinput" placeholder="Password" />
+                    <input type="password" name="password" class="passwordinput1" placeholder="Password" />
                     </div>
                 </div>
                 <div class="profname">
                     <label class="proflabel">Verify New Password </label> <br />
                      <div class="passwordinput">
-                    <input type="password" name="password" class="passwordinput" placeholder="Verify Password" />
+                    <input type="password" name="password" class="passwordinput1" placeholder="Verify Password" />
                     </div>
                 </div>
 
