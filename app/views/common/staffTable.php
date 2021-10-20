@@ -98,13 +98,12 @@
                   <button type="button" class="table-btn yellow-status-btn text-uppercase "> Disabled </button>
                   <?php endif; ?>
                </td>
-               <td class="column-center-align">
-                  <span>
-                     <a href="<?php echo URLROOT ?>/staff/viewStaff/<?php echo $staffD->staffID ?>"><i
-                           class="ci ci-view-more table-icon"></i></a>
+               <td class="column-center-align"> 
+                  <span> 
+                     <a href="<?php echo URLROOT ?>/staff/viewStaff/<?php echo $staffD->staffID ?>"><i class="ci ci-view-more table-icon img-gap"></i></a>
                      <?php if ($userLevel == "Owner") : ?>
-                     <a href="<?php echo URLROOT ?>/staff/updateStaff"><i class="ci ci-edit table-icon"></i></a>
-                     <a href="#"><i class="ci ci-trash table-icon btnRemoveStaff"></i></a>
+                        <a href="<?php echo URLROOT ?>/staff/updateStaff"><i class="ci ci-edit table-icon img-gap"></i></a>
+                        <a href="#"><i class="ci ci-trash table-icon btnRemoveStaff img-gap"></i></a>
                      <?php endif; ?>
                   </span>
                </td>

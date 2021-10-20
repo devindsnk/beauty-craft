@@ -55,8 +55,8 @@
                <td data-lable="Action" class="column-center-align">
                   <span>
                   <?php if ($userLevel == "Owner") : ?>
-                        <a href="#"><i class="ci-edit table-icon btnUpdateResource"></i></a>
-                        <a href="#"><i class="ci-trash table-icon btnRemoveResource"></i></a>
+                        <a href="#"><i class="ci-edit table-icon btnUpdateResource img-gap"></i></a>
+                        <a href="#"><i class="ci-trash table-icon btnRemoveResource img-gap"></i></a>
                      <?php endif; ?>
                   </span>
                </td>
