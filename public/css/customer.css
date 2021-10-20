@@ -114,22 +114,30 @@ button.remove {
 }
 
 label.proflabel {
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 500;
     margin-bottom: 10px;
 }
 
 .fname {
     margin-top: 5px;
-    height: 50px;
+    height: 40px;
     width: 90%;
     background-color: white;
     display: flex;
     align-items: center;
     padding-left: 15px;
-    font-size: 18px;
-    border: 1px #eaeaea;
+    font-size: 14px;
+    border: none;
     border-radius: 6px;
+     border: 1.2px solid #c4cae0;
+    
+}
+
+.fname:focus ,.passwordinput:focus{
+   outline: none;
+
+   border: 1px solid  #6f6df4;
 }
 
 .btnSave {
@@ -137,15 +145,23 @@ label.proflabel {
     padding: 7px;
     width: 120px;
 }
+.passwordinput1{
+    border: none;
+    border-radius: 6px;
+}
+.pwd2{
+    padding-left: 15px;
 
+}
 .passwordinput {
-    height: 50px;
+    height: 40px;
     width: 90%;
     background-color: white;
     display: flex;
     align-items: center;
-    font-size: 18px;
-    border: 1px #eaeaea;
+    font-size: 14px;
+    border: 1.2px solid #c4cae0;
+
     border-radius: 6px;
     margin-top: 5px;
 }
@@ -155,7 +171,7 @@ label.proflabel {
 }
 
 .radiobutton label {
-    font-size: 18px;
+    font-size: 14px;
     width: 100%;
 }
 

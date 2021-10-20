@@ -19,46 +19,6 @@
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/home.css">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/icons.css">
 
-   <script>
-      var slideIndex = 1;
-      showSlides(slideIndex);
-
-      function plusSlides(n) {
-         showSlides(slideIndex += n);
-      }
-
-      function currentSlide(n) {
-         showSlides(slideIndex = n);
-         }
-
-         function showSlides(n) {
-         var i;
-         var slides = document.getElementsByClassName("mySlides");
-         var dots = document.getElementsByClassName("dot");
-         if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
-            for (i = 0; i < slides.length; i++) {
-               slides[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-               dots[i].className = dots[i].className.replace(" active", "");
-            }
-         slides[slideIndex-1].style.display = "block";
-         dots[slideIndex-1].className += " active";
-      }
-
-      const element = document.querySelector("#horizontal_slider");
-
-         element.addEventListener('wheel', (event) => {
-         event.preventDefault();
-
-         element.scrollBy({
-            left: event.deltaY < 0 ? -30 : 30,
-            
-         });
-      });
-   </script>
-
 </head>
 
 <body class="landingPage customerPages">
@@ -665,21 +625,21 @@
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" class="pro-img" alt="">
                
-               <p class="pro-name">Devin Dissanayake</p>
+               <p class="pro-name">Ravindu Madhubhashana</p>
             </div>
          </section> 
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person3.jpg" class="pro-img" alt="">
                
-               <p class="pro-name">Devin Dissanayake</p>
+               <p class="pro-name">Ruwanthi Munasinghe</p>
             </div>
          </section>  
          <section>
          <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" class="pro-img" alt="">
                
-               <p class="pro-name">Devin Dissanayake</p>
+               <p class="pro-name">Sanjana Rajapaksha</p>
             </div>
          </section>
          <section>
@@ -693,7 +653,7 @@
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person3.jpg" class="pro-img" alt="">
                
-               <p class="pro-name">Devin Dissanayake</p>
+               <p class="pro-name">Sumudu Perera</p>
             </div>
          </section>  
       </div>
@@ -741,7 +701,9 @@
 
    </div>
    <div class="testimonials section WTS-section">
-      <span class="title">WHAT THEY SAY</span>
+      <div class="WTS-section-head">
+         <span class="title">WHAT THEY SAY</span>
+      </div>
 
       <div class="slideshow-container">
 
@@ -776,14 +738,14 @@
             </div>
          </div>
 
-         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-         <a class="next" onclick="plusSlides(1)">&#10095;</a>
+         <a class="prev" onclick="plusSlides2(-1)">&#10094;</a>
+         <a class="next" onclick="plusSlides2(1)">&#10095;</a>
       </div>
 
       <div class="dot-container">
-         <span class="dot" onclick="currentSlide(1)"></span>
-         <span class="dot" onclick="currentSlide(2)"></span>
-         <span class="dot" onclick="currentSlide(3)"></span>
+         <span class="dot" onclick="currentSlide2(1)"></span>
+         <span class="dot" onclick="currentSlide2(2)"></span>
+         <span class="dot" onclick="currentSlide2(3)"></span>
       </div>
    </div>
    

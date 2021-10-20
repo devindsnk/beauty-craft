@@ -241,7 +241,7 @@
             labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
             datasets: [{ 
                   data: [35000,11400,50600,30600,40700,11100,13300,45000,42000.23500,17500,12400],
-                  label: "No of reservations",
+                  label: "Income",
                   borderColor: "#e5989b",
                   backgroundColor: "#ffd166",
                }
@@ -256,7 +256,7 @@
             labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
             datasets: [{ 
                   data: [70,90,44,60,83,90,100,30,80.35,45,39],
-                  label: "Income",
+                  label: "No of reservations",
                   borderColor: "#b392ac",
                   backgroundColor: "#8d99ae",
                   borderWidth:2

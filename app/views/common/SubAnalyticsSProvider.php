@@ -203,7 +203,7 @@ var myChart = new Chart(ctx, {
    labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
    datasets: [{ 
          data: [70,90,44,60,83,90,100,30,80.35,45,39],
-         label: "Income",
+         label: "No of reservations",
          borderColor: "#f08080",
          backgroundColor: "#f8ad9d",
          borderWidth:2
@@ -230,7 +230,7 @@ var myChart = new Chart(ctx, {
       datasets: [{ 
             lineTension: 0,
             data: [21200,19400,25000,30600,32000,15100,16300,23000,30000,23500,17500,12400],
-            label: "No of reservations",
+            label: "Income",
             borderColor: "#b07d62",
             backgroundColor: "#d69f7e",
          }

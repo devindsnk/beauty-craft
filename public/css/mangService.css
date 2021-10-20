@@ -3,7 +3,6 @@
 /* ------------------------------------------------------ */
 
 .mang hr{
-    margin-top: 25px;
     text-align: center;
     width: 100%;
     border-color: #c4cae0;
@@ -22,8 +21,17 @@
     font-weight: 400;
 }
 
-.mang.a{
+.mang2 a { 
+    color: blue;
+}
+.mang2 a {
     text-decoration: none;
+}
+.mang2 a:link, .mang2 a:visited {
+    color: blue;
+}
+.mang2 a:hover {
+    color: red;
 }
 
 .lableInDiv{

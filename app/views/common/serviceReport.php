@@ -21,7 +21,7 @@
 						<div class="column">
 							<div class="text-group">
 								<label class="label" for="">Month</label>
-								<input type="month" name="" id="" placeholder="Date">
+								<input type="month" name="" id="" placeholder="Date" value="2021-10">
 							</div>
 							<span class="error"> <?php echo " "; ?></span>
 						</div>
@@ -29,7 +29,7 @@
 				</div>
 			</div>
 			<div class="right-section">
-               <a href="" class="btn btn-filled btn-theme-purple">Search</a>
+               <a href="" class="btn btn-filled btn-black">Search</a>
                <!-- <button class="btn btn-search">Search</button> -->
             </div>
 			</div>

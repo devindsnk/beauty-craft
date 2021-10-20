@@ -90,8 +90,8 @@
 
   <!--------------------------------------------------------------------------------- Add resource starts ---------------------------------------------------------------->
   <div class="modal-container add-resource <?php if ($data['haveErrors']) echo 'show' ;?>">
-    <div class="modal-box addItems">
-       <form action="<?php echo URLROOT; ?>/OwnDashboard/resources" method="post">
+    <div class="modal-box addItems " id="ownResAddContainer">
+       <form action="<?php echo URLROOT; ?>/OwnDashboard/resources" method="post" >
        <h1 class="addItemsModalHead">Add Resources</h1> 
        <!-- start main grid 1 -->
 
@@ -105,7 +105,7 @@
                 <div class="ownResAddDetail2">
                     <label class="addItemsModalLable">Quantity</label> <br>
                     <select   class="addItemsSelect" name="resourceQuantity" >
-                        <option class="unbold" value="0" option selected="true" disabled="disabled" >Select One</option>
+                        <option class="unbold" value="0" option selected="true" disabled="disabled" >0</option>
                         <option value= 1 <?php if ($data['resourceQuantity'] == 1) echo 'selected'; ?>>1</option>
                         <option value= 2 <?php if ($data['resourceQuantity'] == 2) echo 'selected'; ?>>2</option>
                         <option value= 3 <?php if ($data['resourceQuantity'] == 3) echo 'selected'; ?>>3</option>
@@ -118,7 +118,7 @@
                         <option value= 10 <?php if ($data['resourceQuantity'] == 10) echo 'selected'; ?>>10</option>
                     </select>
                     <br>
-                    <span class="error" ><?php echo $data['resourceQuantity_error']; ?></span>
+                    <span class="error" ><?php echo $data['resourceQuantity_error'];  ?></span>
                 </div>
        </div>
 
