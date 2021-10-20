@@ -38,13 +38,13 @@
                     </div>
                     <div class="valueBox">
                         <div class="detailLine">
-                        <input type="text" class="rateValue">
+                        <input type="text" class="rateValue" value="2">
                         </div>
                         <div class="detailLine">
-                        <input type="text" class="rateValue">
+                        <input type="text" class="rateValue" value="2">
                         </div>
                         <div class="detailLine">
-                        <input type="text" class="rateValue">
+                        <input type="text" class="rateValue" value="2">
                         </div>
                     </div>
                     <div class="ratebutton">
@@ -54,7 +54,7 @@
             </div>
 
             <div class="card2 contentBox">
-                <h3>Leave Limit</h3>
+                <h3>Basic Salary</h3>
 
                 <div class="deatailbox">
                     <div class="labelBox">
@@ -70,13 +70,13 @@
                     </div>
                     <div class="valueBox">
                         <div class="detailLine">
-                        <input type="text" class="rateValue">
+                        <input type="text" class="rateValue" value="40000LKR">
                         </div>
                         <div class="detailLine">
-                        <input type="text" class="rateValue">
+                        <input type="text" class="rateValue" value="40000LKR">
                         </div>
                         <div class="detailLine">
-                        <input type="text" class="rateValue">
+                        <input type="text" class="rateValue" value="40000LKR">
                         </div>
                     </div>
                     <div class="ratebutton">
@@ -87,14 +87,14 @@
             </div>
 
             <div class="card3 contentBox">
-                <h3>Leave Limit</h3>
+                <h3>Other</h3>
 
                 <div class="deatailbox">
                     <div class=" labelBox">
                         <label class="rateLabel">Service Commision Rate</label>
                     </div>
                     <div class="valueBox">
-                        <input type="text" class="rateValue">
+                        <input type="text" class="rateValue" value="40%">
                     </div>
                     <div class="ratebutton">
                         <button class="btn btn-filled btn-grey">Save Changes</button>
@@ -109,7 +109,7 @@
                         <label class="rateLabel">Minimum Number of Managers</label>
                     </div>
                     <div class="valueBox">
-                        <input type="text" class="rateValue">
+                        <input type="text" class="rateValue" value="2">
                     </div>
                     <div class="ratebutton">
                         <button class="btn btn-filled btn-grey">Save Changes</button>

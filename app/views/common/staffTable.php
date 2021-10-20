@@ -70,7 +70,7 @@
             <?php foreach($data['staff'] as $staffD) : ?>
             <tr>
                <td data-lable="Staff ID" class="column-center-align"><?php echo $staffD->staffID; ?></td>
-               <td data-lable="Name" class="column-center-align"><?php echo $staffD->fName; ?>
+               <td data-lable="Name" class="column-left-align"><?php echo $staffD->fName; ?>
                   <?php echo $staffD->lName; ?></td>
                <td data-lable="Staff Type" class="column-center-align">
                <?php if($staffD->staffType == 3){ 
@@ -90,11 +90,11 @@
                <td data-lable="Joined Date" class="column-center-align"><?php echo $staffD->joinedDate; ?></td>
                <td data-lable="Status" class="column-center-align">
                   <!-- Staff memeber states >> Removed = 0 Active =1 Disabled =2 -->
-                  <?php if($staffD->status==0) :?>
+                  <?php if($staffD->status== 0) :?>
                   <button type="button" class="table-btn red-status-btn text-uppercase "> Removed </button>
                   <?php elseif ($staffD->status == 1) : ?>
                   <button type="button" class="table-btn green-status-btn text-uppercase"> Active </button>
-                  <?php else: ?>
+                  <?php elseif ($staffD->status == 2) : ?>
                   <button type="button" class="table-btn yellow-status-btn text-uppercase "> Disabled </button>
                   <?php endif; ?>
                </td>
