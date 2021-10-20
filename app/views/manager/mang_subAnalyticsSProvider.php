@@ -9,17 +9,15 @@
 
    <?php
    $title = "Service Provider Analytics";
-   $username = "Sanjana Rajapaksha";
-   $userLevel = "Manager";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 
    <!--Content-->
    <div class="content">
-    <?php require APPROOT . "/views/common/SubAnalyticsSProvider.php" ?>
-    </div>
+      <?php require APPROOT . "/views/common/SubAnalyticsSProvider.php" ?>
+   </div>
 
-    <!--End Content-->
+   <!--End Content-->
 
 
    <?php require APPROOT . "/views/inc/footer.php" ?>

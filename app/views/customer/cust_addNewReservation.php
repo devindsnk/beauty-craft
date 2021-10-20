@@ -1,6 +1,6 @@
 <?php require APPROOT . "/views/customer/cust_headerBar.php"; ?>
 <!-- Configure this using session variables later -->
-<?php $userID = "000042"; ?>
+<?php $userID = $_SESSION['userID']; ?>
 
 <div class="content cust new-res">
    <div class="main-container">
@@ -72,7 +72,7 @@
             <div class="column">
                <div class="text-group">
                   <label class="label" for="fName">Customer</label>
-                  <input type="text" name="customerID" id="fName" value="<?php echo $userID; ?>">
+                  <input type="text" name="customerID" id="fName" value="<?php echo $_SESSION['userID']; ?>">
                </div>
             </div>
          </div>

@@ -3,22 +3,21 @@
 <body class="layout-template-1">
    <?php
    $selectedMain = "Close Salon";
+   $selectedSub = "";
    require APPROOT . "/views/owner/own_sidenav.php"
    ?>
 
    <?php
    $title = "Close Salon";
-   $username = "Ravindu Madhubhashana";
-   $userLevel = "Owner";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 
    <!--Content-->
    <div class="content own close-salon">
- 
-   <div class="page-top-main-container">
-      <!-- <a href="#" class="btn btn-filled btn-theme-purple btn-main btnAddCloseDate">Add New</a> -->
-   </div>
+
+      <div class="page-top-main-container">
+         <!-- <a href="#" class="btn btn-filled btn-theme-purple btn-main btnAddCloseDate">Add New</a> -->
+      </div>
 
       <form class="form filter-options" action="">
          <div class="options-container">
@@ -27,15 +26,15 @@
                   <div class="column">
                      <div class="text-group ownTableFormDate">
                         <label class="label" for="fName">Month</label>
-                        <input type="month" name="" value="" >
+                        <input type="month" name="" value="">
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
                   </div>
                </div>
             </div>
             <div class="right-section">
-            <a href="#" class="btn btn-filled btn-theme-purple btn-main btnAddCloseDate">Add New</a>
-      </div>
+               <a href="#" class="btn btn-filled btn-theme-purple btn-main btnAddCloseDate">Add New</a>
+            </div>
          </div>
       </form>
 
@@ -57,8 +56,8 @@
                      <td class="column-left-align">Sample reason</td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <?php if ($userLevel == "Owner") : ?>
-                           <a href="#"><i class="ci-trash table-icon btnRemoveCloseDate"></i></a>
+                           <?php if ($userType == "Owner") : ?>
+                              <a href="#"><i class="ci-trash table-icon btnRemoveCloseDate"></i></a>
                            <?php endif; ?>
                         </span>
                      </td>
@@ -69,8 +68,8 @@
                      <td class="column-left-align">Sample reason</td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <?php if ($userLevel == "Owner") : ?>
-                           <a href="#"><i class="ci-trash table-icon btnRemoveCloseDate"></i></a>
+                           <?php if ($userType == "Owner") : ?>
+                              <a href="#"><i class="ci-trash table-icon btnRemoveCloseDate"></i></a>
                            <?php endif; ?>
                         </span>
                      </td>
@@ -81,9 +80,9 @@
                      <td class="column-left-align">Sample reason</td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <?php if ($userLevel == "Owner") : ?> 
-                           <a href="#"><i class="ci-trash table-icon btnRemoveCloseDate"></i></a>
-                           <?php endif; ?>  
+                           <?php if ($userType == "Owner") : ?>
+                              <a href="#"><i class="ci-trash table-icon btnRemoveCloseDate"></i></a>
+                           <?php endif; ?>
                         </span>
                      </td>
                   </tr>
@@ -93,8 +92,8 @@
                      <td class="column-left-align">Sample reason</td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <?php if ($userLevel == "Owner") : ?>
-                           <a href="#"><i class="ci-trash table-icon btnRemoveCloseDate"></i></a>
+                           <?php if ($userType == "Owner") : ?>
+                              <a href="#"><i class="ci-trash table-icon btnRemoveCloseDate"></i></a>
                            <?php endif; ?>
                         </span>
                      </td>
@@ -107,22 +106,22 @@
 
 
 
-<!-- Remove close date model -->
-<div class="modal-container remove-closeDate">>
-        <div class="modal-box">
-                <div class="confirm-model-head">
-                    <h1>Remove Resource</h1>
-                </div>
-                <div class="confirm-model-head">
-                    <p>Are you sure you want to Remove the Resource? <br> This action cannot be undone after proceeding.</p>
-                </div>
-                <div class="confirm-model-head">
-                    <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
-                    <button class="btn normal ModalButton ModalBlueButton">proceed</button>
-                </div>
-        </div>
-    </div>
-<!-- End of Remove close date model -->
+      <!-- Remove close date model -->
+      <div class="modal-container remove-closeDate">>
+         <div class="modal-box">
+            <div class="confirm-model-head">
+               <h1>Remove Resource</h1>
+            </div>
+            <div class="confirm-model-head">
+               <p>Are you sure you want to Remove the Resource? <br> This action cannot be undone after proceeding.</p>
+            </div>
+            <div class="confirm-model-head">
+               <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
+               <button class="btn normal ModalButton ModalBlueButton">proceed</button>
+            </div>
+         </div>
+      </div>
+      <!-- End of Remove close date model -->
 
 
 
@@ -141,8 +140,7 @@
                </div>
                <div class="addItemsModalDetail2">
                   <label class="addItemsModalLable">Reason</label>
-                  <textarea class="addItemsModalTextArea" name="addItemsModalTextArea" rows="4" cols="50"
-                     placeholder="Type the reason here"> </textarea>
+                  <textarea class="addItemsModalTextArea" name="addItemsModalTextArea" rows="4" cols="50" placeholder="Type the reason here"> </textarea>
                </div>
             </div>
 

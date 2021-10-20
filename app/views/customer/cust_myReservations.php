@@ -1,6 +1,4 @@
 <?php
-// session_start();
-// echo ($_SESSION['userID']);
 $selectedOption = "myReservations";
 require APPROOT . "/views/customer/cust_headerBar.php";
 ?>

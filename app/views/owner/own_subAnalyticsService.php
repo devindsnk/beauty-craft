@@ -11,15 +11,13 @@
 
    <?php
    $title = "Service Analytics";
-   $username = "Ravindu Madhubhashana";
-   $userLevel = "Owner";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 
-    <!--Content-->
-    <div class="content">
-    <?php require APPROOT . "/views/common/SubAnalyticsService.php" ?>
-    </div>
+   <!--Content-->
+   <div class="content">
+      <?php require APPROOT . "/views/common/SubAnalyticsService.php" ?>
+   </div>
 
-    <!--End Content-->
+   <!--End Content-->
    <?php require APPROOT . "/views/inc/footer.php" ?>

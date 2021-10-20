@@ -79,8 +79,16 @@ select:focus {
 
 .filter-options input,
 .filter-options select {
-   max-width: 300px;
+   /* min-width: 500px; */
 }
+
+/* @media (max-width: 768px) {
+
+   .reg-container,
+   .reset-container {
+      width: 80%;
+   }
+} */
 
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/

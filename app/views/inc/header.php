@@ -38,7 +38,21 @@
    <!-- service provider style added by Ruwanthi -->
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/serviceprovider.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/StaffUser.css">
-
-
-
 </head>
+
+<?php
+switch ($_SESSION['userType'])
+{
+   case 1:
+      $username = "Pasindu Munasinghe";
+      break;
+   case 2:
+      $username = "Ravindu Madhubhashana";
+      break;
+   default:
+      $username = $_SESSION['username'];
+      break;
+}
+$userType = ["System Admin", "Owner", "Manager", "Receptionist", "Service Provider", "Customer"][$_SESSION['userType'] - 1];
+$userTypeNo = $_SESSION['userType'];
+?>

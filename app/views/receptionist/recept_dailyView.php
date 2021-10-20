@@ -8,8 +8,6 @@
 
    <?php
    $title = "Daily View";
-   $username = "Devin Dissanayake";
-   $userLevel = "Receptionist";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 

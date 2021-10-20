@@ -5,6 +5,7 @@ class MangDashboard extends Controller
    {
       // $this->employeeModel = $this->model('Employee');
       $this->serviceModel = $this->model('ServiceModel');
+      $this->serviceModel = $this->model('ServiceModel');
       $this->staffModel = $this->model('StaffModel');
    }
    public function home()
@@ -42,8 +43,12 @@ class MangDashboard extends Controller
    }
    public function resources()
    {
-      
-      $this->view('manager/mang_resources');
+      $resourceDetails = $this->serviceModel->getResourceDetails();
+
+      $data = [
+         'resource' => $resourceDetails
+      ];
+      $this->view('manager/mang_resources', $data);
    }
    public function leaveRequests()
    {

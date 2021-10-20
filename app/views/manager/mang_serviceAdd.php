@@ -8,7 +8,12 @@
 			<h1 class="header-topic">New Service</h1>
 		</div>
 		<div class="header-right verticalCenter">
-			<a href="<?php echo URLROOT ?>/MangDashboard/services" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
+			<a href="
+			<?php
+			echo URLROOT;
+			if ($userTypeNo == 2) echo "/OwnDashboard/services";
+			elseif ($userTypeNo == 3) echo "/MangDashboard/services";
+			?>" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
 		</div>
 	</header>
 

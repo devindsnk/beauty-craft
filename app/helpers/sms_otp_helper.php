@@ -71,7 +71,7 @@ function sendSMS($mobileNo, $text)
 
    if (trim($res[0]) == "OK")
    {
-      echo $mobileNo, $text;
+      // echo $mobileNo, $text;
       return true;
       // die("Message Sent - ID : " . $res[1]);
    }

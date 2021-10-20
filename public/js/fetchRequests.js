@@ -9,7 +9,6 @@ serviceSelectDropDown.addEventListener('change',
    }
 )
 
-
 function updateServiceProvidersList() {
    fetch(`http://localhost:80/beauty-craft/Services/getServiceProvidersByService/${serviceSelectDropDown.value}`)
       .then(response => response.json())
@@ -29,7 +28,7 @@ function updateServiceDuration() {
    fetch(`http://localhost:80/beauty-craft/services/getServiceDuration/${serviceSelectDropDown.value}`)
       .then(response => response.json())
       .then(serviceDuration => {
-         serviceProviderSelectDropDown.innerHTML = "";
+         serviceDurationBox.innerHTML = "";
          serviceDurationBox.text = serviceDuration;
          serviceDurationBox.value = serviceDuration;
          // sProvidersList.forEach(sProvider => {

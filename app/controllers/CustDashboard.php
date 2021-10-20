@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 class CustDashboard extends Controller
 {
    public function __construct()
@@ -16,7 +16,7 @@ class CustDashboard extends Controller
 
    public function myReservations()
    {
-      $customerID = '000042';
+      $customerID = $_SESSION['userID'];
       $reservationsList = $this->reservationModel->getReservationsByCustomer($customerID);
       $this->view('customer/cust_myReservations', $reservationsList);
    }

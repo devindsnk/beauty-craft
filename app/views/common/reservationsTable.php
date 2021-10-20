@@ -1,8 +1,9 @@
-<?php if ($userLevel == "Receptionist") : ?>
+<?php if ($userType == "Receptionist") : ?>
    <div class="page-top-main-container">
       <a href="<?php echo URLROOT ?>/reservations/addNew" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
    </div>
 <?php endif; ?>
+
 <form class="form filter-options" action="">
    <div class="options-container">
       <div class="left-section">

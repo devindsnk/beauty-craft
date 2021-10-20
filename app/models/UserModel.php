@@ -23,12 +23,9 @@ class UserModel
    public function getUser($mobileNo)
    {
       $this->db->query("SELECT * FROM users WHERE mobileNo = :mobileNo");
-
       $this->db->bind(':mobileNo', $mobileNo);
+      $results = $this->db->single();
 
-      $results = $this->db->resultSet();
-
-      // print_r($results);
       return $results;
    }
 

@@ -1,12 +1,13 @@
 <?php
-// session_start();
 
 class User extends Controller
 {
    public function __construct()
    {
-      $this->userModel = $this->model('userModel');
+      $this->userModel = $this->model('UserModel');
       $this->pinModel = $this->model('pinVerifyHandlerModel');
+      $this->customerModel = $this->model('CustomerModel');
+      $this->staffModel = $this->model('StaffModel');
    }
    public function signin()
    {
@@ -36,7 +37,7 @@ class User extends Controller
 
             if (!empty($result))
             {
-               $user = $result[0];   //REmove after createing query builders
+               $user = $result;   //Remove after createing query builders
                $hashedPassword = $user->password;
 
                if (password_verify($data['password'], $hashedPassword))
@@ -191,29 +192,6 @@ class User extends Controller
                }
                else
                {
-                  // // $con = (new Database);
-                  // // $dbTemp = $con->getConnection();
-                  // try
-                  // {
-                  //    // First of all, let's begin a transaction
-                  //    $dbTemp->beginTransaction();
-
-                  //    // A set of queries; if one fails, an exception should be thrown
-                  //    $this->customerModel->registerCustomer($data, $con);
-                  //    // $this->userModel->registerUser($data, $con);
-                  //    // If we arrive here, it means that no exception was thrown
-                  //    // i.e. no query has failed, and we can commit the transaction
-                  //    $dbTemp->commit();
-                  // }
-                  // catch (\Throwable $e)
-                  // {
-                  //    print_r($e->getMessage());
-                  //    // An exception has been thrown
-                  //    // We must rollback the transaction
-                  //    $dbTemp->rollback();
-                  //    throw $e; // but the error must be handled anyway
-                  // 
-
                   $this->userModel->updatePassword($data['mobileNo'], $data['newPassword']);
                   removePIN($this->pinModel, $data['mobileNo'], 2);
 
@@ -249,12 +227,14 @@ class User extends Controller
 
    private function createUserSession($user)
    {
-      session_start();
       $_SESSION = [
          'userMobileNo' => $user->mobileNo,
          'userType' => $user->userType,
-         'userID' => '000042'
+         'userID' => $this->getUserID($user)[0],
+         'username' => $this->getUserID($user)[1]
       ]; //Containes customer id or staff id
+      // echo $_SESSION['userMobileNo'] . " " . $_SESSION['userType'] . " " . $_SESSION['userID'] . " " . $_SESSION['username'];
+      // die();
    }
 
    public function provideIntialView()
@@ -286,22 +266,30 @@ class User extends Controller
             break;
       }
    }
+   public function getUserID($user)
+   {
+      switch ($user->userType)
+      {
+         case 3:
+         case 4:
+         case 5:
+            return $this->staffModel->getStaffDataByMobileNo($user->mobileNo);
+            break;
+         case 6:
+            return $this->customerModel->getCustomerDataByMobileNo($user->mobileNo);
+            break;
+         default:
+            return [null, null];
+            break;
+      }
+   }
 
    public function signout()
    {
       unset($_SESSION['userMobileNo']);
       unset($_SESSION['userType']);
+      unset($_SESSION['userID']);
       session_destroy();
       redirect('home');
    }
 }
-
-
-// USER LEVEL TYPES
-
-// System admin => 1
-// Owner => 2
-// Manager => 3
-// Receptionist => 4
-// Service Provider => 5
-// Customer => 6
