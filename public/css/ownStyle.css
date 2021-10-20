@@ -194,7 +194,10 @@ Close Salon Starts
 .content.own.close-salon .page-top-main-container,
 .content.own.close-salon .options-container,
 .content.own.close-salon .table2-responsive{
-  padding: 0 200px;
+  /* padding: 0 200px; */
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 } 
 /* 
 #####################################################################################################################################################
@@ -675,7 +678,6 @@ Customers Endss
     grid-area: ownResRemBtn2;
     padding-right: 20px;
 }
-
 
 
 /* ---------------------------------------------------------- */

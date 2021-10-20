@@ -22,7 +22,7 @@
 
         <div class="content own salaries">
             <div class="ownSalaryReportHeadings">
-                <h1 class="ownSalaryReportHead2">Staff Member Salary Report</h1>
+                <h1 class="ownSalaryReportHead2">In Detail Salary Breakdown</h1>
                 <h3 class="ownSalaryReportHead3">Month-August</h3>
             </div>
             <!-- Staff member details starts  -->

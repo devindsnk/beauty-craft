@@ -95,18 +95,34 @@ session_start();
 
    <div class="features section">
       <span class="title">WHY CHOOSE US</span>
+      <div class="cardContainer">
+         <div class="card1">
+            <h3>Feature Name</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum quibusdam sunt libero illo, distinctio,
+               corrupti commodi animi obcaecati sapiente aperiam ad iure sint voluptates, provident maxime minima
+               nostrum similique a!</p>
+         </div>
+
+         <div class="card2">
+
+         </div>
+
+         <div class="card3">
+
+         </div>
+      </div>
    </div>
    <div class="services section ">
       <span class="title">OUR SERVICES</span>
 
       <div class="slideshow-container">
-<!-- slide 1 -->
+         <!-- slide 1 -->
          <div class="mySlides fade">
             <div class="cardContainer">
-            <!-- card 1 -->
+               <!-- card 1 -->
                <div class="card1">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -124,7 +140,7 @@ session_start();
                      <div class="cardRow">
                         <div class="cardColumn">
                            <label class="CardDetailsLabel">
-                            Ladies’ Haircut (Long Hair)
+                              Ladies’ Haircut (Long Hair)
                            </label>
                         </div>
                         <div class="cardColumn">
@@ -136,7 +152,7 @@ session_start();
                      <div class="cardRow">
                         <div class="cardColumn">
                            <label class="CardDetailsLabel">
-                            Ladies’ Haircut (Short Hair)
+                              Ladies’ Haircut (Short Hair)
                            </label>
                         </div>
                         <div class="cardColumn">
@@ -148,7 +164,7 @@ session_start();
                      <div class="cardRow">
                         <div class="cardColumn ">
                            <label class="CardDetailsLabel">
-                            Kids’ Haircut
+                              Kids’ Haircut
                            </label>
                         </div>
                         <div class="cardColumn">
@@ -160,7 +176,7 @@ session_start();
                      <div class="cardRow">
                         <div class="cardColumn">
                            <label class="CardDetailsLabel">
-                            Kids’ Haircut
+                              Kids’ Haircut
                            </label>
                         </div>
                         <div class="cardColumn">
@@ -174,8 +190,8 @@ session_start();
 
                <!-- card 2 -->
                <div class="card2">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -228,17 +244,17 @@ session_start();
                      </div>
                   </div>
                </div>
-               </div>            
+            </div>
          </div>
 
-<!-- slide 2 -->
+         <!-- slide 2 -->
 
          <div class="mySlides fade">
             <div class="cardContainer">
-            <!-- card 1 -->
+               <!-- card 1 -->
                <div class="card1">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -294,8 +310,8 @@ session_start();
 
                <!-- card 2 -->
                <div class="card2">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -348,7 +364,7 @@ session_start();
                      </div>
                   </div>
                </div>
-               </div>            
+            </div>
          </div>
 
 
@@ -357,10 +373,10 @@ session_start();
 
          <div class="mySlides fade">
             <div class="cardContainer">
-            <!-- card 1 -->
+               <!-- card 1 -->
                <div class="card1">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -416,8 +432,8 @@ session_start();
 
                <!-- card 2 -->
                <div class="card2">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -470,7 +486,7 @@ session_start();
                      </div>
                   </div>
                </div>
-               </div>            
+            </div>
          </div>
 
 
@@ -478,10 +494,10 @@ session_start();
 
          <div class="mySlides fade">
             <div class="cardContainer">
-            <!-- card 1 -->
+               <!-- card 1 -->
                <div class="card1">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -537,8 +553,8 @@ session_start();
 
                <!-- card 2 -->
                <div class="card2">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -591,11 +607,11 @@ session_start();
                      </div>
                   </div>
                </div>
-               </div>            
+            </div>
          </div>
 
 
-         
+
 
          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
          <a class="next" onclick="plusSlides(1)">&#10095;</a>

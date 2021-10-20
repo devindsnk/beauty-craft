@@ -152,7 +152,8 @@
        <div class="addItemsModalGrid1 ownResAddDetails">
        <div class="ownResAddDetail1">
                     <label class="addItemsModalLable">Resource Name</label> <br>
-                    <input type="text" class="ownResAddLabeltext" placeholder="--Type in--">
+                    <input type="text" class="ownResAddLabeltext" placeholder="--Type in--"> <br>
+                    <span class="error" >Enter resource name</span>
                 </div>
                 <div class="ownResAddDetail2">
                     <label class="addItemsModalLable">Quantity</label> <br>
@@ -167,7 +168,8 @@
                         <option value="eight">8</option>
                         <option value="nine">9</option>
                         <option value="ten">10</option>
-                    </select>
+                    </select> <br>
+                    <span class="error" >Select quatity</span>
                 </div>
        </div>
 

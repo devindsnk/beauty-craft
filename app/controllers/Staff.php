@@ -71,7 +71,7 @@ class Staff extends Controller
             $data['staffNIC_error'] = "Please enter NIC number";
          }
          else if (preg_match ("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $data['staffNIC']) ){ 
-            $data['staffNIC_error'] = "Only numeric values and letters are allowed";
+            $data['staffNIC_error'] = "Invalid NIC format";
          }  
          elseif (!(strlen($data['staffNIC']) == 10) && !(strlen($data['staffNIC']) == 12) ){
             $data['staffNIC_error'] = "Invalid NIC format";
@@ -140,7 +140,7 @@ class Staff extends Controller
          {
             $data['staffAccHold_error'] = "Please enter bank account holders name";
          }
-         else if (!preg_match("/^[a-zA-Z-' ]*$/",$data['staffAccHold'])) {
+         else if (!preg_match("/^[a-zA-Z-.' ]*$/",$data['staffAccHold'])) {
             $data['staffAccHold_error']  = "Only letters are allowed";
           }
 
