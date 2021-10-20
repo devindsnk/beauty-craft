@@ -127,7 +127,7 @@ label.proflabel {
     
 }
 
-.fname:focus ,.passwordinput:focus{
+.fname:focus ,.passwordinput:focus, .passwordinput1:focus{
    outline: none;
 
    border: 1px solid  #6f6df4;
