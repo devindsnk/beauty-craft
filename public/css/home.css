@@ -380,3 +380,101 @@
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
 /* ------------------------------------------------------ */
+/* ------------------------------------------------------ */
+/* ----------- STYLES ADDED BY RUWANTHI ------------------*/
+/* ------------------------------------------------------ */
+
+.gallery.section{
+   display: flex;
+   flex-direction: column;
+}
+.gallery.section .gallarycontent{
+ 
+   padding:0px 20px 0px 20px;
+   height: 100vh;
+   width: calc(100vw - 40px);
+   margin: auto;
+   overflow:scroll ;
+}
+
+.grid {
+ padding: 1em;
+ height: 100%;
+ width: 100%;
+ margin: auto;
+}
+
+.grid-inner {
+ display: flex;
+ flex-wrap: wrap;
+ margin: 0 -0.5em;
+}
+
+.item {
+ flex: 1 1 100%;
+ padding: 0.5em;
+}
+
+.item-inner {
+   height: 100%;
+ background-size: cover;
+ background-image: url('../../public/imgs/gallery10.jpg');
+ padding-top: 100%;
+}
+
+.item:nth-child(5) .item-inner {
+ background-image: url('../../public/imgs/gallery1.jpg');
+}
+.item:nth-child(3) .item-inner {
+ background-image: url('../../public/imgs/gallery2.jpg');
+}
+.item:nth-child(4) .item-inner {
+ background-image: url('../../public/imgs/gallery3.jpg');
+}
+.item:nth-child(2) .item-inner {
+ background-image: url('../../public/imgs/gallery4.jpg');
+}
+.item:nth-child(6) .item-inner {
+ background-image: url('../../public/imgs/gallery5.jpg');
+}
+.item:nth-child(7) .item-inner {
+ background-image: url('../../public/imgs/gallery6.jpg');
+}
+.item:nth-child(8) .item-inner {
+ background-image: url('../../public/imgs/gallery7.jpg');
+}
+.item:nth-child(9) .item-inner {
+ background-image: url('../../public/imgs/gallery8.jpg');
+}
+.item:nth-child(10) .item-inner {
+ background-image: url('../../public/imgs/gallery9.jpg');
+}
+
+
+@media screen and (min-width: 500px) {
+ .item {
+  flex: 1 1 100%;
+ }
+}
+
+@media screen and (min-width: 700px) {
+ .item {
+  flex: 1 1 50%;
+ }
+}
+
+@media screen and (min-width: 1000px) {
+ .item {
+  flex: 1 1 33.333%;
+ }
+}
+@media screen and (min-width: 1190px) {
+ .item {
+  flex: 1 1 25%;
+ }
+
+@media screen and (min-width: 1500px) {
+ .item {
+  flex: 1 1 20%;
+ }
+}

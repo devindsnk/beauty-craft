@@ -619,6 +619,45 @@ session_start();
    </div>
    <div class="gallery section">
       <span class="title">GALLERY</span>
+      <div class="gallarycontent">
+         <div class="grid">
+ <div class="grid-inner">
+  <div class="item">
+   <div class="item-inner"></div>
+  </div>
+  <div class="item">
+   <div class="item-inner"></div>
+  </div>
+  <div class="item">
+   <div class="item-inner"></div>
+  </div>
+  <div class="item">
+   <div class="item-inner"></div>
+  </div>
+  <div class="item">
+   <div class="item-inner"></div>
+  </div>
+  <div class="item">
+   <div class="item-inner"></div>
+  </div>
+  <div class="item">
+   <div class="item-inner"></div>
+  </div>
+  <div class="item">
+   <div class="item-inner"></div>
+  </div>
+  <div class="item">
+   <div class="item-inner"></div>
+  </div>
+  <div class="item">
+   <div class="item-inner"></div>
+  </div>
+ 
+ </div>
+</div>
+
+      </div>
+     
    </div>
    <div class="testimonials section">
       <span class="title">WHAT THEY SAY</span>

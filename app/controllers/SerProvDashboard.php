@@ -18,7 +18,13 @@
    public function leaves() {
 
       $leaveData=$this->LeaveModel->getLeaveByID();
-     
+      //to get latest leave limit
+      $leaveLimit=$this->LeaveModel->getLeaveLimit();
+     //to get current month leave count
+      $leaveCount=$this->LeaveModel->getLeaveCount();
+       $remainingLeaveCount= $leaveLimit - $leaveCount;
+      //echo  $remainingLeaveCount;
+  
       if ($_SERVER['REQUEST_METHOD']=='POST') {
          
 
@@ -28,9 +34,16 @@
          'reason_error'=>'',
          'staffID'=>'00005',
          'tableData'=>$leaveData,
-         'haveErrors' => 0
-         // '$staffID'=>$_SERVER['staffID'],
+         'haveErrors' => 0,
+         'reasonentered'=>'',
+         'remainingCount'=> $remainingLeaveCount,
+         'leaveexceed'=>0,
+      
        ];
+       //to get enter reason
+       $checkDate=$this->LeaveModel->checkExsistingDate($data['date']) ;
+
+       $data['reasonentered']=$data['reason'];
          if($_POST['action']=="addleave"){
                $today = date('Y-m-d');
                if (empty($data['date'])) {
@@ -43,12 +56,49 @@
                if (empty($data['reason'])) {
                   $data['reason_error']="Please mention the reason";
                }
+               if(!empty($checkDate)){
+                  $data['date_error']="Date you entered is already Exist.";
+               }
 
                if (empty($data['date_error']) && empty($data['reason_error'])) {
+                  //leave count according to selected date
+                  $leavesOfSelectedMonth=$this->LeaveModel->checkLeaveDate($data);
+                 // echo $leavesOfSelectedMonth;
+           
+                 // echo $data['leaveLimit'];
+                  if($leaveLimit <= $leavesOfSelectedMonth)
+                  {
+                     $data['leaveexceed']=1;
+                     $data['haveErrors'] = 1;
+                     $this->view('serviceProvider/serProv_leaves', $data);
+                   //  echo $_GET['leaveExceedStatus'];
+                    // die ('success');
+                    $leaveResponse=1;
+                    $leaveResponse=$_GET['leaveResponnse'];
+                    // die ($leaveResponse);
+                    $this->view('serviceProvider/serProv_leaves');
+                    if($leaveResponse==1){
+                       echo "success";
+                     //  $this->view('serviceProvider/serProv_leaves');
+                    }
+                     if($leaveResponse==0)
+                    {
+                       echo "fail";
+                       $this->LeaveModel->requestleave($data);
+                        // redirect to this view
+                      //  redirect('serProvDashboard/leaves');
+                    }
+                     
+                  }
+                  else{
+                  // print_r($data['leavesOfSelectedMonth']);
+                  // die("selected  month leave count ");
                   $this->LeaveModel->requestleave($data);
-                  //redirect to this view
-
-               redirect('serProvDashboard/leaves');
+                 // redirect to this view
+                 redirect('serProvDashboard/leaves');
+                  }
+               //redirect('serProvDashboard/leaves');
+              // $this->view('serviceProvider/serProv_leaves', $data);
                }
 
                else {
@@ -70,13 +120,27 @@
          'reason'=>'',
          'date_error'=>'',
          'reason_error'=>'',
-          'tableData'=>$leaveData,
-         'haveErrors' => 0
+         'tableData'=>$leaveData,
+         'haveErrors' => 0,
+         'reasonentered'=>'',
+         'remainingCount'=> $remainingLeaveCount,
+         'leaveexceed'=>0,
+         
          ];
+         
          $this->view('serviceProvider/serProv_leaves', $data);
       }
+      
    }
+   public function getLeaveLimit(){
+      
+      $leaveLimit = $this->LeaveModel->getLeaveLimit();
+      // die("error");
+      
+      // print_r($leaveLimit);
 
+      return $leaveLimit;
+   }
 
 
 
