@@ -76,7 +76,7 @@
                      <td data-lable="Type" class="column-center-align">Payment</td>
                      <td data-lable="Date" class="column-center-align">2021-10-14</td>
                      <td data-lable="Status" class="column-center-align">
-                        <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
+                        <button type="button" class="table-btn green-status-btn text-uppercase">Paid</button>
                      </td>
                      <td class="column-center-align">
                         <span>
@@ -88,9 +88,41 @@
                      </td>
                   </tr>
 
+                  <tr>
+                     <td data-lable="Invoice No" class="column-center-align font-numeric">I000002</td>
+                     <td data-lable="Amount" class="column-left-align font-numeric">1000.00 LKR</td>
+                     <td data-lable="Type" class="column-center-align">Payment</td>
+                     <td data-lable="Date" class="column-center-align">2021-06-21</td>
+                     <td data-lable="Status" class="column-center-align">
+                        <button type="button" class="table-btn green-status-btn text-uppercase">Paid</button>
+                     </td>
+                     <td class="column-center-align">
+                        <span>
+                           <a href="#"><i class="ci-view-more table-icon"></i></a>
+                           <?php if ($userLevel == "Owner") : ?>
+                              <a href="#"><i class="ci-trash table-icon btnRemoveCustomer"></i></a>
+                           <?php endif; ?>
+                        </span>
+                     </td>
+                  </tr>
 
-
-
+                  <tr>
+                     <td data-lable="Invoice No" class="column-center-align font-numeric">I000003</td>
+                     <td data-lable="Amount" class="column-left-align font-numeric">1000.00 LKR</td>
+                     <td data-lable="Type" class="column-center-align">Payment</td>
+                     <td data-lable="Date" class="column-center-align">2021-08-24</td>
+                     <td data-lable="Status" class="column-center-align">
+                        <button type="button" class="table-btn red-status-btn text-uppercase">Cancelled</button>
+                     </td>
+                     <td class="column-center-align">
+                        <span>
+                           <a href="#"><i class="ci-view-more table-icon"></i></a>
+                           <?php if ($userLevel == "Owner") : ?>
+                              <a href="#"><i class="ci-trash table-icon btnRemoveCustomer"></i></a>
+                           <?php endif; ?>
+                        </span>
+                     </td>
+                  </tr>
                </tbody>
             </table>
          </div>
