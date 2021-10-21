@@ -16,7 +16,6 @@
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/homeSanjana.css">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/homePageFooter.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/homeRuwanthi.css" />
-
 </head>
 
 <body class="landingPage customerPages">
@@ -40,17 +39,17 @@
 
          <div class="buttons">
             <?php if (isset($_SESSION['userMobileNo'])) : ?>
-            <div class="profileIcon">
-               <img src="<?php echo URLROOT ?>/public/imgs/person4.jpg" alt="">
-            </div>
+               <div class="profileIcon">
+                  <img src="<?php echo URLROOT ?>/public/imgs/person4.jpg" alt="">
+               </div>
 
             <?php else : ?>
-            <a href="<?php echo URLROOT ?>/user/signin" class="btn-landing btnLogin">
-               <span>Sign In</span>
-            </a>
-            <a href="<?php echo URLROOT ?>/customer/register" class="btn-landing btnRegister">
-               <span>Register</span>
-            </a>
+               <a href="<?php echo URLROOT ?>/user/signin" class="btn-landing btnLogin">
+                  <span>Sign In</span>
+               </a>
+               <a href="<?php echo URLROOT ?>/customer/register" class="btn-landing btnRegister">
+                  <span>Register</span>
+               </a>
             <?php endif; ?>
 
             <i class="ci ci-menu-white menuBtn"></i>
@@ -62,18 +61,22 @@
          </div>
          <div class="break"></div>
          <div>
-            <button class="btn-landing btnMakeRes"> Make a Reservation </button>
+            <a href="
+            <?php
+            if (isset($_SESSION['userType'])) echo URLROOT . "/reservations/newReservationCust";
+            else echo URLROOT . "/user/signin" ?>
+            " class="btn-landing btnMakeRes"> Make a Reservation </a>
          </div>
       </div>
       <div class="profile_menu">
          <ul>
             <li>
                <?php if ($_SESSION['userType'] == 6) : ?>
-               <i class="far fa-user"></i>
-               <a href="<?php echo URLROOT ?>/custDashboard/myReservations">My Reservations</a>
+                  <i class="far fa-user"></i>
+                  <a href="<?php echo URLROOT ?>/custDashboard/myReservations">My Reservations</a>
                <?php else : ?>
-               <i class="far fa-user"></i>
-               <a href="<?php echo URLROOT ?>/user/provideIntialView">Dashboard</a>
+                  <i class="far fa-user"></i>
+                  <a href="<?php echo URLROOT ?>/user/provideIntialView">Dashboard</a>
                <?php endif; ?>
             </li>
             <li>
@@ -615,7 +618,7 @@
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person7.jpg" class="pro-img" alt="">
-               
+
                <p class="pro-name">Ravindu Madhubhashana</p>
             </div>
          </section>
@@ -629,20 +632,20 @@
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" class="pro-img" alt="">
-               
+
                <p class="pro-name">Devin Dissanayake</p>
             </div>
          </section>
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" class="pro-img" alt="">
-               
+
                <p class="pro-name">Sanjana Rajapaksha</p>
             </div>
          </section>
       </div>
    </div>
-   
+
    <div class="gallery section">
       <span class="title">GALLERY</span>
       <div class="gallarycontent">
@@ -754,7 +757,7 @@
       </div>
    </div>
 
- 
+
    <script src="<?php echo URLROOT ?>/public/js/home.js"></script>
 
 </body>
