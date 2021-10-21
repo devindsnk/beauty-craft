@@ -112,7 +112,7 @@ class Staff extends Controller
          {
             $data['staffContactNum_error'] = "Please enter contact number";
          }
-         else if (!preg_match ("/^[0-9]*$/", $data['staffContactNum']) ){  
+         else if (!preg_match ("/^[0-9]*$/", $data['staffContactNum']) || (strlen($data['staffContactNum']) != 10) ){  
             $data['staffContactNum_error'] = "Invalid contact number format";
          }  
 
