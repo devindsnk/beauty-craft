@@ -37,7 +37,7 @@
          'haveErrors' => 0,
          'reasonentered'=>'',
          'remainingCount'=> $remainingLeaveCount,
-         'leaveexceed'=>0,
+         'leaveexceed'=>'',
       
        ];
        //check exsisting dates
@@ -69,28 +69,29 @@
                  // echo $data['leaveLimit'];
                   if($leaveLimit <= $leavesOfSelectedMonth)
                   {
-                     $data['leaveexceed']=1;
+                     $data['haveErrors'] = 1;
+                     $data['leaveexceed']="Can not Request Leave,Your Leave Limit is Exceeded";
                     
                      $this->view('serviceProvider/serProv_leaves', $data);
                     
-                     echo $_GET['leaveResponse'];
+                    // echo $_GET['leaveResponse'];
                     // die ('success');
                    //  $leaveResponse=1;
-                    $leaveResponse=$_GET['leaveResponse'];
+                  //  $leaveResponse=$_GET['leaveResponse'];
                      
                    // $this->view('serviceProvider/serProv_leaves');
-                    if($leaveResponse==0){
-                       echo "success";
-                         $this->LeaveModel->requestleave($data);
-                     //  $this->view('serviceProvider/serProv_leaves');
-                    }
-                     if($leaveResponse==1)
-                    {
-                       echo "fail";
+                  //   if($leaveResponse==0){
+                  //      echo "success";
+                  //        $this->LeaveModel->requestleave($data);
+                  //    //  $this->view('serviceProvider/serProv_leaves');
+                  //   }
+                  //    if($leaveResponse==1)
+                  //   {
+                  //      echo "fail";
                      
-                        // redirect to this view
-                      //  redirect('serProvDashboard/leaves');
-                    }
+                  //       // redirect to this view
+                  //     //  redirect('serProvDashboard/leaves');
+                  //   }
                      
                   }
                   else{
@@ -108,7 +109,8 @@
          }
          else if($_POST['action']=="cancel"){
             $data['haveErrors'] = 0;
-            $this->view('serviceProvider/serProv_leaves', $data);
+           // $this->view('serviceProvider/serProv_leaves', $data);
+           redirect('serProvDashboard/leaves');
          }
          else{
             die("something went wrong");
@@ -124,7 +126,7 @@
          'haveErrors' => 0,
          'reasonentered'=>'',
          'remainingCount'=> $remainingLeaveCount,
-         'leaveexceed'=>0,
+         'leaveexceed'=>'',
          
          ];
          

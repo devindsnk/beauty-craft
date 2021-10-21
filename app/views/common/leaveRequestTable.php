@@ -1,5 +1,5 @@
 
-<script>
+<!-- <script>
    var leaveExceedStatus = <?php echo ($data['leaveexceed']); ?> ;
 
    if (leaveExceedStatus == 1) {
@@ -12,7 +12,7 @@
    }
 // console.log(leaveExceedStatus);
 
-</script>
+</script> -->
 
 
 
@@ -134,6 +134,7 @@
                      <textarea type="text" name="reason" id="takeLeaveReason" placeholder="-- Type in --" class="addItemsModalTextArea"
                         value="<?php echo $data['reason']; ?>"></textarea>
                      <span class="error"> <?php echo $data['reason_error']; ?></span>
+                     <span class="error"> <?php echo $data['leaveexceed']; ?></span>
                   </div>
                </div>
             </div>
