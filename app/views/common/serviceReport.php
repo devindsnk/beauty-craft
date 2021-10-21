@@ -12,7 +12,7 @@
 			</div>
 		</header>
 
-		<div class="content ">
+		<div class="content serviceReport">
 		<form class="form filter-options" action="">
          <div class="options-container">
             <div class="left-section">		

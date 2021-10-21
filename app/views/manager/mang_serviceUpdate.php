@@ -12,7 +12,7 @@
 			</div>
 		</header>
 
-		<div class="content contentNewRes">
+		<div class="content mang2">
 			<div class="newService-main newservice" id="newServiceMain">
 
 				<form class="form" action="">

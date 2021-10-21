@@ -22,16 +22,16 @@
 }
 
 .mang2 a { 
-    color: blue;
+    color: var(--theme-purple);
 }
 .mang2 a {
     text-decoration: none;
 }
 .mang2 a:link, .mang2 a:visited {
-    color: blue;
+    color: var(--theme-purple);
 }
 .mang2 a:hover {
-    color: red;
+    color: var(--theme-red);
 }
 
 .lableInDiv{

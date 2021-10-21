@@ -82,6 +82,9 @@
 }
 
 /* *************************** */
+/* .serviceReport, .serviceProvReport{
+    height: calc(100vh - 113px);
+} */
 .main-head{
     font-size: 30px;
     font-weight: 600;
@@ -211,7 +214,9 @@
 
 
 /* accept|reject leave requests */
-
+/* .leaveReq{
+    height: calc(100vh - 113px);
+} */
 .leave-requests-main{
     display: flex;
     flex-direction: column;

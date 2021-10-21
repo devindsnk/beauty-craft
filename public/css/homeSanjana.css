@@ -1,0 +1,113 @@
+ /* MEET OUR TEAM */
+ 
+.MOT-section{
+   align-items: center;
+   flex-direction: column;
+   justify-content: space-evenly;
+   text-align: center;
+}
+.horizontal_slider {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+   margin: 0 auto;
+}
+.MOT-box{
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   flex-direction: column;
+   margin: 10px 30px;
+   width: 370px;
+   height: 470px;
+   background-color: var(--white);
+   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+.MOT-box:hover{
+   -webkit-transform: scale(0.8);
+   -ms-transform: scale(0.8);
+   transform: scale(0.8);
+   transition: 1s ease;
+}
+
+.MOT-section img{
+   margin: 10px;
+   width: 250px;
+   height: 250px;
+   max-height: 100%;
+   max-width: 100%;
+   border-radius: 100%;
+   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.75);
+}
+
+.pro-name{
+   font-size: 20px;
+   font-weight: 500;
+}
+ /* END OF MEET OUR TEAM */
+
+
+ /* WHAT THEY SAY */
+
+.WTS-section{
+   flex-direction: column;
+   justify-content: space-evenly;
+   align-items: stretch;
+   align-items: center;
+   padding: 10px 30px;
+}
+.WTS-section-head{
+   display: flex;
+   height: 20%;
+}
+
+.WTS-section-testimonial-section{
+   height: 80%;
+}
+.WTS-section .comment-div,  .WTS-section .img-div,  .WTS-section .person-name-div{
+   padding: 10px 40px;
+}
+.WTS-section .img-div{
+   display: flex;
+   flex-direction: column;
+   align-content: center;
+   align-items: center;
+   justify-content: space-evenly;
+   height: 60%;
+}
+.WTS-section .comment-div{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-content: center;
+   text-align: center;
+   height: 20%;
+   font-size: 25px;
+   color: var(--theme-black);
+}
+.WTS-section q{
+   font-size: 20px;
+}
+.WTS-section .person-name-div{
+   display: flex;
+   align-content: center;
+   justify-content: space-evenly;
+   align-items: center;
+   padding: 20px;
+   font-size: 25px;
+   color: var(--theme-red);
+}
+
+.WTS-section .img-div img{
+   margin: 10px 30px;
+   width: 250px;
+   height: 250px;
+   max-height: 100%;
+   max-width: 100%;
+   font-size: 40px;
+   color: var(--theme-red);
+   border-radius: 100%;
+}
+
+ /* END OF WHAT THEY SAY */

@@ -11,7 +11,7 @@
 					class="fal fa-times fa-2x "></i></a>
 		</div>
 	</header>
-    <div class="content contentNewRes">
+    <div class="content leaveReq">
         <form class="form" action="">
 
             <div class="leave-requests-main leave-request">

@@ -29,7 +29,7 @@
 							<div class="column">
 								<div class="text-group">
 									<div class="labels"><label class="labels" for="serviceID"> Service ID</label></div>
-									<input type="text" name="" id="serviceID" placeholder="<?php echo $sDetails->serviceID; ?>" disabled>
+									<input type="text" name="" id="serviceID" placeholder="S<?php echo $sDetails->serviceID; ?>" disabled>
 								</div>
 							</div>
 							<div class="column">
