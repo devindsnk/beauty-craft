@@ -7,7 +7,7 @@ require APPROOT . "/views/customer/cust_headerBar.php";
     require APPROOT . "/views/customer/cust_sideNav.php"
     ?>
         <div class="container">
-            <div class="item item10">
+            <div class="item10">
                 <div class="profname">
                     <label class="proflabel">Current Password </label> <br />
                       <div class="passwordinputlabel">
