@@ -13,8 +13,13 @@ function updateServiceProvidersList() {
    fetch(`http://localhost:80/beauty-craft/Services/getServiceProvidersByService/${serviceSelectDropDown.value}`)
       .then(response => response.json())
       .then(sProvidersList => {
-         console.log(sProvidersList);
          serviceProviderSelectDropDown.innerHTML = "";
+         var option = document.createElement("option");
+         option.text = 'Select';
+         option.disabled = true;
+         option.selected = true;
+         option.value = '';
+         serviceProviderSelectDropDown.appendChild(option);
          sProvidersList.forEach(sProvider => {
             var option = document.createElement("option");
             option.text = sProvider.staffID + " - " + sProvider.fName + " " + sProvider.lName;

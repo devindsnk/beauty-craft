@@ -34,6 +34,7 @@
                            <option value="mercedes">Mercedes</option>
                            <option value="audi">Audi</option>
                         </select>
+
                      </div>
                      <div class="text-group mini">
                         <label class="label" for="fName">Duration</label>

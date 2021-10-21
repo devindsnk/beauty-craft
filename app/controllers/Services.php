@@ -22,7 +22,7 @@ class Services extends Controller
             'sSelectedProv' => isset($_POST['serProvCheckbox']) ? $_POST['serProvCheckbox'] : '',
             'sPrice' => trim($_POST['sPrice']),
             'sSlot1Duration' => isset($_POST['slot1Duration']) ? trim($_POST['slot1Duration']) : '',
-            'sSelectedResCount' => isset($_POST['resourceCount']) ? ($_POST['resourceCount']) : '',
+            'sSelectedResCount' => isset($_POST['resourceCount']) ? ($_POST['resourceCount']) : [],
 
             'sTypesArray' => [],
             'sProvArray' => [],
@@ -145,20 +145,22 @@ class Services extends Controller
 
    public function getServiceProvidersByService($serviceID)
    {
+      validateSession([6]);
       $serviceProvidersList = $this->ServiceModel->getServiceProvidersByService($serviceID);
-
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($serviceProvidersList));
+
       // return json_encode($serviceProvidersList, JSON_NUMERIC_CHECK);
    }
 
    public function getServiceDuration($serviceID)
    {
+      validateSession([6]);
       $serviceDuration = $this->ServiceModel->getServiceDuration($serviceID);
 
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($serviceDuration));
-      return json_encode($serviceDuration, JSON_NUMERIC_CHECK);
+      // return json_encode($serviceDuration, JSON_NUMERIC_CHECK);
    }
 
    public function getServiceType()

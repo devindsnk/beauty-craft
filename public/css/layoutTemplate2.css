@@ -6,6 +6,7 @@
 
 .layout-template-2 {
    display: grid;
+   height: 100vh;
    grid-template-columns: 100%;
    grid-template-rows: 80px 1fr 28px;
    grid-template-areas:

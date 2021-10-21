@@ -13,4 +13,8 @@ class Pages extends Controller
    {
       $this->view('404');
    }
+   public function accessDenied()
+   {
+      $this->view('403');
+   }
 }
