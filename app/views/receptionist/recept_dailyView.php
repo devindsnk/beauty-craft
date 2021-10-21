@@ -26,9 +26,10 @@
                      <div class="dropdown-group">
                         <label class="label" for="lName">Service Provider</label>
                         <select>
-                           <option value="" selected>Any</option>
-                           <option value="volvo">Active</option>
-                           <option value="saab">Inactive</option>
+                           <option value="" selected disabled>Select</option>
+                           <option value="">Sanjna Rajapaksha</option>
+                           <option value="volvo">Sumudu Perera</option>
+                           <option value="saab">Ravindu Madhubhashana</option>
                         </select>
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
@@ -45,12 +46,12 @@
 
 
       <div class="res-card-container">
-         <div class="titleBox">
+         <!-- <div class="titleBox">
             <div class="service-column">Service</div>
             <div class="service-prov-column">Service Provider</div>
             <div class="customer-column">Customer</div>
             <div class="contact-column">Contact No</div>
-         </div>
+         </div> -->
          <div class="contentBox res-card">
             <div class="time-box column">09:30 am</div>
             <div class="service-name-box column">Hair Cuts - Ladies</div>
