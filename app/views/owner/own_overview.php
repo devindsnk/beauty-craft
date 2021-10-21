@@ -3,13 +3,12 @@
 <body class="layout-template-1">
    <?php
    $selectedMain = "Overview";
+   $selectedSub = "";
    require APPROOT . "/views/owner/own_sidenav.php"
    ?>
 
    <?php
    $title = "Overview";
-   $username = "Ravindu Madhubhashana";
-   $userLevel = "Owner";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 
@@ -27,23 +26,22 @@
             <div class="mang-sub-container-card-amount"> 
                <p>250</p>
             </div>
-         </div>
             <!-- owner overview available managers card ends -->
 
 
 
             <!-- owner overview total income card starts -->
             <div class="ownOverviewContainerCard2">
-            <div class="mang-sub-container-card-title"> 
-               <p>Total Income</p>
+               <div class="mang-sub-container-card-title">
+                  <p>Total Income</p>
+               </div>
+               <div class="mang-sub-container-card-amount">
+                  <p>400000.00 LKR</p>
+               </div>
             </div>
-            <div class="mang-sub-container-card-amount"> 
-               <p>400000.00 LKR</p>
-            </div>
-         </div>
             <!-- owner overview total income card ends -->
 
-            
+
 
             <!-- <div class="ownOverviewContainerCard3">
                <div class="wrapper">
@@ -57,13 +55,13 @@
             </div> -->
             <!-- owner overview available managers card starts -->
             <div class="ownOverviewContainerCard3">
-            <div class="mang-sub-container-card-title"> 
-               <p>Total Customers</p>
+               <div class="mang-sub-container-card-title">
+                  <p>Total Customers</p>
+               </div>
+               <div class="mang-sub-container-card-amount">
+                  <p>260</p>
+               </div>
             </div>
-            <div class="mang-sub-container-card-amount"> 
-               <p>260</p>
-            </div>
-         </div>
 
          </div>
 
@@ -77,20 +75,20 @@
          <div class="ownOverviewCharts">
 
             <!-- owner overview chart1 card starts -->
-            
+
             <div class="ownOverviewChart1">
-            <div class="chartHead"> 
-               <p> Staff Members  </p>
-            </div>
+               <div class="chartHead">
+                  <p> Staff Members </p>
+               </div>
                <canvas id="ownOverviewChartAvailableEmployees"></canvas>
             </div>
             <!-- owner overview chart1 card ends -->
 
             <!-- owner overview chart2 card starts -->
             <div class="ownOverviewChart2">
-            <div class="chartHead"> 
-               <p>Income </p>
-            </div>
+               <div class="chartHead">
+                  <p>Income </p>
+               </div>
                <canvas id="ownOverviewChartIncome"></canvas>
             </div>
             <!-- owner overview chart2 card ends -->

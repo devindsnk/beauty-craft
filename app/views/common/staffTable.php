@@ -1,4 +1,4 @@
-<?php if ($userLevel == "Owner") : ?>
+<?php if ($userType == "Owner") : ?>
 <div class="page-top-main-container">
    <a href="<?php echo URLROOT ?>/staff/addStaff" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
 </div>
@@ -73,7 +73,7 @@
                <td data-lable="Name" class="column-left-align"><?php echo $staffD->fName; ?>
                   <?php echo $staffD->lName; ?></td>
                <td data-lable="Staff Type" class="column-center-align">
-               <?php if($staffD->staffType == 3){ 
+                  <?php if($staffD->staffType == 3){ 
                         echo 'Manager';}
                      elseif($staffD->staffType == 4){
                         echo 'Receptionist';}
@@ -87,7 +87,8 @@
                         elseif($staffD->gender == 'F'){
                            echo 'Female';}?>
                </td>
-               <td data-lable="Joined Date" class="column-center-align"><?php echo date('Y-m-d', strtotime( $staffD->joinedDate));  ?></td>
+               <td data-lable="Joined Date" class="column-center-align">
+                  <?php echo date('Y-m-d', strtotime( $staffD->joinedDate));  ?></td>
                <td data-lable="Status" class="column-center-align">
                   <!-- Staff memeber states >> Removed = 0 Active =1 Disabled =2 -->
                   <?php if($staffD->status== 0) :?>
@@ -98,19 +99,18 @@
                   <button type="button" class="table-btn yellow-status-btn text-uppercase "> Disabled </button>
                   <?php endif; ?>
                </td>
-               <td class="column-center-align"> 
-                  <span> 
-                     <a href="<?php echo URLROOT ?>/staff/viewStaff/<?php echo $staffD->staffID ?>"><i class="ci ci-view-more table-icon img-gap"></i></a>
+               <td class="column-center-align">
+                  <span>
+                     <a href="<?php echo URLROOT ?>/staff/viewStaff/<?php echo $staffD->staffID ?>"><i
+                           class="ci ci-view-more table-icon img-gap"></i></a>
                      <?php if ($userLevel == "Owner") : ?>
-                        <a href="<?php echo URLROOT ?>/staff/updateStaff"><i class="ci ci-edit table-icon img-gap"></i></a>
-                        <a href="#"><i class="ci ci-trash table-icon btnRemoveStaff img-gap"></i></a>
+                     <a href="<?php echo URLROOT ?>/staff/updateStaff"><i class="ci ci-edit table-icon img-gap"></i></a>
+                     <a href="#"><i class="ci ci-trash table-icon btnRemoveStaff img-gap"></i></a>
                      <?php endif; ?>
                   </span>
                </td>
             </tr>
             <?php endforeach; ?>
-
-
          </tbody>
       </table>
    </div>
@@ -143,7 +143,8 @@
          <!-- main grid 2 starts -->
          <div class="remStaffError">
             <label class="remStaffErrortext">Cannot proceed. Has upcoming reservations</label>
-            <a href="<?php echo URLROOT ?>/staff/RemStaffReservations" class="remStaffErrorAnchortag"> <label class="remStaffErrorViewReservaions">View
+            <a href="<?php echo URLROOT ?>/staff/RemStaffReservations" class="remStaffErrorAnchortag"> <label
+                  class="remStaffErrorViewReservaions">View
                   Reservaions</label></a>
          </div>
          <!-- main grid 2 ends -->

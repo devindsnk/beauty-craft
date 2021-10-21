@@ -3,13 +3,12 @@
 <body class="layout-template-1">
    <?php
    $selectedMain = "Reservations";
+   $selectedSub = "";
    require APPROOT . "/views/owner/own_sidenav.php"
    ?>
 
    <?php
    $title = "Reservations";
-   $username = "Ravindu Madhubhashana";
-   $userLevel = "Owner";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 
@@ -17,9 +16,6 @@
    <div class="content">
 
       <?php require APPROOT . "/views/common/reservationsTable.php" ?>
-
-
-
 
    </div>
    <!--End Content-->

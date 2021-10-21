@@ -9,8 +9,6 @@
 
    <?php
    $title = "Create Account";
-   $username = "Ruwanthi Munasinghe";
-   $userLevel = "System Admin";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 

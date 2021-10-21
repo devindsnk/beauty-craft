@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -21,7 +17,7 @@ session_start();
 
 </head>
 
-<body class="landingPage">
+<body class="landingPage customerPages">
    <header>
       <nav>
          <div class="logo">
@@ -42,17 +38,17 @@ session_start();
 
          <div class="buttons">
             <?php if (isset($_SESSION['userMobileNo'])) : ?>
-            <div class="profileIcon">
-               <img src="<?php echo URLROOT ?>/public/imgs/person4.jpg" alt="">
-            </div>
+               <div class="profileIcon">
+                  <img src="<?php echo URLROOT ?>/public/imgs/person4.jpg" alt="">
+               </div>
 
             <?php else : ?>
-            <a href="<?php echo URLROOT ?>/user/signin" class="btn-landing btnLogin">
-               <span>Sign In</span>
-            </a>
-            <a href="<?php echo URLROOT ?>/customer/register" class="btn-landing btnRegister">
-               <span>Register</span>
-            </a>
+               <a href="<?php echo URLROOT ?>/user/signin" class="btn-landing btnLogin">
+                  <span>Sign In</span>
+               </a>
+               <a href="<?php echo URLROOT ?>/customer/register" class="btn-landing btnRegister">
+                  <span>Register</span>
+               </a>
             <?php endif; ?>
 
             <i class="ci ci-menu-white menuBtn"></i>
@@ -70,17 +66,17 @@ session_start();
       <div class="profile_menu">
          <ul>
             <li>
-               <?php if ($_SESSION['userType'] == 'customer') : ?>
-               <i class="far fa-user"></i>
-               <a href="#">My Reservations</a>
+               <?php if ($_SESSION['userType'] == 6) : ?>
+                  <i class="far fa-user"></i>
+                  <a href="<?php echo URLROOT ?>/custDashboard/myReservations">My Reservations</a>
                <?php else : ?>
-               <i class="far fa-user"></i>
-               <a href="<?php echo URLROOT ?>/user/provideIntialView">Dashboard</a>
+                  <i class="far fa-user"></i>
+                  <a href="<?php echo URLROOT ?>/user/provideIntialView">Dashboard</a>
                <?php endif; ?>
             </li>
             <li>
                <i class="far fa-cog"></i>
-               <a href="#">Account Settings</a>
+               <a href="<?php echo URLROOT ?>/custDashboard/profileSettings">Profile Settings</a>
             </li>
             <li>
                <i class="far fa-sign-out"></i>

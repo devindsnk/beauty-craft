@@ -21,17 +21,19 @@
 .sidebar .header img {
    max-width: 100%;
 }
+
 /* End Sidebar Header */
 
 /* Sidebar Nav */
-/* .sidebar .nav {
-   padding-top: 1.5rem;
-} */
+.sidebar .nav {
+   /* padding-top: 1.5rem; */
+}
 
-.sidebar ul , .sidebar a{
+.sidebar ul,
+.sidebar a {
    list-style: none;
    color: var(--white);
-} 
+}
 
 .sidebar .optionLink {
    display: flex;
@@ -71,12 +73,12 @@
    font-size: 0.9rem;
 }
 
-.sidebar .mainOption > .optionLink.selected {
+.sidebar .mainOption>.optionLink.selected {
    background-color: var(--theme-purple);
    transition: .3s;
 }
 
-.sidebar .mainOption > .optionLink.selected:hover {
+.sidebar .mainOption>.optionLink.selected:hover {
    background-color: var(--theme-purple);
 }
 

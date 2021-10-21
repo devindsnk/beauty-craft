@@ -42,4 +42,13 @@ class CustomerModel
 
       return $results;
    }
+
+   public function getCustomerDataByMobileNo($mobileNo)
+   {
+      $this->db->query("SELECT * FROM customers WHERE mobileNo =  :mobileNo ");
+      $this->db->bind(':mobileNo', $mobileNo);
+      $result = $this->db->single();
+
+      return [$result->customerID, $result->fName . " " . $result->lName];
+   }
 }

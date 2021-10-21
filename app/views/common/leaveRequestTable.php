@@ -1,6 +1,5 @@
-
 <script>
-   var leaveExceedStatus = <?php echo ($data['leaveexceed']); ?> ;
+   var leaveExceedStatus = < ? php echo($data['leaveexceed']); ? > ;
 
    if (leaveExceedStatus == 1) {
       if (confirm("Your Leave Limit is Exceeded,Do you want to Send leave Request ?") == true) {
@@ -10,8 +9,7 @@
       }
       window.location.href = "<?php echo URLROOT; ?>/SerProvDashboard/leaves/leaveResponse=" + leaveExceedStatus;
    }
-// console.log(leaveExceedStatus);
-
+   // console.log(leaveExceedStatus);
 </script>
 
 
@@ -21,14 +19,22 @@
       <div class="leavecountcard">
          <div class="leavecountcardleft">Remaining Leaves</div>
          <div class="leavecountcardright">
-            <?php if($userLevel=="Service Provider"){echo $data['remainingCount'];} else echo 2; ?></div>
+            <?php if ($userType == "Service Provider")
+            {
+               echo $data['remainingCount'];
+            }
+            else echo 2; ?></div>
       </div>
       <div class="page-top-main-container">
          <button class="btn btn-filled btn-theme-purple btnleaveRequest">Add New</button>
       </div>
    </div>
-   <span
-      class="leavelimitmsg"><?php if($userLevel=="Service Provider"){if($data['remainingCount']<0) echo "Your Leave limit exceed";} ?></span>
+   <span class="leavelimitmsg">
+      <?php if ($userLevel == "Service Provider")
+      {
+         if ($data['remainingCount'] < 0) echo "Your Leave limit exceed";
+      } ?>
+   </span>
    <form class="form filter-options" action="">
       <div class="options-container">
          <div class="left-section">
@@ -71,37 +77,36 @@
             </thead>
 
             <tbody>
-               <?php foreach($data['tableData'] as $leave) :?>
-               <tr>
+               <?php foreach ($data['tableData'] as $leave) : ?>
+                  <tr>
 
-                  <td data-lable="Leave Date" class="column-center-align"><?php echo $leave->leaveDate; ?></td>
-                  <td data-lable="Requested date" class="column-center-align"><?php echo $leave->requestedDate; ?></td>
-                  <td data-lable="Responded Staff ID" class="column-center-align">
-                     <?php echo $leave->respondedStaffID; ?><?php if(!($leave->respondedStaffID)) echo 'Not yet Responded' ?>
-                  </td>
-                  <!-- leave Approved=1 pending=0 rejected=2 -->
-                  <td data-lable="Status" class="column-center-align">
-                     <?php if($leave->status==2) :?>
-                     <button type="button" class="table-btn yellow-status-btn text-uppercase " value="Pending"> Pending
-                     </button>
-                     <?php elseif ($leave->status == 1) : ?>
-                     <button type="button" class="table-btn green-status-btn text-uppercase" value="Approved"> Approved
-                     </button>
-                     <?php else: ?>
-                     <button type="button" class="table-btn red-status-btn text-uppercase value=" Rejected"> Rejected
-                     </button>
-                     <?php endif; ?>
-                  </td>
-                  <td data-lable="Action" class="column-center-align">
-                     <span>
-                        <button class="editicon btnEditLeave"><a href="#" data-a=""><i
-                                 class="ci-edit table-icon"></i></a></button>
+                     <td data-lable="Leave Date" class="column-center-align"><?php echo $leave->leaveDate; ?></td>
+                     <td data-lable="Requested date" class="column-center-align"><?php echo $leave->requestedDate; ?></td>
+                     <td data-lable="Responded Staff ID" class="column-center-align">
+                        <?php echo $leave->respondedStaffID; ?><?php if (!($leave->respondedStaffID)) echo 'Not yet Responded' ?>
+                     </td>
+                     <!-- leave Approved=1 pending=0 rejected=2 -->
+                     <td data-lable="Status" class="column-center-align">
+                        <?php if ($leave->status == 2) : ?>
+                           <button type="button" class="table-btn yellow-status-btn text-uppercase " value="Pending"> Pending
+                           </button>
+                        <?php elseif ($leave->status == 1) : ?>
+                           <button type="button" class="table-btn green-status-btn text-uppercase" value="Approved"> Approved
+                           </button>
+                        <?php else : ?>
+                           <button type="button" class="table-btn red-status-btn text-uppercase value=" Rejected"> Rejected
+                           </button>
+                        <?php endif; ?>
+                     </td>
+                     <td data-lable="Action" class="column-center-align">
+                        <span>
+                           <button class="editicon btnEditLeave"><a href="#" data-a=""><i class="ci-edit table-icon"></i></a></button>
 
-                        <button class="editicon btnDeleteLeave"><a><i class="ci-trash table-icon"></i></a></button>
-                     </span>
-                  </td>
+                           <button class="editicon btnDeleteLeave"><a><i class="ci-trash table-icon"></i></a></button>
+                        </span>
+                     </td>
 
-               </tr>
+                  </tr>
 
                <?php endforeach; ?>
             </tbody>
@@ -109,7 +114,7 @@
       </div>
    </div>
    <!-- Request leave model -->
-   <div class="modal-container normal leaverequest <?php if($data['haveErrors']) echo "show"?>">
+   <div class="modal-container normal leaverequest <?php if ($data['haveErrors']) echo "show" ?>">
       <div class="modal-box addItems leave_request ">
          <div class="new-type-head">
             <h1>Request Leave</h1>
@@ -120,8 +125,7 @@
                <div class="column">
                   <div class="text-group">
                      <label class="labels" for="serviceName">Date</label><br>
-                     <input class="addItemsModalDate" type="date" name="date" id="takeLeaveDate" placeholder="--Select a date--"
-                        value="<?php echo $data['date']; ?>">
+                     <input class="addItemsModalDate" type="date" name="date" id="takeLeaveDate" placeholder="--Select a date--" value="<?php echo $data['date']; ?>">
                   </div>
                   <span class="error"> <?php echo $data['date_error']; ?></span>
                </div>
@@ -131,8 +135,7 @@
                   <div class="text-group">
                      <label class="labels" for="serviceName">Reason</label><br>
 
-                     <textarea type="text" name="reason" id="takeLeaveReason" placeholder="-- Type in --" class="addItemsModalTextArea"
-                        value="<?php echo $data['reason']; ?>"></textarea>
+                     <textarea type="text" name="reason" id="takeLeaveReason" placeholder="-- Type in --" class="addItemsModalTextArea" value="<?php echo $data['reason']; ?>"></textarea>
                      <span class="error"> <?php echo $data['reason_error']; ?></span>
                   </div>
                </div>
@@ -140,8 +143,7 @@
 
             <div class="modalbutton">
                <div class="btn1">
-                  <button type="submit" name="action" value="cancel"
-                     class="close-type-btn btn btnClose ">Cancel</button>
+                  <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
                </div>
                <div class="btn2">
                   <button type="submit" name="action" value="addleave" class="confirm-service-btn">Request</button>
@@ -184,8 +186,7 @@
 
             <div class="modalbutton">
                <div class="btn1">
-                  <button type="submit" name="action" value="cancel"
-                     class="close-type-btn btn btnClose ">Cancel</button>
+                  <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
                </div>
                <div class="btn2">
                   <button type="submit" name="action" value="addleave" class="edit-leave confirm-service-btn">Save
@@ -210,8 +211,7 @@
                <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
             </div>
             <div class="btn2">
-               <button type="submit" name="action" value="deleteLeave"
-                  class="delete leave confirm-service-btn">Proceed</button>
+               <button type="submit" name="action" value="deleteLeave" class="delete leave confirm-service-btn">Proceed</button>
             </div>
          </div>
 

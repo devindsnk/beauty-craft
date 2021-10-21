@@ -10,8 +10,8 @@ define('URLROOT', 'http://localhost/beauty-craft');
 define('SITENAME', 'Beauty Craft');
 
 //SMS API parameters
-define('SMS_USER', '94717679714');
-define('SMS_PASS', '3012');
+define('SMS_USER', '94773151041');
+define('SMS_PASS', '7862');
 
 // DB parameters
 define('DB_HOST', 'localhost');
