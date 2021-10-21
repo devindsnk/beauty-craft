@@ -28,32 +28,36 @@ session_start();
 
       function currentSlide(n) {
          showSlides(slideIndex = n);
-         }
+      }
 
-         function showSlides(n) {
+      function showSlides(n) {
          var i;
          var slides = document.getElementsByClassName("mySlides");
          var dots = document.getElementsByClassName("dot");
-         if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
-            for (i = 0; i < slides.length; i++) {
-               slides[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-               dots[i].className = dots[i].className.replace(" active", "");
-            }
-         slides[slideIndex-1].style.display = "block";
-         dots[slideIndex-1].className += " active";
+         if (n > slides.length) {
+            slideIndex = 1
+         }
+         if (n < 1) {
+            slideIndex = slides.length
+         }
+         for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+         }
+         for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+         }
+         slides[slideIndex - 1].style.display = "block";
+         dots[slideIndex - 1].className += " active";
       }
 
       const element = document.querySelector("#horizontal_slider");
 
-         element.addEventListener('wheel', (event) => {
+      element.addEventListener('wheel', (event) => {
          event.preventDefault();
 
          element.scrollBy({
             left: event.deltaY < 0 ? -30 : 30,
-            
+
          });
       });
    </script>
@@ -136,13 +140,13 @@ session_start();
       <span class="title">OUR SERVICES</span>
 
       <div class="slideshow-container">
-<!-- slide 1 -->
+         <!-- slide 1 -->
          <div class="mySlides fade">
             <div class="cardContainer">
-            <!-- card 1 -->
+               <!-- card 1 -->
                <div class="card1">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -160,7 +164,7 @@ session_start();
                      <div class="cardRow">
                         <div class="cardColumn">
                            <label class="CardDetailsLabel">
-                            Ladies’ Haircut (Long Hair)
+                              Ladies’ Haircut (Long Hair)
                            </label>
                         </div>
                         <div class="cardColumn">
@@ -172,7 +176,7 @@ session_start();
                      <div class="cardRow">
                         <div class="cardColumn">
                            <label class="CardDetailsLabel">
-                            Ladies’ Haircut (Short Hair)
+                              Ladies’ Haircut (Short Hair)
                            </label>
                         </div>
                         <div class="cardColumn">
@@ -184,7 +188,7 @@ session_start();
                      <div class="cardRow">
                         <div class="cardColumn ">
                            <label class="CardDetailsLabel">
-                            Kids’ Haircut
+                              Kids’ Haircut
                            </label>
                         </div>
                         <div class="cardColumn">
@@ -196,7 +200,7 @@ session_start();
                      <div class="cardRow">
                         <div class="cardColumn">
                            <label class="CardDetailsLabel">
-                            Kids’ Haircut
+                              Kids’ Haircut
                            </label>
                         </div>
                         <div class="cardColumn">
@@ -210,8 +214,8 @@ session_start();
 
                <!-- card 2 -->
                <div class="card2">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -264,17 +268,17 @@ session_start();
                      </div>
                   </div>
                </div>
-               </div>            
+            </div>
          </div>
 
-<!-- slide 2 -->
+         <!-- slide 2 -->
 
          <div class="mySlides fade">
             <div class="cardContainer">
-            <!-- card 1 -->
+               <!-- card 1 -->
                <div class="card1">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -330,8 +334,8 @@ session_start();
 
                <!-- card 2 -->
                <div class="card2">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -384,7 +388,7 @@ session_start();
                      </div>
                   </div>
                </div>
-               </div>            
+            </div>
          </div>
 
 
@@ -393,10 +397,10 @@ session_start();
 
          <div class="mySlides fade">
             <div class="cardContainer">
-            <!-- card 1 -->
+               <!-- card 1 -->
                <div class="card1">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -452,8 +456,8 @@ session_start();
 
                <!-- card 2 -->
                <div class="card2">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -506,7 +510,7 @@ session_start();
                      </div>
                   </div>
                </div>
-               </div>            
+            </div>
          </div>
 
 
@@ -514,10 +518,10 @@ session_start();
 
          <div class="mySlides fade">
             <div class="cardContainer">
-            <!-- card 1 -->
+               <!-- card 1 -->
                <div class="card1">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -573,8 +577,8 @@ session_start();
 
                <!-- card 2 -->
                <div class="card2">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -627,11 +631,11 @@ session_start();
                      </div>
                   </div>
                </div>
-               </div>            
+            </div>
          </div>
 
 
-         
+
 
          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
          <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -656,88 +660,88 @@ session_start();
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" class="pro-img" alt="">
-               
+
                <p class="pro-name">Devin Dissanayake</p>
             </div>
          </section>
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" class="pro-img" alt="">
-               
+
                <p class="pro-name">Devin Dissanayake</p>
             </div>
-         </section> 
+         </section>
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person3.jpg" class="pro-img" alt="">
-               
+
                <p class="pro-name">Devin Dissanayake</p>
             </div>
-         </section>  
+         </section>
          <section>
-         <div class="MOT-box">
+            <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" class="pro-img" alt="">
-               
+
                <p class="pro-name">Devin Dissanayake</p>
             </div>
          </section>
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" class="pro-img" alt="">
-               
+
                <p class="pro-name">Devin Dissanayake</p>
             </div>
-         </section> 
+         </section>
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person3.jpg" class="pro-img" alt="">
-               
+
                <p class="pro-name">Devin Dissanayake</p>
             </div>
-         </section>  
+         </section>
       </div>
    </div>
    <div class="gallery section">
       <span class="title">GALLERY</span>
       <div class="gallarycontent">
          <div class="grid">
- <div class="grid-inner">
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
- 
- </div>
-</div>
+            <div class="grid-inner">
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+
+            </div>
+         </div>
 
       </div>
-     
+
    </div>
    <div class="testimonials section WTS-section">
       <span class="title">WHAT THEY SAY</span>
@@ -745,9 +749,11 @@ session_start();
       <div class="slideshow-container">
 
          <div class="mySlides">
-            <q>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laudantium voluptas animi amet beatae aliquid
-            praesentium quisquam repellat consequatur rem, quas, voluptatum nisi ipsa, earum nihil sequi corrupti commodi
-            alias?</q>
+            <q>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laudantium voluptas animi amet beatae
+               aliquid
+               praesentium quisquam repellat consequatur rem, quas, voluptatum nisi ipsa, earum nihil sequi corrupti
+               commodi
+               alias?</q>
             <div class="img-div">
                <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" alt="">
                <p class="author">- Ruwanthi Munasinghe</p>
@@ -755,10 +761,14 @@ session_start();
          </div>
 
          <div class="mySlides">
-            <q>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ducimus labore a earum unde! Dolor asperiores
-            rerum deleniti architecto, ab fugiat delectus veniam aut laboriosam nostrum, autem natus dolores, cupiditate quam.
-            Sed a voluptatibus doloribus iste exercitationem vel doloremque cumque reprehenderit officia, repellendus labore
-            quasi quam inventore cum nesciunt excepturi eligendi nostrum incidunt quibusdam culpa ab delectus beatae.</q>
+            <q>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ducimus labore a earum unde! Dolor
+               asperiores
+               rerum deleniti architecto, ab fugiat delectus veniam aut laboriosam nostrum, autem natus dolores,
+               cupiditate quam.
+               Sed a voluptatibus doloribus iste exercitationem vel doloremque cumque reprehenderit officia, repellendus
+               labore
+               quasi quam inventore cum nesciunt excepturi eligendi nostrum incidunt quibusdam culpa ab delectus
+               beatae.</q>
             <div class="img-div">
                <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" alt="">
                <p class="author">- Sanjana Rajapaksha</p>
@@ -766,9 +776,12 @@ session_start();
          </div>
 
          <div class="mySlides">
-            <q>Voluptatibus, excepturi consequatur! Rerum, ab sapiente magni vel voluptatum eum, nulla neque accusantium placeat
-            amet quam blanditiis. Officiis exercitationem inventore molestias quam, magni, natus necessitatibus minima,
-            laboriosam eveniet et similique. Consequatur tenetur sint dicta alias. Omnis amet dolor quae sint quia similique.</q>
+            <q>Voluptatibus, excepturi consequatur! Rerum, ab sapiente magni vel voluptatum eum, nulla neque accusantium
+               placeat
+               amet quam blanditiis. Officiis exercitationem inventore molestias quam, magni, natus necessitatibus
+               minima,
+               laboriosam eveniet et similique. Consequatur tenetur sint dicta alias. Omnis amet dolor quae sint quia
+               similique.</q>
             <div class="img-div">
                <img src="<?php echo URLROOT ?>/public/imgs/person3.jpg" alt="">
                <p class="author">- Devin Dissanayake</p>
@@ -785,18 +798,55 @@ session_start();
          <span class="dot" onclick="currentSlide(3)"></span>
       </div>
    </div>
-   
+
    <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laudantium voluptas animi amet beatae aliquid
-      praesentium quisquam repellat consequatur rem, quas, voluptatum nisi ipsa, earum nihil sequi corrupti commodi
-      alias?
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ducimus labore a earum unde! Dolor asperiores
-      rerum deleniti architecto, ab fugiat delectus veniam aut laboriosam nostrum, autem natus dolores, cupiditate quam.
-      Sed a voluptatibus doloribus iste exercitationem vel doloremque cumque reprehenderit officia, repellendus labore
-      quasi quam inventore cum nesciunt excepturi eligendi nostrum incidunt quibusdam culpa ab delectus beatae.
-      Voluptatibus, excepturi consequatur! Rerum, ab sapiente magni vel voluptatum eum, nulla neque accusantium placeat
-      amet quam blanditiis. Officiis exercitationem inventore molestias quam, magni, natus necessitatibus minima,
-      laboriosam eveniet et similique. Consequatur tenetur sint dicta alias. Omnis amet dolor quae sint quia similique.
+      <div class="homepagefooter">
+     <div class="homefooterleft">
+        <div class="footerlogosection">
+<img src="<?php echo URLROOT ?>/public/imgs/logoAllWhite.png">
+</div>
+     </div>
+     <div class="homefootermiddle">
+        <div class="homefootermiddledata">
+<div class="footersection1">Stay Connected</div>
+<div class="footersection2">0123456789</div>
+<div class="footersection2">0123456789</div>
+<div class="footersection3">beautycraft@gmail.com</div>
+<div class="footersection4">
+   <img src="<?php echo URLROOT ?>/public/icons/facebook.png" alt="">
+   <img src="<?php echo URLROOT ?>/public/icons/Instagram.png" alt="">
+
+</div>
+
+        </div>
+
+     </div>
+     <div class="homefooterright">
+        <div class="footerrighttitle">
+            Opening Hours
+        </div>
+        <div class="footerdatesection">
+        <div class="homefooterright-left">
+        <div class="dayfooter">Monday</div>
+        <div class="dayfooter">Tuesday</div>
+        <div class="dayfooter">Wednesday</div>
+        <div class="dayfooter">Thursday</div>
+        <div class="dayfooter">Friday</div>
+        <div class="dayfooter">Saturday</div>
+        <div class="dayfooter">Sunday</div>
+        </div>
+         <div class="homefooterright-right">
+        <div class="dayfooter">9am - 8pm</div>
+        <div class="dayfooter">9am - 8pm</div>
+        <div class="dayfooter">9am - 8pm</div>
+        <div class="dayfooter">9am - 8pm</div>
+        <div class="dayfooter">9am - 8pm</div>
+        <div class="dayfooter">9am - 8pm</div>
+        <div class="dayfooter">9am - 8pm</div>
+        </div>
+        </div>
+     </div>
+      </div>
    </div>
 
    <footer>
