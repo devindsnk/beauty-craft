@@ -16,6 +16,7 @@
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/homeSanjana.css">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/homePageFooter.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/homeRuwanthi.css" />
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/whychooseUs.css" />
 
 </head>
 
@@ -88,8 +89,45 @@
       </div>
    </header>
 
-   <div class="features section">
+   <div class="features section WCH ">
       <span class="title">WHY CHOOSE US</span>
+      <div class="cardContainer">
+
+         <div class="card1 contentBox">
+            <div class="image">
+            <img src="<?php echo URLROOT ?>/public/icons/icons8-feedback-117.png" alt="">
+            </div>
+            <h3>Keeping clients happy</h3>
+            <p> We believe all clients should get a better service from Us, so we only use top quality products at the basin area, and at the styling stations. Our salon only uses top quality PROFESSIONAL PRODUCTS, to ensure you get the right result every time.</p>
+         </div>
+
+         <div class="card2 contentBox">
+         <div class="image">
+            <img src="<?php echo URLROOT ?>/public/icons/icons8-man-combing-hair-100.png" alt="">
+            </div>
+            <h3>Pioneers In industry</h3>
+            <p>As a pioneer in the salon industry, we have been providing a number of services with high customer satisfaction in the salon industry for many years.</p>
+         </div>
+
+         <div class="card3 contentBox">
+            <div class="image">
+            <img src="<?php echo URLROOT ?>/public/icons/icons8-hairdresser-100.png" alt="">
+            </div>
+            <h3>Well experienced team</h3>
+            <p>Our service providers have good experience in the industry and we always strive to provide better service to clients.!</p>
+
+         </div>
+
+         <div class="card4 contentBox">
+            <div class="image"> 
+            <img src="<?php echo URLROOT ?>/public/icons/icons8-valet-parking-100.png" alt="" >
+            </div>
+            <h3>Free Parking</h3>
+            <p>You can park your vehicle in our parking area at no extra charge without any security issues.</p>
+
+         </div>
+
+      </div>
    </div>
    <div class="services section ">
       <span class="title">OUR SERVICES</span>
