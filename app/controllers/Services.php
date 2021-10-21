@@ -22,7 +22,7 @@ class Services extends Controller
             'sSelectedProv' => isset($_POST['serProvCheckbox']) ? $_POST['serProvCheckbox'] : '',
             'sPrice' => trim($_POST['sPrice']),
             'sSlot1Duration' => isset($_POST['slot1Duration']) ? trim($_POST['slot1Duration']) : '',
-            'sSelectedResCount' => isset($_POST['resourceCount']) ? ($_POST['resourceCount']) : '',
+            'sSelectedResCount' => isset($_POST['resourceCount']) ? ($_POST['resourceCount']) : [],
 
             'sTypesArray' => [],
             'sProvArray' => [],
