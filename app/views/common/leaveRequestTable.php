@@ -132,7 +132,7 @@
                      <label class="labels" for="serviceName">Reason</label><br>
 
                      <textarea type="text" name="reason" id="takeLeaveReason" placeholder="-- Type in --" class="addItemsModalTextArea"
-                        value="<?php echo $data['reason']; ?>"></textarea>
+                        value="<?php echo $data['reason']; ?>"><?php echo $data['reason']; ?></textarea>
                      <span class="error"> <?php echo $data['reason_error']; ?></span>
                      <span class="error"> <?php echo $data['leaveexceed']; ?></span>
                   </div>
