@@ -108,7 +108,7 @@
                   <td data-lable="" class="column-center-align">
                      <span>
                         <a href="<?php echo URLROOT ?>/services/viewService/<?php echo $sDetails->serviceID; ?>"><i class="ci-view-more table-icon img-gap"></i></a>
-                        <?php if ($userLevel == "Owner" || $userLevel == "Manager") : ?>
+                        <?php if ($userType == "Owner" || $userType == "Manager") : ?>
                            <a href="<?php echo URLROOT ?>/services/updateService"><i class="ci-edit table-icon img-gap"></i></a>
                            <a href="#"><i class="ci-trash table-icon btnRemoveService img-gap"></i></a>
                         <?php endif; ?>

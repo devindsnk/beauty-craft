@@ -230,9 +230,10 @@ class User extends Controller
       $_SESSION = [
          'userMobileNo' => $user->mobileNo,
          'userType' => $user->userType,
-         'userID' => $this->getUserID($user)[0],
-         'username' => $this->getUserID($user)[1]
-      ]; //Containes customer id or staff id
+         'userID' => $this->getUserData($user)[0],
+         'username' => $this->getUserData($user)[1]
+      ];
+      //Containes customer id or staff id
       // echo $_SESSION['userMobileNo'] . " " . $_SESSION['userType'] . " " . $_SESSION['userID'] . " " . $_SESSION['username'];
       // die();
    }
@@ -266,7 +267,7 @@ class User extends Controller
             break;
       }
    }
-   public function getUserID($user)
+   public function getUserData($user)
    {
       switch ($user->userType)
       {

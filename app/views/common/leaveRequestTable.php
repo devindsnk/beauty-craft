@@ -1,5 +1,5 @@
 <script>
-   var leaveExceedStatus = < ? php echo($data['leaveexceed']); ? > ;
+   var leaveExceedStatus = <?php echo ($data['leaveexceed']); ?>;
 
    if (leaveExceedStatus == 1) {
       if (confirm("Your Leave Limit is Exceeded,Do you want to Send leave Request ?") == true) {

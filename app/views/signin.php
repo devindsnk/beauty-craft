@@ -23,12 +23,12 @@
                 <h1 class="title">Sign In</h1>
 
                 <div class="text-group">
-                    <input type="text" name="mobileNo" placeholder="Your mobile number here" value="<?php echo $data['mobileNo']; ?>">
+                    <input type="text" name="mobileNo" placeholder="Your mobile number here" value="<?php echo $data['mobileNo']; ?>" maxlength="10">
                     <span class=" error"><?php echo $data['mobileNo_error']; ?></span>
                 </div>
 
                 <div class="text-group">
-                    <input type="password" name="password" placeholder="Your password here">
+                    <input type="password" name="password" placeholder="Your password here" maxlength="25">
                     <span class="error"><?php echo $data['password_error']; ?></span>
                 </div>
 

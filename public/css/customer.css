@@ -51,12 +51,12 @@
     height: 15%;
 }
 
-.item4,
-.item6 {
+.item4 {
     height: 18%;
 }
 
 .item6 {
+    height: 100px !important;
     margin-top: 10px;
 }
 
@@ -130,14 +130,15 @@ label.proflabel {
     font-size: 14px;
     border: none;
     border-radius: 6px;
-     border: 1.2px solid #c4cae0;
-    
+    border: 1.2px solid #c4cae0;
+
 }
 
-.fname:focus ,.passwordinput:focus{
-   outline: none;
-
-   border: 1px solid  #6f6df4;
+.fname:focus,
+.passwordinput:focus,
+.passwordinput1:focus {
+    outline: none;
+    border: 1px solid #6f6df4;
 }
 
 .btnSave {
@@ -145,14 +146,17 @@ label.proflabel {
     padding: 7px;
     width: 120px;
 }
-.passwordinput1{
+
+.passwordinput1 {
     border: none;
     border-radius: 6px;
 }
-.pwd2{
+
+.pwd2 {
     padding-left: 15px;
 
 }
+
 .passwordinput {
     height: 40px;
     width: 90%;
@@ -230,7 +234,7 @@ label.proflabel {
     width: 100%;
     height: calc(100vh - 200px);
     padding-right: 300px;
-    overflow-y: scroll;
+    overflow-y: auto;
 
 }
 
@@ -301,6 +305,10 @@ label.proflabel {
     margin-bottom: 15px;
 }
 
+.cust .sub-container .status-tag {
+    margin: 5px 0;
+}
+
 .cust .text-group .title {
     font-size: 16px;
     font-weight: 400;
@@ -317,6 +325,12 @@ label.proflabel {
     font-size: 17px;
     font-weight: 400;
     color: var(--theme-black);
+}
+
+.cust .date-box .time {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .cust .date-box .mondate {
