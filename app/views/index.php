@@ -13,6 +13,7 @@
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/style.css">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/home.css">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/icons.css">
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/homePageFooter.css" />
 
 </head>
 
@@ -37,17 +38,17 @@
 
          <div class="buttons">
             <?php if (isset($_SESSION['userMobileNo'])) : ?>
-               <div class="profileIcon">
-                  <img src="<?php echo URLROOT ?>/public/imgs/person4.jpg" alt="">
-               </div>
+            <div class="profileIcon">
+               <img src="<?php echo URLROOT ?>/public/imgs/person4.jpg" alt="">
+            </div>
 
             <?php else : ?>
-               <a href="<?php echo URLROOT ?>/user/signin" class="btn-landing btnLogin">
-                  <span>Sign In</span>
-               </a>
-               <a href="<?php echo URLROOT ?>/customer/register" class="btn-landing btnRegister">
-                  <span>Register</span>
-               </a>
+            <a href="<?php echo URLROOT ?>/user/signin" class="btn-landing btnLogin">
+               <span>Sign In</span>
+            </a>
+            <a href="<?php echo URLROOT ?>/customer/register" class="btn-landing btnRegister">
+               <span>Register</span>
+            </a>
             <?php endif; ?>
 
             <i class="ci ci-menu-white menuBtn"></i>
@@ -66,11 +67,11 @@
          <ul>
             <li>
                <?php if ($_SESSION['userType'] == 6) : ?>
-                  <i class="far fa-user"></i>
-                  <a href="<?php echo URLROOT ?>/custDashboard/myReservations">My Reservations</a>
+               <i class="far fa-user"></i>
+               <a href="<?php echo URLROOT ?>/custDashboard/myReservations">My Reservations</a>
                <?php else : ?>
-                  <i class="far fa-user"></i>
-                  <a href="<?php echo URLROOT ?>/user/provideIntialView">Dashboard</a>
+               <i class="far fa-user"></i>
+               <a href="<?php echo URLROOT ?>/user/provideIntialView">Dashboard</a>
                <?php endif; ?>
             </li>
             <li>
@@ -703,8 +704,10 @@
       <div class="slideshow-container">
 
          <div class="mySlides">
-            <q>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laudantium voluptas animi amet beatae aliquid
-               praesentium quisquam repellat consequatur rem, quas, voluptatum nisi ipsa, earum nihil sequi corrupti commodi
+            <q>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laudantium voluptas animi amet beatae
+               aliquid
+               praesentium quisquam repellat consequatur rem, quas, voluptatum nisi ipsa, earum nihil sequi corrupti
+               commodi
                alias?</q>
             <div class="img-div">
                <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" alt="">
@@ -713,10 +716,14 @@
          </div>
 
          <div class="mySlides">
-            <q>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ducimus labore a earum unde! Dolor asperiores
-               rerum deleniti architecto, ab fugiat delectus veniam aut laboriosam nostrum, autem natus dolores, cupiditate quam.
-               Sed a voluptatibus doloribus iste exercitationem vel doloremque cumque reprehenderit officia, repellendus labore
-               quasi quam inventore cum nesciunt excepturi eligendi nostrum incidunt quibusdam culpa ab delectus beatae.</q>
+            <q>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ducimus labore a earum unde! Dolor
+               asperiores
+               rerum deleniti architecto, ab fugiat delectus veniam aut laboriosam nostrum, autem natus dolores,
+               cupiditate quam.
+               Sed a voluptatibus doloribus iste exercitationem vel doloremque cumque reprehenderit officia, repellendus
+               labore
+               quasi quam inventore cum nesciunt excepturi eligendi nostrum incidunt quibusdam culpa ab delectus
+               beatae.</q>
             <div class="img-div">
                <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" alt="">
                <p class="author">- Sanjana Rajapaksha</p>
@@ -724,9 +731,12 @@
          </div>
 
          <div class="mySlides">
-            <q>Voluptatibus, excepturi consequatur! Rerum, ab sapiente magni vel voluptatum eum, nulla neque accusantium placeat
-               amet quam blanditiis. Officiis exercitationem inventore molestias quam, magni, natus necessitatibus minima,
-               laboriosam eveniet et similique. Consequatur tenetur sint dicta alias. Omnis amet dolor quae sint quia similique.</q>
+            <q>Voluptatibus, excepturi consequatur! Rerum, ab sapiente magni vel voluptatum eum, nulla neque accusantium
+               placeat
+               amet quam blanditiis. Officiis exercitationem inventore molestias quam, magni, natus necessitatibus
+               minima,
+               laboriosam eveniet et similique. Consequatur tenetur sint dicta alias. Omnis amet dolor quae sint quia
+               similique.</q>
             <div class="img-div">
                <img src="<?php echo URLROOT ?>/public/imgs/person3.jpg" alt="">
                <p class="author">- Devin Dissanayake</p>
@@ -745,21 +755,56 @@
    </div>
 
    <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laudantium voluptas animi amet beatae aliquid
-      praesentium quisquam repellat consequatur rem, quas, voluptatum nisi ipsa, earum nihil sequi corrupti commodi
-      alias?
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ducimus labore a earum unde! Dolor asperiores
-      rerum deleniti architecto, ab fugiat delectus veniam aut laboriosam nostrum, autem natus dolores, cupiditate quam.
-      Sed a voluptatibus doloribus iste exercitationem vel doloremque cumque reprehenderit officia, repellendus labore
-      quasi quam inventore cum nesciunt excepturi eligendi nostrum incidunt quibusdam culpa ab delectus beatae.
-      Voluptatibus, excepturi consequatur! Rerum, ab sapiente magni vel voluptatum eum, nulla neque accusantium placeat
-      amet quam blanditiis. Officiis exercitationem inventore molestias quam, magni, natus necessitatibus minima,
-      laboriosam eveniet et similique. Consequatur tenetur sint dicta alias. Omnis amet dolor quae sint quia similique.
+      <div class="homepagefooter">
+         <div class="homefooterleft">
+            <div class="footerlogosection">
+               <img src="<?php echo URLROOT ?>/public/imgs/logoAllWhite.png">
+            </div>
+         </div>
+         <div class="homefootermiddle">
+            <div class="homefootermiddledata">
+               <div class="footersection1">Stay Connected</div>
+               <div class="footersection2">0123456789</div>
+               <div class="footersection2">0123456789</div>
+               <div class="footersection3">beautycraft@gmail.com</div>
+               <div class="footersection4">
+                  <img src="<?php echo URLROOT ?>/public/icons/facebook.png" alt="">
+                  <img src="<?php echo URLROOT ?>/public/icons/Instagram.png" alt="">
+
+               </div>
+
+            </div>
+
+         </div>
+         <div class="homefooterright">
+            <div class="footerrighttitle">
+               Opening Hours
+            </div>
+            <div class="footerdatesection">
+               <div class="homefooterright-left">
+                  <div class="dayfooter">Monday</div>
+                  <div class="dayfooter">Tuesday</div>
+                  <div class="dayfooter">Wednesday</div>
+                  <div class="dayfooter">Thursday</div>
+                  <div class="dayfooter">Friday</div>
+                  <div class="dayfooter">Saturday</div>
+                  <div class="dayfooter">Sunday</div>
+               </div>
+               <div class="homefooterright-right">
+                  <div class="dayfooter">9am - 8pm</div>
+                  <div class="dayfooter">9am - 8pm</div>
+                  <div class="dayfooter">9am - 8pm</div>
+                  <div class="dayfooter">9am - 8pm</div>
+                  <div class="dayfooter">9am - 8pm</div>
+                  <div class="dayfooter">9am - 8pm</div>
+                  <div class="dayfooter">9am - 8pm</div>
+               </div>
+            </div>
+         </div>
+      </div>
    </div>
 
-   <footer>
-
-   </footer>
+ 
    <script src="<?php echo URLROOT ?>/public/js/home.js"></script>
 
 </body>
