@@ -64,9 +64,9 @@
                   <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
                </td>
                <td class="column-center-align">
-                  <span> 
-                      <a href="<?php echo URLROOT ?>/customerView/cusDetailView"><i class="ci-view-more table-icon img-gap"></i></a>
-                     <?php if ($userLevel == "Owner") : ?>
+                  <span>
+                     <a href="<?php echo URLROOT ?>/OwnDashboard/cusDetailView"><i class="ci-view-more table-icon img-gap"></i></a>
+                     <?php if ($userType == "Owner") : ?>
                         <a href="#"><i class="ci-trash table-icon btnRemoveCustomer img-gap"></i></a>
                      <?php endif; ?>
                   </span>
@@ -84,8 +84,8 @@
                </td>
                <td class="column-center-align">
                   <span>
-                     <a href="<?php echo URLROOT ?>/customerView/cusDetailView"><i class="ci-view-more table-icon img-gap"></i></a>
-                     <?php if ($userLevel == "Owner") : ?>
+                     <a href="<?php echo URLROOT ?>/OwnDashboard/cusDetailView"><i class="ci-view-more table-icon img-gap"></i></a>
+                     <?php if ($userType == "Owner") : ?>
                         <a href="#"><i class="ci-trash table-icon btnRemoveCustomer img-gap"></i></a>
                      <?php endif; ?>
                   </span>

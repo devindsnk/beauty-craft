@@ -353,27 +353,30 @@
    justify-content: center;
 }
 
-.titleBox{
+.titleBox {
    display: flex;
    flex-direction: row;
    width: max-content;
 }
 
-.titleBox div{
+.titleBox div {
    display: flex;
    justify-content: center;
 }
 
-.titleBox .service-column{
+.titleBox .service-column {
    width: 220px;
 }
-.titleBox .service-prov-column{
+
+.titleBox .service-prov-column {
    width: 250px;
 }
-.titleBox .customer-column{
+
+.titleBox .customer-column {
    /* min-width: 250px; */
 }
-.titleBox .contact-column{
+
+.titleBox .contact-column {
    /* min-width: 110px; */
 }
 
@@ -405,7 +408,7 @@
    width: 130px;
    padding-left: 20px;
    padding-right: 15px;
-   background-color: var(--theme-grey);
+   background-color: var(--theme-black);
    color: var(--white);
 }
 
@@ -425,11 +428,11 @@
    min-width: 110px;
 }
 
-.status-tag{
+.status-tag {
    width: 150px;
 }
 
-.opt-box a{
+.opt-box a {
    display: flex;
    align-content: center;
 }

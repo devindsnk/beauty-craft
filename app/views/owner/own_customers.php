@@ -3,13 +3,12 @@
 <body class="layout-template-1">
    <?php
    $selectedMain = "Customers";
+   $selectedSub = "";
    require APPROOT . "/views/owner/own_sidenav.php"
    ?>
 
    <?php
    $title = "Customers";
-   $username = "Ravindu Madhubhashana";
-   $userLevel = "Owner";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 

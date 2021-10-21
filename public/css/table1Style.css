@@ -142,23 +142,38 @@
 .table1 .green-status-btn,
 .table2 .green-status-btn {
     width: 80px;
-    background-color: #c0f0d1;
-    color: #3abd5f;
+    background-color: var(--bg-success-green);
+    color: var(--success-green);
 }
 
 .table1 .red-status-btn,
 .table2 .red-status-btn {
     width: 80px;
-    background-color: #ffc5ca;
-    color: #dc3545;
+    background-color: var(--bg-error-red);
+    color: var(--error-red);
 }
 
 .table1 .yellow-status-btn,
 .table2 .yellow-status-btn {
     width: 80px;
-    background-color: #ffe9a7;
-    color: #dfab11;
+    background-color: var(--bg-warning-yellow);
+    color: var(--warning-yellow);
 }
+
+.table1 .blue-status-btn,
+.table2 .blue-status-btn {
+    width: 80px;
+    background-color: var(--bg-theme-blue);
+    color: var(--theme-blue);
+}
+
+.table1 .grey-status-btn,
+.table2 .grey-status-btn {
+    width: 80px;
+    background-color: var(--theme-lightgrey);
+    color: var(--theme-grey);
+}
+
 
 .table1 .black-action-btn,
 .table2 .black-action-btn {
@@ -168,14 +183,16 @@
     background-color: var(--theme-black);
 }
 
-.table1 .gray-action-btn, .table2 .gray-action-btn{
-  width: 82px;
-  color: #fff;
-  background-color: #6c757d;
+.table1 .gray-action-btn,
+.table2 .gray-action-btn {
+    width: 82px;
+    color: #fff;
+    background-color: #6c757d;
 }
 
-.table1 .black-action-btn:hover, .table2 .black-action-btn:hover {
-  background-color: #6c757d;
+.table1 .black-action-btn:hover,
+.table2 .black-action-btn:hover {
+    background-color: #6c757d;
 }
 
 .table1 .btn-position {
@@ -190,11 +207,12 @@
     color: #ffffff;
 }
 
-.table1 .uncheck-btn, .table2 .uncheck-btn{
-  width: 90px;
-  padding: 2px;
-  border: 2px solid var(--theme-purple);
-  color: var(--theme-grey);
+.table1 .uncheck-btn,
+.table2 .uncheck-btn {
+    width: 90px;
+    padding: 2px;
+    border: 2px solid var(--theme-purple);
+    color: var(--theme-grey);
 }
 
 .table1 .img-profile-picture,
@@ -247,9 +265,11 @@
         border: none;
         box-shadow: none;
     }
+
     .table1 table thead {
         display: none;
     }
+
     .table1 table tbody,
     .table1 table tr,
     .table1 table td {
@@ -257,6 +277,7 @@
         display: block;
         width: 100%;
     }
+
     .table1 table tr {
         margin-bottom: 25px;
         box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
@@ -264,15 +285,18 @@
         border-radius: 6px;
         padding: 10px;
     }
+
     .table1 table tbody tr td {
         text-align: right;
         padding: 8px;
         position: relative;
         border-bottom: none;
     }
+
     .table1-hover table tbody tr:hover td {
         background: none;
     }
+
     .table1 tbody tr td:nth-child(1) {
         max-height: 0;
         width: 80px;
@@ -280,12 +304,15 @@
         top: 25px;
         padding: 10px 10px 10px 40px;
     }
+
     .table1 tbody tr td:nth-child(2) {
         width: 80px;
     }
+
     .table1 table tbody tr td:nth-last-child() {
         border-bottom: 0;
     }
+
     .table1 table td:before {
         content: attr(data-lable);
         position: absolute;

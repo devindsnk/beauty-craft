@@ -11,19 +11,18 @@
 
    <?php
    $title = "system Log";
-   $username = "Ruwanthi Munasinghe";
-   $userLevel = "System admin";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 
    <!--Content-->
    <div class="content systemlogdownload">
-<div class="systemlog">
-<a href=""><button><i class="fa fa-download"></i>Download System Log File</button></a>
-</div>
+      <div class="systemlog">
+         <a href="<?php echo URLROOT ?>/public/logfile/syslog.txt" download><button "><i class=" fa fa-download"></i>Download System Log File</button></a>
+
+      </div>
 
    </div>
    <!--End Content-->
 
 
-    <?php require APPROOT . "/views/inc/footer.php" ?>
+   <?php require APPROOT . "/views/inc/footer.php" ?>

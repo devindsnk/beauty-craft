@@ -11,30 +11,28 @@
 
    <?php
    $title = "Create Account";
-   $username = "Ruwanthi Munasinghe";
-   $userLevel = "System Admin";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 
    <!--Content-->
    <div class="content admin">
- 
+
       <div class="reg-container form-container contentBox">
-         <form  method="post" class="form">
+         <form method="post" class="form">
             <h1 class="title">Customer Account</h1>
 
             <div class="row">
                <div class="column">
                   <div class="text-group">
                      <label class="label" for="name">Name</label>
-                     <input type="text" name="fName" placeholder="Your first name here"  />
+                     <input type="text" name="fName" placeholder="Your first name here" />
                      <span class="error"></span>
                   </div>
                </div>
                <div class="column spec">
                   <div class="text-group">
                      <input type="text" name="lName" placeholder="Your last name here" ">
-                     <span class="error"></span>
+                     <span class=" error"></span>
                   </div>
                </div>
             </div>
@@ -44,11 +42,11 @@
                   <label class="label" for="lName">Gender</label>
                   <div class="radio-container">
                      <div class="radio-group">
-                        <input type="radio" name="gender" value="M" >
+                        <input type="radio" name="gender" value="M">
                         <span>Male</span>
                      </div>
                      <div class="radio-group">
-                        <input type="radio" name="gender" value="F" >
+                        <input type="radio" name="gender" value="F">
                         <span>Female</span>
                      </div>
                      <span class="error"></span>
@@ -98,11 +96,11 @@
 
          </form>
       </div>
-   
 
 
-   </div> 
+
+   </div>
    <!--End Content-->
 
 
-    <?php require APPROOT . "/views/inc/footer.php" ?>
+   <?php require APPROOT . "/views/inc/footer.php" ?>

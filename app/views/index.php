@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -21,7 +17,7 @@ session_start();
 
 </head>
 
-<body class="landingPage">
+<body class="landingPage customerPages">
    <header>
       <nav>
          <div class="logo">
@@ -42,17 +38,17 @@ session_start();
 
          <div class="buttons">
             <?php if (isset($_SESSION['userMobileNo'])) : ?>
-            <div class="profileIcon">
-               <img src="<?php echo URLROOT ?>/public/imgs/person4.jpg" alt="">
-            </div>
+               <div class="profileIcon">
+                  <img src="<?php echo URLROOT ?>/public/imgs/person4.jpg" alt="">
+               </div>
 
             <?php else : ?>
-            <a href="<?php echo URLROOT ?>/user/signin" class="btn-landing btnLogin">
-               <span>Sign In</span>
-            </a>
-            <a href="<?php echo URLROOT ?>/customer/register" class="btn-landing btnRegister">
-               <span>Register</span>
-            </a>
+               <a href="<?php echo URLROOT ?>/user/signin" class="btn-landing btnLogin">
+                  <span>Sign In</span>
+               </a>
+               <a href="<?php echo URLROOT ?>/customer/register" class="btn-landing btnRegister">
+                  <span>Register</span>
+               </a>
             <?php endif; ?>
 
             <i class="ci ci-menu-white menuBtn"></i>
@@ -70,17 +66,17 @@ session_start();
       <div class="profile_menu">
          <ul>
             <li>
-               <?php if ($_SESSION['userType'] == 'customer') : ?>
-               <i class="far fa-user"></i>
-               <a href="#">My Reservations</a>
+               <?php if ($_SESSION['userType'] == 6) : ?>
+                  <i class="far fa-user"></i>
+                  <a href="<?php echo URLROOT ?>/custDashboard/myReservations">My Reservations</a>
                <?php else : ?>
-               <i class="far fa-user"></i>
-               <a href="<?php echo URLROOT ?>/user/provideIntialView">Dashboard</a>
+                  <i class="far fa-user"></i>
+                  <a href="<?php echo URLROOT ?>/user/provideIntialView">Dashboard</a>
                <?php endif; ?>
             </li>
             <li>
                <i class="far fa-cog"></i>
-               <a href="#">Account Settings</a>
+               <a href="<?php echo URLROOT ?>/custDashboard/profileSettings">Profile Settings</a>
             </li>
             <li>
                <i class="far fa-sign-out"></i>
@@ -97,13 +93,13 @@ session_start();
       <span class="title">OUR SERVICES</span>
 
       <div class="slideshow-container">
-<!-- slide 1 -->
+         <!-- slide 1 -->
          <div class="mySlides fade">
             <div class="cardContainer">
-            <!-- card 1 -->
+               <!-- card 1 -->
                <div class="card1">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -121,7 +117,7 @@ session_start();
                      <div class="cardRow">
                         <div class="cardColumn">
                            <label class="CardDetailsLabel">
-                            Ladies’ Haircut (Long Hair)
+                              Ladies’ Haircut (Long Hair)
                            </label>
                         </div>
                         <div class="cardColumn">
@@ -133,7 +129,7 @@ session_start();
                      <div class="cardRow">
                         <div class="cardColumn">
                            <label class="CardDetailsLabel">
-                            Ladies’ Haircut (Short Hair)
+                              Ladies’ Haircut (Short Hair)
                            </label>
                         </div>
                         <div class="cardColumn">
@@ -145,7 +141,7 @@ session_start();
                      <div class="cardRow">
                         <div class="cardColumn ">
                            <label class="CardDetailsLabel">
-                            Kids’ Haircut
+                              Kids’ Haircut
                            </label>
                         </div>
                         <div class="cardColumn">
@@ -157,7 +153,7 @@ session_start();
                      <div class="cardRow">
                         <div class="cardColumn">
                            <label class="CardDetailsLabel">
-                            Kids’ Haircut
+                              Kids’ Haircut
                            </label>
                         </div>
                         <div class="cardColumn">
@@ -171,8 +167,8 @@ session_start();
 
                <!-- card 2 -->
                <div class="card2">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -225,17 +221,17 @@ session_start();
                      </div>
                   </div>
                </div>
-               </div>            
+            </div>
          </div>
 
-<!-- slide 2 -->
+         <!-- slide 2 -->
 
          <div class="mySlides fade">
             <div class="cardContainer">
-            <!-- card 1 -->
+               <!-- card 1 -->
                <div class="card1">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -291,8 +287,8 @@ session_start();
 
                <!-- card 2 -->
                <div class="card2">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -345,7 +341,7 @@ session_start();
                      </div>
                   </div>
                </div>
-               </div>            
+            </div>
          </div>
 
 
@@ -354,10 +350,10 @@ session_start();
 
          <div class="mySlides fade">
             <div class="cardContainer">
-            <!-- card 1 -->
+               <!-- card 1 -->
                <div class="card1">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -413,8 +409,8 @@ session_start();
 
                <!-- card 2 -->
                <div class="card2">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -467,7 +463,7 @@ session_start();
                      </div>
                   </div>
                </div>
-               </div>            
+            </div>
          </div>
 
 
@@ -475,10 +471,10 @@ session_start();
 
          <div class="mySlides fade">
             <div class="cardContainer">
-            <!-- card 1 -->
+               <!-- card 1 -->
                <div class="card1">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -534,8 +530,8 @@ session_start();
 
                <!-- card 2 -->
                <div class="card2">
-               <div class="cardHead">
-                  <h3>Hair Cuts</h3>
+                  <div class="cardHead">
+                     <h3>Hair Cuts</h3>
                   </div>
                   <div class="cardDetails">
                      <div class="cardRow">
@@ -588,11 +584,11 @@ session_start();
                      </div>
                   </div>
                </div>
-               </div>            
+            </div>
          </div>
 
 
-         
+
 
          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
          <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -620,14 +616,14 @@ session_start();
                
                <p class="pro-name">Ravindu Madhubhashana</p>
             </div>
-         </section> 
+         </section>
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person3.jpg" class="pro-img" alt="">
-               
+
                <p class="pro-name">Ruwanthi Munasinghe</p>
             </div>
-         </section>  
+         </section>
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" class="pro-img" alt="">
@@ -649,43 +645,43 @@ session_start();
       <span class="title">GALLERY</span>
       <div class="gallarycontent">
          <div class="grid">
- <div class="grid-inner">
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
- 
- </div>
-</div>
+            <div class="grid-inner">
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+
+            </div>
+         </div>
 
       </div>
-     
+
    </div>
 
    <div class="testimonials section WTS-section">
@@ -705,7 +701,7 @@ session_start();
          </div>
       </div>
    </div>
-   
+
    <div>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laudantium voluptas animi amet beatae aliquid
       praesentium quisquam repellat consequatur rem, quas, voluptatum nisi ipsa, earum nihil sequi corrupti commodi

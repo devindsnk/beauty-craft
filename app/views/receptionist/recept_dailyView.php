@@ -8,8 +8,6 @@
 
    <?php
    $title = "Daily View";
-   $username = "Devin Dissanayake";
-   $userLevel = "Receptionist";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 
@@ -32,13 +30,6 @@
                            <option value="volvo">Active</option>
                            <option value="saab">Inactive</option>
                         </select>
-                     </div>
-                     <span class="error"> <?php echo " "; ?></span>
-                  </div>
-                  <div class="column">
-                     <div class="text-group">
-                        <label class="label" for="fName">Date</label>
-                        <input type="text" name="" id="fName" placeholder="Your first name here">
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
                   </div>

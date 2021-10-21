@@ -9,61 +9,59 @@
 
    <?php
    $title = "Leave Requests";
-   $username = "Sanjana Rajapaksha";
-   $userLevel = "Manager";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 
    <!--Content-->
    <div class="content">
 
-   <form class="form filter-options" action="">
-      <div class="options-container">
-         <div class="left-section mang">
-            <div class="row">
-               <div class="column">
-                  <div class="text-group">
-                     <label class="label" for="staffID">Staff ID</label>
-                     <input type="text" name="" id="staffID" placeholder="StaffID here">
+      <form class="form filter-options" action="">
+         <div class="options-container">
+            <div class="left-section mang">
+               <div class="row">
+                  <div class="column">
+                     <div class="text-group">
+                        <label class="label" for="staffID">Staff ID</label>
+                        <input type="text" name="" id="staffID" placeholder="StaffID here">
+                     </div>
+                     <!-- <span class="error"> <?php echo " "; ?></span> -->
                   </div>
-                  <!-- <span class="error"> <?php echo " "; ?></span> -->
-               </div>
-               <div class="column">
-                  <div class="text-group">
-                     <label class="label" for="leaaveDate">Leave Date</label>
-                     <input type="date" name="" id="leaaveDate" placeholder="--select--">
+                  <div class="column">
+                     <div class="text-group">
+                        <label class="label" for="leaaveDate">Leave Date</label>
+                        <input type="date" name="" id="leaaveDate" placeholder="--select--">
+                     </div>
+                     <!-- <span class="error"></span> -->
                   </div>
-                  <!-- <span class="error"></span> -->
-               </div>
-               <div class="column">
-                  <div class="text-group">
-                     <label class="label" for="respStaffID">Responded Staff ID</label>
-                     <input type="text" name="" id="respStaffID" placeholder="Responded StaffID here">
+                  <div class="column">
+                     <div class="text-group">
+                        <label class="label" for="respStaffID">Responded Staff ID</label>
+                        <input type="text" name="" id="respStaffID" placeholder="Responded StaffID here">
+                     </div>
+                     <!-- <span class="error"> <?php echo " "; ?></span> -->
                   </div>
-                  <!-- <span class="error"> <?php echo " "; ?></span> -->
-               </div>
 
-               <div class="column">
-                  <div class="dropdown-group">
-                     <label class="label" for="lName">Status</label>
-                     <select>
-                        <option value="" selected>Any</option>
-                        <option value="">Approved</option>
-                        <option value="">Pending</option>
-                        <option value="">Rejected</option>
-                     </select>
+                  <div class="column">
+                     <div class="dropdown-group">
+                        <label class="label" for="lName">Status</label>
+                        <select>
+                           <option value="" selected>Any</option>
+                           <option value="">Approved</option>
+                           <option value="">Pending</option>
+                           <option value="">Rejected</option>
+                        </select>
+                     </div>
+                     <!-- <span class="error"> <?php echo " "; ?></span> -->
                   </div>
-                  <!-- <span class="error"> <?php echo " "; ?></span> -->
                </div>
             </div>
+            <div class="right-section">
+               <a href="" class="btn btn-filled btn-black">Search</a>
+               <!-- <button class="btn btn-search">Search</button> -->
+            </div>
          </div>
-         <div class="right-section">
-            <a href="" class="btn btn-filled btn-black">Search</a>
-            <!-- <button class="btn btn-search">Search</button> -->
-         </div>
-      </div>
-   </form>
-   <div class="table-container">
+      </form>
+      <div class="table-container">
          <div class="table2 table2-responsive">
             <table class="table2-hover">
 
@@ -97,7 +95,7 @@
                      </td>
                      <td class="column-center-align">
                         <a href="#"><button type="button" class="table-btn black-action-btn">Approve</button></a>
-                     </td> 
+                     </td>
                   </tr>
 
                   <tr>
@@ -116,7 +114,7 @@
                      </td>
                      <td class="column-center-align">
                         <a href="#"><button type="button" class="table-btn gray-action-btn">Approve</button></a>
-                     </td> 
+                     </td>
                   </tr>
 
                   <tr>
@@ -135,14 +133,14 @@
                      </td>
                      <td class="column-center-align">
                         <a href="#"><button type="button" class="table-btn black-action-btn">Approve</button></a>
-                     </td> 
+                     </td>
                   </tr>
 
                </tbody>
             </table>
          </div>
       </div>
-      
+
    </div>
    <!--End Content-->
 

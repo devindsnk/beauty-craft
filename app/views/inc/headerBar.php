@@ -8,10 +8,11 @@
      <!--End header left section-->
 
      <!--Header profile section-->
+
      <div class="header-profile">
         <img class="header-profilepic" src="<?php echo URLROOT ?>/public/imgs/person1.jpg"></img>
         <span class="header-username"><?php echo $username ?></span>
-        <span class="header-userRole"><?php echo $userLevel ?></span>
+        <span class="header-userRole"><?php echo $userType ?></span>
         <div class="header-profile-arrow">
            <i class="fas fa-chevron-down"></i>
         </div>
