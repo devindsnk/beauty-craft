@@ -51,12 +51,12 @@
     height: 15%;
 }
 
-.item4,
-.item6 {
+.item4 {
     height: 18%;
 }
 
 .item6 {
+    height: 100px !important;
     margin-top: 10px;
 }
 
@@ -135,9 +135,9 @@ label.proflabel {
 }
 
 .fname:focus,
-.passwordinput:focus {
+.passwordinput:focus,
+.passwordinput1:focus {
     outline: none;
-
     border: 1px solid #6f6df4;
 }
 
