@@ -103,8 +103,8 @@
                   </td>
                   <td class="column-center-align">
                      <span>
-                        <a href="#"><i class="ci-view-more table-icon img-gap"></i></a>
-                        <?php if ($userLevel == "Receptionist") : ?>
+                        <a href="<?php echo URLROOT ?>/ReceptDashboard/reservationMoreInfo"><i class="ci-view-more table-icon img-gap"></i></a>
+                        <?php if ($userType == "Receptionist") : ?>
                            <a href="#"><i class="ci-edit table-icon img-gap"></i></a>
                            <a href="#"><i class="ci-trash table-icon img-gap"></i></a>
                         <?php endif; ?>

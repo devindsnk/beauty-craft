@@ -442,6 +442,73 @@
 
 /* End of Styles of daily view page */
 
+/* Styles of res More info page */
+
+.recept.resMoreInfo .innerContainer {
+   max-width: 630px;
+   margin: 30px auto;
+}
+
+.recept.resMoreInfo .contentBox {
+   margin: 10px 0 30px;
+   padding: 30px;
+}
+
+.recept.resMoreInfo .contentBox .row {
+   width: 100%;
+   display: grid;
+   grid-template-columns: 2fr 4fr;
+   margin-bottom: 10px;
+}
+
+.recept.resMoreInfo .contentBox .row-2 {
+   width: 100%;
+   display: grid;
+   grid-template-columns: 4fr 1fr;
+   margin-bottom: 10px;
+}
+
+.recept.resMoreInfo .contentBox .date {
+   display: block;
+   padding-bottom: 10px;
+}
+
+.recept.resMoreInfo .text-group label {
+   font-size: 14px;
+   font-weight: 400;
+   color: var(--theme-grey);
+}
+
+.recept.resMoreInfo .text-group p {
+   font-size: 14px;
+   font-weight: 500;
+}
+
+.recept.resMoreInfo .text-group.inner-row {
+   margin-bottom: 10px;
+}
+
+.recept.resMoreInfo .btn-container {
+   display: flex;
+   flex-direction: column;
+   justify-items: right;
+   max-width: 125px;
+}
+
+.recept.resMoreInfo .btn-container .btn {
+   padding: 4px;
+   margin-bottom: 12px;
+}
+
+.recept.resMoreInfo .btn-container .btn-last {
+   margin-bottom: 0 !important;
+}
+
+
+
+
+/* End of res More info page */
+
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
 /* ------------------------------------------------------ */

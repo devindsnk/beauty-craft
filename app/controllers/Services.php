@@ -145,20 +145,22 @@ class Services extends Controller
 
    public function getServiceProvidersByService($serviceID)
    {
+      validateSession([6]);
       $serviceProvidersList = $this->ServiceModel->getServiceProvidersByService($serviceID);
-
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($serviceProvidersList));
+
       // return json_encode($serviceProvidersList, JSON_NUMERIC_CHECK);
    }
 
    public function getServiceDuration($serviceID)
    {
+      validateSession([6]);
       $serviceDuration = $this->ServiceModel->getServiceDuration($serviceID);
 
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($serviceDuration));
-      return json_encode($serviceDuration, JSON_NUMERIC_CHECK);
+      // return json_encode($serviceDuration, JSON_NUMERIC_CHECK);
    }
 
    public function getServiceType()
