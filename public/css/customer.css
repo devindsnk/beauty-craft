@@ -51,12 +51,12 @@
     height: 15%;
 }
 
-.item4,
-.item6 {
+.item4{
     height: 18%;
 }
 
 .item6 {
+    height: 100px !important;
     margin-top: 10px;
 }
 
