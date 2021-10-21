@@ -184,11 +184,17 @@ Owner Overview Ends
 /*#####################################################################################################################################################
 Close Salon Starts
 ##################################################################################################################################################### */
-
+/* 
 .content.own.close-salon {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
+} */
+
+.content.own.close-salon .page-top-main-container,
+.content.own.close-salon .options-container,
+.content.own.close-salon .table2-responsive {
+    padding: 0 200px;
 }
 
 /* 
@@ -473,38 +479,46 @@ Customers Endss
  Rates Starts
 ##################################################################################################################################################### */
 
-.own.rates .detailLine{
-    padding-bottom:30px;
-}
-.own.rates .card3 .valueBox{
-    padding-bottom:30px;
+.own.rates .detailLine {
+    padding-bottom: 30px;
 }
 
-.own.rates input[type="text"]{
+.own.rates .card3 .valueBox {
+    padding-bottom: 30px;
+}
+
+.own.rates .rateDate .rateLabel {
+    font-weight: 500;
+}
+
+.own.rates input[type="text"] {
     background-color: var(--theme-lightgrey);
     border: none;
     border-radius: 6px;
     height: 25px;
     padding-left: 10px;
     width: 100px;
-} 
-.own.rates .card3 input[type="text"],
-.own.rates .card1 input[type="text"]{
-     width: 50px;
 }
-.own.rates .rateDate{
+
+.own.rates .card3 input[type="text"],
+.own.rates .card1 input[type="text"] {
+    width: 50px;
+}
+
+.own.rates .rateDate {
     padding: 60px;
 }
 
-.own.rates .ownAddstaffLineContainer{
+.own.rates .ownAddstaffLineContainer {
     padding: 1px 2px !important;
 }
 
-.own.rates .ratebutton .btn{
-   font-size: 14px;
-   padding: 4px 6px 4px 6px;
-   cursor: pointer;
+.own.rates .ratebutton .btn {
+    font-size: 14px;
+    padding: 4px 6px 4px 6px;
+    cursor: pointer;
 }
+
 .own.rates .cardContainer {
     padding: 60px;
     display: grid;
@@ -535,42 +549,84 @@ Customers Endss
     height: 300px;
 }
 
-.own.rates .deatailbox{
+.own.rates .deatailbox {
     padding: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-    'labelBox valueBox'
-    'ratebutton ratebutton';
+    grid-template-areas:
+        'labelBox valueBox'
+        'ratebutton ratebutton';
 
 }
 
 .own.rates .card3 .deatailbox,
-.own.rates .card2 .deatailbox{
+.own.rates .card2 .deatailbox {
     grid-template-columns: 2fr 1fr;
 }
 
-.own.rates .labelBox{
- grid-area: labelBox;
- text-align: left;
- /* margin: 10px; */
+.own.rates .labelBox {
+    grid-area: labelBox;
+    text-align: left;
 }
 
-.own.rates .valueBox{
+.own.rates .valueBox {
     grid-area: valueBox;
     justify-self: right;
-    /* margin: 10px; */
 }
 
-.own.rates .ratebutton{
-    grid-area:ratebutton;
+.own.rates .ratebutton {
+    grid-area: ratebutton;
     float: right;
     justify-self: right;
-    /* padding-top: 20px; */
 }
 
+@media screen and (max-width: 1465px) {
+    .own.rates .cardContainer {
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 20px;
+        grid-template-areas:
+            'card1 card2'
+            'card3 card3';
+        height: 500px;
 
+    }
 
+    .own.rates .card1 {
+        justify-self: right;
+    }
+
+    .own.rates .card2 {
+        justify-self: left;
+    }
+
+    .own.rates .card3 {
+        justify-self: center;
+    }
+
+}
+
+@media screen and (max-width: 1020px) {
+    .own.rates .cardContainer {
+        padding: 60px;
+        display: grid;
+        text-align: center;
+        grid-template-columns: 1fr;
+        grid-row-gap: 20px;
+        grid-template-areas:
+            'card1'
+            'card2'
+            'card3';
+        height: 500px;
+
+    }
+
+    .own.rates .card1,
+    .own.rates .card2,
+    .own.rates .card3 {
+        justify-self: center;
+    }
+
+}
 
 /* 
 #####################################################################################################################################################
@@ -646,7 +702,7 @@ Customers Endss
 /* ------------------------------------------------------------ */
 
 #ownResAddContainer {
-    width: 500px;
+    width: 700px !important;
     height: 300px;
 }
 
@@ -657,6 +713,7 @@ Customers Endss
 .own.resources .ownResAddDetails {
     text-align: left;
     padding-top: 40px;
+    height: 125px;
 }
 
 
@@ -679,6 +736,10 @@ Customers Endss
     height: 40px;
 }
 
+.own.resources .error {
+    font-size: 12px;
+    color: #DC3545;
+}
 
 .own.resources .ownResAddBtn1 {
     padding-left: 20px;
@@ -721,7 +782,7 @@ Customers Endss
 
 .own.resources .ownResAddDetail2 {
     grid-area: ownResAddDetail2;
-    justify-self: center;
+    /* justify-self: cente; */
 }
 
 
@@ -1220,7 +1281,7 @@ Customers Endss
 .ownViewStaffProfileGrid {
     display: grid;
     text-align: center;
-    grid-template-columns: 1fr ;
+    grid-template-columns: 1fr;
     grid-template-areas:
         'ownViewStaffProfileDetailsInfo';
 }
@@ -1406,7 +1467,7 @@ Customers Endss
 /*----------------------------------- Drop down styles ----------------------------------------------------------*/
 
 .ownAddstaffFormGroupStype .dropdownselectbox {
-    font-size: 16px;
+    font-size: 14px;
     padding: 10px 15px;
     background: white;
     border: 1px solid lightgray;

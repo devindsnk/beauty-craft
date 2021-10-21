@@ -9,18 +9,16 @@
 
    <?php
    $title = "Overall Analytics";
-   $username = "Ravindu Madhubhashaan";
-   $userLevel = "Owner";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 
-    <!--Content-->
+   <!--Content-->
 
-    <div class="content">
-    <?php require APPROOT . "/views/common/SubAnalyticsOverall.php" ?>
-    </div>
+   <div class="content">
+      <?php require APPROOT . "/views/common/SubAnalyticsOverall.php" ?>
+   </div>
 
-    <!--End Content-->
+   <!--End Content-->
 
 
    <?php require APPROOT . "/views/inc/footer.php" ?>

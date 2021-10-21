@@ -9,8 +9,6 @@
 
    <?php
    $title = "Customers";
-   $username = "Sanjana Rajapaksha";
-   $userLevel = "Manager";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 

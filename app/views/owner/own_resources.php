@@ -2,20 +2,19 @@
 
 <body class="layout-template-1">
     <?php
-   $selectedMain = "Resources";
-   require APPROOT . "/views/owner/own_sidenav.php"
-   ?>
+    $selectedMain = "Resources";
+    $selectedSub = "";
+    require APPROOT . "/views/owner/own_sidenav.php"
+    ?>
 
     <?php
-   $title = "Resources";
-   $username = "Ravindu Madhubhashana";
-   $userLevel = "Owner";
-   require APPROOT . "/views/inc/headerBar.php"
-   ?>
+    $title = "Resources";
+    require APPROOT . "/views/inc/headerBar.php"
+    ?>
 
     <!--Content-->
     <div class="content own resources">
-    <?php require APPROOT . "/views/common/resourcesTable.php" ?>
+        <?php require APPROOT . "/views/common/resourcesTable.php" ?>
     </div>
 
     <!--End Content-->

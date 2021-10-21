@@ -3,13 +3,12 @@
 <body class="layout-template-1">
    <?php
    $selectedMain = "Salaries";
+   $selectedSub = "";
    require APPROOT . "/views/owner/own_sidenav.php"
    ?>
 
    <?php
    $title = "Salaries";
-   $username = "Ravindu Madhubhashana";
-   $userLevel = "Owner";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 
@@ -255,7 +254,7 @@
    </div>
 
    <!--End Content-->
-   
+
    <!-- Validate the salary payment model -->
    <div class="modal-container ">
       <div class="modal-box">
@@ -274,25 +273,21 @@
    <!-- End of Validate the salary payment model -->
 
    <!-- Remove close date model -->
-<div class="modal-container salary-payment">>
-        <div class="modal-box">
-                <div class="confirm-model-head">
-                    <h1>Salary Payment</h1>
-                </div>
-                <div class="confirm-model-head">
-                    <p>Are you sure you want to mark this as paid?<br> This action cannot be undone after proceeding.</p>
-                </div>
-                <div class="confirm-model-head">
-                    <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
-                    <button class="btn normal ModalButton ModalBlueButton">proceed</button>
-                </div>
-        </div>
-    </div>
-<!-- End of Remove close date model -->
+   <div class="modal-container salary-payment">>
+      <div class="modal-box">
+         <div class="confirm-model-head">
+            <h1>Salary Payment</h1>
+         </div>
+         <div class="confirm-model-head">
+            <p>Are you sure you want to mark this as paid?<br> This action cannot be undone after proceeding.</p>
+         </div>
+         <div class="confirm-model-head">
+            <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
+            <button class="btn normal ModalButton ModalBlueButton">proceed</button>
+         </div>
+      </div>
+   </div>
+   <!-- End of Remove close date model -->
 
 
    <?php require APPROOT . "/views/inc/footer.php" ?>
-
-
-
-

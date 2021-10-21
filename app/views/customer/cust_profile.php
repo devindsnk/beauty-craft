@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/style.css" />
-     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/customer.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/style.css" />
+    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/customer.css" />
 </head>
+
 <body>
     <div class="content">
         <div class="sidebar">
@@ -16,16 +18,16 @@
                 <div class="list">
                     <div class="sidenavbtn1">
                         <a href="<?php echo URLROOT ?>/Customer/myReservation">
-                        <button class="sidenavbttn option">My Reservations</button>
-</a>
+                            <button class="sidenavbttn option">My Reservations</button>
+                        </a>
                     </div>
                     <div class="sidenavbtn2">
                         <button class="sidenavbttn selected">Profile</button>
                     </div>
                     <div class="sidenavbtn3"><a href="<?php echo URLROOT ?>/Customer/changePassword">
-                        <button class="sidenavbttn option">Change Password</button></a>
+                            <button class="sidenavbttn option">Change Password</button></a>
                     </div>
-                    
+
                 </div>
                 <div class="line"></div>
             </div>
@@ -34,7 +36,7 @@
         <div class="container">
             <div class="item item1">
                 <div class="profileimg">
-                <img src="<?php echo URLROOT ?>/public/imgs/custProfileUpdate.png">
+                    <img src="<?php echo URLROOT ?>/public/imgs/custProfileUpdate.png">
                 </div>
                 <div class="profbutton">
                     <button class="upload">Upload new picture</button>
@@ -59,10 +61,10 @@
                 <div class="profname">
                     <label class="proflabel">Gender </label> <br />
                     <div class="radiobutton">
-                            <input type="radio" id="gender" name="gender" value="Male" checked>
-                            <label for="male">Male</label>
-                            <input type="radio" id="css" name="gender" value="Female">
-                            <label for="female">Female</label>
+                          <input type="radio" id="gender" name="gender" value="Male" checked>
+                          <label for="male">Male</label>
+                          <input type="radio" id="css" name="gender" value="Female">
+                          <label for="female">Female</label>
                     </div>
                 </div>
 
@@ -70,15 +72,16 @@
             <div class="item item4">
                 <div class="profname">
                     <label class="proflabel">Mobile Number </label> <br />
-                    <div class="fname" >0717679714</div>
+                    <div class="fname">0717679714</div>
                 </div>
             </div>
             <div class="item item5">
                 <div class="savebutton">
-                <button>Save</button>
+                     <button class="btn btn-filled btn-theme-red btnSave">Save</button>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>

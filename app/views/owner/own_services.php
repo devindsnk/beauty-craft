@@ -3,13 +3,12 @@
 <body class="layout-template-1">
    <?php
    $selectedMain = "Services";
+   $selectedSub = "";
    require APPROOT . "/views/owner/own_sidenav.php"
    ?>
 
    <?php
    $title = "Services";
-   $username = "Ravindu Madhubhashana";
-   $userLevel = "Owner";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 
@@ -22,4 +21,4 @@
    <!--End Content-->
 
 
-   <?php require APPROOT . "/views/inc/footer.php" ?> 
+   <?php require APPROOT . "/views/inc/footer.php" ?>

@@ -14,6 +14,7 @@
   --bg-theme-blue: #DBEBFD;
   --theme-black: #252631;
   --theme-bgwhite: #F2F2F7;
+  --theme-bggrey: #8A8888;
   --theme-grey: #50515A;
   --theme-lightgrey: #EAEAEA;
   --error-red: #DA2346;
@@ -78,7 +79,7 @@ footer {
   justify-content: right;
 }
 
-footer p{
+footer p {
   font-size: 14px;
   text-align: right;
   color: var(--theme-grey);
@@ -135,7 +136,7 @@ footer p{
   min-width: 330px;
 }
 
-.content .filter-options .options-container label{
+.content .filter-options .options-container label {
   margin-top: 10px;
 }
 
@@ -180,7 +181,7 @@ footer p{
   text-align: center;
   font-weight: 500;
   font-size: 16px;
-  box-shadow:  rgba(67, 90, 111, 0.3) 0px 0px 1px, rgba(67, 90, 111, 0.47) 0px 2px 4px -2px;
+  box-shadow: rgba(67, 90, 111, 0.3) 0px 0px 1px, rgba(67, 90, 111, 0.47) 0px 2px 4px -2px;
 }
 
 .btn.btn-filled {
@@ -194,6 +195,10 @@ footer p{
 
 .btn.btn-filled.btn-theme-purple {
   background-color: var(--theme-purple);
+}
+
+.btn.btn-filled.btn-theme-red {
+  background-color: var(--theme-red);
 }
 
 .btn.btn-filled.btn-error-red {
@@ -227,7 +232,7 @@ footer p{
   background-color: var(--theme-blue);
 }
 
-.btn.btn-outlined.btn-theme-purple  {
+.btn.btn-outlined.btn-theme-purple {
   border: 2px solid var(--theme-purple);
   color: var(--theme-purple);
 }
@@ -260,9 +265,22 @@ footer p{
   color: var(--success-green);
 }
 
+.status-blue {
+  background-color: var(--bg-theme-blue);
+  color: var(--theme-blue);
+}
+
+.status-grey {
+  background-color: var(--theme-lightgrey);
+  color: var(--theme-grey);
+}
+
+.status-warning-yellow {
+  background-color: var(--bg-warning-yellow);
+  color: var(--warning-yellow);
+}
+
 /* End of Common styles for status boxes */
-
-
 
 
 
@@ -346,7 +364,15 @@ footer p{
   }
 }
 
+.font-numeric {
+  font-family: "Roboto", sans-serif;
+}
+
 /* end of error page styles */
+
+.hideElement {
+  visibility: hidden;
+}
 
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
@@ -358,22 +384,24 @@ footer p{
 
 
 /* resizing styles of resources content */
-.content.resources{
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-} 
+.content.resources .page-top-main-container,
+.content.resources .options-container,
+.content.resources .table2-responsive {
+  padding: 0 200px;
+}
 
 /* #################################################################### */
 
-.services.section .title{
+.services.section .title {
   color: var(--white);
 }
-.services.section .cardContainer{
+
+.services.section .cardContainer {
   width: 1000px;
   height: auto;
 }
-.services.section .cardHead{
+
+.services.section .cardHead {
   background-color: var(--theme-black);
   color: var(--white);
   border-radius: 6px 6px 0 0;
@@ -390,21 +418,21 @@ footer p{
   margin: 20px;
 }
 
-.services.section .cardDetails{
+.services.section .cardDetails {
   flex-direction: column;
   justify-content: space-evenly;
   align-content: center;
   padding: 20px;
-  
+
 }
 
 
-.services.section .cardContainer{
+.services.section .cardContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr; 
+  grid-template-columns: 1fr 1fr;
   grid-gap: 15px;
   grid-template-areas:
-  'servsecCard1 servsecCard2 '
+    'servsecCard1 servsecCard2 '
 }
 
 .services.section .card1 {
@@ -422,24 +450,28 @@ footer p{
   border-radius: 6px;
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
 }
+
 .services.section .CardDetailsValue,
-.services.section .CardDetailsLabel{
+.services.section .CardDetailsLabel {
   font-weight: 500;
 }
-.services.section .Llength{
+
+.services.section .Llength {
   width: 400px;
 }
-.services.section .CardDetailsValue{
+
+.services.section .CardDetailsValue {
   float: right;
-  color:var(--theme-red);  
+  color: var(--theme-red);
 }
+
 /* ##################################################################### */
 
 
 
 
 
-.services.section{
+.services.section {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: stretch;
@@ -451,6 +483,7 @@ footer p{
   background-size: cover;
   position: relative;
 }
+
 .services.section .mySlides {
   display: none;
 }
@@ -539,21 +572,21 @@ footer p{
 
 @-webkit-keyframes fade {
   from {
-     opacity: .4
+    opacity: .4
   }
 
   to {
-     opacity: 1
+    opacity: 1
   }
 }
 
 @keyframes fade {
   from {
-     opacity: .4
+    opacity: .4
   }
 
   to {
-     opacity: 1
+    opacity: 1
   }
 }
 
@@ -562,9 +595,10 @@ footer p{
 
   .prev,
   .next {
-     font-size: 14px
+    font-size: 14px
   }
 }
+
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY RAVINDU ---------------*/
 /* ------------------------------------------------------ */

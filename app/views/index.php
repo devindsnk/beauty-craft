@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -19,6 +15,7 @@ session_start();
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/icons.css">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/homePageFooter.css"/>
 
+<<<<<<< HEAD
    <script>
       var slideIndex = 1;
       showSlides(slideIndex);
@@ -63,9 +60,11 @@ session_start();
       });
    </script>
 
+=======
+>>>>>>> b8a728cf9203a764c5cb2296cf8dd2bc7192d24c
 </head>
 
-<body class="landingPage">
+<body class="landingPage customerPages">
    <header>
       <nav>
          <div class="logo">
@@ -86,17 +85,17 @@ session_start();
 
          <div class="buttons">
             <?php if (isset($_SESSION['userMobileNo'])) : ?>
-            <div class="profileIcon">
-               <img src="<?php echo URLROOT ?>/public/imgs/person4.jpg" alt="">
-            </div>
+               <div class="profileIcon">
+                  <img src="<?php echo URLROOT ?>/public/imgs/person4.jpg" alt="">
+               </div>
 
             <?php else : ?>
-            <a href="<?php echo URLROOT ?>/user/signin" class="btn-landing btnLogin">
-               <span>Sign In</span>
-            </a>
-            <a href="<?php echo URLROOT ?>/customer/register" class="btn-landing btnRegister">
-               <span>Register</span>
-            </a>
+               <a href="<?php echo URLROOT ?>/user/signin" class="btn-landing btnLogin">
+                  <span>Sign In</span>
+               </a>
+               <a href="<?php echo URLROOT ?>/customer/register" class="btn-landing btnRegister">
+                  <span>Register</span>
+               </a>
             <?php endif; ?>
 
             <i class="ci ci-menu-white menuBtn"></i>
@@ -114,17 +113,17 @@ session_start();
       <div class="profile_menu">
          <ul>
             <li>
-               <?php if ($_SESSION['userType'] == 'customer') : ?>
-               <i class="far fa-user"></i>
-               <a href="#">My Reservations</a>
+               <?php if ($_SESSION['userType'] == 6) : ?>
+                  <i class="far fa-user"></i>
+                  <a href="<?php echo URLROOT ?>/custDashboard/myReservations">My Reservations</a>
                <?php else : ?>
-               <i class="far fa-user"></i>
-               <a href="<?php echo URLROOT ?>/user/provideIntialView">Dashboard</a>
+                  <i class="far fa-user"></i>
+                  <a href="<?php echo URLROOT ?>/user/provideIntialView">Dashboard</a>
                <?php endif; ?>
             </li>
             <li>
                <i class="far fa-cog"></i>
-               <a href="#">Account Settings</a>
+               <a href="<?php echo URLROOT ?>/custDashboard/profileSettings">Profile Settings</a>
             </li>
             <li>
                <i class="far fa-sign-out"></i>
@@ -669,21 +668,33 @@ session_start();
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" class="pro-img" alt="">
 
+<<<<<<< HEAD
                <p class="pro-name">Devin Dissanayake</p>
+=======
+               <p class="pro-name">Ravindu Madhubhashana</p>
+>>>>>>> b8a728cf9203a764c5cb2296cf8dd2bc7192d24c
             </div>
          </section>
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person3.jpg" class="pro-img" alt="">
 
+<<<<<<< HEAD
                <p class="pro-name">Devin Dissanayake</p>
+=======
+               <p class="pro-name">Ruwanthi Munasinghe</p>
+>>>>>>> b8a728cf9203a764c5cb2296cf8dd2bc7192d24c
             </div>
          </section>
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" class="pro-img" alt="">
 
+<<<<<<< HEAD
                <p class="pro-name">Devin Dissanayake</p>
+=======
+               <p class="pro-name">Sanjana Rajapaksha</p>
+>>>>>>> b8a728cf9203a764c5cb2296cf8dd2bc7192d24c
             </div>
          </section>
          <section>
@@ -697,7 +708,11 @@ session_start();
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person3.jpg" class="pro-img" alt="">
 
+<<<<<<< HEAD
                <p class="pro-name">Devin Dissanayake</p>
+=======
+               <p class="pro-name">Sumudu Perera</p>
+>>>>>>> b8a728cf9203a764c5cb2296cf8dd2bc7192d24c
             </div>
          </section>
       </div>
@@ -745,15 +760,22 @@ session_start();
 
    </div>
    <div class="testimonials section WTS-section">
-      <span class="title">WHAT THEY SAY</span>
+      <div class="WTS-section-head">
+         <span class="title">WHAT THEY SAY</span>
+      </div>
 
       <div class="slideshow-container">
 
          <div class="mySlides">
+<<<<<<< HEAD
             <q>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laudantium voluptas animi amet beatae
                aliquid
                praesentium quisquam repellat consequatur rem, quas, voluptatum nisi ipsa, earum nihil sequi corrupti
                commodi
+=======
+            <q>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laudantium voluptas animi amet beatae aliquid
+               praesentium quisquam repellat consequatur rem, quas, voluptatum nisi ipsa, earum nihil sequi corrupti commodi
+>>>>>>> b8a728cf9203a764c5cb2296cf8dd2bc7192d24c
                alias?</q>
             <div class="img-div">
                <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" alt="">
@@ -762,6 +784,7 @@ session_start();
          </div>
 
          <div class="mySlides">
+<<<<<<< HEAD
             <q>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ducimus labore a earum unde! Dolor
                asperiores
                rerum deleniti architecto, ab fugiat delectus veniam aut laboriosam nostrum, autem natus dolores,
@@ -770,6 +793,12 @@ session_start();
                labore
                quasi quam inventore cum nesciunt excepturi eligendi nostrum incidunt quibusdam culpa ab delectus
                beatae.</q>
+=======
+            <q>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ducimus labore a earum unde! Dolor asperiores
+               rerum deleniti architecto, ab fugiat delectus veniam aut laboriosam nostrum, autem natus dolores, cupiditate quam.
+               Sed a voluptatibus doloribus iste exercitationem vel doloremque cumque reprehenderit officia, repellendus labore
+               quasi quam inventore cum nesciunt excepturi eligendi nostrum incidunt quibusdam culpa ab delectus beatae.</q>
+>>>>>>> b8a728cf9203a764c5cb2296cf8dd2bc7192d24c
             <div class="img-div">
                <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" alt="">
                <p class="author">- Sanjana Rajapaksha</p>
@@ -777,26 +806,32 @@ session_start();
          </div>
 
          <div class="mySlides">
+<<<<<<< HEAD
             <q>Voluptatibus, excepturi consequatur! Rerum, ab sapiente magni vel voluptatum eum, nulla neque accusantium
                placeat
                amet quam blanditiis. Officiis exercitationem inventore molestias quam, magni, natus necessitatibus
                minima,
                laboriosam eveniet et similique. Consequatur tenetur sint dicta alias. Omnis amet dolor quae sint quia
                similique.</q>
+=======
+            <q>Voluptatibus, excepturi consequatur! Rerum, ab sapiente magni vel voluptatum eum, nulla neque accusantium placeat
+               amet quam blanditiis. Officiis exercitationem inventore molestias quam, magni, natus necessitatibus minima,
+               laboriosam eveniet et similique. Consequatur tenetur sint dicta alias. Omnis amet dolor quae sint quia similique.</q>
+>>>>>>> b8a728cf9203a764c5cb2296cf8dd2bc7192d24c
             <div class="img-div">
                <img src="<?php echo URLROOT ?>/public/imgs/person3.jpg" alt="">
                <p class="author">- Devin Dissanayake</p>
             </div>
          </div>
 
-         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-         <a class="next" onclick="plusSlides(1)">&#10095;</a>
+         <a class="prev" onclick="plusSlides2(-1)">&#10094;</a>
+         <a class="next" onclick="plusSlides2(1)">&#10095;</a>
       </div>
 
       <div class="dot-container">
-         <span class="dot" onclick="currentSlide(1)"></span>
-         <span class="dot" onclick="currentSlide(2)"></span>
-         <span class="dot" onclick="currentSlide(3)"></span>
+         <span class="dot" onclick="currentSlide2(1)"></span>
+         <span class="dot" onclick="currentSlide2(2)"></span>
+         <span class="dot" onclick="currentSlide2(3)"></span>
       </div>
    </div>
 

@@ -1,4 +1,4 @@
-<?php if ($userLevel == "Owner" || $userLevel == "Manager") : ?>
+<?php if ($userType == "Owner" || $userType == "Manager") : ?>
    <div class="page-top-main-container">
       <a href="<?php echo URLROOT ?>/services/addNewService" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
    </div>
@@ -66,7 +66,7 @@
          </thead>
 
          <tbody>
-            <?php foreach($data['services'] as $sDetails) : ?>
+            <?php foreach ($data['services'] as $sDetails) : ?>
 
                <tr>
                   <td data-lable="Servie ID" data-lable="" class="column-center-align"><?php echo $sDetails->serviceID; ?></td>
@@ -75,30 +75,30 @@
 
                   <td data-lable="Type" class="column-center-align"><?php echo $sDetails->type; ?></td>
 
-                     <?php $i =$sDetails->totalDuration; ?>
-                     <?php if ($i == 60 || $i == 120):?>
-                        <td data-lable="Total Duration" class="column-center-align"><?php echo ($i/60) ; ?> h</td>
-                        
-                     <?php elseif ($i > 60 && $i < 120 ): ?>
-                        <td data-lable="Total Duration" class="column-center-align"><?php echo ($i/$i) ; ?> h <?php echo ($i %  60) ; ?> mins</td>
+                  <?php $i = $sDetails->totalDuration; ?>
+                  <?php if ($i == 60 || $i == 120) : ?>
+                     <td data-lable="Total Duration" class="column-center-align"><?php echo ($i / 60); ?> h</td>
 
-                     <?php else :?>
-                        <td data-lable="Total Duration" class="column-center-align"><?php echo $i; ?> mins</td>
-                        
-                     <?php endif; ?>
+                  <?php elseif ($i > 60 && $i < 120) : ?>
+                     <td data-lable="Total Duration" class="column-center-align"><?php echo ($i / $i); ?> h <?php echo ($i %  60); ?> mins</td>
+
+                  <?php else : ?>
+                     <td data-lable="Total Duration" class="column-center-align"><?php echo $i; ?> mins</td>
+
+                  <?php endif; ?>
 
                   <td data-lable="Price" class="column-right-align"><?php echo number_format($sDetails->price, 2, '.', ' '); ?> LKR</td>
 
                   <td data-lable="Status" class="column-center-align">
-                     <?php if ($sDetails->status == 0):?>
+                     <?php if ($sDetails->status == 0) : ?>
                         <button type="button" class="table-btn red-status-btn text-uppercase">
                            Removed
                         </button>
-                     <?php elseif ($sDetails->status == 1): ?>
+                     <?php elseif ($sDetails->status == 1) : ?>
                         <button type="button" class="table-btn green-status-btn text-uppercase">
                            Active
                         </button>
-                     <?php elseif ($sDetails->status == 2): ?>
+                     <?php elseif ($sDetails->status == 2) : ?>
                         <button type="button" class="table-btn yellow-status-btn text-uppercase">
                            Disabled
                         </button>
@@ -148,4 +148,3 @@ Active = 1
 Hold = 2
 
 -->
-

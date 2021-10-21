@@ -10,8 +10,6 @@
 
     <?php
     $title = "Overview";
-    $username = "Ruwanthi Munasinghe";
-    $userLevel = "Service Provider";
     require APPROOT . "/views/inc/headerBar.php"
     ?>
 
@@ -194,23 +192,23 @@
 
                     <div class="modaldetails">
                         <div class="modaldetails-name">
-                            <span class="service">Hair Color-short</span><br>
-                            <span class="name">Ruwanthi Munasinghe</span>
+                            <span class="service">Meckup</span><br>
+                            <span class="name">Sanjana Rajapaksha</span>
                         </div>
                         <div class="modaldetails-status">
-                            <div class="confirm-status">
+                            <div class="confirm-status green">
                                 <span>Confirmed</span>
                             </div>
                         </div>
                     </div>
                     <div class="modaldatetime">
                         <div class="modaldatetime-time">
-                            <span>10.45 - 11.00</span><br>
+                            <span>8.30 - 9.00</span><br>
                             <span class="duration">25 mins</span>
                         </div>
                         <div class="modaldatetime-date">
-                            <span>JUNE 10</span><br>
-                            <span>2020</span>
+                            <span>OCTOBER 21</span><br>
+                            <span>2021</span>
                         </div>
                     </div>
 
@@ -219,8 +217,7 @@
                             <span>Reservation Note</span>
                         </div>
                         <div class="Reservationnote-note">
-                            <span>Lorem ipsum dolor sit, si dolorem? Harum totaarum possimus sequi sint nesciunt,
-                                maior</span>
+                            <span>simple makeup for birthday party.</span>
 
                         </div>
                     </div>
@@ -229,7 +226,7 @@
                             <span>Customer Note</span>
                         </div>
                         <div class="Reservationnote-note editable" contenteditable="true">
-                            <span>This text can be edited by the user.</span>
+                            <span>Cosmetic product No. s12II can provoke allergies.</span>
                         </div>
 
                     </div>
@@ -240,7 +237,7 @@
                         <div class="more-details-modalbtnsection">
                             <button class="btn btnClose normal">Close</button>
 
-                            <button class="btnOpen btnResRecall <?php if($title == "Overview") echo "hide"?>" type="button">Recall</button>
+                            <button class="btnOpen btnResRecall <?php if ($title == "Overview") echo "hide" ?>" type="button">Recall</button>
 
                         </div>
                     </div>

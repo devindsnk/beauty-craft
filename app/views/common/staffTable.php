@@ -1,7 +1,7 @@
-<?php if ($userLevel == "Owner") : ?>
-<div class="page-top-main-container">
-   <a href="<?php echo URLROOT ?>/staff/addStaff" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
-</div>
+<?php if ($userType == "Owner") : ?>
+   <div class="page-top-main-container">
+      <a href="<?php echo URLROOT ?>/staff/addStaff" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
+   </div>
 <?php endif; ?>
 
 <form class="form filter-options" action="">
@@ -67,47 +67,57 @@
 
          <tbody>
 
-            <?php foreach($data['staff'] as $staffD) : ?>
-            <tr>
-               <td data-lable="Staff ID" class="column-center-align"><?php echo $staffD->staffID; ?></td>
-               <td data-lable="Name" class="column-center-align"><?php echo $staffD->fName; ?>
-                  <?php echo $staffD->lName; ?></td>
-               <td data-lable="Staff Type" class="column-center-align">
-               <?php if($staffD->staffType == 3){ 
-                        echo 'Manager';}
-                     elseif($staffD->staffType == 4){
-                        echo 'Receptionist';}
-                     elseif($staffD->staffType == 5){
-                        echo 'Service Provider';}?>
-               </td>
-               <td data-lable="Contact No" class="column-center-align"><?php echo $staffD->mobileNo; ?></td>
-               <td data-lable="Gender" class="column-center-align">
-                  <?php if($staffD->gender == 'M'){ 
-                           echo 'Male';}
-                        elseif($staffD->gender == 'F'){
-                           echo 'Female';}?>
-               </td>
-               <td data-lable="Joined Date" class="column-center-align"><?php echo $staffD->joinedDate; ?></td>
-               <td data-lable="Status" class="column-center-align">
-                  <!-- Staff memeber states >> Removed = 0 Active =1 Disabled =2 -->
-                  <?php if($staffD->status==0) :?>
-                  <button type="button" class="table-btn red-status-btn text-uppercase "> Removed </button>
-                  <?php elseif ($staffD->status == 1) : ?>
-                  <button type="button" class="table-btn green-status-btn text-uppercase"> Active </button>
-                  <?php else: ?>
-                  <button type="button" class="table-btn yellow-status-btn text-uppercase "> Disabled </button>
-                  <?php endif; ?>
-               </td>
-               <td class="column-center-align"> 
-                  <span> 
-                     <a href="<?php echo URLROOT ?>/staff/viewStaff/<?php echo $staffD->staffID ?>"><i class="ci ci-view-more table-icon img-gap"></i></a>
-                     <?php if ($userLevel == "Owner") : ?>
-                        <a href="<?php echo URLROOT ?>/staff/updateStaff"><i class="ci ci-edit table-icon img-gap"></i></a>
-                        <a href="#"><i class="ci ci-trash table-icon btnRemoveStaff img-gap"></i></a>
+            <?php foreach ($data['staff'] as $staffD) : ?>
+               <tr>
+                  <td data-lable="Staff ID" class="column-center-align"><?php echo $staffD->staffID; ?></td>
+                  <td data-lable="Name" class="column-left-align"><?php echo $staffD->fName; ?>
+                     <?php echo $staffD->lName; ?></td>
+                  <td data-lable="Staff Type" class="column-center-align">
+                     <?php if ($staffD->staffType == 3)
+                     {
+                        echo 'Manager';
+                     }
+                     elseif ($staffD->staffType == 4)
+                     {
+                        echo 'Receptionist';
+                     }
+                     elseif ($staffD->staffType == 5)
+                     {
+                        echo 'Service Provider';
+                     } ?>
+                  </td>
+                  <td data-lable="Contact No" class="column-center-align"><?php echo $staffD->mobileNo; ?></td>
+                  <td data-lable="Gender" class="column-center-align">
+                     <?php if ($staffD->gender == 'M')
+                     {
+                        echo 'Male';
+                     }
+                     elseif ($staffD->gender == 'F')
+                     {
+                        echo 'Female';
+                     } ?>
+                  </td>
+                  <td data-lable="Joined Date" class="column-center-align"><?php echo $staffD->joinedDate; ?></td>
+                  <td data-lable="Status" class="column-center-align">
+                     <!-- Staff memeber states >> Removed = 0 Active =1 Disabled =2 -->
+                     <?php if ($staffD->status == 0) : ?>
+                        <button type="button" class="table-btn red-status-btn text-uppercase "> Removed </button>
+                     <?php elseif ($staffD->status == 1) : ?>
+                        <button type="button" class="table-btn green-status-btn text-uppercase"> Active </button>
+                     <?php elseif ($staffD->status == 2) : ?>
+                        <button type="button" class="table-btn yellow-status-btn text-uppercase "> Disabled </button>
                      <?php endif; ?>
-                  </span>
-               </td>
-            </tr>
+                  </td>
+                  <td class="column-center-align">
+                     <span>
+                        <a href="<?php echo URLROOT ?>/staff/viewStaff/<?php echo $staffD->staffID ?>"><i class="ci ci-view-more table-icon img-gap"></i></a>
+                        <?php if ($userType == "Owner") : ?>
+                           <a href="<?php echo URLROOT ?>/staff/updateStaff"><i class="ci ci-edit table-icon img-gap"></i></a>
+                           <a href="#"><i class="ci ci-trash table-icon btnRemoveStaff img-gap"></i></a>
+                        <?php endif; ?>
+                     </span>
+                  </td>
+               </tr>
             <?php endforeach; ?>
 
 

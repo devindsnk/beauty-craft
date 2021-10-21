@@ -5,6 +5,7 @@ class ReceptDashboard extends Controller
    {
       // $this->employeeModel = $this->model('Employee');
       $this->serviceModel = $this->model('ServiceModel');
+      $this->reservationModel = $this->model('ReservationModel');
       $this->staffModel = $this->model('StaffModel');
    }
    public function home()
@@ -17,7 +18,8 @@ class ReceptDashboard extends Controller
    }
    public function reservations()
    {
-      $this->view('receptionist/recept_reservations');
+      $reservationsList = $this->reservationModel->getAllReservations();
+      $this->view('receptionist/recept_reservations', $reservationsList);
    }
    public function newReservation()
    {

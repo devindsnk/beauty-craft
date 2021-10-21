@@ -4,16 +4,14 @@
 <body class="layout-template-1">
 
     <?php
-   $selectedMain = "Reservations";
-   require APPROOT . "/views/serviceProvider/serProv_sideNav.php"
-   ?>
+    $selectedMain = "Reservations";
+    require APPROOT . "/views/serviceProvider/serProv_sideNav.php"
+    ?>
 
     <?php
-   $title = "Reservations";
-   $username = "Ruwanthi Munasinghe";
-   $userLevel = "Service Provider";
-   require APPROOT . "/views/inc/headerBar.php"
-   ?>
+    $title = "Reservations";
+    require APPROOT . "/views/inc/headerBar.php"
+    ?>
 
 
 
@@ -26,9 +24,9 @@
                 <div class="mainsection">
 
                     <form>
-                        
+
                         <a href="#" class="previous round">&#8249;</a>
-                        <input class="selecteddate" type="date" id="date_input" value="2021-10-21"/>
+                        <input class="selecteddate" type="date" id="date_input" value="2021-10-21" />
                         <a href="#" class="next round">&#8250;</a>
                         <!-- <input type="button" value="Get Weekday" onclick="day_of_week()" /> -->
                     </form>
@@ -87,86 +85,86 @@
                             <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
                         </div>
                     </div>
-                     <div class="sub-container2-card">
-                            <!--sub-container2-card-timetype-->
-                            <div class="sub-container2-card-ts">
-                                <span class="sub-container2-card-time"> 12.30 - 1.00 </span>
-                                <span class="sub-container2-card-service">Hair extension</span>
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                            <div class="sub-container2-card-name">
-                                <span class="sub-container2-card-cstname">Customer</span>
-                                <span class="name">Sarani Chethana</span>
-                            </div>
-                            <div class="confbtn">
+                    <div class="sub-container2-card">
+                        <!--sub-container2-card-timetype-->
+                        <div class="sub-container2-card-ts">
+                            <span class="sub-container2-card-time"> 12.30 - 1.00 </span>
+                            <span class="sub-container2-card-service">Hair extension</span>
+                        </div>
+                        <!--sub-container2-card-timetype-->
+                        <div class="sub-container2-card-name">
+                            <span class="sub-container2-card-cstname">Customer</span>
+                            <span class="name">Sarani Chethana</span>
+                        </div>
+                        <div class="confbtn">
                             <div class="confirm-status green">
                                 <span>Confirmed</span>
                             </div>
-                            </div>
-                            <div class="sub-container2-card-link">
-                                <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
-                            </div>
                         </div>
-                        <div class="sub-container2-card">
-                            <!--sub-container2-card-timetype-->
-                            <div class="sub-container2-card-ts">
-                                <span class="sub-container2-card-time"> 1.15 - 1.45 </span>
-                                <span class="sub-container2-card-service">Ladies hair cut</span>
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                            <div class="sub-container2-card-name">
-                                <span class="sub-container2-card-cstname">Customer</span>
-                                <span class="name">Neluni Apsara</span>
-                            </div>
-                            <div class="confbtn">
+                        <div class="sub-container2-card-link">
+                            <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
+                        </div>
+                    </div>
+                    <div class="sub-container2-card">
+                        <!--sub-container2-card-timetype-->
+                        <div class="sub-container2-card-ts">
+                            <span class="sub-container2-card-time"> 1.15 - 1.45 </span>
+                            <span class="sub-container2-card-service">Ladies hair cut</span>
+                        </div>
+                        <!--sub-container2-card-timetype-->
+                        <div class="sub-container2-card-name">
+                            <span class="sub-container2-card-cstname">Customer</span>
+                            <span class="name">Neluni Apsara</span>
+                        </div>
+                        <div class="confbtn">
                             <div class="confirm-status blue">
                                 <span>Not Confirmed</span>
                             </div>
-                            </div>
-                            <div class="sub-container2-card-link">
-                                <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
-                            </div>
                         </div>
-                        <div class="sub-container2-card">
-                            <!--sub-container2-card-timetype-->
-                            <div class="sub-container2-card-ts">
-                                <span class="sub-container2-card-time"> 2.30 - 3.00 </span>
-                                <span class="sub-container2-card-service">Ladies hair cut</span>
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                            <div class="sub-container2-card-name">
-                                <span class="sub-container2-card-cstname">Customer</span>
-                                <span class="name">Kasuni Silva</span>
-                            </div>
-                            <div class="confbtn">
+                        <div class="sub-container2-card-link">
+                            <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
+                        </div>
+                    </div>
+                    <div class="sub-container2-card">
+                        <!--sub-container2-card-timetype-->
+                        <div class="sub-container2-card-ts">
+                            <span class="sub-container2-card-time"> 2.30 - 3.00 </span>
+                            <span class="sub-container2-card-service">Ladies hair cut</span>
+                        </div>
+                        <!--sub-container2-card-timetype-->
+                        <div class="sub-container2-card-name">
+                            <span class="sub-container2-card-cstname">Customer</span>
+                            <span class="name">Kasuni Silva</span>
+                        </div>
+                        <div class="confbtn">
                             <div class="confirm-status green">
                                 <span>Confirmed</span>
                             </div>
-                            </div>
-                            <div class="sub-container2-card-link">
-                                <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
-                            </div>
                         </div>
-                        <div class="sub-container2-card">
-                            <!--sub-container2-card-timetype-->
-                            <div class="sub-container2-card-ts">
-                                <span class="sub-container2-card-time"> 3.30 - 4.00 </span>
-                                <span class="sub-container2-card-service">Ladies hair cut</span>
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                            <div class="sub-container2-card-name">
-                                <span class="sub-container2-card-cstname">Customer</span>
-                                <span class="name">Amasha Munasinghe</span>
-                            </div>
-                            <div class="confbtn">
+                        <div class="sub-container2-card-link">
+                            <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
+                        </div>
+                    </div>
+                    <div class="sub-container2-card">
+                        <!--sub-container2-card-timetype-->
+                        <div class="sub-container2-card-ts">
+                            <span class="sub-container2-card-time"> 3.30 - 4.00 </span>
+                            <span class="sub-container2-card-service">Ladies hair cut</span>
+                        </div>
+                        <!--sub-container2-card-timetype-->
+                        <div class="sub-container2-card-name">
+                            <span class="sub-container2-card-cstname">Customer</span>
+                            <span class="name">Amasha Munasinghe</span>
+                        </div>
+                        <div class="confbtn">
                             <div class="confirm-status green">
                                 <span>Confirmed</span>
                             </div>
-                            </div>
-                            <div class="sub-container2-card-link">
-                                <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
-                            </div>
                         </div>
+                        <div class="sub-container2-card-link">
+                            <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
+                        </div>
+                    </div>
 
                     <!-- end web view -->
                 </div>
@@ -186,23 +184,23 @@
 
                     <div class="modaldetails">
                         <div class="modaldetails-name">
-                            <span class="service">Hair Color-short</span><br>
-                            <span class="name">Ruwanthi Munasinghe</span>
+                            <span class="service">Meckup</span><br>
+                            <span class="name">Sanjana Rajapaksha</span>
                         </div>
                         <div class="modaldetails-status">
-                            <div class="confirm-status">
+                            <div class="confirm-status green">
                                 <span>Confirmed</span>
                             </div>
                         </div>
                     </div>
                     <div class="modaldatetime">
                         <div class="modaldatetime-time">
-                            <span>10.45 - 11.00</span><br>
+                            <span>8.30 - 9.00</span><br>
                             <span class="duration">25 mins</span>
                         </div>
                         <div class="modaldatetime-date">
-                            <span>JUNE 10</span><br>
-                            <span>2020</span>
+                            <span>OCTOBER 21</span><br>
+                            <span>2021</span>
                         </div>
                     </div>
 
@@ -211,8 +209,7 @@
                             <span>Reservation Note</span>
                         </div>
                         <div class="Reservationnote-note">
-                            <span>Lorem ipsum dolor sit, si dolorem? Harum totaarum possimus sequi sint nesciunt,
-                                maior</span>
+                            <span>simple makeup for birthday party.</span>
 
                         </div>
                     </div>
@@ -221,7 +218,7 @@
                             <span>Customer Note</span>
                         </div>
                         <div class="Reservationnote-note editable" contenteditable="true">
-                            <span>This text can be edited by the user.</span>
+                            <span>Cosmetic product No. s12II can provoke allergies.</span>
                         </div>
 
                     </div>
@@ -246,20 +243,20 @@
                 <h1>Recall request</h1>
                 <div class="modaldetails">
                     <div class="modaldetails-name">
-                        <span class="service">Hair Color-short</span><br>
-                        <span class="name">Ruwanthi Munasinghe</span>
+                        <span class="service">Meckup</span><br>
+                        <span class="name">Sanjana Rajapaksha</span>
                     </div>
 
                 </div>
                 <div class="modelcontent">
                     <div class="modaldatetime">
                         <div class="modaldatetime-time">
-                            <span>10.45 - 11.00</span><br>
+                            <span>8.30 - 9.00</span><br>
 
                         </div>
                         <div class="modaldatetime-date">
-                            <span>JUNE 10</span><br>
-                            <span>2020</span>
+                            <span>OCTOBER 21</span><br>
+                            <span>2021</span>
                         </div>
                     </div>
 

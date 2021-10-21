@@ -3,18 +3,34 @@
 .content.admin {
     /* width: 100vw;
     min-height: 100vh; */
-    height: fit-content;
+    height: calc(100vh - 108 px) !important;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: scroll;
+   overflow:scroll;
+}
+
+.formadmin{
+    height: 800px;
+    width: 100%;
+    margin: auto;
+    overflow:scroll;
+    padding-top: 50px;
+
+}
+.content.admin .ownAddstaffBasicinfoFilesubBtn{
+display: none;
+}
+.content.admin .ownAddstaffContainer .error{
+    display: none;
 }
 
 .content.admin .ownAddstaffContainer.contentBox,
 .reg-container.form-container.contentBox {
     margin-top: 50px;
-    height: 700px;
-    overflow: scroll;
+    margin: auto;
+
+    
 }
 
 .admin .reg-container {
@@ -161,12 +177,13 @@
 }
 
 .form-container .btn {
-    height: 50px;
-    width: 150px;
+    width: 160px;
+    padding-top: 7px;
+    padding-bottom: 7px;
     text-align: center;
     border-radius: 6px;
     border: none;
-    background-color: var(--theme-blue);
+    background-color: var(--theme-purple);
     color: white;
     font-size: 16px;
 }
@@ -233,4 +250,10 @@ label.ownAddstaffBasicinfoImagewrapper {
     height: 160px;
     width: 160px;
     margin-right: 20px;
+}
+.btn.btn-filled.btn-theme-purple.addstaffadmin{
+    width: 160px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    
 }
