@@ -17,6 +17,7 @@ session_start();
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/style.css">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/home.css">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/icons.css">
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/homePageFooter.css"/>
 
    <script>
       var slideIndex = 1;
