@@ -17,6 +17,7 @@ session_start();
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/style.css">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/home.css">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/icons.css">
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/whychoosesUs.css"/>
 
 </head>
 
@@ -89,23 +90,44 @@ session_start();
       </div>
    </header>
 
-   <div class="features section">
+   <div class="features section WCH ">
       <span class="title">WHY CHOOSE US</span>
       <div class="cardContainer">
-         <div class="card1">
-            <h3>Feature Name</h3>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum quibusdam sunt libero illo, distinctio,
-               corrupti commodi animi obcaecati sapiente aperiam ad iure sint voluptates, provident maxime minima
-               nostrum similique a!</p>
+
+         <div class="card1 contentBox">
+            <div class="image">
+            <img src="<?php echo URLROOT ?>/public/icons/icons8-feedback-117.png" alt="">
+            </div>
+            <h3>Keeping clients happy</h3>
+            <p> We believe all clients should get a better service from Us, so we only use top quality products at the basin area, and at the styling stations. Our salon only uses top quality PROFESSIONAL PRODUCTS, to ensure you get the right result every time.</p>
          </div>
 
-         <div class="card2">
+         <div class="card2 contentBox">
+         <div class="image">
+            <img src="<?php echo URLROOT ?>/public/icons/icons8-man-combing-hair-100.png" alt="">
+            </div>
+            <h3>Pioneers In industry</h3>
+            <p>As a pioneer in the salon industry, we have been providing a number of services with high customer satisfaction in the salon industry for many years.</p>
+         </div>
+
+         <div class="card3 contentBox">
+            <div class="image">
+            <img src="<?php echo URLROOT ?>/public/icons/icons8-hairdresser-100.png" alt="">
+            </div>
+            <h3>Well experienced team</h3>
+            <p>Our service providers have good experience in the industry and we always strive to provide better service to clients.!</p>
 
          </div>
 
-         <div class="card3">
+         <div class="card4 contentBox">
+            <div class="image"> 
+            <img src="<?php echo URLROOT ?>/public/icons/icons8-valet-parking-100.png" alt="" >
+            </div>
+            <h3>Free Parking</h3>
+            <p>You can park your vehicle in our parking area at no extra charge without any security issues.</p>
 
          </div>
+
       </div>
    </div>
    <div class="services section ">
@@ -632,88 +654,88 @@ session_start();
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" class="pro-img" alt="">
-               
+
                <p class="pro-name">Devin Dissanayake</p>
             </div>
          </section>
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" class="pro-img" alt="">
-               
+
                <p class="pro-name">Ravindu Madhubhashana</p>
             </div>
-         </section> 
+         </section>
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person3.jpg" class="pro-img" alt="">
-               
+
                <p class="pro-name">Ruwanthi Munasinghe</p>
             </div>
-         </section>  
+         </section>
          <section>
-         <div class="MOT-box">
+            <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" class="pro-img" alt="">
-               
+
                <p class="pro-name">Sanjana Rajapaksha</p>
             </div>
          </section>
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" class="pro-img" alt="">
-               
+
                <p class="pro-name">Devin Dissanayake</p>
             </div>
-         </section> 
+         </section>
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person3.jpg" class="pro-img" alt="">
-               
+
                <p class="pro-name">Sumudu Perera</p>
             </div>
-         </section>  
+         </section>
       </div>
    </div>
    <div class="gallery section">
       <span class="title">GALLERY</span>
       <div class="gallarycontent">
          <div class="grid">
- <div class="grid-inner">
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
-  <div class="item">
-   <div class="item-inner"></div>
-  </div>
- 
- </div>
-</div>
+            <div class="grid-inner">
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+               <div class="item">
+                  <div class="item-inner"></div>
+               </div>
+
+            </div>
+         </div>
 
       </div>
-     
+
    </div>
    <div class="testimonials section WTS-section">
       <div class="WTS-section-head">
@@ -723,9 +745,11 @@ session_start();
       <div class="slideshow-container">
 
          <div class="mySlides">
-            <q>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laudantium voluptas animi amet beatae aliquid
-            praesentium quisquam repellat consequatur rem, quas, voluptatum nisi ipsa, earum nihil sequi corrupti commodi
-            alias?</q>
+            <q>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laudantium voluptas animi amet beatae
+               aliquid
+               praesentium quisquam repellat consequatur rem, quas, voluptatum nisi ipsa, earum nihil sequi corrupti
+               commodi
+               alias?</q>
             <div class="img-div">
                <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" alt="">
                <p class="author">- Ruwanthi Munasinghe</p>
@@ -733,10 +757,14 @@ session_start();
          </div>
 
          <div class="mySlides">
-            <q>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ducimus labore a earum unde! Dolor asperiores
-            rerum deleniti architecto, ab fugiat delectus veniam aut laboriosam nostrum, autem natus dolores, cupiditate quam.
-            Sed a voluptatibus doloribus iste exercitationem vel doloremque cumque reprehenderit officia, repellendus labore
-            quasi quam inventore cum nesciunt excepturi eligendi nostrum incidunt quibusdam culpa ab delectus beatae.</q>
+            <q>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ducimus labore a earum unde! Dolor
+               asperiores
+               rerum deleniti architecto, ab fugiat delectus veniam aut laboriosam nostrum, autem natus dolores,
+               cupiditate quam.
+               Sed a voluptatibus doloribus iste exercitationem vel doloremque cumque reprehenderit officia, repellendus
+               labore
+               quasi quam inventore cum nesciunt excepturi eligendi nostrum incidunt quibusdam culpa ab delectus
+               beatae.</q>
             <div class="img-div">
                <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" alt="">
                <p class="author">- Sanjana Rajapaksha</p>
@@ -744,9 +772,12 @@ session_start();
          </div>
 
          <div class="mySlides">
-            <q>Voluptatibus, excepturi consequatur! Rerum, ab sapiente magni vel voluptatum eum, nulla neque accusantium placeat
-            amet quam blanditiis. Officiis exercitationem inventore molestias quam, magni, natus necessitatibus minima,
-            laboriosam eveniet et similique. Consequatur tenetur sint dicta alias. Omnis amet dolor quae sint quia similique.</q>
+            <q>Voluptatibus, excepturi consequatur! Rerum, ab sapiente magni vel voluptatum eum, nulla neque accusantium
+               placeat
+               amet quam blanditiis. Officiis exercitationem inventore molestias quam, magni, natus necessitatibus
+               minima,
+               laboriosam eveniet et similique. Consequatur tenetur sint dicta alias. Omnis amet dolor quae sint quia
+               similique.</q>
             <div class="img-div">
                <img src="<?php echo URLROOT ?>/public/imgs/person3.jpg" alt="">
                <p class="author">- Devin Dissanayake</p>
@@ -763,7 +794,7 @@ session_start();
          <span class="dot" onclick="currentSlide2(3)"></span>
       </div>
    </div>
-   
+
    <div>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laudantium voluptas animi amet beatae aliquid
       praesentium quisquam repellat consequatur rem, quas, voluptatum nisi ipsa, earum nihil sequi corrupti commodi

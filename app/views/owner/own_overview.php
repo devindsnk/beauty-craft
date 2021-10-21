@@ -22,10 +22,10 @@
 
             <div class="ownOverviewContainerCard1">
             <div class="mang-sub-container-card-title"> 
-               <p>Available Managers</p>
+               <p>Total Reservations</p>
             </div>
             <div class="mang-sub-container-card-amount"> 
-               <p>5</p>
+               <p>250</p>
             </div>
          </div>
             <!-- owner overview available managers card ends -->
@@ -66,6 +66,12 @@
          </div>
 
          </div>
+
+         <div class="main-head"> 
+         <h3>Last week progress</h3>
+         <hr class="head-hr">
+      </div>
+
 
          <!-- owner overview charts card starts -->
          <div class="ownOverviewCharts">

@@ -112,7 +112,7 @@ Owner Overview Starts
     grid-template-areas:
         'ownOverviewChart1 ownOverviewChart2';
     justify-items: center;
-    padding: 80px 60px 80px 60px;
+    padding: 40px 60px;
 
 }
 

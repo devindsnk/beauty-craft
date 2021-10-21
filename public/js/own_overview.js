@@ -11,9 +11,9 @@ var myChart = new Chart(ctx, {
             //     "#c45850",
             // ],
             backgroundColor: [
-                "#1BC657",
+                "#8d99ae",
                 "#ffa500",
-                "#DA2346",
+                "#ffd166",
                 // "rgb(60,186,159,0.1)",
                 // "rgb(255,165,0,0.1)",
                 // "rgb(196,88,80,0.1)",
@@ -42,7 +42,7 @@ var myChart = new Chart(ctx, {
 
 var ctx = document.getElementById('ownOverviewChartIncome').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
         labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
         datasets: [

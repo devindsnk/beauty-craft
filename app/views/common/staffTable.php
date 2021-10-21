@@ -87,7 +87,7 @@
                         elseif($staffD->gender == 'F'){
                            echo 'Female';}?>
                </td>
-               <td data-lable="Joined Date" class="column-center-align"><?php echo $staffD->joinedDate; ?></td>
+               <td data-lable="Joined Date" class="column-center-align"><?php echo date('Y-m-d', strtotime( $staffD->joinedDate));  ?></td>
                <td data-lable="Status" class="column-center-align">
                   <!-- Staff memeber states >> Removed = 0 Active =1 Disabled =2 -->
                   <?php if($staffD->status== 0) :?>

@@ -145,7 +145,7 @@
       <!--End of sub-container2-->
 
       <div class="main-head"> 
-         <p>Annual prograss</p>
+         <p>Annual progress</p>
          <hr class="head-hr">
       </div>
 

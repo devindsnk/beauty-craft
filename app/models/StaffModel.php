@@ -69,7 +69,6 @@ class StaffModel
 
       $this->db->query("SELECT * FROM staff
                         WHERE staffID = '$staffID'");
-
       $result= $this->db->resultSet();
      
 

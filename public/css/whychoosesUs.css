@@ -1,0 +1,90 @@
+
+
+.features.section .cardContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 40px;
+    grid-template-areas:
+        'card1 card2 card3 card4';
+    justify-items: center;
+    padding: 0 40px;
+ }
+ .features.section .card1 {
+    grid-area: card1;
+ }
+ 
+ .features.section .card2 {
+    grid-area: card2;
+ }
+ 
+ .features.section .card3 {
+    grid-area: card3;
+ }
+ 
+ .features.section .card4 {
+    grid-area: card4;
+ }
+ 
+ .features.section .title{
+    grid-area:title;
+ }
+ .features.section.WCH{
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: stretch;
+    padding: 10px 30px;
+ 
+ }
+ .features.section .card1,
+ .features.section .card2,
+ .features.section .card3,
+ .features.section .card4{
+    padding: 30px;
+    transition: box-shadow .3s;
+ }
+ .features.section .card1 h3,
+ .features.section .card2 h3,
+ .features.section .card3 h3,
+ .features.section .card4 h3{
+    margin: 10px;
+ }
+ .features.section .card1 p,
+ .features.section .card2 p,
+ .features.section .card3 p,
+ .features.section .card4 p{
+    margin: 10px;
+ }
+ .features.section img{
+    /* width: 250px; */
+    transition: transform .2s;
+ }
+ 
+ .features.section img:hover {
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+ 
+  .features.section .card1:hover,
+  .features.section .card2:hover,
+  .features.section .card3:hover,
+  .features.section .card4:hover {
+    box-shadow: 0px 0px 12px #FE3D4F; 
+  }
+ 
+ 
+  @media screen and (max-width: 1000px) {
+ 
+ 
+    .features.section .cardContainer{
+       display: grid;
+       grid-template-columns: 1fr;
+       grid-row-gap: 40px;
+       grid-template-areas:
+           'title'
+           'card1'
+           'card2'
+           'card3'
+           'card4';
+       justify-items: center;
+       padding: 0 40px;
+    }
+  }

@@ -54,7 +54,7 @@
                <tbody>
                   <tr>
                      <td class="column-center-align">2020.12.12</td>
-                     <td class="column-left-align">Sample reason</td>
+                     <td class="column-left-align">Due to a power cut</td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
                            <?php if ($userLevel == "Owner") : ?>
@@ -65,8 +65,8 @@
                   </tr>
 
                   <tr>
-                     <td class="column-center-align">2020.12.12</td>
-                     <td class="column-left-align">Sample reason</td>
+                     <td class="column-center-align">2020.08.12</td>
+                     <td class="column-left-align">Lockdown the country</td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
                            <?php if ($userLevel == "Owner") : ?>
@@ -77,8 +77,8 @@
                   </tr>
 
                   <tr>
-                     <td class="column-center-align">2020.12.12</td>
-                     <td class="column-left-align">Sample reason</td>
+                     <td class="column-center-align">2020.06.12</td>
+                     <td class="column-left-align">Poya day</td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
                            <?php if ($userLevel == "Owner") : ?> 
@@ -89,8 +89,8 @@
                   </tr>
 
                   <tr>
-                     <td class="column-center-align">2020.12.12</td>
-                     <td class="column-left-align">Sample reason</td>
+                     <td class="column-center-align">2020.04.12</td>
+                     <td class="column-left-align"> Due to a Contruction purpose</td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
                            <?php if ($userLevel == "Owner") : ?>
