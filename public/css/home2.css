@@ -1,0 +1,869 @@
+/* ------ This is stylesheet is for homePage------------- */
+
+/* ------------------------------------------------------ */
+/* --------------STYLES ADDED BY DEVIN -------------------*/
+/* ------------------------------------------------------ */
+
+/* Special Button Design */
+.landingPage .btn-landing {
+    border: 2px solid var(--theme-red);
+    border-radius: 6px;
+    padding: 5px 10px;
+    color: var(--white);
+    background-color: transparent;
+    background-image: linear-gradient(45deg, var(--theme-red) 50%, transparent 50%);
+    background-size: 500%;
+    background-position: 100%;
+    transition: background 0.3s ease-in;
+    cursor: pointer;
+ }
+ 
+ .landingPage .btn-landing:hover {
+    background-position: -1px;
+ }
+ 
+ .landingPage .btn-landing a {
+    text-decoration: none;
+    color: var(--white);
+ }
+ 
+ .landingPage .btn-landing span {
+    display: block;
+    font-size: 14px;
+ }
+ 
+ /* End Special Button Design */
+ 
+ .landingPage header {
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../../public/imgs/bg2.jpeg);
+    background-position: top;
+    background-size: cover;
+    position: relative;
+ }
+ 
+ /* Header Navigation */
+ .landingPage nav {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    padding: 20px 30px 10px 30px;
+    align-items: center;
+    justify-content: space-between;
+ }
+ 
+ .landingPage nav .logo {
+    height: 100%;
+ }
+ 
+ .landingPage nav .logo a {
+    display: block;
+    height: 100%;
+ }
+ 
+ .landingPage nav .logo img {
+    height: 70px;
+ }
+ 
+ .landingPage nav .links {
+    height: 100%;
+ }
+ 
+ .landingPage nav .links ul {
+    height: 100%;
+ }
+ 
+ .landingPage nav .links ul li {
+    display: inline-block;
+    height: 100%;
+    list-style: none;
+    margin: 0 35px;
+    padding-top: 20px;
+    position: relative;
+ }
+ 
+ .landingPage nav .links ul li::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: var(--theme-red);
+    display: block;
+    margin: auto;
+    transition: 0.3s;
+ }
+ 
+ .landingPage nav .links ul li:hover::after {
+    color: var(--white);
+    width: 100%;
+ }
+ 
+ .landingPage nav .links ul li:hover a {
+    color: var(--white);
+ }
+ 
+ .landingPage nav .links ul li a {
+    text-decoration: none;
+    color: #DDDDDD;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+ }
+ 
+ .landingPage nav .buttons {
+    height: 100%;
+    display: flex;
+    align-content: center;
+ }
+ 
+ .landingPage nav .btnLogin,
+ .landingPage nav .btnRegister {
+    height: 35px;
+    align-self: center;
+    margin-left: 25px;
+    /* display: none; */
+ }
+ 
+ .landingPage nav .buttons .profileIcon {
+    border-radius: 100%;
+    height: 48px;
+    padding: 2px;
+    border: 2px solid transparent;
+    display: flex;
+    align-self: center;
+    transition: 0.3s ease-in-out;
+    /* display: none; */
+ }
+ 
+ 
+ .landingPage nav .buttons .profileIcon img {
+    height: 40px;
+    border-radius: 100%;
+    align-self: center;
+ }
+ 
+ .landingPage nav .buttons .profileIcon:hover {
+    border: 2px solid var(--theme-red);
+ }
+ 
+ .landingPage nav .links .closeBtn {
+    display: none;
+    margin: 25px;
+    cursor: pointer;
+ }
+ 
+ .landingPage nav .buttons .menuBtn {
+    margin-left: 25px;
+    display: none;
+    cursor: pointer;
+    align-self: center;
+ }
+ 
+ 
+ @media(max-width: 1150px) {
+    .landingPage nav .links .closeBtn {
+       display: block;
+    }
+ 
+    .landingPage nav .buttons .menuBtn {
+       display: block;
+    }
+ 
+    .landingPage nav .links {
+       position: absolute;
+       height: 100vh;
+       width: 260px;
+       background: #0B0E1D;
+       top: 0;
+       right: -260px;
+       z-index: 2;
+       transition: 0.7s ease-in-out;
+    }
+ 
+    .landingPage nav .links ul {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+    }
+ 
+    .landingPage nav .links ul li {
+       height: 60px;
+       margin: 0px;
+       padding: 0;
+    }
+ }
+ 
+ @media(max-width: 550px) {
+    .landingPage nav {
+       height: 80px;
+    }
+ 
+    .landingPage nav .logo img {
+       height: 50px;
+    }
+ 
+    .landingPage nav .btnRegister {
+       display: none;
+    }
+ }
+ 
+ @media(max-width: 375px) {
+    .landingPage nav .btnProfile {
+       max-width: 80px;
+    }
+ }
+ 
+ /* End Header Navigation */
+ 
+ 
+ /* Profile menu */
+ .landingPage .profile_menu {
+    position: absolute;
+    top: 110px;
+    right: 10px;
+    padding: 20px 28px;
+    width: 225px;
+    border-radius: 6px;
+    background-color: var(--white);
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+    transition: 0.3s;
+    visibility: hidden;
+    opacity: 0;
+ }
+ 
+ .landingPage .profile_menu ul li {
+    list-style: none;
+    padding: 6px 0;
+    font-size: 16px;
+    font-weight: 500;
+    /* border-top: 1px solid rgba(0, 0, 0, 0.07); */
+ }
+ 
+ .landingPage .profile_menu ul li i {
+    width: 15px;
+    margin-right: 8px;
+    transition: 0.5s;
+    color: var(--theme-grey);
+ }
+ 
+ .landingPage .profile_menu ul li a {
+    text-decoration: none;
+    transition: 0.4s;
+    color: var(--theme-grey);
+    opacity: 0.95;
+ }
+ 
+ .landingPage .profile_menu ul li:hover a,
+ .landingPage .profile_menu ul li:hover i {
+    color: var(--theme-red);
+    opacity: 1;
+ }
+ 
+ .landingPage .profileIcon.active {
+    border: 2px solid var(--theme-red) !important;
+ }
+ 
+ .landingPage .profile_menu.active {
+    top: 82px;
+    visibility: visible;
+    opacity: 1;
+ }
+ 
+ @media(max-width: 550px) {
+    .landingPage .profile_menu.active {
+       top: 72px;
+    }
+ 
+ }
+ 
+ /* End Profile menu */
+ 
+ /* Header Bottom */
+ .landingPage .bottom {
+    display: flex;
+    flex-wrap: wrap;
+    height: calc(100vh - 100px);
+    width: 100%;
+    padding: 30px 50px 80px;
+    align-content: flex-end;
+ }
+ 
+ .landingPage .bottom .text {
+    line-height: 110px;
+    width: 750px;
+    font-size: 96px;
+    font-weight: 700;
+    color: var(--white);
+ }
+ 
+ .landingPage .bottom .red {
+    color: var(--theme-red);
+ }
+ 
+ .landingPage .bottom .break {
+    flex-basis: 100%;
+    height: 0;
+ }
+ 
+ .landingPage .bottom .btnMakeRes {
+    font-weight: 400 !important;
+    font-size: 18px;
+    letter-spacing: 0.6px;
+    margin-top: 15px;
+    display: block;
+    height: max-content;
+    padding: 10px 30px;
+    cursor: pointer;
+ }
+ 
+ @media(max-width: 768px) {
+    .landingPage .bottom {
+       text-align: center;
+       justify-content: center;
+       position: absolute;
+       padding-bottom: 200px;
+    }
+ 
+    .landingPage .bottom .text {
+       width: 600px;
+       font-size: 80px;
+       line-height: 95px;
+    }
+ }
+ 
+ @media(max-width: 550px) {
+    .landingPage .bottom .text {
+       font-size: 60px;
+       line-height: 60px;
+    }
+ }
+ 
+ @media(max-width: 375px) {
+    .landingPage .bottom .text {
+       font-size: 50px;
+       line-height: 50px;
+    }
+ }
+ 
+ /* End Header Bottom */
+ 
+ .section {
+    display: flex;
+    height: 100vh;
+ }
+ 
+ .section .title {
+    margin: 50px auto;
+    text-align: center;
+    font-size: 64px;
+    font-weight: 700;
+    text-shadow: 0px 0px 16px rgba(0, 0, 0, 0.35);
+ }
+ 
+ @media(max-width: 768px) {
+    .section .title {
+       font-size: 45px;
+    }
+ }
+ 
+ @media(max-width: 550px) {
+    .section .title {
+       font-size: 35px;
+    }
+ }
+ 
+ @media(max-width: 375px) {
+    .section .title {
+       font-size: 25px;
+    }
+ }
+ 
+ /* ------------------------------------------------------ */
+ /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
+ /* ------------------------------------------------------ */
+ 
+ 
+ /* ------------------------------------------------------ */
+/* --------------STYLES ADDED BY RAVINDU-----------------*/
+/* ------------------------------------------------------ */
+
+
+/* resizing styles of resources content */
+.content.resources .page-top-main-container,
+.content.resources .options-container,
+.content.resources .table2-responsive{
+  padding: 0 200px;
+} 
+
+/* #################################################################### */
+
+.services.section .title{
+  color: var(--white);
+}
+.services.section .cardContainer{
+  width: 1000px;
+  height: auto;
+}
+.services.section .cardHead{
+  background-color: var(--theme-black);
+  color: var(--white);
+  border-radius: 6px 6px 0 0;
+  height: 50px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.services.section .cardRow {
+  /* word-wrap: break-word; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  /* gap: 20px; */
+  margin: 20px;
+}
+
+.services.section .cardDetails{
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  padding: 20px;
+  
+}
+
+
+.services.section .cardContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  grid-gap: 15px;
+  grid-template-areas:
+  'servsecCard1 servsecCard2 '
+}
+
+.services.section .card1 {
+  grid-area: servsecCard1;
+  background-color: var(--white);
+  height: 500px;
+  border-radius: 6px;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+.services.section .card2 {
+  grid-area: servsecCard2;
+  padding-bottom: 10px;
+  background-color: var(--white);
+  border-radius: 6px;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+.services.section .CardDetailsValue,
+.services.section .CardDetailsLabel{
+  font-weight: 500;
+}
+.services.section .Llength{
+  width: 400px;
+}
+.services.section .CardDetailsValue{
+  float: right;
+  color:var(--theme-red);  
+}
+/* ##################################################################### */
+
+
+
+
+
+.services.section{
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: stretch;
+  padding: 10px 30px;
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url("../imgs/bg1.jpeg");
+  background-image: linear-gradient(rgba(33, 34, 37, 0.7), rgba(73, 74, 78, 0.7)), url("../imgs/bg1.jpeg");
+  background-position: top;
+  background-size: cover;
+  position: relative;
+}
+.services.section .mySlides {
+  display: none;
+}
+
+/* Slideshow container */
+.services.section .slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.services.section .prev,
+.services.section .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin: -60px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.services.section .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.services.section .prev:hover,
+.services.section .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.services.section .text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.services.section .numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.services.section .dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+
+.services.section .active,
+.services.section .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.services.section .fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+     opacity: .4
+  }
+
+  to {
+     opacity: 1
+  }
+}
+
+@keyframes fade {
+  from {
+     opacity: .4
+  }
+
+  to {
+     opacity: 1
+  }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+
+  .prev,
+  .next {
+     font-size: 14px
+  }
+}
+/* ------------------------------------------------------ */
+/* ----------END OF STYLES ADDED BY RAVINDU -------------*/
+/* ------------------------------------------------------ */
+ 
+
+ 
+ /* ------------------------------------------------------ */
+ /* ----------- STYLES ADDED BY SANJANA ------------------*/
+ /* ------------------------------------------------------ */
+ 
+ /* MEET OUR TEAM */
+ 
+ .MOT-section{
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+ }
+ .horizontal_slider {
+    display: flex;
+    overflow-x: scroll;
+    max-width: 1600px;
+    margin: 0 auto;
+ }
+ /* .horizontal_slider::-webkit-scrollbar {
+    width:0px;
+    padding: 10px;
+ }
+ .horizontal_slider::-webkit-scrollbar-track {
+    background: #f2f2f7;
+ }
+ 
+ .horizontal_slider::-webkit-scrollbar-thumb {
+    background-color: #c4cae0;
+    border-radius: 6px;
+    border: 3px solid #c4cae0;
+ } */
+.MOT-box{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   margin: 10px 30px;
+   width: 450px;
+   height: 470px;
+   background: #080808;
+   background: #505050;
+   background: -webkit-linear-gradient(bottom, #50515A, #EAEAEA);
+   background: -moz-linear-gradient(bottom, #50515A, #EAEAEA);
+   background: linear-gradient(to top, #50515A, #EAEAEA);
+   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.75);
+}
+.MOT-box{
+   transition: 1s ease;
+}
+.MOT-box:hover{
+   -webkit-transform: scale(0.8);
+   -ms-transform: scale(0.8);
+   transform: scale(0.8);
+   transition: 1s ease;
+}
+.MOT-section img{
+   margin: 10px;
+   width: 350px;
+   height: 350px;
+   max-height: 100%;
+   max-width: 100%;
+   border-radius: 100%;
+   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.75);
+}
+.pro-name{
+   margin-top: 10px;
+   font-size: 25px;
+   font-weight: 500;
+   color: #FFF;
+   
+}
+ /* END OF MEET OUR TEAM */
+ 
+ /* WHAT THEY SAY */
+ 
+.WTS-section{
+   flex-direction: column;
+   justify-content: space-evenly;
+   align-items: stretch;
+   padding: 10px 30px;
+   background-color: rgba(22, 22, 22, 17%);
+}
+.WTS-section-head{
+   display: flex;
+   align-items: center;
+   height: 20%;
+}
+.WTS-section img{
+   margin: 10px 30px;
+   width: 50px;
+   height: 50px;
+   max-height: 100%;
+   max-width: 100%;
+   border-radius: 100%;
+   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.75);
+}
+.WTS-section .img-div{
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   padding: 30px;
+}
+.slideshow-container {
+   height: 60%;
+   position: relative;
+}
+
+.WTS-section .mySlides {
+   display: none;
+   padding: 80px;
+   text-align: center;
+   font-size: 20px;
+}
+.WTS-section .prev, .WTS-section .next {
+   cursor: pointer;
+   position: absolute;
+   top: 50%;
+   width: auto;
+   margin-top: -30px;
+   padding: 16px;
+   font-weight: bold;
+   font-size: 20px;
+   border-radius: 0 3px 3px 0;
+   user-select: none;
+}
+.WTS-section .next {
+   position: absolute;
+   right: 0;
+   border-radius: 3px 0 0 3px;
+}
+.WTS-section .prev:hover, .WTS-section .next:hover {
+   background-color: rgba(0,0,0,0.8);
+   color: white;
+}
+.WTS-section .dot-container {
+   height: 20%;
+   text-align: center;
+   padding: 20px;
+}
+.WTS-section .dot {
+   cursor: pointer;
+   height: 15px;
+   width: 15px;
+   margin: 0 2px;
+   background-color: #bbb;
+   border-radius: 50%;
+   display: inline-block;
+   transition: background-color 0.6s ease;
+}
+.WTS-section .active, .WTS-section .dot:hover {
+   background-color: #717171;
+}
+.WTS-section q {
+   font-style: italic;
+}
+.WTS-section .author {
+   color: cornflowerblue;
+   padding: 20px 0px;
+}
+ 
+ /* END OF WHAT THEY SAY */
+ 
+ /* ------------------------------------------------------ */
+ /* -----------END OF STYLES ADDED BY SANJANA ------------*/
+ /* ------------------------------------------------------ */
+ 
+ 
+ 
+ /* ------------------------------------------------------ */
+ /* ----------- STYLES ADDED BY RUWANTHI ------------------*/
+ /* ------------------------------------------------------ */
+ 
+.gallery.section{
+   display: flex;
+   flex-direction: column;
+}
+.gallery.section .gallarycontent{
+
+   padding:0px 20px 0px 20px;
+   height: 100vh;
+   width: calc(100vw - 40px);
+   margin: auto;
+   overflow:scroll ;
+}
+
+.grid {
+padding: 1em;
+height: 100%;
+width: 100%;
+margin: auto;
+}
+
+.grid-inner {
+display: flex;
+flex-wrap: wrap;
+margin: 0 -0.5em;
+}
+
+.item {
+flex: 1 1 100%;
+padding: 0.5em;
+}
+
+.item-inner {
+   height: 100%;
+background-size: cover;
+background-image: url('../../public/imgs/gallery10.jpg');
+padding-top: 100%;
+}
+
+.item:nth-child(5) .item-inner {
+background-image: url('../../public/imgs/gallery1.jpg');
+}
+.item:nth-child(3) .item-inner {
+background-image: url('../../public/imgs/gallery2.jpg');
+}
+.item:nth-child(4) .item-inner {
+background-image: url('../../public/imgs/gallery3.jpg');
+}
+.item:nth-child(2) .item-inner {
+background-image: url('../../public/imgs/gallery4.jpg');
+}
+.item:nth-child(6) .item-inner {
+background-image: url('../../public/imgs/gallery5.jpg');
+}
+.item:nth-child(7) .item-inner {
+background-image: url('../../public/imgs/gallery6.jpg');
+}
+.item:nth-child(8) .item-inner {
+background-image: url('../../public/imgs/gallery7.jpg');
+}
+.item:nth-child(9) .item-inner {
+background-image: url('../../public/imgs/gallery8.jpg');
+}
+.item:nth-child(10) .item-inner {
+background-image: url('../../public/imgs/gallery9.jpg');
+}
+
+
+@media screen and (min-width: 500px) {
+.item {
+flex: 1 1 100%;
+}
+}
+
+@media screen and (min-width: 700px) {
+.item {
+flex: 1 1 50%;
+}
+}
+
+@media screen and (min-width: 1000px) {
+.item {
+flex: 1 1 33.333%;
+}
+}
+@media screen and (min-width: 1190px) {
+.item {
+flex: 1 1 25%;
+}
+}
+@media screen and (min-width: 1500px) {
+.item {
+flex: 1 1 20%;
+}
+}
+

@@ -56,8 +56,8 @@
          <thead>
             <tr>
                <th class="column-center-align col-1">Servie ID</th>
-               <th class="column-center-align col-2">Service</th>
-               <th class="column-center-align col-3">Type</th>
+               <th class="column-left-align col-2">Service</th>
+               <th class="column-left-align col-3">Type</th>
                <th class="column-center-align col-4">Total Duration</th>
                <th class="column-right-align col-5">Price</th>
                <th class="column-center-align col-6">Status</th>
@@ -71,9 +71,9 @@
                <tr>
                   <td data-lable="Servie ID" data-lable="" class="column-center-align"><?php echo $sDetails->serviceID; ?></td>
 
-                  <td data-lable="Service" class="column-center-align"><?php echo $sDetails->name; ?></td>
+                  <td data-lable="Service" class="column-left-align"><?php echo $sDetails->name; ?></td>
 
-                  <td data-lable="Type" class="column-center-align"><?php echo $sDetails->type; ?></td>
+                  <td data-lable="Type" class="column-left-align"><?php echo $sDetails->type; ?></td>
 
                   <?php $i = $sDetails->totalDuration; ?>
                   <?php if ($i == 60 || $i == 120) : ?>

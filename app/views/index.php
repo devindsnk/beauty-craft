@@ -13,7 +13,9 @@
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/style.css">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/home.css">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/icons.css">
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/homeSanjana.css">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/homePageFooter.css" />
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/homeRuwanthi.css" />
 
 </head>
 
@@ -609,18 +611,11 @@
 
    <div class="team section MOT-section">
       <span class="title">MEET OUR TEAM</span>
-      <div class="horizontal_slider " id="horizontal_slider">
+      <div class="horizontal_slider ">
          <section>
             <div class="MOT-box">
-               <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" class="pro-img" alt="">
-
-               <p class="pro-name">Devin Dissanayake</p>
-            </div>
-         </section>
-         <section>
-            <div class="MOT-box">
-               <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" class="pro-img" alt="">
-
+               <img src="<?php echo URLROOT ?>/public/imgs/person7.jpg" class="pro-img" alt="">
+               
                <p class="pro-name">Ravindu Madhubhashana</p>
             </div>
          </section>
@@ -634,26 +629,20 @@
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" class="pro-img" alt="">
-
-               <p class="pro-name">Sanjana Rajapaksha</p>
-            </div>
-         </section>
-         <section>
-            <div class="MOT-box">
-               <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" class="pro-img" alt="">
-
+               
                <p class="pro-name">Devin Dissanayake</p>
             </div>
          </section>
          <section>
             <div class="MOT-box">
-               <img src="<?php echo URLROOT ?>/public/imgs/person3.jpg" class="pro-img" alt="">
-
-               <p class="pro-name">Sumudu Perera</p>
+               <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" class="pro-img" alt="">
+               
+               <p class="pro-name">Sanjana Rajapaksha</p>
             </div>
          </section>
       </div>
    </div>
+   
    <div class="gallery section">
       <span class="title">GALLERY</span>
       <div class="gallarycontent">
@@ -696,61 +685,22 @@
       </div>
 
    </div>
+
    <div class="testimonials section WTS-section">
       <div class="WTS-section-head">
          <span class="title">WHAT THEY SAY</span>
       </div>
-
-      <div class="slideshow-container">
-
-         <div class="mySlides">
-            <q>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laudantium voluptas animi amet beatae
-               aliquid
-               praesentium quisquam repellat consequatur rem, quas, voluptatum nisi ipsa, earum nihil sequi corrupti
-               commodi
-               alias?</q>
-            <div class="img-div">
-               <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" alt="">
-               <p class="author">- Ruwanthi Munasinghe</p>
-            </div>
+      <div class="WTS-section-testimonial-section">
+         <div class="img-div">
+            <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" alt="">
+            <i class="fa fa-quote-left" style="font-size:60px;color:var(--theme-red)"></i>
          </div>
-
-         <div class="mySlides">
-            <q>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ducimus labore a earum unde! Dolor
-               asperiores
-               rerum deleniti architecto, ab fugiat delectus veniam aut laboriosam nostrum, autem natus dolores,
-               cupiditate quam.
-               Sed a voluptatibus doloribus iste exercitationem vel doloremque cumque reprehenderit officia, repellendus
-               labore
-               quasi quam inventore cum nesciunt excepturi eligendi nostrum incidunt quibusdam culpa ab delectus
-               beatae.</q>
-            <div class="img-div">
-               <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" alt="">
-               <p class="author">- Sanjana Rajapaksha</p>
-            </div>
+         <div class="comment-div">
+            <p>Perfection sums up this salon, and the experience Michelle and her team provide to their clients. Service is friendly and professional, using top class products, all delivered in a relaxing and tranquil setting. There is an extensive list of treatments, plus regular new, innovative ideas. A lovely place to treat yourself: if you’e not yet had the Perfection experience, try it – I recommend it!</p>
          </div>
-
-         <div class="mySlides">
-            <q>Voluptatibus, excepturi consequatur! Rerum, ab sapiente magni vel voluptatum eum, nulla neque accusantium
-               placeat
-               amet quam blanditiis. Officiis exercitationem inventore molestias quam, magni, natus necessitatibus
-               minima,
-               laboriosam eveniet et similique. Consequatur tenetur sint dicta alias. Omnis amet dolor quae sint quia
-               similique.</q>
-            <div class="img-div">
-               <img src="<?php echo URLROOT ?>/public/imgs/person3.jpg" alt="">
-               <p class="author">- Devin Dissanayake</p>
-            </div>
+         <div class="person-name-div">
+            <p class="">Sumudu Perera</p>
          </div>
-
-         <a class="prev" onclick="plusSlides2(-1)">&#10094;</a>
-         <a class="next" onclick="plusSlides2(1)">&#10095;</a>
-      </div>
-
-      <div class="dot-container">
-         <span class="dot" onclick="currentSlide2(1)"></span>
-         <span class="dot" onclick="currentSlide2(2)"></span>
-         <span class="dot" onclick="currentSlide2(3)"></span>
       </div>
    </div>
 
