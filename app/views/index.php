@@ -15,6 +15,7 @@
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/icons.css">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/homeSanjana.css">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/homePageFooter.css" />
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/homeRuwanthi.css" />
 
 </head>
 
