@@ -228,6 +228,11 @@ footer p {
   color: var(--error-red);
 }
 
+.btn.btn-outlined.btn-blue {
+  border: 2px solid var(--theme-blue);
+  color: var(--theme-blue);
+}
+
 .btn.btn-filled.btn-blue {
   background-color: var(--theme-blue);
 }
@@ -235,6 +240,11 @@ footer p {
 .btn.btn-outlined.btn-theme-purple {
   border: 2px solid var(--theme-purple);
   color: var(--theme-purple);
+}
+
+.btn.btn-outlined.btn-grey {
+  border: 2px solid var(--theme-grey);
+  color: var(--theme-grey);
 }
 
 .btn.btn-filled.btn-success-green {

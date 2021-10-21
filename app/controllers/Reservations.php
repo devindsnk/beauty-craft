@@ -15,29 +15,72 @@ class Reservations extends Controller
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
+         // var_dump($_POST);
+
          $data = [
             'customerID' => trim($_POST['customerID']),
-            'serviceID' => trim($_POST['serviceID']),
-            'staffID' => trim($_POST['staffID']),
+            'serviceID' => isset($_POST['serviceID']) ? trim($_POST['serviceID']) : '',
+            'staffID' => isset($_POST['staffID']) ? trim($_POST['staffID']) : '',
             'date' => trim($_POST['date']),
-            'startTime' => trim($_POST['startTime']),
+            'startTime' => isset($_POST['startTime']) ? trim($_POST['startTime']) : '',
             'endTime' => 0,
             'remarks' => trim($_POST['remarks']),
             // 'status' => trim($_POST['mobileNo']),
 
-            'serviceID_error' => trim($_POST['serviceID']),
-            'staffID_error' => trim($_POST['staffID']),
-            'date_error' => trim($_POST['date']),
-            'startTime_error' => trim($_POST['startTime']),
-            'remarks_error' => trim($_POST['remarks']),
+            'serviceID_error' => '',
+            'staffID_error' => '',
+            'date_error' => '',
+            'startTime_error' => '',
+            'remarks_error' => '',
+
             'servicesList' => $servicesList
          ];
-         $this->reservationModel->addReservation($data);
-         redirect('CustDashboard/myReservations');
+         // print_r($data);
+         if (empty($data['startTime']))
+         {
+            $data['startTime_error'] = "Please select a starting time";
+         }
+         if (empty($data['serviceID']))
+         {
+            $data['serviceID_error'] = "Please select a service";
+         }
+         if (empty($data['staffID']))
+         {
+            $data['staffID_error'] = "Please select a service provider";
+         }
+         if (empty($data['date']))
+         {
+            $data['date_error'] = "Please select a date";
+         }
+
+         if (empty($data['serviceID_error']) && empty($data['staffID_error']) && empty($data['date_error'])  && empty($data['startTime_error']))
+         {
+            $this->reservationModel->addReservation($data);
+            redirect('CustDashboard/myReservations');
+         }
+         else
+         {
+            $this->view('customer/cust_addNewReservation', $data);
+         }
       }
       else
       {
          $data = [
+            'customerID' => '',
+            'serviceID' => '',
+            'staffID' => '',
+            'date' => '',
+            'startTime' => '',
+            'endTime' => 0,
+            'remarks' => '',
+            // 'status' => trim($_POST['mobileNo']),
+
+            'serviceID_error' => '',
+            'staffID_error' => '',
+            'date_error' => '',
+            'startTime_error' => '',
+            'remarks_error' => '',
+
             'servicesList' => $servicesList
          ];
 

@@ -26,7 +26,7 @@
             <div class="row row-last">
                <div class="text-group">
                   <label class="label" for="mobileNo">Mobile No</label>
-                  <input type="text" name="mobileNo" placeholder="Your mobile no here" value="<?php echo $data['mobileNo'] ?>">
+                  <input type="text" name="mobileNo" placeholder="Your mobile no here" value="<?php echo $data['mobileNo'] ?>" maxlength="10">
                   <span class="error"><?php echo $data['mobileNo_error']; ?></span>
                </div>
                <div class="column">
@@ -46,14 +46,14 @@
                <div class="column">
                   <div class="text-group">
                      <label class="label" for="password">New Password</label>
-                     <input type="password" name="password" placeholder="Enter password here">
+                     <input type="password" name="password" placeholder="Enter password here" maxlength="25">
                      <span class="error"><?php echo $data['newPassword_error']; ?></span>
                   </div>
                </div>
                <div class="column">
                   <div class="text-group">
                      <label class="label" for="confirmPassword">Confirm New Password</label>
-                     <input type="password" name="confirmPassword" placeholder="Enter password again">
+                     <input type="password" name="confirmPassword" placeholder="Enter password again" maxlength="25">
                      <span class="error"><?php echo $data['confirmNewPassword_error']; ?></span>
                   </div>
                </div>
