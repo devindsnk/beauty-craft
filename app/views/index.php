@@ -41,17 +41,17 @@
 
          <div class="buttons">
             <?php if (isset($_SESSION['userMobileNo'])) : ?>
-            <div class="profileIcon">
-               <img src="<?php echo URLROOT ?>/public/imgs/person4.jpg" alt="">
-            </div>
+               <div class="profileIcon">
+                  <img src="<?php echo URLROOT ?>/public/imgs/person4.jpg" alt="">
+               </div>
 
             <?php else : ?>
-            <a href="<?php echo URLROOT ?>/user/signin" class="btn-landing btnLogin">
-               <span>Sign In</span>
-            </a>
-            <a href="<?php echo URLROOT ?>/customer/register" class="btn-landing btnRegister">
-               <span>Register</span>
-            </a>
+               <a href="<?php echo URLROOT ?>/user/signin" class="btn-landing btnLogin">
+                  <span>Sign In</span>
+               </a>
+               <a href="<?php echo URLROOT ?>/customer/register" class="btn-landing btnRegister">
+                  <span>Register</span>
+               </a>
             <?php endif; ?>
 
             <i class="ci ci-menu-white menuBtn"></i>
@@ -63,18 +63,22 @@
          </div>
          <div class="break"></div>
          <div>
-            <button class="btn-landing btnMakeRes"> Make a Reservation </button>
+            <a href="
+            <?php
+            if (isset($_SESSION['userType'])) echo URLROOT . "/reservations/newReservationCust";
+            else echo URLROOT . "/user/signin" ?>
+            " class="btn-landing btnMakeRes"> Make a Reservation </a>
          </div>
       </div>
       <div class="profile_menu">
          <ul>
             <li>
                <?php if ($_SESSION['userType'] == 6) : ?>
-               <i class="far fa-user"></i>
-               <a href="<?php echo URLROOT ?>/custDashboard/myReservations">My Reservations</a>
+                  <i class="far fa-user"></i>
+                  <a href="<?php echo URLROOT ?>/custDashboard/myReservations">My Reservations</a>
                <?php else : ?>
-               <i class="far fa-user"></i>
-               <a href="<?php echo URLROOT ?>/user/provideIntialView">Dashboard</a>
+                  <i class="far fa-user"></i>
+                  <a href="<?php echo URLROOT ?>/user/provideIntialView">Dashboard</a>
                <?php endif; ?>
             </li>
             <li>
@@ -95,15 +99,15 @@
 
          <div class="card1 contentBox">
             <div class="image">
-            <img src="<?php echo URLROOT ?>/public/icons/icons8-feedback-117.png" alt="">
+               <img src="<?php echo URLROOT ?>/public/icons/icons8-feedback-117.png" alt="">
             </div>
             <h3>Keeping clients happy</h3>
             <p> We believe all clients should get a better service from Us, so we only use top quality products at the basin area, and at the styling stations. Our salon only uses top quality PROFESSIONAL PRODUCTS, to ensure you get the right result every time.</p>
          </div>
 
          <div class="card2 contentBox">
-         <div class="image">
-            <img src="<?php echo URLROOT ?>/public/icons/icons8-man-combing-hair-100.png" alt="">
+            <div class="image">
+               <img src="<?php echo URLROOT ?>/public/icons/icons8-man-combing-hair-100.png" alt="">
             </div>
             <h3>Pioneers In industry</h3>
             <p>As a pioneer in the salon industry, we have been providing a number of services with high customer satisfaction in the salon industry for many years.</p>
@@ -111,7 +115,7 @@
 
          <div class="card3 contentBox">
             <div class="image">
-            <img src="<?php echo URLROOT ?>/public/icons/icons8-hairdresser-100.png" alt="">
+               <img src="<?php echo URLROOT ?>/public/icons/icons8-hairdresser-100.png" alt="">
             </div>
             <h3>Well experienced team</h3>
             <p>Our service providers have good experience in the industry and we always strive to provide better service to clients.!</p>
@@ -119,8 +123,8 @@
          </div>
 
          <div class="card4 contentBox">
-            <div class="image"> 
-            <img src="<?php echo URLROOT ?>/public/icons/icons8-valet-parking-100.png" alt="" >
+            <div class="image">
+               <img src="<?php echo URLROOT ?>/public/icons/icons8-valet-parking-100.png" alt="">
             </div>
             <h3>Free Parking</h3>
             <p>You can park your vehicle in our parking area at no extra charge without any security issues.</p>
@@ -653,7 +657,7 @@
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person7.jpg" class="pro-img" alt="">
-               
+
                <p class="pro-name">Ravindu Madhubhashana</p>
             </div>
          </section>
@@ -667,20 +671,20 @@
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" class="pro-img" alt="">
-               
+
                <p class="pro-name">Devin Dissanayake</p>
             </div>
          </section>
          <section>
             <div class="MOT-box">
                <img src="<?php echo URLROOT ?>/public/imgs/person2.jpg" class="pro-img" alt="">
-               
+
                <p class="pro-name">Sanjana Rajapaksha</p>
             </div>
          </section>
       </div>
    </div>
-   
+
    <div class="gallery section">
       <span class="title">GALLERY</span>
       <div class="gallarycontent">
@@ -792,7 +796,7 @@
       </div>
    </div>
 
- 
+
    <script src="<?php echo URLROOT ?>/public/js/home.js"></script>
 
 </body>

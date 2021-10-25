@@ -35,11 +35,8 @@ class Customer extends Controller
          if ($_POST['action'] == "getPIN")
          {
             // Validating mobileNo
-            if (empty($data['mobileNo']))
-            {
-               $data['mobileNo_error'] = "Please enter mobile number";
-            }
-            else
+            $data['mobileNo_error'] = validateMobileNo($data['mobileNo']);
+            if (empty($data['mobileNo_error']))
             {
                // Checking if already registered
                $isUserExists = $this->userModel->checkUserExists($data['mobileNo']);
@@ -82,49 +79,15 @@ class Customer extends Controller
          else if ($_POST['action'] == "register")
          {
             // Validate everything
-
-            // Validating fname
-            if (empty($data['fName']))
-            {
-               $data['fName_error'] = "Please enter First Name";
-            }
-
-            // Validating lname
-            if (empty($data['lName']))
-            {
-               $data['lName_error'] = "Please enter Last Name";
-            }
-
-            // Validating gender
-            if (empty($data['gender']))
-            {
-               $data['gender_error'] = "Please select gender";
-            }
-
-            // Validating mobileNumber
-            if ($data['mobileNo'] == "")
-            {
-               $data['mobileNo_error'] = "Please enter mobile no";
-            }
-
-            // Validating code
-            if ($data['pin'] == "")
-            {
-               $data['pin_error'] = "Please enter Verfication PIN";
-            }
-
-            // Validating password
-            if (empty($data['password']))
-            {
-               $data['password_error'] = "Please enter Password";
-            }
-
-            // Validating confirmPassword
-            if (empty($data['confirmPassword']))
-            {
-               $data['confirmPassword_error'] = "Please enter Password again";
-            }
-            else if ($data['password'] != $data['confirmPassword'])
+            $data['fName_error'] = emptyCheck($data['fName']);
+            $data['lName_error'] = emptyCheck($data['lName']);
+            $data['gender_error'] = emptyCheck($data['gender']);
+            $data['mobileNo_error'] = validateMobileNo($data['mobileNo']);
+            $data['pin_error'] = emptyCheck($data['pin']);
+            // Check Password strength here
+            $data['password_error'] = emptyCheck($data['password']);
+            $data['confirmPassword_error'] = emptyCheck($data['confirmPassword']);
+            if (empty($data['password_error']) && empty($data['confirmPassword_error']) && $data['password'] != $data['confirmPassword'])
             {
                $data['confirmPassword_error'] = "Passwords dont't match";
             }
@@ -211,18 +174,15 @@ class Customer extends Controller
       }
    }
 
-   public function profile()
-   {
-      $this->view('customer/cust_profile');
-   }
-
    public function changePassword()
    {
+      validateSession([6]);
       $this->view('customer/cust_changePassword');
    }
 
    public function myReservation()
    {
+      validateSession([6]);
       $this->view('customer/cust_myReservation');
    }
 }

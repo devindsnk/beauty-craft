@@ -33,7 +33,7 @@
                </div>
                <div class="column spec">
                   <div class="text-group">
-                     <input type="text" name="lName" placeholder="Your last name here" value="<?php echo $data['lName']; ?> " maxlength="35">
+                     <input type="text" name="lName" placeholder="Your last name here" value="<?php echo $data['lName']; ?>" maxlength="35">
                      <span class="error"><?php echo $data['lName_error']; ?></span>
                   </div>
                </div>
