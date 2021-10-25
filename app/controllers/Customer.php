@@ -39,6 +39,10 @@ class Customer extends Controller
             {
                $data['mobileNo_error'] = "Please enter mobile number";
             }
+            else if (!preg_match("/^[0-9]*$/", $data['mobileNo']) || (strlen($data['mobileNo']) != 10))
+            {
+               $data['mobileNo_error'] = "Invalid mobile number format";
+            }
             else
             {
                // Checking if already registered
@@ -105,6 +109,10 @@ class Customer extends Controller
             if ($data['mobileNo'] == "")
             {
                $data['mobileNo_error'] = "Please enter mobile no";
+            }
+            else if (!preg_match("/^[0-9]*$/", $data['mobileNo']) || (strlen($data['mobileNo']) != 10))
+            {
+               $data['mobileNo_error'] = "Invalid mobile number format";
             }
 
             // Validating code
@@ -211,18 +219,15 @@ class Customer extends Controller
       }
    }
 
-   public function profile()
-   {
-      $this->view('customer/cust_profile');
-   }
-
    public function changePassword()
    {
+      validateSession([6]);
       $this->view('customer/cust_changePassword');
    }
 
    public function myReservation()
    {
+      validateSession([6]);
       $this->view('customer/cust_myReservation');
    }
 }

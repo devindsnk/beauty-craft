@@ -2,6 +2,7 @@
 {
    public function __construct()
    {
+      // validateSession([5]);
       $this->LeaveModel = $this->model('LeaveModel');
    }
    public function home()
@@ -10,19 +11,18 @@
    }
    public function overview()
    {
-      validateSession([5]);
       $this->view('serviceProvider/serProv_overview');
    }
 
    public function reservations()
    {
-      validateSession([5]);
+      // validateSession([5]);
       $this->view('serviceProvider/serProv_reservation');
    }
 
    public function leaves()
    {
-      validateSession([5]);
+      // validateSession([5]);
       $leaveData = $this->LeaveModel->getLeaveByID();
       //to get latest leave limit
       $leaveLimit = $this->LeaveModel->getLeaveLimit();
@@ -33,8 +33,6 @@
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
-
-
          $data = [
             'date' => trim($_POST['date']),
             'reason' => trim($_POST['reason']),
@@ -153,7 +151,7 @@
    }
    public function checkReqMonthLeaveLimit($leaveReqdate)
    {
-      validateSession([5]);
+      // validateSession([5]);
       $month = date("m", strtotime($leaveReqdate));
       $year = date('Y', strtotime($leaveReqdate));
       $data = [

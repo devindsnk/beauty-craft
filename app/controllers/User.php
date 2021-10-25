@@ -25,6 +25,10 @@ class User extends Controller
          {
             $data['mobileNo_error'] = "Please enter Mobile No";
          }
+         else if (!preg_match("/^[0-9]*$/", $data['mobileNo']) || (strlen($data['mobileNo']) != 10))
+         {
+            $data['mobileNo_error'] = "Invalid mobile number format";
+         }
          // Validating password
          if (empty($data['password']))
          {
@@ -104,6 +108,10 @@ class User extends Controller
             {
                $data['mobileNo_error'] = "Please enter mobile number";
             }
+            else if (!preg_match("/^[0-9]*$/", $data['mobileNo']) || (strlen($data['mobileNo']) != 10))
+            {
+               $data['mobileNo_error'] = "Invalid mobile number format";
+            }
             else
             {
                // Checking if already registered
@@ -153,6 +161,10 @@ class User extends Controller
             if ($data['mobileNo'] == "")
             {
                $data['mobileNo_error'] = "Please enter mobile no";
+            }
+            else if (!preg_match("/^[0-9]*$/", $data['mobileNo']) || (strlen($data['mobileNo']) != 10))
+            {
+               $data['mobileNo_error'] = "Invalid mobile number format";
             }
 
             // Validating code
