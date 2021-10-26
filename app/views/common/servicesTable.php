@@ -1,4 +1,4 @@
-<?php if ($userLevel == "Owner" || $userLevel == "Manager") : ?>
+<?php if ($userType == "Owner" || $userType == "Manager") : ?>
    <div class="page-top-main-container">
       <a href="<?php echo URLROOT ?>/services/addNewService" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
    </div>
@@ -56,8 +56,8 @@
          <thead>
             <tr>
                <th class="column-center-align col-1">Servie ID</th>
-               <th class="column-center-align col-2">Service</th>
-               <th class="column-center-align col-3">Type</th>
+               <th class="column-left-align col-2">Service</th>
+               <th class="column-left-align col-3">Type</th>
                <th class="column-center-align col-4">Total Duration</th>
                <th class="column-right-align col-5">Price</th>
                <th class="column-center-align col-6">Status</th>
@@ -66,39 +66,39 @@
          </thead>
 
          <tbody>
-            <?php foreach($data['services'] as $sDetails) : ?>
+            <?php foreach ($data['services'] as $sDetails) : ?>
 
                <tr>
                   <td data-lable="Servie ID" data-lable="" class="column-center-align"><?php echo $sDetails->serviceID; ?></td>
 
-                  <td data-lable="Service" class="column-center-align"><?php echo $sDetails->name; ?></td>
+                  <td data-lable="Service" class="column-left-align"><?php echo $sDetails->name; ?></td>
 
-                  <td data-lable="Type" class="column-center-align"><?php echo $sDetails->type; ?></td>
+                  <td data-lable="Type" class="column-left-align"><?php echo $sDetails->type; ?></td>
 
-                     <?php $i =$sDetails->totalDuration; ?>
-                     <?php if ($i == 60 || $i == 120):?>
-                        <td data-lable="Total Duration" class="column-center-align"><?php echo ($i/60) ; ?> h</td>
-                        
-                     <?php elseif ($i > 60 && $i < 120 ): ?>
-                        <td data-lable="Total Duration" class="column-center-align"><?php echo ($i/$i) ; ?> h <?php echo ($i %  60) ; ?> mins</td>
+                  <?php $i = $sDetails->totalDuration; ?>
+                  <?php if ($i == 60 || $i == 120) : ?>
+                     <td data-lable="Total Duration" class="column-center-align"><?php echo ($i / 60); ?> h</td>
 
-                     <?php else :?>
-                        <td data-lable="Total Duration" class="column-center-align"><?php echo $i; ?> mins</td>
-                        
-                     <?php endif; ?>
+                  <?php elseif ($i > 60 && $i < 120) : ?>
+                     <td data-lable="Total Duration" class="column-center-align"><?php echo ($i / $i); ?> h <?php echo ($i %  60); ?> mins</td>
+
+                  <?php else : ?>
+                     <td data-lable="Total Duration" class="column-center-align"><?php echo $i; ?> mins</td>
+
+                  <?php endif; ?>
 
                   <td data-lable="Price" class="column-right-align"><?php echo number_format($sDetails->price, 2, '.', ' '); ?> LKR</td>
 
                   <td data-lable="Status" class="column-center-align">
-                     <?php if ($sDetails->status == 0):?>
+                     <?php if ($sDetails->status == 0) : ?>
                         <button type="button" class="table-btn red-status-btn text-uppercase">
                            Removed
                         </button>
-                     <?php elseif ($sDetails->status == 1): ?>
+                     <?php elseif ($sDetails->status == 1) : ?>
                         <button type="button" class="table-btn green-status-btn text-uppercase">
                            Active
                         </button>
-                     <?php elseif ($sDetails->status == 2): ?>
+                     <?php elseif ($sDetails->status == 2) : ?>
                         <button type="button" class="table-btn yellow-status-btn text-uppercase">
                            Disabled
                         </button>
@@ -108,7 +108,7 @@
                   <td data-lable="" class="column-center-align">
                      <span>
                         <a href="<?php echo URLROOT ?>/services/viewService/<?php echo $sDetails->serviceID; ?>"><i class="ci-view-more table-icon img-gap"></i></a>
-                        <?php if ($userLevel == "Owner" || $userLevel == "Manager") : ?>
+                        <?php if ($userType == "Owner" || $userType == "Manager") : ?>
                            <a href="<?php echo URLROOT ?>/services/updateService"><i class="ci-edit table-icon img-gap"></i></a>
                            <a href="#"><i class="ci-trash table-icon btnRemoveService img-gap"></i></a>
                         <?php endif; ?>
@@ -148,4 +148,3 @@ Active = 1
 Hold = 2
 
 -->
-

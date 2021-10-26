@@ -39,6 +39,7 @@ class Application
       if (!(method_exists($this->currentController, $this->currentMethod)))
       {
          // if home method doesnt exist redirected to not-found
+         http_response_code(404);
          $this->currentMethod = 'notFound';
       }
 

@@ -10,8 +10,6 @@
 
     <?php
     $title = "Overview";
-    $username = "Ruwanthi Munasinghe";
-    $userLevel = "Service Provider";
     require APPROOT . "/views/inc/headerBar.php"
     ?>
 
@@ -228,7 +226,7 @@
                             <span>Customer Note</span>
                         </div>
                         <div class="Reservationnote-note editable" contenteditable="true">
-                            <span>Cosmetic product No. s12II   can provoke allergies.</span>
+                            <span>Cosmetic product No. s12II can provoke allergies.</span>
                         </div>
 
                     </div>
@@ -239,7 +237,7 @@
                         <div class="more-details-modalbtnsection">
                             <button class="btn btnClose normal">Close</button>
 
-                            <button class="btnOpen btnResRecall <?php if($title == "Overview") echo "hide"?>" type="button">Recall</button>
+                            <button class="btnOpen btnResRecall <?php if ($title == "Overview") echo "hide" ?>" type="button">Recall</button>
 
                         </div>
                     </div>

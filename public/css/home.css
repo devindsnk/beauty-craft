@@ -5,7 +5,7 @@
 /* ------------------------------------------------------ */
 
 /* Special Button Design */
-.landingPage .btn-landing {
+.customerPages .btn-landing {
    border: 2px solid var(--theme-red);
    border-radius: 6px;
    padding: 5px 10px;
@@ -18,16 +18,16 @@
    cursor: pointer;
 }
 
-.landingPage .btn-landing:hover {
+.customerPages .btn-landing:hover {
    background-position: -1px;
 }
 
-.landingPage .btn-landing a {
+.customerPages .btn-landing a {
    text-decoration: none;
    color: var(--white);
 }
 
-.landingPage .btn-landing span {
+.customerPages .btn-landing span {
    display: block;
    font-size: 14px;
 }
@@ -43,7 +43,7 @@
 }
 
 /* Header Navigation */
-.landingPage nav {
+.customerPages nav {
    display: flex;
    width: 100%;
    height: 100px;
@@ -52,28 +52,28 @@
    justify-content: space-between;
 }
 
-.landingPage nav .logo {
+.customerPages nav .logo {
    height: 100%;
 }
 
-.landingPage nav .logo a {
+.customerPages nav .logo a {
    display: block;
    height: 100%;
 }
 
-.landingPage nav .logo img {
+.customerPages nav .logo img {
    height: 70px;
 }
 
-.landingPage nav .links {
+.customerPages nav .links {
    height: 100%;
 }
 
-.landingPage nav .links ul {
+.customerPages nav .links ul {
    height: 100%;
 }
 
-.landingPage nav .links ul li {
+.customerPages nav .links ul li {
    display: inline-block;
    height: 100%;
    list-style: none;
@@ -82,7 +82,7 @@
    position: relative;
 }
 
-.landingPage nav .links ul li::after {
+.customerPages nav .links ul li::after {
    content: '';
    width: 0%;
    height: 2px;
@@ -92,16 +92,16 @@
    transition: 0.3s;
 }
 
-.landingPage nav .links ul li:hover::after {
+.customerPages nav .links ul li:hover::after {
    color: var(--white);
    width: 100%;
 }
 
-.landingPage nav .links ul li:hover a {
+.customerPages nav .links ul li:hover a {
    color: var(--white);
 }
 
-.landingPage nav .links ul li a {
+.customerPages nav .links ul li a {
    text-decoration: none;
    color: #DDDDDD;
    font-size: 16px;
@@ -109,21 +109,21 @@
    transition: 0.3s;
 }
 
-.landingPage nav .buttons {
+.customerPages nav .buttons {
    height: 100%;
    display: flex;
    align-content: center;
 }
 
-.landingPage nav .btnLogin,
-.landingPage nav .btnRegister {
+.customerPages nav .btnLogin,
+.customerPages nav .btnRegister {
    height: 35px;
    align-self: center;
    margin-left: 25px;
    /* display: none; */
 }
 
-.landingPage nav .buttons .profileIcon {
+.customerPages nav .buttons .profileIcon {
    border-radius: 100%;
    height: 48px;
    padding: 2px;
@@ -135,23 +135,23 @@
 }
 
 
-.landingPage nav .buttons .profileIcon img {
+.customerPages nav .buttons .profileIcon img {
    height: 40px;
    border-radius: 100%;
    align-self: center;
 }
 
-.landingPage nav .buttons .profileIcon:hover {
+.customerPages nav .buttons .profileIcon:hover {
    border: 2px solid var(--theme-red);
 }
 
-.landingPage nav .links .closeBtn {
+.customerPages nav .links .closeBtn {
    display: none;
    margin: 25px;
    cursor: pointer;
 }
 
-.landingPage nav .buttons .menuBtn {
+.customerPages nav .buttons .menuBtn {
    margin-left: 25px;
    display: none;
    cursor: pointer;
@@ -160,15 +160,15 @@
 
 
 @media(max-width: 1150px) {
-   .landingPage nav .links .closeBtn {
+   .customerPages nav .links .closeBtn {
       display: block;
    }
 
-   .landingPage nav .buttons .menuBtn {
+   .customerPages nav .buttons .menuBtn {
       display: block;
    }
 
-   .landingPage nav .links {
+   .customerPages nav .links {
       position: absolute;
       height: 100vh;
       width: 260px;
@@ -179,13 +179,13 @@
       transition: 0.7s ease-in-out;
    }
 
-   .landingPage nav .links ul {
+   .customerPages nav .links ul {
       display: flex;
       flex-direction: column;
       align-items: center;
    }
 
-   .landingPage nav .links ul li {
+   .customerPages nav .links ul li {
       height: 60px;
       margin: 0px;
       padding: 0;
@@ -193,21 +193,21 @@
 }
 
 @media(max-width: 550px) {
-   .landingPage nav {
+   .customerPages nav {
       height: 80px;
    }
 
-   .landingPage nav .logo img {
+   .customerPages nav .logo img {
       height: 50px;
    }
 
-   .landingPage nav .btnRegister {
+   .customerPages nav .btnRegister {
       display: none;
    }
 }
 
 @media(max-width: 375px) {
-   .landingPage nav .btnProfile {
+   .customerPages nav .btnProfile {
       max-width: 80px;
    }
 }
@@ -216,7 +216,7 @@
 
 
 /* Profile menu */
-.landingPage .profile_menu {
+.customerPages .profile_menu {
    position: absolute;
    top: 110px;
    right: 10px;
@@ -228,9 +228,10 @@
    transition: 0.3s;
    visibility: hidden;
    opacity: 0;
+   overflow: hidden;
 }
 
-.landingPage .profile_menu ul li {
+.customerPages .profile_menu ul li {
    list-style: none;
    padding: 6px 0;
    font-size: 16px;
@@ -238,38 +239,38 @@
    /* border-top: 1px solid rgba(0, 0, 0, 0.07); */
 }
 
-.landingPage .profile_menu ul li i {
+.customerPages .profile_menu ul li i {
    width: 15px;
    margin-right: 8px;
    transition: 0.5s;
    color: var(--theme-grey);
 }
 
-.landingPage .profile_menu ul li a {
+.customerPages .profile_menu ul li a {
    text-decoration: none;
    transition: 0.4s;
    color: var(--theme-grey);
    opacity: 0.95;
 }
 
-.landingPage .profile_menu ul li:hover a,
-.landingPage .profile_menu ul li:hover i {
+.customerPages .profile_menu ul li:hover a,
+.customerPages .profile_menu ul li:hover i {
    color: var(--theme-red);
    opacity: 1;
 }
 
-.landingPage .profileIcon.active {
+.customerPages .profileIcon.active {
    border: 2px solid var(--theme-red) !important;
 }
 
-.landingPage .profile_menu.active {
+.customerPages .profile_menu.active {
    top: 82px;
    visibility: visible;
    opacity: 1;
 }
 
 @media(max-width: 550px) {
-   .landingPage .profile_menu.active {
+   .customerPages .profile_menu.active {
       top: 72px;
    }
 
@@ -380,267 +381,3 @@
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
 /* ------------------------------------------------------ */
-
-
-
-
-/* ------------------------------------------------------ */
-/* ----------- STYLES ADDED BY RUWANTHI ------------------*/
-/* ------------------------------------------------------ */
-
-/* MEET OUR TEAM */
-
-.MOT-section{
-   align-items: center;
-   flex-direction: column;
-   text-align: center;
-}
-.horizontal_slider {
-   display: flex;
-   overflow-x: scroll;
-   max-width: 1600px;
-   margin: 0 auto;
-}
-.horizontal_slider::-webkit-scrollbar {
-   width:0px;
-   padding: 10px;
-}
-.horizontal_slider::-webkit-scrollbar-track {
-   background: #f2f2f7;
-}
-
-.horizontal_slider::-webkit-scrollbar-thumb {
-   background-color: #c4cae0;
-   border-radius: 6px;
-   border: 3px solid #c4cae0;
-}
-.MOT-box{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   margin: 10px 30px;
-   width: 450px;
-   height: 470px;
-   background: #080808;
-   background: #505050;
-   background: -webkit-linear-gradient(bottom, #505050, #FFFFFF);
-   background: -moz-linear-gradient(bottom, #505050, #FFFFFF);
-   background: linear-gradient(to top, #505050, #FFFFFF);
-   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.75);
-}
-.MOT-box{
-   transition: 1s ease;
-}
-.MOT-box:hover{
-   -webkit-transform: scale(0.8);
-   -ms-transform: scale(0.8);
-   transform: scale(0.8);
-   transition: 1s ease;
-}
-.MOT-section img{
-   margin: 10px;
-   width: 350px;
-   height: 350px;
-   max-height: 100%;
-   max-width: 100%;
-   border-radius: 100%;
-   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.75);
-}
-.pro-name{
-   margin-top: 10px;
-   font-size: 25px;
-   font-weight: 500;
-   color: #FFF;
-   
-}
-/* END OF MEET OUR TEAM */
-
-/* WHAT THEY SAY */
-
-.WTS-section{
-   flex-direction: column;
-   justify-content: space-evenly;
-   align-items: stretch;
-   padding: 10px 30px;
-   background-color: rgba(22, 22, 22, 17%);
-}
-.WTS-section img{
-   margin: 10px 30px;
-   width: 50px;
-   height: 50px;
-   max-height: 100%;
-   max-width: 100%;
-   border-radius: 100%;
-   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.75);
-}
-.WTS-section .img-div{
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-   padding: 30px;
-}
-.slideshow-container {
-   position: relative;
-}
- 
-.WTS-section .mySlides {
-   display: none;
-   padding: 80px;
-   text-align: center;
-   font-size: 20px;
-}
-.WTS-section .prev, .WTS-section .next {
-   cursor: pointer;
-   position: absolute;
-   top: 50%;
-   width: auto;
-   margin-top: -30px;
-   padding: 16px;
-   font-weight: bold;
-   font-size: 20px;
-   border-radius: 0 3px 3px 0;
-   user-select: none;
-}
-.WTS-section .next {
-   position: absolute;
-   right: 0;
-   border-radius: 3px 0 0 3px;
-}
-.WTS-section .prev:hover, .WTS-section .next:hover {
-   background-color: rgba(0,0,0,0.8);
-   color: white;
- }
-.WTS-section .dot-container {
-   text-align: center;
-   padding: 20px;
- }
-.WTS-section .dot {
-   cursor: pointer;
-   height: 15px;
-   width: 15px;
-   margin: 0 2px;
-   background-color: #bbb;
-   border-radius: 50%;
-   display: inline-block;
-   transition: background-color 0.6s ease;
-}
-.WTS-section .active, .WTS-section .dot:hover {
-   background-color: #717171;
-}
-.WTS-section q {
-   font-style: italic;
-}
-.WTS-section .author {
-   color: cornflowerblue;
-   padding: 20px 0px;
-}
-
-/* END OF WHAT THEY SAY */
-
-/* ------------------------------------------------------ */
-/* -----------END OF STYLES ADDED BY DEVIN ---------------*/
-/* ------------------------------------------------------ */
-
-
-
-/* ------------------------------------------------------ */
-/* ----------- STYLES ADDED BY RUWANTHI ------------------*/
-/* ------------------------------------------------------ */
-
-.gallery.section{
-   display: flex;
-   flex-direction: column;
-}
-.gallery.section .gallarycontent{
- 
-   padding:0px 20px 0px 20px;
-   height: 100vh;
-   width: calc(100vw - 40px);
-   margin: auto;
-   /* overflow:scroll ; */
-   overflow-y:auto ;
-
-}
-
-.grid {
- padding: 1em;
- height: 100%;
- width: 100%;
- margin: auto;
-}
-
-.grid-inner {
- display: flex;
- flex-wrap: wrap;
- margin: 0 -0.5em;
-}
-
-.item {
- flex: 1 1 100%;
- padding: 0.5em;
-}
-
-.item-inner {
-   height: 100%;
- background-size: cover;
- background-image: url('../../public/imgs/gallery10.jpg');
- padding-top: 100%;
-}
-
-.item:nth-child(5) .item-inner {
- background-image: url('../../public/imgs/gallery1.jpg');
-}
-.item:nth-child(3) .item-inner {
- background-image: url('../../public/imgs/gallery2.jpg');
-}
-.item:nth-child(4) .item-inner {
- background-image: url('../../public/imgs/gallery3.jpg');
-}
-.item:nth-child(2) .item-inner {
- background-image: url('../../public/imgs/gallery4.jpg');
-}
-.item:nth-child(6) .item-inner {
- background-image: url('../../public/imgs/gallery5.jpg');
-}
-.item:nth-child(7) .item-inner {
- background-image: url('../../public/imgs/gallery6.jpg');
-}
-.item:nth-child(8) .item-inner {
- background-image: url('../../public/imgs/gallery7.jpg');
-}
-.item:nth-child(9) .item-inner {
- background-image: url('../../public/imgs/gallery8.jpg');
-}
-.item:nth-child(10) .item-inner {
- background-image: url('../../public/imgs/gallery9.jpg');
-}
-
-
-@media screen and (min-width: 500px) {
- .item {
-  flex: 1 1 100%;
- }
-}
-
-@media screen and (min-width: 700px) {
- .item {
-  flex: 1 1 50%;
- }
-}
-
-@media screen and (min-width: 1000px) {
- .item {
-  flex: 1 1 33.333%;
- }
-}
-@media screen and (min-width: 1190px) {
- .item {
-  flex: 1 1 25%;
- }
-}
-@media screen and (min-width: 1500px) {
- .item {
-  flex: 1 1 20%;
- }
-}

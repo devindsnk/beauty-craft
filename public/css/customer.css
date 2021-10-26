@@ -1,16 +1,23 @@
-.content {
+.nav-black {
+    background-color: var(--theme-black);
+}
+
+.outer-container {
+    height: calc(100vh - 150px);
+}
+
+.main-content-template {
     display: grid;
-    grid-template-columns: 5fr 12fr 1fr;
-    grid-template-rows: 155px calc(100vh - 155px);
-    grid-template-areas: "header header header" "sidebar content space";
+    padding-top: 50px;
+    grid-template-columns: 4fr 12fr;
+    grid-template-areas: "sidebar content";
 }
 
 .container {
     grid-area: content;
-    height: 600px;
+    height: 100%;
     width: 800px;
     margin-top: 7px;
-    max-height: 600px;
     /* max-width: 800px; */
     display: flex;
     flex-direction: column;
@@ -44,12 +51,12 @@
     height: 15%;
 }
 
-.item4,
-.item6 {
+.item4 {
     height: 18%;
 }
 
 .item6 {
+    height: 100px !important;
     margin-top: 10px;
 }
 
@@ -123,34 +130,33 @@ label.proflabel {
     font-size: 14px;
     border: none;
     border-radius: 6px;
-     border: 1.2px solid #c4cae0;
-    
+    border: 1.2px solid #c4cae0;
+
 }
 
-.fname:focus ,.passwordinput:focus{
-   outline: none;
-
-   border: 1px solid  #6f6df4;
+.fname:focus,
+.passwordinput:focus,
+.passwordinput1:focus {
+    outline: none;
+    border: 1px solid #6f6df4;
 }
 
-.item5 button {
-    background-color: #ff463f;
-    width: 150px;
-    height: 50px;
-    border-radius: 6px;
-    border: none;
-    color: white;
-    font-size: 20px;
-    font-weight: 500;
+.btnSave {
+    margin-top: 14px;
+    padding: 7px;
+    width: 120px;
 }
-.passwordinput1{
+
+.passwordinput1 {
     border: none;
     border-radius: 6px;
 }
-.pwd2{
+
+.pwd2 {
     padding-left: 15px;
 
 }
+
 .passwordinput {
     height: 40px;
     width: 90%;
@@ -196,30 +202,171 @@ label.proflabel {
     margin-right: 35px;
 }
 
-.sidenavbtn1 button,
-.sidenavbtn2 button,
-.sidenavbtn3 button {
-    color: #50515a;
+.customerPages .sidenavbtn {
+    display: block;
+    color: var(--theme-grey);
+
+    padding: 7px;
     width: 200px;
-    height: 35px;
     margin-right: 28px;
     text-align: left;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     border: none;
     border-radius: 6px;
-    background-color: transparent;
-    /* background-color: wheat; */
     padding-left: 10px;
     margin-bottom: 15px;
 }
 
-.sidenavbttn.selected {
+.sidenavbtn.selected {
     background-color: #dddddd;
     font-weight: 600;
 }
 
+/*------------------ Styles of My reservations ------------------------- */
+.cust.new-res .goBackBtn {
+    padding: 5px;
+    width: 130px;
+    margin-bottom: 20px;
+}
 
-/* button.sidenavbttn.option:hover {
+.cust.my-reservations {
+    width: 100%;
+    height: calc(100vh - 200px);
+    padding-right: 300px;
+    overflow-y: auto;
+
+}
+
+.outer-container .newResBtn {
+    padding: 7px;
+    width: 170px;
+    margin-left: auto;
+    margin-right: 80px;
+}
+
+.cust.my-reservations .sub-container {
+    align-self: center;
+    padding: 30px;
+    min-width: 500px;
+    max-width: 700px;
+    width: 80%;
+    height: min-content;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 12px 0;
+}
+
+.cust.my-reservations .sub-container .btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-top: auto;
+    padding-bottom: 0;
+}
+
+.cust.my-reservations .sub-container .btn-container .btn {
     font-weight: 500;
-} */
+    padding: 5px;
+    width: 120px;
+    margin-top: 10px;
+}
+
+.cust.my-reservations .sub-container .row {
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: auto 120px;
+    gap: 0 15px;
+}
+
+.cust.my-reservations .sub-container .row-inner {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.cust.my-reservations .sub-container .date-box {
+    border-radius: 6px;
+    height: max-content;
+    background-color: var(--theme-lightgrey);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+
+.cust .text-group span,
+.cust .date-box span {
+    display: block;
+    width: 100%;
+}
+
+.cust .sub-container .text-group {
+    margin-bottom: 15px;
+}
+
+.cust .sub-container .status-tag {
+    margin: 5px 0;
+}
+
+.cust .text-group .title {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--theme-grey);
+}
+
+.cust .text-group .content {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--theme-black);
+}
+
+.cust .text-group .description {
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--theme-black);
+}
+
+.cust .date-box .time {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.cust .date-box .mondate {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--theme-purple);
+}
+
+.cust .date-box .year {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--theme-grey);
+}
+
+.cust .desc-container {
+    margin-top: 20px;
+}
+
+/* New Res */
+.cust.new-res .main-container {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.cust.new-res h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    /* display: block;
+    margin-left: auto;
+    margin-right: auto; */
+}
+
+.addResBtn {
+    width: 200px;
+    padding: 7px;
+    margin-left: auto;
+}

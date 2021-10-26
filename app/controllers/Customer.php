@@ -71,7 +71,7 @@ class Customer extends Controller
                   }
                   else
                   {
-                     $data['mobileNo_error'] = "PIN has been sent already";
+                     $data['mobileNo_error'] = "PIN has been already sent";
                   }
                }
             }
@@ -173,7 +173,7 @@ class Customer extends Controller
 
 
                   $this->customerModel->registerCustomer($data);
-                  $this->userModel->registerUser($data['mobileNo'], $data['password'], 1);
+                  $this->userModel->registerUser($data['mobileNo'], $data['password'], 6);
                   removePIN($this->pinModel, $data['mobileNo'], 1);
 
                   // Provide success message here

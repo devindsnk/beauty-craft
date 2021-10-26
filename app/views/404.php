@@ -8,7 +8,7 @@
 
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/style.css" />
    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-   <title>slider sign in/sign up form</title>
+   <title>404</title>
 </head>
 
 <body class="error404">
@@ -16,7 +16,7 @@
       <div class="inner-container">
          <h1>Oops!</h1>
          <h3>404 - PAGE NOT FOUND!</h3>
-         <a href="" class="btn btn-filled btn-theme-purple">Go Back</a>
+         <a href="<?php echo URLROOT ?>" class="btn btn-filled btn-theme-purple">Go Back</a>
       </div>
 
    </div>

@@ -9,14 +9,12 @@
 
    <?php
    $title = "Resources";
-   $username = "Sanjana Rajapaksha";
-   $userLevel = "Manager";
    require APPROOT . "/views/inc/headerBar.php"
    ?>
 
    <!--Content-->
    <div class="content resources">
-   <?php require APPROOT . "/views/common/resourcesTable.php" ?>
+      <?php require APPROOT . "/views/common/resourcesTable.php" ?>
    </div>
    <!--End Content-->
 

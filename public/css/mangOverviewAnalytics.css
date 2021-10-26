@@ -82,6 +82,9 @@
 }
 
 /* *************************** */
+/* .serviceReport, .serviceProvReport{
+    height: calc(100vh - 113px);
+} */
 .main-head{
     font-size: 30px;
     font-weight: 600;
@@ -154,7 +157,7 @@
 
  .mang input[type = "date"]{
     width: 100%;
-    height: 34px;
+    height: 39px;
     font-weight: 400;
     padding: 8px 10px;
     border-radius: 6px;
@@ -211,7 +214,9 @@
 
 
 /* accept|reject leave requests */
-
+/* .leaveReq{
+    height: calc(100vh - 113px);
+} */
 .leave-requests-main{
     display: flex;
     flex-direction: column;
