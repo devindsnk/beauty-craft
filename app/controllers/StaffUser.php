@@ -3,7 +3,6 @@ class StaffUser extends Controller
 {
    public function __construct()
    {
-      // $this->employeeModel = $this->model('Employee');
    }
 
    public function profile()

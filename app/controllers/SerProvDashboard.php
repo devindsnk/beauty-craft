@@ -2,6 +2,7 @@
 {
    public function __construct()
    {
+      // validateSession([5]);
       $this->LeaveModel = $this->model('LeaveModel');
    }
    public function home()
@@ -10,56 +11,56 @@
    }
    public function overview()
    {
-      validateSession([5]);
       $this->view('serviceProvider/serProv_overview');
    }
 
    public function reservations()
    {
-      validateSession([5]);
+      // validateSession([5]);
       $this->view('serviceProvider/serProv_reservation');
    }
 
    public function leaves()
    {
-      validateSession([5]);
-      $leaveData = $this->LeaveModel->getLeaveByID($_SESSION['userID']);
+      // validateSession([5]);
+      $leaveData = $this->LeaveModel->getLeaveByID();
       //to get latest leave limit
       $leaveLimit = $this->LeaveModel->getLeaveLimit();
       //to get current month leave count
       $leaveCount = $this->LeaveModel->getLeaveCount($_SESSION['userID']);
       $remainingLeaveCount = $leaveLimit - $leaveCount;
       //echo  $remainingLeaveCount;
-  
-      if ($_SERVER['REQUEST_METHOD']=='POST') {
-         
 
-         $data=[ 'date'=>trim($_POST['date']),
-         'reason'=>trim($_POST['reason']),
-         'date_error'=>'',
-         'reason_error'=>'',
-         'staffID'=>$_SESSION['userID'],
-         'tableData'=>$leaveData,
-         'haveErrors' => 0,
-         'reasonentered'=>'',
-         'remainingCount'=> $remainingLeaveCount,
-         'leaveexceed'=>'',
-      
-       ];
-       //check exsisting dates
-       $checkDate=$this->LeaveModel->checkExsistingDate($data['date']) ;
+      if ($_SERVER['REQUEST_METHOD'] == 'POST')
+      {
+         $data = [
+            'date' => trim($_POST['date']),
+            'reason' => trim($_POST['reason']),
+            'date_error' => '',
+            'reason_error' => '',
+            'staffID' => '00005',
+            'tableData' => $leaveData,
+            'haveErrors' => 0,
+            'reasonentered' => '',
+            'remainingCount' => $remainingLeaveCount,
+            'leaveexceed' => 0,
 
-       $data['reasonentered']=$data['reason'];
-         if($_POST['action']=="addleave"){
-               $today = date('Y-m-d');
-               if (empty($data['date'])) {
-                  $data['date_error']="Please enter date";
-               }
-               if ((($data['date'])<$today)) {
-                  $data['date_error']="Please enter valid date";
-               }
+         ];
+         //check exsisting dates
+         $checkDate = $this->LeaveModel->checkExsistingDate($data['date']);
 
-
+         $data['reasonentered'] = $data['reason'];
+         if ($_POST['action'] == "addleave")
+         {
+            $today = date('Y-m-d');
+            if (empty($data['date']))
+            {
+               $data['date_error'] = "Please enter date";
+            }
+            if ((($data['date']) < $today))
+            {
+               $data['date_error'] = "Please enter valid date";
+            }
 
             if (empty($data['reason']))
             {
@@ -170,7 +171,7 @@
    }
    public function checkReqMonthLeaveLimit($leaveReqdate)
    {
-      validateSession([5]);
+      // validateSession([5]);
       $month = date("m", strtotime($leaveReqdate));
       $year = date('Y', strtotime($leaveReqdate));
       $data = [

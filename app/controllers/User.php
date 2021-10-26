@@ -20,16 +20,8 @@ class User extends Controller
             'password_error' => ''
          ];
 
-         // Validating contactNo
-         if (empty($data['mobileNo']))
-         {
-            $data['mobileNo_error'] = "Please enter Mobile No";
-         }
-         // Validating password
-         if (empty($data['password']))
-         {
-            $data['password_error'] = "Please enter Password";
-         }
+         $data['mobileNo_error'] = validateMobileNo($data['mobileNo']);
+         $data['password_error'] = emptyCheck($data['password']);
 
          if (empty($data['mobileNo_error']) && empty($data['password_error']))
          {
@@ -99,12 +91,9 @@ class User extends Controller
          // If the pin is requested
          if ($_POST['action'] == "getPIN")
          {
-            // Validating mobileNo
-            if (empty($data['mobileNo']))
-            {
-               $data['mobileNo_error'] = "Please enter mobile number";
-            }
-            else
+            $data['mobileNo_error'] = validateMobileNo($data['mobileNo']);
+
+            if (empty($data['mobileNo_error']))
             {
                // Checking if already registered
                $isUserExists = $this->userModel->checkUserExists($data['mobileNo']);
@@ -150,29 +139,12 @@ class User extends Controller
             // Validate everything
 
             // Validating mobileNumber
-            if ($data['mobileNo'] == "")
-            {
-               $data['mobileNo_error'] = "Please enter mobile no";
-            }
+            $data['mobileNo_error'] = validateMobileNo($data['mobileNo']);
+            $data['pin_error'] = emptyCheck($data['pin']);
 
-            // Validating code
-            if ($data['pin'] == "")
-            {
-               $data['pin_error'] = "Please enter Verfication PIN";
-            }
-
-            // Validating password
-            if (empty($data['newPassword']))
-            {
-               $data['password_error'] = "Please enter new Password";
-            }
-
-            // Validating confirmPassword
-            if (empty($data['confirmNewPassword']))
-            {
-               $data['confirmPassword_error'] = "Please enter new Password again";
-            }
-            else if ($data['newPassword'] != $data['confirmNewPassword'])
+            $data['newPassword_error'] = emptyCheck($data['newPassword']);
+            $data['confirmNewPassword_error'] = emptyCheck($data['confirmNewPassword']);
+            if (empty($data['newPassword_error']) && empty($data['confirmNewPassword_error']) && $data['newPassword'] != $data['confirmNewPassword'])
             {
                $data['confirmNewPassword_error'] = "New Passwords dont't match";
             }
