@@ -9,14 +9,12 @@ class Reservations extends Controller
    }
    public function newReservationCust()
    {
-      $sProvidersList = $this->getAllServiceProviders();
+      // $sProvidersList = $this->getAllServiceProviders();
       $servicesList = $this->getAllServices();
 
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
-         // var_dump($_POST);
-
          $data = [
             'customerID' => trim($_POST['customerID']),
             'serviceID' => isset($_POST['serviceID']) ? trim($_POST['serviceID']) : '',
@@ -35,23 +33,11 @@ class Reservations extends Controller
 
             'servicesList' => $servicesList
          ];
-         // print_r($data);
-         if (empty($data['startTime']))
-         {
-            $data['startTime_error'] = "Please select a starting time";
-         }
-         if (empty($data['serviceID']))
-         {
-            $data['serviceID_error'] = "Please select a service";
-         }
-         if (empty($data['staffID']))
-         {
-            $data['staffID_error'] = "Please select a service provider";
-         }
-         if (empty($data['date']))
-         {
-            $data['date_error'] = "Please select a date";
-         }
+
+         $data['startTime_error'] = emptyCheck($data['startTime']);
+         $data['serviceID_error'] = emptyCheck($data['serviceID']);
+         $data['staffID_error'] = emptyCheck($data['staffID']);
+         $data['date_error'] = emptyCheck($data['date']);
 
          if (empty($data['serviceID_error']) && empty($data['staffID_error']) && empty($data['date_error'])  && empty($data['startTime_error']))
          {

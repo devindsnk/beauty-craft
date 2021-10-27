@@ -182,6 +182,7 @@ footer p {
   font-weight: 500;
   font-size: 16px;
   box-shadow: rgba(67, 90, 111, 0.3) 0px 0px 1px, rgba(67, 90, 111, 0.47) 0px 2px 4px -2px;
+  transition: ease-in-out 0.2s;
 }
 
 .btn.btn-filled {
@@ -197,6 +198,11 @@ footer p {
   background-color: var(--theme-purple);
 }
 
+.btn.btn-filled.btn-theme-purple:hover {
+  background-color: #3A40D8;
+  filter: drop-shadow(0px 0px 11px rgba(68, 75, 248, 0.26));
+}
+
 .btn.btn-filled.btn-theme-red {
   background-color: var(--theme-red);
 }
@@ -204,6 +210,11 @@ footer p {
 .btn.btn-filled.btn-error-red {
   /* transition: 0.4s ease-in-out; */
   background-color: var(--error-red);
+}
+
+.btn.btn-filled.btn-error-red:hover {
+  background-color: #BE2D3B;
+  box-shadow: 0px 0px 11px rgba(220, 53, 69, 0.25);
 }
 
 /* .btn.btn-filled.btn-error-red:hover {
@@ -214,9 +225,19 @@ footer p {
   background-color: var(--theme-black);
 }
 
+.btn.btn-filled.btn-black:hover {
+  background-color: #09090C;
+  filter: drop-shadow(0px 0px 11px rgba(0, 0, 0, 0.15))
+}
+
 .btn.btn-outlined.btn-black {
   border: 2px solid var(--theme-black);
   color: var(--theme-black);
+}
+
+.btn.btn-outlined.btn-black:hover {
+  background: rgba(234, 234, 234, 0.35);
+  box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.15);
 }
 
 .btn.btn-filled.btn-grey {

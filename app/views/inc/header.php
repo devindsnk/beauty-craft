@@ -10,7 +10,7 @@
 
    <!--Style Sheet-->
    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-   <link rel="shortcut icon" type="image/x-icon" href="<?php echo URLROOT ?>/icons/logoWhiteBG.ico">
+   <link rel="shortcut icon" type="image/x-icon" href="<?php echo URLROOT ?>/logo/miniIcon.ico">
    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 
    <!-- Common stylesheets -->
