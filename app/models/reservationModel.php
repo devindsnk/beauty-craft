@@ -37,6 +37,22 @@ class ReservationModel
       return $result;
    }
 
+   public function getReservationDetailsByID($reservationID)
+   {
+      $this->db->query("
+      SELECT reservations.date, reservations.startTime, services.name AS serviceName, services.totalDuration, staff.fName AS staffFName, staff.lName AS staffLName, reservations.remarks,customers.customerID, customers.fName AS custFName, customers.lName AS custLName, customers.mobileNo, reservations.status  
+      FROM reservations
+      INNER JOIN customers ON customers.customerID = reservations.customerID
+      INNER JOIN staff ON staff.staffID = reservations.staffID
+      INNER JOIN services ON services.serviceID = reservations.serviceID
+      WHERE reservations.reservationID = :reservationID;
+      ");
+      $this->db->bind(':reservationID', $reservationID);
+      $result = $this->db->single();
+
+      return $result;
+   }
+
    public function getReservationsByCustomer($customerID)
    {
       $this->db->query("

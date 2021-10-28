@@ -107,6 +107,28 @@ class Reservations extends Controller
       }
    }
 
+   public function viewAllReservations()
+   {
+      $serviceProviders = $this->serviceModel->getServiceProviderDetails();
+      $serviceTypes = $this->serviceModel->getServiceTypeDetails();
+      $reservations = $this->reservationModel->getAllReservations();
+
+      $data = [
+         'serviceProvidersList' => $serviceProviders,
+         'serviceTypesList' => $serviceTypes,
+         'reservationsList' => $reservations
+      ];
+
+      $this->view('receptionist/recept_reservations', $data);
+   }
+
+   public function reservationMoreInfo($reservationID)
+   {
+      $reservationInfo = $this->reservationModel->getReservationDetailsByID($reservationID);
+
+      $this->view('common/reservationMoreInfo', $reservationInfo);
+   }
+
    public function getAllServiceProviders()
    {
       $sProvidersList = $this->serviceModel->getServiceProviderDetails();

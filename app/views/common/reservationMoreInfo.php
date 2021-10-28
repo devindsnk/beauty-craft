@@ -11,7 +11,7 @@
 			<?php echo URLROOT;
          if ($userTypeNo == 2) echo "/OwnDashboard/analyticsSProvider";
          elseif ($userTypeNo == 3) echo "/MangDashboard/analyticsSProvider";
-         elseif ($userTypeNo == 4) echo "/receptDashboard/reservations";
+         elseif ($userTypeNo == 4) echo "/reservations/viewAllReservations";
          ?>" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
       </div>
    </header>
@@ -20,18 +20,18 @@
       <div class="innerContainer">
          <h3>Reservation Details</h3>
          <div class="contentBox">
-            <span class="date">Monday 24th August 2021</span>
+            <span class="date"><?php echo $data->date; ?></span>
             <div class="row">
                <div class="column">
                   <div class="text-group">
                      <label for="">Time</label>
-                     <p>12:30 PM</p>
+                     <p><?php echo $data->startTime; ?></p>
                   </div>
                </div>
                <div class="column">
                   <div class="text-group">
                      <label for="">Service</label>
-                     <p>Hair Cuts - Mens</p>
+                     <p><?php echo $data->serviceName; ?></p>
                   </div>
                </div>
             </div>
@@ -39,13 +39,13 @@
                <div class="column">
                   <div class="text-group">
                      <label for="">Duration</label>
-                     <p>30 mins</p>
+                     <p><?php echo $data->totalDuration; ?></p>
                   </div>
                </div>
                <div class="column">
                   <div class="text-group">
                      <label for="">Service Provider</label>
-                     <p>Ravindu Madhubhashana</p>
+                     <p><?php echo $data->staffFName . " " . $data->staffLName; ?></p>
                   </div>
                </div>
             </div>
@@ -53,26 +53,26 @@
                <div class="column">
                   <div class="text-group">
                      <label for="">Remarks</label>
-                     <p>30 mins</p>
+                     <p><?php echo $data->remarks; ?></p>
                   </div>
                </div>
             </div>
          </div>
          <h3>Customer Details</h3>
-         <div class="contentBox">
+         <div class="contentBox custDetails">
             <div class="row-2">
                <div class="column">
                   <div class="text-group inner-row">
                      <label for="">CustomerID</label>
-                     <p>C000022</p>
+                     <p>C<?php echo $data->customerID; ?></p>
                   </div>
                   <div class="text-group inner-row">
                      <label for="">Name</label>
-                     <p>Devin Dissanayake</p>
+                     <p><?php echo $data->custFName . " " . $data->custLName; ?></p>
                   </div>
-                  <div class="text-group inner-row">
+                  <div class="text-group inner-row last-row">
                      <label for="">Contact No</label>
-                     <p>0717679714</p>
+                     <p><?php echo $data->mobileNo; ?></p>
                   </div>
 
                </div>
@@ -81,11 +81,10 @@
                      <a href="" class="btn btn-outlined btn-grey">Edit</a>
                      <a href="" class="btn btn-outlined btn-error-red">Cancel</a>
                      <a href="" class="btn btn-outlined btn-blue">No Show</a>
-                     <a href="" class="btn btn-filled btn-grey btn-last">Checkout</a>
+                     <a href="" class="btn btn-filled btn-theme-purple btn-last">Checkout</a>
                   </div>
                </div>
             </div>
-
          </div>
       </div>
 

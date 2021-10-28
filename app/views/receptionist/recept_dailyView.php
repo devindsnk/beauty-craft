@@ -26,10 +26,10 @@
                      <div class="dropdown-group">
                         <label class="label" for="lName">Service Provider</label>
                         <select>
-                           <option value="" selected disabled>Select</option>
-                           <option value="">Sanjna Rajapaksha</option>
-                           <option value="volvo">Sumudu Perera</option>
-                           <option value="saab">Ravindu Madhubhashana</option>
+                           <option value="" selected>All</option>
+                           <?php foreach ($data['serviceProvidersList'] as $serviceProvider) : ?>
+                              <option value=""><?php echo $serviceProvider->fName . " " . $serviceProvider->lName; ?></option>
+                           <?php endforeach; ?>
                         </select>
                      </div>
                      <span class="error"> <?php echo " "; ?></span>

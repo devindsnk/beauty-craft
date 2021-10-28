@@ -10,11 +10,12 @@
          <div class="row">
             <div class="column">
                <div class="dropdown-group">
-                  <label class="label" for="lName">Service</label>
+                  <label class="label" for="lName">Service Type</label>
                   <select>
-                     <option value="" selected>Any</option>
-                     <option value="volvo">Active</option>
-                     <option value="saab">Inactive</option>
+                     <option value="" selected>All</option>
+                     <?php foreach ($data['serviceTypesList'] as $serviceType) : ?>
+                        <option value=""><?php echo $serviceType->type; ?></option>
+                     <?php endforeach; ?>
                   </select>
                </div>
                <span class="error"> <?php echo " "; ?></span>
@@ -27,9 +28,14 @@
                <span class="error"> <?php echo " "; ?></span>
             </div>
             <div class="column">
-               <div class="text-group">
-                  <label class="label" for="fName">Customer Name</label>
-                  <input type="text" name="" id="fName" placeholder="Your first name here">
+               <div class="dropdown-group">
+                  <label class="label" for="lName">Service Provider</label>
+                  <select>
+                     <option value="" selected>All</option>
+                     <?php foreach ($data['serviceProvidersList'] as $serviceProvider) : ?>
+                        <option value=""><?php echo $serviceProvider->fName . " " . $serviceProvider->lName; ?></option>
+                     <?php endforeach; ?>
+                  </select>
                </div>
                <span class="error"> <?php echo " "; ?></span>
             </div>
@@ -38,9 +44,12 @@
                <div class="dropdown-group">
                   <label class="label" for="lName">Status</label>
                   <select>
-                     <option value="" selected>Any</option>
-                     <option value="">Active</option>
-                     <option value="">Inactive</option>
+                     <option value="" selected>All</option>
+                     <option value="">Pending</option>
+                     <option value="">Confirmed</option>
+                     <option value="">Completed</option>
+                     <option value="">Cancelled</option>
+                     <option value="">No Show</option>
                   </select>
                </div>
                <span class="error"> <?php echo " "; ?></span>
@@ -73,28 +82,19 @@
          </thead>
 
          <tbody>
-            <?php foreach ($data as $reservation) : ?>
+            <?php foreach ($data['reservationsList'] as $reservation) : ?>
                <?php
                $statusClassList = ["red-status-btn", "yellow-status-btn", "blue-status-btn", "grey-status-btn", "green-status-btn"];
                $statusValueList  = ["Cancelled", "Pending", "Confirmed", "No Show", "Completed"];
                $statusClass = $statusClassList[$reservation->status];
                $statusValue = $statusValueList[$reservation->status];
-
-               $startTime = $reservation->startTime;
-               $timeH24 = $startTime / 60;
-               $suffix;
-               if ($timeH24 >= 12) $suffix = "PM";
-               else $suffix = "AM";
-               if ($timeH24 == 12) $timeH = '12';
-               else $timeH = str_pad($timeH24 % 12, 2, "0", STR_PAD_LEFT);
-               $timeM = str_pad($startTime % 60, 2, "0", STR_PAD_LEFT);
                ?>
 
 
                <tr>
                   <td data-lable="Reservation ID" class="column-center-align font-numeric">R<?php echo $reservation->reservationID; ?></td>
                   <td data-lable="Date" class="column-center-align"><?php echo $reservation->date; ?></td>
-                  <td data-lable="Time" class="column-center-align font-numeric"><?php echo $timeH . ":" . $timeM . " " . $suffix; ?></td>
+                  <td data-lable="Time" class="column-center-align font-numeric"><?php echo minsToTime($reservation->startTime); ?></td>
                   <td data-lable="Service" class="column-left-align"><?php echo $reservation->serviceName; ?></td>
                   <td data-lable="Service Provider" class="column-left-align"><?php echo $reservation->staffFName . " " . $reservation->staffLName; ?></td>
                   <td data-lable="Customer" class="column-left-align"><?php echo $reservation->custFName . " " . $reservation->custLName; ?></td>
@@ -103,7 +103,7 @@
                   </td>
                   <td class="column-center-align">
                      <span>
-                        <a href="<?php echo URLROOT ?>/ReceptDashboard/reservationMoreInfo"><i class="ci-view-more table-icon img-gap"></i></a>
+                        <a href="<?php echo URLROOT ?>/Reservations/reservationMoreInfo/<?php echo $reservation->reservationID; ?>"><i class="ci-view-more table-icon img-gap"></i></a>
                         <?php if ($userType == "Receptionist") : ?>
                            <a href="#"><i class="ci-edit table-icon img-gap"></i></a>
                            <a href="#"><i class="ci-trash table-icon img-gap"></i></a>
