@@ -17,15 +17,16 @@ class ServiceModel
     {
         if (empty($data['sSelectedType']))
         {
-            $this->db->query("INSERT INTO services (name, price, type, totalDuration, status) VALUES(:sName, :sPrice, :sNewType, :sSlot1Duration, 1)");
+            $this->db->query("INSERT INTO services (name, customerCategory, price, type, totalDuration, status) VALUES(:sName, :sSelectedCusCategory, :sPrice, :sNewType, :sSlot1Duration, 1)");
             $this->db->bind(':sNewType', $data['sNewType']);
         }
         else
         {
-            $this->db->query("INSERT INTO services (name, price, type, totalDuration, status) VALUES(:sName, :sPrice, :sSelectedType, :sSlot1Duration,1)");
+            $this->db->query("INSERT INTO services (name, customerCategory, price, type, totalDuration, status) VALUES(:sName, :sSelectedCusCategory, :sPrice, :sSelectedType, :sSlot1Duration,1)");
             $this->db->bind(':sSelectedType', $data['sSelectedType']);
         }
         $this->db->bind(':sName', $data['sName']);
+        $this->db->bind(':sSelectedCusCategory', $data['sSelectedCusCategory']);
         $this->db->bind(':sPrice', $data['sPrice']);
         $this->db->bind(':sSlot1Duration', $data['sSlot1Duration']);
 

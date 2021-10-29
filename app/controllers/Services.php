@@ -17,6 +17,9 @@ class Services extends Controller
       {
          $data = [
             'sName' => trim($_POST['sName']),
+
+            'sSelectedCusCategory' => isset($_POST['serviceCusCategory']) ? trim($_POST['serviceCusCategory']) : '',
+
             'sSelectedType' => isset($_POST['serviceType']) ? trim($_POST['serviceType']) : '',
             'sNewType' => trim($_POST['sNewType']),
             'sSelectedProv' => isset($_POST['serProvCheckbox']) ? $_POST['serProvCheckbox'] : '',
@@ -29,6 +32,7 @@ class Services extends Controller
             'sResArray' => [],
 
             'sName_error' => '',
+            'sSelectedCusCategory_error' => '',
             'sSelectedAllType_error' => '',
             'sSelectedSProve_error' => '',
             'sPrice_error' => '',
@@ -47,6 +51,10 @@ class Services extends Controller
             if (empty($data['sName']))
             {
                $data['sName_error'] = "Please enter service name";
+            }
+            if (empty($data['sSelectedCusCategory']))
+            {
+               $data['sSelectedCusCategory_error'] = "Please select customer category";
             }
             if (empty($data['sSelectedType']) && empty($data['sNewType']))
             {
@@ -73,7 +81,7 @@ class Services extends Controller
                $data['sSlot1Duration_error'] = "Please enter slot1 duration";
             }
 
-            if (empty($data['sName_error']) && empty($data['sPrice_error']) && empty($data['sSelectedAllType_error']) && empty($data['sSelectedSProve_error']) && empty($data['sSlot1Duration_error']))
+            if (empty($data['sName_error']) && empty($data['sSelectedCusCategory_error']) && empty($data['sPrice_error']) && empty($data['sSelectedAllType_error']) && empty($data['sSelectedSProve_error']) && empty($data['sSlot1Duration_error']))
             {
 
                $this->ServiceModel->addService($data);
@@ -108,6 +116,7 @@ class Services extends Controller
 
          $data = [
             'sName' => '',
+            'sSelectedCusCategory' => '',
             'sSelectedType' => '',
             'sNewType' => '',
             'sPrice' => '',
@@ -121,6 +130,7 @@ class Services extends Controller
             'sResArray' => [],
 
             'sName_error' => '',
+            'sSelectedCusCategory_error' => '',
             'sSelectedAllType_error' => '',
             'sSelectedSProve_error' => '',
             'sPrice_error' => '',

@@ -39,6 +39,20 @@
 							</div>
 							<span class="error"><?php echo $data['sName_error']; ?></span>
 						</div>
+
+						<div class="column">
+							<div class="text-group">
+								<label class="labels" for="serviceCusCategory">Customer Category</label>
+
+								<select class="dropdownSelectBox" name="serviceCusCategory">
+									<option class="unbold" value="val1" option selected="true" disabled="disabled">Select One</option>
+									<option value="Gent" <?php if ($data['sSelectedCusCategory'] == 'Gent') echo 'selected'; ?>>Gents</option>
+									<option value="Ladies" <?php if ($data['sSelectedCusCategory'] == 'Ladies') echo 'selected'; ?>>Ladies</option>
+									<option value="Both" <?php if ($data['sSelectedCusCategory'] == 'Both') echo 'selected'; ?>>Both</option>
+							</select>
+							</div>
+							<span class="error"><?php echo $data['sSelectedCusCategory_error']; ?></span>
+						</div>
 					</div>
 					<!-- end of service name -->
 
@@ -86,13 +100,13 @@
 
 								<?php foreach ($data['sProvArray'] as $sProv) : ?>
 									<div class="divIndiv"><input type="checkbox" name="serProvCheckbox[]" value="<?php echo $sProv->staffID; ?>" <?php if (!empty($data['sSelectedProv']))
-																																														{
-																																															foreach ($data['sSelectedProv'] as $selectedSP)
-																																															{
-																																																if ($selectedSP == $sProv->staffID) echo 'checked';
-																																															}
-																																														}
-																																														?>>
+										{
+											foreach ($data['sSelectedProv'] as $selectedSP)
+											{
+												if ($selectedSP == $sProv->staffID) echo 'checked';
+											}
+										}
+										?>>
 										<lable class="lableInDiv">
 											<?php echo $sProv->staffID; ?> - <?php echo $sProv->fName; ?> <?php echo $sProv->lName; ?>
 										</lable>
