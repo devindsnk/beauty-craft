@@ -16,9 +16,14 @@ class StaffModel
 
    public function addStaffDetails($data)
    {
-      // print_r($data);
-      $this->db->query("INSERT INTO staff(fName, lName, staffType, mobileNo, gender, nic, address, email, dob, status) VALUES(:fName, :lName, :staffType , :mobileNo, :gender, :nic, :address, :email, :dob , '1')");
-      //   $this->db->bind(':image', $data['image']);
+      print_r($data);
+      // $this->db->query("INSERT INTO staff(ImageColumn) 
+      // SELECT BulkColumn 
+      // FROM Openrowset( Bulk 'image..Path..here', Single_Blob) as img
+      // ");
+      $this->db->query("INSERT INTO staff(image, fName, lName, staffType, mobileNo, gender, nic, address, email, dob, status) VALUES(:image, :fName, :lName, :staffType , :mobileNo, :gender, :nic, :address, :email, :dob , '1')");
+      
+      $this->db->bind(':image', $data['staffimage']);
       $this->db->bind(':fName', $data['staffFname']);
       $this->db->bind(':lName', $data['staffLname']);
       $this->db->bind(':staffType', $data['staffType']);
@@ -28,8 +33,6 @@ class StaffModel
       $this->db->bind(':address', $data['staffHomeAdd']);
       $this->db->bind(':email', $data['staffEmail']);
       $this->db->bind(':dob', $data['staffDOB']);
-      //   $this->db->bind(':joinedDate', $data['SELECT CURRENT_DATE();']);
-      //   $this->db->bind('SELECT CURRENT_DATE() AS joinedDate; ']);
 
       $this->db->execute();
    }
@@ -73,9 +76,8 @@ class StaffModel
       return $result;
    }
 
-   public function getBankDetails($staffID)
+   public function getBankDetails($staffID) 
    {
-
       $this->db->query("SELECT * FROM bankdetails
                         INNER JOIN staff 
                         ON staff.staffID = bankdetails.staffID

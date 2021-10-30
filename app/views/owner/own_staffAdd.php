@@ -32,18 +32,19 @@
                             <!------------------ maingrid1 start --------------------------------------------------------->
                             <div class="ownAddstaffMaingrid1">
 
-                                <!-- <div class="ownAddstaffFormGroupImage">
+                                <div class="ownAddstaffFormGroupImage">
                                     <div class="ownAddstaffBasicinfoFilesubBtn">
                                         <label for="ownAddstaffBasicinfoImagesub"
                                             class="ownAddstaffBasicinfoImagewrapper">
-                                            <input type="file" name="staffImage" id="ownAddstaffBasicinfoImagesub"
-                                                accept="image/*">
+                                            <input type="file" name="staffimage" id="ownAddstaffBasicinfoImagesub"
+                                                accept="image/*" value="<?php echo $data['staffimage']; ?>">
                                             <img src="<?php echo URLROOT ?>/public/icons/add_graph_report_64px.png"
                                                 class="ownAddstaffBasicinfoIcon"> <br>
                                             <span class="ownAddstaffBasicinfoImagetitle">Add Image</span>
                                         </label>
                                     </div>
-                                </div> -->
+                                    <span class="error"><?php echo $data['staffimage_error']; ?></span>
+                                </div>
 
                                 <div class="ownAddstaffFormGroupFname">
                                     <label class="ownAddstaffLabels">First Name</label>
@@ -53,7 +54,7 @@
                                 </div>
                                 <div class="ownAddstaffFormGroupLname">
                                     <label class="ownAddstaffLabels">Last Name</label>
-                                    <input type="text" name="staffLname" name="lastname" id="ownAddstaffLastname"
+                                    <input type="text" name="staffLname" id="ownAddstaffLastname"
                                         placeholder="Your last name here" value="<?php echo $data['staffLname']; ?>">
                                     <span class="error"><?php echo $data['staffLname_error']; ?></span>
                                 </div>

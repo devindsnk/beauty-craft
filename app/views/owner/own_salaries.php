@@ -66,7 +66,7 @@
       <!--Content-->
       <div class="table-container">
          <div class="table1 table1-responsive">
-            <table class="table1-hover">
+            <table class="table1-hover" >
                <!--Table head-->
                <thead>
                   <tr>

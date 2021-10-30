@@ -9,6 +9,9 @@ class OwnDashboard extends Controller
       $this->staffModel = $this->model('StaffModel');
       $this->serviceModel = $this->model('ServiceModel');
       $this->resourceModel = $this->model('ResourceModel');
+      $this->ratesModel = $this->model('RatesModel');
+      // $this->customerModel= $this->model('CustomerModel');
+
    }
    public function home()
    {
@@ -32,74 +35,70 @@ class OwnDashboard extends Controller
    }
    public function rates()
    {
-      $this->view('owner/own_rates');
-   }
-   public function reservations()
-   {
-      $this->view('owner/own_reservations');
-   }
-   public function resources()
-   {
-      $resourceDetails = $this->serviceModel->getResourceDetails();
+      
+      $LeavelimitsDetails = $this->ratesModel->getLeaveLimitsDetails();
+      // $GetLeaveLimitsArray = ['leavelimits' => $LeavelimitsDetails];
+      // print_r($GetLeaveLimitsArray);
+      // $this->view('owner/own_rates',  $LeavelimitsDetails);
+      $this->view('owner/own_rates',  $LeavelimitsDetails[0]);
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
-         $data = [
-            'resourceName' => trim($_POST['resourceName']),
-            'resourceQuantity' => isset($_POST['resourceQuantity']) ? trim($_POST['resourceQuantity']) : '',
-            'resourceName_error' => '',
-            'resourceQuantity_error' => '',
-            'haveErrors' => 0,
-            'resource' => $resourceDetails
+        $data = [
+            'managerLeaveLimit' => trim($_POST['managerLeaveLimit']),
+            'serviceProviderLeaveLimit' => trim($_POST['serviceProviderLeaveLimit']),
+            'receptionistLeaveLimit' => trim($_POST['receptionistLeaveLimit']),
+            'managerLeaveLimit_error' => '',
+            'serviceProviderLeaveLimit_error' => '',
+            'receptionistLeaveLimit_error' => '',
          ];
-         // Validating ResName
-         if ($_POST['action'] == "addResource")
-         {
-            if (empty($data['resourceName']))
-            {
-               $data['resourceName_error'] = "Please enter Resource Name";
-            }
-            else if (!preg_match("/^[a-zA-Z-' ]*$/", $data['resourceName']))
-            {
-               $data['resourceName_error']  = "Only letters are allowed";
-            }
 
-            // Validating 
-            if (empty($data['resourceQuantity']))
-            {
-               $data['resourceQuantity_error'] = "Please select number of resource";
-            }
-            if (
-               empty($data['resourceName_error']) && empty($data['resourceQuantity_error'])
-            )
-            {
-               $this->resourceModel->addResourceDetails($data);
-               redirect('OwnDashboard/resources');
-            }
-            else
-            {
-               $data['haveErrors'] = 1;
-               $this->view('owner/own_resources', $data);
-            }
-         }
-         else if ($_POST['action'] == "cancel")
+         if (empty($data['managerLeaveLimit']))
          {
-            $data['haveErrors'] = 0;
-            $this->view('owner/own_resources', $data);
+            $data['managerLeaveLimit_error'] = "Please insert a image";
+         }
+         // Validating fname
+         if (empty($data['serviceProviderLeaveLimit']))
+        {
+         $data['serviceProviderLeaveLimit_error'] = "Please enter First Name";
+        }
+
+        // Validating lname
+        if (empty($data['receptionistLeaveLimit']))
+        {
+         $data['receptionistLeaveLimit_error'] = "Please enter Last Name";
+        }
+        if (
+            empty($data['managerLeaveLimit_error']) && empty($data['serviceProviderLeaveLimit_error']) && empty($data['receptionistLeaveLimit_error']))
+          {
+
+            // print_r($data);
+            $this->ratesModel->updateLeaveLimitDeatils($data);
+            $this->view('owner/own_rates', $data);
+         }
+         else
+         {
+            $this->view('owner/own_rates', $data);
          }
       }
       else
       {
+
          $data = [
-            'resourceName' => '',
-            'resourceQuantity' => '',
-            'resourceName_error' => '',
-            'resourceQuantity_error' => '',
-            'haveErrors' => 0,
-            'resource' => $resourceDetails
+            'managerLeaveLimit' => '',
+            'serviceProviderLeaveLimit' => '',
+            'receptionistLeaveLimit' => '',
+            'managerLeaveLimit_error' => '',
+            'serviceProviderLeaveLimit_error' => '',
+            'receptionistLeaveLimit_error' => '',
          ];
-         $this->view('owner/own_resources', $data);
+         $this->view('owner/own_rates', $data);
       }
+
+
+
+
+
    }
    public function salaries()
    {
@@ -112,6 +111,8 @@ class OwnDashboard extends Controller
          'services' => $sDetails
       ];
       $this->view('owner/own_services', $GetServicesArray);
+
+      
    }
    public function staff()
    {

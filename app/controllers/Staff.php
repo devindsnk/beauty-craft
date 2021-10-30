@@ -12,6 +12,7 @@ class Staff extends Controller
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
          $data = [
+            'staffimage' => trim($_POST['staffimage']),
             'staffFname' => trim($_POST['staffFname']),
             'staffLname' => trim($_POST['staffLname']),
             'gender' => isset($_POST['gender']) ? trim($_POST['gender']) : '',
@@ -26,6 +27,7 @@ class Staff extends Controller
             'staffAccHold' => trim($_POST['staffAccHold']),
             'staffAccBank' => trim($_POST['staffAccBank']),
             'staffAccBranch' => trim($_POST['staffAccBranch']),
+            'staffimage_error' => '',
             'staffFname_error' => '',
             'staffLname_error' => '',
             'gender_error' => '',
@@ -41,7 +43,12 @@ class Staff extends Controller
             'staffAccBranch_error' => '',
          ];
             $data['staffHomeAddTyped']= $data['staffHomeAdd'];
-         // Validating fname
+            
+            if (empty($data['staffimage']))
+            {
+               $data['staffimage_error'] = "Please insert a image";
+            }
+            // Validating fname
          if (empty($data['staffFname']))
          {
             $data['staffFname_error'] = "Please enter First Name";
@@ -164,7 +171,7 @@ class Staff extends Controller
        
 
          if (
-            empty($data['staffFname_error']) && empty($data['staffLname_error']) && empty($data['gender_error']) && empty($data['staffNIC_error']) && empty($data['staffDOB_error']) && empty($data['staffType_error']) && empty($data['staffHomeAdd_error']) && empty($data['staffContactNum_error']) && empty($data['staffEmail_error']) &&
+            empty($data['staffimage_error']) && empty($data['staffFname_error']) && empty($data['staffLname_error']) && empty($data['gender_error']) && empty($data['staffNIC_error']) && empty($data['staffDOB_error']) && empty($data['staffType_error']) && empty($data['staffHomeAdd_error']) && empty($data['staffContactNum_error']) && empty($data['staffEmail_error']) &&
             empty($data['staffAccNum_error']) && empty($data['staffAccHold_error']) && empty($data['staffAccBank_error']) && empty($data['staffAccBranch_error'])
          ) {
 
@@ -183,6 +190,7 @@ class Staff extends Controller
       {
 
          $data = [
+            'staffimage' => '',
             'staffFname' => '',
             'staffLname' => '',
             'gender' => '',
@@ -196,6 +204,7 @@ class Staff extends Controller
             'staffAccHold' => '',
             'staffAccBank' => '',
             'staffAccBranch' => '',
+            'staffimage_error' => '',
             'staffFname_error' => '',
             'staffLname_error' => '',
             'gender_error' => '',

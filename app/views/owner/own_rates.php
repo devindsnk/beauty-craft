@@ -22,34 +22,39 @@
 
             <div class="card1 contentBox">
                 <h3>Leave Limit</h3>
-
+                <?php print_r($data);?>
+                <form action="<?php echo URLROOT; ?>/Rates/updateLeaveLimit" method="post">
                 <div class="deatailbox">
                     <div class="labelBox">
-                        <div class="detailLine">
-                            <label class="rateLabel">Service Provider</label>
+                        <div class="detailLableLine">
+                            <label class="rateLabel">Service Provider</label> <br>
+                            <span class="error"><?php echo $data['managerLeaveLimit_error']; ?></span>
                         </div>
-                        <div class="detailLine">
-                            <label class="rateLabel">Receptionist</label>
+                        <div class="detailLableLine">
+                            <label class="rateLabel">Receptionist</label> <br>
+                            <span class="error"><?php echo $data['serviceProviderLeaveLimit_error']; ?></span>
                         </div>
-                        <div class="detailLine">
-                            <label class="rateLabel">Manager</label>
+                        <div class="detailLableLine">
+                            <label class="rateLabel">Manager</label> <br>
+                            <span class="error"><?php echo $data['receptionistLeaveLimit_error']; ?></span>
                         </div>
                     </div>
                     <div class="valueBox">
-                        <div class="detailLine">
-                            <input type="text" class="rateValue" value="2">
+                        <div class="detailValueLine">
+                            <input type="text" class="rateValue" name="managerLeaveLimit" value="<?php echo $data['managerLeaveLimit']; ?>" placeholder="<?php echo $data->managerLeaveLimit; ?>">
                         </div>
-                        <div class="detailLine">
-                            <input type="text" class="rateValue" value="2">
+                        <div class="detailValueLine">
+                            <input type="text" name="serviceProviderLeaveLimit" class="rateValue" value="<?php echo $data['serviceProviderLeaveLimit']; ?><?php echo $data->serviceProviderLeaveLimit; ?>">
                         </div>
-                        <div class="detailLine">
-                            <input type="text" class="rateValue" value="2">
+                        <div class="detailValueLine">
+                            <input type="text" class="rateValue" name="receptionistLeaveLimit"  value="<?php echo $data['receptionistLeaveLimit']; ?><?php echo $data->receptionistLeaveLimit; ?>">
                         </div>
                     </div>
                     <div class="ratebutton">
                         <button class="btn btn-filled btn-grey">Save Changes</button>
                     </div>
                 </div>
+                </form>
             </div>
 
             <div class="card2 contentBox">
