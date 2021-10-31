@@ -1,8 +1,4 @@
 
-
-
-
-
 <div class="leaverequesttable">
    <div class="cardandbutton">
       <div class="leavecountcard">
@@ -12,7 +8,7 @@
             {
                echo $data['remainingCount'];
             }
-            else echo 2; ?></div>
+             ?></div>
       </div>
       <div class="page-top-main-container">
          <button class="btn btn-filled btn-theme-purple btnleaveRequest">Add New</button>
@@ -90,7 +86,6 @@
                      <td data-lable="Action" class="column-center-align">
                         <span>
                            <button class="editicon btnEditLeave"><a href="#" data-a=""><i class="ci-edit table-icon"></i></a></button>
-
                            <button class="editicon btnDeleteLeave"><a><i class="ci-trash table-icon"></i></a></button>
                         </span>
                      </td>

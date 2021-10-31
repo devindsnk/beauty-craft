@@ -39,7 +39,7 @@
 
          <!--Sidebar Item-->
          <li class="mainOption menuOption">
-            <a class="optionLink <?php if ($selectedMain == "Leaves") echo " selected" ?>" href="<?php echo URLROOT ?>/SerProvDashboard/leaves">
+            <a class="optionLink <?php if ($selectedMain == "Leaves") echo " selected" ?>" href="<?php echo URLROOT ?>/Leaves/leaves">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-save-remove "></i>
                </div>
