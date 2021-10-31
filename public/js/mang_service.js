@@ -69,3 +69,46 @@ $(document).on('click', '.close-slot', function(){
     i--;
 
 });
+
+
+{/* <div class='newService-sub' id='fullSlotDetail" + j + "'> 
+    <div class='btn-remove quantity-align'>
+        <a href='#fullSlotDetail " + j + "' name='remove' id='" + i + "' class='close-slot'>
+            <i class='fas fa-times fa-1g'></i><br />
+        </a>
+    </div>
+    <h4 class='paddingBottom'>Slot " + i + "</h4>
+    <div class='row'>
+        <div class='column'>
+            <div class='row2' id='intervalDetails" + j + "'>
+                <label class='labels'>Interval Duration</label><br>
+                <select class='dropdownSelectBox'>
+                    <option class='unbold' value='val0' option selected='true' disabled='disabled'>Select duration</option>
+                    <option value='val1'>1 min</option>
+                    <option value='val2'>2 min</option>
+                </select>
+                <span class='error paddingLeft'></span>
+            </div>
+            <div class='row4' id='slotDetails" + i + "'>
+                <label class='labels'>Slot Duration</label><br>
+                <select class='dropdownSelectBox'>
+                    <option class='unbold' value='val0' option selected='true' disabled='disabled'>Select duration</option>
+                    <option value='val1'>1 min</option>
+                    <option value='val2'>2 min</option>
+                </select>
+                <span class='error paddingLeft'></span>
+            </div>
+        </div> 
+        <div class='column' id='resorceDetails" + i + "'>
+            <label class='labels'>Resources and Quantity</label> 
+            <div class='checkbox-div'><div class='divIndiv'>
+                <label class='lableInDiv' id='checkedItem'> </label> 
+                <select class='dropdownSelectBox-small quantity-align resCount'>
+                </select><br>
+            </div>
+            <hr class='resHr'>
+        </div>
+        <span class='error paddingLeft'></span>
+    </div>
+</div>
+</div> */}

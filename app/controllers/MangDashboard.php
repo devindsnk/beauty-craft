@@ -10,6 +10,7 @@ class MangDashboard extends Controller
       $this->serviceModel = $this->model('ServiceModel');
       $this->serviceModel = $this->model('ServiceModel');
       $this->staffModel = $this->model('StaffModel');
+      $this->leaveModel = $this->model('LeaveModel');
    }
    public function home()
    {
@@ -62,7 +63,13 @@ class MangDashboard extends Controller
    public function leaveRequests()
    {
       // validateSession([3]);
-      $this->view('manager/mang_subLeaveRequests');
+      $leaveDetails = $this->leaveModel->getAllLeaveRequests();
+
+      $GetLeavesArray = [
+         'leaves' => $leaveDetails
+      ];
+
+      $this->view('manager/mang_subLeaveRequests',  $GetLeavesArray);
    }
    public function takeLeave()
    {

@@ -98,4 +98,32 @@ public function checkLeaveDate($data){
       return $result->{'COUNT(*)'};
 }
 
+   public function getAllLeaveRequests(){
+      $this->db->query("SELECT * FROM generalleaves");
+      $result = $this->db->resultSet();
+
+      return $result;
+   }
+
+   public function getOneLeaveDetail($staffID)
+   {
+      $this->db->query("SELECT * 
+                        FROM generalleaves 
+                        INNER JOIN staff
+                        ON staff.staffID = generalleaves.staffID
+                        WHERE generalleaves.staffID='$staffID'
+                        ");
+
+      $result = $this->db->resultSet();
+
+      return $result;
+   }
+
+   public function addLeaveResponce($responce,$staffID){
+      
+      $ManagerID = $_SESSION['userID'];
+      $this->db->query("UPDATE generalleaves SET respondedStaffID = '$ManagerID' , status = '$responce' WHERE staffID='$staffID'");
+      $this->db->execute();
+   }
 }
+

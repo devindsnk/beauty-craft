@@ -12,7 +12,7 @@
 		</div>
 	</header>
     <div class="content leaveReq">
-        <form class="form" action="">
+        <form class="form" action="<?php echo URLROOT; ?>/leaves/responceForLeaveRequest/<?php echo $data->staffID; ?>" method="post">
 
             <div class="leave-requests-main leave-request">
                 <!-- <div class="leave-request-main-head">
@@ -39,13 +39,19 @@
                         <div class="column">
                             <div class="text-group">
                                 <label class="labels" for="">Staff Member Name</label>
-                                <input type="text" name="" id="" placeholder="Ruwanthi Munasinghe" disabled>
+                                <input type="text" name="" id="" placeholder="<?php echo $data->fName ?>" disabled>
                             </div>
                         </div>
                         <div class="column">
                             <div class="text-group">
                                 <label class="labels" for="">Staff Type</label>
-                                <input type="text" name="" id="" placeholder="Service Provider" disabled>
+                                <input type="text" name="" id="" 
+                                    <?php if ($data->staffType == 4) : ?>
+                                    placeholder="Receptionist" 
+                                    <?php elseif ($data->staffType == 5) : ?>
+                                    placeholder="Service Provider" 
+                                    <?php endif; ?>
+                                disabled>
                             </div>
                         </div>
                     </div>
@@ -54,13 +60,13 @@
                         <div class="column">
                             <div class="text-group">
                                 <label class="labels" for="">Staff ID</label>
-                                <input type="text" name="" id="" placeholder="SP0001" disabled>
+                                <input type="text" name="" id="" placeholder="<?php echo $data->staffID ?>" disabled>
                             </div>
                         </div>
                         <div class="column">
                             <div class="text-group">
                                 <label class="labels" for="">Date</label>
-                                <input type="text" name="" id="" placeholder="2021.05.02" disabled>
+                                <input type="text" name="" id="" placeholder="<?php echo $data->leaveDate ?>" disabled>
                             </div>
                         </div>
                     </div>
@@ -69,7 +75,7 @@
                         <div class="column">
                             <div class="text-group">
                                 <label class="labels" for="">Reason</label><br>
-                                <textarea id="takeLeaveReason"  class="" name="" rows="4" cols="50" disabled>Go to hospital</textarea>
+                                <textarea id="takeLeaveReason"  class="" name="" rows="4" cols="50" disabled><?php echo $data->reason ?></textarea>
                             </div>
                         </div>
                     </div>
@@ -77,10 +83,10 @@
 
                 <div class="leave-requests-button-div">
                         <div class="">
-                            <button class="buttonLeaveRequest btn btn-filled btn-success-green">Approve</button>
+                            <button type="submit" class="buttonLeaveRequest btn btn-filled btn-success-green" name="action" value="approve">Approve</button>
                         </div>
                         <div class="">
-                            <button class="buttonLeaveRequest btn btn-filled btn-error-red">Reject</button>
+                            <button type="submit" class="buttonLeaveRequest btn btn-filled btn-error-red" name="action" value="reject">Reject</button>
                         </div>
                     </div>
                 </div>
