@@ -79,6 +79,7 @@ class ServiceModel
         return $result;
     }
 
+    // Suggestion to rename this to getAllServiceProvidersData
     public function getServiceProviderDetails()
     {
 
@@ -88,14 +89,16 @@ class ServiceModel
         return $result;
     }
 
+    // Suggestion to rename this to getAllServiceTypes
     public function getServiceTypeDetails()
     {
 
-        $this->db->query("SELECT DISTINCT type From services");
+        $this->db->query("SELECT DISTINCT type FROM services");
         $result = $this->db->resultSet();
 
         return $result;
     }
+
 
     public function getResourceDetails()
     {

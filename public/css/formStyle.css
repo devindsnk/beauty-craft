@@ -18,7 +18,7 @@ select,
 textarea {
    width: 100%;
    resize: none;
-   font-size: 14px;
+   font-size: 13px;
    font-weight: 400;
    padding: 8px 10px;
    border-radius: 6px;
@@ -74,6 +74,7 @@ select:focus {
 
 .form .error {
    font-size: 12px;
+   font-weight: 500;
    color: #DC3545;
 }
 

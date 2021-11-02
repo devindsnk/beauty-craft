@@ -4,8 +4,10 @@
    <div class="header">
       <a href="recept_calendar.php">
          <div>
-            <img src="<?php echo URLROOT ?>/public/imgs/logo-white.png" alt="BeautyCraft">
+            <img src="<?php echo URLROOT ?>/public/logo/logo-white.png" alt="BeautyCraft" class="full-logo">
+            <img src="<?php echo URLROOT ?>/public/logo/iconAllWhiteNoBg.png" alt="BeautyCraft" class="icon-logo">
          </div>
+
       </a>
    </div>
    <!--End Sidebar Header-->
@@ -28,7 +30,7 @@
 
          <!--Sidebar Item-->
          <li class="mainOption menuOption">
-            <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="<?php echo URLROOT ?>/ReceptDashboard/reservations">
+            <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="<?php echo URLROOT ?>/Reservations/viewAllReservations">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-tasks"></i>
                </div>

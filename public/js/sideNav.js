@@ -3,6 +3,16 @@
 /* ----------------- JS ADDED BY DEVIN -------------------*/
 /* ------------------------------------------------------ */
 
+// full side nav
+// var sideNav = document.querySelector(".sidebar");
+// console.log(sideNav);
+// sideNav.addEventListener("mouseover", function() {
+//    sideNav.classList.add("expanded");
+// });
+// sideNav.addEventListener("mouseout", function() {
+//    sideNav.classList.remove("expanded");
+// });
+
 // main menu links
 var mainLinks = document.querySelectorAll(".mainOption > .optionLink");
 
