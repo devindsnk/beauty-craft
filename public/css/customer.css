@@ -223,11 +223,11 @@ label.proflabel {
     font-weight: 600;
 }
 
-/*------------------ Styles of My reservations ------------------------- */
+/******************** Styles of My reservations **********************/
 .cust.new-res .goBackBtn {
     padding: 5px;
     width: 130px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .cust.my-reservations {
@@ -351,22 +351,131 @@ label.proflabel {
     margin-top: 20px;
 }
 
-/* New Res */
+/******************** Styles of Add New reservations **********************/
+
 .cust.new-res .main-container {
     max-width: 600px;
+    /* max-height: fit-content; */
     margin: 20px auto;
 }
 
 .cust.new-res h1 {
     text-align: center;
-    margin-bottom: 40px;
-    /* display: block;
-    margin-left: auto;
-    margin-right: auto; */
+    margin-bottom: 20px;
+}
+
+.cust.new-res .service-container {
+    padding: 30px;
+}
+
+.cust.new-res .service-container .top-container {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 5%;
+}
+
+.cust.new-res .service-container .start-time,
+.cust.new-res .service-container .service {
+    order: 1;
+}
+
+.cust.new-res .service-container .duration,
+.cust.new-res .service-container .ser-provider {
+    order: 2;
+}
+
+.cust.new-res .service-container .left-box {
+    flex-basis: 110px;
+}
+
+.cust.new-res .service-container .right-box {
+    min-width: 400px;
+    flex-basis: auto;
+}
+
+.text-group,
+.dropdown-group {
+    margin-bottom: 20px;
+}
+
+.remarks {
+    height: 60px;
+}
+
+.last-group {
+    margin-bottom: 0 !important;
+}
+
+@media (max-width: 620px) {
+    .cust.new-res .service-container .date {
+        padding: 0 30px 20px;
+    }
+
+    .cust.new-res .service-container {
+        padding: 20px;
+    }
+
+    .cust.new-res .service-container .service {
+        order: 1;
+    }
+
+    .cust.new-res .service-container .ser-provider {
+        order: 2;
+    }
+
+    .cust.new-res .service-container .start-time,
+    .cust.new-res .service-container .duration {
+        order: 3;
+    }
+
+    .cust.new-res .service-container .left-box {
+        min-width: 47.5%;
+    }
+
+    .cust.new-res .service-container .right-box {
+        min-width: 100%;
+    }
+}
+
+.another-service {
+    margin: 15px 0;
+    color: var(--theme-blue);
+    display: block;
+    width: 100%;
+    text-align: center;
+    /* margin-left: 40px; */
+    /* margin-right: auto; */
+}
+
+.summary-container {
+    padding: 15px;
+    width: 50%;
+    margin: 30px 0 20px auto;
+}
+
+.summary-container .title {
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.summary-container div {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary-container label {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.summary-container span {
+    font-weight: 400;
+    font-size: 14px;
 }
 
 .addResBtn {
-    width: 200px;
+    width: 100%;
     padding: 7px;
-    margin-left: auto;
+    margin-top: 20px;
 }

@@ -23,6 +23,13 @@
             <div class="left-section">
                <div class="row">
                   <div class="column">
+                     <div class="text-group">
+                        <label class="label" for="fName">Date</label>
+                        <input type="text" name="" id="fName" placeholder="Your first name here">
+                     </div>
+                     <span class="error"> <?php echo " "; ?></span>
+                  </div>
+                  <div class="column">
                      <div class="dropdown-group">
                         <label class="label" for="lName">Service Provider</label>
                         <select>
@@ -62,7 +69,7 @@
                <span class="status-tag status-success-green">Cancelled</span>
             </div>
             <div class="opt-box">
-               <a href="#"><i class="ci-3dots-vertical table-icon"></i></a>
+               <a href="#"><i class="ci-view-more table-icon img-gap"></i></a>
             </div>
          </div>
          <div class="contentBox res-card">
@@ -75,7 +82,7 @@
                <span class="status-tag status-success-green">Cancelled</span>
             </div>
             <div class="opt-box">
-               <a href="#"><i class="ci-3dots-vertical table-icon"></i></a>
+               <a href="#"><i class="ci-view-more table-icon img-gap"></i></a>
             </div>
          </div>
          <div class="contentBox res-card">
@@ -88,35 +95,10 @@
                <span class="status-tag status-success-green">Cancelled</span>
             </div>
             <div class="opt-box">
-               <a href="#"><i class="ci-3dots-vertical table-icon"></i></a>
+               <a href="#"><i class="ci-view-more table-icon img-gap"></i></a>
             </div>
          </div>
-         <div class="contentBox res-card">
-            <div class="time-box column">09:30 am</div>
-            <div class="service-name-box column">Hair Cuts - Ladies</div>
-            <div class="service-prov-box column">Service Provider Name</div>
-            <div class="customer-box column">Customer Name</div>
-            <div class="contact-box column">0717679714</div>
-            <div class="status-box column">
-               <span class="status-tag status-success-green">Cancelled</span>
-            </div>
-            <div class="opt-box">
-               <a href="#"><i class="ci-3dots-vertical table-icon"></i></a>
-            </div>
-         </div>
-         <div class="contentBox res-card">
-            <div class="time-box column">09:30 am</div>
-            <div class="service-name-box column">Hair Cuts - Ladies</div>
-            <div class="service-prov-box column">Service Provider Name</div>
-            <div class="customer-box column">Customer Name</div>
-            <div class="contact-box column">0717679714</div>
-            <div class="status-box column">
-               <span class="status-tag status-success-green">Cancelled</span>
-            </div>
-            <div class="opt-box">
-               <a href="#"><i class="ci-3dots-vertical table-icon"></i></a>
-            </div>
-         </div>
+
       </div>
    </div>
    <!--End Content-->

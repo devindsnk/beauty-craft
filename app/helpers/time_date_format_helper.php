@@ -4,6 +4,14 @@ function minsToDuration()
 {
 }
 
+function getDateFullFormat($datetime)
+{
+   $timestamp = strtotime($datetime);
+   $date =  date('l, jS F o',  $timestamp);
+
+   return $date;
+}
+
 function minsToTime($timeInMins)
 {
    $hours24 = intdiv($timeInMins, 60);

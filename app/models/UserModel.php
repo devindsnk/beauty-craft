@@ -10,7 +10,6 @@ class UserModel
 
    public function registerUser($mobileNo, $password, $userType)
    {
-      // $this->db = $con;
       $this->db->query("INSERT INTO users (mobileNo, password, userType) VALUES(:mobileNo, :password, :userType)");
 
       $this->db->bind(':mobileNo', $mobileNo);

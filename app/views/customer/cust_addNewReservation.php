@@ -7,19 +7,20 @@
       <a href="<?php echo URLROOT ?>/custDashboard/myReservations" class="btn btn-filled btn-black goBackBtn">Go
          Back</a>
       <h1>New Reservation</h1>
+
       <form action="<?php echo URLROOT; ?>/reservations/newReservationCust" method="post" class="form">
-         <div class="row">
-            <div class="column">
-               <div class="text-group">
-                  <label class="label" for="fName">Date</label>
-                  <input type="date" id="" name="date" value="<?php echo $data['date']; ?>">
-                  <span class="error"><?php echo $data['date_error']; ?></span>
-               </div>
-            </div>
+         <div class="text-group date">
+            <label class="label" for="fName">Date</label>
+            <input type="date" id="" name="date" value="<?php echo $data['date']; ?>" class="dateSelect">
+            <span class="error date-error">
+               <!-- <?php echo $data['date_error']; ?> -->
+            </span>
          </div>
-         <div class="row">
-            <div class="column">
-               <div class="dropdown-group">
+         <div class="contentBox service-container">
+            <div class="top-container">
+               <!-- <div class="row">
+                  <div class="column"> -->
+               <div class="dropdown-group left-box start-time">
                   <label class="label" for="lName">Start Time</label>
                   <select name="startTime" id="">
                      <option value="" selected disabled>Select</option>
@@ -34,9 +35,9 @@
                   </select>
                   <span class="error"><?php echo $data['startTime_error']; ?></span>
                </div>
-            </div>
-            <div class="column">
-               <div class="dropdown-group">
+               <!-- </div> -->
+               <!-- <div class="column"> -->
+               <div class="dropdown-group right-box service">
                   <label class="label" for="lName">Service</label>
                   <select name="serviceID" id="" class="serviceSelect">
                      <option value="" selected disabled>Select</option>
@@ -46,17 +47,17 @@
                   </select>
                   <span class="error"><?php echo $data['serviceID_error']; ?></span>
                </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="column">
-               <div class="text-group">
+               <!-- </div> -->
+               <!-- </div> -->
+               <!-- <div class="row"> -->
+               <!-- <div class="column"> -->
+               <div class="text-group left-box duration">
                   <label class="label" for="fName">Duration</label>
                   <input type="text" name="duration" id="fName" disabled class="durationBox">
                </div>
-            </div>
-            <div class="column">
-               <div class="dropdown-group">
+               <!-- </div> -->
+               <!-- <div class="column"> -->
+               <div class="dropdown-group right-box ser-provider">
                   <label class="label" for="lName">Service Provider</label>
                   <select name="staffID" id="" class="serviceProviderSelect">
                      <option value="" selected disabled>Select service first</option>
@@ -64,25 +65,44 @@
                   <span class="error"><?php echo $data['staffID_error']; ?></span>
                </div>
 
+               <!-- </div> -->
+               <!-- </div> -->
             </div>
-         </div>
-         <div class="row">
-            <div class="text-group">
+
+            <div class="text-group last-group">
                <label class="label" for="fName">Remarks</label>
-               <textarea name="remarks" id="" cols="30" rows="3" maxlength="200"></textarea>
+               <textarea name="remarks" id="" maxlength="200" class="remarks"></textarea>
             </div>
             <span class="error"><?php echo $data['remarks_error']; ?></span>
          </div>
 
-         <button type="submit" class="btn btn-filled btn-theme-red addResBtn">Add Reservation</button>
-         <div class="row hideElement">
+         <span class="another-service">+ Add another service</span>
+
+         <div class="contentBox summary-container">
+            <label class="title">Summary</label>
+            <div>
+               <label>Service Name 1</label>
+               <span> 888.00 LKR</span>
+            </div>
+            <div>
+               <label>Service Name 1</label>
+               <span> 888.00 LKR</span>
+            </div>
+            <div>
+               <label>Service Name 1</label>
+               <span> 888.00 LKR</span>
+            </div>
+            <button type="submit" class="btn btn-filled btn-theme-red addResBtn">Add Reservation</button>
+         </div>
+
+         <!-- <div class="row hideElement">
             <div class="column">
                <div class="text-group">
                   <label class="label" for="fName">Customer</label>
                   <input type="text" name="customerID" id="fName" value="<?php echo $_SESSION['userID']; ?>">
                </div>
             </div>
-         </div>
+         </div> -->
       </form>
    </div>
 </div>

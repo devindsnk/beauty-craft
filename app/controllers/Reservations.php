@@ -6,6 +6,7 @@ class Reservations extends Controller
    {
       $this->serviceModel = $this->model('ServiceModel');
       $this->reservationModel = $this->model('ReservationModel');
+      $this->closedDatesModel = $this->model('ClosedDatesModel');
    }
    public function newReservationCust()
    {
@@ -140,6 +141,24 @@ class Reservations extends Controller
       $servicesList = $this->serviceModel->getServiceDetails();
       return $servicesList;
    }
+
+
+   public function checkIfDatePossible($selectedDate)
+   {
+      $state = $this->closedDatesModel->checkIfClosed($selectedDate);
+      $response = "";
+      if ($state)
+         $response = "Salon is closed on " . $selectedDate;
+      header('Content-Type: application/json; charset=utf-8');
+      // echo ($state);
+      print_r(json_encode($response));
+      // return json_encode($state, JSON_NUMERIC_CHECK);
+   }
+
+
+
+
+
 
    public function notFound()
    {

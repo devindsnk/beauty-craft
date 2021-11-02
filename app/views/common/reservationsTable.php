@@ -9,6 +9,13 @@
       <div class="left-section">
          <div class="row">
             <div class="column">
+               <div class="text-group">
+                  <label class="label" for="fName">Date</label>
+                  <input type="text" name="" id="fName" placeholder="Your first name here">
+               </div>
+               <span class="error"> <?php echo " "; ?></span>
+            </div>
+            <div class="column">
                <div class="dropdown-group">
                   <label class="label" for="lName">Service Type</label>
                   <select>
@@ -20,13 +27,7 @@
                </div>
                <span class="error"> <?php echo " "; ?></span>
             </div>
-            <div class="column">
-               <div class="text-group">
-                  <label class="label" for="fName">Date</label>
-                  <input type="text" name="" id="fName" placeholder="Your first name here">
-               </div>
-               <span class="error"> <?php echo " "; ?></span>
-            </div>
+
             <div class="column">
                <div class="dropdown-group">
                   <label class="label" for="lName">Service Provider</label>
@@ -106,7 +107,7 @@
                         <a href="<?php echo URLROOT ?>/Reservations/reservationMoreInfo/<?php echo $reservation->reservationID; ?>"><i class="ci-view-more table-icon img-gap"></i></a>
                         <?php if ($userType == "Receptionist") : ?>
                            <a href="#"><i class="ci-edit table-icon img-gap"></i></a>
-                           <a href="#"><i class="ci-trash table-icon img-gap"></i></a>
+                           <!-- <a href="#"><i class="ci-trash table-icon img-gap"></i></a> -->
                         <?php endif; ?>
                      </span>
                   </td>
