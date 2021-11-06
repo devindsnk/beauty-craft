@@ -13,6 +13,8 @@ class Services extends Controller
       $sTypeGetArray = $this->getServiceType();
       $sResGetArray = $this->getResource();
 
+      // $this->passResourcesToSlot($sResGetArray);
+
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
          $data = [
@@ -183,6 +185,18 @@ class Services extends Controller
    {
       $sResource = $this->ServiceModel->getResourceDetails();
       return $sResource;
+   }
+
+   public function passResourcesToSlot($sResGetArray)
+   {
+      $_SESSION = $sResGetArray;
+      $sizeOfSession = sizeof($_SESSION);
+      print_r($_SESSION);
+
+      // print_r($_SESSION[0]->quantity);
+      print_r($sizeOfSession);
+
+      die("hi");
    }
 
    public function viewService($serviceID)

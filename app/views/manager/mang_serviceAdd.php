@@ -227,7 +227,7 @@
 
 				<!-- add another slot -->
 				<div class="anotheSlot">
-					<p id="add"><a href="#addDiv">+ Add another slot</a></p>
+					<p id="add"><a href="#addDiv" class="AddSlotToService">+ Add another slot</a></p>
 				</div>
 
 				<!-- submit service button -->

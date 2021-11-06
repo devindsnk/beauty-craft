@@ -12,7 +12,7 @@
 		</div>
 	</header>
     <div class="content leaveReq">
-        <form class="form" action="<?php echo URLROOT; ?>/leaves/responceForLeaveRequest/<?php echo $data->staffID; ?>" method="post">
+        <form class="form" action="<?php echo URLROOT; ?>/leaves/responceForLeaveRequest/<?php echo $data->staffID; ?>/<?php echo $data->leaveDate; ?>" method="post">
 
             <div class="leave-requests-main leave-request">
                 <!-- <div class="leave-request-main-head">

@@ -38,6 +38,18 @@
 							</div>
 							<span class="error"> <?php echo " "; ?></span>
 						</div>
+						<div class="column">
+							<div class="text-group">
+								<label class="labels" for="serviceCusCategory">Customer Category</label>
+								<select class="dropdownSelectBox" name="serviceCusCategory">
+									<option class="unbold" value="val1" option selected="true" disabled="disabled">Select One</option>
+									<option value="Gent">Gents</option>
+									<option value="Ladies">Ladies</option>
+									<option value="Both">Both</option>
+								</select>
+							</div>
+							<span class="error"></span>
+						</div>
 					</div>
 					<!-- end of service name -->
 

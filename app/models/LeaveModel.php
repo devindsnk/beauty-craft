@@ -105,13 +105,13 @@ public function checkLeaveDate($data){
       return $result;
    }
 
-   public function getOneLeaveDetail($staffID)
+   public function getOneLeaveDetail($staffID, $leaveDate)
    {
       $this->db->query("SELECT * 
                         FROM generalleaves 
                         INNER JOIN staff
                         ON staff.staffID = generalleaves.staffID
-                        WHERE generalleaves.staffID='$staffID'
+                        WHERE generalleaves.staffID='$staffID' AND leaveDate='$leaveDate'
                         ");
 
       $result = $this->db->resultSet();
@@ -119,10 +119,10 @@ public function checkLeaveDate($data){
       return $result;
    }
 
-   public function addLeaveResponce($responce,$staffID){
+   public function addLeaveResponce($responce,$staffID,$leaveDate){
       
       $ManagerID = $_SESSION['userID'];
-      $this->db->query("UPDATE generalleaves SET respondedStaffID = '$ManagerID' , status = '$responce' WHERE staffID='$staffID'");
+      $this->db->query("UPDATE generalleaves SET respondedStaffID = '$ManagerID' , status = '$responce' WHERE staffID='$staffID' AND leaveDate='$leaveDate'");
       $this->db->execute();
    }
 }
