@@ -24,7 +24,7 @@
             <div class="ownViewStaffCards">
                 <!----------------------------------------------------- Profile details starts --------------------------------->
 
-                 <?php print_r($data);?>
+                 <!-- <?php print_r($data);?> -->
                 <div class="ownViewStaffProfileDetails">
                     <!-- Basic Info Details Head  -->
                     <div class="ownViewStaffProfileDetailsHead">

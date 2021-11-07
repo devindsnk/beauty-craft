@@ -7,17 +7,19 @@ class Rates extends Controller
       $this->ratesModel = $this->model('RatesModel');
    }
 
-   public function updateLeaveLimit()
-   {
-      if ($_SERVER['REQUEST_METHOD'] == 'POST')
+   public function updateLeaveLimit()  
+   {  
+
+      if ($_SERVER['REQUEST_METHOD'] == 'POST') 
       {
-        $data = [
+        $data = [   
             'managerLeaveLimit' => trim($_POST['managerLeaveLimit']),
             'serviceProviderLeaveLimit' => trim($_POST['serviceProviderLeaveLimit']),
             'receptionistLeaveLimit' => trim($_POST['receptionistLeaveLimit']),
-            'managerLeaveLimit_error' => '',
-            'serviceProviderLeaveLimit_error' => '',
-            'receptionistLeaveLimit_error' => '',
+            'managerLeaveLimit_error' => '', 
+            'serviceProviderLeaveLimit_error' => '', 
+            'receptionistLeaveLimit_error' => '', 
+            // 'leaveLimits' => $LeavelimitsDetails[0],  
          ];
 
          if (empty($data['managerLeaveLimit']))
@@ -25,16 +27,16 @@ class Rates extends Controller
             $data['managerLeaveLimit_error'] = "Please insert a image";
          }
          // Validating fname
-         if (empty($data['serviceProviderLeaveLimit']))
+         if (empty($data['serviceProviderLeaveLimit']))  
         {
-         $data['serviceProviderLeaveLimit_error'] = "Please enter First Name";
+         $data['serviceProviderLeaveLimit_error'] = "Please enter First Name"; 
         }
 
         // Validating lname
-        if (empty($data['receptionistLeaveLimit']))
+        if (empty($data['receptionistLeaveLimit'])) 
         {
          $data['receptionistLeaveLimit_error'] = "Please enter Last Name";
-        }
+        } 
         if (
             empty($data['managerLeaveLimit_error']) && empty($data['serviceProviderLeaveLimit_error']) && empty($data['receptionistLeaveLimit_error']))
           {
@@ -45,67 +47,70 @@ class Rates extends Controller
          }
          else
          {
-            $this->view('owner/own_rates', $data);
+            $this->view('owner/own_rates', $data); 
          }
       }
       else
       {
 
-         $data = [
+         $data = [  
             'managerLeaveLimit' => '',
             'serviceProviderLeaveLimit' => '',
             'receptionistLeaveLimit' => '',
             'managerLeaveLimit_error' => '',
             'serviceProviderLeaveLimit_error' => '',
             'receptionistLeaveLimit_error' => '',
+            // 'leaveLimits' => $LeavelimitsDetails[0],
          ];
+         // die('Success');
          $this->view('owner/own_rates', $data);
       }
+
     }
 
-    // public function updateSalaryRate()
-    // {
-    //    if ($_SERVER['REQUEST_METHOD'] == 'POST')
-    //    {
-    //     $data = [
-    //         'staffimage' => trim($_POST['staffimage']),
-    //         'staffFname' => trim($_POST['staffFname']),
-    //         'staffLname' => trim($_POST['staffLname']),
-    //         'staffimage_error' => '',
-    //         'staffFname_error' => '',
-    //         'staffLname_error' => '',
-    //      ];
-    //      if (empty($data['staffimage']))
-    //      {
-    //         $data['staffimage_error'] = "Please insert a image";
-    //      }
-    //      // Validating fname
-    //      if (empty($data['staffFname']))
-    //     {
-    //      $data['staffFname_error'] = "Please enter First Name";
-    //     }
+    public function updateSalaryRate()
+    {
+       if ($_SERVER['REQUEST_METHOD'] == 'POST')
+       {
+        $data = [
+            'staffimage' => trim($_POST['staffimage']),
+            'staffFname' => trim($_POST['staffFname']),
+            'staffLname' => trim($_POST['staffLname']),
+            'staffimage_error' => '',
+            'staffFname_error' => '',
+            'staffLname_error' => '',
+         ];
+         if (empty($data['staffimage']))
+         {
+            $data['staffimage_error'] = "Please insert a image";
+         }
+         // Validating fname
+         if (empty($data['staffFname']))
+        {
+         $data['staffFname_error'] = "Please enter First Name";
+        }
 
-    //     // Validating lname
-    //     if (empty($data['staffLname']))
-    //     {
-    //      $data['staffLname_error'] = "Please enter Last Name";
-    //     }
-    //    }
-    //  }
+        // Validating lname
+        if (empty($data['staffLname']))
+        {
+         $data['staffLname_error'] = "Please enter Last Name";
+        }
+       }
+     }
 
-    // public function updateCommisionRate()
-    // {
-    //    if ($_SERVER['REQUEST_METHOD'] == 'POST')
-    //    {
-    //     $data = [
-    //         'staffimage' => trim($_POST['staffimage']),
-    //         'staffLname_error' => '',
-    //      ];
-    //      if (empty($data['staffimage']))
-    //      {
-    //         $data['staffimage_error'] = "Please insert a image";
-    //      }
-    //    }
-    //  }
+    public function updateCommisionRate()
+    {
+       if ($_SERVER['REQUEST_METHOD'] == 'POST')
+       {
+        $data = [
+            'staffimage' => trim($_POST['staffimage']),
+            'staffLname_error' => '',
+         ];
+         if (empty($data['staffimage']))
+         {
+            $data['staffimage_error'] = "Please insert a image";
+         }
+       }
+     }
 
 }

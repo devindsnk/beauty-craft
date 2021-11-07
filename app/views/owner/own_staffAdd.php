@@ -129,10 +129,10 @@
                             <div class="ownAddstaffMaingrid4">
                                 <div class="ownAddstaffFormGroupTP">
                                     <label class="ownAddstaffLabels">Contact Number</label>
-                                    <input type="text" name="staffContactNum" id="contactnum"
+                                    <input type="text" name="staffMobileNo" id="contactnum"
                                         placeholder="Your contact number here"
-                                        value="<?php echo $data['staffContactNum']; ?>">
-                                    <span class="error"><?php echo $data['staffContactNum_error']; ?></span>
+                                        value="<?php echo $data['staffMobileNo']; ?>">
+                                    <span class="error"><?php echo $data['staffMobileNo_error']; ?></span>
                                 </div>
                                 <div class="ownAddstaffFormGroupMAIL">
                                     <label class="ownAddstaffLabels">E-mail</label>

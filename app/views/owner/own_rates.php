@@ -18,12 +18,18 @@
             <label class="rateLabel">Date</label> <br>
             <input type="date">
         </div>
+        <form action="<?php echo URLROOT; ?>/ownDashboard/rates" method="post">
         <div class="cardContainer">
-
-            <div class="card1 contentBox">
-                <h3>Leave Limit</h3>
-                <?php print_r($data);?>
-                <form action="<?php echo URLROOT; ?>/Rates/updateLeaveLimit" method="post">
+        
+            <div class="card1 contentBox">   
+                <h3>Leave Limit</h3>   
+                
+                <!-- <?php print_r($data['leaveLimits']);?> --> 
+                <!-- <?php print_r($data['salaryRates']);?> -->
+                
+                
+                <!-- <form action="<?php echo URLROOT; ?>/rates/updateLeaveLimit" method="post"> --> 
+                
                 <div class="deatailbox">
                     <div class="labelBox">
                         <div class="detailLableLine">
@@ -35,26 +41,26 @@
                             <span class="error"><?php echo $data['serviceProviderLeaveLimit_error']; ?></span>
                         </div>
                         <div class="detailLableLine">
-                            <label class="rateLabel">Manager</label> <br>
-                            <span class="error"><?php echo $data['receptionistLeaveLimit_error']; ?></span>
+                            <label class="rateLabel">Manager</label> <br> 
+                            <span class="error"><?php echo $data['receptionistLeaveLimit_error']; ?></span> 
                         </div>
                     </div>
                     <div class="valueBox">
                         <div class="detailValueLine">
-                            <input type="text" class="rateValue" name="managerLeaveLimit" value="<?php echo $data['managerLeaveLimit']; ?>" placeholder="<?php echo $data->managerLeaveLimit; ?>">
+                            <input type="text" class="rateValue" name="managerLeaveLimit" value="<?php echo $data['managerLeaveLimit']; ?>" placeholder=" <?php echo $data['leaveLimits']->managerLeaveLimit; ?>">
                         </div>
                         <div class="detailValueLine">
-                            <input type="text" name="serviceProviderLeaveLimit" class="rateValue" value="<?php echo $data['serviceProviderLeaveLimit']; ?><?php echo $data->serviceProviderLeaveLimit; ?>">
+                            <input type="text" name="serviceProviderLeaveLimit" class="rateValue" value="<?php echo $data['serviceProviderLeaveLimit']; ?>" placeholder=" <?php echo $data['leaveLimits']->serviceProviderLeaveLimit; ?>">
                         </div>
                         <div class="detailValueLine">
-                            <input type="text" class="rateValue" name="receptionistLeaveLimit"  value="<?php echo $data['receptionistLeaveLimit']; ?><?php echo $data->receptionistLeaveLimit; ?>">
+                            <input type="text" class="rateValue" name="receptionistLeaveLimit"  value="<?php echo $data['receptionistLeaveLimit']; ?>" placeholder="  <?php echo $data['leaveLimits']->receptionistLeaveLimit; ?>">
                         </div>
                     </div>
                     <div class="ratebutton">
-                        <button class="btn btn-filled btn-grey">Save Changes</button>
+                        <button class="btn btn-filled btn-grey" name="action" value="saveLeaveLimits">Save Changes</button> 
                     </div>
                 </div>
-                </form>
+               
             </div>
 
             <div class="card2 contentBox">
@@ -74,17 +80,17 @@
                     </div>
                     <div class="valueBox">
                         <div class="detailLine">
-                            <input type="text" class="rateValue" value="40000LKR">
+                            <input type="text" class="rateValue" name="managerSalaryRate" value="<?php echo $data['managerSalaryRate']; ?>" placeholder="<?php echo $data['salaryRates']->managerSalaryRate; ?>">
                         </div>
                         <div class="detailLine">
-                            <input type="text" class="rateValue" value="40000LKR">
+                            <input type="text" class="rateValue" name="serviceProviderSalaryRate"  value="<?php echo $data['serviceProviderSalaryRate']; ?>" placeholder="<?php echo $data['salaryRates']->serviceProviderSalaryRate; ?>">
                         </div>
                         <div class="detailLine">
-                            <input type="text" class="rateValue" value="40000LKR">
+                            <input type="text" class="rateValue" name="receptionistSalaryRate" value="<?php echo $data['receptionistSalaryRate']; ?>" placeholder="<?php echo $data['salaryRates']->receptionistSalaryRate; ?>">
                         </div>
                     </div>
                     <div class="ratebutton">
-                        <button class="btn btn-filled btn-grey">Save Changes</button>
+                        <button class="btn btn-filled btn-grey" name="action" value="saveSalaryRates">Save Changes</button>
                     </div>
                 </div>
 
@@ -98,10 +104,10 @@
                         <label class="rateLabel">Service Commision Rate</label>
                     </div>
                     <div class="valueBox">
-                        <input type="text" class="rateValue" value="40%">
+                        <input type="text" class="rateValue" value="<?php echo $data['commisionRate']; ?>" name="commisionRate" value="<?php echo $data['commisionRate']; ?>" placeholder="<?php echo $data['commissionRates']->rate; ?>%">
                     </div>
                     <div class="ratebutton">
-                        <button class="btn btn-filled btn-grey">Save Changes</button>
+                        <button class="btn btn-filled btn-grey" name="action" value="saveCommissionRate">Save Changes</button>
                     </div>
                 </div>
                 <div class="ownAddstaffLineContainer">
@@ -116,13 +122,14 @@
                         <input type="text" class="rateValue" value="2">
                     </div>
                     <div class="ratebutton">
-                        <button class="btn btn-filled btn-grey">Save Changes</button>
+                        <button class="btn btn-filled btn-grey" name="action" value="saveManagerRate">Save Changes</button>
                     </div>
                 </div>
 
             </div>
-
+        
         </div>
+        </form>
 
 
     </div>
