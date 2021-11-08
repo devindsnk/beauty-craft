@@ -212,31 +212,33 @@ class User extends Controller
 
    public function provideIntialView()
    {
-      switch ($_SESSION['userType'])
+      if (isset($_SESSION['userType']))
       {
-         case 1:
-            redirect('sysAdminDashboard/home');
-            break;
-         case 2:
-            redirect('ownDashboard/home');
-            break;
-         case 3:
-            redirect('mangDashboard/home');
-            break;
-         case 4:
-            redirect('receptDashboard/home');
-            break;
-         case 5:
-            redirect('serProvDashboard/home');
-            break;
-         case 6:
-            redirect('home');
-            break;
-         default:
-            die("USER TYPE ERROR");
-            // http_response_code(404);
-            // header('Location: /error');
-            break;
+         switch ($_SESSION['userType'])
+         {
+            case 1:
+               redirect('sysAdminDashboard/home');
+               break;
+            case 2:
+               redirect('ownDashboard/home');
+               break;
+            case 3:
+               redirect('mangDashboard/home');
+               break;
+            case 4:
+               redirect('receptDashboard/home');
+               break;
+            case 5:
+               redirect('serProvDashboard/home');
+               break;
+            default:
+               redirect('home');
+               break;
+         }
+      }
+      else
+      {
+         redirect('home');
       }
    }
    public function getUserData($user)

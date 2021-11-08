@@ -169,9 +169,9 @@ class Services extends Controller
    {
       validateSession([6]);
       $serviceDuration = $this->ServiceModel->getServiceDuration($serviceID);
-
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($serviceDuration));
+
       // return json_encode($serviceDuration, JSON_NUMERIC_CHECK);
    }
 

@@ -20,27 +20,24 @@
             <div class="left-section">
                <div class="row">
                   <div class="column">
-                     <div class="text-group">
-                        <label class="label" for="fName">Customer Name</label>
-                        <input type="text" name="" id="fName" placeholder="Your first name here">
+                     <div class="dropdown-group">
+                        <label class="label" for="lName">Invoice Type</label>
+                        <select>
+                           <option value="" selected>All</option>
+                           <option value="">Payment</option>
+                           <option value="">Refund</option>
+                        </select>
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
                   </div>
-                  <div class="column">
-                     <div class="text-group">
-                        <label class="label" for="fName">Contact No</label>
-                        <input type="text" name="" id="fName" placeholder="Your first name here">
-                     </div>
-                     <span class="error"> <?php echo " "; ?></span>
-                  </div>
-
                   <div class="column">
                      <div class="dropdown-group">
                         <label class="label" for="lName">Status</label>
                         <select>
-                           <option value="" selected>Any</option>
-                           <option value="volvo">Active</option>
-                           <option value="saab">Inactive</option>
+                           <option value="" selected>All</option>
+                           <option value="">Pending</option>
+                           <option value="">Completed</option>
+                           <option value="">Voided</option>
                         </select>
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
@@ -63,7 +60,7 @@
                      <th class="column-center-align col-1">Invoice No</th>
                      <th class="column-center-align col-2">Amount</th>
                      <th class="column-center-align col-3">Type</th>
-                     <th class="column-center-align col-4">Date</th>
+                     <th class="column-center-align col-4">Date & Time</th>
                      <th class="column-center-align col-5">Status</th>
                      <th class="col-6"></th>
                   </tr>

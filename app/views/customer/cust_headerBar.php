@@ -5,7 +5,8 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
+   <link rel="shortcut icon" type="image/x-icon" href="<?php echo URLROOT ?>/logo/miniIcon.ico">
+   <title>Beauty Craft</title>
    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/style.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/home.css" />
@@ -17,7 +18,7 @@
    <nav class=nav-black>
       <div class="logo">
          <a href="../index.html">
-            <img src="<?php echo URLROOT ?>/public/imgs/logoTextWhite.png" alt="logo">
+            <img src="<?php echo URLROOT ?>/public/logo/logoTextWhite.png" alt="logo">
          </a>
       </div>
       <div class="links">

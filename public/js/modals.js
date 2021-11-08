@@ -5,9 +5,7 @@ var modalToToggle = null;
 
 // Remove Service Modal Section
 const removeServiceModal = document.querySelector(".remove-service");
-console.log(removeServiceModal);
 const removeServiceBtnList = document.querySelectorAll(".btnRemoveService");
-console.log(removeServiceBtnList);
 removeServiceBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
         modalToToggle = removeServiceModal;
@@ -207,13 +205,29 @@ if (deleteLeaveBtnList) {
 //Password reset-staff Modal Secrtion
 const changePasswordModal = document.querySelector(".change-password");
 const changePasswordBtn = document.querySelector(".changepw");
-console.log(changePasswordModal);
 if (changePasswordBtn) {
     changePasswordBtn.addEventListener("click", function () {
         modalToToggle = changePasswordModal;
         toggleModal();
     });
 }
+
+/* ------------------------------------------------------------------- */
+/* --------------------- Reservation Handling ------------------------ */
+
+//Reservation cancel Modal Secrtion
+// const cancelReservationModal = document.querySelector(".cancel-reservation");
+// const cancelReservationBtnList = document.querySelectorAll(".cancel-res-btn");
+// console.log(cancelReservationModal);
+// cancelReservationBtnList.forEach((btn) => {
+//     btn.addEventListener("click", function () {
+//         modalToToggle = cancelReservationModal ;
+//         toggleModal();
+//     });
+// });
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+
 
 /* ------------------------------------------------------------------- */
 /* ------------------------ Common Section --------------------------- */

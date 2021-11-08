@@ -99,7 +99,7 @@
 /* End of Common template for pages with tables */
 
 
-/* Styles of recall request page */
+/******************** Styles of recall request page ************************/
 
 .recept.recall-request .main-container {
    width: 100%;
@@ -134,6 +134,10 @@
    margin-top: 10px;
 }
 
+.recept.recall-request .sub-container .btn-container .btn-top {
+   margin-top: 0 !important;
+}
+
 .recept.recall-request .sub-container .row {
    width: 100%;
    height: fit-content;
@@ -157,70 +161,70 @@
    padding: 10px 0;
 }
 
-.recept .text-group span,
-.recept .date-box span {
+.recept.recall-request .text-group span,
+.recept.recall-request .date-box span {
    display: block;
    width: 100%;
 }
 
-.recept .sub-container .text-group {
-   margin-bottom: 15px;
+.recept.recall-request .sub-container .text-group {
+   margin-bottom: 12px;
 }
 
-.recept .text-group .title {
-   font-size: 16px;
+.recept.recall-request .text-group .title {
+   font-size: 14px;
    font-weight: 400;
    color: var(--theme-grey);
 }
 
-.recept .text-group .content {
-   font-size: 17px;
+.recept.recall-request .text-group .content {
+   font-size: 14px;
    font-weight: 600;
    color: var(--theme-black);
 }
 
-.recept .text-group .description {
-   font-size: 17px;
+.recept.recall-request .text-group .description {
+   font-size: 14px;
    font-weight: 400;
    color: var(--theme-black);
 }
 
-.recept .date-box .mondate {
+.recept.recall-request .date-box .time {
    text-align: center;
-   font-size: 22px;
+   font-size: 16px;
+   font-weight: 600;
+   color: var(--theme-black);
+}
+
+.recept.recall-request .date-box .mondate {
+   text-align: center;
+   font-size: 20px;
    font-weight: 600;
    color: var(--theme-purple);
 }
 
-.recept .date-box .year {
+.recept.recall-request .date-box .year {
    text-align: center;
-   font-size: 18px;
+   font-size: 16px;
    font-weight: 500;
    color: var(--theme-grey);
 }
 
-.recept .desc-container {
-   margin-top: 20px;
+.recept.recall-request .desc-container {
+   margin-top: 15px;
 }
 
-/* End of Styles of recall request page */
-
-/* Styles of new reservation page */
+/******************* End of Styles of recall request page *******************/
 
 
 
-/* .recept.newRes .main-container {
-   
-   
-} */
+/********************* Styles of new reservation page ***********************/
 
-.main-container {
+/* .main-container {
    display: grid;
    grid-template-columns: 400px 400px;
    gap: 25px;
    width: 100%;
-   /* margin-left: auto;
-   margin-right: auto; */
    justify-content: center;
    align-content: center;
 }
@@ -245,15 +249,6 @@
    padding: 22px;
 }
 
-/* 
-.recept.newRes .resDetails {
-   width: 400px;
-}
-
-.recept.newRes .cusDetails {
-   width: 400px;
-} */
-
 .recept.newRes .cusDetails .btn-main {
    margin: 10px auto;
    padding: 6px;
@@ -262,7 +257,6 @@
 
 .profile-info {
    display: flex;
-   /* align-content: center; */
    padding: 0 0 0 10px;
    margin: 15px 0 30px;
    border-radius: 6px;
@@ -272,7 +266,6 @@
 
 .profile-info div {
    display: inline-block;
-
 }
 
 .profile-info .img-container {
@@ -340,47 +333,41 @@
 
 .mini {
    width: 100px !important;
-}
-
-/* End of Styles of new reservation page */
+} */
 
 
+/****************** End of Styles of new reservation page *******************/
 
-.res-card-container {
+
+/*********************** Styles of daily view page **************************/
+
+.recept.daily-view .res-card-container {
    padding: 10px;
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
 }
 
-.titleBox {
+.recept.daily-view .titleBox {
    display: flex;
    flex-direction: row;
    width: max-content;
 }
 
-.titleBox div {
+.recept.daily-view .titleBox div {
    display: flex;
    justify-content: center;
 }
 
-.titleBox .service-column {
+.recept.daily-view .titleBox .service-column {
    width: 220px;
 }
 
-.titleBox .service-prov-column {
+.recept.daily-view .titleBox .service-prov-column {
    width: 250px;
 }
 
-.titleBox .customer-column {
-   /* min-width: 250px; */
-}
-
-.titleBox .contact-column {
-   /* min-width: 110px; */
-}
-
-.res-card {
+.recept.daily-view .res-card {
    padding: 0;
    margin: 12px;
    /* width: 80%; */
@@ -392,7 +379,7 @@
    /* padding: 20px; */
 }
 
-.res-card div {
+.recept.daily-view .res-card div {
    font-size: 15px;
    font-weight: 400px;
    color: var(--theme-black);
@@ -401,7 +388,7 @@
    padding: 15px 15px;
 }
 
-.res-card .time-box {
+.recept.daily-view .res-card .time-box {
    font-size: 17px;
    display: flex;
    justify-content: center;
@@ -412,41 +399,40 @@
    color: var(--white);
 }
 
-.service-name-box {
+.recept.daily-view .service-name-box {
    min-width: 220px;
 }
 
-.service-prov-box {
+.recept.daily-view .service-prov-box {
    min-width: 250px;
 }
 
-.customer-box {
+.recept.daily-view .customer-box {
    min-width: 250px;
 }
 
-.contact-box {
+.recept.daily-view .contact-box {
    min-width: 110px;
 }
 
-.status-tag {
+.recept.daily-view .status-tag {
    width: 150px;
 }
 
-.opt-box a {
+.recept.daily-view .opt-box a {
    display: flex;
    align-content: center;
 }
 
-/* Styles of daily view page */
+/****************** End of Styles of daily view page ************************/
 
 
-/* End of Styles of daily view page */
 
-/* Styles of res More info page */
+/********************* Styles of res More info page *************************/
 
 .recept.resMoreInfo .innerContainer {
    max-width: 630px;
-   margin: 30px auto;
+   margin: 30px auto 15px;
 }
 
 .recept.resMoreInfo .contentBox {
@@ -454,23 +440,16 @@
    padding: 30px;
 }
 
+
 .recept.resMoreInfo .contentBox .row {
    width: 100%;
    display: grid;
-   grid-template-columns: 2fr 4fr;
+   grid-template-columns: 3fr 4fr;
    margin-bottom: 10px;
 }
 
-.recept.resMoreInfo .contentBox .row-2 {
+.recept.resMoreInfo .contentBox .column {
    width: 100%;
-   display: grid;
-   grid-template-columns: 4fr 1fr;
-   margin-bottom: 10px;
-}
-
-.recept.resMoreInfo .contentBox .date {
-   display: block;
-   padding-bottom: 10px;
 }
 
 .recept.resMoreInfo .text-group label {
@@ -481,33 +460,51 @@
 
 .recept.resMoreInfo .text-group p {
    font-size: 14px;
-   font-weight: 500;
+   font-weight: 600;
 }
 
-.recept.resMoreInfo .text-group.inner-row {
-   margin-bottom: 10px;
+.recept.resMoreInfo .resDetails .date-status {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   margin-bottom: 40px;
+}
+
+.recept.resMoreInfo .resDetails .sub-res-container {
+   display: grid;
+   grid-template-columns: 2fr 8fr;
+}
+
+.recept.resMoreInfo .separator {
+   margin: 20px 0;
+   height: 2px;
+   color: var(--theme-lightgrey);
+}
+
+.recept.resMoreInfo .bottom-container {
+   display: grid;
+   grid-template-columns: 3fr 1fr;
 }
 
 .recept.resMoreInfo .btn-container {
    display: flex;
+   height: 180px;
+   margin: 30px 0 0 30px;
+   justify-content: space-between;
    flex-direction: column;
-   justify-items: right;
    max-width: 125px;
 }
 
 .recept.resMoreInfo .btn-container .btn {
    padding: 4px;
-   margin-bottom: 12px;
 }
 
 .recept.resMoreInfo .btn-container .btn-last {
-   margin-bottom: 0 !important;
+   padding: 6px;
 }
 
+/**************** End of Styles of res More info page *******************/
 
-
-
-/* End of res More info page */
 
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/

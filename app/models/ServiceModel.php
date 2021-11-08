@@ -1,5 +1,5 @@
 <?php
-class ServiceModel
+class ServiceModel extends Model
 {
     private $db;
 
@@ -60,7 +60,6 @@ class ServiceModel
 
         foreach ($data['sResArray'] as $ResoursesArray)
         {
-
             if ($data['sSelectedResCount'][$i] != 0)
             {
                 $selCount = $data['sSelectedResCount'][$i];
@@ -80,6 +79,7 @@ class ServiceModel
         return $result;
     }
 
+    // Suggestion to rename this to getAllServiceProvidersData
     public function getServiceProviderDetails()
     {
 
@@ -89,14 +89,16 @@ class ServiceModel
         return $result;
     }
 
+    // Suggestion to rename this to getAllServiceTypes
     public function getServiceTypeDetails()
     {
 
-        $this->db->query("SELECT DISTINCT type From services");
+        $this->db->query("SELECT DISTINCT type FROM services");
         $result = $this->db->resultSet();
 
         return $result;
     }
+
 
     public function getResourceDetails()
     {
@@ -147,6 +149,7 @@ class ServiceModel
 
     public function getServiceProvidersByService($serviceID)
     {
+
         $this->db->query("SELECT staff.staffID, staff.fName, staff.lName
                           FROM staff 
                           INNER JOIN serviceproviders 
@@ -159,9 +162,10 @@ class ServiceModel
 
     public function getServiceDuration($serviceID)
     {
-        $this->db->query("SELECT totalDuration FROM services WHERE serviceID = :serviceID");
-        $this->db->bind(':serviceID', $serviceID);
-        $result = $this->db->single();
+        $result = $this->getResultSet('service', ['totalDuration'], ['serviceID' => $serviceID]);
+        // $this->db->query("SELECT totalDuration FROM services WHERE serviceID = :serviceID");
+        // $this->db->bind(':serviceID', $serviceID);
+        // $result = $this->db->single();
 
         return $result->totalDuration;
     }
