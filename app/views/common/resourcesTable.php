@@ -38,8 +38,8 @@
 
          <thead>
             <tr>
-               <th class="column-center-align col-1">Resource Name</th>
-               <th class="column-center-align col-2">Resource ID</th>
+               <th class="column-center-align col-1">Resource ID</th>
+               <th class="column-center-align col-2">Resource Name</th>
                <th class="column-center-align col-3">Quantity</th>
                <th class="col-7"></th>
             </tr>
