@@ -4,7 +4,7 @@
    <div class="header">
       <a href="serProv_overview.php">
          <div>
-            <img src="<?php echo URLROOT ?>/public/imgs/logo-white.png" alt="BeautyCraft">
+            <img src="<?php echo URLROOT ?>/public/logo/logo-white.png" alt="BeautyCraft">
          </div>
       </a>
    </div>

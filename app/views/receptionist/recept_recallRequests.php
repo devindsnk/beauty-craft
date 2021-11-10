@@ -50,6 +50,7 @@
 
                <div class="right-section">
                   <div class="date-box">
+                     <span class="time">09:30 PM</span>
                      <span class="mondate">Sept 20</span>
                      <span class="year">2021</span>
                   </div>
@@ -65,8 +66,8 @@
                   </div>
                </div>
                <div class="right-section btn-container">
-                  <a href="" class="btn btn-outlined btn-black">Edit</a>
-                  <a href="" class="btn btn-filled btn-error-red">Cancel</a>
+                  <a href="" class="btn btn-outlined btn-black btn-top">Edit</a>
+                  <a href="#" class="btn btn-filled btn-error-red cancel-res-btn">Cancel</a>
                </div>
             </div>
          </div>
@@ -106,6 +107,7 @@
 
                <div class="right-section">
                   <div class="date-box">
+                     <span class="time">09:30 PM</span>
                      <span class="mondate">Sept 20</span>
                      <span class="year">2021</span>
                   </div>
@@ -121,8 +123,8 @@
                   </div>
                </div>
                <div class="right-section btn-container">
-                  <a href="" class="btn btn-outlined btn-black">Edit</a>
-                  <a href="" class="btn btn-filled btn-error-red">Cancel</a>
+                  <a href="" class="btn btn-outlined btn-black btn-top">Edit</a>
+                  <a href="#" class="btn btn-filled btn-error-red cancel-res-btn">Cancel</a>
                </div>
             </div>
          </div>
@@ -162,6 +164,7 @@
 
                <div class="right-section">
                   <div class="date-box">
+                     <span class="time">09:30 PM</span>
                      <span class="mondate">Sept 20</span>
                      <span class="year">2021</span>
                   </div>
@@ -177,8 +180,8 @@
                   </div>
                </div>
                <div class="right-section btn-container">
-                  <a href="" class="btn btn-outlined btn-black">Edit</a>
-                  <a href="" class="btn btn-filled btn-error-red">Cancel</a>
+                  <a href="" class="btn btn-outlined btn-black btn-top">Edit</a>
+                  <a href="#" class="btn btn-filled btn-error-red cancel-res-btn">Cancel</a>
                </div>
             </div>
          </div>
@@ -218,6 +221,7 @@
 
                <div class="right-section">
                   <div class="date-box">
+                     <span class="time">09:30 PM</span>
                      <span class="mondate">Sept 20</span>
                      <span class="year">2021</span>
                   </div>
@@ -233,23 +237,60 @@
                   </div>
                </div>
                <div class="right-section btn-container">
-                  <a href="" class="btn btn-outlined btn-black">Edit</a>
-                  <a href="" class="btn btn-filled btn-error-red">Cancel</a>
+                  <a href="" class="btn btn-outlined btn-black btn-top">Edit</a>
+                  <a href="#" class="btn btn-filled btn-error-red cancel-res-btn">Cancel</a>
                </div>
             </div>
          </div>
+
+
 
 
 
 
          <!-- Cancellation modal -->
-         <div class="modal-container normal">
-            <div class="modal-box">
-               <h1>This is a normal modal</h1>
-               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste enim odit, nulla consequuntur
-                  corporis
-                  provident sint magni necessitatibus animi molestias quas eos perspiciatis doloribus porro? .</p>
-               <button class="btn btnClose normal">Close Me</button>
+         <div class="modal-container cancel-reservation">
+            <div class="modal-box " id="ownRemstaffWrapper">
+               <div class="ownRemstaffContainer">
+                  <h1 class="confirm-model-head confirm-model-head">Remove Staff</h1>
+
+                  <!-- start main grid 1 -->
+                  <div class="staffDetails">
+                     <div class="staffDetail1">
+                        <label class="staffLable">Staff Id</label>
+                        <span class="staffData">M001</span>
+                     </div>
+                     <div class="staffDetail2">
+                        <label class="staffLable">Type</label>
+                        <span class="staffData">Service Provider</span>
+                     </div>
+                     <div class="staffDetail3">
+                        <label class="staffLable">Name</label>
+                        <span class="staffData">Ravindu Madhubhashana</span>
+                     </div>
+                  </div>
+                  <!-- main grid 1 ends -->
+
+                  <!-- main grid 2 starts -->
+                  <div class="remStaffError">
+                     <label class="remStaffErrortext">Cannot proceed. Has upcoming reservations</label>
+                     <a href="<?php echo URLROOT ?>/staff/RemStaffReservations" class="remStaffErrorAnchortag"> <label class="remStaffErrorViewReservaions">View
+                           Reservaions</label></a>
+                  </div>
+                  <!-- main grid 2 ends -->
+
+                  <!-- main grid 3 starts -->
+                  <div class="remButtons">
+                     <div class="ownRemStaffbtn1">
+                        <button class="btn btnClose normal ModalButton ModalCancelButton">Cancel</button>
+                     </div>
+                     <div class="ownRemStaffbtn2">
+                        <button class="btn normal ModalButton ModalBlueButton">Proceed</button>
+                     </div>
+                  </div>
+                  <!-- main grid 3 ends -->
+
+               </div>
             </div>
          </div>
 
