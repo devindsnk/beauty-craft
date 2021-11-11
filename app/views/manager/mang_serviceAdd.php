@@ -35,7 +35,7 @@
 						<div class="column">
 							<div class="text-group">
 								<label class="labels" for="serviceName"> Service Name</label>
-								<input type="text" name="sName" id="sName" placeholder="--Type In--" value="<?php echo $data['sName']; ?>">
+								<input type="text" name="sName" id="sName" placeholder="--Type In--" value="<?php echo $data['name']; ?>">
 							</div>
 							<span class="error"><?php echo $data['sName_error']; ?></span>
 						</div>
@@ -46,9 +46,9 @@
 
 								<select class="dropdownSelectBox" name="serviceCusCategory">
 									<option class="unbold" value="val1" option selected="true" disabled="disabled">Select One</option>
-									<option value="Gent" <?php if ($data['sSelectedCusCategory'] == 'Gent') echo 'selected'; ?>>Gents</option>
-									<option value="Ladies" <?php if ($data['sSelectedCusCategory'] == 'Ladies') echo 'selected'; ?>>Ladies</option>
-									<option value="Both" <?php if ($data['sSelectedCusCategory'] == 'Both') echo 'selected'; ?>>Both</option>
+									<option value="Gent" <?php if ($data['customerCategory'] == 'Gent') echo 'selected'; ?>>Gents</option>
+									<option value="Ladies" <?php if ($data['customerCategory'] == 'Ladies') echo 'selected'; ?>>Ladies</option>
+									<option value="Both" <?php if ($data['customerCategory'] == 'Both') echo 'selected'; ?>>Both</option>
 							</select>
 							</div>
 							<span class="error"><?php echo $data['sSelectedCusCategory_error']; ?></span>
@@ -87,7 +87,7 @@
 							<!-- Service price -->
 							<div class="row3">
 								<label class="labels" for="servicePrice">Price</label>
-								<input type="text" name="sPrice" placeholder="--Type In--" value="<?php echo $data['sPrice']; ?>">
+								<input type="text" name="sPrice" placeholder="--Type In--" value="<?php echo $data['price']; ?>">
 								<span class="error paddingLeft"> <?php echo $data['sPrice_error']; ?></span>
 							</div>
 							<!-- End of ervice price -->

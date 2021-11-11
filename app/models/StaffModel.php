@@ -1,12 +1,12 @@
 <?php
-class StaffModel
+class StaffModel extends Model
 {
-   private $db;
+   // private $db;
 
-   public function __construct()
-   {
-      $this->db = new Database;
-   }
+   // public function __construct()
+   // {
+   //    $this->db = new Database;
+   // }
 
    public function addStaff($data)
    {
@@ -89,10 +89,15 @@ class StaffModel
 
    public function getStaffDataByMobileNo($mobileNo)
    {
-      $this->db->query("SELECT * FROM staff WHERE mobileNo =  :mobileNo ");
-      $this->db->bind(':mobileNo', $mobileNo);
-      $result = $this->db->single();
+      
+      $results = $this->getSingle("staff", "*", ['mobileNo' => $mobileNo]);
 
-      return [$result->staffID, $result->fName . " " . $result->lName];
+      // $this->db->query("SELECT * FROM staff WHERE mobileNo =  :mobileNo ");
+      // $this->db->bind(':mobileNo', $mobileNo);
+      // $result = $this->db->single();
+      // print_r($results);
+      // die('hi');
+
+      return [$results->staffID, $results->fName . " " . $results->lName];
    }
 }

@@ -18,15 +18,15 @@ class Services extends Controller
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
          $data = [
-            'sName' => trim($_POST['sName']),
+            'name' => trim($_POST['sName']),
 
-            'sSelectedCusCategory' => isset($_POST['serviceCusCategory']) ? trim($_POST['serviceCusCategory']) : '',
+            'customerCategory' => isset($_POST['serviceCusCategory']) ? trim($_POST['serviceCusCategory']) : '',
 
             'sSelectedType' => isset($_POST['serviceType']) ? trim($_POST['serviceType']) : '',
             'sNewType' => trim($_POST['sNewType']),
             'sSelectedProv' => isset($_POST['serProvCheckbox']) ? $_POST['serProvCheckbox'] : '',
-            'sPrice' => trim($_POST['sPrice']),
-            'sSlot1Duration' => isset($_POST['slot1Duration']) ? trim($_POST['slot1Duration']) : '',
+            'price' => trim($_POST['sPrice']),
+            'totalDuration' => isset($_POST['slot1Duration']) ? trim($_POST['slot1Duration']) : '',
             'sSelectedResCount' => isset($_POST['resourceCount']) ? ($_POST['resourceCount']) : [],
 
             'sTypesArray' => [],
@@ -50,11 +50,11 @@ class Services extends Controller
          if ($_POST['action'] == "addService")
          {
 
-            if (empty($data['sName']))
+            if (empty($data['name']))
             {
                $data['sName_error'] = "Please enter service name";
             }
-            if (empty($data['sSelectedCusCategory']))
+            if (empty($data['customerCategory']))
             {
                $data['sSelectedCusCategory_error'] = "Please select customer category";
             }
@@ -70,15 +70,15 @@ class Services extends Controller
             {
                $data['sSelectedSProve_error'] = "Please select service provider";
             }
-            if (empty($data['sPrice']))
+            if (empty($data['price']))
             {
                $data['sPrice_error'] = "Please enter service price";
             }
-            elseif (!is_numeric($data['sPrice']))
+            elseif (!is_numeric($data['price']))
             {
                $data['sPrice_error'] = "Please enter a numeric value for price";
             }
-            if (empty($data['sSlot1Duration']))
+            if (empty($data['totalDuration']))
             {
                $data['sSlot1Duration_error'] = "Please enter slot1 duration";
             }
@@ -117,13 +117,13 @@ class Services extends Controller
       {
 
          $data = [
-            'sName' => '',
-            'sSelectedCusCategory' => '',
+            'name' => '',
+            'customerCategory' => '',
             'sSelectedType' => '',
             'sNewType' => '',
-            'sPrice' => '',
+            'price' => '',
             'sSelectedProv' => [],
-            'sSlot1Duration' => '',
+            'totalDuration' => '',
             'sSelectedResourse' => '',
             'sSelectedResCount' => '',
 

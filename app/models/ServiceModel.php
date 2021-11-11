@@ -1,13 +1,6 @@
 <?php
 class ServiceModel extends Model
 {
-    private $db;
-
-    public function __construct()
-    {
-        $this->db = new Database;
-    }
-
     public function service($data)
     {
         $this->addService($data);
@@ -17,40 +10,28 @@ class ServiceModel extends Model
     {
         if (empty($data['sSelectedType']))
         {
-            $this->db->query("INSERT INTO services (name, customerCategory, price, type, totalDuration, status) VALUES(:sName, :sSelectedCusCategory, :sPrice, :sNewType, :sSlot1Duration, 1)");
-            $this->db->bind(':sNewType', $data['sNewType']);
+            $this->insert('services', ['name' => $data['name'], 'customerCategory' => $data['customerCategory'], 'price' => $data['price'], 'type' => $data['sNewType'], 'totalDuration' => $data['totalDuration'], 'status' => 1]);
         }
         else
         {
-            $this->db->query("INSERT INTO services (name, customerCategory, price, type, totalDuration, status) VALUES(:sName, :sSelectedCusCategory, :sPrice, :sSelectedType, :sSlot1Duration,1)");
-            $this->db->bind(':sSelectedType', $data['sSelectedType']);
+            $this->insert('services', ['name' => $data['name'], 'customerCategory' => $data['customerCategory'], 'price' => $data['price'], 'type' => $data['sSelectedType'], 'totalDuration' => $data['totalDuration'], 'status' => 1]);
         }
-        $this->db->bind(':sName', $data['sName']);
-        $this->db->bind(':sSelectedCusCategory', $data['sSelectedCusCategory']);
-        $this->db->bind(':sPrice', $data['sPrice']);
-        $this->db->bind(':sSlot1Duration', $data['sSlot1Duration']);
-
-        $this->db->execute();
     }
 
     public function addServiceProvider($data)
     {
         foreach ($data['sSelectedProv'] as $SelectedProv)
         {
-            $this->db->query("INSERT INTO serviceproviders (serviceID, staffID) SELECT MAX(serviceID), '$SelectedProv' FROM services");
-
-            $this->db->execute();
+            $this->customQuery("INSERT INTO serviceproviders (serviceID, staffID) SELECT MAX(serviceID), '$SelectedProv' FROM services", []);
         }
     }
 
     public function addTimeSlot($data, $slotNo)
     {
         $slotNo++;
-        $slotDuration = $data['sSlot1Duration'];
+        $slotDuration = $data['totalDuration'];
 
-        $this->db->query("INSERT INTO timeslots (serviceID, slotNo, duration) SELECT MAX(serviceID), '$slotNo', '$slotDuration'  FROM services");
-
-        $this->db->execute();
+        $this->customQuery("INSERT INTO timeslots (serviceID, slotNo, duration) SELECT MAX(serviceID), '$slotNo', '$slotDuration'  FROM services", []);
     }
 
     public function addResourcesToService($data, $slotNo)
@@ -63,9 +44,9 @@ class ServiceModel extends Model
             if ($data['sSelectedResCount'][$i] != 0)
             {
                 $selCount = $data['sSelectedResCount'][$i];
-                $this->db->query("INSERT INTO resourceallocation (serviceID, slotNo, resourceID, requiredQuantity) SELECT MAX(serviceID), '$slotNo', '$ResoursesArray->resourceID','$selCount' FROM services");
+                
+                $this->customQuery("INSERT INTO resourceallocation (serviceID, slotNo, resourceID, requiredQuantity) SELECT MAX(serviceID), '$slotNo', '$ResoursesArray->resourceID','$selCount' FROM services", []);
 
-                $this->db->execute();
             }
             $i++;
         }
@@ -73,100 +54,87 @@ class ServiceModel extends Model
 
     public function getServiceDetails()
     {
-        $this->db->query("SELECT * FROM services");
-        $result = $this->db->resultSet();
-
-        return $result;
+        $results = $this->getResultSet("services", "*", []);
+        
+        return $results;
     }
 
     // Suggestion to rename this to getAllServiceProvidersData
     public function getServiceProviderDetails()
     {
-
-        $this->db->query("SELECT staffID,fName,lName FROM staff WHERE staffType=5");
-        $result = $this->db->resultSet();
-
-        return $result;
+        $results = $this->getResultSet('staff', ['staffID', 'fName', 'lName'], ['staffType' => 5]);
+        
+        return $results;
     }
 
     // Suggestion to rename this to getAllServiceTypes
     public function getServiceTypeDetails()
     {
-
-        $this->db->query("SELECT DISTINCT type FROM services");
-        $result = $this->db->resultSet();
-
-        return $result;
+        $results = $this->customQuery("SELECT DISTINCT type FROM services", []);
+        
+        return $results;
     }
 
 
     public function getResourceDetails()
-    {
-        $this->db->query("SELECT resourceID, name, quantity From resources");
-        $result = $this->db->resultSet();
-
-        return $result;
+    {   
+        $results = $this->getResultSet('resources', ['resourceID', 'name', 'quantity'], null);
+        
+        return $results;
     }
 
     public function getOneServiceDetail($serviceID)
-    {
-        $this->db->query("SELECT * 
-                          FROM services 
-                          WHERE serviceID='$serviceID'
-                          ");
-
-        $result = $this->db->resultSet();
-
-        return $result;
+    { 
+        $results = $this->getResultSet('services', '*', ['serviceID' => $serviceID]);
+        
+        return $results;
     }
 
     public function getOneServicesSProvDetail($serviceID)
     {
-
-        $this->db->query("SELECT serviceproviders.staffID,staff.fName,staff.lName 
+        $results = $this->customQuery("SELECT serviceproviders.staffID,staff.fName,staff.lName 
                           FROM staff 
                           INNER JOIN serviceproviders
                           ON serviceproviders.staffID = staff.staffID
-                          WHERE serviceproviders.serviceID='$serviceID'
-                          ");
-        $result = $this->db->resultSet();
-
-        return $result;
+                          WHERE serviceproviders.serviceID=:sID", 
+                          [':sID' => $serviceID]  
+                        );
+       
+        return $results;
     }
 
     public function getAllocatedResourceDetails($serviceID)
     {
-        $this->db->query("SELECT resources.resourceID,resources.name,resourceallocation.requiredQuantity 
+        $results = $this->customQuery("SELECT resources.resourceID,resources.name,resourceallocation.requiredQuantity 
                           FROM resources 
                           INNER JOIN resourceallocation
                           ON resources.resourceID = resourceallocation.resourceID
-                          WHERE resourceallocation.serviceID='$serviceID'
-                          ");
-        $result = $this->db->resultSet();
-
-        return $result;
+                          WHERE resourceallocation.serviceID=:sID",
+                          [':sID' => $serviceID] 
+                          );
+        return $results;
     }
 
     public function getServiceProvidersByService($serviceID)
     {
 
-        $this->db->query("SELECT staff.staffID, staff.fName, staff.lName
+        $results = $this->customQuery("SELECT staff.staffID, staff.fName, staff.lName
                           FROM staff 
                           INNER JOIN serviceproviders 
                           ON serviceproviders.staffID = staff.staffID
-                          WHERE serviceproviders.serviceID = '$serviceID'");
+                          WHERE serviceproviders.serviceID = :sID",
+                          [':sID' => $serviceID]);
 
-        $result = $this->db->resultSet();
-        return $result;
+        return $results;
     }
 
     public function getServiceDuration($serviceID)
     {
-        $result = $this->getResultSet('service', ['totalDuration'], ['serviceID' => $serviceID]);
+        $results = $this->getResultSet('service', ['totalDuration'], ['serviceID' => $serviceID]);
         // $this->db->query("SELECT totalDuration FROM services WHERE serviceID = :serviceID");
         // $this->db->bind(':serviceID', $serviceID);
         // $result = $this->db->single();
 
-        return $result->totalDuration;
+        return $results->totalDuration;
     }
 }

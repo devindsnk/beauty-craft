@@ -1,11 +1,11 @@
 <?php
-class LeaveModel
+class LeaveModel extends Model
 {
-   private $db;
-   public function __construct()
-   {
-      $this->db = new Database;
-   }
+   // private $db;
+   // public function __construct()
+   // {
+   //    $this->db = new Database;
+   // }
 
 public function checkLeaveDate($data){
  $staffID='000001';
@@ -99,31 +99,32 @@ public function checkLeaveDate($data){
 }
 
    public function getAllLeaveRequests(){
-      $this->db->query("SELECT * FROM generalleaves");
-      $result = $this->db->resultSet();
 
-      return $result;
+      $results = $this->customQuery("SELECT * 
+                                    FROM generalleaves 
+                                    ORDER BY leaveDate", []);
+
+      return $results;
    }
 
    public function getOneLeaveDetail($staffID, $leaveDate)
    {
-      $this->db->query("SELECT * 
-                        FROM generalleaves 
-                        INNER JOIN staff
-                        ON staff.staffID = generalleaves.staffID
-                        WHERE generalleaves.staffID='$staffID' AND leaveDate='$leaveDate'
-                        ");
 
-      $result = $this->db->resultSet();
+      $results = $this->customQuery("SELECT * 
+                                    FROM generalleaves 
+                                    INNER JOIN staff
+                                    ON staff.staffID = generalleaves.staffID
+                                    WHERE generalleaves.staffID=:staffID AND leaveDate=:leaveDate",
+                                     [':staffID' => $staffID, ':leaveDate' => $leaveDate]);
 
-      return $result;
+      return $results;
    }
 
    public function addLeaveResponce($responce,$staffID,$leaveDate){
       
       $ManagerID = $_SESSION['userID'];
-      $this->db->query("UPDATE generalleaves SET respondedStaffID = '$ManagerID' , status = '$responce' WHERE staffID='$staffID' AND leaveDate='$leaveDate'");
-      $this->db->execute();
+      
+      $results = $this->update('generalleaves', ['respondedStaffID' => $ManagerID, 'status' => $responce, ], ['staffID' => $staffID, 'leaveDate' => $leaveDate]);
    }
 }
 
