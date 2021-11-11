@@ -111,29 +111,6 @@ class Customer extends Controller
                }
                else
                {
-                  // // $con = (new Database);
-                  // // $dbTemp = $con->getConnection();
-                  // try
-                  // {
-                  //    // First of all, let's begin a transaction
-                  //    $dbTemp->beginTransaction();
-
-                  //    // A set of queries; if one fails, an exception should be thrown
-                  //    $this->customerModel->registerCustomer($data, $con);
-                  //    // $this->userModel->registerUser($data, $con);
-                  //    // If we arrive here, it means that no exception was thrown
-                  //    // i.e. no query has failed, and we can commit the transaction
-                  //    $dbTemp->commit();
-                  // }
-                  // catch (\Throwable $e)
-                  // {
-                  //    print_r($e->getMessage());
-                  //    // An exception has been thrown
-                  //    // We must rollback the transaction
-                  //    $dbTemp->rollback();
-                  //    throw $e; // but the error must be handled anyway
-                  // 
-
 
                   $this->customerModel->registerCustomer($data);
                   $this->userModel->registerUser($data['mobileNo'], $data['password'], 6);

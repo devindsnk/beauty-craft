@@ -14,14 +14,12 @@ class ReceptDashboard extends Controller
    }
    public function dailyView()
    {
+      $serviceProviders = $this->serviceModel->getServiceProviderDetails();
+      $data = [
+         'serviceProvidersList' => $serviceProviders
+      ];
 
-      $this->view('receptionist/recept_dailyView');
-   }
-   public function reservations()
-   {
-      // validateSession([4]);
-      $reservationsList = $this->reservationModel->getAllReservations();
-      $this->view('receptionist/recept_reservations', $reservationsList);
+      $this->view('receptionist/recept_dailyView', $data);
    }
    public function newReservation()
    {

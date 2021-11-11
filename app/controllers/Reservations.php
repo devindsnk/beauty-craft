@@ -6,17 +6,16 @@ class Reservations extends Controller
    {
       $this->serviceModel = $this->model('ServiceModel');
       $this->reservationModel = $this->model('ReservationModel');
+      $this->closedDatesModel = $this->model('ClosedDatesModel');
    }
    public function newReservationCust()
    {
-      $sProvidersList = $this->getAllServiceProviders();
+      // $sProvidersList = $this->getAllServiceProviders();
       $servicesList = $this->getAllServices();
 
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
-         // var_dump($_POST);
-
          $data = [
             'customerID' => trim($_POST['customerID']),
             'serviceID' => isset($_POST['serviceID']) ? trim($_POST['serviceID']) : '',
@@ -35,23 +34,11 @@ class Reservations extends Controller
 
             'servicesList' => $servicesList
          ];
-         // print_r($data);
-         if (empty($data['startTime']))
-         {
-            $data['startTime_error'] = "Please select a starting time";
-         }
-         if (empty($data['serviceID']))
-         {
-            $data['serviceID_error'] = "Please select a service";
-         }
-         if (empty($data['staffID']))
-         {
-            $data['staffID_error'] = "Please select a service provider";
-         }
-         if (empty($data['date']))
-         {
-            $data['date_error'] = "Please select a date";
-         }
+
+         $data['startTime_error'] = emptyCheck($data['startTime']);
+         $data['serviceID_error'] = emptyCheck($data['serviceID']);
+         $data['staffID_error'] = emptyCheck($data['staffID']);
+         $data['date_error'] = emptyCheck($data['date']);
 
          if (empty($data['serviceID_error']) && empty($data['staffID_error']) && empty($data['date_error'])  && empty($data['startTime_error']))
          {
@@ -121,6 +108,28 @@ class Reservations extends Controller
       }
    }
 
+   public function viewAllReservations()
+   {
+      $serviceProviders = $this->serviceModel->getServiceProviderDetails();
+      $serviceTypes = $this->serviceModel->getServiceTypeDetails();
+      $reservations = $this->reservationModel->getAllReservations();
+
+      $data = [
+         'serviceProvidersList' => $serviceProviders,
+         'serviceTypesList' => $serviceTypes,
+         'reservationsList' => $reservations
+      ];
+
+      $this->view('receptionist/recept_reservations', $data);
+   }
+
+   public function reservationMoreInfo($reservationID)
+   {
+      $reservationInfo = $this->reservationModel->getReservationDetailsByID($reservationID);
+
+      $this->view('common/reservationMoreInfo', $reservationInfo);
+   }
+
    public function getAllServiceProviders()
    {
       $sProvidersList = $this->serviceModel->getServiceProviderDetails();
@@ -132,6 +141,24 @@ class Reservations extends Controller
       $servicesList = $this->serviceModel->getServiceDetails();
       return $servicesList;
    }
+
+
+   public function checkIfDatePossible($selectedDate)
+   {
+      $state = $this->closedDatesModel->checkIfClosed($selectedDate);
+      $response = "";
+      if ($state)
+         $response = "Salon is closed on " . $selectedDate;
+      header('Content-Type: application/json; charset=utf-8');
+      // echo ($state);
+      print_r(json_encode($response));
+      // return json_encode($state, JSON_NUMERIC_CHECK);
+   }
+
+
+
+
+
 
    public function notFound()
    {

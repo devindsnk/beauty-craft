@@ -4,7 +4,7 @@
    <div class="header">
       <a href="recept_calendar.php">
          <div>
-            <img src="<?php echo URLROOT ?>/public/imgs/logo-white.png" alt="BeautyCraft">
+            <img src="<?php echo URLROOT ?>/public/logo/logo-white.png" alt="BeautyCraft">
          </div>
       </a>
    </div>
@@ -24,7 +24,7 @@
             </a>
          </li>
          <!--End Sidebar Item-->
-         
+
 
          <!--Sidebar Item-->
          <li class="mainOption">
@@ -60,7 +60,7 @@
          <li class="mainOption">
             <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/reservations">
                <div class="optionIcon">
-               <i class="sidenav-icon ci-tasks"></i>
+                  <i class="sidenav-icon ci-tasks"></i>
                </div>
                <div class="optionTitle">Reservations</div>
             </a>
@@ -70,7 +70,7 @@
          <li class="mainOption">
             <a class="optionLink <?php if ($selectedMain == "Customers") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/customers">
                <div class="optionIcon">
-                <i class="sidenav-icon ci-people"></i>
+                  <i class="sidenav-icon ci-people"></i>
                </div>
                <div class="optionTitle">Customers</div>
             </a>
@@ -106,8 +106,8 @@
             </a>
          </li>
          <!--End Sidebar Item-->
-          <!--Sidebar Item-->
-          <li class="mainOption">
+         <!--Sidebar Item-->
+         <li class="mainOption">
             <a class="optionLink <?php if ($selectedMain == "Analytics") echo " selected" ?>">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-analytics "></i>
