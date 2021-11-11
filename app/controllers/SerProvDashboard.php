@@ -3,7 +3,7 @@
    public function __construct()
    {
       // validateSession([5]);
-      $this->LeaveModel = $this->model('LeaveModel');
+     
    }
    public function home()
    {

@@ -31,14 +31,37 @@ class LeaveModel
       return $result->{'COUNT(*)'};
    }
 
+public function requestleave($data)
+   {
+      print_r($data);
+      date_default_timezone_set("Asia/Colombo");
+      $today = date('Y-m-d');
+
+      $res = $this->db->query("INSERT INTO generalleaves (staffID, leaveDate, requestedDate, reason) VALUES(:staffID, :date , '{$today}', :reason)");
+      $this->db->bind(':staffID',$data['staffID']);
+      $this->db->bind(':date', $data['date']);
+      $this->db->bind(':reason', $data['reason']);
+
+      $this->db->execute();
+
+   }
 
 
 
+    public function checkExsistingLeaveRequestDay($date){
 
-
-
-
-
+      $this->db->query("SELECT * FROM generalleaves WHERE leavedate = :date");
+      $this->db->bind(':date', $date);
+      $result = $this->db->resultSet();
+      //   print_r($result);
+      if(empty($result)){
+         return 0;
+   
+      }
+      else{
+         return 1;
+      }
+   }
 
 
 
@@ -50,47 +73,17 @@ public function checkLeaveDate($data){
        $this->db->bind(':staffID',$data['staffID']);
       $result = $this->db->single();
 
-//$num2 = ($data['leaveCount']->{'COUNT(*)'});
-     // echo $result->{'COUNT(*)'};
-       //print_r($result);
+      //$num2 = ($data['leaveCount']->{'COUNT(*)'});
+      // echo $result->{'COUNT(*)'};
+      //print_r($result);
       
       return $result->{'COUNT(*)'};
 }
 
 
 
-   public function requestleave($data)
-   {
-      date_default_timezone_set("Asia/Colombo");
-      $today = date('Y-m-d');
-
-      $res = $this->db->query("INSERT INTO generalleaves (staffID, leaveDate, requestedDate, reason) VALUES(:staffID', :date , '{$today}', :reason)");
-      $this->db->bind(':staffID',$data['staffID']);
-      $this->db->bind(':date', $data['date']);
-      $this->db->bind(':reason', $data['reason']);
-
-      $this->db->execute();
-
-   }
-
-
    
 
-
-
-
-
- public function checkExsistingDate($data){
-
-      $this->db->query("SELECT * FROM generalleaves WHERE leavedate ='$date'");
-    
-      $result = $this->db->resultSet();
-      //   print_r($result);
-      if(!empty($result)){
-         return $result;
-   
-      }
-   }
 
 
    public function getLeaveCountOfSelectedMonth($data){
@@ -101,9 +94,9 @@ public function checkLeaveDate($data){
        $this->db->bind(':staffID',$staffID);
       $result = $this->db->single();
 
-//$num2 = ($data['leaveCount']->{'COUNT(*)'});
-     // echo $result->{'COUNT(*)'};
-       //print_r($result);
+      //$num2 = ($data['leaveCount']->{'COUNT(*)'});
+      //echo $result->{'COUNT(*)'};
+      //print_r($result);
       
       return $result->{'COUNT(*)'};
 }

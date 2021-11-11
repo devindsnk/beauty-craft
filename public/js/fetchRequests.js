@@ -2,10 +2,13 @@ const serviceSelectDropDown = document.querySelector(".serviceSelect");
 const serviceProviderSelectDropDown = document.querySelector(".serviceProviderSelect");
 const serviceDurationBox = document.querySelector(".durationBox");
 
+
+
 serviceSelectDropDown.addEventListener('change',
    function () {
       updateServiceProvidersList();
       updateServiceDuration();
+      
    }
 )
 
@@ -44,3 +47,5 @@ function updateServiceDuration() {
          // });
       });
 }
+
+console.log("hi");

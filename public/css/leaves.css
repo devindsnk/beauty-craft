@@ -1,0 +1,13 @@
+.reqleave-date-section{
+    height: 100px;
+}
+.reqleave-reason-section{
+    height: 130px;
+}
+.reqleave-button-section{
+    height: 75px;
+}
+
+input.dateValidationMsg{
+border:none;
+}

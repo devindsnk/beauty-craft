@@ -4,10 +4,9 @@
       <div class="leavecountcard">
          <div class="leavecountcardleft">Remaining Leaves</div>
          <div class="leavecountcardright">
-            <?php if ($userType == "Service Provider")
-            {
+            <?php 
                echo $data['remainingCount'];
-            }
+            
              ?></div>
       </div>
       <div class="page-top-main-container">
@@ -15,10 +14,9 @@
       </div>
    </div>
    <span class="leavelimitmsg">
-      <?php if ($userType == "Service Provider")
-      {
+      <?php 
          if ($data['remainingCount'] < 0) echo "Your Leave limit exceed";
-      } ?>
+       ?>
    </span>
    <form class="form filter-options" action="">
       <div class="options-container">
@@ -103,39 +101,43 @@
          <div class="new-type-head">
             <h1>Request Leave</h1>
          </div>
-         <form action="<?php echo URLROOT; ?>/SerProvDashboard/leaves" class="form" method="POST">
-
-            <div class="row">
-               <div class="column">
+         <form action="<?php echo URLROOT; ?>/Leaves/leaves" class="form" method="POST">
+   <div class="leaverequest-form-content">
+           
+         <div class="reqleave-date-section">
+<!-- <p class="test-class">Bla bla</p> -->
                   <div class="text-group">
                      <label class="labels" for="serviceName">Date</label><br>
-                     <input class="addItemsModalDate" type="date" name="date" id="takeLeaveDate" placeholder="--Select a date--" value="<?php echo $data['date']; ?>">
+                     <input class="addItemsModalLeaveRequestDate" type="date" name="date" id="takeLeaveDate" placeholder="--Select a date--" value="<?php echo $data['date']; ?>">
                   </div>
-                  <span class="error"> <?php echo $data['date_error']; ?></span>
-               </div>
-            </div>
-            <div class="row">
-               <div class="column">
+                  <span class="error date-error"> 
+                     <!-- <?php echo $data['date_error']; ?> -->
+                  </span>
+                  <!-- <input class="dateValidationMsg"> -->
+         </div>                 
+              
+    <div class="reqleave-reason-section">        
                   <div class="text-group">
                      <label class="labels" for="serviceName">Reason</label><br>
 
                      <textarea type="text" name="reason" id="takeLeaveReason" placeholder="-- Type in --" class="addItemsModalTextArea"
                         value="<?php echo $data['reason']; ?>"><?php echo $data['reason']; ?></textarea>
-                     <span class="error"> <?php echo $data['reason_error']; ?></span>
-                     <span class="error"> <?php echo $data['leaveexceed']; ?></span>
                   </div>
-               </div>
-            </div>
-
-            <div class="modalbutton">
-               <div class="btn1">
-                  <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
-               </div>
-               <div class="btn2">
-                  <button type="submit" name="action" value="addleave" class="confirm-service-btn">Request</button>
-               </div>
-            </div>
-
+                  <span class="error"> <?php echo $data['reason_error']; ?></span>
+                     
+             
+    </div>
+    <div class="reqleave-button-section">
+                  <div class="modalbutton">
+                     <div class="btn1">
+                        <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
+                     </div>
+                     <div class="btn2">
+                        <button type="submit" name="action" value="addleave" class="confirm-service-btn">Request</button>
+                     </div>
+                  </div>
+</div>
+</div>
          </form>
 
       </div>
@@ -212,3 +214,4 @@
 
 
 <script src="<?php echo URLROOT ?>/public/js/tableFilter.js"></script>
+<script src="<?php echo URLROOT ?>/public/js/fetchRequests/leaveRequest.js"></script>
