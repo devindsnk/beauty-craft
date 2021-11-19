@@ -68,4 +68,18 @@ class ReservationModel
 
       return $result;
    }
+
+ public function getReservationsByStaffID($staffID){
+    $this->db->query("SELECT *
+
+ }
+
+
+
+
+
+
+
+
+
 }

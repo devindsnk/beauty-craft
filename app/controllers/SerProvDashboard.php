@@ -2,7 +2,7 @@
 {
    public function __construct()
    {
-      // validateSession([5]);
+       validateSession([5]);
      
    }
    public function home()
@@ -17,6 +17,14 @@
    public function reservations()
    {
       // validateSession([5]);
+       $leaveData = $this->LeaveModel->getLeaveRecordsBystaffID($_SESSION['userID']);
+       
+
+
+
+
+
+
       $this->view('serviceProvider/serProv_reservation');
    }
 
