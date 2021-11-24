@@ -7,21 +7,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-   overflow:scroll;
+    overflow: scroll;
 }
 
-.formadmin{
+.formadmin {
     height: 800px;
     width: 100%;
     margin: auto;
-    overflow:scroll;
+    overflow: scroll;
     padding-top: 50px;
 
 }
-.content.admin .ownAddstaffBasicinfoFilesubBtn{
-display: none;
+
+.content.admin .ownAddstaffBasicinfoFilesubBtn {
+    display: none;
 }
-.content.admin .ownAddstaffContainer .error{
+
+.content.admin .ownAddstaffContainer .error {
     display: none;
 }
 
@@ -30,7 +32,7 @@ display: none;
     margin-top: 50px;
     margin: auto;
 
-    
+
 }
 
 .admin .reg-container {
@@ -82,6 +84,7 @@ display: none;
     .reg-container {
         min-width: 416px;
     }
+
     .reg-container {
         width: 100vw;
     }
@@ -138,7 +141,7 @@ display: none;
     margin-bottom: 0;
 }
 
-.form .pin {
+.form .OTP {
     letter-spacing: 4px;
 }
 
@@ -251,9 +254,10 @@ label.ownAddstaffBasicinfoImagewrapper {
     width: 160px;
     margin-right: 20px;
 }
-.btn.btn-filled.btn-theme-purple.addstaffadmin{
+
+.btn.btn-filled.btn-theme-purple.addstaffadmin {
     width: 160px;
     padding-top: 7px;
     padding-bottom: 7px;
-    
+
 }

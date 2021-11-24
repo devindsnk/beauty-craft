@@ -5,10 +5,11 @@ class User extends Controller
    public function __construct()
    {
       $this->userModel = $this->model('UserModel');
-      $this->pinModel = $this->model('pinVerifyHandlerModel');
+      $this->OTPModel = $this->model('OTPManagementModel');
       $this->customerModel = $this->model('CustomerModel');
       $this->staffModel = $this->model('StaffModel');
    }
+
    public function signin()
    {
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -79,17 +80,17 @@ class User extends Controller
          // Data is loaded
          $data = [
             'mobileNo' => trim($_POST['mobileNo']),
-            'pin' => trim($_POST['pin']),
+            'OTP' => trim($_POST['OTP']),
             'newPassword' => trim($_POST['password']),
             'confirmNewPassword' => trim($_POST['confirmPassword']),
             'mobileNo_error' => '',
-            'pin_error' => '',
+            'OTP_error' => '',
             'newPassword_error' => '',
             'confirmNewPassword_error' => ''
          ];
 
-         // If the pin is requested
-         if ($_POST['action'] == "getPIN")
+         // If the OTP is requested
+         if ($_POST['action'] == "getOTP")
          {
             $data['mobileNo_error'] = validateMobileNo($data['mobileNo']);
 
@@ -102,19 +103,18 @@ class User extends Controller
                {
                   // If no issues
                   //GET otp
-                  $pin = generatePIN($this->pinModel, $data['mobileNo'], 2);
-                  if ($pin)
+                  $OTP = $this->OTPModel->requestOTP($data['mobileNo'], 2);
+                  if ($OTP)
                   {
                      // Send otp
-                     $SMStext = urlencode("This is your OTP code: $pin");
-                     $SMSResponse = sendSMS($data['mobileNo'], $SMStext);
+                     $SMSResponse = sendPasswordResetSMS($data['mobileNo'], $OTP);
 
-                     //If pin sent successfull then store the pin
+                     //If OTP sent successfull then store the OTP
                      if ($SMSResponse)
                      {
-                        storePIN($this->pinModel, $pin, $data['mobileNo'], 2);
+                        $this->OTPModel->storeOTP($data['mobileNo'], $OTP,  2);
                      }
-                     // If sending pin sending fails
+                     // If sending OTP sending fails
                      else
                      {
                         $data['mobileNo_error'] = "Check you mobile number again";
@@ -122,7 +122,7 @@ class User extends Controller
                   }
                   else
                   {
-                     $data['mobileNo_error'] = "PIN has been sent already";
+                     $data['mobileNo_error'] = "OTP has been sent already";
                   }
                }
                else
@@ -140,7 +140,7 @@ class User extends Controller
 
             // Validating mobileNumber
             $data['mobileNo_error'] = validateMobileNo($data['mobileNo']);
-            $data['pin_error'] = emptyCheck($data['pin']);
+            $data['OTP_error'] = emptyCheck($data['OTP']);
 
             $data['newPassword_error'] = emptyCheck($data['newPassword']);
             $data['confirmNewPassword_error'] = emptyCheck($data['confirmNewPassword']);
@@ -150,22 +150,22 @@ class User extends Controller
             }
 
             if (
-               empty($data['mobileNo_error']) && empty($data['pin_error']) && empty($data['newPassword_error']) && empty($data['confirmNewPassword_error'])
+               empty($data['mobileNo_error']) && empty($data['OTP_error']) && empty($data['newPassword_error']) && empty($data['confirmNewPassword_error'])
             )
             {
-               // PIN verification
-               $isVerified = verifyPIN($this->pinModel, $data['mobileNo'], $data['pin'], 2);
+               // OTP verification
+               $isVerified = $this->OTPModel->verifyOTP($data['mobileNo'], $data['OTP'], 2);
 
-               //If pin is not requested or previously-used or incorrect
+               //If OTP is not requested or previously-used or incorrect
                if (!$isVerified)
                {
-                  $data['pin_error'] = "Incorrect PIN";
+                  $data['OTP_error'] = "Incorrect OTP";
                   $this->view('resetPassword', $data);
                }
                else
                {
                   $this->userModel->updatePassword($data['mobileNo'], $data['newPassword']);
-                  removePIN($this->pinModel, $data['mobileNo'], 2);
+                  $this->OTPModel->removeOTP($data['mobileNo'], 2);
 
                   // Provide success message here
                   header('location: ' . URLROOT . '/user/signin');
@@ -185,11 +185,11 @@ class User extends Controller
       {
          $data = [
             'mobileNo' => '',
-            'pin' => '',
+            'OTP' => '',
             'newPassword' => '',
             'confirmNewPassword' => '',
             'mobileNo_error' => '',
-            'pin_error' => '',
+            'OTP_error' => '',
             'newPassword_error' => '',
             'confirmNewPassword_error' => ''
          ];
@@ -241,6 +241,7 @@ class User extends Controller
          redirect('home');
       }
    }
+
    public function getUserData($user)
    {
       switch ($user->userType)
@@ -248,10 +249,10 @@ class User extends Controller
          case 3:
          case 4:
          case 5:
-            return $this->staffModel->getStaffDataByMobileNo($user->mobileNo);
+            return $this->staffModel->getStaffUserData($user->mobileNo);
             break;
          case 6:
-            return $this->customerModel->getCustomerDataByMobileNo($user->mobileNo);
+            return $this->customerModel->getCustomerUserData($user->mobileNo);
             break;
          default:
             return [null, null];

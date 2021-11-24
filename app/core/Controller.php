@@ -6,10 +6,6 @@
 
 class Controller
 {
-   //checking session
-   public function checkSession()
-   {
-   }
    // Load model
    public function model($model)
    {

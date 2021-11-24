@@ -128,7 +128,7 @@ class Model
       $this->query($SQLstatement);
    }
 
-   public function getResultSet($tableName, $columns, $conditions)
+   public function getResultSet($tableName, $columns, $conditions = NULL)
    {
       $this->prepareSelectStatement($tableName, $columns, $conditions);
       $result = $this->PDOstatement->fetchAll(PDO::FETCH_OBJ);
@@ -136,7 +136,7 @@ class Model
       return $result;
    }
 
-   public function getSingle($tableName, $columns, $conditions)
+   public function getSingle($tableName, $columns, $conditions = NULL)
    {
       $this->prepareSelectStatement($tableName, $columns, $conditions);
       $result = $this->PDOstatement->fetch(PDO::FETCH_OBJ);
@@ -145,7 +145,7 @@ class Model
    }
 
    // TODO: Test
-   public function getRowCount($tableName, $conditions)
+   public function getRowCount($tableName, $conditions = NULL)
    {
       $this->prepareSelectStatement($tableName, '*', $conditions);
       $result = $this->PDOstatement->rowCount();
@@ -196,7 +196,7 @@ class Model
       }
       else
       {
-         return $this->dbh->query($SQLstatement);
+         return $this->query($SQLstatement);
       }
    }
 }

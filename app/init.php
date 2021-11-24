@@ -7,7 +7,7 @@ require_once 'config/config.php';
 require_once 'helpers/url_helper.php';
 require_once 'helpers/session_helper.php';
 require_once 'helpers/data_validation_helper.php';
-require_once 'helpers/sms_otp_helper.php';
+require_once 'helpers/sms_helper.php';
 require_once 'helpers/time_date_format_helper.php';
 
 spl_autoload_register(function ($className)
