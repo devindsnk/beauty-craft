@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * Contains few functions required to format date and time
+ */
+
 function minsToDuration()
 {
 }

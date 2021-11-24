@@ -1,5 +1,5 @@
 <?php
-class StaffModel
+class StaffModel extends Model
 {
    private $db;
 
@@ -63,19 +63,15 @@ class StaffModel
 
    public function getOneStaffDetails($staffID)
    {
-
-
       $this->db->query("SELECT * FROM staff
                         WHERE staffID = '$staffID'");
       $result = $this->db->resultSet();
-
 
       return $result;
    }
 
    public function getBankDetails($staffID)
    {
-
       $this->db->query("SELECT * FROM bankdetails
                         INNER JOIN staff 
                         ON staff.staffID = bankdetails.staffID
@@ -86,13 +82,9 @@ class StaffModel
       return $result;
    }
 
-
-   public function getStaffDataByMobileNo($mobileNo)
+   public function getStaffUserData($mobileNo)
    {
-      $this->db->query("SELECT * FROM staff WHERE mobileNo =  :mobileNo ");
-      $this->db->bind(':mobileNo', $mobileNo);
-      $result = $this->db->single();
-
-      return [$result->staffID, $result->fName . " " . $result->lName];
+      $results = $this->getSingle("staff", ["staffID", "fName", "lName"], ['mobileNo' => $mobileNo]);
+      return [$results->staffID, $results->fName . " " . $results->lName];
    }
 }

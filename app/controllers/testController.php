@@ -5,10 +5,12 @@ class testController extends Controller
    {
       $this->testModel = $this->model('testModel');
       $this->testModel2 = $this->model('testModel2');
+      $this->customerModel = $this->model('CustomerModel');
    }
 
    public function testFunc()
    {
+
       $this->testModel->selectStmnt();
       $this->testModel->insertStmnt();
       $this->testModel->updateStmnt();
