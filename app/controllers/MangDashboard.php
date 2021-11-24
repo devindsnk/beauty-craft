@@ -44,11 +44,11 @@ class MangDashboard extends Controller
       // validateSession([3]);
       $sDetails = $this->serviceModel->getServiceDetails();
 
-      $GetServicesArray = [
-         'services' => $sDetails
-      ];
+      // $GetServicesArray = [
+      //    'services' => $sDetails
+      // ];
 
-      $this->view('manager/mang_services',  $GetServicesArray);
+      $this->view('manager/mang_services',  $sDetails);
    }
    public function resources()
    {
@@ -65,16 +65,22 @@ class MangDashboard extends Controller
       // validateSession([3]);
       $leaveDetails = $this->leaveModel->getAllLeaveRequests();
 
-      $GetLeavesArray = [
-         'leaves' => $leaveDetails
-      ];
+      // $GetLeavesArray = [
+      //    'leaves' => $leaveDetails
+      // ];
 
-      $this->view('manager/mang_subLeaveRequests',  $GetLeavesArray);
+      $this->view('manager/mang_subLeaveRequests',  $leaveDetails);
    }
    public function takeLeave()
    {
       // validateSession([3]);
-      $this->view('manager/mang_subTakeLeave');
+      $managerLeaveDetails = $this->leaveModel->getAllManagerLeaves();
+
+      // $GetManagerLeavesArray = [
+      //    'leaves' => $managerLeaveDetails
+      // ];
+
+      $this->view('manager/mang_subTakeLeave',  $managerLeaveDetails);
    }
    public function analyticsOverall()
    {

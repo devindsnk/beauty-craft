@@ -79,7 +79,7 @@
                </thead>
 
                <tbody>
-                  <?php foreach ($data['leaves'] as $leaveDetails) : ?>
+                  <?php foreach ($data as $leaveDetails) : ?>
                      <form class="form" action="<?php echo URLROOT; ?>/leaves/responceForLeaveRequest/<?php echo $leaveDetails->staffID; ?>/<?php echo $leaveDetails->leaveDate; ?>" method="post">
                         <tr>
                            <td data-lable="Staff ID" class="column-center-align"><?php echo $leaveDetails->staffID; ?></td>

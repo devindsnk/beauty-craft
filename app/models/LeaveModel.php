@@ -126,5 +126,15 @@ public function checkLeaveDate($data){
       
       $results = $this->update('generalleaves', ['respondedStaffID' => $ManagerID, 'status' => $responce, ], ['staffID' => $staffID, 'leaveDate' => $leaveDate]);
    }
+
+   public function getAllManagerLeaves(){
+
+      $ManagerID = $_SESSION['userID'];
+      $results = $this->customQuery("SELECT * 
+                                    FROM managerLeaves 
+                                    WHERE staffID = :staffID ORDER BY leaveDate", [':staffID' => $ManagerID]);
+
+      return $results;
+   }
 }
 

@@ -187,6 +187,13 @@ class Services extends Controller
       return $sResource;
    }
 
+   public function getResourceForSlots()
+   {
+      $sResource = $this->ServiceModel->getResourceDetails();
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($sResource));
+   }
+
    public function passResourcesToSlot($sResGetArray)
    {
       $_SESSION = $sResGetArray;

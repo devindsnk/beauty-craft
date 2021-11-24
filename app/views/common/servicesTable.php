@@ -66,7 +66,7 @@
          </thead>
 
          <tbody>
-            <?php foreach ($data['services'] as $sDetails) : ?>
+            <?php foreach ($data as $sDetails) : ?>
 
                <tr>
                   <td data-lable="Servie ID" data-lable="" class="column-center-align"><?php echo $sDetails->serviceID; ?></td>
