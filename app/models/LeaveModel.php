@@ -136,5 +136,14 @@ public function checkLeaveDate($data){
 
       return $results;
    }
+
+   // FOR MANAGER OVERVIEW
+   public function getPendingLeaveRequestCount(){
+
+      $results = $this->getRowCount('generalleaves', ['status' => 2, 'leaveType' => 'casual']);
+      
+      return $results;
+  }
+  // FOR MANAGER OVERVIEW
 }
 

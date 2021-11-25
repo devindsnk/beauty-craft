@@ -100,4 +100,21 @@ class StaffModel extends Model
 
       return [$results->staffID, $results->fName . " " . $results->lName];
    }
+
+   // FOR MANAGER OVERVIEW
+   public function getReceptionistCount(){
+
+      $results = $this->getRowCount('staff', ['staffType' => 4, 'status' => 1]);
+
+      return $results;
+   }
+
+   public function getManagerCount(){
+
+      $results = $this->getRowCount('staff', ['staffType' => 3, 'status' => 1]);
+
+      return $results;
+   }
+   // FOR MANAGER OVERVIEW
+
 }

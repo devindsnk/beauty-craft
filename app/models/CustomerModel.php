@@ -61,4 +61,13 @@ class CustomerModel extends Model
 
       return [$result->customerID, $result->fName . " " . $result->lName];
    }
+
+   // FOR MANAGER OVERVIEW
+   public function getActiveCustomerCount(){
+
+      $results = $this->getRowCount('customers', ['status' => 'active']);                               
+      
+      return $results;
+   }
+   // FOR MANAGER OVERVIEW
 }

@@ -137,4 +137,21 @@ class ServiceModel extends Model
 
         return $results->totalDuration;
     }
+
+    // FOR MANAGER OVERVIEW
+    public function getAvailableServiceCount(){
+
+        $results = $this->getRowCount('services', ['status' => 1]);
+        
+        return $results;
+    }
+    public function getAvailableServiceProvidersCount(){
+
+        $results = $this->customQuery("SELECT Count(DISTINCT staffID) AS serProvCount
+                                    FROM serviceproviders", [] 
+                                    );
+        
+        return $results;
+    }
+    // FOR MANAGER OVERVIEW
 }

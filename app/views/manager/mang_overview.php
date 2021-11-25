@@ -22,7 +22,7 @@
                <p>Total Income</p>
             </div>
             <div class="mang-sub-container-card-amount">
-               <p>400000.00 LKR</p>
+               <p><?php echo number_format($data['totalIncome'][0]->totalIncome, 2, '.', ' '); ?> LKR</p>
             </div>
          </div>
          <!--End of card1-->
@@ -33,7 +33,7 @@
                <p>Upcomming Reservations</p>
             </div>
             <div class="mang-sub-container-card-amount">
-               <p>20</p>
+               <p><?php echo $data['upcommingReservations'][0]->upacommingReservations; ?></p>
             </div>
          </div>
          <!--End of card2-->
@@ -41,10 +41,10 @@
          <!--card3-->
          <div class="mang-sub-container-card">
             <div class="mang-sub-container-card-title">
-               <p>Available Service Providers</p>
+               <p>Total Available Services</p>
             </div>
             <div class="mang-sub-container-card-amount">
-               <p>21</p>
+               <p><?php echo $data['availableServices']; ?></p>
             </div>
          </div>
          <!--End of card3-->
@@ -52,10 +52,10 @@
          <!--card4-->
          <div class="mang-sub-container-card">
             <div class="mang-sub-container-card-title">
-               <p>Pending Leave Requests</p>
+               <p>Available Service Providers</p>
             </div>
             <div class="mang-sub-container-card-amount">
-               <p>15</p>
+               <p><?php echo $data['availableServiceProviders'][0]->serProvCount; ?></p>
             </div>
          </div>
          <!--End of card4-->
@@ -70,7 +70,7 @@
                <p>No of Customers</p>
             </div>
             <div class="mang-sub-container-card-amount">
-               <p>260</p>
+               <p><?php echo $data['activeCustomers']; ?></p>
             </div>
          </div>
          <!--End of card5-->
@@ -78,10 +78,10 @@
          <!--card6-->
          <div class="mang-sub-container-card">
             <div class="mang-sub-container-card-title">
-               <p>No of Service Providers</p>
+               <p>No of Receptionists</p>
             </div>
             <div class="mang-sub-container-card-amount">
-               <p>50</p>
+               <p><?php echo $data['activeReceptionists']; ?></p>
             </div>
          </div>
          <!--End of card6-->
@@ -92,7 +92,7 @@
                <p>No of Managers</p>
             </div>
             <div class="mang-sub-container-card-amount">
-               <p>5</p>
+               <p><?php echo $data['activeManagers']; ?></p>
             </div>
          </div>
          <!--End of card7-->
@@ -100,10 +100,10 @@
          <!--card8-->
          <div class="mang-sub-container-card">
             <div class="mang-sub-container-card-title">
-               <p>Total Services</p>
+               <p>Pending Leave Requests</p>
             </div>
             <div class="mang-sub-container-card-amount">
-               <p>25</p>
+               <p><?php echo $data['pendingLeaveRequests']; ?></p>
             </div>
          </div>
          <!--End of card8-->
