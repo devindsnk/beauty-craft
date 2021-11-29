@@ -26,11 +26,12 @@
                 
                 <!-- <?php print_r($data['leaveLimits']);?> --> 
                 <!-- <?php print_r($data['salaryRates']);?> -->
+                 <!-- <?php print_r($data['minimumNoOfManagers']);?> -->
                 
                 
                 <!-- <form action="<?php echo URLROOT; ?>/rates/updateLeaveLimit" method="post"> --> 
                 
-                <div class="deatailbox">
+                <div class="deatailbox"> 
                     <div class="labelBox">
                         <div class="detailLableLine">
                             <label class="rateLabel">Service Provider</label> <br>
@@ -69,13 +70,16 @@
                 <div class="deatailbox">
                     <div class="labelBox">
                         <div class="detailLine">
-                            <label class="rateLabel">Service Provider</label>
+                            <label class="rateLabel">Service Provider</label><br> 
+                            <span class="error"><?php echo $data['managerSalaryRate_error']; ?></span> 
                         </div>
                         <div class="detailLine">
-                            <label class="rateLabel">Rceptionist</label>
+                            <label class="rateLabel">Rceptionist</label><br> 
+                            <span class="error"><?php echo $data['serviceProviderSalaryRate_error']; ?></span> 
                         </div>
                         <div class="detailLine">
-                            <label class="rateLabel">Manager</label>
+                            <label class="rateLabel">Manager</label><br> 
+                            <span class="error"><?php echo $data['receptionistSalaryRate_error']; ?></span> 
                         </div>
                     </div>
                     <div class="valueBox">
@@ -101,10 +105,11 @@
 
                 <div class="deatailbox">
                     <div class=" labelBox">
-                        <label class="rateLabel">Service Commision Rate</label>
+                        <label class="rateLabel">Service Commision Rate</label><br> 
+                        <span class="error"><?php echo $data['commisionRate_error']; ?></span>
                     </div>
                     <div class="valueBox">
-                        <input type="text" class="rateValue" value="<?php echo $data['commisionRate']; ?>" name="commisionRate" value="<?php echo $data['commisionRate']; ?>" placeholder="<?php echo $data['commissionRates']->rate; ?>%">
+                        <input type="text" class="rateValue" name="commisionRate" value="<?php echo $data['commisionRate']; ?>" placeholder="<?php echo $data['commissionRates']->rate; ?>%">
                     </div>
                     <div class="ratebutton">
                         <button class="btn btn-filled btn-grey" name="action" value="saveCommissionRate">Save Changes</button>
@@ -116,13 +121,14 @@
                 </div>
                 <div class="deatailbox">
                     <div class=" labelBox">
-                        <label class="rateLabel">Minimum Number of Managers</label>
+                        <label class="rateLabel">Minimum Number of Managers</label><br> 
+                        <span class="error"><?php echo $data['minimumNumberOfManagers_error']; ?></span>
                     </div>
                     <div class="valueBox">
-                        <input type="text" class="rateValue" value="2">
+                        <input type="text" class="rateValue" name="minimumNumberOfManagers" value="<?php echo $data['minimumNumberOfManagers']; ?>" placeholder="<?php echo $data['minimumNoOfManagers']->minimumNumber;?>">
                     </div>
                     <div class="ratebutton">
-                        <button class="btn btn-filled btn-grey" name="action" value="saveManagerRate">Save Changes</button>
+                        <button class="btn btn-filled btn-grey" name="action" value="saveMinimumNumberOfManagers">Save Changes</button>
                     </div>
                 </div>
 

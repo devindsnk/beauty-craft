@@ -1,3 +1,19 @@
+$(document).ready(function(){
+  $.ajax({
+    url: "http://localhost/beauty-craft/OwnOverviewModel",
+    method: "GET",
+    success:function(data){
+        console.log(data);
+    },
+    error:function(data){
+        console.log(data);
+    }
+  });
+});
+
+
+
+
 var ctx = document.getElementById('ownOverviewChartAvailableEmployees').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'doughnut',
@@ -33,6 +49,19 @@ var myChart = new Chart(ctx, {
     },
 
 });
+
+
+$.ajax({
+    type: 'POST',
+    url: 'api.php',
+    success: function (data) {
+    lineChartData = data;//alert(JSON.stringify(data));
+    var myChart = new Chart(document.getElementById("ownOverviewChartAvailableEmployees").getContext("2d")).Line(lineChartData);
+    
+    var ctx = document.getElementById("canvas").getContext("2d");
+    window.myLine = new Chart(ctx).Line(lineChartData, {responsive: true});
+    } 
+    });
 
 
 

@@ -164,7 +164,7 @@
                <button class="btn btnClose normal ModalButton ModalCancelButton">Cancel</button>
             </div>
             <div class="ownRemStaffbtn2">
-               <button class="btn normal ModalButton ModalBlueButton">Proceed</button>
+              <a href="<?php echo URLROOT ?>/staff/removeStaff/<?php echo $staffD->staffID ?>"><button class="btn normal ModalButton ModalBlueButton">Proceed</button></a>
             </div>
          </div>
          <!-- main grid 3 ends -->

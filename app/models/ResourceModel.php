@@ -1,18 +1,12 @@
 <?php
-class ResourceModel
+class ResourceModel extends Model
 {
-   private $db;
-   public function __construct()
-   {
-      $this->db = new Database;
-   }
    public function addResourceDetails($data)
    {
-      // print_r($data);
-      $this->db->query("INSERT INTO resources(name, quantity) VALUES(:name,:quantity)");
-      $this->db->bind(':name', $data['resourceName']);
-      $this->db->bind(':quantity', $data['resourceQuantity']);
-
-      $this->db->execute();
+      $results =  $this->insert('resources', ['name'=> $data['resourceName'] , 'quantity'=> $data['resourceQuantity']]);
+      var_dump($results);
+      
    }  
+
+   
 }

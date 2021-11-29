@@ -15,11 +15,7 @@
     </header>
     <div class="content contentNewRes">
 
-
-
-
-
-
+    
         <div class="ownStaff_allignmentbox own staff">
 
             <div class="ownAddstaffContainer contentBox">

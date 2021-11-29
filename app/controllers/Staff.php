@@ -458,9 +458,17 @@ class Staff extends Controller
       $this->view('owner/own_staffView',$bankDetails[0]);
    }  
 
-   public function RemStaffReservations()
+   public function RemStaffReservations() //details
    {
+      
       $this->view('owner/own_RemStaffViewReservations');
+   }
+
+   public function RemoveStaff($staffID) //details
+   {
+      $this->staffModel->removestaff($staffID);
+      redirect('OwnDashboard/staff');
+      // $this->view('owner/own_RemStaffViewReservations');
    }
 
 }

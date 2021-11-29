@@ -35,7 +35,7 @@
                     <!-- section break line starts -->
                     <div class="ownAddstaffLineContainer">
                         <div class="ownAddstaffLines">
-                        </div>
+                        </div>  
                     </div>
                     <!-- section break line endss -->
                     <div class="ownViewStaffProfileGrid">

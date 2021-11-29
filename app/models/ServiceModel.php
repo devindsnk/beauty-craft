@@ -1,12 +1,12 @@
 <?php
 class ServiceModel extends Model
 {
-    private $db;
+    // private $db;
 
-    public function __construct()
-    {
-        $this->db = new Database;
-    }
+    // public function __construct()
+    // {
+    //     $this->db = new Database;
+    // }
 
     public function service($data)
     {
@@ -101,10 +101,12 @@ class ServiceModel extends Model
 
     public function getResourceDetails()
     {
-        $this->db->query("SELECT resourceID, name, quantity From resources");
-        $result = $this->db->resultSet();
-
+        // $this->db->query("SELECT resourceID, name, quantity From resources");
+        // $result = $this->db->resultSet();
+        $result = $this->getResultSet('resources','*',null);
+        print_r($result);
         return $result;
+
     }
 
     public function getOneServiceDetail($serviceID)

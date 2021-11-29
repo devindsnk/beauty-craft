@@ -113,4 +113,19 @@ class Rates extends Controller
        }
      }
 
+     public function updateMinimumNumberOfManagers()
+    {
+       if ($_SERVER['REQUEST_METHOD'] == 'POST')
+       {
+        $data = [
+            'staffimage' => trim($_POST['staffimage']),
+            'staffLname_error' => '',
+         ];
+         if (empty($data['staffimage']))
+         {
+            $data['staffimage_error'] = "Please insert a image";
+         }
+       }
+     }
+
 }
