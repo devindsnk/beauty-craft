@@ -69,10 +69,11 @@
                   <tr>
                      <th class="column-center-align col-1">Staff ID</th>
                      <th class="column-center-align col-2">Leave Date</th>
-                     <th class="column-center-align col-3">Responded Staff ID</th>
-                     <th class="column-center-align col-4">Requested Date</th>
-                     <th class="column-center-align col-5 column-center-align">Reason</th>
-                     <th class="column-center-align col-6">Status</th>
+                     <th class="column-center-align col-3">Leave Type</th>
+                     <th class="column-center-align col-4">Responded Staff ID</th>
+                     <th class="column-center-align col-5">Requested Date</th>
+                     <th class="column-center-align col-6 column-center-align">Reason</th>
+                     <th class="column-center-align col-7">Status</th>
                      <th class="col-8"></th>
                      <th class="col-9"></th>
                   </tr>
@@ -84,6 +85,7 @@
                         <tr>
                            <td data-lable="Staff ID" class="column-center-align"><?php echo $leaveDetails->staffID; ?></td>
                            <td data-lable="Leave Date" class="column-center-align"><?php echo $leaveDetails->leaveDate; ?></td>
+                           <td data-lable="Leave Type" class="column-center-align"><?php echo $leaveDetails->leaveType; ?></td>
                            <td data-lable="Responded Staff ID" class="column-center-align">
                               <?php if(empty($leaveDetails->respondedStaffID)): ?>
                                  - 

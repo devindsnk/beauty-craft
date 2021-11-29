@@ -266,9 +266,9 @@
 
 .leave-requests-button-div{
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
-    padding: 10px;
+    /* padding: 10px; */
     margin: 10px;
 }
     /* styles for leave request model */
@@ -299,6 +299,7 @@
 
 .buttonLeaveRequest{
     margin-top: 20px;
+    margin-left: 30px;
     width: 150px;
     padding: 7px;
     cursor: pointer;

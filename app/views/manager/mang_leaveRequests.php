@@ -38,8 +38,8 @@
                     <div class="row">
                         <div class="column">
                             <div class="text-group">
-                                <label class="labels" for="">Staff Member Name</label>
-                                <input type="text" name="" id="" placeholder="<?php echo $data->fName ?>" disabled>
+                                <label class="labels" for="">Staff Member</label>
+                                <input type="text" name="" id="" placeholder="<?php echo $data->staffID ?> - <?php echo $data->fName ?>" disabled>
                             </div>
                         </div>
                         <div class="column">
@@ -59,14 +59,14 @@
                     <div class="row">
                         <div class="column">
                             <div class="text-group">
-                                <label class="labels" for="">Staff ID</label>
-                                <input type="text" name="" id="" placeholder="<?php echo $data->staffID ?>" disabled>
+                                <label class="labels" for="">Date</label>
+                                <input type="text" name="" id="" placeholder="<?php echo $data->leaveDate ?>" disabled>
                             </div>
                         </div>
                         <div class="column">
                             <div class="text-group">
-                                <label class="labels" for="">Date</label>
-                                <input type="text" name="" id="" placeholder="<?php echo $data->leaveDate ?>" disabled>
+                                <label class="labels" for="">Leave Type</label>
+                                <input type="text" name="" id="" placeholder="<?php echo $data->leaveType ?>" disabled>
                             </div>
                         </div>
                     </div>

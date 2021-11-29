@@ -54,8 +54,9 @@
                   <tr>
                      <!-- <th class="column-center-align col-1">Staff ID</th> -->
                      <th class="column-center-align col-1">Leave Date</th>
-                     <th class="column-center-align col-2">Marked Date</th>
-                     <th class="column-center-align col-3 column-center-align">Reason</th>
+                     <th class="column-center-align col-2">Leave Type</th>
+                     <th class="column-center-align col-3">Marked Date</th>
+                     <th class="column-center-align col-4 column-center-align">Reason</th>
                      <th class="col-4"></th>
                   </tr>
                </thead>
@@ -65,6 +66,7 @@
                   <?php foreach ($data as $managerLeaveDetails) : ?>
                      <tr>
                         <td data-lable="Leave Date" class="column-center-align"><?php echo $managerLeaveDetails->leaveDate; ?></td>
+                        <td data-lable="Leave Type" class="column-center-align"><?php echo $managerLeaveDetails->leaveType; ?></td>
                         <td data-lable="Marked Date" class="column-center-align"><?php echo $managerLeaveDetails->markedDate; ?></td>
                         <td data-lable="Reason" class="column-center-align"><?php echo $managerLeaveDetails->reason; ?></td>
                         <td class="column-center-align">
