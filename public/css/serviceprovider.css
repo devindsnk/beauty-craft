@@ -173,6 +173,17 @@
   
     text-align: center;
 }
+.serprov .confirm-status.yellow {
+    padding: 5px 0;
+    width: 165px;
+    background-color:#FFF6DC;
+    color:#FFBF02;
+    font-weight: 600;
+    border-radius: 6px;
+  
+    text-align: center;
+}
+
 
 .serprov .mob-subcontainer2-card {
     width: 100%;

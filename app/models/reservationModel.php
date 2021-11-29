@@ -1,12 +1,7 @@
 <?php
-class ReservationModel
+class ReservationModel extends Model
 {
-   private $db;
-
-   public function __construct()
-   {
-      $this->db = new Database;
-   }
+  
 
    public function addReservation($data)
    {
@@ -70,7 +65,15 @@ class ReservationModel
    }
 
  public function getReservationsByStaffID($staffID){
-    $this->db->query("SELECT *
+   //  die("hii555555");
+    $results = $this->customQuery("SELECT reservations.date,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
+    FROM reservations 
+      INNER JOIN services ON services.serviceID = reservations.serviceID
+      INNER JOIN customers ON customers.customerID = reservations.customerID
+      WHERE staffID=:staffID ORDER BY date",[':staffID' => $staffID,]);
+   //  print_r($results);
+   //  die("hii0000000");
+    return $results;
 
  }
 

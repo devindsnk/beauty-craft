@@ -3,6 +3,7 @@
    public function __construct()
    {
        validateSession([5]);
+       $this->reservationModel = $this->model('reservationModel');
      
    }
    public function home()
@@ -16,12 +17,35 @@
 
    public function reservations()
    {
+   //  die("hii");
+
       // validateSession([5]);
-       $leaveData = $this->LeaveModel->getLeaveRecordsBystaffID($_SESSION['userID']);
+       $reservationData = $this->reservationModel->getReservationsByStaffID($_SESSION['userID']);
        
+             if ($_SERVER['REQUEST_METHOD'] == 'POST')
+         {
+         
+            $data = [
+               'leaveData' =>$reservationData,
+               
+               
+
+            ];
+      
+         }
+
+          else 
+         {
+            $data = [
+               'leaveData' =>$reservationData,
+               
+               
+
+            ];
+            $this->view('serviceProvider/serProv_reservation', $data);
 
 
-
+         }
 
 
 

@@ -60,35 +60,35 @@
 
             <tbody>
                <?php foreach ($data['tableData'] as $leave) : ?>
-               <tr>
+                  <tr>
 
-                  <td data-lable="Leave Date" class="column-center-align"><?php echo $leave->leaveDate; ?></td>
-                  <td data-lable="Requested date" class="column-center-align"><?php echo $leave->requestedDate; ?></td>
-                  <td data-lable="Responded Staff ID" class="column-center-align">
-                     <?php echo $leave->respondedStaffID; ?><?php if (!($leave->respondedStaffID)) echo 'Not yet Responded' ?>
-                  </td>
-                  <!-- leave Approved=1 pending=0 rejected=2 -->
-                  <td data-lable="Status" class="column-center-align">
-                     <?php if ($leave->status == 2) : ?>
-                     <button type="button" class="table-btn yellow-status-btn text-uppercase " value="Pending"> Pending
-                     </button>
-                     <?php elseif ($leave->status == 1) : ?>
-                     <button type="button" class="table-btn green-status-btn text-uppercase" value="Approved"> Approved
-                     </button>
-                     <?php else : ?>
-                     <button type="button" class="table-btn red-status-btn text-uppercase value=" Rejected"> Rejected
-                     </button>
-                     <?php endif; ?>
-                  </td>
-                  <td data-lable="Action" class="column-center-align">
-                     <span>
-                        <button class="editicon btnEditLeave"><a href="#" data-a=""><i
-                                 class="ci-edit table-icon"></i></a></button>
-                        <button class="editicon btnDeleteLeave"><a><i class="ci-trash table-icon"></i></a></button>
-                     </span>
-                  </td>
+                     <td data-lable="Leave Date" class="column-center-align"><?php echo $leave->leaveDate; ?></td>
+                     <td data-lable="Requested date" class="column-center-align"><?php echo $leave->requestedDate; ?></td>
+                     <td data-lable="Responded Staff ID" class="column-center-align">
+                        <?php echo $leave->respondedStaffID; ?><?php if (!($leave->respondedStaffID)) echo 'Not yet Responded' ?>
+                     </td>
+                     <!-- leave Approved=1 pending=0 rejected=2 -->
+                     <td data-lable="Status" class="column-center-align">
+                        <?php if ($leave->status == 2) : ?>
+                        <button type="button" class="table-btn yellow-status-btn text-uppercase " value="Pending"> Pending
+                        </button>
+                        <?php elseif ($leave->status == 1) : ?>
+                        <button type="button" class="table-btn green-status-btn text-uppercase" value="Approved"> Approved
+                        </button>
+                        <?php else : ?>
+                        <button type="button" class="table-btn red-status-btn text-uppercase value=" Rejected"> Rejected
+                        </button>
+                        <?php endif; ?>
+                     </td>
+                     <td data-lable="Action" class="column-center-align">
+                        <span>
+                           <button class="editicon btnEditLeave"><a href="#" data-a=""><i
+                                    class="ci-edit table-icon"></i></a></button>
+                           <button class="editicon btnDeleteLeave"><a><i class="ci-trash table-icon"></i></a></button>
+                        </span>
+                     </td>
 
-               </tr>
+                  </tr>
 
                <?php endforeach; ?>
             </tbody>

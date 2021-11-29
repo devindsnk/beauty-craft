@@ -19,6 +19,7 @@
     <!--Content-->
     <div class="content serprov">
         <!--sub-container1-card 1-->
+        
         <div class="container1-card">
             <div class="sub-container1-card-content res">
                 <div class="mainsection">
@@ -44,127 +45,39 @@
             <div class="reservationlist">
                 <div class="scroll-area">
 
+        <?php foreach ($data['leaveData'] as $reservation) : ?>
+                    <div class="sub-container2-card">
+                        <!--sub-container2-card-timetype-->
+                        <div class="sub-container2-card-ts">
+                            <span class="sub-container2-card-time"><?php echo $reservation->startTime." - ".$reservation->endTime;?></span>
+                            <span class="sub-container2-card-service"><?php echo $reservation->name; ?></span>
+                        </div>
+                        <!--sub-container2-card-timetype-->
+                        <div class="sub-container2-card-name">
+                            <span class="sub-container2-card-cstname">Customer</span>
+                            <span class="name"><?php echo $reservation->fName." ".$reservation->lName;?></span>
+                        </div>
+                        <div class="confbtn">
+                            <?php if ($reservation->status ==1): ?>
+                            <div class="confirm-status yellow">
+                                <span>Not Confirmed</span>
+                            </div>
+                            <?php elseif ($reservation->status== 2) : ?>
+                            <div class="confirm-status blue">
+                                <span>Confirmed</span>
+                            </div>
+                            <?php elseif ($reservation->status == 4) : ?>
+                            <div class="confirm-status green">
+                                <span>Completed</span>
+                            </div>
+                            <?php endif; ?>
+                        </div>
+                        <div class="sub-container2-card-link">
+                            <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
+                        </div>
+                    </div>
 
-                    <div class="sub-container2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-ts">
-                            <span class="sub-container2-card-time"> 8.30 - 9.00 </span>
-                            <span class="sub-container2-card-service">Makeup</span>
-                        </div>
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-name">
-                            <span class="sub-container2-card-cstname">Customer</span>
-                            <span class="name">Sanjana Rajapaksha</span>
-                        </div>
-                        <div class="confbtn">
-                            <div class="confirm-status green">
-                                <span>Confirmed</span>
-                            </div>
-                        </div>
-                        <div class="sub-container2-card-link">
-                            <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
-                        </div>
-                    </div>
-                    <div class="sub-container2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-ts">
-                            <span class="sub-container2-card-time"> 10.30 - 11.00 </span>
-                            <span class="sub-container2-card-service">Hair rebonding</span>
-                        </div>
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-name">
-                            <span class="sub-container2-card-cstname">Customer</span>
-                            <span class="name">Hashini Gamage</span>
-                        </div>
-                        <div class="confbtn">
-                            <div class="confirm-status blue">
-                                <span>Not Confirmed</span>
-                            </div>
-                        </div>
-                        <div class="sub-container2-card-link">
-                            <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
-                        </div>
-                    </div>
-                    <div class="sub-container2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-ts">
-                            <span class="sub-container2-card-time"> 12.30 - 1.00 </span>
-                            <span class="sub-container2-card-service">Hair extension</span>
-                        </div>
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-name">
-                            <span class="sub-container2-card-cstname">Customer</span>
-                            <span class="name">Sarani Chethana</span>
-                        </div>
-                        <div class="confbtn">
-                            <div class="confirm-status green">
-                                <span>Confirmed</span>
-                            </div>
-                        </div>
-                        <div class="sub-container2-card-link">
-                            <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
-                        </div>
-                    </div>
-                    <div class="sub-container2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-ts">
-                            <span class="sub-container2-card-time"> 1.15 - 1.45 </span>
-                            <span class="sub-container2-card-service">Ladies hair cut</span>
-                        </div>
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-name">
-                            <span class="sub-container2-card-cstname">Customer</span>
-                            <span class="name">Neluni Apsara</span>
-                        </div>
-                        <div class="confbtn">
-                            <div class="confirm-status blue">
-                                <span>Not Confirmed</span>
-                            </div>
-                        </div>
-                        <div class="sub-container2-card-link">
-                            <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
-                        </div>
-                    </div>
-                    <div class="sub-container2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-ts">
-                            <span class="sub-container2-card-time"> 2.30 - 3.00 </span>
-                            <span class="sub-container2-card-service">Ladies hair cut</span>
-                        </div>
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-name">
-                            <span class="sub-container2-card-cstname">Customer</span>
-                            <span class="name">Kasuni Silva</span>
-                        </div>
-                        <div class="confbtn">
-                            <div class="confirm-status green">
-                                <span>Confirmed</span>
-                            </div>
-                        </div>
-                        <div class="sub-container2-card-link">
-                            <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
-                        </div>
-                    </div>
-                    <div class="sub-container2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-ts">
-                            <span class="sub-container2-card-time"> 3.30 - 4.00 </span>
-                            <span class="sub-container2-card-service">Ladies hair cut</span>
-                        </div>
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-name">
-                            <span class="sub-container2-card-cstname">Customer</span>
-                            <span class="name">Amasha Munasinghe</span>
-                        </div>
-                        <div class="confbtn">
-                            <div class="confirm-status green">
-                                <span>Confirmed</span>
-                            </div>
-                        </div>
-                        <div class="sub-container2-card-link">
-                            <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
-                        </div>
-                    </div>
+       <?php endforeach; ?>              
 
                     <!-- end web view -->
                 </div>
