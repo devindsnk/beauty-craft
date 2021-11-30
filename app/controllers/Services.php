@@ -13,15 +13,20 @@ class Services extends Controller
       $sTypeGetArray = $this->getServiceType();
       $sResGetArray = $this->getResource();
 
+      // $this->passResourcesToSlot($sResGetArray);
+
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
          $data = [
-            'sName' => trim($_POST['sName']),
+            'name' => trim($_POST['sName']),
+
+            'customerCategory' => isset($_POST['serviceCusCategory']) ? trim($_POST['serviceCusCategory']) : '',
+
             'sSelectedType' => isset($_POST['serviceType']) ? trim($_POST['serviceType']) : '',
             'sNewType' => trim($_POST['sNewType']),
             'sSelectedProv' => isset($_POST['serProvCheckbox']) ? $_POST['serProvCheckbox'] : '',
-            'sPrice' => trim($_POST['sPrice']),
-            'sSlot1Duration' => isset($_POST['slot1Duration']) ? trim($_POST['slot1Duration']) : '',
+            'price' => trim($_POST['sPrice']),
+            'totalDuration' => isset($_POST['slot1Duration']) ? trim($_POST['slot1Duration']) : '',
             'sSelectedResCount' => isset($_POST['resourceCount']) ? ($_POST['resourceCount']) : [],
 
             'sTypesArray' => [],
@@ -29,6 +34,7 @@ class Services extends Controller
             'sResArray' => [],
 
             'sName_error' => '',
+            'sSelectedCusCategory_error' => '',
             'sSelectedAllType_error' => '',
             'sSelectedSProve_error' => '',
             'sPrice_error' => '',
@@ -44,9 +50,13 @@ class Services extends Controller
          if ($_POST['action'] == "addService")
          {
 
-            if (empty($data['sName']))
+            if (empty($data['name']))
             {
                $data['sName_error'] = "Please enter service name";
+            }
+            if (empty($data['customerCategory']))
+            {
+               $data['sSelectedCusCategory_error'] = "Please select customer category";
             }
             if (empty($data['sSelectedType']) && empty($data['sNewType']))
             {
@@ -60,20 +70,20 @@ class Services extends Controller
             {
                $data['sSelectedSProve_error'] = "Please select service provider";
             }
-            if (empty($data['sPrice']))
+            if (empty($data['price']))
             {
                $data['sPrice_error'] = "Please enter service price";
             }
-            elseif (!is_numeric($data['sPrice']))
+            elseif (!is_numeric($data['price']))
             {
                $data['sPrice_error'] = "Please enter a numeric value for price";
             }
-            if (empty($data['sSlot1Duration']))
+            if (empty($data['totalDuration']))
             {
                $data['sSlot1Duration_error'] = "Please enter slot1 duration";
             }
 
-            if (empty($data['sName_error']) && empty($data['sPrice_error']) && empty($data['sSelectedAllType_error']) && empty($data['sSelectedSProve_error']) && empty($data['sSlot1Duration_error']))
+            if (empty($data['sName_error']) && empty($data['sSelectedCusCategory_error']) && empty($data['sPrice_error']) && empty($data['sSelectedAllType_error']) && empty($data['sSelectedSProve_error']) && empty($data['sSlot1Duration_error']))
             {
 
                $this->ServiceModel->addService($data);
@@ -107,12 +117,13 @@ class Services extends Controller
       {
 
          $data = [
-            'sName' => '',
+            'name' => '',
+            'customerCategory' => '',
             'sSelectedType' => '',
             'sNewType' => '',
-            'sPrice' => '',
+            'price' => '',
             'sSelectedProv' => [],
-            'sSlot1Duration' => '',
+            'totalDuration' => '',
             'sSelectedResourse' => '',
             'sSelectedResCount' => '',
 
@@ -121,6 +132,7 @@ class Services extends Controller
             'sResArray' => [],
 
             'sName_error' => '',
+            'sSelectedCusCategory_error' => '',
             'sSelectedAllType_error' => '',
             'sSelectedSProve_error' => '',
             'sPrice_error' => '',
@@ -173,6 +185,25 @@ class Services extends Controller
    {
       $sResource = $this->ServiceModel->getResourceDetails();
       return $sResource;
+   }
+
+   public function getResourceForSlots()
+   {
+      $sResource = $this->ServiceModel->getResourceDetails();
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($sResource));
+   }
+
+   public function passResourcesToSlot($sResGetArray)
+   {
+      $_SESSION = $sResGetArray;
+      $sizeOfSession = sizeof($_SESSION);
+      print_r($_SESSION);
+
+      // print_r($_SESSION[0]->quantity);
+      print_r($sizeOfSession);
+
+      die("hi");
    }
 
    public function viewService($serviceID)

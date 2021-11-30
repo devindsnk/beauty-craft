@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * Common validation helper 
+ * Contains validation functions for general forms
+ */
+
 function emptyCheck($value)
 {
    if ($value == "") return "Please fill out this field.";
@@ -25,7 +30,3 @@ function validateMobileNo($value)
    }
    return $emptyCheckResponse;
 }
-
-// function validateText(){
-//    // 
-// }

@@ -63,19 +63,15 @@ class StaffModel extends Model
 
    public function getOneStaffDetails($staffID)
    {
-
-
       $this->db->query("SELECT * FROM staff
                         WHERE staffID = '$staffID'");
       $result = $this->db->resultSet();
-
 
       return $result;
    }
 
    public function getBankDetails($staffID)
    {
-
       $this->db->query("SELECT * FROM bankdetails
                         INNER JOIN staff 
                         ON staff.staffID = bankdetails.staffID
@@ -86,14 +82,35 @@ class StaffModel extends Model
       return $result;
    }
 
-
-   public function getStaffDataByMobileNo($mobileNo)
+   public function getStaffUserData($mobileNo)
    {
-     $results= $this->getSingle("staff","*",['mobileNo'=>$mobileNo]);
-      //$this->db->query("SELECT * FROM staff WHERE mobileNo =  :mobileNo ");
-    //  $this->db->bind(':mobileNo', $mobileNo);
-  //    $result = $this->db->single();
+
+      
+      $results = $this->getSingle("staff", "*", ['mobileNo' => $mobileNo]);
+
+      // $this->db->query("SELECT * FROM staff WHERE mobileNo =  :mobileNo ");
+      // $this->db->bind(':mobileNo', $mobileNo);
+      // $result = $this->db->single();
+      // print_r($results);
+      // die('hi');
 
       return [$results->staffID, $results->fName . " " . $results->lName];
    }
+
+   // FOR MANAGER OVERVIEW
+   public function getReceptionistCount(){
+
+      $results = $this->getRowCount('staff', ['staffType' => 4, 'status' => 1]);
+
+      return $results;
+   }
+
+   public function getManagerCount(){
+
+      $results = $this->getRowCount('staff', ['staffType' => 3, 'status' => 1]);
+
+      return $results;
+   }
+   // FOR MANAGER OVERVIEW
+
 }

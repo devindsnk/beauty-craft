@@ -103,4 +103,52 @@ public function checkLeaveDate($data){
       return $result->{'COUNT(*)'};
 }
 
+   public function getAllLeaveRequests(){
+
+      $results = $this->customQuery("SELECT * 
+                                    FROM generalleaves 
+                                    ORDER BY leaveDate", []);
+
+      return $results;
+   }
+
+   public function getOneLeaveDetail($staffID, $leaveDate)
+   {
+
+      $results = $this->customQuery("SELECT * 
+                                    FROM generalleaves 
+                                    INNER JOIN staff
+                                    ON staff.staffID = generalleaves.staffID
+                                    WHERE generalleaves.staffID=:staffID AND leaveDate=:leaveDate",
+                                     [':staffID' => $staffID, ':leaveDate' => $leaveDate]);
+
+      return $results;
+   }
+
+   public function addLeaveResponce($responce,$staffID,$leaveDate){
+      
+      $ManagerID = $_SESSION['userID'];
+      
+      $results = $this->update('generalleaves', ['respondedStaffID' => $ManagerID, 'status' => $responce, ], ['staffID' => $staffID, 'leaveDate' => $leaveDate]);
+   }
+
+   public function getAllManagerLeaves(){
+
+      $ManagerID = $_SESSION['userID'];
+      $results = $this->customQuery("SELECT * 
+                                    FROM managerLeaves 
+                                    WHERE staffID = :staffID ORDER BY leaveDate", [':staffID' => $ManagerID]);
+
+      return $results;
+   }
+
+   // FOR MANAGER OVERVIEW
+   public function getPendingLeaveRequestCount(){
+
+      $results = $this->getRowCount('generalleaves', ['status' => 2, 'leaveType' => 'casual']);
+      
+      return $results;
+  }
+  // FOR MANAGER OVERVIEW
 }
+
