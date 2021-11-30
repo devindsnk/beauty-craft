@@ -8,8 +8,11 @@ class MangDashboard extends Controller
    {
       validateSession([3]);
       $this->serviceModel = $this->model('ServiceModel');
-      $this->serviceModel = $this->model('ServiceModel');
       $this->staffModel = $this->model('StaffModel');
+      $this->leaveModel = $this->model('LeaveModel');
+      $this->reservationModel = $this->model('reservationModel');
+      $this->customerModel = $this->model('CustomerModel');
+      $this->leaveModel = $this->model('LeaveModel');
    }
    public function home()
    {
@@ -18,7 +21,28 @@ class MangDashboard extends Controller
    public function overview()
    {
       // validateSession([3]);
-      $this->view('manager/mang_overview');
+
+      $totalIncome = $this->reservationModel->getTotalIncomeForMangOverview();
+      $upcommingReservations = $this->reservationModel->getUpcommingReservationsNoForMangOverview();
+      $availableServices = $this->serviceModel->getAvailableServiceCount();
+      $availableServiceProviders = $this->serviceModel->getAvailableServiceProvidersCount();
+      $activeCustomers = $this->customerModel->getActiveCustomerCount();
+      $activeReceptionists = $this->staffModel->getReceptionistCount();
+      $activeManagers = $this->staffModel->getManagerCount();
+      $pendingLeaveRequests = $this->leaveModel->getPendingLeaveRequestCount();
+
+      $mangOverviewDetails = [
+         'totalIncome' => $totalIncome,
+         'upcommingReservations' => $upcommingReservations,
+         'availableServices' => $availableServices,
+         'availableServiceProviders' => $availableServiceProviders,
+         'activeCustomers' => $activeCustomers,
+         'activeReceptionists' => $activeReceptionists,
+         'activeManagers' => $activeManagers,
+         'pendingLeaveRequests' => $pendingLeaveRequests
+      ];
+      
+      $this->view('manager/mang_overview',  $mangOverviewDetails);
    }
    public function reservations()
    {
@@ -43,11 +67,11 @@ class MangDashboard extends Controller
       // validateSession([3]);
       $sDetails = $this->serviceModel->getServiceDetails();
 
-      $GetServicesArray = [
-         'services' => $sDetails
-      ];
+      // $GetServicesArray = [
+      //    'services' => $sDetails
+      // ];
 
-      $this->view('manager/mang_services',  $GetServicesArray);
+      $this->view('manager/mang_services',  $sDetails);
    }
    public function resources()
    {
@@ -62,12 +86,24 @@ class MangDashboard extends Controller
    public function leaveRequests()
    {
       // validateSession([3]);
-      $this->view('manager/mang_subLeaveRequests');
+      $leaveDetails = $this->leaveModel->getAllLeaveRequests();
+
+      // $GetLeavesArray = [
+      //    'leaves' => $leaveDetails
+      // ];
+
+      $this->view('manager/mang_subLeaveRequests',  $leaveDetails);
    }
    public function takeLeave()
    {
       // validateSession([3]);
-      $this->view('manager/mang_subTakeLeave');
+      $managerLeaveDetails = $this->leaveModel->getAllManagerLeaves();
+
+      // $GetManagerLeavesArray = [
+      //    'leaves' => $managerLeaveDetails
+      // ];
+
+      $this->view('manager/mang_subTakeLeave',  $managerLeaveDetails);
    }
    public function analyticsOverall()
    {

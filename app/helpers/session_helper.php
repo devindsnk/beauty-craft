@@ -1,4 +1,10 @@
 <?php
+
+/*
+ * Contains session validation funtion
+ * Restricts unauthorized user access by checking logged in user type
+ */
+
 function validateSession($accessibleUsers)
 {
    if (!isset($_SESSION['userType']))

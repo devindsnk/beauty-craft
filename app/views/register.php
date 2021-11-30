@@ -63,15 +63,15 @@
                   <span class="error"><?php echo $data['mobileNo_error']; ?></span>
                </div>
                <div class="column">
-                  <button type="submit" name="action" value="getPIN" class="btn btn-filled btn-black middle">Get PIN</button>
+                  <button type="submit" name="action" value="getOTP" class="btn btn-filled btn-black middle">Get OTP</button>
                </div>
             </div>
             <hr>
             <div class="row">
                <div class="text-group">
-                  <label class="label" for="pin">PIN</label>
-                  <input type="text" class="pin" name="pin" maxlength="6" placeholder="PIN">
-                  <span class="error"><?php echo $data['pin_error']; ?></span>
+                  <label class="label" for="OTP">OTP</label>
+                  <input type="text" class="OTP" name="OTP" maxlength="6" placeholder="OTP">
+                  <span class="error"><?php echo $data['OTP_error']; ?></span>
                </div>
             </div>
 

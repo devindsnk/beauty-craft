@@ -61,14 +61,14 @@
                   <span class="error"></span>
                </div>
                <div class="column">
-                  <button type="#" class="btn middle">Get PIN</button>
+                  <button type="#" class="btn middle">Get OTP</button>
                </div>
             </div>
             <hr>
             <div class="row">
                <div class="text-group">
-                  <label class="label" for="pin">PIN</label>
-                  <input type="text" class="pin" name="pin" maxlength="6" placeholder="PIN">
+                  <label class="label" for="OTP">OTP</label>
+                  <input type="text" class="OTP" name="OTP" maxlength="6" placeholder="OTP">
                   <span class="error"></span>
                </div>
             </div>

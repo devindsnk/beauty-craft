@@ -35,9 +35,23 @@
 						<div class="column">
 							<div class="text-group">
 								<label class="labels" for="serviceName"> Service Name</label>
-								<input type="text" name="sName" id="sName" placeholder="--Type In--" value="<?php echo $data['sName']; ?>">
+								<input type="text" name="sName" id="sName" placeholder="--Type In--" value="<?php echo $data['name']; ?>">
 							</div>
 							<span class="error"><?php echo $data['sName_error']; ?></span>
+						</div>
+
+						<div class="column">
+							<div class="text-group">
+								<label class="labels" for="serviceCusCategory">Customer Category</label>
+
+								<select class="dropdownSelectBox" name="serviceCusCategory">
+									<option class="unbold" value="val1" option selected="true" disabled="disabled">Select One</option>
+									<option value="Gent" <?php if ($data['customerCategory'] == 'Gent') echo 'selected'; ?>>Gents</option>
+									<option value="Ladies" <?php if ($data['customerCategory'] == 'Ladies') echo 'selected'; ?>>Ladies</option>
+									<option value="Both" <?php if ($data['customerCategory'] == 'Both') echo 'selected'; ?>>Both</option>
+							</select>
+							</div>
+							<span class="error"><?php echo $data['sSelectedCusCategory_error']; ?></span>
 						</div>
 					</div>
 					<!-- end of service name -->
@@ -73,7 +87,7 @@
 							<!-- Service price -->
 							<div class="row3">
 								<label class="labels" for="servicePrice">Price</label>
-								<input type="text" name="sPrice" placeholder="--Type In--" value="<?php echo $data['sPrice']; ?>">
+								<input type="text" name="sPrice" placeholder="--Type In--" value="<?php echo $data['price']; ?>">
 								<span class="error paddingLeft"> <?php echo $data['sPrice_error']; ?></span>
 							</div>
 							<!-- End of ervice price -->
@@ -86,13 +100,13 @@
 
 								<?php foreach ($data['sProvArray'] as $sProv) : ?>
 									<div class="divIndiv"><input type="checkbox" name="serProvCheckbox[]" value="<?php echo $sProv->staffID; ?>" <?php if (!empty($data['sSelectedProv']))
-																																														{
-																																															foreach ($data['sSelectedProv'] as $selectedSP)
-																																															{
-																																																if ($selectedSP == $sProv->staffID) echo 'checked';
-																																															}
-																																														}
-																																														?>>
+										{
+											foreach ($data['sSelectedProv'] as $selectedSP)
+											{
+												if ($selectedSP == $sProv->staffID) echo 'checked';
+											}
+										}
+										?>>
 										<lable class="lableInDiv">
 											<?php echo $sProv->staffID; ?> - <?php echo $sProv->fName; ?> <?php echo $sProv->lName; ?>
 										</lable>
@@ -213,7 +227,7 @@
 
 				<!-- add another slot -->
 				<div class="anotheSlot">
-					<p id="add"><a href="#addDiv">+ Add another slot</a></p>
+					<p id="add"><a href="#addDiv" class="AddSlotToService">+ Add another slot</a></p>
 				</div>
 
 				<!-- submit service button -->

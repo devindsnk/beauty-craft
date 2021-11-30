@@ -1,11 +1,6 @@
 <?php
 class ClosedDatesModel extends Model
 { 
-   private $db;
-   public function __construct()
-   {
-      $this->db = new Database;
-   }
    public function checkIfClosed($date)
    {
       // $date = '2021-11-02';
