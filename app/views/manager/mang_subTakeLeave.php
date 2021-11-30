@@ -18,7 +18,34 @@
       <div class="page-top-main-container">
          <button class="btn btn-filled btn-theme-purple btn-main btnTakenLeave">Take Leave</button>
       </div>
+      <form class="form filter-options" action="">
+         <div class="options-container">
+            <div class="left-section mang">
+               <div class="row">
+                  
+                  <div class="column">
+                     <div class="text-group">
+                        <label class="label" for="leaveDate">Leave Date</label>
+                        <input type="date" name="" id="leaveDate" placeholder="--select--">
+                     </div>
+                     <!-- <span class="error"></span> -->
+                  </div>
+                  <div class="column">
+                     <div class="text-group">
+                        <label class="label" for="markedDate">Marked Date</label>
+                        <input type="date" name="" id="markedDate" placeholder="--select--">
+                     </div>
+                     <!-- <span class="error"></span> -->
+                  </div>
 
+               </div>
+            </div>
+            <div class="right-section">
+               <a href="" class="btn btn-filled btn-black">Search</a>
+               <!-- <button class="btn btn-search">Search</button> -->
+            </div>
+         </div>
+      </form>
       <div class="table-container">
          <div class="table2 table2-responsive">
             <table class="table2-hover">
@@ -27,51 +54,29 @@
                   <tr>
                      <!-- <th class="column-center-align col-1">Staff ID</th> -->
                      <th class="column-center-align col-1">Leave Date</th>
-                     <th class="column-center-align col-2">Marked Date</th>
-                     <th class="column-center-align col-3 column-center-align">Reason</th>
+                     <th class="column-center-align col-2">Leave Type</th>
+                     <th class="column-center-align col-3">Marked Date</th>
+                     <th class="column-center-align col-4 column-center-align">Reason</th>
                      <th class="col-4"></th>
                   </tr>
                </thead>
 
                <tbody>
-                  <tr>
-                     <!-- <td data-lable="Reservation ID" class="column-center-align">M000001</td> -->
-                     <td data-lable="Leave Date" class="column-center-align">2021-10-07</td>
-                     <td data-lable="Marked Date" class="column-center-align">2021-10-05</td>
-                     <td data-lable="Reason" class="column-center-align">Going to the hospital</td>
-                     <td class="column-center-align">
-                        <span>
-                           <a href="#"><i class="ci-edit btnEditTakenLeave table-icon img-gap"></i></a>
-                           <a href="#"><i class="ci-trash btnDeleteTakenLeave table-icon img-gap"></i></a>
-                        </span>
-                     </td>
-                  </tr>
 
-                  <tr>
-                     <!-- <td data-lable="Reservation ID" class="column-center-align">M000001</td> -->
-                     <td data-lable="Leave Date" class="column-center-align">2021-10-07</td>
-                     <td data-lable="Marked Date" class="column-center-align">2021-10-05</td>
-                     <td data-lable="Reason" class="column-center-align">Going to the hospital</td>
-                     <td class="column-center-align">
-                        <span>
-                           <a href="#"><i class="ci-edit btnEditTakenLeave table-icon img-gap"></i></a>
-                           <a href="#"><i class="ci-trash btnDeleteTakenLeave table-icon img-gap"></i></a>
-                        </span>
-                     </td>
-                  </tr>
-
-                  <tr>
-                     <!-- <td data-lable="Reservation ID" class="column-center-align">M000001</td> -->
-                     <td data-lable="Leave Date" class="column-center-align">2021-10-07</td>
-                     <td data-lable="Marked Date" class="column-center-align">2021-10-05</td>
-                     <td data-lable="Reason" class="column-center-align">Going to the hospital</td>
-                     <td class="column-center-align">
-                        <span>
-                           <a href="#"><i class="ci-edit btnEditTakenLeave table-icon img-gap"></i></a>
-                           <a href="#"><i class="ci-trash btnDeleteTakenLeave table-icon img-gap"></i></a>
-                        </span>
-                     </td>
-                  </tr>
+                  <?php foreach ($data as $managerLeaveDetails) : ?>
+                     <tr>
+                        <td data-lable="Leave Date" class="column-center-align"><?php echo $managerLeaveDetails->leaveDate; ?></td>
+                        <td data-lable="Leave Type" class="column-center-align"><?php echo $managerLeaveDetails->leaveType; ?></td>
+                        <td data-lable="Marked Date" class="column-center-align"><?php echo $managerLeaveDetails->markedDate; ?></td>
+                        <td data-lable="Reason" class="column-center-align"><?php echo $managerLeaveDetails->reason; ?></td>
+                        <td class="column-center-align">
+                           <span>
+                              <a href="#"><i class="ci-edit btnEditTakenLeave table-icon img-gap"></i></a>
+                              <a href="#"><i class="ci-trash btnDeleteTakenLeave table-icon img-gap"></i></a>
+                           </span>
+                        </td>
+                     </tr>
+                  <?php endforeach; ?>
 
                </tbody>
             </table>

@@ -1,6 +1,13 @@
 <?php
 class ReservationModel extends Model
 {
+   // private $db;
+
+   // public function __construct()
+   // {
+   //    $this->db = new Database;
+   // }
+  
    public function addReservation($data)
    {
       $results = $this->insert(
@@ -63,4 +70,28 @@ class ReservationModel extends Model
 
       return $results;
    }
+
+   // FOR MANAGER OVERVIEW
+   public function getTotalIncomeForMangOverview(){
+
+      $results = $this->customQuery("SELECT SUM(services.price) AS totalIncome 
+                          FROM services 
+                          INNER JOIN reservations
+                          ON reservations.serviceID = services.serviceID
+                          WHERE reservations.status=:status", [':status' => 4] 
+                        );
+
+      return $results;
+   }
+
+   public function getUpcommingReservationsNoForMangOverview(){
+
+      $results = $this->customQuery("SELECT COUNT(*) AS upacommingReservations
+                          FROM reservations
+                          WHERE status=:status1 OR status=:status2", [':status1' => 1, ':status2' => 2] 
+                        );
+      
+      return $results;
+   }
+   // FOR MANAGER OVERVIEW
 }

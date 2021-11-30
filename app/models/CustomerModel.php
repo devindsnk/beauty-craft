@@ -29,4 +29,13 @@ class CustomerModel extends Model
       $result = $this->getSingle("customers", ["customerID", "fName", "lName"], ["mobileNo" => $mobileNo]);
       return [$result->customerID, $result->fName . " " . $result->lName];
    }
+
+   // FOR MANAGER OVERVIEW
+   public function getActiveCustomerCount(){
+
+      $results = $this->getRowCount('customers', ['status' => 'active']);                               
+      
+      return $results;
+   }
+   // FOR MANAGER OVERVIEW
 }

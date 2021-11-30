@@ -316,13 +316,16 @@
     margin-top: 10px;
 }
 .row3{
-    margin-top: 35px;
+    margin-top: 30px;
 }
 .row4{
     margin-top: 115px;
 }
 .row5{
-    margin-top: 110px;
+    margin-top: 25px;
+}
+.row6{
+    margin-top: 20px;
 }
 .service-full-model{
    background-color: var(--theme-bgwhite);

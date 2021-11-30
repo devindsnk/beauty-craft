@@ -1,12 +1,12 @@
 <?php
 class StaffModel extends Model
 {
-   private $db;
+   // private $db;
 
-   public function __construct()
-   {
-      $this->db = new Database;
-   }
+   // public function __construct()
+   // {
+   //    $this->db = new Database;
+   // }
 
    public function addStaff($data)
    {
@@ -84,7 +84,33 @@ class StaffModel extends Model
 
    public function getStaffUserData($mobileNo)
    {
-      $results = $this->getSingle("staff", ["staffID", "fName", "lName"], ['mobileNo' => $mobileNo]);
+
+      
+      $results = $this->getSingle("staff", "*", ['mobileNo' => $mobileNo]);
+
+      // $this->db->query("SELECT * FROM staff WHERE mobileNo =  :mobileNo ");
+      // $this->db->bind(':mobileNo', $mobileNo);
+      // $result = $this->db->single();
+      // print_r($results);
+      // die('hi');
+
       return [$results->staffID, $results->fName . " " . $results->lName];
    }
+
+   // FOR MANAGER OVERVIEW
+   public function getReceptionistCount(){
+
+      $results = $this->getRowCount('staff', ['staffType' => 4, 'status' => 1]);
+
+      return $results;
+   }
+
+   public function getManagerCount(){
+
+      $results = $this->getRowCount('staff', ['staffType' => 3, 'status' => 1]);
+
+      return $results;
+   }
+   // FOR MANAGER OVERVIEW
+
 }
