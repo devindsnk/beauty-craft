@@ -15,7 +15,7 @@ class ClosedDatesModel extends Model
       if ($result)
          return true;
       else
-         return false;
+         return false; 
    }
 
    public function addCloseDate($data)
