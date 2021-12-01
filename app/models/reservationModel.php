@@ -1,6 +1,8 @@
 <?php
 class ReservationModel extends Model
 {
+
+  
    public function addReservation($data)
    {
       $results = $this->insert(
@@ -63,4 +65,46 @@ class ReservationModel extends Model
 
       return $results;
    }
+
+   // FOR MANAGER OVERVIEW
+   public function getTotalIncomeForMangOverview(){
+
+      $results = $this->customQuery("SELECT SUM(services.price) AS totalIncome 
+                          FROM services 
+                          INNER JOIN reservations
+                          ON reservations.serviceID = services.serviceID
+                          WHERE reservations.status=:status", [':status' => 4] 
+                        );
+
+      return $results;
+   }
+
+   public function getUpcommingReservationsNoForMangOverview(){
+
+      $results = $this->customQuery("SELECT COUNT(*) AS upacommingReservations
+                          FROM reservations
+                          WHERE status=:status1 OR status=:status2", [':status1' => 1, ':status2' => 2] 
+                        );
+      
+      return $results;
+   }
+
+
+   // FOR MANAGER OVERVIEW
+
+//FOR SP overview
+ public function getReservationsByStaffID($staffID){
+   //  die("hii555555");
+    $results = $this->customQuery("SELECT reservations.date,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
+    FROM reservations 
+      INNER JOIN services ON services.serviceID = reservations.serviceID
+      INNER JOIN customers ON customers.customerID = reservations.customerID
+      WHERE staffID=:staffID ORDER BY date",[':staffID' => $staffID,]);
+   //  print_r($results);
+   //  die("hii0000000");
+    return $results;
+
+ }
+
+
 }

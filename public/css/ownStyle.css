@@ -479,8 +479,19 @@ Customers Endss
  Rates Starts
 ##################################################################################################################################################### */
 
-.own.rates .detailLine {
+.own.rates .detailValueLine,
+.own.rates .detailLine,
+.own.rates .detailLableLine {
     padding-bottom: 30px;
+}
+
+.own.rates .rateLabel{
+    padding-bottom: 30px;
+}
+.own.rates .error{
+font-size: 14px;
+color: #DA2346;
+font-weight: 600;
 }
 
 .own.rates .card3 .valueBox {
@@ -1281,9 +1292,9 @@ Customers Endss
 .ownViewStaffProfileGrid {
     display: grid;
     text-align: center;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 2fr;
     grid-template-areas:
-        'ownViewStaffProfileDetailsInfo';
+        'ownViewStaffProfileDetailsImg ownViewStaffProfileDetailsInfo';
 }
 
 .ownViewStaffProfileDetailsImg {
@@ -1556,10 +1567,11 @@ Customers Endss
 /*--Customize the grid places --------------*/
 .ownAddstaffContainer .ownAddstaffMaingrid1 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     grid-gap: 5px;
     grid-template-areas:
-        'ownAddstaffFormGroupFname ownAddstaffFormGroupLname'
+        'ownAddstaffFormGroupImage ownAddstaffFormGroupLname'
+        'ownAddstaffFormGroupImage ownAddstaffFormGroupFname'
         'ownAddstaffFormGroupRadio ownAddstaffFormGroupNIC';
 
 }
@@ -1733,9 +1745,10 @@ Customers Endss
         grid-template-columns: 100%;
         grid-template-areas:
             'ownAddstaffFormGroupACCNUM'
-            'ownAddstaffFormGroupACCNAME';
+            'ownAddstaffFormGroupACCNAME'
+            'ownAddstaffFormGroupBankNAME'
+            ' ownAddstaffFormGroupBranchNAME';
     }
-
     /*---- Add image style for responsive ----*/
     .ownAddstaffFormGroupImage {
         justify-content: center;

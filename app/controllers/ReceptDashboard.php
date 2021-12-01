@@ -59,9 +59,10 @@ class ReceptDashboard extends Controller
       $GetStaffArray = ['staff' => $staffDetails];
       $this->view('receptionist/recept_staffMembers', $GetStaffArray);
    }
-   public function leaves()
+   
+   public function reservationMoreInfo()
    {
       // validateSession([4]);
-      $this->view('receptionist/recept_leaves');
+      $this->view('common/reservationMoreInfo');
    }
 }

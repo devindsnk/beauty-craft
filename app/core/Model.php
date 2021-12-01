@@ -124,7 +124,6 @@ class Model
          $preparedConditions = implode(" AND ", $this->prepareColumnsNValues($conditions, 0));
          $SQLstatement .= " WHERE $preparedConditions";
       }
-
       $this->query($SQLstatement);
    }
 
@@ -200,6 +199,14 @@ class Model
       }
    }
 }
+
+
+
+
+
+
+
+
 
 ///////////////////////////////////////////////////////////////////////////
 /* 

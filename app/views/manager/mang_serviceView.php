@@ -49,14 +49,22 @@
 						<!-- service type -->
 						<div class="row">
 							<div class="column">
+
+								<!-- New customer category -->
+								<div class="labels"><label class="labels" for="serviceCusCategory">Customer Category</label></div>
+								<input type="text" name="" id="serviceCusCategory" placeholder="<?php echo $sDetails->customerCategory; ?>" disabled>
+								<!-- end of customer category -->
+
 								<!-- New service type -->
-								<div class="labels"><label class="labels" for="serviceType">Service Type</label></div>
-								<input type="text" name="" id="serviceType" placeholder="<?php echo $sDetails->type; ?>" disabled>
+								<div class="row5">
+									<div class="labels"><label class="labels" for="serviceType">Service Type</label></div>
+									<input type="text" name="" id="serviceType" placeholder="<?php echo $sDetails->type; ?>" disabled>
+								</div>
 								<!-- end of service type -->
 
 
 								<!-- Service price -->
-								<div class="row5">
+								<div class="row6">
 									<div class="labels"><label class="labels" for="servicePrice">Price</label></div>
 									<input type="text" name="" id="servicePrice" placeholder="<?php echo number_format($sDetails->price, 2, '.', ' '); ?> LKR" disabled>
 								</div>

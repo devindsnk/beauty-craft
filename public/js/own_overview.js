@@ -1,3 +1,19 @@
+$(document).ready(function(){
+  $.ajax({
+    url: "http://localhost/beauty-craft/OwnOverviewModel",
+    method: "GET",
+    success:function(data){
+        console.log(data);
+    },
+    error:function(data){
+        console.log(data);
+    }
+  });
+});
+
+
+
+
 var ctx = document.getElementById('ownOverviewChartAvailableEmployees').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'doughnut',
@@ -33,6 +49,19 @@ var myChart = new Chart(ctx, {
     },
 
 });
+
+
+$.ajax({
+    type: 'POST',
+    url: 'api.php',
+    success: function (data) {
+    lineChartData = data;//alert(JSON.stringify(data));
+    var myChart = new Chart(document.getElementById("ownOverviewChartAvailableEmployees").getContext("2d")).Line(lineChartData);
+    
+    var ctx = document.getElementById("canvas").getContext("2d");
+    window.myLine = new Chart(ctx).Line(lineChartData, {responsive: true});
+    } 
+    });
 
 
 
@@ -103,3 +132,23 @@ var myChart = new Chart(ctx, {
         }
     },
 });
+
+
+// function tableFilter() {
+//     var input, filter, table, tr, td, i, txtValue;
+//     input = document.getElementById("salaryInput");
+//     filter = input.value.toUpperCase();
+//     table = document.getElementById("salaryTable");
+//     tr = table.getElementsByTagName("tr");
+//     for (i = 0; i < tr.length; i++) {
+//       td = tr[i].getElementsByTagName("td")[0];
+//       if (td) {
+//         txtValue = td.textContent || td.innerText;
+//         if (txtValue.toUpperCase().indexOf(filter) > -1) {
+//           tr[i].style.display = "";
+//         } else {
+//           tr[i].style.display = "none";
+//         }
+//       }       
+//     }
+//   }

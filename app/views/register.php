@@ -87,18 +87,18 @@
                <div class="column">
                   <div class="text-group">
                      <label class="label" for="confirmPassword">Confirm Password</label>
-                     <input type="password" name="confirmPassword" placeholder="Enter password again" maxlength="25">
-                     <span class="error"><?php echo $data['confirmPassword_error']; ?></span>
-                  </div>
-               </div>
-            </div>
-
+                     <input type="password" name="confirmPassword" placeholder="Enter password again" maxlength="25"> 
+                     <span class="error"><?php echo $data['confirmPassword_error']; ?></span> 
+                  </div> 
+               </div> 
+            </div> 
+   
             <div class="footer-container">
-               <button type="submit" name="action" value="register" class="btn btn-filled btn-theme-purple">Register</button>
-               <p>Already have an account? <a href="<?php echo URLROOT ?>/user/signin">Sign in</a></p>
-            </div>
+               <button type="submit" name="action" value="register" class="btn btn-filled btn-theme-purple">Register</button> 
+               <p>Already have an account? <a href="<?php echo URLROOT ?>/user/signin">Sign in</a></p> 
+            </div>  
 
-         </form>
+         </form>  
       </div>
    </div>
 

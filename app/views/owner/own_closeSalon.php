@@ -49,56 +49,23 @@
                      <th class="col-7"></th>
                   </tr>
                </thead>
-
+              
                <tbody>
+               <?php foreach ($data['closeDates'] as $closeSalonD) : ?>
                   <tr>
-                     <td class="column-center-align">2020.12.12</td>
-                     <td class="column-left-align">Sample reason</td>
+                     <td class="column-center-align"><?php echo $closeSalonD->date; ?></td>
+                     <td class="column-left-align"><?php echo $closeSalonD->note; ?></td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
                            <?php if ($userType == "Owner") : ?>
-                              <a href="#"><i class="ci-trash table-icon btnRemoveCloseDate"></i></a>
+                           <a href="#"><i class="ci-trash table-icon btnRemoveCloseDate"></i></a>
                            <?php endif; ?>
                         </span>
                      </td>
                   </tr>
-
-                  <tr>
-                     <td class="column-center-align">2020.12.12</td>
-                     <td class="column-left-align">Sample reason</td>
-                     <td data-lable="Action" class="column-center-align">
-                        <span>
-                           <?php if ($userType == "Owner") : ?>
-                              <a href="#"><i class="ci-trash table-icon btnRemoveCloseDate"></i></a>
-                           <?php endif; ?>
-                        </span>
-                     </td>
-                  </tr>
-
-                  <tr>
-                     <td class="column-center-align">2020.12.12</td>
-                     <td class="column-left-align">Sample reason</td>
-                     <td data-lable="Action" class="column-center-align">
-                        <span>
-                           <?php if ($userType == "Owner") : ?>
-                              <a href="#"><i class="ci-trash table-icon btnRemoveCloseDate"></i></a>
-                           <?php endif; ?>
-                        </span>
-                     </td>
-                  </tr>
-
-                  <tr>
-                     <td class="column-center-align">2020.12.12</td>
-                     <td class="column-left-align">Sample reason</td>
-                     <td data-lable="Action" class="column-center-align">
-                        <span>
-                           <?php if ($userType == "Owner") : ?>
-                              <a href="#"><i class="ci-trash table-icon btnRemoveCloseDate"></i></a>
-                           <?php endif; ?>
-                        </span>
-                     </td>
-                  </tr>
+                  <?php endforeach; ?>
                </tbody>
+              
             </table>
          </div>
       </div>
@@ -110,14 +77,15 @@
       <div class="modal-container remove-closeDate">>
          <div class="modal-box">
             <div class="confirm-model-head">
-               <h1>Remove Resource</h1>
+               <h1>Remove Close Date</h1>
             </div>
             <div class="confirm-model-head">
-               <p>Are you sure you want to Remove the Resource? <br> This action cannot be undone after proceeding.</p>
+               <p>Are you sure you want to Remove the Close date ? <br> This action cannot be undone after proceeding.
+               </p>
             </div>
             <div class="confirm-model-head">
-               <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
-               <button class="btn normal ModalButton ModalBlueButton">proceed</button>
+            <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
+            <a href="<?php echo URLROOT ?>/closeDates/remCloseDate/<?php echo $closeSalonD->defKey ?>"><button class="btn normal ModalButton ModalBlueButton">proceed</button></a>
             </div>
          </div>
       </div>
@@ -128,20 +96,27 @@
 
 
       <!------------------------------------------------- Modal starts ----------------------------------------------------->
-      <div class="modal-container add-closeDate">
+      <div class="modal-container add-closeDate  <?php if ($data['haveErrors']) echo ' show'; ?>">
          <div class="modal-box addItems">
+         <form action="<?php echo URLROOT; ?>/OwnDashboard/closeSalon" method="post">
             <h1 class="addItemsModalHead">Close Salon</h1>
             <!-- start main grid 1 -->
 
             <div class="addItemsModalGrid1">
-               <div class="addItemsModalDetail1">
-                  <label class="addItemsModalLable">Date</label> <br>
-                  <input type="date" class="addItemsModalDate">
-               </div>
-               <div class="addItemsModalDetail2">
-                  <label class="addItemsModalLable">Reason</label>
-                  <textarea class="addItemsModalTextArea" name="addItemsModalTextArea" rows="4" cols="50" placeholder="Type the reason here"> </textarea>
-               </div>
+              
+                  <div class="addItemsModalDetail1">
+                     <label class="addItemsModalLable">Date</label> <br> 
+                     <input type="date" class="addItemsModalDate" name="closeDate"
+                        value="<?php echo $data['closeDate']; ?>"> <br>
+                     <span class="error"><?php echo $data['closeDate_error']; ?></span>
+                  </div>
+                  <div class="addItemsModalDetail2">
+                     <label class="addItemsModalLable">Reason</label>
+                     <textarea class="addItemsModalTextArea" rows="4" cols="50" placeholder="Type the reason here"
+                        name="closeSalonReason" value="<?php echo $data['closeSalonReason']; ?>"> </textarea> <br>
+                     <span class="error"><?php echo $data['closeSalonReason_error']; ?></span>
+                  </div>
+              
             </div>
 
             <!-- main grid 1 ends -->
@@ -162,13 +137,14 @@
             <!-- main grid 3 starts -->
             <div class="addItemsModalGrid3">
                <div class="addItemsModalbtn1">
-                  <button class="btn btnClose normal ModalCancelButton ModalButton">Cancel</button>
+                  <button class="btn btnClose normal ModalCancelButton ModalButton" name="action" value="cancel">Cancel</button>
                </div>
                <div class="addItemsModalbtn2">
-                  <button class="btn ModalGreenButton ModalButton">Proceed</button>
+                  <button class="btn ModalGreenButton ModalButton"  name="action" value="addCloseDate">Proceed</button>
                </div>
             </div>
             <!-- main grid 3 ends -->
+            </form>
          </div>
       </div>
       <!-- ----------------------------------------------------------------------------------------------------------------------- -->
