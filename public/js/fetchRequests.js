@@ -31,6 +31,7 @@ serviceSelectDropDown.addEventListener('change',
    function () {
       updateServiceProvidersList();
       updateServiceDuration();
+      
    }
 )
 
@@ -69,3 +70,5 @@ function updateServiceDuration() {
          // });
       });
 }
+
+console.log("hi");
