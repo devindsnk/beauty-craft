@@ -63,6 +63,7 @@
                   <span class="error"><?php echo $data['mobileNo_error']; ?></span>
                </div>
                <div class="column">
+                  <p id="countdown"></p>
                   <button type="submit" name="action" value="getOTP" class="btn btn-filled btn-black middle">Get OTP</button>
                </div>
             </div>
@@ -103,6 +104,6 @@
 
 </body>
 
-
+<script src="<?php echo URLROOT ?>/public/js/countdownTimer.js"></script>
 
 </html>

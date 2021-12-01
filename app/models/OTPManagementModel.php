@@ -14,7 +14,13 @@ class OTPManagementModel extends Model
       // OTP generated already
       if ($result)
       {
-         $timeout = true; // Check timeout here and assign boolean
+         $timeDiff = getTimeDiff($result->timestamp);
+         var_dump($timeDiff);
+
+         if ($timeDiff[0] > 5 || $timeDiff[0] == 5 && $timeDiff[1] > 0)
+            $timeout = true;
+         else
+            $timeout = false;
 
          // OTP timeout
          if ($timeout)
@@ -41,16 +47,19 @@ class OTPManagementModel extends Model
    // Remember to dehash when verifying 
    public function storeOTP($mobileNo, $OTP, $type)
    {
+      $timestamp = getCurrentTimeStamp();
+
       // Updates the OTp if key already exists
       $SQLquery = "
-      INSERT INTO otpverification (mobileNo, OTP, type) 
-      VALUES(:mobileNo, :OTP, :type) ON DUPLICATE KEY UPDATE 
-      mobileNo =  :mobileNo, OTP = :OTP, type = :type;";
+      INSERT INTO otpverification (mobileNo, OTP, timestamp, type) 
+      VALUES(:mobileNo, :OTP, :timestamp, :type) ON DUPLICATE KEY UPDATE 
+      mobileNo =  :mobileNo, OTP = :OTP, timestamp = :timestamp, type = :type;";
       $this->customQuery(
          $SQLquery,
          [
             ':mobileNo' => $mobileNo,
             ':OTP' => $OTP,
+            ':timestamp' => $timestamp,
             ':type' => $type
          ]
       );
