@@ -52,46 +52,28 @@
                <th class="col-7"></th>
             </tr>
          </thead>
-
          <tbody>
+        
+         <?php foreach ($data['customer'] as $customerD) : ?>
             <tr>
-               <td data-lable="Customer ID" class="column-center-align">C000001</td>
-               <td data-lable="Customer Name" class="column-left-align">Devin Dissanayake</td>
-               <td data-lable="Contact No" class="column-center-align">011123456789</td>
+               <td data-lable="Customer ID" class="column-center-align"><?php echo $customerD->customerID; ?></td>
+               <td data-lable="Customer Name" class="column-left-align"><?php echo $customerD->fName; ?> <?php echo $customerD->lName; ?></td>
+               <td data-lable="Contact No" class="column-center-align"><?php echo $customerD->mobileNo; ?></td>
                <td data-lable="Gender" class="column-center-align">M</td>
-               <td data-lable="Registered Date" class="column-center-align">2021-10-07</td>
+               <td data-lable="Registered Date" class="column-center-align"><?php echo $customerD->registeredDate; ?></td>
                <td data-lable="Status" class="column-center-align">
                   <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
                </td>
                <td class="column-center-align">
                   <span>
-                     <a href="<?php echo URLROOT ?>/OwnDashboard/cusDetailView"><i class="ci-view-more table-icon img-gap"></i></a>
+                     <a href="<?php echo URLROOT ?>/customer/cusDetailView/<?php echo $customerD->customerID ?>"><i class="ci-view-more table-icon img-gap"></i></a>
                      <?php if ($userType == "Owner") : ?>
                         <a href="#"><i class="ci-trash table-icon btnRemoveCustomer img-gap"></i></a>
                      <?php endif; ?>
                   </span>
                </td>
             </tr>
-
-            <tr>
-               <td data-lable="Customer ID" class="column-center-align">C000002</td>
-               <td data-lable="Customer Name" class="column-left-align">Ruwanthi Munasighe</td>
-               <td data-lable="Contact No" class="column-center-align">0112356784</td>
-               <td data-lable="Gender" class="column-center-align">M</td>
-               <td data-lable="Registered Date" class="column-center-align">2021-10-08</td>
-               <td data-lable="Status" class="column-center-align">
-                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
-               </td>
-               <td class="column-center-align">
-                  <span>
-                     <a href="<?php echo URLROOT ?>/OwnDashboard/cusDetailView"><i class="ci-view-more table-icon img-gap"></i></a>
-                     <?php if ($userType == "Owner") : ?>
-                        <a href="#"><i class="ci-trash table-icon btnRemoveCustomer img-gap"></i></a>
-                     <?php endif; ?>
-                  </span>
-               </td>
-            </tr>
-
+            <?php endforeach; ?>
          </tbody>
       </table>
    </div>
@@ -124,7 +106,7 @@
             <button class="btn btnClose normal ModalCancelButton ModalButton">Cancel</button>
          </div>
          <div class="ownRemCusbtn2">
-            <button class="btn ModalBlueButton ModalButton">Proceed</button>
+         <a href="<?php echo URLROOT ?>/customer/remCustomer/<?php echo $customerD->customerID ?>"><button class="btn ModalBlueButton ModalButton">Proceed</button></a>
          </div>
       </div>
       <!-- main grid 3 ends -->

@@ -163,4 +163,29 @@ class Customer extends Controller
       validateSession([6]);
       $this->view('customer/cust_myReservation');
    }
+   public function remCustomer($cusID)
+   {
+      // die('success');
+      // echo ($cusID);
+      $this->customerModel->removeCustomerDetails($cusID);
+      redirect('OwnDashboard/customers');
+   }
+
+   // public function viewStaff($staffID)
+   // {
+   //    $bankDetails = $this->staffModel->getStaffDetailsByStaffID($staffID);
+   //    $this->view('owner/own_staffView',$bankDetails[0]);
+   // } 
+
+    public function cusDetailView($cusID)
+   {
+      $customerDetails = $this->customerModel->getCustomerDetailsByCusID($cusID);
+      $CompletedReservationCount = $this->customerModel->getCompletedReservationCountByCusID($cusID);
+      $CancelledReservationCount = $this->customerModel->getCancelledReservationCountByCusID($cusID);
+      $ViewCustomerArray = ['cusDetails' => $customerDetails, 'completedResCount' => $CompletedReservationCount, 'cancelledResCount' => $CancelledReservationCount];
+ 
+      $this->view('common/customerView',$ViewCustomerArray);
+   }
+
+   
 }

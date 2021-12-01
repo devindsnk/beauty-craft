@@ -112,7 +112,7 @@
                      <span>
                         <a href="<?php echo URLROOT ?>/staff/viewStaff/<?php echo $staffD->staffID ?>"><i class="ci ci-view-more table-icon img-gap"></i></a>
                         <?php if ($userType == "Owner") : ?>
-                           <a href="<?php echo URLROOT ?>/staff/updateStaff"><i class="ci ci-edit table-icon img-gap"></i></a>
+                           <a href="<?php echo URLROOT ?>/staff/updateStaff/<?php echo $staffD->staffID ?>"><i class="ci ci-edit table-icon img-gap"></i></a>
                            <a href="#"><i class="ci ci-trash table-icon btnRemoveStaff img-gap"></i></a>
                         <?php endif; ?>
                      </span>
@@ -164,7 +164,7 @@
                <button class="btn btnClose normal ModalButton ModalCancelButton">Cancel</button>
             </div>
             <div class="ownRemStaffbtn2">
-               <button class="btn normal ModalButton ModalBlueButton">Proceed</button>
+              <a href="<?php echo URLROOT ?>/staff/removeStaff/<?php echo $staffD->staffID ?>"><button class="btn normal ModalButton ModalBlueButton">Proceed</button></a>
             </div>
          </div>
          <!-- main grid 3 ends -->

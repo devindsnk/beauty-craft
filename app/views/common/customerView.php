@@ -23,7 +23,7 @@
    </header>
    <div class="content contentNewRes own ViewCustomer">
 
-
+<?php print_r($data['cusDetails']) ?>
       <div class="Cards">
          <!----------------------------------------------------- Profile details starts --------------------------------->
          <div class="Card1 contentBox ">
@@ -32,8 +32,8 @@
                   <img src="<?php echo URLROOT ?>/public//imgs/img_avatar.png" alt="Avatar" class="ProfileDetailsImgCircle">
                </div>
                <div class="ProfileDetailsInfo">
-                  <span class="ProfileDetailsName">Devin Dissanayake</span> <br>
-                  <span class="ProfileDetailsStaffId">Customer ID : C00001</span>
+                  <span class="ProfileDetailsName"><?php echo ($data['cusDetails']->fName) ?> <?php echo ($data['cusDetails']->lName) ?></span> <br>
+                  <span class="ProfileDetailsStaffId">Customer ID : <?php echo ($data['cusDetails']->customerID) ?></span>
                </div>
             </div>
          </div>
@@ -68,7 +68,7 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                        Devin
+                     <?php echo ($data['cusDetails']->fName) ?>
                      </span>
                   </div>
                </div>
@@ -83,7 +83,7 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                        Dissanayake
+                     <?php echo ($data['cusDetails']->lName) ?>
                      </span>
                   </div>
                </div>
@@ -98,7 +98,10 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                        Male
+                     <?php if($data['cusDetails']->gender=='M')
+                     echo ('Male');
+                     elseif($data['cusDetails']->gender=='F')
+                     echo ('Female'); ?>
                      </span>
                   </div>
                </div>
@@ -112,7 +115,7 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                        12/12/2020
+                      <?php echo ($data['cusDetails']->registeredDate) ?>
                      </span>
                   </div>
                </div>

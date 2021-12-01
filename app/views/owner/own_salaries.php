@@ -66,7 +66,7 @@
       <!--Content-->
       <div class="table-container">
          <div class="table1 table1-responsive">
-            <table class="table1-hover">
+            <table class="table1-hover" >
                <!--Table head-->
                <thead>
                   <tr>
@@ -88,7 +88,7 @@
 
                   <!--Table row-->
                   <tr>
-                     <td data-lable="" class="column-center-align">
+                     <td data-lable="" class ="column-center-align">
                         <input type="checkbox" class="" name="chk" />
                      </td>
                      <!-- <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person2.jpg" /></td> -->

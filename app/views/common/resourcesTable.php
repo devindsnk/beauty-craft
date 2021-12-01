@@ -38,15 +38,14 @@
 
          <thead>
             <tr>
-               <th class="column-center-align col-1">Resource Name</th>
-               <th class="column-center-align col-2">Resource ID</th>
+               <th class="column-center-align col-1">Resource ID</th>
+               <th class="column-center-align col-2">Resource Name</th>
                <th class="column-center-align col-3">Quantity</th>
                <th class="col-7"></th>
             </tr>
          </thead>
 
          <tbody>
-
             <tr>
                <?php foreach ($data['resource'] as $resourceD) : ?>
                   <td class="column-center-align"><?php echo $resourceD->resourceID; ?></td>
@@ -54,10 +53,8 @@
                   <td class="column-center-align"><?php echo $resourceD->quantity; ?></td>
                   <td data-lable="Action" class="column-center-align">
                      <span>
-                        <?php if ($userType == "Owner") : ?>
-                           <a href="#"><i class="ci-edit table-icon btnUpdateResource img-gap"></i></a>
-                           <a href="#"><i class="ci-trash table-icon btnRemoveResource img-gap"></i></a>
-                        <?php endif; ?>
+                        
+                           <a href="<?php echo URLROOT ?>/resources/viewResources"><i class="ci ci-view-more table-icon img-gap"></i></a>
                      </span>
                   </td>
             </tr>

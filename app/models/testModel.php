@@ -16,19 +16,19 @@ class testModel extends Model
       var_dump($results);
    }
 
-   public function insertStmnt()
-   {
-      // To insert a record tableName and valuesToBeInserted are passed
-      $results =  $this->insert('resources', ['name' => "Hair Trimmer", 'quantity' => 5]);
-      var_dump($results);
-   }
+   public function insertStmnt() 
+   { 
+      // To insert a record tableName and valuesToBeInserted are passed 
+      $results =  $this->insert('resources', ['name' => "Hair Trimmer", 'quantity' => 5]); 
+      var_dump($results); 
+   } 
 
-   public function updateStmnt()
-   {
-      // To update records tableName, valuesToBeUpdated and then conditions are passed
-      $results = $this->update('customers', ['fName' => 'Binuka', 'lName' => 'Karunarathne'], ['mobileNo' => '0712334567']);
-      var_dump($results);
-   }
+   public function updateStmnt()  
+   { 
+      // To update records tableName, valuesToBeUpdated and then conditions are passed 
+      $results = $this->update('customers', ['fName' => 'Binuka', 'lName' => 'Karunarathne'], ['mobileNo' => '0712334567']); 
+      var_dump($results); 
+   } 
 
    public function deleteStmnt()
    {
