@@ -156,8 +156,9 @@ class Reservations extends Controller
    }
 
 
-
-
+   public function getAllReservationsOfDate($selectedDate)
+   {
+   }
 
 
    public function notFound()
