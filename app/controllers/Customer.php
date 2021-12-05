@@ -117,6 +117,10 @@ class Customer extends Controller
                   $this->userModel->registerUser($data['mobileNo'], $data['password'], 6);
                   $this->OTPModel->removeOTP($data['mobileNo'], 1);
 
+                  //system log
+                  $log="user registered into the system";
+                  logger($data['mobileNo'],$log);
+
                   // Provide success message here
                   header('location: ' . URLROOT . '/user/signin');
                }

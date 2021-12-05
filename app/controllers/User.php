@@ -35,10 +35,18 @@ class User extends Controller
 
                if (password_verify($data['password'], $hashedPassword))
                {
+                  
+
                   $this->createUserSession($user);
                   // die($_SESSION['userMobileNo']);
                   $this->provideIntialView();
                   // die("SUCCESS");
+
+                  //System log
+                  $log="User loged in to the system";
+                  logger($data['mobileNo'],$log);
+                 
+                  
                }
                else
                {  //Handle incorrect Attempts
@@ -235,6 +243,7 @@ class User extends Controller
                redirect('home');
                break;
          }
+
       }
       else
       {
@@ -268,4 +277,9 @@ class User extends Controller
       session_destroy();
       redirect('home');
    }
+
+
+
+
+
 }
