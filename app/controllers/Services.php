@@ -26,8 +26,14 @@ class Services extends Controller
             'sNewType' => trim($_POST['sNewType']),
             'sSelectedProv' => isset($_POST['serProvCheckbox']) ? $_POST['serProvCheckbox'] : '',
             'price' => trim($_POST['sPrice']),
-            'totalDuration' => isset($_POST['slot1Duration']) ? trim($_POST['slot1Duration']) : '',
-            'sSelectedResCount' => isset($_POST['resourceCount']) ? ($_POST['resourceCount']) : [],
+
+            'slot1Duration' => isset($_POST['slot1Duration']) ? trim($_POST['slot1Duration']) : '',
+            'slot2Duration' => isset($_POST['slot2Duration']) ? trim($_POST['slot2Duration']) : '',
+            'slot3Duration' => isset($_POST['slot3Duration']) ? trim($_POST['slot3Duration']) : '',
+            'interval1Duration' => isset($_POST['interval1Duration']) ? trim($_POST['interval1Duration']) : '',
+            'interval2Duration' => isset($_POST['interval2Duration']) ? trim($_POST['interval2Duration']) : '',
+
+            'sSelectedResCount' => isset($_POST['resourceCount1']) ? ($_POST['resourceCount1']) : [],
 
             'sTypesArray' => [],
             'sProvArray' => [],
@@ -78,7 +84,7 @@ class Services extends Controller
             {
                $data['sPrice_error'] = "Please enter a numeric value for price";
             }
-            if (empty($data['totalDuration']))
+            if (empty($data['slot1Duration']))
             {
                $data['sSlot1Duration_error'] = "Please enter slot1 duration";
             }
@@ -88,8 +94,29 @@ class Services extends Controller
 
                $this->ServiceModel->addService($data);
                $this->ServiceModel->addServiceProvider($data);
-               $this->ServiceModel->addTimeSlot($data, $slotNo);
-               $this->ServiceModel->addResourcesToService($data, $slotNo);
+               // $this->ServiceModel->addTimeSlot($data, $slotNo);
+               // $this->ServiceModel->addResourcesToService($data, $slotNo);
+
+               if($data['slot2Duration'] != NULL && $data['slot3Duration'] == NULL){
+                  $slotNo=1;
+
+                  $this->ServiceModel->addTimeSlot($data, $slotNo);
+                  $this->ServiceModel->addIntervalTimeSlot($data, $slotNo);
+                  // var_dump($data);
+                  // die("hi1");
+               }elseif($data['slot2Duration'] != NULL && $data['slot3Duration'] != NULL){
+                  $slotNo=2;
+                  $this->ServiceModel->addTimeSlot($data, $slotNo);
+                  $this->ServiceModel->addIntervalTimeSlot($data, $slotNo);
+
+                  // print_r($data);
+                  // die("hi2");
+               }else{
+                  $this->ServiceModel->addTimeSlot($data, $slotNo);
+
+                  // var_dump($data);
+                  // die("hi3");
+               }
 
                header('location: ' . URLROOT . '/MangDashboard/services');
             }
@@ -123,7 +150,13 @@ class Services extends Controller
             'sNewType' => '',
             'price' => '',
             'sSelectedProv' => [],
-            'totalDuration' => '',
+
+            'slot1Duration' => '',
+            'slot2Duration' => '',
+            'slot3Duration' => '',
+            'interval1Duration' => '',
+            'interval2Duration' => '',
+
             'sSelectedResourse' => '',
             'sSelectedResCount' => '',
 

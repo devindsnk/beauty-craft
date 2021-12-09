@@ -197,7 +197,7 @@
 
 												<?php $resID =  $sResource->resourceID ?>
 
-												<select class="dropdownSelectBox-small quantity-align resCount" name="resourceCount[]">
+												<select class="dropdownSelectBox-small quantity-align resCount" name="resourceCount1[]">
 													<option class="unbold" value="0" option selected="true">0</option>
 
 													<?php $Qcount = $sResource->quantity; ?>
