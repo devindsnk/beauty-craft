@@ -106,8 +106,8 @@
       </form>
    </div>
 </div>
-<script src="<?php echo URLROOT ?>/public/js/home.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/fetchRequests.js"></script>
+<script src="<?php echo URLROOT ?>/public/js/fetchRequests/newReservation.js"></script>
 </body>
 
 </html>

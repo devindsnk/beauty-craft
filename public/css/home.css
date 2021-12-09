@@ -3,6 +3,13 @@
 /* ------------------------------------------------------ */
 /* --------------STYLES ADDED BY DEVIN -------------------*/
 /* ------------------------------------------------------ */
+html{
+   scroll-behavior: smooth;
+}
+
+body{
+   overflow-x: hidden;
+}
 
 /* Special Button Design */
 .customerPages .btn-landing {
@@ -39,10 +46,11 @@
    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../../public/imgs/bg2.jpeg);
    background-position: top;
    background-size: cover;
-   position: relative;
+   background-attachment: fixed;
 }
 
 /* Header Navigation */
+
 .customerPages nav {
    display: flex;
    width: 100%;
@@ -50,10 +58,22 @@
    padding: 20px 30px 10px 30px;
    align-items: center;
    justify-content: space-between;
+   z-index: 5;
+}
+
+.landingPage nav{
+   position: fixed;
+   transition: 0.2s ease-in-out;
+}
+
+.customerPages nav.black {
+   background-color:var(--theme-black) ;
+   opacity: 0.95;
 }
 
 .customerPages nav .logo {
    height: 100%;
+   
 }
 
 .customerPages nav .logo a {
@@ -63,6 +83,7 @@
 
 .customerPages nav .logo img {
    height: 70px;
+   transition: 0.2s ease-in-out;
 }
 
 .customerPages nav .links {
@@ -217,7 +238,7 @@
 
 /* Profile menu */
 .customerPages .profile_menu {
-   position: absolute;
+   position: fixed;
    top: 110px;
    right: 10px;
    padding: 20px 28px;
@@ -294,7 +315,12 @@
    font-size: 96px;
    font-weight: 700;
    color: var(--white);
+   
 }
+
+/* .landingPage .bottom .text span{
+font-family: 'Philosopher',sans-serif;
+} */
 
 .landingPage .bottom .red {
    color: var(--theme-red);
@@ -347,13 +373,22 @@
 
 /* End Header Bottom */
 
-.section {
-   display: flex;
-   height: 100vh;
+.sub-section {
+   padding: 80px 60px 30px;
+   min-height: 100vh;
 }
 
-.section .title {
-   margin: 50px auto;
+@media(max-width: 680px) {
+   .sub-section {
+      padding: 20px 20px;
+      min-height: 100vh;
+   }
+}
+
+.sub-section .title {
+   display: block;
+   font-family: 'Philosopher',sans-serif;
+   margin: 0 auto 40px;
    text-align: center;
    font-size: 64px;
    font-weight: 700;
@@ -361,22 +396,181 @@
 }
 
 @media(max-width: 768px) {
-   .section .title {
+   .sub-section .title {
       font-size: 45px;
    }
 }
 
 @media(max-width: 550px) {
-   .section .title {
+   .sub-section .title {
       font-size: 35px;
    }
 }
 
 @media(max-width: 375px) {
-   .section .title {
+   .sub-section .title {
       font-size: 25px;
    }
 }
+
+/* testimonials */
+.sub-section.testimonials {
+   background-color: var(--white);
+}
+.sub-section.testimonials .comment-container{
+   text-align: center;
+  
+}
+
+.sub-section.testimonials .comment-container img{
+   object-fit: cover;
+   width: 150px;
+   border-radius: 100%;
+}
+
+.sub-section.testimonials .comment-container span{
+   display: block;
+   width: 600px;
+   margin: 20px auto;
+}
+.sub-section.testimonials .comment-container .name{
+   color: var(--theme-red);
+   font-weight: 600;
+}
+/* team cards */
+.sub-section.team .card-container{
+   height:fit-content;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+}
+.sub-section.team .card-outer{
+   margin:0 15px 30px;
+}
+
+.sub-section.team .card{
+   overflow: hidden;
+   max-width: 300px;
+   /* min-width: 150px; */
+   border-radius: 6px;
+   background-color: var(--theme-black);
+   color:var(--white);
+   text-align: center;
+   padding-bottom: 15px;
+   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+   transition: 0.3s ease-in-out;
+}
+
+.sub-section.team .card:hover{
+   transform: translateY(-15px);
+}
+
+.sub-section.team .card img{
+   object-fit: cover;
+   width: 100%;
+   height: 310px;
+}
+
+.sub-section.team .card h3{
+   font-size: 18px;
+   margin-top: 8px;
+}
+.sub-section.team .card span{
+   font-weight: 500;
+   color:var(--theme-red);
+}
+
+@media(max-width: 1200px) {
+   .sub-section.team .card{
+      max-width: 250px;
+   }
+}
+
+@media(max-width: 680px) {
+   .sub-section.team .card{
+      max-width: 300px;
+   }
+}
+
+
+/* Footer syles */
+
+footer{
+   min-height: 400px;
+   height: fit-content;
+   width: 100%;
+   padding: 20px 15vw;
+   color: #ffffff;
+   background-color: var(--theme-black);
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   align-items: flex-start;
+   justify-content: space-between;
+}
+
+footer .section{
+   min-width: 280px;
+   max-width: 280px;
+   height: 100%;
+   margin: 30px;
+
+}
+
+footer h2{
+   font-family: 'Philosopher',sans-serif;
+   margin-bottom: 20px;
+}
+
+footer ul{
+   list-style: none;
+}
+
+footer ul li{
+   display: flex;
+   align-items: center;
+}
+
+footer .logo-section .logo{
+   width: 180px;
+}
+
+footer .logo-section .description{
+   display: block;
+   margin: 30px 0;
+}
+
+footer .social-icon-container img{
+   width: 35px;
+   height: 35px;
+   margin-right: 25px;
+}
+
+footer .contact-section ul li span{
+   margin-left: 8px;
+   display: inline;
+}
+
+footer .contact-section li{
+   padding-bottom: 20px;
+}
+
+footer .time-section li{
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 10px;
+}
+
+@media(max-width: 500px) {
+   footer{
+      padding: 20px calc(50vw - 140px);
+   }
+
+   footer .section{
+      margin: 30px 0;
+   }
+}
+
 
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
