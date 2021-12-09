@@ -33,7 +33,9 @@ class Services extends Controller
             'interval1Duration' => isset($_POST['interval1Duration']) ? trim($_POST['interval1Duration']) : '',
             'interval2Duration' => isset($_POST['interval2Duration']) ? trim($_POST['interval2Duration']) : '',
 
-            'sSelectedResCount' => isset($_POST['resourceCount1']) ? ($_POST['resourceCount1']) : [],
+            'sSelectedResCount1' => isset($_POST['resourceCount1']) ? ($_POST['resourceCount1']) : [],
+            'sSelectedResCount2' => isset($_POST['resourceCount2']) ? ($_POST['resourceCount2']) : [],
+            'sSelectedResCount3' => isset($_POST['resourceCount3']) ? ($_POST['resourceCount3']) : [],
 
             'sTypesArray' => [],
             'sProvArray' => [],
@@ -45,7 +47,7 @@ class Services extends Controller
             'sSelectedSProve_error' => '',
             'sPrice_error' => '',
             'sSlot1Duration_error' => '',
-            'sSelectedResCount_error' => '',
+            'sSelectedResCount1_error' => '',
 
          ];
 
@@ -91,7 +93,7 @@ class Services extends Controller
 
             if (empty($data['sName_error']) && empty($data['sSelectedCusCategory_error']) && empty($data['sPrice_error']) && empty($data['sSelectedAllType_error']) && empty($data['sSelectedSProve_error']) && empty($data['sSlot1Duration_error']))
             {
-
+               
                $this->ServiceModel->addService($data);
                $this->ServiceModel->addServiceProvider($data);
                // $this->ServiceModel->addTimeSlot($data, $slotNo);
@@ -102,20 +104,21 @@ class Services extends Controller
 
                   $this->ServiceModel->addTimeSlot($data, $slotNo);
                   $this->ServiceModel->addIntervalTimeSlot($data, $slotNo);
-                  // var_dump($data);
-                  // die("hi1");
+
+                  $this->ServiceModel->addResourcesToService($data, $slotNo);
+                  
                }elseif($data['slot2Duration'] != NULL && $data['slot3Duration'] != NULL){
                   $slotNo=2;
                   $this->ServiceModel->addTimeSlot($data, $slotNo);
                   $this->ServiceModel->addIntervalTimeSlot($data, $slotNo);
 
-                  // print_r($data);
-                  // die("hi2");
+                  $this->ServiceModel->addResourcesToService($data, $slotNo);
+
                }else{
                   $this->ServiceModel->addTimeSlot($data, $slotNo);
 
-                  // var_dump($data);
-                  // die("hi3");
+                  $this->ServiceModel->addResourcesToService($data, $slotNo);
+
                }
 
                header('location: ' . URLROOT . '/MangDashboard/services');
@@ -123,13 +126,13 @@ class Services extends Controller
             else
             {
 
-               $selectesResCount = count($data['sSelectedResCount']);
+               $selectesResCount = count($data['sSelectedResCount1']);
 
                for ($i = 0; $i < $selectesResCount; $i++)
                {
-                  if ($data['sSelectedResCount'][$i] != 0)
+                  if ($data['sSelectedResCount1'][$i] != 0)
                   {
-                     $data['sSelectedResCount_error'] = "Please enter resource quantity again";
+                     $data['sSelectedResCount1_error'] = "Please enter resource quantity again";
                   }
                }
                $this->view('manager/mang_serviceAdd', $data);
@@ -158,7 +161,9 @@ class Services extends Controller
             'interval2Duration' => '',
 
             'sSelectedResourse' => '',
-            'sSelectedResCount' => '',
+            'sSelectedResCount1' => '',
+            'sSelectedResCount2' => '',
+            'sSelectedResCount3' => '',
 
             'sTypesArray' => [],
             'sProvArray' => [],
@@ -170,7 +175,7 @@ class Services extends Controller
             'sSelectedSProve_error' => '',
             'sPrice_error' => '',
             'sSlot1Duration_error' => '',
-            'sSelectedResCount_error' => '',
+            'sSelectedResCount1_error' => '',
          ];
 
 

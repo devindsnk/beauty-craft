@@ -75,20 +75,60 @@ class ServiceModel extends Model
 
     public function addResourcesToService($data, $slotNo)
     {
-        $slotNo++;
+       
         $i = 0;
 
         foreach ($data['sResArray'] as $ResoursesArray)
         {
-            if ($data['sSelectedResCount'][$i] != 0)
+            if ($data['sSelectedResCount2'][$i] != NULL)
             {
-                $selCount = $data['sSelectedResCount'][$i];
+                $selCount = $data['sSelectedResCount2'][$i];
                 
-                $this->customQuery("INSERT INTO resourceallocation (serviceID, slotNo, resourceID, requiredQuantity) SELECT MAX(serviceID), '$slotNo', '$ResoursesArray->resourceID','$selCount' FROM services", []);
+                $this->customQuery("INSERT INTO resourceallocation (serviceID, slotNo, resourceID, requiredQuantity) SELECT MAX(serviceID), '2', '$ResoursesArray->resourceID','$selCount' FROM services", []);
 
             }
             $i++;
         }
+        
+        $i = 0;
+
+        foreach ($data['sResArray'] as $ResoursesArray)
+        {
+            if ($data['sSelectedResCount3'][$i] != NULL)
+            {
+                $selCount = $data['sSelectedResCount3'][$i];
+                
+                $this->customQuery("INSERT INTO resourceallocation (serviceID, slotNo, resourceID, requiredQuantity) SELECT MAX(serviceID), '3', '$ResoursesArray->resourceID','$selCount' FROM services", []);
+
+            }
+            $i++;
+        }
+    
+        $i = 0;
+
+        foreach ($data['sResArray'] as $ResoursesArray)
+        {
+            if ($data['sSelectedResCount1'][$i] != 0)
+            {
+                $selCount = $data['sSelectedResCount1'][$i];
+                
+                $this->customQuery("INSERT INTO resourceallocation (serviceID, slotNo, resourceID, requiredQuantity) SELECT MAX(serviceID), '1', '$ResoursesArray->resourceID','$selCount' FROM services", []);
+
+            }
+            $i++;
+        }
+
+        // foreach ($data['sResArray'] as $ResoursesArray)
+        // {
+        //     if ($data['sSelectedResCount1'][$i] != 0)
+        //     {
+        //         $selCount = $data['sSelectedResCount1'][$i];
+                
+        //         $this->customQuery("INSERT INTO resourceallocation (serviceID, slotNo, resourceID, requiredQuantity) SELECT MAX(serviceID), '$slotNo', '$ResoursesArray->resourceID','$selCount' FROM services", []);
+
+        //     }
+        //     $i++;
+        // }
     }
 
     public function getServiceDetails()

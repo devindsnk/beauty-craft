@@ -204,7 +204,7 @@
 
 													<?php for ($i = 1; $i <= $Qcount; $i++) : ?>
 
-														<option value="<?php echo $i; ?>" <?php if ($data['sSelectedResCount'] == $i) echo 'selected'; ?>><?php echo $i; ?>
+														<option value="<?php echo $i; ?>" <?php if ($data['sSelectedResCount1'] == $i) echo 'selected'; ?>><?php echo $i; ?>
 														</option>
 
 													<?php endfor; ?>
@@ -216,7 +216,7 @@
 										<?php endforeach; ?>
 
 									</div>
-									<span class="error paddingLeft"><?php echo $data['sSelectedResCount_error']; ?></span>
+									<span class="error paddingLeft"><?php echo $data['sSelectedResCount1_error']; ?></span>
 								</div>
 								<!-- end of Resource & quantity -->
 
