@@ -1,0 +1,48 @@
+---------------------------------------
+
+PIN Verification
+1 - mobileVerification
+2 - passwordReset
+
+---------------------------------------
+
+User Levels
+1 - System Admin
+2 - Owner
+3 - Manager
+4 - Receptionist
+5 - Service Provider
+6 - Customer
+
+---------------------------------------
+
+Staff Members
+0 - Removed
+1 - Active
+2 - Disabled
+
+---------------------------------------
+
+Service
+0 - Removed
+1 - Active
+2 - Hold
+
+---------------------------------------
+
+Leave Requests
+0 - Rejected
+1 - Approved
+2 - Pending
+
+---------------------------------------
+
+Reservations
+0 - Cancelled
+1 - Pending
+2 - Confirmed
+3 - No Show
+4 - Completed
+
+---------------------------------------
+
