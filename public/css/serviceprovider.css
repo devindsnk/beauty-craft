@@ -117,7 +117,7 @@
 
 .serprov .sub-container2-card-service {
     height: 60%;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 24px;
     display: block;
 }
@@ -319,6 +319,7 @@ input#takeLeaveDate.addItemsModalDate{
     flex-direction: column;
     align-items: flex-start;
     height: 21%;
+    
     /* background-color: lightseagreen; */
 }
 
@@ -392,7 +393,14 @@ input#takeLeaveDate.addItemsModalDate{
     height: 100%;
     padding-top: 10px;
     padding-left: 10px;
+    overflow-x: scroll;
+   
 }
+
+.serprov .Reservationnote-note.editable::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
 
 .serprov .modaldatetime {
     display: flex;

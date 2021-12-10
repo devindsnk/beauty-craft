@@ -177,6 +177,10 @@ class User extends Controller
 
                   // Provide success message here
                   header('location: ' . URLROOT . '/user/signin');
+
+                  //system log
+                  $log="user update the password";
+                  logger($data['mobileNo'],$log);
                }
             }
             else
@@ -271,11 +275,17 @@ class User extends Controller
 
    public function signout()
    {
+      $mobileNo=$_SESSION['userMobileNo'];
       unset($_SESSION['userMobileNo']);
       unset($_SESSION['userType']);
       unset($_SESSION['userID']);
       session_destroy();
       redirect('home');
+
+      //system log
+      $log="User signout from the system";
+      logger($mobileNo,$log);
+
    }
 
 

@@ -27,9 +27,6 @@
          
             $data = [
                'leaveData' =>$reservationData,
-               
-               
-
             ];
       
          }
@@ -37,17 +34,11 @@
           else 
          {
             $data = [
-               'leaveData' =>$reservationData,
-               
-               
-
+               'leaveData' =>$reservationData,               
             ];
             $this->view('serviceProvider/serProv_reservation', $data);
 
-
          }
-
-
 
       $this->view('serviceProvider/serProv_reservation');
    }

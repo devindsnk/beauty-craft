@@ -230,4 +230,23 @@ class Staff extends Controller
       $this->view('owner/own_RemStaffViewReservations');
    }
 
+   public function profile()
+   {  
+      $profileData = $this->staffModel->getStaffDetailsWithBankDetailsByStaffID($_SESSION['userID']);
+      $serviceslist=$this->staffModel->getServiceslistByStaffID($_SESSION['userID']);
+      validateSession([1,2,3,4,5]);
+      //$profileData=$this->StaffModel->getStaffDetailsWithBankDetailsByStaffID($_SESSION['userID']);
+      if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+      }
+      else{
+         $data=[
+            'profileData'=>$profileData,
+            'serviceslist'=>$serviceslist,
+         ];
+         $this->view('staff/staff_profileview',$data);
+      }
+      
+   }
+
 }

@@ -4,7 +4,6 @@ class Leaves extends Controller
    public function __construct()
    {
    
-  
         $this->LeaveModel = $this->model('LeaveModel');
    }
 
