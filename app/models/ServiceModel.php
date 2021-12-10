@@ -38,26 +38,36 @@ class ServiceModel extends Model
 
     public function addTimeSlot($data, $slotNo)
     {
+        $startingTime1=0;
+        $startingTime2=(int)$data['slot1Duration']+(int)$data['interval1Duration'];
+        $startingTime3=$startingTime2+(int)$data['slot2Duration']+(int)$data['interval2Duration'];
+
+        // print_r($startingTime1);
+        // print_r($startingTime2);
+        // print_r($startingTime3);
+        // die('ffff');
+
         if($slotNo==0){
             $slot1Duration = $data['slot1Duration'];
 
-            $this->customQuery("INSERT INTO timeslots (serviceID, slotNo, duration) SELECT MAX(serviceID), '1', '$slot1Duration'  FROM services", []);
+            $this->customQuery("INSERT INTO timeslots (serviceID, slotNo, startingTime, duration) SELECT MAX(serviceID), '1', '$startingTime1' ,'$slot1Duration'  FROM services", []);
 
         }elseif($slotNo==1){
             $slot1Duration = $data['slot1Duration'];
             $slot2Duration = $data['slot2Duration'];
            
-            $this->customQuery("INSERT INTO timeslots (serviceID, slotNo, duration) SELECT MAX(serviceID), '1', '$slot1Duration'  FROM services", []);
-            $this->customQuery("INSERT INTO timeslots (serviceID, slotNo, duration) SELECT MAX(serviceID), '2', '$slot2Duration'  FROM services", []);
+
+            $this->customQuery("INSERT INTO timeslots (serviceID, slotNo, startingTime, duration) SELECT MAX(serviceID), '1', '$startingTime1','$slot1Duration'  FROM services", []);
+            $this->customQuery("INSERT INTO timeslots (serviceID, slotNo, startingTime, duration) SELECT MAX(serviceID), '2', '$startingTime2', '$slot2Duration'  FROM services", []);
 
         }elseif($slotNo==2){
             $slot1Duration = $data['slot1Duration'];
             $slot2Duration = $data['slot2Duration'];
             $slot3Duration = $data['slot3Duration'];
 
-            $this->customQuery("INSERT INTO timeslots (serviceID, slotNo, duration) SELECT MAX(serviceID), '1', '$slot1Duration'  FROM services", []);
-            $this->customQuery("INSERT INTO timeslots (serviceID, slotNo, duration) SELECT MAX(serviceID), '2', '$slot2Duration'  FROM services", []);
-            $this->customQuery("INSERT INTO timeslots (serviceID, slotNo, duration) SELECT MAX(serviceID), '3', '$slot3Duration'  FROM services", []);
+            $this->customQuery("INSERT INTO timeslots (serviceID, slotNo, startingTime, duration) SELECT MAX(serviceID), '1', '$startingTime1', '$slot1Duration'  FROM services", []);
+            $this->customQuery("INSERT INTO timeslots (serviceID, slotNo, startingTime, duration) SELECT MAX(serviceID), '2', '$startingTime2','$slot2Duration'  FROM services", []);
+            $this->customQuery("INSERT INTO timeslots (serviceID, slotNo, startingTime, duration) SELECT MAX(serviceID), '3', '$startingTime3','$slot3Duration'  FROM services", []);
         }
         
         // $slot1Duration = $data['slot1Duration'];
