@@ -37,6 +37,13 @@
    width: 20px;
 }
 
+
+.footer-icon{
+   display: inline-block;
+   height: 20px;
+   width: 20px;
+}
+
 .ci-elements {
    background: url(../../public/svg/element-equal.svg);
    background-repeat: no-repeat;
@@ -138,6 +145,24 @@
    background-size: contain;
 }
 
+/* home page footer icons */
+.ci-location{
+   background: url(../../public/svg/location.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+} 
+
+.ci-mail{
+   background: url(../../public/svg/mail.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+} 
+
+.ci-call{
+   background: url(../../public/svg/call.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+} 
 
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/

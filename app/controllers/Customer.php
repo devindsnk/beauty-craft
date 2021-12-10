@@ -112,10 +112,13 @@ class Customer extends Controller
                }
                else
                {
+                  $this->userModel->beginTransaction();
 
-                  $this->customerModel->registerCustomer($data);
                   $this->userModel->registerUser($data['mobileNo'], $data['password'], 6);
+                  $this->customerModel->registerCustomer($data);
                   $this->OTPModel->removeOTP($data['mobileNo'], 1);
+
+                  $this->userModel->commit();
 
                   // Provide success message here
                   header('location: ' . URLROOT . '/user/signin');
@@ -177,15 +180,13 @@ class Customer extends Controller
    //    $this->view('owner/own_staffView',$bankDetails[0]);
    // } 
 
-    public function cusDetailView($cusID)
+   public function cusDetailView($cusID)
    {
       $customerDetails = $this->customerModel->getCustomerDetailsByCusID($cusID);
       $CompletedReservationCount = $this->customerModel->getCompletedReservationCountByCusID($cusID);
       $CancelledReservationCount = $this->customerModel->getCancelledReservationCountByCusID($cusID);
       $ViewCustomerArray = ['cusDetails' => $customerDetails, 'completedResCount' => $CompletedReservationCount, 'cancelledResCount' => $CancelledReservationCount];
- 
-      $this->view('common/customerView',$ViewCustomerArray);
-   }
 
-   
+      $this->view('common/customerView', $ViewCustomerArray);
+   }
 }

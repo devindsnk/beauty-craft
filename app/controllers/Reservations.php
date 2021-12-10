@@ -150,14 +150,14 @@ class Reservations extends Controller
       if ($state)
          $response = "Salon is closed on " . $selectedDate;
       header('Content-Type: application/json; charset=utf-8');
-      // echo ($state);
       print_r(json_encode($response));
       // return json_encode($state, JSON_NUMERIC_CHECK);
    }
 
 
-
-
+   public function getAllReservationsOfDate($selectedDate)
+   {
+   }
 
 
    public function notFound()
