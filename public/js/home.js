@@ -3,21 +3,28 @@
 /* ----------------- JS ADDED BY DEVIN -------------------*/
 /* ------------------------------------------------------ */
 
+window.onscroll = function() {scrollFunction()};
+
 // menuBtn event listener
-var menuBtn = document.querySelector(".menuBtn");
-var closeBtn = document.querySelector(".closeBtn");
-var sideNav = document.querySelector(".landingPage nav .links");
+const menuBtn = document.querySelector(".menuBtn");
+const closeBtn = document.querySelector(".closeBtn");
+const nav = document.querySelector(".landingPage nav");
+const navLiAll = document.querySelectorAll(".landingPage nav li");
+const navLinks = document.querySelector(".landingPage nav .links");
+const headerLogo = document.querySelector(".landingPage nav .logo img");
+
+
 menuBtn.addEventListener("click", showSideMenu);
 closeBtn.addEventListener("click", hideSideMenu);
 
 function showSideMenu() {
-   console.log("Open");
-   sideNav.style.right = "0";
+   // console.log("Open");
+   navLinks.style.right = "0";
 }
 
 function hideSideMenu() {
-   console.log("Close");
-   sideNav.style.right = "-260px";
+   // console.log("Close");
+   navLinks.style.right = "-260px";
 }
 
 // profile menu event listener
@@ -29,13 +36,15 @@ if (profileIcon) {
 
 
 // Collapse the profile menu if outside is clicked
-document.addEventListener('click', function (event) {
-   var clickOnIcon = profileIcon.contains(event.target);
-   var clickOnMenu = profileMenu.contains(event.target);
-   if (!(clickOnIcon || clickOnMenu)) {
-      removeProfileMenu();
-   }
-});
+if (profileIcon) {
+   document.addEventListener('click', function (event) {
+      var clickOnIcon = profileIcon.contains(event.target);
+      var clickOnMenu = profileMenu.contains(event.target);
+      if (!(clickOnIcon || clickOnMenu)) {
+         removeProfileMenu();
+      }
+   });
+}
 
 function toggleProfileMenu() {
    profileIcon.classList.toggle('active');
@@ -46,6 +55,26 @@ function removeProfileMenu() {
    profileIcon.classList.remove('active');
    profileMenu.classList.remove('active');
 }
+
+function scrollFunction() {
+   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+      nav.style.background = "var(--theme-black)";
+      nav.style.opacity = "0.95";
+      nav.style.height = "80px";
+      headerLogo.style.height = "40px";
+      navLiAll.forEach(li => {
+         li.style.paddingTop = "10px";
+      });
+   } else {
+      nav.style.background = "transparent";
+      headerLogo.style.height = "70px";
+      nav.style.height = "100px";
+      navLiAll.forEach(li => {
+         li.style.paddingTop = "20px";
+      });
+   }
+ } 
+
 
 
 /* ------------------------------------------------------ */

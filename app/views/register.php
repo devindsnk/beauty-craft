@@ -15,8 +15,8 @@
 <body>
    <div class="main-container">
       <a href="<?php echo URLROOT ?>">
-         <img src="<?php echo URLROOT ?>/public/imgs/logoTextWhite.png" alt="logo" class="top-left-logo logo-textWhite">
-         <img src="<?php echo URLROOT ?>/public/imgs/logoTextBlack.png" alt="logo" class="top-left-logo logo-textBlack">
+         <img src="<?php echo URLROOT ?>/public/logo/logoTextWhite.png" alt="logo" class="top-left-logo logo-textWhite">
+         <img src="<?php echo URLROOT ?>/public/logo/logoTextBlack.png" alt="logo" class="top-left-logo logo-textBlack">
       </a>
       <a href="<?php echo URLROOT ?>" class="top-right-closeBtn white-red-hover"><i class="fal fa-times fa-2x "></i></a>
       <div class="reg-container form-container contentBox">
@@ -64,7 +64,7 @@
                </div>
                <div class="column">
                   <p id="countdown"></p>
-                  <button type="submit" name="action" value="getOTP" class="btn btn-filled btn-black middle">Get OTP</button>
+                  <button type="submit" name="action" value="getOTP" id="getOTPBtn" class="btn btn-filled btn-black middle">Get OTP</button>
                </div>
             </div>
             <hr>
@@ -87,18 +87,18 @@
                <div class="column">
                   <div class="text-group">
                      <label class="label" for="confirmPassword">Confirm Password</label>
-                     <input type="password" name="confirmPassword" placeholder="Enter password again" maxlength="25"> 
-                     <span class="error"><?php echo $data['confirmPassword_error']; ?></span> 
-                  </div> 
-               </div> 
-            </div> 
-   
-            <div class="footer-container">
-               <button type="submit" name="action" value="register" class="btn btn-filled btn-theme-purple">Register</button> 
-               <p>Already have an account? <a href="<?php echo URLROOT ?>/user/signin">Sign in</a></p> 
-            </div>  
+                     <input type="password" name="confirmPassword" placeholder="Enter password again" maxlength="25">
+                     <span class="error"><?php echo $data['confirmPassword_error']; ?></span>
+                  </div>
+               </div>
+            </div>
 
-         </form>  
+            <div class="footer-container">
+               <button type="submit" name="action" value="register" class="btn btn-filled btn-theme-purple">Register</button>
+               <p>Already have an account? <a href="<?php echo URLROOT ?>/user/signin">Sign in</a></p>
+            </div>
+
+         </form>
       </div>
    </div>
 

@@ -15,7 +15,7 @@
 <body>
     <div class="main-container">
         <a href="<?php echo URLROOT ?>">
-            <img src="<?php echo URLROOT ?>/public/imgs/logoTextWhite.png" alt="logo" class="top-left-logo">
+            <img src="<?php echo URLROOT ?>/public/logo/logoTextWhite.png" alt="logo" class="top-left-logo">
         </a>
         <a href="<?php echo URLROOT ?>" class="top-right-closeBtn white-red-hover"><i class="fal fa-times fa-2x"></i></a>
         <div class="login-container form-container contentBox">
