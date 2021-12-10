@@ -93,33 +93,17 @@ class Services extends Controller
 
             if (empty($data['sName_error']) && empty($data['sSelectedCusCategory_error']) && empty($data['sPrice_error']) && empty($data['sSelectedAllType_error']) && empty($data['sSelectedSProve_error']) && empty($data['sSlot1Duration_error']))
             {
-               
-               $this->ServiceModel->addService($data);
-               $this->ServiceModel->addServiceProvider($data);
-               // $this->ServiceModel->addTimeSlot($data, $slotNo);
-               // $this->ServiceModel->addResourcesToService($data, $slotNo);
-
                if($data['slot2Duration'] != NULL && $data['slot3Duration'] == NULL){
                   $slotNo=1;
-
-                  $this->ServiceModel->addTimeSlot($data, $slotNo);
-                  $this->ServiceModel->addIntervalTimeSlot($data, $slotNo);
-
-                  $this->ServiceModel->addResourcesToService($data, $slotNo);
-                  
                }elseif($data['slot2Duration'] != NULL && $data['slot3Duration'] != NULL){
                   $slotNo=2;
-                  $this->ServiceModel->addTimeSlot($data, $slotNo);
-                  $this->ServiceModel->addIntervalTimeSlot($data, $slotNo);
-
-                  $this->ServiceModel->addResourcesToService($data, $slotNo);
-
-               }else{
-                  $this->ServiceModel->addTimeSlot($data, $slotNo);
-
-                  $this->ServiceModel->addResourcesToService($data, $slotNo);
-
                }
+               
+               $this->ServiceModel->addService($data,$slotNo);
+               $this->ServiceModel->addServiceProvider($data);
+               $this->ServiceModel->addTimeSlot($data, $slotNo);
+               $this->ServiceModel->addIntervalTimeSlot($data, $slotNo);
+               $this->ServiceModel->addResourcesToService($data, $slotNo);
 
                header('location: ' . URLROOT . '/MangDashboard/services');
             }
@@ -246,16 +230,39 @@ class Services extends Controller
 
    public function viewService($serviceID)
    {
+      $sNoofSlots = $this->ServiceModel->getNoofSlots($serviceID);
       $sOneDetails = $this->ServiceModel->getOneServiceDetail($serviceID);
       $sSprovDetails = $this->ServiceModel->getOneServicesSProvDetail($serviceID);
-      $sAllocatedResDetails = $this->ServiceModel->getAllocatedResourceDetails($serviceID);
 
-      $GetOneServicesArray = [
+      $sSlot1Duration = $this->ServiceModel->getSlot1Duration($serviceID);
+      $sSlot2Duration = $this->ServiceModel->getSlot2Duration($serviceID);
+      $sSlot3Duration = $this->ServiceModel->getSlot3Duration($serviceID);
+
+      $sInterval1Duration = $this->ServiceModel->getInterval1Duration($serviceID);
+      $sInterval2Duration = $this->ServiceModel->getInterval2Duration($serviceID);
+
+      $sAllocatedResDetailsSlot1 = $this->ServiceModel->getAllocatedResourceDetailsofSlot1($serviceID);
+      $sAllocatedResDetailsSlot2 = $this->ServiceModel->getAllocatedResourceDetailsofSlot2($serviceID);
+      $sAllocatedResDetailsSlot3 = $this->ServiceModel->getAllocatedResourceDetailsofSlot3($serviceID);
+
+      $GetOneServicesArray = [ 
+         'noofSlots' => $sNoofSlots,
          'services' => $sOneDetails,
          'sProv' => $sSprovDetails,
-         'sRes' => $sAllocatedResDetails
-      ];
 
+         'sSlot1Duration' => $sSlot1Duration,
+         'sSlot2Duration' => $sSlot2Duration,
+         'sSlot3Duration' => $sSlot3Duration,
+
+         'sInterval1Duration' => $sInterval1Duration,
+         'sInterval2Duration' => $sInterval2Duration,
+
+         'sResS1' => $sAllocatedResDetailsSlot1,
+         'sResS2' => $sAllocatedResDetailsSlot2,
+         'sResS3' => $sAllocatedResDetailsSlot3,
+
+      ];
+      
       $this->view('manager/mang_serviceView', $GetOneServicesArray);
    }
 
