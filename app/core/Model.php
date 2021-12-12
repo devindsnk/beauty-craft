@@ -124,7 +124,6 @@ class Model
          $preparedConditions = implode(" AND ", $this->prepareColumnsNValues($conditions, 0));
          $SQLstatement .= " WHERE $preparedConditions";
       }
-      // echo $SQLstatement;
       $this->query($SQLstatement);
    }
 
@@ -159,7 +158,7 @@ class Model
       $preparedColumns = implode(", ", $preparedColumnsNValues['columns']);
       $preparedValues = implode(", ", $preparedColumnsNValues['values']);
       $SQLstatement = "INSERT INTO $tableName ($preparedColumns) VALUES ($preparedValues)";
-      var_dump($SQLstatement);
+
       return $this->query($SQLstatement);
    }
 
@@ -178,7 +177,6 @@ class Model
       $preparedValues = implode(", ", $this->prepareColumnsNValues($values, 0));
       $preparedConditions = implode(" AND ", $this->prepareColumnsNValues($conditions, 0));
       $SQLstatement = "UPDATE $tableName SET $preparedValues WHERE $preparedConditions";
-      var_dump($SQLstatement);
       return $this->query($SQLstatement);
    }
 
@@ -187,7 +185,6 @@ class Model
    {
       $this->dataToBind = $dataToBind;
       $queryType = strtoupper(explode(" ", $SQLstatement, 2)[0]);
-
       if ($queryType === "SELECT")
       {
          $this->query($SQLstatement);
@@ -199,8 +196,6 @@ class Model
          return $this->query($SQLstatement);
       }
    }
-  
-
 }
 
 

@@ -112,14 +112,16 @@ class Customer extends Controller
                }
                else
                {
+                  $this->userModel->beginTransaction();
 
-                  $this->customerModel->registerCustomer($data);
                   $this->userModel->registerUser($data['mobileNo'], $data['password'], 6);
+                  $this->customerModel->registerCustomer($data);
                   $this->OTPModel->removeOTP($data['mobileNo'], 1);
 
                   //system log
                   $log="user registered into the system";
                   logger($data['mobileNo'],$log);
+                  $this->userModel->commit();
 
                   // Provide success message here
                   header('location: ' . URLROOT . '/user/signin');
@@ -166,5 +168,28 @@ class Customer extends Controller
    {
       validateSession([6]);
       $this->view('customer/cust_myReservation');
+   }
+   public function remCustomer($cusID)
+   {
+      // die('success');
+      // echo ($cusID);
+      $this->customerModel->removeCustomerDetails($cusID);
+      redirect('OwnDashboard/customers');
+   }
+
+   // public function viewStaff($staffID)
+   // {
+   //    $bankDetails = $this->staffModel->getStaffDetailsByStaffID($staffID);
+   //    $this->view('owner/own_staffView',$bankDetails[0]);
+   // } 
+
+   public function cusDetailView($cusID)
+   {
+      $customerDetails = $this->customerModel->getCustomerDetailsByCusID($cusID);
+      $CompletedReservationCount = $this->customerModel->getCompletedReservationCountByCusID($cusID);
+      $CancelledReservationCount = $this->customerModel->getCancelledReservationCountByCusID($cusID);
+      $ViewCustomerArray = ['cusDetails' => $customerDetails, 'completedResCount' => $CompletedReservationCount, 'cancelledResCount' => $CancelledReservationCount];
+
+      $this->view('common/customerView', $ViewCustomerArray);
    }
 }

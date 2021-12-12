@@ -16,14 +16,11 @@
    <!--Content-->
 
    <!----------------------- temporary buttons --------------------------------------->
+
    <div class="content own Remstaff">
-
       <?php require APPROOT . "/views/common/staffTable.php" ?>
-
-
-
    </div>
-   <!--End Content-->
 
+   <!--End Content-->
 
    <?php require APPROOT . "/views/inc/footer.php" ?>

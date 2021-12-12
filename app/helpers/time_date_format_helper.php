@@ -4,6 +4,24 @@
  * Contains few functions required to format date and time
  */
 
+function getCurrentTimeStamp()
+{
+   return date('Y-m-d H:i:s', time());
+}
+
+function getTimeDiff($fromTime, $toTime = NULL)
+{
+   if (is_null($toTime))
+      $toTime = getCurrentTimeStamp();
+
+   $minsDiff = round((strtotime($toTime) - strtotime($fromTime)) / 60, 0);
+   $secDiff = (strtotime($toTime) - strtotime($fromTime)) % 60;
+
+   // echo $toTime;
+   // echo $fromTime;
+   return [$minsDiff, $secDiff];
+}
+
 function minsToDuration()
 {
 }

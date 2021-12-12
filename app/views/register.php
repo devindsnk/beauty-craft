@@ -15,8 +15,8 @@
 <body>
    <div class="main-container">
       <a href="<?php echo URLROOT ?>">
-         <img src="<?php echo URLROOT ?>/public/imgs/logoTextWhite.png" alt="logo" class="top-left-logo logo-textWhite">
-         <img src="<?php echo URLROOT ?>/public/imgs/logoTextBlack.png" alt="logo" class="top-left-logo logo-textBlack">
+         <img src="<?php echo URLROOT ?>/public/logo/logoTextWhite.png" alt="logo" class="top-left-logo logo-textWhite">
+         <img src="<?php echo URLROOT ?>/public/logo/logoTextBlack.png" alt="logo" class="top-left-logo logo-textBlack">
       </a>
       <a href="<?php echo URLROOT ?>" class="top-right-closeBtn white-red-hover"><i class="fal fa-times fa-2x "></i></a>
       <div class="reg-container form-container contentBox">
@@ -63,7 +63,8 @@
                   <span class="error"><?php echo $data['mobileNo_error']; ?></span>
                </div>
                <div class="column">
-                  <button type="submit" name="action" value="getOTP" class="btn btn-filled btn-black middle">Get OTP</button>
+                  <p id="countdown"></p>
+                  <button type="submit" name="action" value="getOTP" id="getOTPBtn" class="btn btn-filled btn-black middle">Get OTP</button>
                </div>
             </div>
             <hr>
@@ -103,6 +104,6 @@
 
 </body>
 
-
+<script src="<?php echo URLROOT ?>/public/js/countdownTimer.js"></script>
 
 </html>
