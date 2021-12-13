@@ -57,7 +57,7 @@ class MangDashboard extends Controller
    public function staffMembers()
    {
       // Session::validateSession([3]);
-      $staffDetails = $this->staffModel->getStaffDetails();
+      $staffDetails = $this->staffModel->getAllStaffDetails();
 
       $GetStaffArray = ['staff' => $staffDetails];
       $this->view('manager/mang_staffMembers', $GetStaffArray);
