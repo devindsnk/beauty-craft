@@ -2,6 +2,12 @@
     background-color: var(--theme-black);
 }
 
+@media (max-width: 860px) {
+    .customerPages .sidebar{
+        display: none;
+    }
+}
+
 .outer-container {
     height: calc(100vh - 150px);
 }
@@ -241,8 +247,11 @@ label.proflabel {
 .outer-container .newResBtn {
     padding: 7px;
     width: 170px;
+    float: right;
     margin-left: auto;
-    margin-right: 80px;
+    /* justify-content: right; */
+    /* margin-left: 100%;
+    margin-right: 10%; */
 }
 
 .cust.my-reservations .sub-container {

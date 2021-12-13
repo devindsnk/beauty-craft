@@ -34,7 +34,7 @@
 
       <div class="buttons">
          <div class="profileIcon">
-            <img src="<?php echo URLROOT ?>/public/imgs/person4.jpg" alt="">
+            <img src="<?php echo URLROOT ?>/public/imgs/stylist-4.jpg" alt="">
          </div>
 
          <i class="ci ci-menu-white menuBtn"></i>

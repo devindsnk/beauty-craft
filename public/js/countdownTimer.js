@@ -14,14 +14,15 @@ getOTPBtn.addEventListener("click", prepareBtn);
 
 
  function prepareBtn(){
-     if(btnState == 0){
-        event.preventDefault();
-     }
+    updateCountdown();
+   //   if(btnState == 0){
+      //   event.preventDefault();
+   //   }
     // getOTPBtn.disabled = true;
  }
 
- // setInterval(updateCountdown, 1000);
-//  while(btnState==0){
+//  setInterval(updateCountdown, 1000);
+// //  while(btnState==0){
 //     // while(!(minutes == 0 && seconds ==0)){
 //         // setTimeout(updateCountdown,1000);
         
@@ -36,7 +37,9 @@ getOTPBtn.addEventListener("click", prepareBtn);
 
     timer.innerHTML = `${minutes}: ${seconds}`;
     time --;
-    
+    if(!(minutes == 0 && seconds ==0)){
+       updateCountdown();
+    }
 
 }
 

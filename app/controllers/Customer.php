@@ -117,7 +117,7 @@ class Customer extends Controller
                   $this->userModel->registerUser($data['mobileNo'], $data['password'], 6);
                   $this->customerModel->registerCustomer($data);
                   $this->OTPModel->removeOTP($data['mobileNo'], 1);
-
+                  sendCustomerRegSMS($data['mobileNo']);
                   $this->userModel->commit();
 
                   // Provide success message here
@@ -157,13 +157,13 @@ class Customer extends Controller
 
    public function changePassword()
    {
-      validateSession([6]);
+      Session::validateSession([6]);
       $this->view('customer/cust_changePassword');
    }
 
    public function myReservation()
    {
-      validateSession([6]);
+      Session::validateSession([6]);
       $this->view('customer/cust_myReservation');
    }
    public function remCustomer($cusID)

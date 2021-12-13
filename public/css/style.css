@@ -404,6 +404,136 @@ footer p {
   visibility: hidden;
 }
 
+/* styles of status toast */
+.statusToast{
+  z-index: 100;
+  background-color: var(--white);
+  padding: 20px 15px 20px 20px;
+  border-radius: 10px;
+  
+  box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  position: fixed;
+
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: -90px;
+  width: 450px; 
+  height: 90px;
+  overflow: hidden;
+     
+}
+
+.statusToast.show{
+  top: 0;
+  animation: show_toast 1s ease forwards;
+}
+
+.statusToast.hide{
+   animation: hide_toast 1s ease forwards;
+}
+
+@keyframes show_toast{
+  0%{
+    opacity: 0;
+    transform: translateY(-90px);
+  }
+  40%{
+    opacity: 10;
+    transform: translateY(35px);
+  }
+  80%, 100%{
+    opacity: 100;
+    transform: translateY(20px);
+  }
+}
+
+@keyframes hide_toast{
+  0%{
+    opacity: 100;
+    transform: translateY(110px);
+  }
+  50%{
+    opacity: 20;
+    transform: translateY(125px);
+  }
+  100%{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(0px);
+  }
+}
+
+.statusToast.success{
+  border-left: 5px solid var(--success-green);
+}
+
+.statusToast.success .content .icon{
+  background-color: var(--success-green);
+}
+
+.statusToast.error{
+  border-left: 5px solid var(--error-red);
+}
+
+.statusToast.error .content .icon{
+  background-color: var(--error-red);
+}
+.statusToast .content{
+  display: flex;
+}
+
+.statusToast .content .icon{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  line-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;text-align: center;
+}
+
+.statusToast.success .content .icon .error-icon{
+  display: none;
+}
+.statusToast.error .content .icon .success-icon{
+  display: none;
+ }
+
+.statusToast .content .details{
+  margin-left: 20px;
+}
+
+.statusToast .content .details span{
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.statusToast .content .details p{
+  color: var(--theme-grey);
+}
+
+.statusToast .close-icon{
+  background-color: var(--theme-lightgrey);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.statusToast .close-icon:hover{
+  background-color: #dadada;
+}
+
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
 /* ------------------------------------------------------ */
