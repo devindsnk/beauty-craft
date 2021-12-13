@@ -59,7 +59,7 @@ $(document).ready(function(){
                 option.value = '';
                 intervalDurationSelectDropDown.appendChild(option);
         
-                for (let i = 5; i <= 45; i+=5) {
+                for (let i = 10; i <= 50; i+=10) {
                     var option = document.createElement("option");
         
                     option.text = i + ' mins';

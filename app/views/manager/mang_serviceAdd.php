@@ -241,7 +241,7 @@
 										<label class='labels'>Interval Duration</label><br>
 										<select class='dropdownSelectBox intervalSelectBox1'  name="interval1Duration">
 											<option class='unbold' value='val0' option selected='true' disabled='disabled'>Select duration</option>
-											<?php for ($i = 5; $i <= 45; $i += 5) : ?>
+											<?php for ($i = 10; $i <= 50; $i += 10) : ?>
 												<option value="<?php echo $i; ?>" <?php if ($data['interval1Duration'] == $i) echo 'selected'; ?>> <?php echo $i; ?> mins </option>
 											<?php endfor; ?>
 										</select>
@@ -328,7 +328,7 @@
 											<label class='labels'>Interval Duration</label><br>
 											<select class='dropdownSelectBox intervalSelectBox2'  name="interval2Duration">
 												<option class='unbold' value='val0' option selected='true' disabled='disabled'>Select duration</option>
-												<?php for ($i = 5; $i <= 45; $i += 5) : ?>
+												<?php for ($i = 10; $i <= 50; $i += 10) : ?>
 													<option value="<?php echo $i; ?>" <?php if ($data['interval2Duration'] == $i) echo 'selected'; ?>> <?php echo $i; ?> mins </option>
 												<?php endfor; ?>
 											</select>
