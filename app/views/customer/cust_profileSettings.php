@@ -6,8 +6,9 @@ require APPROOT . "/views/customer/cust_headerBar.php";
     <?php
     require APPROOT . "/views/customer/cust_sideNav.php"
     ?>
- 
-         <div class="container">
+
+    <div class="container">
+        <form action="" method="post" class="form">
             <div class="item item1">
                 <div class="profileimg">
                     <img src="<?php echo URLROOT ?>/public/imgs/custProfileUpdate.png">
@@ -20,20 +21,27 @@ require APPROOT . "/views/customer/cust_headerBar.php";
                     <button class="remove">Remove picture</button>
                 </div> -->
             </div>
-            <div class="item item2">
-                <div class="profname">
-                    <label class="proflabel">First Name </label> <br />
-                    <div class="fname" contenteditable="true">Devin</div>
-                </div>
-                <div class="profname">
-                    <label class="proflabel">Last Name </label> <br />
-                    <div class="fname" contenteditable="true">Dissanayake</div>
-                </div>
 
+            <div class="row">
+                <div class="column">
+                    <div class="text-group">
+                        <label class="label" for="fName">First Name</label>
+                        <input type="text" name="fName" value="" maxlength="35" />
+                        <span class="error"></span>
+                    </div>
+                </div>
+                <div class="column spec">
+                    <div class="text-group">
+                        <label class="label" for="lName">Last Name</label>
+                        <input type="text" name="lName" value="" maxlength="35">
+                        <span class="error"></span>
+                    </div>
+                </div>
             </div>
+
             <div class="item item3">
                 <div class="profname">
-                    <label class="proflabel">Gender </label> <br />
+                    <label class="label" for="gender">Gender</label>
                     <div class="radiobutton">
                           <input type="radio" id="gender" name="gender" value="Male" checked>
                           <label for="male">Male</label>
@@ -51,10 +59,10 @@ require APPROOT . "/views/customer/cust_headerBar.php";
             </div>
             <div class="item item5">
                 <div class="savebutton">
-                     <button class="btn btn-filled btn-theme-red btnSave">Save</button>
+                    <button class="btn btn-filled btn-theme-red btnSave">Save</button>
                 </div>
             </div>
-        </div>
+    </div>
 </div>
 <script src="<?php echo URLROOT ?>/public/js/home.js"></script>
 </body>
