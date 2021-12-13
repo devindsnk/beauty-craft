@@ -41,16 +41,34 @@ class Services extends Controller
             'sProvArray' => [],
             'sResArray' => [],
 
+            'selectedSlotDetails' => [],
+            'selectedIntervalDetails' => [],
+            'selectedSlotResDetails' => [],
+
             'sName_error' => '',
             'sSelectedCusCategory_error' => '',
             'sSelectedAllType_error' => '',
             'sSelectedSProve_error' => '',
             'sPrice_error' => '',
+
             'sSlot1Duration_error' => '',
+            'sSlot2Duration_error' => '',
+            'sSlot3Duration_error' => '',
+            'interval1Duration_error' => '',
+            'interval2Duration_error' => '',
+
             'sSelectedResCount1_error' => '',
+            'sSelectedResCount2_error' => '',
+            'sSelectedResCount3_error' => '',
 
          ];
-
+         
+         for($i = 2; $i < 4; $i++){
+            array_push($data['selectedSlotDetails'], $data['slot'.$i.'Duration']);
+            array_push($data['selectedIntervalDetails'], $data['interval'.($i-1).'Duration']);
+            array_push($data['selectedSlotResDetails'], $data['sSelectedResCount'.$i]);
+         }
+        
          $data['sProvArray'] = $sProvGetArray;
          $data['sTypesArray'] = $sTypeGetArray;
          $data['sResArray'] = $sResGetArray;
@@ -88,10 +106,35 @@ class Services extends Controller
             }
             if (empty($data['slot1Duration']))
             {
-               $data['sSlot1Duration_error'] = "Please enter slot1 duration";
+               $data['sSlot1Duration_error'] = "Please enter slot duration";
             }
 
-            if (empty($data['sName_error']) && empty($data['sSelectedCusCategory_error']) && empty($data['sPrice_error']) && empty($data['sSelectedAllType_error']) && empty($data['sSelectedSProve_error']) && empty($data['sSlot1Duration_error']))
+
+            if ($data['selectedSlotDetails'][1] != NULL || $data['selectedIntervalDetails'][1] != NULL || $data['selectedSlotResDetails'][1] != NULL){
+
+               for($i = 0; $i < 2; $i++){
+                  if ($data['selectedSlotDetails'][$i] == NULL) {
+                     $data['sSlot'.($i+2).'Duration_error'] = "Please enter slot duration";
+                  }
+                  if ($data['selectedIntervalDetails'][$i] == NULL) {
+                     $data['interval'.($i+1).'Duration_error'] = "Please enter interval duration";
+                  }
+               }
+
+
+            }elseif ($data['selectedSlotDetails'][0] != NULL || $data['selectedIntervalDetails'][0] != NULL || $data['selectedSlotResDetails'][0] != NULL){
+
+               for($i = 0; $i < 1; $i++){
+                  if ($data['selectedSlotDetails'][$i] == NULL) {
+                     $data['sSlot'.($i+2).'Duration_error'] = "Please enter slot duration";
+                  }
+                  if ($data['selectedIntervalDetails'][$i] == NULL) {
+                     $data['interval'.($i+1).'Duration_error'] = "Please enter interval duration";
+                  }
+               }
+            }
+
+            if (empty($data['sName_error']) && empty($data['sSelectedCusCategory_error']) && empty($data['sPrice_error']) && empty($data['sSelectedAllType_error']) && empty($data['sSelectedSProve_error']) && empty($data['sSlot1Duration_error']) && empty($data['sSlot2Duration_error']) && empty($data['sSlot3Duration_error']) && empty($data['interval1Duration_error']) && empty($data['interval2Duration_error']))
             {
                if($data['slot2Duration'] != NULL && $data['slot3Duration'] == NULL){
                   $slotNo=1;
@@ -109,7 +152,17 @@ class Services extends Controller
             }
             else
             {
+               // for ($k = 1; $k < 4; $k++){
+               //    $selectesResCount = count($data['sSelectedResCount'.($k)]);
 
+               //    for ($i = 0; $i < $selectesResCount; $i++)
+               //    {
+               //       if ($data['sSelectedResCount'.($k)][$i] != 0)
+               //       {
+               //          $data['sSelectedResCount'.($k).'_error'] = "Please enter resource quantity again";
+               //       }
+               //    }
+               // }
                $selectesResCount = count($data['sSelectedResCount1']);
 
                for ($i = 0; $i < $selectesResCount; $i++)
@@ -148,6 +201,10 @@ class Services extends Controller
             'sSelectedResCount1' => '',
             'sSelectedResCount2' => '',
             'sSelectedResCount3' => '',
+
+            'selectedSlotDetails' => [],
+            'selectedIntervalDetails' => [],
+            'selectedSlotResDetails' => [],
 
             'sTypesArray' => [],
             'sProvArray' => [],

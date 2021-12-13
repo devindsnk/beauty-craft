@@ -98,7 +98,7 @@ class ServiceModel extends Model
 
         foreach ($data['sResArray'] as $ResoursesArray)
         {
-            if ($data['sSelectedResCount2'][$i] != NULL)
+            if ($data['sSelectedResCount2'][$i] != 0)
             {
                 $selCount = $data['sSelectedResCount2'][$i];
                 
@@ -112,7 +112,7 @@ class ServiceModel extends Model
 
         foreach ($data['sResArray'] as $ResoursesArray)
         {
-            if ($data['sSelectedResCount3'][$i] != NULL)
+            if ($data['sSelectedResCount3'][$i] != 0)
             {
                 $selCount = $data['sSelectedResCount3'][$i];
                 

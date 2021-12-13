@@ -146,6 +146,13 @@ $(document).on('click', '.close-slot', function(){
 });
 
 
+export function A(k){
+    console.log('hellooooo2',k);
+
+    i=k;
+    j=i-1
+};
+
 {/* <div class='newService-sub' id='fullSlotDetail" + j + "'> 
     <div class='btn-remove quantity-align'>
         <a href='#fullSlotDetail " + j + "' name='remove' id='" + i + "' class='close-slot'>
