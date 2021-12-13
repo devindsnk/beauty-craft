@@ -13,8 +13,6 @@ class Services extends Controller
       $sTypeGetArray = $this->getServiceType();
       $sResGetArray = $this->getResource();
 
-      // $this->passResourcesToSlot($sResGetArray);
-
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
          $data = [
@@ -41,10 +39,6 @@ class Services extends Controller
             'sProvArray' => [],
             'sResArray' => [],
 
-            'selectedSlotDetails' => [],
-            'selectedIntervalDetails' => [],
-            'selectedSlotResDetails' => [],
-
             'sName_error' => '',
             'sSelectedCusCategory_error' => '',
             'sSelectedAllType_error' => '',
@@ -63,12 +57,6 @@ class Services extends Controller
 
          ];
          
-         for($i = 2; $i < 4; $i++){
-            array_push($data['selectedSlotDetails'], $data['slot'.$i.'Duration']);
-            array_push($data['selectedIntervalDetails'], $data['interval'.($i-1).'Duration']);
-            array_push($data['selectedSlotResDetails'], $data['sSelectedResCount'.$i]);
-         }
-        
          $data['sProvArray'] = $sProvGetArray;
          $data['sTypesArray'] = $sTypeGetArray;
          $data['sResArray'] = $sResGetArray;
@@ -108,28 +96,24 @@ class Services extends Controller
             {
                $data['sSlot1Duration_error'] = "Please enter slot duration";
             }
-
-
-            if ($data['selectedSlotDetails'][1] != NULL || $data['selectedIntervalDetails'][1] != NULL || $data['selectedSlotResDetails'][1] != NULL){
-
-               for($i = 0; $i < 2; $i++){
-                  if ($data['selectedSlotDetails'][$i] == NULL) {
-                     $data['sSlot'.($i+2).'Duration_error'] = "Please enter slot duration";
+            
+            if(empty($data['slot3Duration']) || empty($data['sSelectedResCount3']) || empty($data['interval2Duration'])){
+               for($i = 2; $i < 4; $i++){
+                  if (empty($data['slot'.($i).'Duration'])) {
+                     $data['sSlot'.($i).'Duration_error'] = "Please enter slot duration";
                   }
-                  if ($data['selectedIntervalDetails'][$i] == NULL) {
-                     $data['interval'.($i+1).'Duration_error'] = "Please enter interval duration";
+                  if (empty($data['interval'.($i-1).'Duration'])) {
+                     $data['interval'.($i-1).'Duration_error'] = "Please enter interval duration";
                   }
                }
-
-
-            }elseif ($data['selectedSlotDetails'][0] != NULL || $data['selectedIntervalDetails'][0] != NULL || $data['selectedSlotResDetails'][0] != NULL){
-
-               for($i = 0; $i < 1; $i++){
-                  if ($data['selectedSlotDetails'][$i] == NULL) {
-                     $data['sSlot'.($i+2).'Duration_error'] = "Please enter slot duration";
+            }
+            elseif(empty($data['slo2Duration']) || empty($data['sSelectedResCount2']) || empty($data['interval1Duration'])){
+               for($i = 2; $i < 3; $i++){
+                  if (empty($data['slot'.($i).'Duration'])) {
+                     $data['sSlot'.($i).'Duration_error'] = "Please enter slot duration";
                   }
-                  if ($data['selectedIntervalDetails'][$i] == NULL) {
-                     $data['interval'.($i+1).'Duration_error'] = "Please enter interval duration";
+                  if (empty($data['interval'.($i-1).'Duration'])) {
+                     $data['interval'.($i-1).'Duration_error'] = "Please enter interval duration";
                   }
                }
             }
@@ -201,10 +185,6 @@ class Services extends Controller
             'sSelectedResCount1' => '',
             'sSelectedResCount2' => '',
             'sSelectedResCount3' => '',
-
-            'selectedSlotDetails' => [],
-            'selectedIntervalDetails' => [],
-            'selectedSlotResDetails' => [],
 
             'sTypesArray' => [],
             'sProvArray' => [],

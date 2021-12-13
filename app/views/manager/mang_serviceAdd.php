@@ -397,8 +397,6 @@
 									</div>
 								</div>
 							</div>
-						<?php else: ?>
-							
 						<?php endif; ?>
 					<?php endif; ?>	
 				</div>
