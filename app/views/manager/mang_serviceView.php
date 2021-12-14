@@ -95,111 +95,221 @@
 						<h3>Duration and Resources</h3>
 					</div>
 					<div class="timeDurations" id="addDiv">
-						<div class="newService-sub">
-							<h4 class="paddingBottom">Slot 1</h4>
-							<!-- slot 1-->
-							<div class="row " id="slotdetails1">
 
-								<!-- duration -->
-								<div class="column">
-									<div class="labels"><label class="labels paddingBottom">Duration</label></div>
-									<!-- <input type="text" name="" id="" placeholder="<?php echo $sDetails->totalDuration; ?>" disabled> -->
-									<?php $i = $sDetails->totalDuration; ?>
-									<?php if ($i == 60 || $i == 120) : ?>
-										<input type="text" name="" id="" placeholder="<?php echo ($i / 60); ?> h" disabled>
-
-									<?php elseif ($i > 60 && $i < 120) : ?>
-										<input type="text" name="" id="" placeholder="<?php echo ($i / $i); ?> h <?php echo ($i %  60); ?> mins" disabled>
-
-									<?php else : ?>
-										<input type="text" name="" id="" placeholder="<?php echo $i; ?> mins" disabled>
-
-									<?php endif; ?>
-								</div>
-								<!-- end of duration -->
-
-								<!-- quantity -->
-								<div class="column" id="resorceDetails1">
-									<div class="labels"><label class="labels paddingBottom">Resources & Quantity</label></div>
-									<div class="checkbox-div">
-
-										<?php if (empty($data['sRes'])) : ?>
-											<div class="divIndiv">
-												<p class="resource-align">None of Resources has Allocated...
-												</p>
-											</div>
+						<?php if ($data['noofSlots'] == 1 || $data['noofSlots'] == 2 || $data['noofSlots'] == 3) : ?>
+							<div class="newService-sub">
+								<h4 class="paddingBottom">Slot 1</h4>
+								<!-- slot 1-->
+								<div class="row " id="slotdetails1">
+									<!-- duration -->
+									<div class="column">
+										<div class="labels"><label class="labels paddingBottom">Duration</label></div>
+										<?php $i = $data['sSlot1Duration']; ?>
+										<?php if ($i == 60 || $i == 120) : ?>
+											<input type="text" name="" id="" placeholder="<?php echo ($i / 60); ?> h" disabled>
+										<?php elseif ($i > 60 && $i < 120) : ?>
+											<input type="text" name="" id="" placeholder="<?php echo ($i / $i); ?> h <?php echo ($i %  60); ?> mins" disabled>
 										<?php else : ?>
-											<?php foreach ($data['sRes'] as $sResDetails) : ?>
-
-												<div class="divIndiv">
-													<p class="resource-align"><?php echo $sResDetails->resourceID; ?> - <?php echo $sResDetails->name; ?>
-														<lable class="quantity-align"><?php echo $sResDetails->requiredQuantity; ?></lable>
-													</p>
-												</div>
-												<hr class="resHr">
-											<?php endforeach; ?>
+											<input type="text" name="" id="" placeholder="<?php echo $i; ?> mins" disabled>
 										<?php endif; ?>
 									</div>
-									<!-- end of quantity -->
+									<!-- end of duration -->
+
+									<!-- quantity -->
+									<div class="column" id="resorceDetails1">
+										<div class="labels"><label class="labels paddingBottom">Resources & Quantity</label></div>
+										<div class="checkbox-div">
+											<?php if (empty($data['sResS1'])) : ?>
+												<div class="divIndiv">
+													<p class="resource-align">None of Resources has Allocated...
+													</p>
+												</div>
+											<?php else : ?>
+												<?php foreach ($data['sResS1'] as $sResDetails) : ?>
+													<div class="divIndiv">
+														<p class="resource-align"><?php echo $sResDetails->resourceID; ?> - <?php echo $sResDetails->name; ?>
+															<lable class="quantity-align"><?php echo $sResDetails->requiredQuantity; ?></lable>
+														</p>
+													</div>
+													<hr class="resHr">
+												<?php endforeach; ?>
+											<?php endif; ?>
+										</div>
+										<!-- end of quantity -->
+									</div>
+									<!-- slot 1-->
 								</div>
+							</div>
+						<?php endif; ?>
+						
+						<?php if ($data['noofSlots'] == 2) : ?>
+							<div class="newService-sub">
+								<h4 class="paddingBottom">Slot 2</h4>
 								<!-- slot 1-->
-							</div>
-						</div>
-						<!-- <div class="newService-sub" id="">
-							
-							<h4 class="paddingBottom">Slot 2</h4>
-							<div class="row">
-								<div class="column">
-									<div class="row2" id="">
-										<div class="labels"><label class="labels">Interval Duration</label></div>
-										<input type="text" name="" id="" placeholder="10 min" disabled>
+								<div class="row " id="slotdetails2">
+									<!-- duration -->
+									<div class="column">
+										<div class='row2' id='intervalDetails1'>
+											<label class='labels'>Interval Duration</label><br>
+											<?php $i = $data['sInterval1Duration']; ?>
+											<?php if ($i == 60 || $i == 120) : ?>
+												<input type="text" name="" id="" placeholder="<?php echo ($i / 60); ?> h" disabled>
+											<?php elseif ($i > 60 && $i < 120) : ?>
+												<input type="text" name="" id="" placeholder="<?php echo ($i / $i); ?> h <?php echo ($i %  60); ?> mins" disabled>
+											<?php else : ?>
+												<input type="text" name="" id="" placeholder="<?php echo $i; ?> mins" disabled>
+											<?php endif; ?>
+										</div>
+										<div class='row4' id='slotDetails" + i + "'>
+											<label class='labels'>Slot Duration</label><br>
+											<?php $i = $data['sSlot2Duration']; ?>
+											<?php if ($i == 60 || $i == 120) : ?>
+												<input type="text" name="" id="" placeholder="<?php echo ($i / 60); ?> h" disabled>
+											<?php elseif ($i > 60 && $i < 120) : ?>
+												<input type="text" name="" id="" placeholder="<?php echo ($i / $i); ?> h <?php echo ($i %  60); ?> mins" disabled>
+											<?php else : ?>
+												<input type="text" name="" id="" placeholder="<?php echo $i; ?> mins" disabled>
+											<?php endif; ?>
+										</div>
 									</div>
-									<div class="row5" id="">
-										<div class="labels"><label class="labels">Slot Duration</label></div>
-										<input type="text" name="" id="" placeholder="30 min" disabled>
-									</div>
-								</div>
-								<div class="column" id="resorceDetails'+i+'">
-									<div class="labels"><label>Resources and Quantity</label></div>
-									<div class="checkbox-div">
-									<div class="divIndiv">
-											<p class="resource-align">Resource 01
-												<lable class="quantity-align">20</lable>
-											</p>
-										</div>
-										<hr class="resHr">
+									<!-- end of duration -->
 
-										<div class="divIndiv">
-											<p class="resource-align">Resource 01
-												<lable class="quantity-align">20</lable>
-											</p>
+									<!-- quantity -->
+									<div class="column" id="resorceDetails2">
+										<div class="labels"><label class="labels paddingBottom">Resources & Quantity</label></div>
+										<div class="checkbox-div">
+											<?php if (empty($data['sResS2'])) : ?>
+												<div class="divIndiv">
+													<p class="resource-align">None of Resources has Allocated...</p>
+												</div>
+											<?php else : ?>
+												<?php foreach ($data['sResS2'] as $sResDetails) : ?>
+													<div class="divIndiv">
+														<p class="resource-align"><?php echo $sResDetails->resourceID; ?> - <?php echo $sResDetails->name; ?>
+															<lable class="quantity-align"><?php echo $sResDetails->requiredQuantity; ?></lable>
+														</p>
+													</div>
+													<hr class="resHr">
+												<?php endforeach; ?>
+											<?php endif; ?>
 										</div>
-										<hr class="resHr">
-
-										<div class="divIndiv">
-											<p class="resource-align">Resource 01
-												<lable class="quantity-align">20</lable>
-											</p>
-										</div>
-										<hr class="resHr">
-
-										<div class="divIndiv">
-											<p class="resource-align">Resource 01
-												<lable class="quantity-align">20</lable>
-											</p>
-										</div>
-										<hr class="resHr">
-
-										<div class="divIndiv">
-											<p class="resource-align">Resource 01
-												<lable class="quantity-align">20</lable>
-											</p>
-										</div>
-										<hr class="resHr">
+										<!-- end of quantity -->
 									</div>
 								</div>
 							</div>
-						</div> -->
+
+						<?php endif; ?>
+
+						<?php if ($data['noofSlots'] == 3) : ?>
+							<div class="newService-sub">
+								<h4 class="paddingBottom">Slot 2</h4>
+								<!-- slot 1-->
+								<div class="row " id="slotdetails2">
+									<!-- duration -->
+									<div class="column">
+										<div class='row2' id='intervalDetails1'>
+											<label class='labels'>Interval Duration</label><br>
+											<?php $i = $data['sInterval1Duration']; ?>
+											<?php if ($i == 60 || $i == 120) : ?>
+												<input type="text" name="" id="" placeholder="<?php echo ($i / 60); ?> h" disabled>
+											<?php elseif ($i > 60 && $i < 120) : ?>
+												<input type="text" name="" id="" placeholder="<?php echo ($i / $i); ?> h <?php echo ($i %  60); ?> mins" disabled>
+											<?php else : ?>
+												<input type="text" name="" id="" placeholder="<?php echo $i; ?> mins" disabled>
+											<?php endif; ?>
+										</div>
+										<div class='row4' id='slotDetails" + i + "'>
+											<label class='labels'>Slot Duration</label><br>
+											<?php $i = $data['sSlot2Duration']; ?>
+											<?php if ($i == 60 || $i == 120) : ?>
+												<input type="text" name="" id="" placeholder="<?php echo ($i / 60); ?> h" disabled>
+											<?php elseif ($i > 60 && $i < 120) : ?>
+												<input type="text" name="" id="" placeholder="<?php echo ($i / $i); ?> h <?php echo ($i %  60); ?> mins" disabled>
+											<?php else : ?>
+												<input type="text" name="" id="" placeholder="<?php echo $i; ?> mins" disabled>
+											<?php endif; ?>
+										</div>
+									</div>
+									<!-- end of duration -->
+
+									<!-- quantity -->
+									<div class="column" id="resorceDetails2">
+										<div class="labels"><label class="labels paddingBottom">Resources & Quantity</label></div>
+										<div class="checkbox-div">
+											<?php if (empty($data['sResS2'])) : ?>
+												<div class="divIndiv">
+													<p class="resource-align">None of Resources has Allocated...</p>
+												</div>
+											<?php else : ?>
+												<?php foreach ($data['sResS2'] as $sResDetails) : ?>
+													<div class="divIndiv">
+														<p class="resource-align"><?php echo $sResDetails->resourceID; ?> - <?php echo $sResDetails->name; ?>
+															<lable class="quantity-align"><?php echo $sResDetails->requiredQuantity; ?></lable>
+														</p>
+													</div>
+													<hr class="resHr">
+												<?php endforeach; ?>
+											<?php endif; ?>
+										</div>
+										<!-- end of quantity -->
+									</div>
+								</div>
+							</div>
+							<div class="newService-sub">
+								<h4 class="paddingBottom">Slot 3</h4>
+								<!-- slot 1-->
+								<div class="row " id="slotdetails3">
+									<!-- duration -->
+									<div class="column">
+									<div class='row2' id='intervalDetails1'>
+											<label class='labels'>Interval Duration</label><br>
+											<?php $i = $data['sInterval2Duration']; ?>
+											<?php if ($i == 60 || $i == 120) : ?>
+												<input type="text" name="" id="" placeholder="<?php echo ($i / 60); ?> h" disabled>
+											<?php elseif ($i > 60 && $i < 120) : ?>
+												<input type="text" name="" id="" placeholder="<?php echo ($i / $i); ?> h <?php echo ($i %  60); ?> mins" disabled>
+											<?php else : ?>
+												<input type="text" name="" id="" placeholder="<?php echo $i; ?> mins" disabled>
+											<?php endif; ?>
+										</div>
+										<div class='row4' id='slotDetails" + i + "'>
+											<label class='labels'>Slot Duration</label><br>
+											<?php $i = $data['sSlot3Duration']; ?>
+											<?php if ($i == 60 || $i == 120) : ?>
+												<input type="text" name="" id="" placeholder="<?php echo ($i / 60); ?> h" disabled>
+											<?php elseif ($i > 60 && $i < 120) : ?>
+												<input type="text" name="" id="" placeholder="<?php echo ($i / $i); ?> h <?php echo ($i %  60); ?> mins" disabled>
+											<?php else : ?>
+												<input type="text" name="" id="" placeholder="<?php echo $i; ?> mins" disabled>
+											<?php endif; ?>
+										</div>
+									</div>
+									<!-- end of duration -->
+
+									<!-- quantity -->
+									<div class="column" id="resorceDetails3">
+										<div class="labels"><label class="labels paddingBottom">Resources & Quantity</label></div>
+										<div class="checkbox-div">
+											<?php if (empty($data['sResS3'])) : ?>
+												<div class="divIndiv">
+													<p class="resource-align">None of Resources has Allocated...</p>
+												</div>
+											<?php else : ?>
+												<?php foreach ($data['sResS3'] as $sResDetails) : ?>
+													<div class="divIndiv">
+														<p class="resource-align"><?php echo $sResDetails->resourceID; ?> - <?php echo $sResDetails->name; ?>
+															<lable class="quantity-align"><?php echo $sResDetails->requiredQuantity; ?></lable>
+														</p>
+													</div>
+													<hr class="resHr">
+												<?php endforeach; ?>
+											<?php endif; ?>
+										</div>
+										<!-- end of quantity -->
+									</div>
+								</div>
+							</div>
+						<?php endif; ?>
 					</div>
 				</form>
 			</div>

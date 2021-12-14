@@ -5,30 +5,23 @@
 /* ------------------------------------------------------ */
 
 /* Custom menu icon */
-/* .ci{
+.ci{
    display: block;
-} */
-
-
-/* Custom close icon */
-.ci-x-white {
-   background: url(../../public/svg/x-white.svg);
-   height: 32px;
-   width: 32px;
-   display: block;
-   background-size: contain;
-}
-
-.ci-menu-white {
-   background: url(../../public/svg/menu-white.svg);
-   height: 32px;
-   width: 32px;
-   background-size: contain;
 }
 
 .sidenav-icon{
    height: 26px;
    width: 26px;
+}
+
+.toast-icon{
+   height:25px;
+   width: 25px;
+}
+
+.toast-close{
+   height: 20px;
+   width: 20px;
 }
 
 .table-icon{
@@ -43,6 +36,25 @@
    height: 20px;
    width: 20px;
 }
+
+/* Custom close icon */
+.ci-x-white {
+   background: url(../../public/svg/x-white.svg);
+   background-size: contain;
+}
+
+.ci-x-black {
+   background: url(../../public/svg/x-black.svg);
+   background-size: contain;
+}
+
+.ci-menu-white {
+   background: url(../../public/svg/menu-white.svg);
+   height: 32px;
+   width: 32px;
+   background-size: contain;
+}
+
 
 .ci-elements {
    background: url(../../public/svg/element-equal.svg);
@@ -163,6 +175,18 @@
    background-repeat: no-repeat;
    background-size: contain;
 } 
+
+.ci-success-white{
+   background: url(../../public/svg/success-white.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+
+.ci-warning-white{
+   background: url(../../public/svg/warning-white.svg);
+   background-repeat: no-repeat;
+   background-size: auto;
+}
 
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/

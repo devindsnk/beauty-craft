@@ -3,7 +3,7 @@ class SysAdminDashboard extends Controller
 {
    public function __construct()
    {
-      validateSession([1]);
+      Session::validateSession([1]);
    }
    public function home()
    {

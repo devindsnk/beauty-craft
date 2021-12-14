@@ -4,14 +4,13 @@
 
 <div class="content cust new-res">
    <div class="main-container">
-      <a href="<?php echo URLROOT ?>/custDashboard/myReservations" class="btn btn-filled btn-black goBackBtn">Go
-         Back</a>
+      <input type="button" value="Go back!" class="btn btn-filled btn-black goBackBtn" onclick="history.back()">
       <h1>New Reservation</h1>
 
       <form action="<?php echo URLROOT; ?>/reservations/newReservationCust" method="post" class="form">
          <div class="text-group date">
             <label class="label" for="fName">Date</label>
-            <input type="date" id="" name="date" value="<?php echo $data['date']; ?>" class="dateSelect">
+            <input type="date" id="date_picker" name="date" value="<?php echo $data['date']; ?>" class="dateSelect">
             <span class="error date-error">
                <!-- <?php echo $data['date_error']; ?> -->
             </span>
@@ -106,8 +105,27 @@
       </form>
    </div>
 </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> -->
+<!-- <script src="<?php echo URLROOT ?>/public/js/jquery-3.6.0.min.js"></script> -->
+<!-- <script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script> -->
+<script language="javascript">
+   console.log(new Date().toISOString().split('T')[0]);
+
+   var today = new Date().toISOString().split('T')[0];
+   var maxDate = new Date();
+   month = new Date().getMonth();
+   maxDate.setMonth(maxDate.getMonth() + 2);
+   maxDate = maxDate.toISOString().split('T')[0];
+   console.log(maxDate);
+   document.getElementById("date_picker").setAttribute('min', today);
+   document.getElementById("date_picker").setAttribute('max', maxDate);
+</script>
 <script src="<?php echo URLROOT ?>/public/js/fetchRequests.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/fetchRequests/newReservation.js"></script>
+
 </body>
 
 </html>

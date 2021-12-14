@@ -4,7 +4,7 @@ class CustDashboard extends Controller
 {
    public function __construct()
    {
-      validateSession([6]);
+      Session::validateSession([6]);
       $this->serviceModel = $this->model('ServiceModel');
       $this->reservationModel = $this->model('ReservationModel');
    }
@@ -22,7 +22,7 @@ class CustDashboard extends Controller
    }
    public function profileSettings()
    {
-      // validateSession([6]);
+      // Session::validateSession([6]);
       $this->view('customer/cust_profileSettings');
    }
 }
