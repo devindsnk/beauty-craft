@@ -1,3 +1,5 @@
+<?php require APPROOT . "/views/inc/toast.php" ?>
+
 <!DOCTYPE html>
 <html>
 

@@ -24,7 +24,7 @@ function displayToast(state, titleText, subtitleText){
         btnVisible = 0;
     }
     
-    if(!btnVisible){
+    if(btnVisible == 1){
         setTimeout(()=>{
             closeToast(toastState);
         }, 5000);

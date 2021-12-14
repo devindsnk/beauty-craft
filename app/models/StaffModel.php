@@ -9,7 +9,7 @@ class StaffModel extends Model
    // add staff details to the db
    public function addStaffDetails($data)
    {
-      $results =  $this->insert('staff', ['fName' => $data['staffFname'], 'lName' => $data['staffLname'], 'staffType' => $data['staffType'], 'mobileNo' => $data['staffMobileNo'], 'gender' => $data['gender'], 'nic' => $data['staffNIC'], 'address' => $data['staffHomeAdd'], 'email' => $data['staffEmail'], 'dob' => $data['staffDOB'],'imgPath' =>  $data['staffimagePath']]);
+      $results =  $this->insert('staff', ['fName' => $data['staffFname'], 'lName' => $data['staffLname'], 'staffType' => $data['staffType'], 'mobileNo' => $data['staffMobileNo'], 'gender' => $data['gender'], 'nic' => $data['staffNIC'], 'address' => $data['staffHomeAdd'], 'email' => $data['staffEmail'], 'dob' => $data['staffDOB'], 'imgPath' =>  $data['staffimagePath']]);
       var_dump($results);
    }
 
@@ -134,21 +134,21 @@ class StaffModel extends Model
 
    ///// Methods added by devin ////
 
+   // Returns the data of service providers of a given service with their availability on the give date.
    public function getServiceProvidersByServiceWithAvailability($serviceID, $date)
    {
       // should get first name last name and availability
       // Tables to interact: 'staff', 'serviceproviders', 'generalLeaves'
 
       $SQLquery =
-         "SELECT S.staffID, S.fName, S.lName
+         "SELECT S.staffID, S.fName, S.lName, GL.status
          FROM staff AS S
          INNER JOIN serviceproviders AS SP
             ON S.staffID = SP.staffID
             AND SP.serviceID = :serviceID
          LEFT JOIN generalleaves AS GL 
             ON S.staffID = gl.staffID
-            AND GL.leaveDate = :date
-            AND gl.status = 0";
+            AND GL.leaveDate = :date";
 
       $results = $this->customQuery(
          $SQLquery,

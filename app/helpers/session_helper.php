@@ -42,17 +42,4 @@ class Session
          }
       }
    }
-
-   public static function hasToastNotification()
-   {
-      if (isset($_SESSION['toast']))
-         return true;
-      else
-         return false;
-   }
-
-   public static function clearToastNotification()
-   {
-      self::clear('toast');
-   }
 }

@@ -18,7 +18,7 @@
 
 <?php
 
-if (Session::hasToastNotification())
+if (Toast::hasToastNotification())
 {
     $toast = Session::get('toast');
     $toastState = $toast['toastState'];
@@ -27,7 +27,7 @@ if (Session::hasToastNotification())
 
     echo "<script> displayToast('{$toastState}','{$toastTitle}','{$toastSubtitle}'); </script>";
 
-    Session::clearToastNotification();
+    Toast::clearToastNotification();
 }
 
 ?>
