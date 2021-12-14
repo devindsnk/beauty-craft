@@ -97,7 +97,7 @@ class Services extends Controller
                $data['sSlot1Duration_error'] = "Please enter slot duration";
             }
             
-            if(empty($data['slot3Duration']) || empty($data['sSelectedResCount3']) || empty($data['interval2Duration'])){
+            if(!empty($data['slot3Duration']) || !empty($data['sSelectedResCount3']) || !empty($data['interval2Duration'])){
                for($i = 2; $i < 4; $i++){
                   if (empty($data['slot'.($i).'Duration'])) {
                      $data['sSlot'.($i).'Duration_error'] = "Please enter slot duration";
@@ -107,7 +107,7 @@ class Services extends Controller
                   }
                }
             }
-            elseif(empty($data['slo2Duration']) || empty($data['sSelectedResCount2']) || empty($data['interval1Duration'])){
+            elseif(!empty($data['slot2Duration']) || !empty($data['sSelectedResCount2']) || !empty($data['interval1Duration'])){
                for($i = 2; $i < 3; $i++){
                   if (empty($data['slot'.($i).'Duration'])) {
                      $data['sSlot'.($i).'Duration_error'] = "Please enter slot duration";
