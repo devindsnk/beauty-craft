@@ -10,7 +10,7 @@ class Staff extends Controller
 
    public function addStaff()
    {
-      if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'FILES' )
+      if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'FILES')
       {
          // echo "<pre>";
          // print_r($_FILES['staffimage']);
@@ -20,20 +20,22 @@ class Staff extends Controller
          $img_size = $_FILES['staffimage']['size'];
          $tmp_name = $_FILES['staffimage']['tmp_name'];
          $error = $_FILES['staffimage']['error'];
-         $img_extension= pathinfo($img_name, PATHINFO_EXTENSION);
+         $img_extension = pathinfo($img_name, PATHINFO_EXTENSION);
          $img_ex_lc = strtolower($img_extension);
-         $allowed_extensions = array("jpg","jpeg","png");
-         if($error == 0){
-           if (in_array($img_ex_lc,$allowed_extensions)){
-            $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
-            $img_upload_path = '../public/imgs/staffImgs/' .$new_img_name;
-            move_uploaded_file($tmp_name, $img_upload_path);
+         $allowed_extensions = array("jpg", "jpeg", "png");
+         if ($error == 0)
+         {
+            if (in_array($img_ex_lc, $allowed_extensions))
+            {
+               $new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc;
+               $img_upload_path = '../public/imgs/staffImgs/' . $new_img_name;
+               move_uploaded_file($tmp_name, $img_upload_path);
             }
          }
          // $tempvar= $new_img_name;
          // echo $tempvar;
          // die();
-      
+
          $data = [
             'staffimagePath' => $new_img_name,
             'staffFname' => trim($_POST['staffFname']),
@@ -43,7 +45,7 @@ class Staff extends Controller
             'staffDOB' => trim($_POST['staffDOB']),
             'staffType' => isset($_POST['staffType']) ? trim($_POST['staffType']) : '',
             'staffHomeAdd' => trim($_POST['staffHomeAdd']),
-            'staffHomeAddTyped'=>'',
+            'staffHomeAddTyped' => '',
             'staffMobileNo' => trim($_POST['staffMobileNo']),
             'staffEmail' => trim($_POST['staffEmail']),
             'staffAccNum' => trim($_POST['staffAccNum']),
@@ -68,29 +70,31 @@ class Staff extends Controller
 
          // print_r($data['staffimage']);
          // die();
-            $data['staffHomeAddTyped']= $data['staffHomeAdd'];
-            
-            if (empty($data['staffimagePath']))
-            {
-               $data['staffimagePath_error'] = "Please insert a valid image";
-            }
-            // Validating fname
+         $data['staffHomeAddTyped'] = $data['staffHomeAdd'];
+
+         if (empty($data['staffimagePath']))
+         {
+            $data['staffimagePath_error'] = "Please insert a valid image";
+         }
+         // Validating fname
          if (empty($data['staffFname']))
          {
             $data['staffFname_error'] = "Please enter First Name";
          }
-         else if (!preg_match("/^[a-zA-Z-' ]*$/",$data['staffFname'])) {
+         else if (!preg_match("/^[a-zA-Z-' ]*$/", $data['staffFname']))
+         {
             $data['staffFname_error']  = "Only letters are allowed";
-          }
+         }
 
          // Validating lname
          if (empty($data['staffLname']))
          {
             $data['staffLname_error'] = "Please enter Last Name";
          }
-         else if (!preg_match("/^[a-zA-Z-' ]*$/",$data['staffFname'])) {
+         else if (!preg_match("/^[a-zA-Z-' ]*$/", $data['staffFname']))
+         {
             $data['staffFname_error']  = "Only letters are allowed";
-          }
+         }
 
          // Validating gender
          if (empty($data['gender']))
@@ -102,23 +106,28 @@ class Staff extends Controller
          {
             $data['staffNIC_error'] = "Please enter NIC number";
          }
-         else if (preg_match ("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $data['staffNIC']) ){ 
+         else if (preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $data['staffNIC']))
+         {
             $data['staffNIC_error'] = "Only numeric values and letters are allowed";
-         }  
-         elseif (!(strlen($data['staffNIC']) == 10) && !(strlen($data['staffNIC']) == 12) ){
+         }
+         elseif (!(strlen($data['staffNIC']) == 10) && !(strlen($data['staffNIC']) == 12))
+         {
             $data['staffNIC_error'] = "Invalid NIC format";
          }
-         elseif(strlen($data['staffNIC']) == 12 && !is_numeric($data['staffNIC'])){
+         elseif (strlen($data['staffNIC']) == 12 && !is_numeric($data['staffNIC']))
+         {
             $data['staffNIC_error'] = "Invalid nic format";
          }
-         elseif ((strlen($data['staffNIC']) == 10)){
-         if(!is_numeric(substr($data['staffNIC'], 0, 9)) || (substr($data['staffNIC'],9,10))!="V"){
-            $data['staffNIC_error'] = "Invalid nic format";
+         elseif ((strlen($data['staffNIC']) == 10))
+         {
+            if (!is_numeric(substr($data['staffNIC'], 0, 9)) || (substr($data['staffNIC'], 9, 10)) != "V")
+            {
+               $data['staffNIC_error'] = "Invalid nic format";
             }
          }
 
-            // $data['staffNIC_error'] = "Invalid NIC format";
-        
+         // $data['staffNIC_error'] = "Invalid NIC format";
+
          // elseif (!(strlen($data['staffNIC']) == 10) && !preg_match ("/^[V]*$/", $data['staffNIC'])){
          //    $data['staffNIC_error'] = "Invalid NIC format";
          // }
@@ -144,68 +153,78 @@ class Staff extends Controller
          {
             $data['staffMobileNo_error'] = "Please enter contact number";
          }
-         else if (!preg_match ("/^[0-9]*$/", $data['staffMobileNo']) || (strlen($data['staffMobileNo']) != 10) ){  
+         else if (!preg_match("/^[0-9]*$/", $data['staffMobileNo']) || (strlen($data['staffMobileNo']) != 10))
+         {
             $data['staffMobileNo_error'] = "Invalid contact number format";
-         }  
+         }
 
          // Validating email
          if (empty($data['staffEmail']))
          {
             $data['staffEmail_error'] = "Please enter email";
          }
-         else if (!filter_var($data['staffEmail'], FILTER_VALIDATE_EMAIL)) {
+         else if (!filter_var($data['staffEmail'], FILTER_VALIDATE_EMAIL))
+         {
             $data['staffEmail_error'] = "Invalid email format";
          }
 
-      
+
          // Validating account number
          if (empty($data['staffAccNum']))
          {
             $data['staffAccNum_error'] = "Please enter bank account number";
          }
-         else if (!preg_match ("/^[0-9]*$/", $data['staffAccNum']) ){  
+         else if (!preg_match("/^[0-9]*$/", $data['staffAccNum']))
+         {
             $data['staffAccNum_error'] = "Invalid account number ormat";
-         }  
+         }
 
          // Validating account holder's name
          if (empty($data['staffAccHold']))
          {
             $data['staffAccHold_error'] = "Please enter bank account holders name";
          }
-         else if (!preg_match("/^[a-zA-Z-' ]*$/",$data['staffAccHold'])) {
+         else if (!preg_match("/^[a-zA-Z-' ]*$/", $data['staffAccHold']))
+         {
             $data['staffAccHold_error']  = "Only letters are allowed";
-          }
+         }
 
          // Validating bank name
          if (empty($data['staffAccBank']))
          {
             $data['staffAccBank_error'] = "Please enter bank name";
          }
-         else if (!preg_match("/^[a-zA-Z-' ]*$/",$data['staffAccBank'])) {
+         else if (!preg_match("/^[a-zA-Z-' ]*$/", $data['staffAccBank']))
+         {
             $data['staffAccBank_error']  = "Only letters are allowed";
-          }
+         }
 
-          // Validating branch name
-         if (empty($data['staffAccBranch'])) {
+         // Validating branch name
+         if (empty($data['staffAccBranch']))
+         {
             $data['staffAccBranch_error'] = "Please enter branch name";
          }
          // else if (!preg_match("/^[a-zA-Z-' ]*$/",$data['staffAccBank'])) {
          //    $data['staffAccBank_error']  = "Only letters are allowed";
          //  }
 
-       
 
-         if ( empty($data['staffimagePath_error']) && empty($data['staffFname_error']) && empty($data['staffLname_error']) && empty($data['gender_error']) && empty($data['staffNIC_error']) && empty($data['staffDOB_error']) && empty($data['staffType_error']) && empty($data['staffHomeAdd_error']) && empty($data['staffMobileNo_error']) && empty($data['staffEmail_error']) &&
+
+         if (
+            empty($data['staffimagePath_error']) && empty($data['staffFname_error']) && empty($data['staffLname_error']) && empty($data['gender_error']) && empty($data['staffNIC_error']) && empty($data['staffDOB_error']) && empty($data['staffType_error']) && empty($data['staffHomeAdd_error']) && empty($data['staffMobileNo_error']) && empty($data['staffEmail_error']) &&
             empty($data['staffAccNum_error']) && empty($data['staffAccHold_error']) && empty($data['staffAccBank_error']) && empty($data['staffAccBranch_error'])
-         ) { 
+         )
+         {
 
             // print_r($data[]);
+            $this->userModel->registerUser($data['staffMobileNo'], $data['staffNIC'], $data['staffType']);
             $this->staffModel->addStaffDetails($data);
             $this->staffModel->addBankDetails($data);
-            $this->userModel->registerUser($data['staffMobileNo'], $data['staffNIC'], $data['staffType']);
+            Toast::setToast(1, "Staff Member Successfully Registered!", "");
+
             header('location: ' . URLROOT . '/OwnDashboard/staff');
-         } 
-         else 
+         }
+         else
          {
             $this->view('owner/own_staffAdd', $data);
          }
@@ -242,13 +261,13 @@ class Staff extends Controller
             'staffAccHold_error' => '',
             'staffAccBank_error' => '',
             'staffAccBranch_error' => '',
-            'staffHomeAddTyped'=>'',
-            
+            'staffHomeAddTyped' => '',
+
          ];
          $this->view('owner/own_staffAdd', $data);
       }
    }
-   public function updateStaff($staffID) 
+   public function updateStaff($staffID)
    {
       // die('success');
       // $this->view('owner/own_staffUpdate');  
@@ -292,25 +311,27 @@ class Staff extends Controller
             'staffAccBranch_error' => '',
             'staffdetails' => $staffdetails[0],
          ];
-            // $data['staffHomeAddTyped']= $data['staffAddress'];
+         // $data['staffHomeAddTyped']= $data['staffAddress'];
 
-            // Validating fname
+         // Validating fname
          if (empty($data['staffFname']))
          {
             $data['staffFname_error'] = "Please enter First Name";
          }
-         else if (!preg_match("/^[a-zA-Z-' ]*$/",$data['staffFname'])) {
+         else if (!preg_match("/^[a-zA-Z-' ]*$/", $data['staffFname']))
+         {
             $data['staffFname_error']  = "Only letters are allowed";
-          }
+         }
 
          // Validating lname
          if (empty($data['staffLname']))
          {
             $data['staffLname_error'] = "Please enter Last Name";
          }
-         else if (!preg_match("/^[a-zA-Z-' ]*$/",$data['staffFname'])) {
+         else if (!preg_match("/^[a-zA-Z-' ]*$/", $data['staffFname']))
+         {
             $data['staffFname_error']  = "Only letters are allowed";
-          }
+         }
 
          // Validating gender
          if (empty($data['gender']))
@@ -322,23 +343,28 @@ class Staff extends Controller
          {
             $data['staffNIC_error'] = "Please enter NIC number";
          }
-         else if (preg_match ("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $data['staffNIC']) ){ 
+         else if (preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $data['staffNIC']))
+         {
             $data['staffNIC_error'] = "Only numeric values and letters are allowed";
-         }  
-         elseif (!(strlen($data['staffNIC']) == 10) && !(strlen($data['staffNIC']) == 12) ){
+         }
+         elseif (!(strlen($data['staffNIC']) == 10) && !(strlen($data['staffNIC']) == 12))
+         {
             $data['staffNIC_error'] = "Invalid NIC format";
          }
-         elseif(strlen($data['staffNIC']) == 12 && !is_numeric($data['staffNIC'])){
+         elseif (strlen($data['staffNIC']) == 12 && !is_numeric($data['staffNIC']))
+         {
             $data['staffNIC_error'] = "Invalid nic format";
          }
-         elseif ((strlen($data['staffNIC']) == 10)){
-         if(!is_numeric(substr($data['staffNIC'], 0, 9)) || (substr($data['staffNIC'],9,10))!="V"){
-            $data['staffNIC_error'] = "Invalid nic format";
+         elseif ((strlen($data['staffNIC']) == 10))
+         {
+            if (!is_numeric(substr($data['staffNIC'], 0, 9)) || (substr($data['staffNIC'], 9, 10)) != "V")
+            {
+               $data['staffNIC_error'] = "Invalid nic format";
             }
          }
 
-            // $data['staffNIC_error'] = "Invalid NIC format";
-        
+         // $data['staffNIC_error'] = "Invalid NIC format";
+
          // elseif (!(strlen($data['staffNIC']) == 10) && !preg_match ("/^[V]*$/", $data['staffNIC'])){
          //    $data['staffNIC_error'] = "Invalid NIC format";
          // }
@@ -365,73 +391,80 @@ class Staff extends Controller
          {
             $data['staffMobileNo_error'] = "Please enter contact number";
          }
-         else if (!preg_match ("/^[0-9]*$/", $data['staffMobileNo']) || (strlen($data['staffMobileNo']) != 10) ){  
+         else if (!preg_match("/^[0-9]*$/", $data['staffMobileNo']) || (strlen($data['staffMobileNo']) != 10))
+         {
             $data['staffMobileNo_error'] = "Invalid contact number format";
-         }  
+         }
 
          // Validating email
          if (empty($data['staffEmail']))
          {
             $data['staffEmail_error'] = "Please enter email";
          }
-         else if (!filter_var($data['staffEmail'], FILTER_VALIDATE_EMAIL)) {
+         else if (!filter_var($data['staffEmail'], FILTER_VALIDATE_EMAIL))
+         {
             $data['staffEmail_error'] = "Invalid email format";
          }
 
-      
+
          // Validating account number
          if (empty($data['staffAccNum']))
          {
             $data['staffAccNum_error'] = "Please enter bank account number";
          }
-         else if (!preg_match ("/^[0-9]*$/", $data['staffAccNum']) ){  
+         else if (!preg_match("/^[0-9]*$/", $data['staffAccNum']))
+         {
             $data['staffAccNum_error'] = "Invalid account number ormat";
-         }  
+         }
 
          // Validating account holder's name
          if (empty($data['staffAccHold']))
          {
             $data['staffAccHold_error'] = "Please enter bank account holders name";
          }
-         else if (!preg_match("/^[a-zA-Z-' ]*$/",$data['staffAccHold'])) {
+         else if (!preg_match("/^[a-zA-Z-' ]*$/", $data['staffAccHold']))
+         {
             $data['staffAccHold_error']  = "Only letters are allowed";
-          }
+         }
 
          // Validating bank name
          if (empty($data['staffAccBank']))
          {
             $data['staffAccBank_error'] = "Please enter bank name";
          }
-         else if (!preg_match("/^[a-zA-Z-' ]*$/",$data['staffAccBank'])) {
+         else if (!preg_match("/^[a-zA-Z-' ]*$/", $data['staffAccBank']))
+         {
             $data['staffAccBank_error']  = "Only letters are allowed";
-          }
+         }
 
-          // Validating branch name
-         if (empty($data['staffAccBranch'])) {
+         // Validating branch name
+         if (empty($data['staffAccBranch']))
+         {
             $data['staffAccBranch_error'] = "Please enter branch name";
          }
          // else if (!preg_match("/^[a-zA-Z-' ]*$/",$data['staffAccBank'])) {
          //    $data['staffAccBank_error']  = "Only letters are allowed";
          //  }
 
-       
+
 
          if (
             empty($data['staffFname_error']) && empty($data['staffLname_error']) && empty($data['gender_error']) && empty($data['staffNIC_error']) && empty($data['staffDOB_error']) && empty($data['staffAddress_error']) && empty($data['staffMobileNo_error']) && empty($data['staffEmail_error']) &&
             empty($data['staffAccNum_error']) && empty($data['staffAccHold_error']) && empty($data['staffAccBank_error']) && empty($data['staffAccBranch_error'])
-         ) {
+         )
+         {
 
             print_r($staffID);
             print_r($data);
-            $this->staffModel->updateStaffDetails($data,$staffID);
-            $this->staffModel->updateBankDetails($data,$staffID);
+            $this->staffModel->updateStaffDetails($data, $staffID);
+            $this->staffModel->updateBankDetails($data, $staffID);
             // $this->userModel->registerUser($data['staffMobileNo'], $data['staffNIC'], $data['staffType']);
             header('location: ' . URLROOT . '/OwnDashboard/staff');
          }
          else
          {
             // die('success');
-            $this->view('owner/own_staffUpdate',$data);
+            $this->view('owner/own_staffUpdate', $data);
          }
       }
       else
@@ -467,20 +500,17 @@ class Staff extends Controller
             'staffAccBank_error' => '',
             'staffAccBranch_error' => '',
             'staffdetails' => $staffdetails[0],
-            
+
          ];
          // die('success');
          $this->view('owner/own_staffUpdate', $data);
-
       }
-   
-
    }
    public function viewStaff($staffID)
    {
       $bankDetails = $this->staffModel->getStaffDetailsWithBankDetailsByStaffID($staffID);
-      $this->view('owner/own_staffView',$bankDetails[0]);
-   }  
+      $this->view('owner/own_staffView', $bankDetails[0]);
+   }
 
    public function RemStaffReservations() //details
    {
@@ -502,8 +532,7 @@ class Staff extends Controller
       print_r($RemstaffDetails);
       // die();
       // $this->staffModel->removestaff($staffID);
-      $this->view('owner/own_staff',$RemstaffDetails);
+      $this->view('owner/own_staff', $RemstaffDetails);
       // $this->view('owner/own_RemStaffViewReservations');
    }
-
 }

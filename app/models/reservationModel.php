@@ -1,8 +1,6 @@
 <?php
 class ReservationModel extends Model
 {
-
-
    public function addReservation($data)
    {
       $results = $this->insert(
@@ -97,7 +95,6 @@ class ReservationModel extends Model
    //FOR SP overview
    public function getReservationsByStaffID($staffID)
    {
-      //  die("hii555555");
       $results = $this->customQuery("SELECT reservations.date,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
       FROM reservations 
       INNER JOIN services ON services.serviceID = reservations.serviceID
@@ -105,4 +102,15 @@ class ReservationModel extends Model
       WHERE staffID=:staffID ORDER BY date", [':staffID' => $staffID,]);
       return $results;
    }
+
+   // Complex reservation process
+
+
+   ////////////////////////////////////////////////
+
+
+
+   ////////////////////////////////////////////////
+
+
 }

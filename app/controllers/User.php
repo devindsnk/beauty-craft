@@ -123,6 +123,7 @@ class User extends Controller
                      if ($SMSResponse)
                      {
                         $this->OTPModel->storeOTP($data['mobileNo'], $OTP,  2);
+                        Toast::setToast(1, "Password recovery OTP sent!", "Check you mobile for the OTP.");
                      }
                      // If sending OTP sending fails
                      else

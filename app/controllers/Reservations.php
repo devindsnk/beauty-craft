@@ -4,6 +4,7 @@ class Reservations extends Controller
 {
    public function __construct()
    {
+      $this->staffModel = $this->model('StaffModel');
       $this->serviceModel = $this->model('ServiceModel');
       $this->reservationModel = $this->model('ReservationModel');
       $this->closedDatesModel = $this->model('ClosedDatesModel');
@@ -158,6 +159,14 @@ class Reservations extends Controller
    public function getAllReservationsOfDate($selectedDate)
    {
    }
+
+   ////////////////////////////////////////
+
+   public function getDataForSProvidersList($date, $serviceID)
+   {
+   }
+
+   ////////////////////////////////////////
 
 
    public function notFound()
