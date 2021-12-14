@@ -76,16 +76,22 @@
                   <td data-lable="Type" class="column-left-align"><?php echo $sDetails->type; ?></td>
 
                   <?php $i = $sDetails->totalDuration; ?>
-                  <?php if ($i == 60 || $i == 120) : ?>
-                     <td data-lable="Total Duration" class="column-center-align"><?php echo ($i / 60); ?> h</td>
+                  <?php $hours = $i/60; ?>
+                  <?php $mins = $i%60; ?>
 
-                  <?php elseif ($i > 60 && $i < 120) : ?>
-                     <td data-lable="Total Duration" class="column-center-align"><?php echo ($i / $i); ?> h <?php echo ($i %  60); ?> mins</td>
-
-                  <?php else : ?>
-                     <td data-lable="Total Duration" class="column-center-align"><?php echo $i; ?> mins</td>
-
-                  <?php endif; ?>
+                  <td data-lable="Total Duration" class="column-center-align">
+                     <?php if ((int)$hours <= 0) : ?>
+                        <?php if ($mins > 0) : ?>
+                           <?php echo $mins; ?> mins
+                        <?php endif; ?>
+                     <?php else: ?>
+                        <?php if ($mins > 0) : ?>
+                           <?php echo (int)$hours; ?> h <?php echo $mins; ?> mins
+                        <?php else: ?>
+                           <?php echo (int)$hours; ?> h 
+                        <?php endif; ?>
+                     <?php endif; ?>
+                  </td>
 
                   <td data-lable="Price" class="column-right-align"><?php echo number_format($sDetails->price, 2, '.', ' '); ?> LKR</td>
 
