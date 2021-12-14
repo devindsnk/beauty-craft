@@ -15,7 +15,7 @@ class ClosedDatesModel extends Model
    {
       // print_r($data);
       $results =  $this->insert('closeddates', ['date' =>  $data['closeDate'], 'note' => $data['closeSalonReason']]);
-      var_dump($results);
+      // var_dump($results);
    }
 
    public function getCloseDatesDetails()
@@ -23,7 +23,7 @@ class ClosedDatesModel extends Model
 
       $results =  $this->getResultSet('closeddates', '*', null);
       // print_r($results);
-      var_dump($results);
+      // var_dump($results);
       return $results;
    }
 
@@ -33,5 +33,29 @@ class ClosedDatesModel extends Model
       $results = $this->delete('closeddates', ['defKey' => $defKey]);
       // print_r($results);
       var_dump($results);
+   }
+
+   
+   public function getCloseDatesReservationDetails($date)
+   {
+      // echo $data;
+      // die("bla");
+      $results =  $this->getResultSet('reservations', '*', ['date' => $date]);
+      // ['date' => $date]
+      // print_r($results);
+      // var_dump($results);
+      return $results;
+   }
+   public function getCloseDatesReservationCount($date)
+   {
+      // echo $date;
+      // die("bla");
+      // ['date' => $date]
+      // print_r($results);
+      // var_dump($results);
+      $results = $this->getRowCount('reservations', ['date' => $date]);
+      print_r($results);
+
+      return $results;
    }
 }

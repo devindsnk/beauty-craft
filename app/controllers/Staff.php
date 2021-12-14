@@ -7,12 +7,35 @@ class Staff extends Controller
       $this->staffModel = $this->model('StaffModel');
    }
 
+
    public function addStaff()
    {
-      if ($_SERVER['REQUEST_METHOD'] == 'POST')
+      if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'FILES' )
       {
+         // echo "<pre>";
+         // print_r($_FILES['staffimage']);
+         // echo "</pre>";
+         // die();
+         $img_name = $_FILES['staffimage']['name'];
+         $img_size = $_FILES['staffimage']['size'];
+         $tmp_name = $_FILES['staffimage']['tmp_name'];
+         $error = $_FILES['staffimage']['error'];
+         $img_extension= pathinfo($img_name, PATHINFO_EXTENSION);
+         $img_ex_lc = strtolower($img_extension);
+         $allowed_extensions = array("jpg","jpeg","png");
+         if($error == 0){
+           if (in_array($img_ex_lc,$allowed_extensions)){
+            $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
+            $img_upload_path = '../public/imgs/staffImgs/' .$new_img_name;
+            move_uploaded_file($tmp_name, $img_upload_path);
+            }
+         }
+         // $tempvar= $new_img_name;
+         // echo $tempvar;
+         // die();
+      
          $data = [
-            'staffimage' => trim($_POST['staffimage']),
+            'staffimagePath' => $new_img_name,
             'staffFname' => trim($_POST['staffFname']),
             'staffLname' => trim($_POST['staffLname']),
             'gender' => isset($_POST['gender']) ? trim($_POST['gender']) : '',
@@ -27,7 +50,7 @@ class Staff extends Controller
             'staffAccHold' => trim($_POST['staffAccHold']),
             'staffAccBank' => trim($_POST['staffAccBank']),
             'staffAccBranch' => trim($_POST['staffAccBranch']),
-            'staffimage_error' => '',
+            'staffimagePath_error' => '',
             'staffFname_error' => '',
             'staffLname_error' => '',
             'gender_error' => '',
@@ -42,11 +65,14 @@ class Staff extends Controller
             'staffAccBank_error' => '',
             'staffAccBranch_error' => '',
          ];
+
+         // print_r($data['staffimage']);
+         // die();
             $data['staffHomeAddTyped']= $data['staffHomeAdd'];
             
-            if (empty($data['staffimage']))
+            if (empty($data['staffimagePath']))
             {
-               $data['staffimage_error'] = "Please insert a image";
+               $data['staffimagePath_error'] = "Please insert a valid image";
             }
             // Validating fname
          if (empty($data['staffFname']))
@@ -65,7 +91,6 @@ class Staff extends Controller
          else if (!preg_match("/^[a-zA-Z-' ]*$/",$data['staffFname'])) {
             $data['staffFname_error']  = "Only letters are allowed";
           }
-
 
          // Validating gender
          if (empty($data['gender']))
@@ -170,18 +195,17 @@ class Staff extends Controller
 
        
 
-         if (
-            empty($data['staffimage_error']) && empty($data['staffFname_error']) && empty($data['staffLname_error']) && empty($data['gender_error']) && empty($data['staffNIC_error']) && empty($data['staffDOB_error']) && empty($data['staffType_error']) && empty($data['staffHomeAdd_error']) && empty($data['staffMobileNo_error']) && empty($data['staffEmail_error']) &&
+         if ( empty($data['staffimagePath_error']) && empty($data['staffFname_error']) && empty($data['staffLname_error']) && empty($data['gender_error']) && empty($data['staffNIC_error']) && empty($data['staffDOB_error']) && empty($data['staffType_error']) && empty($data['staffHomeAdd_error']) && empty($data['staffMobileNo_error']) && empty($data['staffEmail_error']) &&
             empty($data['staffAccNum_error']) && empty($data['staffAccHold_error']) && empty($data['staffAccBank_error']) && empty($data['staffAccBranch_error'])
-         ) {
+         ) { 
 
-            // print_r($data);
+            // print_r($data[]);
             $this->staffModel->addStaffDetails($data);
             $this->staffModel->addBankDetails($data);
             $this->userModel->registerUser($data['staffMobileNo'], $data['staffNIC'], $data['staffType']);
             header('location: ' . URLROOT . '/OwnDashboard/staff');
-         }
-         else
+         } 
+         else 
          {
             $this->view('owner/own_staffAdd', $data);
          }
@@ -190,7 +214,7 @@ class Staff extends Controller
       {
 
          $data = [
-            'staffimage' => '',
+            'staffimagePath' => '',
             'staffFname' => '',
             'staffLname' => '',
             'gender' => '',
@@ -204,7 +228,7 @@ class Staff extends Controller
             'staffAccHold' => '',
             'staffAccBank' => '',
             'staffAccBranch' => '',
-            'staffimage_error' => '',
+            'staffimagePath_error' => '',
             'staffFname_error' => '',
             'staffLname_error' => '',
             'gender_error' => '',
@@ -454,20 +478,31 @@ class Staff extends Controller
    }
    public function viewStaff($staffID)
    {
-      $bankDetails = $this->staffModel->getStaffDetailsByStaffID($staffID);
+      $bankDetails = $this->staffModel->getStaffDetailsWithBankDetailsByStaffID($staffID);
       $this->view('owner/own_staffView',$bankDetails[0]);
    }  
 
    public function RemStaffReservations() //details
    {
-      
       $this->view('owner/own_RemStaffViewReservations');
    }
 
    public function RemoveStaff($staffID) //details
    {
+      // print_r($RemstaffDetails);
+      // die();
       $this->staffModel->removestaff($staffID);
       redirect('OwnDashboard/staff');
+      // $this->view('owner/own_RemStaffViewReservations');
+   }
+   public function GetRemovingStaffDetails($staffID) //details
+   {
+      $RemstaffDetails = $this->staffModel->getStaffDetailsByStaffID($staffID);
+      // die();
+      print_r($RemstaffDetails);
+      // die();
+      // $this->staffModel->removestaff($staffID);
+      $this->view('owner/own_staff',$RemstaffDetails);
       // $this->view('owner/own_RemStaffViewReservations');
    }
 
