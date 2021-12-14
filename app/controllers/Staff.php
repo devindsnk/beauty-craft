@@ -35,7 +35,7 @@ class Staff extends Controller
          // die();
       
          $data = [
-            'staffimageUrl' => $new_img_name,
+            'staffimagePath' => $new_img_name,
             'staffFname' => trim($_POST['staffFname']),
             'staffLname' => trim($_POST['staffLname']),
             'gender' => isset($_POST['gender']) ? trim($_POST['gender']) : '',
@@ -50,7 +50,7 @@ class Staff extends Controller
             'staffAccHold' => trim($_POST['staffAccHold']),
             'staffAccBank' => trim($_POST['staffAccBank']),
             'staffAccBranch' => trim($_POST['staffAccBranch']),
-            'staffimageUrl_error' => '',
+            'staffimagePath_error' => '',
             'staffFname_error' => '',
             'staffLname_error' => '',
             'gender_error' => '',
@@ -70,9 +70,9 @@ class Staff extends Controller
          // die();
             $data['staffHomeAddTyped']= $data['staffHomeAdd'];
             
-            if (empty($data['staffimageUrl']))
+            if (empty($data['staffimagePath']))
             {
-               $data['staffimageUrl_error'] = "Please insert a valid image";
+               $data['staffimagePath_error'] = "Please insert a valid image";
             }
             // Validating fname
          if (empty($data['staffFname']))
@@ -195,7 +195,7 @@ class Staff extends Controller
 
        
 
-         if ( empty($data['staffimageUrl_error']) && empty($data['staffFname_error']) && empty($data['staffLname_error']) && empty($data['gender_error']) && empty($data['staffNIC_error']) && empty($data['staffDOB_error']) && empty($data['staffType_error']) && empty($data['staffHomeAdd_error']) && empty($data['staffMobileNo_error']) && empty($data['staffEmail_error']) &&
+         if ( empty($data['staffimagePath_error']) && empty($data['staffFname_error']) && empty($data['staffLname_error']) && empty($data['gender_error']) && empty($data['staffNIC_error']) && empty($data['staffDOB_error']) && empty($data['staffType_error']) && empty($data['staffHomeAdd_error']) && empty($data['staffMobileNo_error']) && empty($data['staffEmail_error']) &&
             empty($data['staffAccNum_error']) && empty($data['staffAccHold_error']) && empty($data['staffAccBank_error']) && empty($data['staffAccBranch_error'])
          ) { 
 
@@ -214,7 +214,7 @@ class Staff extends Controller
       {
 
          $data = [
-            'staffimageUrl' => '',
+            'staffimagePath' => '',
             'staffFname' => '',
             'staffLname' => '',
             'gender' => '',
@@ -228,7 +228,7 @@ class Staff extends Controller
             'staffAccHold' => '',
             'staffAccBank' => '',
             'staffAccBranch' => '',
-            'staffimageUrl_error' => '',
+            'staffimagePath_error' => '',
             'staffFname_error' => '',
             'staffLname_error' => '',
             'gender_error' => '',

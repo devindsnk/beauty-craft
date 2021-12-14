@@ -40,8 +40,7 @@
                     <!-- section break line endss -->
                     <div class="ownViewStaffProfileGrid">
                         <div class="ownViewStaffProfileDetailsImg">
-                            <img src="<?php echo URLROOT;?><?php echo "/public/imgs/staffImgs/$data->imgUrl"?>" alt="Avatar"
-                                class="ownViewStaffProfileDetailsImgCircle">
+                            <img src="<?php echo URLROOT;?><?php echo "/public/imgs/staffImgs/$data->imgPath"?>" alt="Avatar" class="ownViewStaffProfileDetailsImgCircle">
                         </div>
                         <div class="ownViewStaffProfileDetailsInfo">
                             <span class="ownViewStaffProfileDetailsName"><?php echo $data->fName ?>

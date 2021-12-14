@@ -38,7 +38,7 @@
                                             <span class="ownAddstaffBasicinfoImagetitle">Add Image</span>
                                         </label>
                                     </div>
-                                    <span class="error"><?php echo $data['staffimageUrl_error']; ?></span>
+                                    <span class="error"><?php echo $data['staffimagePath_error']; ?></span>
                                 </div>
 
                                 <div class="ownAddstaffFormGroupFname">
