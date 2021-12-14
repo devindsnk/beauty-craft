@@ -121,5 +121,16 @@ class ReservationModel extends Model
 
    }
 
+   
+   public function updateCustomerNote($data){
+    
+      $results =$this ->customQuery(
+      "UPDATE customers SET customerNote=$data['customerNote'] WHERE customerID=(SELECT customerID FROM reservations WHERE reservationID=$data['selectedReservation'] )"
+      );
+   
+   }
+
+
+
 
 }

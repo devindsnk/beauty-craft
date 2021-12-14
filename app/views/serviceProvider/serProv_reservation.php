@@ -156,12 +156,12 @@
                                 <span>Customer Note</span>
                             </div>
                             <div class="Reservationnote-note editable" contenteditable="true">
-                                <span name="customerNote"><?php echo $reservationMoreInfo->customerNote; ?></span>
+                                <textarea class="customerNoteSection"name="customerNote" value="<?php echo $reservationMoreInfo->customerNote; ?>"><?php echo $reservationMoreInfo->customerNote; ?></textarea>
                             </div>
 
                         </div>
                         <div class="savechange">
-                            <button>Save Changes</button>
+                            <button  name="action" type="submit" value="saveChanges">Save Changes</button>
                             <input type="text" name="selectedReservation" class="selectedReservation" value="<?php echo $reservationMoreInfo->reservationID; ?>">
                         </div>
                         

@@ -395,10 +395,21 @@ input#takeLeaveDate.addItemsModalDate{
     background-color: #eaeaea;
     width: 100%;
     height: 100%;
-    padding-top: 10px;
-    padding-left: 10px;
-    overflow-x: scroll;
    
+    overflow-x: scroll;
+    padding: 10px;
+   
+}
+.serprov .Reservationnote-note.editable .customerNoteSection{
+    border: none;
+    width: 100%;
+    overflow-y:wrap;
+    background-color: #803636;
+    height: 100%;
+    padding: 2px;
+    background-color: #eaeaea;
+
+
 }
 
 .serprov .Reservationnote-note.editable::-webkit-scrollbar { 
