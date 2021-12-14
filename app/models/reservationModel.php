@@ -98,11 +98,28 @@ class ReservationModel extends Model
    public function getReservationsByStaffID($staffID)
    {
       //  die("hii555555");
-      $results = $this->customQuery("SELECT reservations.date,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
+      $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
       FROM reservations 
       INNER JOIN services ON services.serviceID = reservations.serviceID
       INNER JOIN customers ON customers.customerID = reservations.customerID
       WHERE staffID=:staffID ORDER BY date", [':staffID' => $staffID,]);
       return $results;
    }
+
+   public function getReservationMoreInfoByID($reservationID){
+     
+         $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName,customers.customerNote 
+      FROM reservations 
+      INNER JOIN services ON services.serviceID = reservations.serviceID
+      INNER JOIN customers ON customers.customerID = reservations.customerID
+      WHERE reservationID=:reservationID ", [':reservationID' => $reservationID,]);
+      // print_r($results);
+
+      // die("ssss");
+      return $results;
+      
+
+   }
+
+
 }

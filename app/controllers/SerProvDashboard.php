@@ -24,17 +24,70 @@
        
              if ($_SERVER['REQUEST_METHOD'] == 'POST')
          {
-         
+
+            if($_POST['action']=='close'){
+               // die("hello");
+               $data['moreInfoModelOpen'] = 0;
+              
+               redirect('SerProvDashboard/reservations');
+
+            }
+            
+            $reservationID=$_POST['action'];
+           
+            $reservationMoreInfo=$this->reservationModel->getReservationMoreInfoByID($reservationID);
+            // print_r($reservationMoreInfo);
+            // $selectedReservationID=$reservationMoreInfo[0]->reservationID;
+            
+            // die("yyy");
+            // $res->reservationID;
+            
             $data = [
-               'leaveData' =>$reservationData,
+               'reservationData' =>$reservationData,
+               'reservationMoreInfo'=>$reservationMoreInfo,
+               'moreInfoModelOpen'=>1,
+               'recallModelOpen'=>0,
+               'selectedReservation'=>'$selectedReservationID'
+              
             ];
+            
+            // print_r($data['reservationMoreInfo']);
+            // die("OKKK");
+      
+
+               
+          
+           if($_POST['action']=='recall'){
+               // die("hello");
+               $selectedreservation=trim($_POST['selectedReservation']);
+               echo $selectedreservation;
+               // die("OK");
+               $reservationMoreInfo=$this->reservationModel->getReservationMoreInfoByID($selectedreservation);
+               
+               $data['moreInfoModelOpen'] = 0;
+               $data['recallModelOpen'] = 1;
+               $data['reservationMoreInfo']=$reservationMoreInfo;
+              print_r($data);
+            //   die("OK");
+              
+
+            }
+         $this->view('serviceProvider/serProv_reservation', $data);
+           
+
+            
       
          }
 
           else 
          {
             $data = [
-               'leaveData' =>$reservationData,               
+               'reservationData' =>$reservationData,
+               'reservationMoreInfo'=>'',
+               'moreInfoModelOpen'=>0,
+               'recallModelOpen'=>0,
+               'selectedReservation'=>''
+                              
             ];
             $this->view('serviceProvider/serProv_reservation', $data);
 
@@ -42,5 +95,11 @@
 
       $this->view('serviceProvider/serProv_reservation');
    }
+
+ 
+
+
+
+
 
 }

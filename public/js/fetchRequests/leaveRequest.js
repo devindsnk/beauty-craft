@@ -12,7 +12,7 @@ leaveRequestSelectedDate.addEventListener('change',
 )
 
 function leaveRequestedDateValidation() {
-    console.log("hihi");
+   //  console.log("hihi");
    fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestDateValidate/${leaveRequestSelectedDate.value}`)
       .then(response => response.json())
       .then(dateValidationError => {

@@ -301,6 +301,7 @@ input#takeLeaveDate.addItemsModalDate{
     /* background-color: thistle; */
     height: 12%;
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
     margin: 5px 0px;
 }
@@ -331,6 +332,9 @@ input#takeLeaveDate.addItemsModalDate{
     height: 10%;
     margin-top: 2px;
     /* background-color: yellow; */
+}
+.serprov .savechange .selectedReservation{
+    visibility: hidden !important;
 }
 
 .serprov .modalbutton {
@@ -640,7 +644,7 @@ span.leavelimitmsg{
 } */
 /* reservation page calendar */
 input#date_input.selecteddate  {
-    width: 160px;
+    width: 180px;
     height: 40px;
     border: none;
     padding: 0 10px;
