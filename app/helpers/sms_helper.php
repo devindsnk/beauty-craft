@@ -32,7 +32,7 @@ function sendPasswordResetSMS($mobileNo, $OTP)
 
 function sendSMS($mobileNo, $SMSText, $priorityFlag)
 {
-   echo $SMSText;
+   // echo $SMSText;
    $user = SMS_USER;
    $password = SMS_PASS;
 
@@ -47,6 +47,7 @@ function sendSMS($mobileNo, $SMSText, $priorityFlag)
 
    $url = "$baseurl/?id=$user&pw=$password&to=$to&text=$SMSText&eco=$ecoVal";
    $ret = file($url);
+   // print_r($ret);
    $res = explode(":", $ret[0]);
 
    if (trim($res[0]) == "OK")

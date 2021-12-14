@@ -159,6 +159,12 @@ class Reservations extends Controller
    {
    }
 
+   ////////////////////////////////////////
+
+   // public function {}
+
+   ////////////////////////////////////////
+
 
    public function notFound()
    {

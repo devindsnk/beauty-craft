@@ -1,3 +1,5 @@
+<?php require APPROOT . "/views/inc/toast.php" ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +10,7 @@
 
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/login-reg.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/style.css" />
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/icons.css" />
    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
    <title>Reset Password</title>
 </head>
@@ -15,7 +18,7 @@
 <body>
    <div class="main-container">
       <a href="<?php echo URLROOT ?>">
-         <img src="<?php echo URLROOT ?>/public/imgs/logoTextWhite.png" alt="logo" class="top-left-logo">
+         <img src="<?php echo URLROOT ?>/public/logo/logoTextWhite.png" alt="logo" class="top-left-logo">
       </a>
       <a href="<?php echo URLROOT ?>" class="top-right-closeBtn white-red-hover"><i class="fal fa-times fa-2x "></i></a>
 

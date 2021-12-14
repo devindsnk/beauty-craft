@@ -58,6 +58,7 @@ class Customer extends Controller
                      if ($SMSResponse)
                      {
                         $this->OTPModel->storeOTP($data['mobileNo'], $OTP, 1);
+                        Toast::setToast(1, "Verification OTP sent!", "Check you mobile for the OTP.");
                      }
                      // If sending OTP sending fails
                      else
@@ -119,6 +120,8 @@ class Customer extends Controller
                   $this->OTPModel->removeOTP($data['mobileNo'], 1);
                   sendCustomerRegSMS($data['mobileNo']);
                   $this->userModel->commit();
+
+                  Toast::setToast(1, "Registration Successful!", "You can login to your account now.");
 
                   // Provide success message here
                   header('location: ' . URLROOT . '/user/signin');

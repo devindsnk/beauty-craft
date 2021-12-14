@@ -5,6 +5,7 @@ const toastCloseBtn =  document.querySelector(".statusToast .close-icon");
 
 
 function displayToast(state, titleText, subtitleText){
+    let btnVisible = 1;
     title.innerText = titleText;
     subtitle.innerText = subtitleText;
 
@@ -20,10 +21,14 @@ function displayToast(state, titleText, subtitleText){
 
     toastCloseBtn.onclick = ()=>{
         closeToast(toastState);
+        btnVisible = 0;
     }
-    setTimeout(()=>{
-        closeToast(toastState);
-    }, 5000);
+    
+    if(!btnVisible){
+        setTimeout(()=>{
+            closeToast(toastState);
+        }, 5000);
+    }
 }
 
 function closeToast(toastState) {
