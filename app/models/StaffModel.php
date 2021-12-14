@@ -16,7 +16,7 @@ class StaffModel extends Model
    // add staff details to the db
    public function addStaffDetails($data)
    {
-      $results =  $this->insert('staff', ['image' =>  $data['staffimage'], 'fName' => $data['staffFname'], 'lName' => $data['staffLname'], 'staffType' => $data['staffType'], 'mobileNo' => $data['staffMobileNo'], 'gender' => $data['gender'], 'nic' => $data['staffNIC'], 'address' => $data['staffHomeAdd'], 'email' => $data['staffEmail'], 'dob' => $data['staffDOB']]);
+      $results =  $this->insert('staff', ['fName' => $data['staffFname'], 'lName' => $data['staffLname'], 'staffType' => $data['staffType'], 'mobileNo' => $data['staffMobileNo'], 'gender' => $data['gender'], 'nic' => $data['staffNIC'], 'address' => $data['staffHomeAdd'], 'email' => $data['staffEmail'], 'dob' => $data['staffDOB'],'imgPath' =>  $data['staffimagePath']]);
       var_dump($results);
    }
 
@@ -63,9 +63,10 @@ class StaffModel extends Model
 
    public function getStaffDetailsByStaffID($staffID)
    {
-      $this->db->query("SELECT * FROM staff
-                        WHERE staffID = '$staffID'");
-      $result = $this->db->resultSet();
+      $result = $this->getResultSet('staff', '*', ["staffID" => $staffID]);
+      // $this->db->customQuery("SELECT * FROM staff
+      //                   WHERE staffID = '$staffID'");
+      // $result = $this->db->resultSet();
 
       return $result;
    }

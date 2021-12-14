@@ -19,6 +19,14 @@
          <!-- <a href="#" class="btn btn-filled btn-theme-purple btn-main btnAddCloseDate">Add New</a> -->
       </div>
 
+      <?php
+// Set the new timezone
+// date_default_timezone_set('Asia/Kolkata');
+$date = date('y/m/d');
+$currenttime= strtotime($date);
+echo $currenttime;
+?>
+
       <form class="form filter-options" action="">
          <div class="options-container">
             <div class="left-section">
@@ -74,7 +82,7 @@
 
 
       <!-- Remove close date model -->
-      <div class="modal-container remove-closeDate">>
+      <div class="modal-container remove-closeDate">
          <div class="modal-box">
             <div class="confirm-model-head">
                <h1>Remove Close Date</h1>
@@ -98,7 +106,7 @@
       <!------------------------------------------------- Modal starts ----------------------------------------------------->
       <div class="modal-container add-closeDate  <?php if ($data['haveErrors']) echo ' show'; ?>">
          <div class="modal-box addItems">
-         <form action="<?php echo URLROOT; ?>/OwnDashboard/closeSalon" method="post">
+         <form action="<?php echo URLROOT; ?>/OwnDashboard/closeSalon/ " method="post">
             <h1 class="addItemsModalHead">Close Salon</h1>
             <!-- start main grid 1 -->
 
@@ -120,18 +128,26 @@
             </div>
 
             <!-- main grid 1 ends -->
+<!-- 
+            <?php $Resdate = $data['closeDate']; 
+            echo $Resdate;
+            echo $data['reservationCount'];?> -->
 
             <!-- main grid 2 starts -->
-            <div class="addItemsModalGrid2">
-               <div class="addItemsModalError">
+            <?php if ($data['checked'] == 0) : ?> 
+
+            <?php elseif ($data['checked'] == 1 && $data['reservationCount']>0) : ?> 
+               <div class="addItemsModalGrid2">
+               <div class="addItemsModalError"> 
                   <label class="addItemsModalErrortext">Cannot proceed. Has upcoming reservations</label>
-                  <a href="#" class="addItemsModalErrorAnchortag"> <label class="addItemsModalErrorLable">View
-                        Reservaions</label></a>
+                  <a href="<?php echo URLROOT ?>/closeDates/closeDateReservtaions/ <?php echo $Resdate; ?>" target="_blank" class="addItemsModalErrorAnchortag"> <label class="addItemsModalErrorLable">View
+                        Reservaions</label></a> 
                </div>
                <div class="addItemsModalRecallMessage">
                   <span class="addItemsModalMessage">Recall requests will be sent if you proceed.</span>
                </div>
             </div>
+            <?php endif; ?>
             <!-- main grid 2 ends -->
 
             <!-- main grid 3 starts -->
@@ -140,9 +156,15 @@
                   <button class="btn btnClose normal ModalCancelButton ModalButton" name="action" value="cancel">Cancel</button>
                </div>
                <div class="addItemsModalbtn2">
-                  <button class="btn ModalGreenButton ModalButton"  name="action" value="addCloseDate">Proceed</button>
+               <?php if ( $data['checked']== 0) echo '<button class="btn ModalGreenButton ModalButton"  name="action"  value="dateCheck">Check date</button>'; ?>
+               
+               <?php if ( $data['checked']== 1 && $data['reservationCount']>0) echo '<button class="btn ModalGreenButton ModalButton"  name="action" value= "addCloseDate" >Proceed</button>'; ?>
+
+               <!-- <?php if ( $data['checked']== 1 && $data['reservationCount']>0 ) echo '<button class="btn ModalGreenButton ModalButton"  name="action" value= "addCloseDateWithRecall" >Proceed</button>'; ?> -->
+                 
                </div>
             </div>
+            
             <!-- main grid 3 ends -->
             </form>
          </div>
