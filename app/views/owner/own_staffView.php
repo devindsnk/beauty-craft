@@ -24,7 +24,7 @@
             <div class="ownViewStaffCards">
                 <!----------------------------------------------------- Profile details starts --------------------------------->
 
-                 <!-- <?php print_r($data);?> -->
+                 
                 <div class="ownViewStaffProfileDetails">
                     <!-- Basic Info Details Head  -->
                     <div class="ownViewStaffProfileDetailsHead">
@@ -40,7 +40,7 @@
                     <!-- section break line endss -->
                     <div class="ownViewStaffProfileGrid">
                         <div class="ownViewStaffProfileDetailsImg">
-                            <img src="<?php echo $data->image; ?>" alt="Avatar"
+                            <img src="<?php echo URLROOT;?><?php echo "/public/imgs/staffImgs/$data->imgUrl"?>" alt="Avatar"
                                 class="ownViewStaffProfileDetailsImgCircle">
                         </div>
                         <div class="ownViewStaffProfileDetailsInfo">

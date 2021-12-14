@@ -19,7 +19,7 @@
         <div class="ownStaff_allignmentbox own staff">
 
             <div class="ownAddstaffContainer contentBox">
-                <form action="<?php echo URLROOT; ?>/staff/addStaff" method="post">
+                <form action="<?php echo URLROOT; ?>/staff/addStaff" method="post" enctype="multipart/form-data">
                     <div class="ownAddstaff_formWrapper">
                         <!------------------------------ Basic Info Starts------------------------------------------------------------------------------->
 
@@ -32,14 +32,13 @@
                                     <div class="ownAddstaffBasicinfoFilesubBtn">
                                         <label for="ownAddstaffBasicinfoImagesub"
                                             class="ownAddstaffBasicinfoImagewrapper">
-                                            <input type="file" name="staffimage" id="ownAddstaffBasicinfoImagesub"
-                                                accept="image/*" value="<?php echo $data['staffimage']; ?>">
+                                            <input type="file" name="staffimage" id="ownAddstaffBasicinfoImagesub" >
                                             <img src="<?php echo URLROOT ?>/public/icons/add_graph_report_64px.png"
                                                 class="ownAddstaffBasicinfoIcon"> <br>
                                             <span class="ownAddstaffBasicinfoImagetitle">Add Image</span>
                                         </label>
                                     </div>
-                                    <span class="error"><?php echo $data['staffimage_error']; ?></span>
+                                    <span class="error"><?php echo $data['staffimageUrl_error']; ?></span>
                                 </div>
 
                                 <div class="ownAddstaffFormGroupFname">
