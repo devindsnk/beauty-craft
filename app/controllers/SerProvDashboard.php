@@ -19,7 +19,7 @@
       //  die("hii");
 
       // Session::validateSession([5]);
-      $reservationData = $this->reservationModel->getReservationsByStaffID($_SESSION['userID']);
+      $reservationData = $this->reservationModel->getReservationsByStaffID(Session::getUser("id"));
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {

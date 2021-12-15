@@ -40,11 +40,11 @@ class Leaves extends Controller
    {
       Session::validateSession([4, 5]);
 
-      $leaveData = $this->LeaveModel->getLeaveRecordsBystaffID($_SESSION['userID']);
+      $leaveData = $this->LeaveModel->getLeaveRecordsBystaffID(Session::getUser("id"));
       $leaveLimit = $this->LeaveModel->getLeaveLimit();
 
       // die ($leaveLimit);
-      $leaveCount = $this->LeaveModel->getCurrentMonthLeaveCount($_SESSION['userID']);
+      $leaveCount = $this->LeaveModel->getCurrentMonthLeaveCount(Session::getUser("id"));
       $remainingLeaveCount = $leaveLimit - $leaveCount;
       // echo  $remainingLeaveCount;
       // die ("hi");
@@ -58,7 +58,7 @@ class Leaves extends Controller
             'date_error' => '',
             'reason_error' => '',
             'dateValidationError' => '',
-            'staffID' => $_SESSION['userID'],
+            'staffID' => Session::getUser("id"),
             'tableData' => $leaveData,
             'haveErrors' => 0,
             'remainingCount' => $remainingLeaveCount,
@@ -113,7 +113,7 @@ class Leaves extends Controller
             'date_error' => '',
             'reason_error' => '',
             'dateValidationError' => '',
-            'staffID' => $_SESSION['userID'],
+            'staffID' => Session::getUser("id"),
             'tableData' => $leaveData,
             'haveErrors' => 0,
             'reasonentered' => '',
@@ -130,12 +130,12 @@ class Leaves extends Controller
    public function provideLeaveRequestReleventView($data)
    {
       Session::validateSession([4, 5]);
-      if ($_SESSION['userType'] == 4)
+      if (Session::getUser("type") == 4)
       {
          $this->view('receptionist/recept_leaves', $data);
       }
 
-      else if ($_SESSION['userType'] == 5)
+      else if (Session::getUser("type") == 5)
       {
          $this->view('serviceProvider/serProv_leaves', $data);
       }
