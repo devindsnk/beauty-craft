@@ -1,3 +1,5 @@
+<?php require APPROOT . "/views/inc/toast.php" ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +10,7 @@
 
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/login-reg.css" />
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/style.css" />
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/icons.css" />
    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
    <title>slider sign in/sign up form</title>
 </head>

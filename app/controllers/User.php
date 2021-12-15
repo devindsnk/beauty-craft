@@ -12,6 +12,16 @@ class User extends Controller
 
    public function signin()
    {
+      // Session::setBundle(
+      //    'toast',
+      //    [
+      //       'toastState' => 1,
+      //       'toastTitle' => "Sample Title",
+      //       'toastSubtitle' => "Sample Subtitle"
+      //    ]
+      // );
+
+
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
          $data = [
@@ -33,7 +43,7 @@ class User extends Controller
 
             if (!empty($result))
             {
-               $user = $result;   //Remove after createing query builders
+               $user = $result;   //Remove after creating query builders
                $hashedPassword = $user->password;
 
                if (password_verify($data['password'], $hashedPassword))
@@ -126,6 +136,7 @@ class User extends Controller
                      if ($SMSResponse)
                      {
                         $this->OTPModel->storeOTP($data['mobileNo'], $OTP,  2);
+                        Toast::setToast(1, "Password recovery OTP sent!", "Check you mobile for the OTP.");
                      }
                      // If sending OTP sending fails
                      else
@@ -223,7 +234,7 @@ class User extends Controller
          'username' => $this->getUserData($user)[1]
       ];
       //Containes customer id or staff id
-      // echo $_SESSION['userMobileNo'] . " " . $_SESSION['userType'] . " " . $_SESSION['userID'] . " " . $_SESSION['username'];
+      // echo $_SESSION['userMobileNo'] . " - " . $_SESSION['userType'] . " - " . $_SESSION['userID'] . " - " . $_SESSION['username'];
       // die();
    }
 

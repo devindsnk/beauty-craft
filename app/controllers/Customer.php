@@ -52,12 +52,13 @@ class Customer extends Controller
                   if ($OTP)
                   {
                      // Send otp
-                     $SMSResponse = sendMobileVerifySMS($data['mobileNo'], $OTP);
+                     $SMSResponse = SMS::sendMobileVerifySMS($data['mobileNo'], $OTP);
 
                      //If OTP sent successfull then store the OTP
                      if ($SMSResponse)
                      {
                         $this->OTPModel->storeOTP($data['mobileNo'], $OTP, 1);
+                        Toast::setToast(1, "Verification OTP sent!", "Check you mobile for the OTP.");
                      }
                      // If sending OTP sending fails
                      else
@@ -121,7 +122,10 @@ class Customer extends Controller
                   //system log
                   $log="user registered into the system";
                   logger($data['mobileNo'],$log);
+                  SMS::sendCustomerRegSMS($data['mobileNo']);
                   $this->userModel->commit();
+
+                  Toast::setToast(1, "Registration Successful!", "You can login to your account now.");
 
                   // Provide success message here
                   header('location: ' . URLROOT . '/user/signin');
@@ -160,13 +164,13 @@ class Customer extends Controller
 
    public function changePassword()
    {
-      validateSession([6]);
+      Session::validateSession([6]);
       $this->view('customer/cust_changePassword');
    }
 
    public function myReservation()
    {
-      validateSession([6]);
+      Session::validateSession([6]);
       $this->view('customer/cust_myReservation');
    }
    public function remCustomer($cusID)

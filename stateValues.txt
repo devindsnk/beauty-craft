@@ -53,3 +53,10 @@ Recall Requests
 
 ---------------------------------------
 
+Invoices (Not Confirmed Yet)
+0 - Cancelled
+1 - Pending
+2 - Paid
+3 - No Show
+
+---------------------------------------

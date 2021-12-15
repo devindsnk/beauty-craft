@@ -1,13 +1,6 @@
 <?php
 class StaffModel extends Model
 {
-   // private $db;
-
-   // public function __construct()
-   // {
-   //    $this->db = new Database;
-   // }
-
    public function addStaff($data)
    {
       $this->addStaffDetails($data);
@@ -16,7 +9,7 @@ class StaffModel extends Model
    // add staff details to the db
    public function addStaffDetails($data)
    {
-      $results =  $this->insert('staff', ['image' =>  $data['staffimage'], 'fName' => $data['staffFname'], 'lName' => $data['staffLname'], 'staffType' => $data['staffType'], 'mobileNo' => $data['staffMobileNo'], 'gender' => $data['gender'], 'nic' => $data['staffNIC'], 'address' => $data['staffHomeAdd'], 'email' => $data['staffEmail'], 'dob' => $data['staffDOB']]);
+      $results =  $this->insert('staff', ['fName' => $data['staffFname'], 'lName' => $data['staffLname'], 'staffType' => $data['staffType'], 'mobileNo' => $data['staffMobileNo'], 'gender' => $data['gender'], 'nic' => $data['staffNIC'], 'address' => $data['staffHomeAdd'], 'email' => $data['staffEmail'], 'dob' => $data['staffDOB'], 'imgPath' =>  $data['staffimagePath']]);
       var_dump($results);
    }
 
@@ -63,9 +56,10 @@ class StaffModel extends Model
 
    public function getStaffDetailsByStaffID($staffID)
    {
-      $this->db->query("SELECT * FROM staff
-                        WHERE staffID = '$staffID'");
-      $result = $this->db->resultSet();
+      $result = $this->getResultSet('staff', '*', ["staffID" => $staffID]);
+      // $this->db->customQuery("SELECT * FROM staff
+      //                   WHERE staffID = '$staffID'");
+      // $result = $this->db->resultSet();
 
       return $result;
    }
@@ -120,6 +114,17 @@ class StaffModel extends Model
       return [$results->staffID, $results->fName . " " . $results->lName];
    }
 
+   public function getServiceslistByStaffID($staffID)
+   {
+      $results = $this->customQuery("SELECT services.type,services.name
+      FROM services
+      INNER JOIN serviceproviders 
+      ON serviceproviders.serviceID =services.serviceID
+      WHERE serviceproviders.staffID =:staffID",
+      [':staffID'=>$staffID]);
+    return $results;
+   }
+   
    // FOR MANAGER OVERVIEW
    public function getReceptionistCount()
    {
@@ -130,24 +135,53 @@ class StaffModel extends Model
 
    public function getManagerCount()
    {
-
       $results = $this->getRowCount('staff', ['staffType' => 3, 'status' => 1]);
 
       return $results;
    }
    // FOR MANAGER OVERVIEW
 
-   public function getServiceslistByStaffID($staffID)
+
+
+   ///// Methods added by devin ////
+
+   // Returns the data of service providers of a given service with their availability on the give date.
+   public function getServiceProvidersByServiceWithAvailability($serviceID, $date)
    {
-     $results = $this->customQuery("SELECT services.type,services.name
-     FROM services
-     INNER JOIN serviceproviders 
-     ON serviceproviders.serviceID =services.serviceID
-     WHERE serviceproviders.staffID =:staffID",
-     [':staffID'=>$staffID]
-   );
-   // print_r($results);
-    return $results;
+      // should get first name last name and availability
+      // Tables to interact: 'staff', 'serviceproviders', 'generalLeaves'
+
+      $SQLquery =
+         "SELECT S.staffID, S.fName, S.lName, GL.status
+         FROM staff AS S
+         INNER JOIN serviceproviders AS SP
+            ON S.staffID = SP.staffID
+            AND SP.serviceID = :serviceID
+         LEFT JOIN generalleaves AS GL 
+            ON S.staffID = gl.staffID
+            AND GL.leaveDate = :date";
+
+      $results = $this->customQuery(
+         $SQLquery,
+         [
+            ':serviceID' => $serviceID,
+            ':date' => $date
+         ]
+      );
+
+      return $results;
+
+      // SELECT
+      // *
+      // FROM
+      // staff AS S
+      // INNER JOIN serviceproviders AS SP
+      // ON
+      // S.staffID = SP.staffID AND SP.serviceID = '000001'
+      // LEFT JOIN generalleaves AS GL
+      // ON
+      // S.staffID = gl.staffID AND GL.leaveDate = '2021-12-08' AND gl.status = 0
    }
 
+   /////////////////////////////////
 }

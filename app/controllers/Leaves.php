@@ -7,15 +7,19 @@ class Leaves extends Controller
         $this->LeaveModel = $this->model('LeaveModel');
    }
 
-   public function responceForLeaveRequest($staffID, $leaveDate){
+   public function responceForLeaveRequest($staffID, $leaveDate)
+   {
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
-         if ($_POST['action'] == "approve"){
+         if ($_POST['action'] == "approve")
+         {
             $responce = 1;
-            $this->LeaveModel->addLeaveResponce($responce,$staffID,$leaveDate);
-         }elseif ($_POST['action'] == "reject"){
+            $this->LeaveModel->addLeaveResponce($responce, $staffID, $leaveDate);
+         }
+         elseif ($_POST['action'] == "reject")
+         {
             $responce = 0;
-            $this->LeaveModel->addLeaveResponce($responce,$staffID,$leaveDate);
+            $this->LeaveModel->addLeaveResponce($responce, $staffID, $leaveDate);
          }
          header('location: ' . URLROOT . '/MangDashboard/leaveRequests');
       }
@@ -24,31 +28,31 @@ class Leaves extends Controller
    public function oneleaveRequest($staffID, $leaveDate)
 
    {
-      // validateSession([6]);
-   
+      // Session::validateSession([6]);
+
       $oneLeaveDetails = $this->LeaveModel->getOneLeaveDetail($staffID, $leaveDate);
 
-      $this->view('manager/mang_leaveRequests',$oneLeaveDetails[0]);
+      $this->view('manager/mang_leaveRequests', $oneLeaveDetails[0]);
    }
 
 
    //Service provider and receptionist leaves view
-    public function leaves()
+   public function leaves()
    {
-      validateSession([4,5]);
+      Session::validateSession([4, 5]);
 
       $leaveData = $this->LeaveModel->getLeaveRecordsBystaffID($_SESSION['userID']);
       $leaveLimit = $this->LeaveModel->getLeaveLimit();
 
       // die ($leaveLimit);
       $leaveCount = $this->LeaveModel->getCurrentMonthLeaveCount($_SESSION['userID']);
-     $remainingLeaveCount = $leaveLimit - $leaveCount;
+      $remainingLeaveCount = $leaveLimit - $leaveCount;
       // echo  $remainingLeaveCount;
       // die ("hi");
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
-         
+
          $data = [
             'date' => trim($_POST['date']),
             'reason' => trim($_POST['reason']),
@@ -58,39 +62,37 @@ class Leaves extends Controller
             'staffID' => $_SESSION['userID'],
             'tableData' => $leaveData,
             'haveErrors' => 0,
-            'remainingCount' =>$remainingLeaveCount,
+            'remainingCount' => $remainingLeaveCount,
             'leaveexceed' => 0,
-            'dateValidationMsg'=>''
-            
-
+            'dateValidationMsg' => ''
          ];
          // check exsisting dates
          // $checkDate = $this->LeaveModel->checkExsistingDate($data['date']);
          // $this->leaveRequestDateValidate($data);
 
-         
+
          if ($_POST['action'] == "addleave")
          {
-               $today = date('Y-m-d');
-               $data['date_error']=emptyCheck($data['date']);
-               $data['reason_error']=emptyCheck($data['reason']);
+            $today = date('Y-m-d');
+            $data['date_error'] = emptyCheck($data['date']);
+            $data['reason_error'] = emptyCheck($data['reason']);
             // die($data['date_error']);$this->leaveRequestDateValidate($data);
 
-               if (empty($data['date_error']) && empty($data['reason_error']))
-               {
-                  
-                     $this->LeaveModel->requestleave($data);
-                     // redirect to this view
-                     redirect('Leaves/leaves');
-               }
-               
+            if (empty($data['date_error']) && empty($data['reason_error']))
+            {
 
-               else
-               {
-                  $data['haveErrors'] = 1;
-                  $this->provideLeaveRequestReleventView($data);
-                  // $this->view('serviceProvider/serProv_leaves', $data);
-               }
+               $this->LeaveModel->requestleave($data);
+               // redirect to this view
+               redirect('Leaves/leaves');
+            }
+
+
+            else
+            {
+               $data['haveErrors'] = 1;
+               $this->provideLeaveRequestReleventView($data);
+               // $this->view('serviceProvider/serProv_leaves', $data);
+            }
          }
          else if ($_POST['action'] == "cancel")
          {
@@ -102,51 +104,56 @@ class Leaves extends Controller
          {
             die("something went wrong");
          }
-      
       }
 
-      else {
-         $data=[ 'date'=>'',
-         'reason'=>'',
-         'date_error'=>'',
-         'reason_error'=>'',
-         'dateValidationError' => '',
-         'staffID' => $_SESSION['userID'],
-         'tableData'=>$leaveData,
-         'haveErrors' => 0,
-         'reasonentered'=>'',
-         'remainingCount'=> $remainingLeaveCount,
-         'leaveexceed'=>'',
-         'dateValidationMsg'=>''
-         
+      else
+      {
+         $data = [
+            'date' => '',
+            'reason' => '',
+            'date_error' => '',
+            'reason_error' => '',
+            'dateValidationError' => '',
+            'staffID' => $_SESSION['userID'],
+            'tableData' => $leaveData,
+            'haveErrors' => 0,
+            'reasonentered' => '',
+            'remainingCount' => $remainingLeaveCount,
+            'leaveexceed' => '',
+            'dateValidationMsg' => ''
+
          ];
          $this->provideLeaveRequestReleventView($data);
-       //  $this->view('serviceProvider/serProv_leaves', $data);
+         //  $this->view('serviceProvider/serProv_leaves', $data);
       }
    }
 
-   public function provideLeaveRequestReleventView($data){
-      validateSession([4,5]);
-      if($_SESSION['userType']==4){
+   public function provideLeaveRequestReleventView($data)
+   {
+      Session::validateSession([4, 5]);
+      if ($_SESSION['userType'] == 4)
+      {
          $this->view('receptionist/recept_leaves', $data);
       }
 
-      else if($_SESSION['userType']==5){
+      else if ($_SESSION['userType'] == 5)
+      {
          $this->view('serviceProvider/serProv_leaves', $data);
       }
-      
    }
 
-   public function leaveRequestDateValidate($date){
-   validateSession([4,5]);
-   
-   $alreadyRequestedDay = $this->LeaveModel->checkExsistingLeaveRequestDay($date);
-   header('Content-Type: application/json; charset=utf-8');
-    
-   if($alreadyRequestedDay==1){
-      $dateValidationMsg= "The date You entered is already exit";  
-   }
-// $dateValidationError="errortttttttt";
-   print_r(json_encode($dateValidationMsg));
+   public function leaveRequestDateValidate($date)
+   {
+      Session::validateSession([4, 5]);
+
+      $alreadyRequestedDay = $this->LeaveModel->checkExsistingLeaveRequestDay($date);
+      header('Content-Type: application/json; charset=utf-8');
+
+      if ($alreadyRequestedDay == 1)
+      {
+         $dateValidationMsg = "The date You entered is already exit";
+      }
+      // $dateValidationError="errortttttttt";
+      print_r(json_encode($dateValidationMsg));
    }
 }

@@ -1,8 +1,6 @@
 <?php
 class ReservationModel extends Model
 {
-
-
    public function addReservation($data)
    {
       $results = $this->insert(
@@ -147,6 +145,14 @@ class ReservationModel extends Model
    } 
 
 
+   // Complex reservation process
+
+
+   ////////////////////////////////////////////////
+
+
+
+   ////////////////////////////////////////////////
 
 
 }

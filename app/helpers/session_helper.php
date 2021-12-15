@@ -1,22 +1,45 @@
 <?php
 
 /*
- * Contains session validation funtion
+ * Contains session management funtion
  * Restricts unauthorized user access by checking logged in user type
  */
 
-function validateSession($accessibleUsers)
+class Session
 {
-   if (!isset($_SESSION['userType']))
+   public static function setSingle($name, $value)
    {
-      redirect('pages/accessDenied');
+      $_SESSION[$name] = $value;
    }
-   else
+
+   public static function setBundle($bundleName, $values)
    {
-      $status = in_array($_SESSION['userType'], $accessibleUsers);
-      if (!$status)
+      $_SESSION[$bundleName] = $values;
+   }
+
+   public static function get($dataName)
+   {
+      return $_SESSION[$dataName];
+   }
+
+   public static function clear($dataName)
+   {
+      unset($_SESSION[$dataName]);
+   }
+
+   public static function validateSession($accessibleUsers)
+   {
+      if (!isset($_SESSION['userType']))
       {
          redirect('pages/accessDenied');
+      }
+      else
+      {
+         $status = in_array($_SESSION['userType'], $accessibleUsers);
+         if (!$status)
+         {
+            redirect('pages/accessDenied');
+         }
       }
    }
 }

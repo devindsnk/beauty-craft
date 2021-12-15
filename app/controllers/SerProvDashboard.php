@@ -2,9 +2,8 @@
 {
    public function __construct()
    {
-       validateSession([5]);
-       $this->reservationModel = $this->model('reservationModel');
-     
+      Session::validateSession([5]);
+      $this->reservationModel = $this->model('reservationModel');
    }
    public function home()
    {
@@ -17,7 +16,7 @@
 
    public function reservations()
    {
-   //  die("hii");
+      //  die("hii");
 
       // validateSession([5]);
        $reservationData = $this->reservationModel->getReservationsByStaffID($_SESSION['userID']);
