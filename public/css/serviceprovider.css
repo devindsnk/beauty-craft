@@ -163,6 +163,18 @@
   
     text-align: center;
 }
+
+.serprov .confirm-status.gray {
+    padding: 5px 0;
+    width: 165px;
+    background-color: #E2E3E3;
+    color: #50515A;
+    font-weight: 600;
+    border-radius: 6px;
+  
+    text-align: center;
+}
+
 .serprov .confirm-status.green {
     padding: 5px 0;
     width: 165px;
@@ -397,7 +409,7 @@ input#takeLeaveDate.addItemsModalDate{
     height: 100%;
    
     overflow-x: scroll;
-    padding: 10px;
+    padding: 5px;
    
 }
 .serprov .Reservationnote-note.editable .customerNoteSection{
@@ -410,6 +422,9 @@ input#takeLeaveDate.addItemsModalDate{
     background-color: #eaeaea;
 
 
+}
+textarea.customerNoteSection{
+    font-size: 16px;
 }
 
 .serprov .Reservationnote-note.editable::-webkit-scrollbar { 

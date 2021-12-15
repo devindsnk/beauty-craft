@@ -27,7 +27,7 @@
                     <form>
 
                         <a href="#" class="previous round">&#8249;</a>
-                        
+
                         <input class="selecteddate" type="date" id="date_input" value="" />
                         <a href="#" class="next round">&#8250;</a>
                         <!-- <input type="button" value="Get Weekday" onclick="day_of_week()" /> -->
@@ -45,7 +45,7 @@
             <!--sub-container2-card-->
             <div class="reservationlist">
                 <div class="scroll-area">
-                  
+
                     <?php foreach ($data['reservationData'] as $reservation) : ?>
 
 
@@ -77,9 +77,13 @@
                                 <div class="confirm-status green">
                                     <span>Completed</span>
                                 </div>
+                                <?php elseif ($reservation->status == 5) : ?>
+                                <div class="confirm-status gray">
+                                    <span>Recalled</span>
+                                </div>
                                 <?php endif; ?>
                             </div>
-                            
+
                             <div class="sub-container2-card-link">
                                 <button class="btnOpen btnResMoreInfo" name="action" type="submit"
                                     value="<?php echo $reservation->reservationID; ?>">More Info</button>
@@ -105,14 +109,16 @@
         <div class="modal-container reservation-more-info <?php if ($data['moreInfoModelOpen']) echo "show" ?>">
             <div class="modal-box">
                 <?php foreach ($data['reservationMoreInfo'] as $reservationMoreInfo) : ?>
-                <form action="<?php echo URLROOT; ?>/serProvDashboard/reservations" class="form" method="POST" id="<?php echo $reservationMoreInfo->reservationID; ?>">
+                <form action="<?php echo URLROOT; ?>/serProvDashboard/reservations" class="form" method="POST"
+                    id="<?php echo $reservationMoreInfo->reservationID; ?>">
                     <h1>Reservation details</h1>
                     <div class="modelcontent">
 
                         <div class="modaldetails">
                             <div class="modaldetails-name">
                                 <span class="service"><?php echo $reservationMoreInfo->name; ?></span><br>
-                                <span class="name"><?php echo $reservationMoreInfo->fName." ".$reservationMoreInfo->lName;?></span>
+                                <span
+                                    class="name"><?php echo $reservationMoreInfo->fName." ".$reservationMoreInfo->lName;?></span>
                             </div>
                             <div class="modaldetails-status">
                                 <?php if ($reservationMoreInfo->status ==1): ?>
@@ -126,6 +132,10 @@
                                 <?php elseif ($reservationMoreInfo->status == 4) : ?>
                                 <div class="confirm-status green">
                                     <span>Completed</span>
+                                </div>
+                                <?php elseif ($reservationMoreInfo->status== 5) : ?>
+                                <div class="confirm-status gray">
+                                    <span>Recalled</span>
                                 </div>
                                 <?php endif; ?>
                             </div>
@@ -156,21 +166,26 @@
                                 <span>Customer Note</span>
                             </div>
                             <div class="Reservationnote-note editable" contenteditable="true">
-                                <textarea class="customerNoteSection"name="customerNote" value="<?php echo $reservationMoreInfo->customerNote; ?>"><?php echo $reservationMoreInfo->customerNote; ?></textarea>
+                                <textarea class="customerNoteSection" name="customerNote"
+                                    value="<?php echo $reservationMoreInfo->customerNote; ?>"><?php echo $reservationMoreInfo->customerNote; ?></textarea>
                             </div>
 
                         </div>
                         <div class="savechange">
-                            <button  name="action" type="submit" value="saveChanges">Save Changes</button>
-                            <input type="text" name="selectedReservation" class="selectedReservation" value="<?php echo $reservationMoreInfo->reservationID; ?>">
+                            <button name="action" type="submit" value="saveChanges">Save Changes</button>
+                            <input type="text" name="selectedReservation" class="selectedReservation"
+                                value="<?php echo $reservationMoreInfo->reservationID; ?>">
                         </div>
-                        
+
                         <div class="modalbutton-more">
                             <div class="more-details-modalbtnsection">
-                                <button class="btn btnClose normal" name="action" type="submit" value="close">Close</button>
+                                <button class="btn btnClose normal" name="action" type="submit"
+                                    value="close">Close</button>
 
 
-                                <button class="btnOpen btnResRecall button" name="action" type="submit" id="<?php echo $reservationMoreInfo->reservationID; ?>" value="recall">Recall</button>
+                                <button class="btnOpen btnResRecall button" name="action" type="submit"
+                                    id="<?php echo $reservationMoreInfo->reservationID; ?>"
+                                    value="recall">Recall</button>
 
                             </div>
                         </div>
@@ -182,74 +197,90 @@
         <!-- end modal -->
 
         <div class="modal-container reservation-recall <?php if ($data['recallModelOpen']) echo "show" ?>">
-        
-        <div class="modal-box addItems">
-            <?php foreach ($data['reservationMoreInfo'] as $reservationMoreInfo) : ?>
-            <form action="<?php echo URLROOT; ?>/serProvDashboard/reservations" class="form" method="POST">    
-                <h1>Recall request</h1>
-              
-                <div class="modaldetails">
-                    <div class="modaldetails-name">
-                        <span class="service"><?php echo $reservationMoreInfo->name; ?></span><br>
-                        <span class="name"><?php echo $reservationMoreInfo->fName." ".$reservationMoreInfo->lName;?></span>
-                    </div>
-                    <div class="statusrecall">
-                           <?php if ($reservationMoreInfo->status ==1): ?>
-                                <div class="confirm-status yellow">
-                                    <span>Not Confirmed</span>
-                                </div>
-                                <?php elseif ($reservationMoreInfo->status== 2) : ?>
-                                <div class="confirm-status blue">
-                                    <span>Confirmed</span>
-                                </div>
-                                <?php elseif ($reservationMoreInfo->status == 4) : ?>
-                                <div class="confirm-status green">
-                                    <span>Completed</span>
-                                </div>
-                                <?php endif; ?>
-                    </div>
 
-                </div>
-                <div class="modelcontent">
-                    <div class="modaldatetime">
-                        <div class="modaldatetime-time">
-                            <span><?php echo $reservationMoreInfo->startTime." - ".$reservationMoreInfo->endTime;?></span><br>
+            <div class="modal-box addItems">
+                <?php foreach ($data['reservationMoreInfo'] as $reservationMoreInfo) : ?>
+                <form action="<?php echo URLROOT; ?>/serProvDashboard/reservations" class="form" method="POST">
+                    <h1>Recall request</h1>
 
+                    <div class="modaldetails">
+                        <div class="modaldetails-name">
+                            <span class="service"><?php echo $reservationMoreInfo->name; ?></span><br>
+                            <span
+                                class="name"><?php echo $reservationMoreInfo->fName." ".$reservationMoreInfo->lName;?></span>
                         </div>
-                        <div class="modaldatetime-date">
-                            <?php $date=new DateTime($reservationMoreInfo->date); ?>
+                        <div class="statusrecall">
+                            <?php if ($reservationMoreInfo->status ==1): ?>
+                            <div class="confirm-status yellow">
+                                <span>Not Confirmed</span>
+                            </div>
+                            <?php elseif ($reservationMoreInfo->status== 2) : ?>
+                            <div class="confirm-status blue">
+                                <span>Confirmed</span>
+                            </div>
+                            <?php elseif ($reservationMoreInfo->status == 4) : ?>
+                            <div class="confirm-status green">
+                                <span>Completed</span>
+                            </div>
+                            <?php elseif ($reservationMoreInfo->status== 5) : ?>
+                            <div class="confirm-status gray">
+                                <span>Recalled</span>
+                            </div>
+                            <?php endif; ?>
+                        </div>
+
+                    </div>
+                    <div class="modelcontent">
+                     
+                        <div class="modaldatetime">
+                            <div class="modaldatetime-time">
+                                <span><?php echo $reservationMoreInfo->startTime." - ".$reservationMoreInfo->endTime;?></span><br>
+
+                            </div>
+                            <div class="modaldatetime-date">
+                                <?php $date=new DateTime($reservationMoreInfo->date); ?>
                                 <span><?php echo $date->format('F d'); ?></span><br>
                                 <span><?php echo $date->format('Y'); ?></span>
-                        </div>
-                    </div>
-
-                    <div class="Reservationnote">
-                        <div class="Reservationnote-name">
-                            <span>Reason</span>
-                        </div>
-                        <div class="Reservationnote-note editable" contenteditable="true">
-                            <span></span>
+                            </div>
                         </div>
 
-                    </div>
-                    <div class="savechange">
+                        <div class="Reservationnote">
+                            <div class="Reservationnote-name">
+                                <span>Reason</span>
+                            </div>
+                            <div class="Reservationnote-note editable" contenteditable="true">
 
-                    </div>
+                                <textarea class="customerNoteSection" name="recallReason" value=""></textarea>
+                            </div>
 
-
-                    <div class="modalbutton-more">
-                        <div class="more-details-modalbtnsection">
-                            <button class="btn btnClose new" name="action" type="submit" value="close">Cancel</button>
-
-                            <button class="btnOpen new" type="button">Proceed</button>
                         </div>
+                        <div class="savechange">
+                            <input type="text" name="selectedReservation" class="selectedReservation"
+                                value="<?php echo $reservationMoreInfo->reservationID; ?>">
+                        </div>
+
+
+                        <div class="modalbutton-more">
+                            <div class="more-details-modalbtnsection">
+                                <button class="btn btnClose new" name="action" type="submit"
+                                    value="close">Cancel</button>
+
+                                <button class="btnOpen new" type="submit" name="action" 
+                                    id="<?php echo $reservationMoreInfo->reservationID; ?>"
+                                    value="sendRecall">Proceed</button>
+
+
+
+
+                            </div>
+                        </div>
+                    
                     </div>
-                </div>
-            
+
                 </form>
-                 <?php endforeach; ?>
+                <?php endforeach; ?>
             </div>
-        
+
         </div>
     </div>
     </div>

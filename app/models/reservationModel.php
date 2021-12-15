@@ -123,12 +123,28 @@ class ReservationModel extends Model
 
    
    public function updateCustomerNote($data){
-    
-      $results =$this ->customQuery(
-      "UPDATE customers SET customerNote=$data['customerNote'] WHERE customerID=(SELECT customerID FROM reservations WHERE reservationID=$data['selectedReservation'] )"
-      );
-   
+   //  print_r($data);
+   $reservationID=$data['selectedReservation'];
+   $custNote=$data['customerNote'];
+      $results =$this ->customQuery("UPDATE customers SET customerNote=:custNote WHERE customerID=(SELECT customerID FROM reservations WHERE reservationID=:resID )",
+         [':custNote' => $custNote, ':resID' => $reservationID]
+      );  
    }
+
+   public function updateReservationRecalledState($selectedreservation,$status){
+ 
+      $results = $this->update('reservations', ['status' => $status], ['reservationID' => $selectedreservation]); 
+       
+   }
+
+    public function addReservationRecall($selectedreservation,$recallReason) 
+   { 
+      date_default_timezone_set("Asia/Colombo");
+      $today = date("Y-m-d H:i:s"); 
+      // To insert a record tableName and valuesToBeInserted are passed 
+      $results =  $this->insert('recallrequests', ['reservationID' => $selectedreservation, 'reason' => $recallReason, 'requestedDate' => $today, 'status' => 0]); 
+      
+   } 
 
 
 
