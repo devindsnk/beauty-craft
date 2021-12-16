@@ -9,21 +9,15 @@
       </div>
       <div class="header-right verticalCenter">
          <!-- you have to specify the user roll ?????????????????????????????????????????????????????????????????????????? -->
-
-
-         <a href="
-         <?php
-         echo URLROOT;
-         if ($userTypeNo == 2) echo "/OwnDashboard/customers";
-         elseif ($userTypeNo == 3) echo "/MangDashboard/customers";
-         elseif ($userTypeNo == 4) echo "/ReceptDashboard/customers";
-         ?>" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
+         <span class="top-right-closeBtn" onclick="history.back()">
+            <i class=" fal fa-times fa-2x "></i>
+         </span>
 
       </div>
    </header>
    <div class="content contentNewRes own ViewCustomer">
 
-<?php print_r($data['cusDetails']) ?>
+      <?php print_r($data['cusDetails']) ?>
       <div class="Cards">
          <!----------------------------------------------------- Profile details starts --------------------------------->
          <div class="Card1 contentBox ">
@@ -68,7 +62,7 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                     <?php echo ($data['cusDetails']->fName) ?>
+                        <?php echo ($data['cusDetails']->fName) ?>
                      </span>
                   </div>
                </div>
@@ -83,7 +77,7 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                     <?php echo ($data['cusDetails']->lName) ?>
+                        <?php echo ($data['cusDetails']->lName) ?>
                      </span>
                   </div>
                </div>
@@ -98,10 +92,10 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                     <?php if($data['cusDetails']->gender=='M')
-                     echo ('Male');
-                     elseif($data['cusDetails']->gender=='F')
-                     echo ('Female'); ?>
+                        <?php if ($data['cusDetails']->gender == 'M')
+                           echo ('Male');
+                        elseif ($data['cusDetails']->gender == 'F')
+                           echo ('Female'); ?>
                      </span>
                   </div>
                </div>
@@ -115,7 +109,7 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                      <?php echo ($data['cusDetails']->registeredDate) ?>
+                        <?php echo ($data['cusDetails']->registeredDate) ?>
                      </span>
                   </div>
                </div>

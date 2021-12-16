@@ -6,14 +6,9 @@
             <h1 class="header-topic">Profile Details</h1>
         </div>
         <div class="header-right verticalCenter">
-            <a href="
-            <?php echo URLROOT;
-            if ($userTypeNo == 1) echo "/SysAdminDashboard/overview";
-            else if ($userTypeNo == 2) echo "/OwnDashboard/overview";
-            elseif ($userTypeNo == 3) echo "/MangDashboard/overview";
-            elseif ($userTypeNo == 4) echo "/ReceptDashboard/overview";
-            elseif ($userTypeNo == 5) echo "/SerProvDashboard/overview";
-            ?>" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
+            <span class="top-right-closeBtn" onclick="history.back()">
+                <i class=" fal fa-times fa-2x "></i>
+            </span>>
         </div>
     </header>
 

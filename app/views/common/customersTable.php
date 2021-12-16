@@ -53,26 +53,26 @@
             </tr>
          </thead>
          <tbody>
-        
-         <?php foreach ($data['customer'] as $customerD) : ?>
-            <tr>
-               <td data-lable="Customer ID" class="column-center-align"><?php echo $customerD->customerID; ?></td>
-               <td data-lable="Customer Name" class="column-left-align"><?php echo $customerD->fName; ?> <?php echo $customerD->lName; ?></td>
-               <td data-lable="Contact No" class="column-center-align"><?php echo $customerD->mobileNo; ?></td>
-               <td data-lable="Gender" class="column-center-align">M</td>
-               <td data-lable="Registered Date" class="column-center-align"><?php echo $customerD->registeredDate; ?></td>
-               <td data-lable="Status" class="column-center-align">
-                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
-               </td>
-               <td class="column-center-align">
-                  <span>
-                     <a href="<?php echo URLROOT ?>/customer/cusDetailView/<?php echo $customerD->customerID ?>"><i class="ci-view-more table-icon img-gap"></i></a>
-                     <?php if ($userType == "Owner") : ?>
-                        <a href="#"><i class="ci-trash table-icon btnRemoveCustomer img-gap"></i></a>
-                     <?php endif; ?>
-                  </span>
-               </td>
-            </tr>
+
+            <?php foreach ($data['customer'] as $customerD) : ?>
+               <tr>
+                  <td data-lable="Customer ID" class="column-center-align"><?php echo $customerD->customerID; ?></td>
+                  <td data-lable="Customer Name" class="column-left-align"><?php echo $customerD->fName; ?> <?php echo $customerD->lName; ?></td>
+                  <td data-lable="Contact No" class="column-center-align"><?php echo $customerD->mobileNo; ?></td>
+                  <td data-lable="Gender" class="column-center-align">M</td>
+                  <td data-lable="Registered Date" class="column-center-align"><?php echo $customerD->registeredDate; ?></td>
+                  <td data-lable="Status" class="column-center-align">
+                     <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
+                  </td>
+                  <td class="column-center-align">
+                     <span>
+                        <a href="<?php echo URLROOT ?>/customer/cusDetailView/<?php echo $customerD->customerID ?>"><i class="ci-view-more table-icon img-gap"></i></a>
+                        <?php if (Session::getUser("typeText") == "Owner") : ?>
+                           <a href="#"><i class="ci-trash table-icon btnRemoveCustomer img-gap"></i></a>
+                        <?php endif; ?>
+                     </span>
+                  </td>
+               </tr>
             <?php endforeach; ?>
          </tbody>
       </table>
@@ -106,7 +106,7 @@
             <button class="btn btnClose normal ModalCancelButton ModalButton">Cancel</button>
          </div>
          <div class="ownRemCusbtn2">
-         <a href="<?php echo URLROOT ?>/customer/remCustomer/<?php echo $customerD->customerID ?>"><button class="btn ModalBlueButton ModalButton">Proceed</button></a>
+            <a href="<?php echo URLROOT ?>/customer/remCustomer/<?php echo $customerD->customerID ?>"><button class="btn ModalBlueButton ModalButton">Proceed</button></a>
          </div>
       </div>
       <!-- main grid 3 ends -->

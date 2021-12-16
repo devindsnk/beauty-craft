@@ -19,8 +19,6 @@ class Session
 
    public static function get($dataName)
    {
-      // echo $dataName;
-      // var_dump($_SESSION);
       return $_SESSION[$dataName];
    }
 

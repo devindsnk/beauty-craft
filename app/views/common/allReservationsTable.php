@@ -5,7 +5,21 @@
    <!-- TODO: provide relevent sideNav by checking logged in user -->
    <?php
    $selectedMain = "Reservations";
-   require APPROOT . "/views/receptionist/recept_sideNav.php"
+   $selectedSub = "";
+   switch (Session::getUser("type"))
+   {
+
+      case "2":
+         echo "lowwqegeggwngomnofqwnfoqwnmqofqwnfqnfoiqnfwoqfqwfnqof";
+         require APPROOT . "/views/owner/own_sideNav.php";
+         break;
+      case "3":
+         require APPROOT . "/views/manager/mang_sideNav.php";
+         break;
+      case "4":
+         require APPROOT . "/views/receptionist/recept_sideNav.php";
+   }
+
    ?>
 
    <?php
@@ -15,7 +29,7 @@
 
    <!--Content-->
    <div class="content recept reservations">
-      <?php if ($userType == "Receptionist") : ?>
+      <?php if (Session::getUser("typeText") == "Receptionist") : ?>
          <div class="page-top-main-container">
             <a href="<?php echo URLROOT ?>/reservations/addNew" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
          </div>
@@ -122,7 +136,7 @@
                         <td class="column-center-align">
                            <span>
                               <a href="<?php echo URLROOT ?>/Reservations/reservationMoreInfo/<?php echo $reservation->reservationID; ?>"><i class="ci-view-more table-icon img-gap"></i></a>
-                              <?php if ($userType == "Receptionist") : ?>
+                              <?php if (Session::getUser("typeText") == "Receptionist") : ?>
                                  <a href="#"><i class="ci-edit table-icon img-gap"></i></a>
                                  <!-- <a href="#"><i class="ci-trash table-icon img-gap"></i></a> -->
                               <?php endif; ?>

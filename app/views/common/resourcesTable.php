@@ -1,4 +1,4 @@
-<?php if ($userType == "Owner") : ?>
+<?php if (Session::getUser("typeText") == "Owner") : ?>
    <div class="page-top-main-container">
       <a href="#" class="btn btn-filled btn-theme-purple btn-main btnAddResource">Add New</a>
    </div>
@@ -53,8 +53,7 @@
                   <td class="column-center-align"><?php echo $resourceD->quantity; ?></td>
                   <td data-lable="Action" class="column-center-align">
                      <span>
-                        
-                           <a href="<?php echo URLROOT ?>/resources/viewResources"><i class="ci ci-view-more table-icon img-gap"></i></a>
+                        <a href="<?php echo URLROOT ?>/resources/viewResources"><i class="ci ci-view-more table-icon img-gap"></i></a>
                      </span>
                   </td>
             </tr>
