@@ -144,6 +144,14 @@ class ReservationModel extends Model
       
    } 
 
+   public function getRecallReasonByReservationID($selectedreservation) 
+   {  $results = $this->getSingle('recallrequests', ['reason'], ['reservationID' => $selectedreservation]);
+      return $results->reason;
+     
+     
+   } 
+
+
 
    // Complex reservation process
 

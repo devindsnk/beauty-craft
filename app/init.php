@@ -14,14 +14,7 @@ require_once 'helpers/system_log_helper.php';
 
 spl_autoload_register(function ($className)
 {
-   try{
-require_once 'core/' . $className . '.php';
-   }
-catch(Exception $e)
-{
-   
-}
- 
+   require_once 'core/' . $className . '.php';
 });
 
 

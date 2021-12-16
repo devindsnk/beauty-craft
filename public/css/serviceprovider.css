@@ -134,6 +134,9 @@
 .serprov .sub-container2-card-name .name {
     font-size: 21px;
 }
+input.selectedReservation{
+    visibility: hidden;
+}
 
 .serprov .sub-container2-card button {
     background: transparent;

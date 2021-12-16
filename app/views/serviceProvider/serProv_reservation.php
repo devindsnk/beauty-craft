@@ -85,11 +85,14 @@
                             </div>
 
                             <div class="sub-container2-card-link">
-                                <button class="btnOpen btnResMoreInfo" name="action" type="submit"
-                                    value="<?php echo $reservation->reservationID; ?>">More Info</button>
+                                <button class="btnOpen btnResMoreInfo" name="action" type="submit" value="moreInfo">More
+                                    Info</button>
+
                             </div>
 
                         </div>
+                        <input type="text" name="selectedReservation" class="selectedReservation"
+                            value="<?php echo $reservation->reservationID; ?>">
                     </form>
 
                     <?php endforeach; ?>
@@ -231,7 +234,7 @@
 
                     </div>
                     <div class="modelcontent">
-                     
+
                         <div class="modaldatetime">
                             <div class="modaldatetime-time">
                                 <span><?php echo $reservationMoreInfo->startTime." - ".$reservationMoreInfo->endTime;?></span><br>
@@ -250,13 +253,13 @@
                             </div>
                             <div class="Reservationnote-note editable" contenteditable="true">
 
-                                <textarea class="customerNoteSection" name="recallReason" value=""></textarea>
+                                <textarea class="customerNoteSection" name="recallReason" value=""><?php if ($reservationMoreInfo->status== 5) echo $data['recallReason']; ?></textarea>
                             </div>
-
+                            <span class="error"> <?php echo $data['recallReason_error']; ?></span>
+                            
                         </div>
                         <div class="savechange">
-                            <input type="text" name="selectedReservation" class="selectedReservation"
-                                value="<?php echo $reservationMoreInfo->reservationID; ?>">
+
                         </div>
 
 
@@ -265,7 +268,7 @@
                                 <button class="btn btnClose new" name="action" type="submit"
                                     value="close">Cancel</button>
 
-                                <button class="btnOpen new" type="submit" name="action" 
+                                <button class="btnOpen new<?php if ($reservationMoreInfo->status== 5) echo " hide" ?>" type="submit" name="action"
                                     id="<?php echo $reservationMoreInfo->reservationID; ?>"
                                     value="sendRecall">Proceed</button>
 
@@ -274,9 +277,10 @@
 
                             </div>
                         </div>
-                    
-                    </div>
 
+                    </div>
+<input type="text" name="selectedReservation" class="selectedReservation"
+                                value="<?php echo $reservationMoreInfo->reservationID; ?>">
                 </form>
                 <?php endforeach; ?>
             </div>

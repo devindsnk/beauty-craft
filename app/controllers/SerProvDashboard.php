@@ -16,95 +16,95 @@
 
    public function reservations()
    {
-      //  die("hii");
 
-      // validateSession([5]);
-       $reservationData = $this->reservationModel->getReservationsByStaffID($_SESSION['userID']);
+      $reservationData = $this->reservationModel->getReservationsByStaffID($_SESSION['userID']);
+
        
              if ($_SERVER['REQUEST_METHOD'] == 'POST')
          {
-            $reservationID=$_POST['action'];
-           
-            $reservationMoreInfo=$this->reservationModel->getReservationMoreInfoByID($reservationID);
             $data = [
                'reservationData' =>$reservationData,
-               'reservationMoreInfo'=>$reservationMoreInfo,
-               'moreInfoModelOpen'=>1,
+               'reservationMoreInfo'=>'',
+               'moreInfoModelOpen'=>0,
                'recallModelOpen'=>0,
-               'selectedReservation'=>'$selectedReservationID',
+               'selectedReservation'=>'',
                'customerNote'=>'',
-               'recallReason'=>''
+               'recallReason'=>'',
+               'recallReason_error'=>'',
+
 
               
             ];
+
+            if($_POST['action']=='moreInfo'){
+               $data['selectedReservation']=trim($_POST['selectedReservation']);
+               $data['reservationMoreInfo']=$this->reservationModel->getReservationMoreInfoByID(trim($_POST['selectedReservation']));
+               $data['moreInfoModelOpen'] = 1;
+
+               $this->view('serviceProvider/serProv_reservation', $data); 
+               
+            }
+
+
+            if($_POST['action']=='saveChanges'){
+               $data['selectedReservation']=trim($_POST['selectedReservation']);
+               $data['reservationMoreInfo']=$this->reservationModel->getReservationMoreInfoByID(trim($_POST['selectedReservation']));
+               $data['customerNote']=trim($_POST['customerNote']);
+               $data['moreInfoModelOpen'] = 1;
+                           
+               $this->reservationModel->updateCustomerNote($data);
+               redirect('SerProvDashboard/reservations');
+
+              
+            }
 
             if($_POST['action']=='close'){
                // die("hello");
                $data['moreInfoModelOpen'] = 0;
                redirect('SerProvDashboard/reservations');
             }
-            
-
-            
-            // print_r($data['reservationMoreInfo']);
-            // die("OKKK");
-      
-            if($_POST['action']=='saveChanges'){
-               // $selectedreservation=trim($_POST['selectedReservation']);
-               // $customerNote=trim($_POST['customerNote']);
-
-               $data = [
-                           'reservationData' =>$reservationData,
-                           'reservationMoreInfo'=>$reservationMoreInfo,
-                           'moreInfoModelOpen'=>1,
-                           'recallModelOpen'=>0,
-                           'selectedReservation'=>trim($_POST['selectedReservation']),
-                           'customerNote'=>trim($_POST['customerNote']),
-                           'recallReason'=>''
-
-                           
-                        ];
 
 
-               // print_r($data);
-               // die("OK");
-               $this->reservationModel->updateCustomerNote($data);
-               redirect('SerProvDashboard/reservations');
-
+            if($_POST['action']=='recall'){
               
-            }
-               
-          
-           if($_POST['action']=='recall'){
-               // die("hello");
-               $selectedreservation=trim($_POST['selectedReservation']);
-               echo $selectedreservation;
-               // die("OK");
-               $reservationMoreInfo=$this->reservationModel->getReservationMoreInfoByID($selectedreservation);
-               
+               $data['selectedReservation']=trim($_POST['selectedReservation']);
+               $data['reservationMoreInfo']=$this->reservationModel->getReservationMoreInfoByID(trim($_POST['selectedReservation']));   
                $data['moreInfoModelOpen'] = 0;
                $data['recallModelOpen'] = 1;
-               $data['reservationMoreInfo']=$reservationMoreInfo;
-               $data['recallReason'] = '';
-             
+               
+               if($data['reservationMoreInfo'][0]->status==5){
+                  $data['recallReason']=$this->reservationModel->getRecallReasonByReservationID(trim($_POST['selectedReservation']));
+               }
+               
+               $this->view('serviceProvider/serProv_reservation', $data); 
              
 
             }
-         
+
            
            if($_POST['action']=='sendRecall'){
-               $selectedreservation=trim($_POST['selectedReservation']);
-               $recallReason=trim($_POST['recallReason']);
-            //   echo $selectedreservation;
-            //   echo $recallReason;
-            //   die("okk");
-               $this->reservationModel->updateReservationRecalledState($selectedreservation,5);
-               $this->reservationModel->addReservationRecall($selectedreservation,$recallReason);
-               // $this->reservationModel->insertReservationRecall($selectedreservation,$recallReason);
+
+               $data['selectedReservation']=trim($_POST['selectedReservation']);
+               $data['reservationMoreInfo']=$this->reservationModel->getReservationMoreInfoByID(trim($_POST['selectedReservation']));
+               $data['recallReason']=trim($_POST['recallReason']);
+               $data['recallReason_error'] = emptyCheck(trim($_POST['recallReason']));
+               $data['recallModelOpen']=1;
+               
+               
+               if($data['recallReason_error']){
+                  // die($data['recallReason_error']);
+                  $this->view('serviceProvider/serProv_reservation', $data); 
+               }else{
+
+               $this->reservationModel->updateReservationRecalledState($data['selectedReservation'],5);
+               $this->reservationModel->addReservationRecall($data['selectedReservation'],$data['recallReason']);
+               
                redirect('SerProvDashboard/reservations');
 
-           } 
-            $this->view('serviceProvider/serProv_reservation', $data); 
+               }              
+
+            }
+              
       
          }
 
@@ -117,14 +117,15 @@
                'recallModelOpen'=>0,
                'selectedReservation'=>'',
                'customerNote'=>'',
-               'recallReason'=>''
+               'recallReason'=>'',
+               'recallReason_error'=>''
                               
             ];
             $this->view('serviceProvider/serProv_reservation', $data);
 
          }
 
-      $this->view('serviceProvider/serProv_reservation');
+      
    }
 
  
