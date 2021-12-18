@@ -30,7 +30,8 @@ class MangDashboard extends Controller
       $activeReceptionists = $this->staffModel->getReceptionistCount();
       $activeManagers = $this->staffModel->getManagerCount();
       $pendingLeaveRequests = $this->leaveModel->getPendingLeaveRequestCount();
-
+      // $totalIncomeForChart = $this->reservationModel->getMonthlyIncomeAndTotalReservationsForMangOverviewCharts();
+      
       $mangOverviewDetails = [
          'totalIncome' => $totalIncome,
          'upcommingReservations' => $upcommingReservations,
@@ -39,11 +40,25 @@ class MangDashboard extends Controller
          'activeCustomers' => $activeCustomers,
          'activeReceptionists' => $activeReceptionists,
          'activeManagers' => $activeManagers,
-         'pendingLeaveRequests' => $pendingLeaveRequests
+         'pendingLeaveRequests' => $pendingLeaveRequests,
+         // 'totalIncomeForChart' => $totalIncomeForChart,
       ];
-
+     
       $this->view('manager/mang_overview',  $mangOverviewDetails);
    }
+   public function overviewChart1()
+   {
+      $totalIncomeForChart = $this->reservationModel->getMonthlyIncomeAndTotalReservationsForMangOverviewCharts(); 
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($totalIncomeForChart));
+   }
+   public function overviewChart2()
+   {
+      $totalReservationsForChart = $this->reservationModel->getMonthlyIncomeAndTotalReservationsForMangOverviewCharts();
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($totalReservationsForChart));
+   }
+
    public function reservations()
    {
       // Session::validateSession([3]);
