@@ -26,7 +26,16 @@
            </li>
            <li>
               <i class="far fa-cog"></i>
-              <a href="<?php echo URLROOT ?>/staffUser/profile">Profile Settings</a>
+             <?php if( $userTypeNo==3||$userTypeNo==4||$userTypeNo==5){
+               $path="/Staff/profile";
+               $label="Profile Settings";
+             }
+             else{
+                $path="/Staff/changePassword";
+                $label="Password";
+             }?>
+              <a href='<?php echo URLROOT ?><?php echo $path;?>'><?php echo $label;?></a>
+              
            </li>
            <li>
               <i class="far fa-sign-out"></i>
@@ -34,6 +43,7 @@
            </li>
         </ul>
      </div>
+    
      <!--End header profile menu-->
   </header>
   <!--End Header(Top Bar)-->

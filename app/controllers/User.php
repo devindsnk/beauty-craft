@@ -28,8 +28,11 @@ class User extends Controller
             'mobileNo' => trim($_POST['mobileNo']),
             'password' => trim($_POST['password']),
             'mobileNo_error' => '',
-            'password_error' => ''
+            'password_error' => '',
+           // 'contactNo'=>'0762930963'
          ];
+         // $this->userModel->updatePassword($data['contactNo'],$data['password']);
+
 
          $data['mobileNo_error'] = validateMobileNo($data['mobileNo']);
          $data['password_error'] = emptyCheck($data['password']);
@@ -45,10 +48,18 @@ class User extends Controller
 
                if (password_verify($data['password'], $hashedPassword))
                {
+                  
+
                   $this->createUserSession($user);
                   // die($_SESSION['userMobileNo']);
                   $this->provideIntialView();
                   // die("SUCCESS");
+
+                  //System log
+                  $log="User loged in to the system";
+                  logger($data['mobileNo'],$log);
+                 
+                  
                }
                else
                {  //Handle incorrect Attempts
@@ -76,7 +87,8 @@ class User extends Controller
             'mobileNo' => '',
             'password' => '',
             'mobileNo_error' => '',
-            'password_error' => ''
+            'password_error' => '',
+            'contactNo'=>'0762930963'
          ];
          $this->view('signin', $data);
       }
@@ -87,6 +99,7 @@ class User extends Controller
       // If the request is a post
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
+         
          // Data is loaded
          $data = [
             'mobileNo' => trim($_POST['mobileNo']),
@@ -180,6 +193,10 @@ class User extends Controller
 
                   // Provide success message here
                   header('location: ' . URLROOT . '/user/signin');
+
+                  //system log
+                  $log="user reset the password";
+                  logger($data['mobileNo'],$log);
                }
             }
             else
@@ -246,6 +263,7 @@ class User extends Controller
                redirect('home');
                break;
          }
+
       }
       else
       {
@@ -273,10 +291,21 @@ class User extends Controller
 
    public function signout()
    {
+      $mobileNo=$_SESSION['userMobileNo'];
       unset($_SESSION['userMobileNo']);
       unset($_SESSION['userType']);
       unset($_SESSION['userID']);
       session_destroy();
       redirect('home');
+
+      //system log
+      $log="User signout from the system";
+      logger($mobileNo,$log);
+
    }
+
+
+
+
+
 }

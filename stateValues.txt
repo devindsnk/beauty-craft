@@ -43,6 +43,13 @@ Reservations
 2 - Confirmed
 3 - No Show
 4 - Completed
+5 - Recalled
+
+---------------------------------------
+
+Recall Requests
+0 - Pending
+1 - Responded
 
 ---------------------------------------
 
