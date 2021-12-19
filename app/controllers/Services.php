@@ -271,16 +271,15 @@ class Services extends Controller
       $sOneDetails = $this->ServiceModel->getOneServiceDetail($serviceID);
       $sSprovDetails = $this->ServiceModel->getOneServicesSProvDetail($serviceID);
 
-      $sSlot1Duration = $this->ServiceModel->getSlot1Duration($serviceID);
-      $sSlot2Duration = $this->ServiceModel->getSlot2Duration($serviceID);
-      $sSlot3Duration = $this->ServiceModel->getSlot3Duration($serviceID);
-
-      $sInterval1Duration = $this->ServiceModel->getInterval1Duration($serviceID);
-      $sInterval2Duration = $this->ServiceModel->getInterval2Duration($serviceID);
-
-      $sAllocatedResDetailsSlot1 = $this->ServiceModel->getAllocatedResourceDetailsofSlot1($serviceID);
-      $sAllocatedResDetailsSlot2 = $this->ServiceModel->getAllocatedResourceDetailsofSlot2($serviceID);
-      $sAllocatedResDetailsSlot3 = $this->ServiceModel->getAllocatedResourceDetailsofSlot3($serviceID);
+      for ($i = 1; $i < 4; $i++){
+         $slotNo = $i;
+         ${'sSlot'.$i.'Duration'} = $this->ServiceModel->getSlotDuration($serviceID, $slotNo);
+         ${'sAllocatedResDetailsSlot'.$i} = $this->ServiceModel->getAllocatedResourceDetailsofSlot($serviceID, $slotNo);
+      }
+      for ($i = 1; $i < 3; $i++){
+         $slotNo = $i+1;
+         ${'sInterval'.($i).'Duration'} = $this->ServiceModel->getIntervalDuration($serviceID, $slotNo);
+      }
 
       $GetOneServicesArray = [ 
          'noofSlots' => $sNoofSlots,
@@ -307,21 +306,19 @@ class Services extends Controller
    {
       $serviceDetails = $this->ServiceModel->getOneServiceDetail($serviceID);
       $serProvDetails = $this->ServiceModel->getOneServicesSProvDetail($serviceID);
-      // 
+
       $noofSlots = $this->ServiceModel->getNoofSlots($serviceID);
 
-      $slot1Details = $this->ServiceModel->getSlot1Duration($serviceID);
-      $slot2Details = $this->ServiceModel->getSlot2Duration($serviceID);
-      $slot3Details = $this->ServiceModel->getSlot3Duration($serviceID);
+      for ($i = 1; $i < 4; $i++){
+         $slotNo = $i;
+         ${'slot'.$i.'Details'} = $this->ServiceModel->getSlotDuration($serviceID, $slotNo);
+         ${'resDetailsSlot'.$i} = $this->ServiceModel->getAllocatedResourceDetailsofSlot($serviceID, $slotNo);
+      }
+      for ($i = 1; $i < 3; $i++){
+         $slotNo = $i+1;
+         ${'interval'.($i).'Details'} = $this->ServiceModel->getIntervalDuration($serviceID, $slotNo);
+      }
 
-      $interval1Details = $this->ServiceModel->getInterval1Duration($serviceID);
-      $interval2Details = $this->ServiceModel->getInterval2Duration($serviceID);
-
-      $resDetailsSlot1 = $this->ServiceModel->getAllocatedResourceDetailsofSlot1($serviceID);
-      $resDetailsSlot2 = $this->ServiceModel->getAllocatedResourceDetailsofSlot2($serviceID);
-      $resDetailsSlot3 = $this->ServiceModel->getAllocatedResourceDetailsofSlot3($serviceID);
-      // 
-      $slotNo = 0;
       $sProvGetArray = $this->getServiceProvider();
       $sTypeGetArray = $this->getServiceType();
       $sResGetArray = $this->getResource();
