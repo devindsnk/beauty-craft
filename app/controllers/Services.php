@@ -303,9 +303,158 @@ class Services extends Controller
       $this->view('manager/mang_serviceView', $GetOneServicesArray);
    }
 
-   public function updateService()
+   public function updateService($serviceID)
    {
-      $this->view('manager/mang_serviceUpdate');
+      $serviceDetails = $this->ServiceModel->getOneServiceDetail($serviceID);
+      $serProvDetails = $this->ServiceModel->getOneServicesSProvDetail($serviceID);
+      // 
+      $noofSlots = $this->ServiceModel->getNoofSlots($serviceID);
+
+      $slot1Details = $this->ServiceModel->getSlot1Duration($serviceID);
+      $slot2Details = $this->ServiceModel->getSlot2Duration($serviceID);
+      $slot3Details = $this->ServiceModel->getSlot3Duration($serviceID);
+
+      $interval1Details = $this->ServiceModel->getInterval1Duration($serviceID);
+      $interval2Details = $this->ServiceModel->getInterval2Duration($serviceID);
+
+      $resDetailsSlot1 = $this->ServiceModel->getAllocatedResourceDetailsofSlot1($serviceID);
+      $resDetailsSlot2 = $this->ServiceModel->getAllocatedResourceDetailsofSlot2($serviceID);
+      $resDetailsSlot3 = $this->ServiceModel->getAllocatedResourceDetailsofSlot3($serviceID);
+      // 
+      $slotNo = 0;
+      $sProvGetArray = $this->getServiceProvider();
+      $sTypeGetArray = $this->getServiceType();
+      $sResGetArray = $this->getResource();
+
+      if ($_SERVER['REQUEST_METHOD'] == 'POST')
+      {
+         $data = [
+            'name' => trim($_POST['sName']),
+
+            'customerCategory' => isset($_POST['serviceCusCategory']) ? trim($_POST['serviceCusCategory']) : '',
+
+            'sSelectedType' => isset($_POST['serviceType']) ? trim($_POST['serviceType']) : '',
+            'sNewType' => trim($_POST['sNewType']),
+            'sSelectedProv' => isset($_POST['serProvCheckbox']) ? $_POST['serProvCheckbox'] : '',
+            'price' => trim($_POST['sPrice']),
+
+            'slot1Duration' => isset($_POST['slot1Duration']) ? trim($_POST['slot1Duration']) : '',
+            'slot2Duration' => isset($_POST['slot2Duration']) ? trim($_POST['slot2Duration']) : '',
+            'slot3Duration' => isset($_POST['slot3Duration']) ? trim($_POST['slot3Duration']) : '',
+            'interval1Duration' => isset($_POST['interval1Duration']) ? trim($_POST['interval1Duration']) : '',
+            'interval2Duration' => isset($_POST['interval2Duration']) ? trim($_POST['interval2Duration']) : '',
+
+            'sSelectedResCount1' => isset($_POST['resourceCount1']) ? ($_POST['resourceCount1']) : [],
+            'sSelectedResCount2' => isset($_POST['resourceCount2']) ? ($_POST['resourceCount2']) : [],
+            'sSelectedResCount3' => isset($_POST['resourceCount3']) ? ($_POST['resourceCount3']) : [],
+
+            'serviceDetails' => $serviceDetails[0],
+            'serProvDetails' => $serProvDetails[0],
+            'noofSlots' => $noofSlots,
+            'slot1Details' => $slot1Details,
+            'slot2Details' => $slot2Details,
+            'slot3Details' => $slot3Details,
+            'interval1Details' => $interval1Details,
+            'interval2Details' => $interval2Details,
+            'resDetailsSlot1' => [],
+            'resDetailsSlot2' => [],
+            'resDetailsSlot3' => [],
+
+            'sTypesArray' => [],
+            'sProvArray' => [],
+            'sResArray' => [],
+
+            'sName_error' => '',
+            'sSelectedCusCategory_error' => '',
+            'sSelectedAllType_error' => '',
+            'sSelectedSProve_error' => '',
+            'sPrice_error' => '',
+
+            'sSlot1Duration_error' => '',
+            'sSlot2Duration_error' => '',
+            'sSlot3Duration_error' => '',
+            'interval1Duration_error' => '',
+            'interval2Duration_error' => '',
+
+            'sSelectedResCount1_error' => '',
+            'sSelectedResCount2_error' => '',
+            'sSelectedResCount3_error' => '',
+
+         ];
+
+         $data['sProvArray'] = $sProvGetArray;
+         $data['sTypesArray'] = $sTypeGetArray;
+         $data['sResArray'] = $sResGetArray;
+
+         if ($_POST['action'] == "updateService")
+         {
+
+
+         }
+
+      }else{
+         
+         $data = [
+            'name' => '',
+            'customerCategory' => '',
+            'sSelectedType' => '',
+            'sNewType' => '',
+            'price' => '',
+            'sSelectedProv' => [],
+
+            'slot1Duration' => '',
+            'slot2Duration' => '',
+            'slot3Duration' => '',
+            'interval1Duration' => '',
+            'interval2Duration' => '',
+
+            'sSelectedResourse' => '',
+            'sSelectedResCount1' => '',
+            'sSelectedResCount2' => '',
+            'sSelectedResCount3' => '',
+
+            'serviceDetails' => $serviceDetails[0],
+            'serProvDetails' => $serProvDetails[0],
+            'noofSlots' => $noofSlots,
+            'slot1Details' => $slot1Details,
+            'slot2Details' => $slot2Details,
+            'slot3Details' => $slot3Details,
+            'interval1Details' => $interval1Details,
+            'interval2Details' => $interval2Details,
+            'resDetailsSlot1' => [],
+            'resDetailsSlot2' => [],
+            'resDetailsSlot3' => [],
+
+            'sTypesArray' => [],
+            'sProvArray' => [],
+            'sResArray' => [],
+
+            'sName_error' => '',
+            'sSelectedCusCategory_error' => '',
+            'sSelectedAllType_error' => '',
+            'sSelectedSProve_error' => '',
+            'sPrice_error' => '',
+
+            'sSlot1Duration_error' => '',
+            'sSlot2Duration_error' => '',
+            'sSlot3Duration_error' => '',
+            'interval1Duration_error' => '',
+            'interval2Duration_error' => '',
+
+            'sSelectedResCount1_error' => '',
+            'sSelectedResCount2_error' => '',
+            'sSelectedResCount3_error' => '',
+         ];
+
+         $data['sProvArray'] = $sProvGetArray;
+         $data['sTypesArray'] = $sTypeGetArray;
+         $data['sResArray'] = $sResGetArray;
+         // print_r($data['interval2Details']);
+         // die("hel");
+
+         $this->view('manager/mang_serviceUpdate', $data);
+
+      }
    }
    public function serviceReport()
    {
