@@ -336,65 +336,66 @@ class OwnDashboard extends Controller
    public function resources()
    {
       $resourceDetails = $this->serviceModel->getResourceDetails();
+      $this->view('owner/own_resources', $resourceDetails);
 
-      if ($_SERVER['REQUEST_METHOD'] == 'POST')
-      {
-         $data = [
-            'resourceName' => trim($_POST['resourceName']),
-            'resourceQuantity' => isset($_POST['resourceQuantity']) ? trim($_POST['resourceQuantity']) : '',
-            'resourceName_error' => '',
-            'resourceQuantity_error' => '',
-            'haveErrors' => 0,
-            'resource' => $resourceDetails
-         ];
-         // Validating ResName
-         if ($_POST['action'] == "addResource")
-         {
-            if (empty($data['resourceName']))
-            {
-               $data['resourceName_error'] = "Please enter Resource Name";
-            }
-            else if (!preg_match("/^[a-zA-Z-' ]*$/", $data['resourceName']))
-            {
-               $data['resourceName_error']  = "Only letters are allowed";
-            }
+      // if ($_SERVER['REQUEST_METHOD'] == 'POST')
+      // {
+      //    $data = [
+      //       'resourceName' => trim($_POST['resourceName']),
+      //       'resourceQuantity' => isset($_POST['resourceQuantity']) ? trim($_POST['resourceQuantity']) : '',
+      //       'resourceName_error' => '',
+      //       'resourceQuantity_error' => '',
+      //       'haveErrors' => 0,
+      //       'resource' => $resourceDetails
+      //    ];
+      //    // Validating ResName
+      //    if ($_POST['action'] == "addResource")
+      //    {
+      //       if (empty($data['resourceName']))
+      //       {
+      //          $data['resourceName_error'] = "Please enter Resource Name";
+      //       }
+      //       else if (!preg_match("/^[a-zA-Z-' ]*$/", $data['resourceName']))
+      //       {
+      //          $data['resourceName_error']  = "Only letters are allowed";
+      //       }
 
-            // Validating 
-            if (empty($data['resourceQuantity']))
-            {
-               $data['resourceQuantity_error'] = "Please select number of resource";
-            }
-            if (
-               empty($data['resourceName_error']) && empty($data['resourceQuantity_error'])
-            )
-            {
-               $this->resourceModel->addResourceDetails($data);
-               redirect('OwnDashboard/resources');
-            }
-            else
-            {
-               $data['haveErrors'] = 1;
-               $this->view('owner/own_resources', $data);
-            }
-         }
-         else if ($_POST['action'] == "cancel")
-         {
-            $data['haveErrors'] = 0;
-            $this->view('owner/own_resources', $data);
-         }
-      }
-      else
-      {
-         $data = [
-            'resourceName' => '',
-            'resourceQuantity' => '',
-            'resourceName_error' => '',
-            'resourceQuantity_error' => '',
-            'haveErrors' => 0,
-            'resource' => $resourceDetails
-         ];
-         $this->view('owner/own_resources', $data);
-      }
+      //       // Validating 
+      //       if (empty($data['resourceQuantity']))
+      //       {
+      //          $data['resourceQuantity_error'] = "Please select number of resource";
+      //       }
+      //       if (
+      //          empty($data['resourceName_error']) && empty($data['resourceQuantity_error'])
+      //       )
+      //       {
+      //          $this->resourceModel->addResourceDetails($data);
+      //          redirect('OwnDashboard/resources');
+      //       }
+      //       else
+      //       {
+      //          $data['haveErrors'] = 1;
+      //          $this->view('owner/own_resources', $data);
+      //       }
+      //    }
+      //    else if ($_POST['action'] == "cancel")
+      //    {
+      //       $data['haveErrors'] = 0;
+      //       $this->view('owner/own_resources', $data);
+      //    }
+      // }
+      // else
+      // {
+      //    $data = [
+      //       'resourceName' => '',
+      //       'resourceQuantity' => '',
+      //       'resourceName_error' => '',
+      //       'resourceQuantity_error' => '',
+      //       'haveErrors' => 0,
+      //       'resource' => $resourceDetails
+      //    ];
+      //    $this->view('owner/own_resources', $data);
+      // }
    }
    public function salaries()
    {

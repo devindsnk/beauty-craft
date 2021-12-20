@@ -26,7 +26,6 @@
 
 
 
-
 <form class="form filter-options" action="">
    <div class="options-container">
       <div class="left-section">
@@ -61,9 +60,11 @@
          <thead>
             <tr>
                <th class="column-center-align col-1">Purchase ID</th>
-               <th class="column-center-align col-2">Manufacturer Name</th>
+               <th class="column-center-align col-2">Manufacturer</th>
                <th class="column-center-align col-2">Model No</th>
-               <th class="column-center-align col-3">Quantity</th>
+               <th class="column-center-align col-2">Price</th>
+               <th class="column-center-align col-2">Purchase Date</th>
+               <th class="column-center-align col-3">Warranty Expiration Date</th>
                <th class="col-7"></th>
             </tr>
          </thead>
@@ -73,11 +74,13 @@
                   <td class="column-center-align">bla bla</td>
                   <td class="column-center-align">bla bla</td>
                   <td class="column-center-align">bla bla</td>
+                  <td class="column-center-align">bla bla</td> 
+                  <td class="column-center-align">bla bla</td> 
                   <td class="column-center-align">bla bla</td>                  
                   <td data-lable="Action" class="column-center-align">
                      <span>
                         <!-- <?php if ($userType == "Owner") : ?> -->
-                           <a href="#"><i class="ci-edit table-icon btnUpdateResource img-gap"></i></a>
+                           <a href="<?php echo URLROOT ?>/resources/updateResource"><i class="ci-edit table-icon btnUpdateResource img-gap"></i></a>
                            <a href="#"><i class="ci-trash table-icon btnRemoveResource img-gap"></i></a>
                         <!-- <?php endif; ?> -->
                      </span>

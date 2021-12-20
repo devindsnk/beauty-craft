@@ -14,32 +14,32 @@ removeServiceBtnList.forEach((btn) => {
 });
 
 // Remove Resource Modal Section
-const removeResourceModal = document.querySelector(".remove-resource");
-const removeResourceBtnList = document.querySelectorAll(".btnRemoveResource");
-removeResourceBtnList.forEach((btn) => {
+const removeResourceTypeModal = document.querySelector(".remove-resource-type");
+const removeResourceTypeBtnList = document.querySelectorAll(".btnRemoveResourceType");
+removeResourceTypeBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
-        modalToToggle = removeResourceModal;
+        modalToToggle = removeResourceTypeModal;
         toggleModal();
     });
 });
 
 // Update Resource Modal Section
-const updateResourceModal = document.querySelector(".update-resource");
-const updateResourceBtnList = document.querySelectorAll(".btnUpdateResource");
-updateResourceBtnList.forEach((btn) => {
-    btn.addEventListener("click", function () {
-        modalToToggle = updateResourceModal;
-        toggleModal();
-    });
-});
+// const updateResourceModal = document.querySelector(".update-resource");
+// const updateResourceBtnList = document.querySelectorAll(".btnUpdateResource");
+// updateResourceBtnList.forEach((btn) => {
+//     btn.addEventListener("click", function () {
+//         modalToToggle = updateResourceModal;
+//         toggleModal();
+//     });
+// });
 
 
 // Add Resource Modal Section
-const addResourceModal = document.querySelector(".add-resource");
-const addResourceBtnList = document.querySelectorAll(".btnAddResource");
-addResourceBtnList.forEach((btn) => {
+const addResourceTypeModal = document.querySelector(".add-resource-type");
+const addResourceTypeBtnList = document.querySelectorAll(".btnAddResourceType");
+addResourceTypeBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
-        modalToToggle = addResourceModal;
+        modalToToggle = addResourceTypeModal;
         toggleModal();
     });
 });
