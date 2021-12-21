@@ -8,12 +8,9 @@
 			<h1 class="header-topic">New Service</h1>
 		</div>
 		<div class="header-right verticalCenter">
-			<a href="
-			<?php
-			echo URLROOT;
-			if ($userTypeNo == 2) echo "/OwnDashboard/services";
-			elseif ($userTypeNo == 3) echo "/MangDashboard/services";
-			?>" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
+			<span class="top-right-closeBtn" onclick="history.back()">
+				<i class=" fal fa-times fa-2x "></i>
+			</span>
 		</div>
 	</header>
 
@@ -49,7 +46,7 @@
 									<option value="Gent" <?php if ($data['customerCategory'] == 'Gent') echo 'selected'; ?>>Gents</option>
 									<option value="Ladies" <?php if ($data['customerCategory'] == 'Ladies') echo 'selected'; ?>>Ladies</option>
 									<option value="Both" <?php if ($data['customerCategory'] == 'Both') echo 'selected'; ?>>Both</option>
-							</select>
+								</select>
 							</div>
 							<span class="error"><?php echo $data['sSelectedCusCategory_error']; ?></span>
 						</div>
@@ -99,14 +96,16 @@
 							<div class="checkbox-div">
 
 								<?php foreach ($data['sProvArray'] as $sProv) : ?>
-									<div class="divIndiv"><input type="checkbox" name="serProvCheckbox[]" value="<?php echo $sProv->staffID; ?>" <?php if (!empty($data['sSelectedProv']))
-										{
-											foreach ($data['sSelectedProv'] as $selectedSP)
-											{
-												if ($selectedSP == $sProv->staffID) echo 'checked';
-											}
-										}
-										?>>
+									<div class="divIndiv">
+										<input type="checkbox" name="serProvCheckbox[]" value="<?php echo $sProv->staffID; ?>" <?php
+																																if (!empty($data['sSelectedProv']))
+																																{
+																																	foreach ($data['sSelectedProv'] as $selectedSP)
+																																	{
+																																		if ($selectedSP == $sProv->staffID) echo 'checked';
+																																	}
+																																}
+																																?>>
 										<lable class="lableInDiv">
 											<?php echo $sProv->staffID; ?> - <?php echo $sProv->fName; ?> <?php echo $sProv->lName; ?>
 										</lable>
@@ -222,14 +221,14 @@
 
 							</div>
 							<!-- slot 1-->
-							
+
 					</div>
-						
+
 					<?php if ($data['slot2Duration'] != NULL || $data['interval1Duration'] != NULL || $data['sSelectedResCount2'] != NULL) : ?>
-						
-						<div class='newService-sub' id='fullSlotDetail1'> 
+
+						<div class='newService-sub' id='fullSlotDetail1'>
 							<div class='btn-remove quantity-align'>
-								<a href='#fullSlotDetail 1' name='remove' id='2' class='close-slot' >
+								<a href='#fullSlotDetail 1' name='remove' id='2' class='close-slot'>
 									<i class='fas fa-times fa-1g'></i><br />
 								</a>
 							</div>
@@ -239,7 +238,7 @@
 
 									<div class='row2' id='intervalDetails1'>
 										<label class='labels'>Interval Duration</label><br>
-										<select class='dropdownSelectBox intervalSelectBox1'  name="interval1Duration">
+										<select class='dropdownSelectBox intervalSelectBox1' name="interval1Duration">
 											<option class='unbold' value='val0' option selected='true' disabled='disabled'>Select duration</option>
 											<?php for ($i = 10; $i <= 50; $i += 10) : ?>
 												<option value="<?php echo $i; ?>" <?php if ($data['interval1Duration'] == $i) echo 'selected'; ?>> <?php echo $i; ?> mins </option>
@@ -264,17 +263,17 @@
 													<option value="<?php echo $i; ?>" <?php if ($data['slot2Duration'] == $i) echo 'selected'; ?>> <?php echo $i; ?> mins </option>
 												<?php endif; ?>
 
-												<?php endfor; ?>
+											<?php endfor; ?>
 										</select>
 										<span class='error paddingLeft'></span>
 										<span class="error paddingLeft"><?php echo $data['sSlot2Duration_error']; ?></span>
 
 									</div>
 
-								</div> 
+								</div>
 
 								<div class='column' id='resorceDetails2'>
-								<label class="labels paddingBottom">Resources & Quantity</label><br>
+									<label class="labels paddingBottom">Resources & Quantity</label><br>
 									<div class="checkbox-div">
 										<?php $resIDArray =  []; ?>
 										<?php foreach ($data['sResArray'] as $sResource) : ?>
@@ -313,10 +312,10 @@
 						</div>
 
 						<?php if ($data['slot3Duration'] != NULL || $data['interval2Duration'] != NULL || $data['sSelectedResCount3'] != NULL) : ?>
-							
-							<div class='newService-sub' id='fullSlotDetail2'> 
+
+							<div class='newService-sub' id='fullSlotDetail2'>
 								<div class='btn-remove quantity-align'>
-									<a href='#fullSlotDetail 2' name='remove' id='3' class='close-slot' >
+									<a href='#fullSlotDetail 2' name='remove' id='3' class='close-slot'>
 										<i class='fas fa-times fa-1g'></i><br />
 									</a>
 								</div>
@@ -326,7 +325,7 @@
 
 										<div class='row2' id='intervalDetails2'>
 											<label class='labels'>Interval Duration</label><br>
-											<select class='dropdownSelectBox intervalSelectBox2'  name="interval2Duration">
+											<select class='dropdownSelectBox intervalSelectBox2' name="interval2Duration">
 												<option class='unbold' value='val0' option selected='true' disabled='disabled'>Select duration</option>
 												<?php for ($i = 10; $i <= 50; $i += 10) : ?>
 													<option value="<?php echo $i; ?>" <?php if ($data['interval2Duration'] == $i) echo 'selected'; ?>> <?php echo $i; ?> mins </option>
@@ -350,16 +349,16 @@
 														<option value="<?php echo $i; ?>" <?php if ($data['slot3Duration'] == $i) echo 'selected'; ?>> <?php echo $i; ?> mins </option>
 													<?php endif; ?>
 
-													<?php endfor; ?>
+												<?php endfor; ?>
 											</select>
 											<span class="error paddingLeft"><?php echo $data['sSlot3Duration_error']; ?></span>
 
 										</div>
 
-									</div> 
+									</div>
 
 									<div class='column' id='resorceDetails3'>
-									<label class="labels paddingBottom">Resources & Quantity</label><br>
+										<label class="labels paddingBottom">Resources & Quantity</label><br>
 										<div class="checkbox-div">
 											<?php $resIDArray =  []; ?>
 											<?php foreach ($data['sResArray'] as $sResource) : ?>
@@ -398,7 +397,7 @@
 								</div>
 							</div>
 						<?php endif; ?>
-					<?php endif; ?>	
+					<?php endif; ?>
 				</div>
 
 				<!-- add another slot -->
@@ -414,29 +413,31 @@
 			</div>
 		</form>
 	</div>
-	<script type="module" >
-			import { A } from 'http://localhost/beauty-craft/public/js/mang_service.js';
-			console.log('helloht1');
-			var x= document.getElementById("fullSlotDetail1");
-			var y= document.getElementById("fullSlotDetail2");
-			console.log(x);
-			console.log(y);
+	<script type="module">
+		import {
+			A
+		} from 'http://localhost/beauty-craft/public/js/mang_service.js';
+		console.log('helloht1');
+		var x = document.getElementById("fullSlotDetail1");
+		var y = document.getElementById("fullSlotDetail2");
+		console.log(x);
+		console.log(y);
 
-			if(y !== null){
-				console.log('11111');
-				i=3;
-				A(i);
-				
-			}else if(x !== null){
-				console.log('222222');
-				i=2;
-				A(i);
-				
-			}
-			// console.log('helloht111');
+		if (y !== null) {
+			console.log('11111');
+			i = 3;
+			A(i);
 
-			// document.querySelector('#fullSlotDetail1').addEventListener('load', function(){
-			// 	console.log('helloht1');
-			// });
+		} else if (x !== null) {
+			console.log('222222');
+			i = 2;
+			A(i);
+
+		}
+		// console.log('helloht111');
+
+		// document.querySelector('#fullSlotDetail1').addEventListener('load', function(){
+		// 	console.log('helloht1');
+		// });
 	</script>
 	<?php require APPROOT . "/views/inc/footer.php" ?>

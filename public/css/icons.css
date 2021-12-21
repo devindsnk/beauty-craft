@@ -4,6 +4,8 @@
 /* --------------STYLES ADDED BY DEVIN -------------------*/
 /* ------------------------------------------------------ */
 
+/* <i class=""></i> */
+
 /* Custom menu icon */
 .ci{
    display: block;
@@ -34,6 +36,11 @@
 .footer-icon{
    display: inline-block;
    height: 20px;
+   width: 20px;
+}
+
+.input-icon{
+   height:20px;
    width: 20px;
 }
 
@@ -188,6 +195,18 @@
    background-size: auto;
 }
 
+.ci-pwdView{
+   background: url(../../public/svg/eye.svg);
+   background-repeat: no-repeat;
+   background-size: auto;
+   
+}
+
+.ci-pwdHide{
+   background: url(../../public/svg/eye-slash.svg);
+   background-repeat: no-repeat;
+   background-size: auto;
+}
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
 /* ------------------------------------------------------ */

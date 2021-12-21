@@ -166,6 +166,10 @@ class Reservations extends Controller
    {
    }
 
+   public function getOverlappingReservations()
+   {
+   }
+
    ////////////////////////////////////////
 
 

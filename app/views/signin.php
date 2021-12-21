@@ -31,7 +31,9 @@
                 </div>
 
                 <div class="text-group">
-                    <input type="password" name="password" placeholder="Your password here" maxlength="25">
+                    <input id="pwd-field" type="password" name="password" placeholder="Your password here" maxlength="25">
+                    <i id="show-pwd" class="input-icon ci ci-pwdView right-icon"></i>
+                    <i id="hide-pwd" class="input-icon ci ci-pwdHide right-icon"></i>
                     <span class="error"><?php echo $data['password_error']; ?></span>
                 </div>
 
@@ -47,5 +49,6 @@
     </div>
 
 </body>
+<script src="<?php echo URLROOT ?>/public/js/login.js"></script>
 
 </html>

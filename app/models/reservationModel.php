@@ -108,6 +108,27 @@ class ReservationModel extends Model
 
    ////////////////////////////////////////////////
 
+   public function getOverlappingReservations($date, $slotStartTime, $slotEndTime)
+   {
+      // Make sure to consider Pending (1) and Confirmed (2) Only
+      $SQLquery =
+         "SELECT *
+         FROM reservations
+         WHERE 
+            date = :date AND 
+            startTime < :slotEndTime AND endTime > :slotStartTime AND
+            status IN (1,2) AND ;";
+
+      $results = $this->customQuery(
+         $SQLquery,
+         [
+            ':date' => $date,
+            ':slotStartTime' => $slotStartTime,
+            ':slotEndTime' => $slotEndTime
+         ]
+      );
+      return $results;
+   }
 
 
    ////////////////////////////////////////////////
