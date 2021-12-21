@@ -117,7 +117,7 @@
 
 .serprov .sub-container2-card-service {
     height: 60%;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 24px;
     display: block;
 }
@@ -133,6 +133,9 @@
 
 .serprov .sub-container2-card-name .name {
     font-size: 21px;
+}
+input.selectedReservation{
+    visibility: hidden;
 }
 
 .serprov .sub-container2-card button {
@@ -163,6 +166,18 @@
   
     text-align: center;
 }
+
+.serprov .confirm-status.gray {
+    padding: 5px 0;
+    width: 165px;
+    background-color: #E2E3E3;
+    color: #50515A;
+    font-weight: 600;
+    border-radius: 6px;
+  
+    text-align: center;
+}
+
 .serprov .confirm-status.green {
     padding: 5px 0;
     width: 165px;
@@ -301,6 +316,7 @@ input#takeLeaveDate.addItemsModalDate{
     /* background-color: thistle; */
     height: 12%;
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
     margin: 5px 0px;
 }
@@ -319,6 +335,7 @@ input#takeLeaveDate.addItemsModalDate{
     flex-direction: column;
     align-items: flex-start;
     height: 21%;
+    
     /* background-color: lightseagreen; */
 }
 
@@ -330,6 +347,9 @@ input#takeLeaveDate.addItemsModalDate{
     height: 10%;
     margin-top: 2px;
     /* background-color: yellow; */
+}
+.serprov .savechange .selectedReservation{
+    visibility: hidden !important;
 }
 
 .serprov .modalbutton {
@@ -390,9 +410,30 @@ input#takeLeaveDate.addItemsModalDate{
     background-color: #eaeaea;
     width: 100%;
     height: 100%;
-    padding-top: 10px;
-    padding-left: 10px;
+   
+    overflow-x: scroll;
+    padding: 5px;
+   
 }
+.serprov .Reservationnote-note.editable .customerNoteSection{
+    border: none;
+    width: 100%;
+    overflow-y:wrap;
+    background-color: #803636;
+    height: 100%;
+    padding: 2px;
+    background-color: #eaeaea;
+
+
+}
+textarea.customerNoteSection{
+    font-size: 16px;
+}
+
+.serprov .Reservationnote-note.editable::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
 
 .serprov .modaldatetime {
     display: flex;
@@ -632,7 +673,7 @@ span.leavelimitmsg{
 } */
 /* reservation page calendar */
 input#date_input.selecteddate  {
-    width: 160px;
+    width: 180px;
     height: 40px;
     border: none;
     padding: 0 10px;

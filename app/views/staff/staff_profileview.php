@@ -5,10 +5,11 @@
         <div class="header-center verticalCenter">
             <h1 class="header-topic">Profile Details</h1>
         </div>
+
         <div class="header-right verticalCenter">
-            <span class="top-right-closeBtn" onclick="history.back()">
-                <i class=" fal fa-times fa-2x "></i>
-            </span>>
+
+            <input type="button" value="X" class="" onclick="history.back()">
+
         </div>
     </header>
 
@@ -16,15 +17,19 @@
         <div class="profileview">
             <!-- <h1 class="profileviewh1">View Profile</h1> -->
             <div class="profilecontent">
+
                 <div class="basicinfo">
                     <div class="item1">
                         <img class="item1img" src="<?php echo URLROOT ?>/public/imgs/person1.jpg"></img>
                     </div>
                     <div class="item2">
-                        <span class="item2name">Ruwanthi Munasinghe</span>
+                        <span class="item2name"><?php echo $data['profileData'][0]->fName . " " . $data['profileData'][0]->lName; ?></span>
                         <span class="item2type">Service Provider</span>
                     </div>
-                    <div class="item3">
+                    <div class="item3 <?php if ($userTypeNo != 5)
+                                        {
+                                            echo " hide";
+                                        } ?>">
                         <span class="rate">4.5</span>
                         <span class="fa fa-star"></span>
                         <span class="fa fa-star"></span>
@@ -37,11 +42,11 @@
                     </div>
                     <div class="item5">
                         <span class="item5staffid">Staff ID</span>
-                        <span class="item5id">000023</span>
+                        <span class="item5id"><?php echo $data['profileData'][0]->staffID; ?></span>
                     </div>
                     <div class="item6">
                         <span class="item6empdate">Employement Date</span>
-                        <span class="item6date">2021.05.08</span>
+                        <span class="item6date"><?php echo $data['profileData'][0]->joinedDate; ?></span>
                     </div>
                     <div class="item7">
                         <button class="btnOpen normal changepw">Change Password</button>
@@ -51,54 +56,65 @@
                     <div class="contactinfo1">
                         <div class="listitem1">
                             <div class="listitemleft">Mobile Number</div>
-                            <div class="listitemright">07123456789</div>
+                            <div class="listitemright"><?php echo $data['profileData'][0]->mobileNo; ?></div>
                         </div>
                         <div class="listitem2">
                             <div class="listitemleft">NIC Number</div>
-                            <div class="listitemright">123456789V</div>
+                            <div class="listitemright"><?php echo $data['profileData'][0]->nic; ?></div>
                         </div>
                         <div class="listitem3">
                             <div class="listitemleft">Date of Birth</div>
-                            <div class="listitemright">2002.01.01</div>
+                            <div class="listitemright"><?php echo $data['profileData'][0]->dob; ?></div>
                         </div>
                         <div class="listitem4">
                             <div class="listitemleft">Gender</div>
-                            <div class="listitemright">Female</div>
+                            <div class="listitemright"><?php if ($data['profileData'][0]->gender == 'F')
+                                                        {
+                                                            echo "Female";
+                                                        }
+                                                        else
+                                                        {
+                                                            echo "Male";
+                                                        } ?></div>
                         </div>
                         <div class="listitem5">
                             <div class="listitemleft">E-mail </div>
-                            <div class="listitemright">abc@gmail.com</div>
+                            <div class="listitemright"><?php echo $data['profileData'][0]->email; ?></div>
                         </div>
                         <div class="listitem6">
                             <div class="listitemleft add">Address<br></div>
-                            <div class="listitemright">255A,Galle Road <br> Dehiwala.</div>
+                            <div class="listitemright"><?php echo $data['profileData'][0]->address; ?></div>
                         </div>
                     </div>
                     <div class="contactinfo2">
                         <div class="infoitem">
                             <div class="infoitemleft">Account number</div>
-                            <div class="infoitemright">0000146984435</div>
+                            <div class="infoitemright"><?php echo $data['profileData'][0]->accountNo; ?></div>
                         </div>
                         <div class="infoitem">
                             <div class="infoitemleft">Account Holder</div>
-                            <div class="infoitemright">H. D. R. M. Munasinghe</div>
+                            <div class="infoitemright"><?php echo $data['profileData'][0]->holdersName; ?></div>
                         </div>
                         <div class="infoitem">
                             <div class="infoitemleft">Bank Name</div>
-                            <div class="infoitemright">People’s Bank</div>
+                            <div class="infoitemright"><?php echo $data['profileData'][0]->bankName . " - " . $data['profileData'][0]->branchName; ?></div>
                         </div>
 
                     </div>
 
 
                 </div>
+
             </div>
-            <div class="profilecontent">
+            <div class="profilecontent<?php if ($userTypeNo != 5)
+                                        {
+                                            echo " hide";
+                                        } ?>">
                 <div class="profview-services-list">
                     <span class="assignservices">Assigned Services</span>
-                    <span class="servicelist">Childrens hair cut</span>
-                    <span class="servicelist">Men’s hair colorl</span>
-                    <span class="servicelist">Men’s hair conditioning treatment</span>
+                    <?php foreach ($data['serviceslist'] as $service) : ?>
+                        <span class="servicelist"><?php echo $service->name . " (" . $service->type . ")"; ?></span>
+                    <?php endforeach; ?>
                 </div>
             </div>
 

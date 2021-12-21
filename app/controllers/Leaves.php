@@ -3,7 +3,8 @@ class Leaves extends Controller
 {
    public function __construct()
    {
-      $this->LeaveModel = $this->model('LeaveModel');
+   
+        $this->LeaveModel = $this->model('LeaveModel');
    }
 
    public function responceForLeaveRequest($staffID, $leaveDate)

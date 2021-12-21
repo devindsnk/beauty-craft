@@ -517,7 +517,119 @@ class Staff extends Controller
       $this->view('owner/own_RemStaffViewReservations');
    }
 
-   public function RemoveStaff($staffID) //details
+   public function profile()
+   {  
+      $profileData = $this->staffModel->getStaffDetailsWithBankDetailsByStaffID($_SESSION['userID']);
+      $serviceslist=$this->staffModel->getServiceslistByStaffID($_SESSION['userID']);
+      Session::validateSession([1,2,3,4,5]);
+      //$profileData=$this->StaffModel->getStaffDetailsWithBankDetailsByStaffID($_SESSION['userID']);
+      if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+      }
+      else{
+         $data=[
+            'profileData'=>$profileData,
+            'serviceslist'=>$serviceslist,
+         ];
+         $this->view('staff/staff_profileview',$data);
+      }
+   }
+
+   public function changePassword(){
+      Session::validateSession([1,2]);
+      // echo $_SESSION['userMobileNo'];
+      $result=$this->userModel->getUser($_SESSION['userMobileNo']);
+
+       $hashedPassword = $result->password;
+      if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+// die($_POST['currentPassword']);
+            $data=[
+          'mobileNo'=>$result->mobileNo,
+          'currentPassword'=> trim($_POST['currentPassword']),
+          'newPassword1' => trim($_POST['password1']),
+          'newPassword2' => trim($_POST['password2']),
+          'currentPassword_error'=>'',
+          'newPassword_error'=>'',
+          'confirmPassword_error'=>''
+         ];
+
+         $data['currentPassword_error'] = emptyCheck($data['currentPassword']);
+         
+         $data['newPassword_error'] = emptyCheck($data['newPassword1']);
+         $data['confirmPassword_error'] = emptyCheck($data['newPassword2']);
+// die($data['newPassword_error']);
+
+
+          if (!empty($data['currentPassword_error']) || !empty($data['newPassword_error']) ||!empty($data['confirmPassword_error']))//have errors
+         {
+               $this->view('staff/staff_changepassword',$data);
+         }
+
+         else//no errors
+         {
+            
+            if (password_verify($data['currentPassword'], $hashedPassword))
+               {
+                  if($data['newPassword1'] != $data['newPassword2']){
+                     $data['confirmPassword_error'] = "New Passwords dont't match";
+                     $this->view('staff/staff_changepassword',$data);
+
+                  }
+                   if (empty($data['currentPassword_error']) && empty($data['newPassword_error']) && empty($data['confirmPassword_error'])){
+                        $this->userModel->updatePassword($data['mobileNo'], $data['newPassword1']);
+
+                        $log="user changed the password";
+                        logger($data['mobileNo'],$log);
+                        $this->view('staff/staff_changepassword',$data);
+                   }
+
+
+
+               }
+            else
+               {
+                  $data['currentPassword_error'] = "Incorrect password";
+                  $this->view('Staff/staff_changepassword',$data);
+               }
+
+            $this->view('staff/staff_changepassword',$data);
+         }
+
+         
+      }
+      else{
+         $data=[
+          'mobileNo'=>$result->mobileNo,
+          'currentPassword'=>'',
+          'newPassword1' => '',
+          'newPassword2' => '',
+          'currentPassword_error'=>'',
+          'newPassword_error'=>'',
+          'confirmPassword_error'=>''
+         ];
+         $this->view('staff/staff_changepassword',$data);
+      }
+  
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+      public function RemoveStaff($staffID) //details
    {
       // print_r($RemstaffDetails);
       // die();

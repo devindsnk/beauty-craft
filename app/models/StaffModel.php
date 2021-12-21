@@ -48,7 +48,7 @@ class StaffModel extends Model
             ':staffID' => $staffID
          ]
       );
-      var_dump($result);
+      // var_dump($result);
       return $result;
    }
 
@@ -104,7 +104,7 @@ class StaffModel extends Model
    {
       $results = $this->getSingle("staff", "*", ['mobileNo' => $mobileNo]);
 
-      var_dump($results);
+      // var_dump($results);
       // $this->db->query("SELECT * FROM staff WHERE mobileNo =  :mobileNo ");
       // $this->db->bind(':mobileNo', $mobileNo);
       // $result = $this->db->single();
@@ -114,6 +114,17 @@ class StaffModel extends Model
       return [$results->staffID, $results->fName . " " . $results->lName];
    }
 
+   public function getServiceslistByStaffID($staffID)
+   {
+      $results = $this->customQuery("SELECT services.type,services.name
+      FROM services
+      INNER JOIN serviceproviders 
+      ON serviceproviders.serviceID =services.serviceID
+      WHERE serviceproviders.staffID =:staffID",
+      [':staffID'=>$staffID]);
+    return $results;
+   }
+   
    // FOR MANAGER OVERVIEW
    public function getReceptionistCount()
    {
