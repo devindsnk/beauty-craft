@@ -29,7 +29,7 @@
 
    <!--Content-->
    <div class="content recept reservations">
-      <?php if (Session::getUser("typeText") == "Receptionist") : ?>
+      <?php if ($userTypeNo == 4) : ?>
          <div class="page-top-main-container">
             <a href="<?php echo URLROOT ?>/reservations/addNew" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
          </div>

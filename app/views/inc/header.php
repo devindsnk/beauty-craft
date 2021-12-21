@@ -1,3 +1,9 @@
+<?php
+$username = Session::getUser("name");
+$userTypeNo = Session::getUser("type");
+$userTypeText = Session::getUser("typeText");
+?>
+
 <!DOCTYPE html>
 <html>
 
