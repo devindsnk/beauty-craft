@@ -21,7 +21,7 @@
 
             <div class="date-status">
                <span class="date">
-                  <?php echo getDateFullFormat($data->date); ?>
+                  <?php echo DateTimeExtended::convertToFullFormatDate($data->date); ?>
                   <!-- Tuesday, 24 June 2021 -->
                </span>
                <span class="status-tag status-error-red">Cancelled</span>

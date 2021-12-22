@@ -5,11 +5,11 @@ require_once 'config/config.php';
 
 // Loading helpers
 require_once 'helpers/url_helper.php';
-require_once 'helpers/session_helper.php';
+require_once 'helpers/Session_helper.php';
 require_once 'helpers/data_validation_helper.php';
-require_once 'helpers/sms_helper.php';
-require_once 'helpers/time_date_format_helper.php';
-require_once 'helpers/toastNotificationsHelper.php';
+require_once 'helpers/SMS_helper.php';
+require_once 'helpers/DateTimeExtended_helper.php';
+require_once 'helpers/Toast_helper.php';
 require_once 'helpers/system_log_helper.php';
 
 spl_autoload_register(function ($className)
