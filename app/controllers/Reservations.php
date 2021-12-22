@@ -9,6 +9,23 @@ class Reservations extends Controller
       $this->reservationModel = $this->model('ReservationModel');
       $this->closedDatesModel = $this->model('ClosedDatesModel');
    }
+
+   public function viewAllReservations()
+   {
+      Session::validateSession([2, 3, 4]);
+      $serviceProviders = $this->serviceModel->getServiceProviderDetails();
+      $serviceTypes = $this->serviceModel->getServiceTypeDetails();
+      $reservations = $this->reservationModel->getAllReservations();
+
+      $data = [
+         'serviceProvidersList' => $serviceProviders,
+         'serviceTypesList' => $serviceTypes,
+         'reservationsList' => $reservations
+      ];
+
+      $this->view('common/allReservationsTable', $data);
+   }
+
    public function newReservationCust()
    {
       // $sProvidersList = $this->getAllServiceProviders();
@@ -107,21 +124,6 @@ class Reservations extends Controller
          ];
          $this->view('receptionist/recept_newReservation', $data);
       }
-   }
-
-   public function viewAllReservations()
-   {
-      $serviceProviders = $this->serviceModel->getServiceProviderDetails();
-      $serviceTypes = $this->serviceModel->getServiceTypeDetails();
-      $reservations = $this->reservationModel->getAllReservations();
-
-      $data = [
-         'serviceProvidersList' => $serviceProviders,
-         'serviceTypesList' => $serviceTypes,
-         'reservationsList' => $reservations
-      ];
-
-      $this->view('common/allReservationsTable', $data);
    }
 
    public function reservationMoreInfo($reservationID)

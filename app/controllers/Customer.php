@@ -8,6 +8,14 @@ class Customer extends Controller
       $this->OTPModel = $this->model('OTPManagementModel');
    }
 
+   public function viewAllCustomers()
+   {
+      Session::validateSession([2, 3, 4]);
+      $CusDetails = $this->customerModel->getAllCustomerDetails();
+      $CustomerDataArray = ['customer' => $CusDetails];
+      $this->view('common/allCustomersTable', $CustomerDataArray);
+   }
+
    public function register()
    {
       // If the request is a post
@@ -120,8 +128,8 @@ class Customer extends Controller
                   $this->OTPModel->removeOTP($data['mobileNo'], 1);
 
                   //system log
-                  $log="user registered into the system";
-                  logger($data['mobileNo'],$log);
+                  $log = "user registered into the system";
+                  logger($data['mobileNo'], $log);
                   SMS::sendCustomerRegSMS($data['mobileNo']);
                   $this->userModel->commit();
 

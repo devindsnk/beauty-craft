@@ -41,10 +41,7 @@ class ReceptDashboard extends Controller
       // Session::validateSession([4]);
       $sDetails = $this->serviceModel->getServiceDetails();
 
-      $GetServicesArray = [
-         'services' => $sDetails
-      ];
-      $this->view('receptionist/recept_services', $GetServicesArray);
+      $this->view('receptionist/recept_services', $sDetails);
    }
    public function customers()
    {

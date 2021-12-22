@@ -10,7 +10,6 @@
    {
 
       case "2":
-         echo "lowwqegeggwngomnofqwnfoqwnmqofqwnfqnfoiqnfwoqfqwfnqof";
          require APPROOT . "/views/owner/own_sideNav.php";
          break;
       case "3":
@@ -126,7 +125,7 @@
                      <tr>
                         <td data-lable="Reservation ID" class="column-center-align font-numeric">R<?php echo $reservation->reservationID; ?></td>
                         <td data-lable="Date" class="column-center-align"><?php echo $reservation->date; ?></td>
-                        <td data-lable="Time" class="column-center-align font-numeric"><?php echo minsToTime($reservation->startTime); ?></td>
+                        <td data-lable="Time" class="column-center-align font-numeric"><?php echo DateTimeExtended::minsToTime($reservation->startTime); ?></td>
                         <td data-lable="Service" class="column-left-align"><?php echo $reservation->serviceName; ?></td>
                         <td data-lable="Service Provider" class="column-left-align"><?php echo $reservation->staffFName . " " . $reservation->staffLName; ?></td>
                         <td data-lable="Customer" class="column-left-align"><?php echo $reservation->custFName . " " . $reservation->custLName; ?></td>
