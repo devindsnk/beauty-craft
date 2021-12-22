@@ -7,9 +7,8 @@
         </div>
 
         <div class="header-right verticalCenter">
-            <!-- <button onclick="history.back()><i class=" fal fa-times fa-2x "></i></button> -->
-            <button><a href="<?php echo $_SERVER['HTTP_REFERER']; ?>">back</a></button>
 
+            <input type="button" value="X" class="" onclick="history.back()">
 
         </div>
     </header>

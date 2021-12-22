@@ -7,12 +7,9 @@
             <h1 class="header-topic">Staff Member Details</h1>
         </div>
         <div class="header-right verticalCenter">
-            <a href="<?php
-                        echo URLROOT;
-                        if ($userTypeNo == 2) echo "/OwnDashboard/staff";
-                        elseif ($userTypeNo == 3) echo "/MangDashboard/staffMembers";
-                        elseif ($userTypeNo == 4) echo "/ReceptDashboard/staffMembers";
-                        ?>" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
+            <span class="top-right-closeBtn" onclick="history.back()">
+                <i class=" fal fa-times fa-2x "></i>
+            </span>
         </div>
     </header>
     <div class="content contentNewRes">
@@ -24,7 +21,7 @@
             <div class="ownViewStaffCards">
                 <!----------------------------------------------------- Profile details starts --------------------------------->
 
-                 
+
                 <div class="ownViewStaffProfileDetails">
                     <!-- Basic Info Details Head  -->
                     <div class="ownViewStaffProfileDetailsHead">
@@ -35,12 +32,12 @@
                     <!-- section break line starts -->
                     <div class="ownAddstaffLineContainer">
                         <div class="ownAddstaffLines">
-                        </div>  
+                        </div>
                     </div>
                     <!-- section break line endss -->
                     <div class="ownViewStaffProfileGrid">
                         <div class="ownViewStaffProfileDetailsImg">
-                            <img src="<?php echo URLROOT;?><?php echo "/public/imgs/staffImgs/$data->imgPath"?>" alt="Avatar" class="ownViewStaffProfileDetailsImgCircle">
+                            <img src="<?php echo URLROOT; ?><?php echo "/public/imgs/staffImgs/$data->imgPath" ?>" alt="Avatar" class="ownViewStaffProfileDetailsImgCircle">
                         </div>
                         <div class="ownViewStaffProfileDetailsInfo">
                             <span class="ownViewStaffProfileDetailsName"><?php echo $data->fName ?>

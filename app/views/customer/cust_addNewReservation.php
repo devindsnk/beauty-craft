@@ -1,10 +1,10 @@
 <?php require APPROOT . "/views/customer/cust_headerBar.php"; ?>
 <!-- Configure this using session variables later -->
-<?php $userID = $_SESSION['userID']; ?>
+<?php $userID = Session::getUser("id"); ?>
 
 <div class="content cust new-res">
    <div class="main-container">
-      <input type="button" value="Go back!" class="btn btn-filled btn-black goBackBtn" onclick="history.back()">
+      <button class="btn btn-filled btn-black goBackBtn" onclick="history.back()">Go back!</button>
       <h1>New Reservation</h1>
 
       <form action="<?php echo URLROOT; ?>/reservations/newReservationCust" method="post" class="form">
@@ -98,7 +98,7 @@
             <div class="column">
                <div class="text-group">
                   <label class="label" for="fName">Customer</label>
-                  <input type="text" name="customerID" id="fName" value="<?php echo $_SESSION['userID']; ?>">
+                  <input type="text" name="customerID" id="fName" value="<?php echo Session::getUser("id"); ?>">
                </div>
             </div>
          </div> -->

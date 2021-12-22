@@ -9,6 +9,23 @@ class Reservations extends Controller
       $this->reservationModel = $this->model('ReservationModel');
       $this->closedDatesModel = $this->model('ClosedDatesModel');
    }
+
+   public function viewAllReservations()
+   {
+      Session::validateSession([2, 3, 4]);
+      $serviceProviders = $this->serviceModel->getServiceProviderDetails();
+      $serviceTypes = $this->serviceModel->getServiceTypeDetails();
+      $reservations = $this->reservationModel->getAllReservations();
+
+      $data = [
+         'serviceProvidersList' => $serviceProviders,
+         'serviceTypesList' => $serviceTypes,
+         'reservationsList' => $reservations
+      ];
+
+      $this->view('common/allReservationsTable', $data);
+   }
+
    public function newReservationCust()
    {
       // $sProvidersList = $this->getAllServiceProviders();
@@ -109,21 +126,6 @@ class Reservations extends Controller
       }
    }
 
-   public function viewAllReservations()
-   {
-      $serviceProviders = $this->serviceModel->getServiceProviderDetails();
-      $serviceTypes = $this->serviceModel->getServiceTypeDetails();
-      $reservations = $this->reservationModel->getAllReservations();
-
-      $data = [
-         'serviceProvidersList' => $serviceProviders,
-         'serviceTypesList' => $serviceTypes,
-         'reservationsList' => $reservations
-      ];
-
-      $this->view('receptionist/recept_reservations', $data);
-   }
-
    public function reservationMoreInfo($reservationID)
    {
       $reservationInfo = $this->reservationModel->getReservationDetailsByID($reservationID);
@@ -163,6 +165,10 @@ class Reservations extends Controller
    ////////////////////////////////////////
 
    public function getDataForSProvidersList($date, $serviceID)
+   {
+   }
+
+   public function getOverlappingReservations()
    {
    }
 

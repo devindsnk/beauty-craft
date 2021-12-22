@@ -1,12 +1,14 @@
 ~~~system log~~~
 
-IP Add.	Date & Time	Mobile No		Name		Activity
+IP Add.	    Date & Time	        Mobile No	Name		        Activity
 
-::1	12/22/21 07:12PM	0703807405	Ruwanthi Munasinghe	user signin to the system
-127.0.0.1	12/22/21 07:13PM	0703807405	Ruwanthi Munasinghe	user signout from the system
-127.0.0.1	12/22/21 07:13PM	0703807405	Ruwanthi Munasinghe	user signin to the system
-127.0.0.1	12/22/21 07:13PM	0703807405	Ruwanthi Munasinghe	user signout from the system
-127.0.0.1	12/22/21 07:16PM	0762930963		user signout from the system
-127.0.0.1	12/22/21 07:16PM	0762930963		user signin to the system
-127.0.0.1	12/22/21 07:16PM	0762930963		user signout from the system
-::1	12/22/21 07:35PM	0703807405	Ruwanthi Munasinghe	user signin to the system
+::1	        12/22/21 07:12PM	0703807405	Ruwanthi Munasinghe	    user signin to the system
+127.0.0.1	12/22/21 07:13PM	0703807405	Ruwanthi Munasinghe 	user signout from the system
+127.0.0.1	12/22/21 07:13PM	0703807405	Ruwanthi Munasinghe	    user signin to the system
+127.0.0.1	12/22/21 07:13PM	0703807405	Ruwanthi Munasinghe	    user signout from the system
+127.0.0.1	12/22/21 07:16PM	0762930963		                    user signout from the system
+127.0.0.1	12/22/21 07:16PM	0762930963		                    user signin to the system
+127.0.0.1	12/22/21 07:16PM	0762930963		                    user signout from the system
+::1	        12/22/21 07:35PM	0703807405	Ruwanthi Munasinghe	    user signin to the system
+
+::1	12/22/21 08:32PM	0703807405	Ruwanthi Munasinghe	user signin to the system

@@ -56,7 +56,7 @@ class Services extends Controller
             'sSelectedResCount3_error' => '',
 
          ];
-         
+
          $data['sProvArray'] = $sProvGetArray;
          $data['sTypesArray'] = $sTypeGetArray;
          $data['sResArray'] = $sResGetArray;
@@ -96,41 +96,52 @@ class Services extends Controller
             {
                $data['sSlot1Duration_error'] = "Please enter slot duration";
             }
-            
-            if(!empty($data['slot3Duration']) || !empty($data['sSelectedResCount3']) || !empty($data['interval2Duration'])){
-               for($i = 2; $i < 4; $i++){
-                  if (empty($data['slot'.($i).'Duration'])) {
-                     $data['sSlot'.($i).'Duration_error'] = "Please enter slot duration";
+
+            if (!empty($data['slot3Duration']) || !empty($data['sSelectedResCount3']) || !empty($data['interval2Duration']))
+            {
+               for ($i = 2; $i < 4; $i++)
+               {
+                  if (empty($data['slot' . ($i) . 'Duration']))
+                  {
+                     $data['sSlot' . ($i) . 'Duration_error'] = "Please enter slot duration";
                   }
-                  if (empty($data['interval'.($i-1).'Duration'])) {
-                     $data['interval'.($i-1).'Duration_error'] = "Please enter interval duration";
+                  if (empty($data['interval' . ($i - 1) . 'Duration']))
+                  {
+                     $data['interval' . ($i - 1) . 'Duration_error'] = "Please enter interval duration";
                   }
                }
             }
-            elseif(!empty($data['slot2Duration']) || !empty($data['sSelectedResCount2']) || !empty($data['interval1Duration'])){
-               for($i = 2; $i < 3; $i++){
-                  if (empty($data['slot'.($i).'Duration'])) {
-                     $data['sSlot'.($i).'Duration_error'] = "Please enter slot duration";
+            elseif (!empty($data['slot2Duration']) || !empty($data['sSelectedResCount2']) || !empty($data['interval1Duration']))
+            {
+               for ($i = 2; $i < 3; $i++)
+               {
+                  if (empty($data['slot' . ($i) . 'Duration']))
+                  {
+                     $data['sSlot' . ($i) . 'Duration_error'] = "Please enter slot duration";
                   }
-                  if (empty($data['interval'.($i-1).'Duration'])) {
-                     $data['interval'.($i-1).'Duration_error'] = "Please enter interval duration";
+                  if (empty($data['interval' . ($i - 1) . 'Duration']))
+                  {
+                     $data['interval' . ($i - 1) . 'Duration_error'] = "Please enter interval duration";
                   }
                }
             }
 
             if (empty($data['sName_error']) && empty($data['sSelectedCusCategory_error']) && empty($data['sPrice_error']) && empty($data['sSelectedAllType_error']) && empty($data['sSelectedSProve_error']) && empty($data['sSlot1Duration_error']) && empty($data['sSlot2Duration_error']) && empty($data['sSlot3Duration_error']) && empty($data['interval1Duration_error']) && empty($data['interval2Duration_error']))
             {
-               if($data['slot2Duration'] != NULL && $data['slot3Duration'] == NULL){
-                  $slotNo=1;
-               }elseif($data['slot2Duration'] != NULL && $data['slot3Duration'] != NULL){
-                  $slotNo=2;
+               if ($data['slot2Duration'] != NULL && $data['slot3Duration'] == NULL)
+               {
+                  $slotNo = 1;
                }
-               
-               $this->ServiceModel->addService($data,$slotNo);
+               elseif ($data['slot2Duration'] != NULL && $data['slot3Duration'] != NULL)
+               {
+                  $slotNo = 2;
+               }
+
+               $this->ServiceModel->addService($data, $slotNo);
                $this->ServiceModel->addServiceProvider($data);
                $this->ServiceModel->addTimeSlot($data, $slotNo);
                $this->ServiceModel->addIntervalTimeSlot($data, $slotNo);
-               $this->ServiceModel->addResourcesToService($data, $slotNo);
+               // $this->ServiceModel->addResourcesToService($data, $slotNo);
 
                header('location: ' . URLROOT . '/MangDashboard/services');
             }
@@ -282,7 +293,7 @@ class Services extends Controller
       $sAllocatedResDetailsSlot2 = $this->ServiceModel->getAllocatedResourceDetailsofSlot2($serviceID);
       $sAllocatedResDetailsSlot3 = $this->ServiceModel->getAllocatedResourceDetailsofSlot3($serviceID);
 
-      $GetOneServicesArray = [ 
+      $GetOneServicesArray = [
          'noofSlots' => $sNoofSlots,
          'services' => $sOneDetails,
          'sProv' => $sSprovDetails,
@@ -299,7 +310,7 @@ class Services extends Controller
          'sResS3' => $sAllocatedResDetailsSlot3,
 
       ];
-      
+
       $this->view('manager/mang_serviceView', $GetOneServicesArray);
    }
 

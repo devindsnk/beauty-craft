@@ -95,7 +95,6 @@ class ReservationModel extends Model
    //FOR SP overview
    public function getReservationsByStaffID($staffID)
    {
-      //  die("hii555555");
       $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
       FROM reservations 
       INNER JOIN services ON services.serviceID = reservations.serviceID
@@ -115,20 +114,18 @@ class ReservationModel extends Model
       return $results;
    }
 
+
+
    public function getReservationMoreInfoByID($reservationID)
    {
-
       $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName,customers.customerNote 
       FROM reservations 
       INNER JOIN services ON services.serviceID = reservations.serviceID
       INNER JOIN customers ON customers.customerID = reservations.customerID
       WHERE reservationID=:reservationID ", [':reservationID' => $reservationID,]);
-      // print_r($results);
 
-      // die("ssss");
       return $results;
    }
-
 
    public function updateCustomerNote($data)
    {
@@ -143,7 +140,6 @@ class ReservationModel extends Model
 
    public function updateReservationRecalledState($selectedreservation, $status)
    {
-
       $results = $this->update('reservations', ['status' => $status], ['reservationID' => $selectedreservation]);
    }
 
@@ -166,12 +162,56 @@ class ReservationModel extends Model
    }
 
 
+   public function getAllPendingRecallRequests()
+   {
+      // TODO: check with data in table
+      echo "called";
+      $SQLstatement =
+         "SELECT
+          RECALL.reservationID,
+          SERV.name,
+          STAFF.fName AS staffFName,
+          STAFF.lName AS staffLName,
+          CUST.fName AS custFName,
+          CUST.lName AS custLName,
+          CUST.mobileNo,
+          RECALL.reason,
+          RES.startTime,
+          RES.date
+      FROM recallrequests AS RECALL
+      INNER JOIN reservations AS RES ON RES.reservationID = RECALL.reservationID
+      INNER JOIN staff AS STAFF ON STAFF.staffID = RES.staffID
+      INNER JOIN customers AS CUST  ON CUST.customerID = RES.customerID
+      INNER JOIN services AS SERV ON SERV.serviceID = RES.serviceID
+      WHERE RECALL.status = 0;";
+      $results = $this->customQuery($SQLstatement);
+      return $results;
+   }
 
    // Complex reservation process
-
-
    ////////////////////////////////////////////////
 
+   public function getOverlappingReservations($date, $slotStartTime, $slotEndTime)
+   {
+      // Make sure to consider Pending (1) and Confirmed (2) Only
+      $SQLquery =
+         "SELECT *
+         FROM reservations
+         WHERE 
+            date = :date AND 
+            startTime < :slotEndTime AND endTime > :slotStartTime AND
+            status IN (1,2) AND ;";
+
+      $results = $this->customQuery(
+         $SQLquery,
+         [
+            ':date' => $date,
+            ':slotStartTime' => $slotStartTime,
+            ':slotEndTime' => $slotEndTime
+         ]
+      );
+      return $results;
+   }
 
 
    ////////////////////////////////////////////////

@@ -133,7 +133,7 @@ class LeaveModel extends Model
    public function addLeaveResponce($responce, $staffID, $leaveDate)
    {
 
-      $ManagerID = $_SESSION['userID'];
+      $ManagerID = Session::getUser("id");
 
       $results = $this->update('generalleaves', ['respondedStaffID' => $ManagerID, 'status' => $responce,], ['staffID' => $staffID, 'leaveDate' => $leaveDate]);
    }
@@ -141,7 +141,7 @@ class LeaveModel extends Model
    public function getAllManagerLeaves()
    {
 
-      $ManagerID = $_SESSION['userID'];
+      $ManagerID = Session::getUser("id");
       $results = $this->customQuery("SELECT * 
                                     FROM managerLeaves 
                                     WHERE staffID = :staffID ORDER BY leaveDate", [':staffID' => $ManagerID]);

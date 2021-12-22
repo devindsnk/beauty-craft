@@ -7,12 +7,9 @@
 			<h1 class="header-topic">Update Service</h1>
 		</div>
 		<div class="header-right verticalCenter">
-			<a href="
-				<?php
-				echo URLROOT;
-				if ($userTypeNo == 2) echo "/OwnDashboard/services";
-				elseif ($userTypeNo == 3) echo "/MangDashboard/services";
-				?>" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
+			<span class="top-right-closeBtn" onclick="history.back()">
+				<i class=" fal fa-times fa-2x "></i>
+			</span>
 		</div>
 	</header>
 

@@ -17,7 +17,8 @@
    public function dailyview()
    {
 
-      $reservationData = $this->reservationModel->getReservationsByStaffID($_SESSION['userID']);
+      // Session::validateSession([5]);
+      $reservationData = $this->reservationModel->getReservationsByStaffID(Session::getUser("id"));
 
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -205,6 +206,8 @@
             $data['selectedReservation'] = trim($_POST['selectedReservation']);
             $data['reservationMoreInfo'] = $this->reservationModel->getReservationMoreInfoByID(trim($_POST['selectedReservation']));
             $data['moreInfoModelOpen'] = 0;
+            $data['recallReason'] = trim($_POST['recallReason']);
+            $data['recallReason_error'] = emptyCheck(trim($_POST['recallReason']));
             $data['recallModelOpen'] = 1;
 
             if ($data['reservationMoreInfo'][0]->status == 5)
@@ -215,6 +218,8 @@
             $this->view('serviceProvider/serProv_reservations', $data);
          }
 
+         $this->reservationModel->updateReservationRecalledState($data['selectedReservation'], 5);
+         $this->reservationModel->addReservationRecall($data['selectedReservation'], $data['recallReason']);
 
          if ($_POST['action'] == 'sendRecall')
          {
@@ -260,7 +265,6 @@
             $this->reservationModel->deleteReservationRecallRequest($data['selectedReservation']);
             $this->reservationModel->commit();
             redirect('SerProvDashboard/reservations');
-            // }
          }
       }
 

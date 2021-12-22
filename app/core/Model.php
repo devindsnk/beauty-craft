@@ -35,7 +35,10 @@ class Model
    public function query($sql)
    {
       $this->PDOstatement = $this->dbh->prepare($sql);
-      $this->bindValues();
+      if (!is_null($this->dataToBind))
+      {
+         $this->bindValues();
+      }
       $result =  $this->PDOstatement->execute();
       $this->dataToBind = (array) null;
       return $result;
@@ -181,7 +184,7 @@ class Model
    }
 
    // customQuery("SELECT DISTINCT type FROM services")
-   public function customQuery($SQLstatement, $dataToBind)
+   public function customQuery($SQLstatement, $dataToBind = null)
    {
       $this->dataToBind = $dataToBind;
       $queryType = strtoupper(explode(" ", $SQLstatement, 2)[0]);

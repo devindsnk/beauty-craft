@@ -1,11 +1,27 @@
-const signUpButton = document.getElementById("signUp");
-const signInButton = document.getElementById("signIn");
-const container = document.getElementById("container");
+const pwdInputBox = document.getElementById("pwd-field")
+const showPwdIcon = document.getElementById("show-pwd");
+const hidePwdIcon = document.getElementById("hide-pwd");
+showPwdIcon.addEventListener("click", hidePassword);
+hidePwdIcon.addEventListener("click", showPassword);
 
-signUpButton.addEventListener("click", () => {
-    container.classList.add("right-panel-active");
-});
+let pwdVisible = 0;
 
-signInButton.addEventListener("click", () => {
-    container.classList.remove("right-panel-active");
-});
+function showPassword() {
+    pwdInputBox.type = "text";
+    showPwdIcon.style.display = "block";
+    hidePwdIcon.style.display = "none";
+    pwdVisible = 1;
+
+    setTimeout(()=>{
+        if(pwdVisible == 1){
+            hidePassword();
+        }
+    }, 2000);
+}
+
+function hidePassword() {
+    pwdInputBox.type = "password";
+    hidePwdIcon.style.display = "block";
+    showPwdIcon.style.display = "none";
+    pwdVisible = 0;
+}
