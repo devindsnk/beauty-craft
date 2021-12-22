@@ -95,7 +95,6 @@ class ReservationModel extends Model
    //FOR SP overview
    public function getReservationsByStaffID($staffID)
    {
-      //  die("hii555555");
       $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
       FROM reservations 
       INNER JOIN services ON services.serviceID = reservations.serviceID
@@ -104,58 +103,74 @@ class ReservationModel extends Model
       return $results;
    }
 
-   public function getReservationMoreInfoByID($reservationID){
-     
-         $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName,customers.customerNote 
+   public function getReservationMoreInfoByID($reservationID)
+   {
+      $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName,customers.customerNote 
       FROM reservations 
       INNER JOIN services ON services.serviceID = reservations.serviceID
       INNER JOIN customers ON customers.customerID = reservations.customerID
       WHERE reservationID=:reservationID ", [':reservationID' => $reservationID,]);
-      // print_r($results);
 
-      // die("ssss");
       return $results;
-      
-
    }
 
-   
-   public function updateCustomerNote($data){
-   //  print_r($data);
-   $reservationID=$data['selectedReservation'];
-   $custNote=$data['customerNote'];
-      $results =$this ->customQuery("UPDATE customers SET customerNote=:custNote WHERE customerID=(SELECT customerID FROM reservations WHERE reservationID=:resID )",
+   public function updateCustomerNote($data)
+   {
+      //  print_r($data);
+      $reservationID = $data['selectedReservation'];
+      $custNote = $data['customerNote'];
+      $results = $this->customQuery(
+         "UPDATE customers SET customerNote=:custNote WHERE customerID=(SELECT customerID FROM reservations WHERE reservationID=:resID )",
          [':custNote' => $custNote, ':resID' => $reservationID]
-      );  
+      );
    }
 
-   public function updateReservationRecalledState($selectedreservation,$status){
- 
-      $results = $this->update('reservations', ['status' => $status], ['reservationID' => $selectedreservation]); 
-       
+   public function updateReservationRecalledState($selectedreservation, $status)
+   {
+      $results = $this->update('reservations', ['status' => $status], ['reservationID' => $selectedreservation]);
    }
 
-    public function addReservationRecall($selectedreservation,$recallReason) 
-   { 
+   public function addReservationRecall($selectedreservation, $recallReason)
+   {
       date_default_timezone_set("Asia/Colombo");
-      $today = date("Y-m-d H:i:s"); 
+      $today = date("Y-m-d H:i:s");
       // To insert a record tableName and valuesToBeInserted are passed 
-      $results =  $this->insert('recallrequests', ['reservationID' => $selectedreservation, 'reason' => $recallReason, 'requestedDate' => $today, 'status' => 0]); 
-      
-   } 
+      $results =  $this->insert('recallrequests', ['reservationID' => $selectedreservation, 'reason' => $recallReason, 'requestedDate' => $today, 'status' => 0]);
+   }
 
-   public function getRecallReasonByReservationID($selectedreservation) 
-   {  $results = $this->getSingle('recallrequests', ['reason'], ['reservationID' => $selectedreservation]);
+   public function getRecallReasonByReservationID($selectedreservation)
+   {
+      $results = $this->getSingle('recallrequests', ['reason'], ['reservationID' => $selectedreservation]);
       return $results->reason;
-     
-     
-   } 
+   }
 
-
+   public function getAllPendingRecallRequests()
+   {
+      // TODO: check with data in table
+      echo "called";
+      $SQLstatement =
+         "SELECT
+          RECALL.reservationID,
+          SERV.name,
+          STAFF.fName AS staffFName,
+          STAFF.lName AS staffLName,
+          CUST.fName AS custFName,
+          CUST.lName AS custLName,
+          CUST.mobileNo,
+          RECALL.reason,
+          RES.startTime,
+          RES.date
+      FROM recallrequests AS RECALL
+      INNER JOIN reservations AS RES ON RES.reservationID = RECALL.reservationID
+      INNER JOIN staff AS STAFF ON STAFF.staffID = RES.staffID
+      INNER JOIN customers AS CUST  ON CUST.customerID = RES.customerID
+      INNER JOIN services AS SERV ON SERV.serviceID = RES.serviceID
+      WHERE RECALL.status = 0;";
+      $results = $this->customQuery($SQLstatement);
+      return $results;
+   }
 
    // Complex reservation process
-
-
    ////////////////////////////////////////////////
 
    public function getOverlappingReservations($date, $slotStartTime, $slotEndTime)

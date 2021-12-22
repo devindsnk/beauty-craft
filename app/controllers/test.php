@@ -1,12 +1,13 @@
 <?php
-class testController extends Controller
+class test extends Controller
 {
-   // public function __construct()
-   // {
-   //    $this->testModel1 = $this->model('testModel');
-   //    $this->testModel2 = $this->model('testModel2');
-   //    $this->customerModel = $this->model('CustomerModel');
-   // }
+   public function __construct()
+   {
+      $this->reservationModel = $this->model('ReservationModel');
+      $this->testModel1 = $this->model('testModel');
+      $this->testModel2 = $this->model('testModel2');
+      $this->customerModel = $this->model('CustomerModel');
+   }
 
    public function testFunc()
    {
@@ -25,6 +26,10 @@ class testController extends Controller
 
    public function check1()
    {
-      echo getCurrentTimeStamp();
+      // echo "Testing 1.. 2.. 3..";
+      // $results = $this->reservationModel->getAllPendingRecallRequests();
+      // var_dump($results);
+
+      echo DateTimeExtended::getCurrentTime();
    }
 }
