@@ -1,4 +1,4 @@
-<?php if ($userType == "Owner" || $userType == "Manager") : ?>
+<?php if (Session::getUser("typeText") == "Owner" || Session::getUser("typeText") == "Manager") : ?>
    <div class="page-top-main-container">
       <a href="<?php echo URLROOT ?>/services/addNewService" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
    </div>
@@ -76,19 +76,19 @@
                   <td data-lable="Type" class="column-left-align"><?php echo $sDetails->type; ?></td>
 
                   <?php $i = $sDetails->totalDuration; ?>
-                  <?php $hours = $i/60; ?>
-                  <?php $mins = $i%60; ?>
+                  <?php $hours = $i / 60; ?>
+                  <?php $mins = $i % 60; ?>
 
                   <td data-lable="Total Duration" class="column-center-align">
                      <?php if ((int)$hours <= 0) : ?>
                         <?php if ($mins > 0) : ?>
                            <?php echo $mins; ?> mins
                         <?php endif; ?>
-                     <?php else: ?>
+                     <?php else : ?>
                         <?php if ($mins > 0) : ?>
                            <?php echo (int)$hours; ?> h <?php echo $mins; ?> mins
-                        <?php else: ?>
-                           <?php echo (int)$hours; ?> h 
+                        <?php else : ?>
+                           <?php echo (int)$hours; ?> h
                         <?php endif; ?>
                      <?php endif; ?>
                   </td>
@@ -114,7 +114,7 @@
                   <td data-lable="" class="column-center-align">
                      <span>
                         <a href="<?php echo URLROOT ?>/services/viewService/<?php echo $sDetails->serviceID; ?>"><i class="ci-view-more table-icon img-gap"></i></a>
-                        <?php if ($userType == "Owner" || $userType == "Manager") : ?>
+                        <?php if (Session::getUser("typeText") == "Owner" || Session::getUser("typeText") == "Manager") : ?>
                            <a href="<?php echo URLROOT ?>/services/updateService"><i class="ci-edit table-icon img-gap"></i></a>
                            <a href="#"><i class="ci-trash table-icon btnRemoveService img-gap"></i></a>
                         <?php endif; ?>

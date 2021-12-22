@@ -210,3 +210,18 @@ a {
     height: 70px;
     display: block;
 }
+
+/********* Password show and hide  ******/
+
+.text-group .right-icon{
+    position: relative;
+    right: 10px;
+    float: right;
+    bottom: 30px;
+}
+   
+.text-group #show-pwd{
+    display: none;
+}
+
+/***************************************/

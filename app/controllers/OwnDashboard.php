@@ -40,7 +40,7 @@ class OwnDashboard extends Controller
             'haveErrors' => 0,
             'checked' => 0,
             'closeDates' => $closeDatesDetails,
-            'reservationCount'=> '',
+            'reservationCount' => '',
          ];
          // $date_now = new DateTime();
          // $date_now = strtotime(date('d-m-y'));
@@ -61,8 +61,7 @@ class OwnDashboard extends Controller
             // {
             //    $data['closeSalonReason_error'] = "Please select number of resource";
             // }
-            if (empty($data['closeDate_error'])
-            )
+            if (empty($data['closeDate_error']))
             {
                $closeDateResCount = $this->closedDatesModel->getCloseDatesReservationCount($data['closeDate']);
                // echo $closeDateResCount;
@@ -74,48 +73,47 @@ class OwnDashboard extends Controller
                // redirect('OwnDashboard/closeSalon');
             }
             else
-         {
-            $data['haveErrors'] = 1;
-            $data['checked'] = 0;
-            $this->view('owner/own_closeSalon', $data);
-         }  
+            {
+               $data['haveErrors'] = 1;
+               $data['checked'] = 0;
+               $this->view('owner/own_closeSalon', $data);
+            }
          }
          else if ($_POST['action'] == "addCloseDate")
          {
-         if (empty($data['closeDate']))
-         {
-            $data['closeDate_error'] = "Please select a date";
-         }
-         // else if($date_now > $date_selected)
-         // {
-         //    $data['closeDate_error'] = "Please select a future date";
-         // }
+            if (empty($data['closeDate']))
+            {
+               $data['closeDate_error'] = "Please select a date";
+            }
+            // else if($date_now > $date_selected)
+            // {
+            //    $data['closeDate_error'] = "Please select a future date";
+            // }
 
-         if (empty($data['closeSalonReason']))
-         {
-            $data['closeSalonReason_error'] = "Please select number of resource";
+            if (empty($data['closeSalonReason']))
+            {
+               $data['closeSalonReason_error'] = "Please select number of resource";
+            }
+            if (
+               empty($data['closeSalonReason_error']) && empty($data['closeDate_error'])
+            )
+            {
+               $this->closedDatesModel->addCloseDate($data);
+               redirect('OwnDashboard/closeSalon');
+            }
+            else
+            {
+               $data['haveErrors'] = 1;
+               $data['checked'] = 0;
+               $this->view('owner/own_closeSalon', $data);
+            }
          }
-         if (
-            empty($data['closeSalonReason_error']) && empty($data['closeDate_error'])
-         )
-         {
-            $this->closedDatesModel->addCloseDate($data);
-            redirect('OwnDashboard/closeSalon');
-         }
-         else
-      {
-         $data['haveErrors'] = 1;
-         $data['checked'] = 0;
-         $this->view('owner/own_closeSalon', $data);
-      }
-        }
          else if ($_POST['action'] == "cancel")
          {
             $data['haveErrors'] = 0;
             $this->view('owner/own_closeSalon', $data);
          }
-
-         }
+      }
       else
       {
          // die('success');
@@ -127,11 +125,10 @@ class OwnDashboard extends Controller
             'haveErrors' => 0,
             'checked' => 0,
             'closeDates' => $closeDatesDetails,
-            'reservationCount'=>'',
-         ]; 
+            'reservationCount' => '',
+         ];
          // print_r($data['closeDates']); 
-         $this->view('owner/own_closeSalon', $data); 
-         
+         $this->view('owner/own_closeSalon', $data);
       }
    }
    public function customers()
@@ -326,11 +323,6 @@ class OwnDashboard extends Controller
          // print_r($data);
          $this->view('owner/own_rates', $data);
       }
-   }
-
-   public function reservations()
-   {
-      $this->view('owner/own_reservations');
    }
 
    public function resources()

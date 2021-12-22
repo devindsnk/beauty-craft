@@ -16,7 +16,7 @@ class CustDashboard extends Controller
 
    public function myReservations()
    {
-      $customerID = $_SESSION['userID'];
+      $customerID = Session::getUser("id");
       $reservationsList = $this->reservationModel->getReservationsByCustomer($customerID);
       $this->view('customer/cust_myReservations', $reservationsList);
    }

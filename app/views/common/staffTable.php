@@ -1,4 +1,4 @@
-<?php if ($userType == "Owner") : ?>
+<?php if (Session::getUser('typeText') == "Owner") : ?>
    <div class="page-top-main-container">
       <a href="<?php echo URLROOT ?>/staff/addStaff" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
    </div>
@@ -111,7 +111,7 @@
                   <td class="column-center-align">
                      <span>
                         <a href="<?php echo URLROOT ?>/staff/viewStaff/<?php echo $staffD->staffID ?>"><i class="ci ci-view-more table-icon img-gap"></i></a>
-                        <?php if ($userType == "Owner") : ?>
+                        <?php if (Session::getUser('typeText') == "Owner") : ?>
                            <a href="<?php echo URLROOT ?>/staff/updateStaff/<?php echo $staffD->staffID ?>"><i class="ci ci-edit table-icon img-gap"></i></a>
                            <a href="#"><i class="ci ci-trash table-icon btnRemoveStaff img-gap"></i></a>
                         <?php endif; ?>
@@ -164,7 +164,7 @@
                <button class="btn btnClose normal ModalButton ModalCancelButton">Cancel</button>
             </div>
             <div class="ownRemStaffbtn2">
-              <a href="<?php echo URLROOT ?>/staff/removeStaff/<?php echo $staffD->staffID ?>"><button class="btn normal ModalButton ModalBlueButton">Proceed</button></a>
+               <a href="<?php echo URLROOT ?>/staff/removeStaff/<?php echo $staffD->staffID ?>"><button class="btn normal ModalButton ModalBlueButton">Proceed</button></a>
             </div>
          </div>
          <!-- main grid 3 ends -->

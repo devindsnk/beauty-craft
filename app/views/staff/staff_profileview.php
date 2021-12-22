@@ -5,10 +5,10 @@
         <div class="header-center verticalCenter">
             <h1 class="header-topic">Profile Details</h1>
         </div>
-        
+
         <div class="header-right verticalCenter">
-           
-<input type="button" value="X" class="" onclick="history.back()">
+
+            <input type="button" value="X" class="" onclick="history.back()">
 
         </div>
     </header>
@@ -17,16 +17,19 @@
         <div class="profileview">
             <!-- <h1 class="profileviewh1">View Profile</h1> -->
             <div class="profilecontent">
-                
+
                 <div class="basicinfo">
                     <div class="item1">
                         <img class="item1img" src="<?php echo URLROOT ?>/public/imgs/person1.jpg"></img>
                     </div>
                     <div class="item2">
-                        <span class="item2name"><?php echo $data['profileData'][0]->fName." ".$data['profileData'][0]->lName; ?></span>
+                        <span class="item2name"><?php echo $data['profileData'][0]->fName . " " . $data['profileData'][0]->lName; ?></span>
                         <span class="item2type">Service Provider</span>
                     </div>
-                    <div class="item3 <?php if($userTypeNo != 5){echo " hide";} ?>">
+                    <div class="item3 <?php if ($userTypeNo != 5)
+                                        {
+                                            echo " hide";
+                                        } ?>">
                         <span class="rate">4.5</span>
                         <span class="fa fa-star"></span>
                         <span class="fa fa-star"></span>
@@ -65,7 +68,14 @@
                         </div>
                         <div class="listitem4">
                             <div class="listitemleft">Gender</div>
-                            <div class="listitemright"><?php if($data['profileData'][0]->gender=='F'){echo "Female";}else{echo "Male";} ?></div>
+                            <div class="listitemright"><?php if ($data['profileData'][0]->gender == 'F')
+                                                        {
+                                                            echo "Female";
+                                                        }
+                                                        else
+                                                        {
+                                                            echo "Male";
+                                                        } ?></div>
                         </div>
                         <div class="listitem5">
                             <div class="listitemleft">E-mail </div>
@@ -87,20 +97,23 @@
                         </div>
                         <div class="infoitem">
                             <div class="infoitemleft">Bank Name</div>
-                            <div class="infoitemright"><?php echo $data['profileData'][0]->bankName." - ".$data['profileData'][0]->branchName; ?></div>
+                            <div class="infoitemright"><?php echo $data['profileData'][0]->bankName . " - " . $data['profileData'][0]->branchName; ?></div>
                         </div>
 
                     </div>
 
 
                 </div>
-                
+
             </div>
-            <div class="profilecontent<?php if($userTypeNo != 5){echo " hide";} ?>">
+            <div class="profilecontent<?php if ($userTypeNo != 5)
+                                        {
+                                            echo " hide";
+                                        } ?>">
                 <div class="profview-services-list">
                     <span class="assignservices">Assigned Services</span>
-                     <?php foreach ($data['serviceslist'] as $service) : ?>
-                    <span class="servicelist"><?php echo $service->name." (".$service->type.")"; ?></span>
+                    <?php foreach ($data['serviceslist'] as $service) : ?>
+                        <span class="servicelist"><?php echo $service->name . " (" . $service->type . ")"; ?></span>
                     <?php endforeach; ?>
                 </div>
             </div>

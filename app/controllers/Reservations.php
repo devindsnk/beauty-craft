@@ -121,7 +121,7 @@ class Reservations extends Controller
          'reservationsList' => $reservations
       ];
 
-      $this->view('receptionist/recept_reservations', $data);
+      $this->view('common/allReservationsTable', $data);
    }
 
    public function reservationMoreInfo($reservationID)
@@ -163,6 +163,10 @@ class Reservations extends Controller
    ////////////////////////////////////////
 
    public function getDataForSProvidersList($date, $serviceID)
+   {
+   }
+
+   public function getOverlappingReservations()
    {
    }
 

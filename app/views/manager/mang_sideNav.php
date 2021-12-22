@@ -39,7 +39,7 @@
 
          <!--Sidebar Item-->
          <li class="mainOption menuOption">
-            <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/reservations">
+            <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="<?php echo URLROOT ?>/Reservations/viewAllReservations">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-tasks "></i>
                </div>
