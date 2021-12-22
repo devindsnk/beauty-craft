@@ -60,3 +60,9 @@ Invoices (Not Confirmed Yet)
 3 - No Show
 
 ---------------------------------------
+
+Leave Types
+1 - General leave
+2 - Medical Leave
+
+---------------------------------------
