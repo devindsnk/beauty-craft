@@ -135,9 +135,13 @@
     font-size: 21px;
 }
 input.selectedReservation{
+    height: 2px;
+    width: 2px;
     visibility: hidden;
 }
-
+.content.serprov .modal-box{
+    border-radius: 6px;
+}
 .serprov .sub-container2-card button {
     background: transparent;
     color: var(--theme-purple);
@@ -154,6 +158,10 @@ input.selectedReservation{
 
 .serprov .sub-container2-card button:hover {
     font-weight: 600;
+}
+
+.dropdown-group.reservation{
+    width: 150px;
 }
 
 .serprov .confirm-status.blue {
@@ -588,6 +596,19 @@ button.editicon {
     height: 450px;
     width: 500px;
 }
+.edit-leave .modal-box {
+    height: 450px;
+    width: 500px;
+}
+.delete-leave .modal-box{
+    width: 500px;
+    height: 250px;
+    text-align: center;
+}
+.delete-leave .modal-box .confirmationmsg-container{
+    height: 100px;
+    padding-top: 45px;
+}
 
 .leaverequesttable {
     width: 70%;
@@ -714,4 +735,18 @@ input#date_input.selecteddate  {
 .sub-container1-card-content .mainsection{
     display:flex;
     align-items: center;
+}
+/* leave */
+.reqleave-date-section{
+    display: flex;
+    flex-direction: row;
+    
+
+}
+.reqleave-type-section,.leave-date-section{
+    width: 50%;
+}
+.reqleave-type-section{
+    padding-left: 50px;
+    
 }

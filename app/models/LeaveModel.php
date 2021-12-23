@@ -12,10 +12,10 @@ class LeaveModel extends Model
    public function getLeaveLimit()
    {
 
-      $results = $this->customQuery("SELECT leaveLimit FROM leavelimits WHERE changedDate =(SELECT MAX(changedDate)FROM leavelimits)", []);
+      $results = $this->customQuery("SELECT generalLeave FROM leavelimits WHERE changedDate =(SELECT MAX(changedDate)FROM leavelimits)", []);
       //  print_r($results[0]->{'leaveLimit'}); 
       //  die("Leave limit");  
-      return $results[0]->{'leaveLimit'};
+      return $results[0]->{'generalLeave'};
    }
 
    //   leave Approved=1 pending=2 rejected=0 
@@ -39,7 +39,7 @@ class LeaveModel extends Model
 
       date_default_timezone_set("Asia/Colombo");
       $today = date('Y-m-d');
-      $results = $this->insert('generalleaves', ['staffID' => $data['staffID'], 'leaveDate' => $data['date'], 'requestedDate' => $today, 'reason' => $data['reason']]);
+      $results = $this->insert('generalleaves', ['staffID' => $data['staffID'], 'leaveDate' => $data['date'], 'requestedDate' => $today, 'reason' => $data['reason'], 'leaveType' => $data['leavetype']]);
    }
 
 

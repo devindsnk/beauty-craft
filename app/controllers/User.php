@@ -45,8 +45,7 @@ class User extends Controller
                   // die("SUCCESS");
 
                   //System log
-                  $log = "User loged in to the system";
-                  logger($data['mobileNo'], $log);
+                  Systemlog::signin();
                }
                else
                {  //Handle incorrect Attempts
@@ -278,13 +277,12 @@ class User extends Controller
 
    public function signout()
    {
+
+      //System log
+      Systemlog::signout();
+
       Session::clear('user');
       session_destroy();
       redirect('home');
-
-      //system log
-      $log = "User signout from the system";
-      $mobileNo = Session::getUser("mobileNo");
-      logger($mobileNo, $log);
    }
 }

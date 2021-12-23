@@ -103,6 +103,19 @@ class ReservationModel extends Model
       return $results;
    }
 
+   public function getReservationsByStaffIDandDate($staffID, $date)
+   {
+      //  die("hii555555");
+      $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
+      FROM reservations 
+      INNER JOIN services ON services.serviceID = reservations.serviceID
+      INNER JOIN customers ON customers.customerID = reservations.customerID
+      WHERE staffID=:staffID AND date=:date ORDER BY date", [':staffID' => $staffID, ':date' => $date]);
+      return $results;
+   }
+
+
+
    public function getReservationMoreInfoByID($reservationID)
    {
       $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName,customers.customerNote 
@@ -134,7 +147,6 @@ class ReservationModel extends Model
    {
       date_default_timezone_set("Asia/Colombo");
       $today = date("Y-m-d H:i:s");
-      // To insert a record tableName and valuesToBeInserted are passed 
       $results =  $this->insert('recallrequests', ['reservationID' => $selectedreservation, 'reason' => $recallReason, 'requestedDate' => $today, 'status' => 0]);
    }
 
@@ -143,6 +155,12 @@ class ReservationModel extends Model
       $results = $this->getSingle('recallrequests', ['reason'], ['reservationID' => $selectedreservation]);
       return $results->reason;
    }
+   public function deleteReservationRecallRequest($reservationID)
+   {
+
+      $results = $this->delete('recallrequests', ['reservationID' => $reservationID]);
+   }
+
 
    public function getAllPendingRecallRequests()
    {
