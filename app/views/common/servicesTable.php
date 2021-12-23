@@ -117,7 +117,7 @@
                            <span>
                               <a href="<?php echo URLROOT ?>/services/viewService/<?php echo $sDetails->serviceID; ?>"><i class="ci-view-more table-icon img-gap"></i></a>
 
-                              <?php if ($userType == "Owner" || $userType == "Manager") : ?>
+                              <?php if (Session::getUser("typeText") == "Owner" || Session::getUser("typeText") == "Manager") : ?>
                                  <a href="<?php echo URLROOT ?>/services/updateService/<?php echo $sDetails->serviceID; ?>"><i class="ci-edit table-icon img-gap"></i></a>
                                  <a href="#" class="deletehref" data-columns="<?php echo $sDetails->serviceID; ?>"><i class="ci-trash table-icon btnRemoveService serviceRemove img-gap"></i></a>
 
