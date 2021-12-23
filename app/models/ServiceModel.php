@@ -254,7 +254,7 @@ class ServiceModel extends Model
                                         FROM resources 
                                         INNER JOIN resourceallocation
                                         ON resources.resourceID = resourceallocation.resourceID
-                                        WHERE resourceallocation.serviceID=:sID AND resourceallocation.slotNo=:slotNo",
+                                        WHERE resourceallocation.serviceID=:sID AND resourceallocation.slotNo=:slotNo AND resourceallocation.requiredQuantity <> 0",
                                         [':sID' => $serviceID , ':slotNo' => 1]
                           );
         }elseif($slotNo==2){
@@ -262,7 +262,7 @@ class ServiceModel extends Model
                                         FROM resources 
                                         INNER JOIN resourceallocation
                                         ON resources.resourceID = resourceallocation.resourceID
-                                        WHERE resourceallocation.serviceID=:sID AND resourceallocation.slotNo=:slotNo",
+                                        WHERE resourceallocation.serviceID=:sID AND resourceallocation.slotNo=:slotNo AND resourceallocation.requiredQuantity <> 0",
                                         [':sID' => $serviceID , ':slotNo' => 2] 
                           );
         }elseif($slotNo==3){
@@ -270,7 +270,7 @@ class ServiceModel extends Model
                                         FROM resources 
                                         INNER JOIN resourceallocation
                                         ON resources.resourceID = resourceallocation.resourceID
-                                        WHERE resourceallocation.serviceID=:sID AND resourceallocation.slotNo=:slotNo",
+                                        WHERE resourceallocation.serviceID=:sID AND resourceallocation.slotNo=:slotNo AND resourceallocation.requiredQuantity <> 0",
                                         [':sID' => $serviceID , ':slotNo' => 3] 
                           );
         }
@@ -317,4 +317,11 @@ class ServiceModel extends Model
         return $results;
     }
     // FOR MANAGER OVERVIEW
+
+    // START FOR MANAGER UPDATE SERVICE
+    public function changeServiceStatus($serviceID, $state)
+    {
+        $results =  $this->update('services', ['status' =>$state], ['serviceID' => $serviceID]);
+    }
+    // END FOR MANAGER UPDATE SERVICE
 }

@@ -105,6 +105,29 @@ class ReservationModel extends Model
    
    // END FOR MANAGER OVERVIEW
 
+   // SRART FOR MANAGER UPDATE SERVICE
+   public function getUpcommingReservationsForService($sID){
+      // upcomming reservations gnn oni 
+      $results = $this->customQuery("SELECT * 
+                                    FROM reservations
+                                    WHERE status=:status AND serviceID=:sID ",
+                                    [':status' => 4 , ':sID' => $sID ]
+      );
+      return $results;
+   }
+
+   public function getUpcommingReservationsForSerProv($staffID, $serviceID)
+   {
+      // upcomming reservations gnn oni 
+      $results = $this->customQuery("SELECT * 
+                                    FROM reservations
+                                    WHERE status=:status AND serviceID=:sID AND staffID=:sProvID OR date >= now() ",
+                                    [':status' => 4 , ':sID' => $serviceID , ':sProvID' => $staffID]
+      );
+      return $results;
+   }
+   // END FOR MANAGER UPDATE SERVICE
+
    //FOR SP overview
    public function getReservationsByStaffID($staffID)
    {

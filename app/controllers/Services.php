@@ -4,6 +4,7 @@ class Services extends Controller
    public function __construct()
    {
       $this->ServiceModel = $this->model('ServiceModel');
+      $this->ReservationModel = $this->model('reservationModel');
    }
 
    public function addNewService()
@@ -264,7 +265,17 @@ class Services extends Controller
 
       die("hi");
    }
-
+   public function getCheckedSPRovList($details1,$details2)
+   {
+      $serProvDetails = $this->ReservationModel->getUpcommingReservationsForSerProv($details1, $details2);
+      
+      $hasRes=0;
+      if($serProvDetails != null){
+         $hasRes=1;
+      }
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($hasRes));
+   }
    public function viewService($serviceID)
    {
       $sNoofSlots = $this->ServiceModel->getNoofSlots($serviceID);
@@ -346,16 +357,16 @@ class Services extends Controller
             'sSelectedResCount3' => isset($_POST['resourceCount3']) ? ($_POST['resourceCount3']) : [],
 
             'serviceDetails' => $serviceDetails[0],
-            'serProvDetails' => $serProvDetails[0],
+            'serProvDetails' => $serProvDetails,
             'noofSlots' => $noofSlots,
             'slot1Details' => $slot1Details,
             'slot2Details' => $slot2Details,
             'slot3Details' => $slot3Details,
             'interval1Details' => $interval1Details,
             'interval2Details' => $interval2Details,
-            'resDetailsSlot1' => [],
-            'resDetailsSlot2' => [],
-            'resDetailsSlot3' => [],
+            'resDetailsSlot1' => $resDetailsSlot1,
+            'resDetailsSlot2' => $resDetailsSlot2,
+            'resDetailsSlot3' => $resDetailsSlot3,
 
             'sTypesArray' => [],
             'sProvArray' => [],
@@ -382,11 +393,99 @@ class Services extends Controller
          $data['sProvArray'] = $sProvGetArray;
          $data['sTypesArray'] = $sTypeGetArray;
          $data['sResArray'] = $sResGetArray;
-
+       
          if ($_POST['action'] == "updateService")
          {
+            if (empty($data['name']))
+            {
+               $data['sName_error'] = "Please enter service name";
+            }
+            if (empty($data['customerCategory']))
+            {
+               $data['sSelectedCusCategory_error'] = "Please select customer category";
+            }
+            if (empty($data['sSelectedType']) && empty($data['sNewType']))
+            {
+               $data['sSelectedAllType_error'] = "Please select or enter service type";
+            }
+            if (!empty($data['sSelectedType']) && !empty($data['sNewType']))
+            {
+               $data['sSelectedAllType_error'] = "Please clear one from selected or entered service type";
+            }
+            if (empty($data['sSelectedProv']))
+            {
+               $data['sSelectedSProve_error'] = "Please select service provider";
+            }
+            if (empty($data['price']))
+            {
+               $data['sPrice_error'] = "Please enter service price";
+            }
+            elseif (!is_numeric($data['price']))
+            {
+               $data['sPrice_error'] = "Please enter a numeric value for price";
+            }
+            if (empty($data['slot1Duration']))
+            {
+               $data['sSlot1Duration_error'] = "Please enter slot duration";
+            }
+            
+            if(!empty($data['slot3Duration']) || !empty($data['sSelectedResCount3']) || !empty($data['interval2Duration'])){
+               for($i = 2; $i < 4; $i++){
+                  if (empty($data['slot'.($i).'Duration'])) {
+                     $data['sSlot'.($i).'Duration_error'] = "Please enter slot duration";
+                  }
+                  if (empty($data['interval'.($i-1).'Duration'])) {
+                     $data['interval'.($i-1).'Duration_error'] = "Please enter interval duration";
+                  }
+               }
+            }
+            elseif(!empty($data['slot2Duration']) || !empty($data['sSelectedResCount2']) || !empty($data['interval1Duration'])){
+               for($i = 2; $i < 3; $i++){
+                  if (empty($data['slot'.($i).'Duration'])) {
+                     $data['sSlot'.($i).'Duration_error'] = "Please enter slot duration";
+                  }
+                  if (empty($data['interval'.($i-1).'Duration'])) {
+                     $data['interval'.($i-1).'Duration_error'] = "Please enter interval duration";
+                  }
+               }
+            }
 
+            if (empty($data['sName_error']) && empty($data['sSelectedCusCategory_error']) && empty($data['sPrice_error']) && empty($data['sSelectedAllType_error']) && empty($data['sSelectedSProve_error']) && empty($data['sSlot1Duration_error']) && empty($data['sSlot2Duration_error']) && empty($data['sSlot3Duration_error']) && empty($data['interval1Duration_error']) && empty($data['interval2Duration_error']))
+            {
+               if($data['slot2Duration'] != NULL && $data['slot3Duration'] == NULL){
+                  $slotNo=1;
+               }elseif($data['slot2Duration'] != NULL && $data['slot3Duration'] != NULL){
+                  $slotNo=2;
+               }
 
+               $this->ServiceModel->changeServiceStatus($serviceID, 0);
+               $this->ServiceModel->addService($data,$slotNo);
+               $this->ServiceModel->addServiceProvider($data);
+               $this->ServiceModel->addTimeSlot($data, $slotNo);
+               $this->ServiceModel->addIntervalTimeSlot($data, $slotNo);
+               $this->ServiceModel->addResourcesToService($data, $slotNo);
+
+               header('location: ' . URLROOT . '/MangDashboard/services');
+            }
+            else
+            {
+               
+               $selectesResCount = count($data['sSelectedResCount1']);
+
+               for ($i = 0; $i < $selectesResCount; $i++)
+               {
+                  if ($data['sSelectedResCount1'][$i] != 0)
+                  {
+                     $data['sSelectedResCount1_error'] = "Please enter resource quantity again";
+                  }
+               }
+               $this->view('manager/mang_serviceAdd', $data);
+            }
+
+         }
+         else
+         {
+            die("Something went wrong");
          }
 
       }else{
@@ -411,16 +510,16 @@ class Services extends Controller
             'sSelectedResCount3' => '',
 
             'serviceDetails' => $serviceDetails[0],
-            'serProvDetails' => $serProvDetails[0],
+            'serProvDetails' => $serProvDetails,
             'noofSlots' => $noofSlots,
             'slot1Details' => $slot1Details,
             'slot2Details' => $slot2Details,
             'slot3Details' => $slot3Details,
             'interval1Details' => $interval1Details,
             'interval2Details' => $interval2Details,
-            'resDetailsSlot1' => [],
-            'resDetailsSlot2' => [],
-            'resDetailsSlot3' => [],
+            'resDetailsSlot1' => $resDetailsSlot1,
+            'resDetailsSlot2' => $resDetailsSlot2,
+            'resDetailsSlot3' => $resDetailsSlot3,
 
             'sTypesArray' => [],
             'sProvArray' => [],
@@ -446,12 +545,89 @@ class Services extends Controller
          $data['sProvArray'] = $sProvGetArray;
          $data['sTypesArray'] = $sTypeGetArray;
          $data['sResArray'] = $sResGetArray;
-         // print_r($data['interval2Details']);
-         // die("hel");
 
          $this->view('manager/mang_serviceUpdate', $data);
 
       }
+   }
+
+   public function deleteAndHoldService($serviceID)
+   {
+      $resDetails = $this->ReservationModel->getUpcommingReservationsForService($serviceID);
+      $sDetails = $this->ServiceModel->getServiceDetails();
+      // print_r($serviceID);
+      // die('kkk');
+      if ($_SERVER['REQUEST_METHOD'] == 'POST')
+      {
+         // die('kkijk');
+         $data = [
+            'services' => $sDetails,
+            'resDetails' => $resDetails,
+         ];
+         // if($_POST['action']=='deleteConfirm')
+         // {
+         //    // print_r($serviceID);
+         //    // die('kkk');
+         //    $state=0;
+         //    $this->ServiceModel->changeServiceStatus($serviceID, $state);
+         //    // header('location: ' . URLROOT . '/MangDashboard/services');
+         //    redirect('MangDashboard/services');
+         // }
+         // if($_POST['action']=='holdConfirm')
+         // {
+         //    // die('ki');
+         //    $state=2;
+         //    $this->ServiceModel->changeServiceStatus($serviceID, $state);
+         //    redirect('MangDashboard/services');
+         // }
+         // if($_POST['action']=='close')
+         // {
+         //    // die('ki');
+         //    $data['modelDeleteOpen'] = 0;
+         //    $data['modelHoldOpen'] = 0;
+         //    redirect('MangDashboard/services');
+         // }
+         // if($_POST['action']=='hold')
+         // {
+         //    $data['modelHoldOpen'] = 1;
+         //    $this->view('manager/mang_services', $data);
+
+         // }elseif($_POST['action']=='active')
+         // {
+         //    $state=1;
+         //    print_r($serviceID);
+         //    // die("sID");
+         //    $this->ServiceModel->changeServiceStatus($serviceID, $state);
+         //    redirect('MangDashboard/services');
+            
+         // }
+      }else{
+         $data = [
+            'services' => $sDetails,
+            'resDetails' => $resDetails,
+            
+         ];
+         $this->view('manager/mang_services', $data);
+
+      }
+   }
+   public function deleteService($serviceID)
+   {
+      $state=0;
+      $this->ServiceModel->changeServiceStatus($serviceID, $state);
+      redirect('MangDashboard/services');
+   }
+   public function holdService($serviceID)
+   {
+      $state=2;
+      $this->ServiceModel->changeServiceStatus($serviceID, $state);
+      redirect('MangDashboard/services');
+   }
+   public function activeService($serviceID)
+   {
+      $state=1;
+      $this->ServiceModel->changeServiceStatus($serviceID, $state);
+      redirect('MangDashboard/services');
    }
    public function serviceReport()
    {

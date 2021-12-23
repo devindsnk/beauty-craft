@@ -82,11 +82,11 @@ class MangDashboard extends Controller
       // Session::validateSession([3]);
       $sDetails = $this->serviceModel->getServiceDetails();
 
-      // $GetServicesArray = [
-      //    'services' => $sDetails
-      // ];
+      $GetServicesArray = [
+         'services' => $sDetails
+      ];
 
-      $this->view('manager/mang_services',  $sDetails);
+      $this->view('manager/mang_services',  $GetServicesArray);
    }
    public function resources()
    {

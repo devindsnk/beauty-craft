@@ -14,6 +14,8 @@
 <script src="<?php echo URLROOT ?>/public/js/modals.js"></script>
 <!-- <script src="<?php echo URLROOT ?>/public/js/own_overview.js"></script> -->
 <script src="<?php echo URLROOT ?>/public/js/mang_service.js"></script>
+<script src="<?php echo URLROOT ?>/public/js/mang_update_service.js"></script>
+<script src="<?php echo URLROOT ?>/public/js/mang_delete_hold_service.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/mang_charts.js"></script>
 
 <!-- <script src="<?php echo URLROOT ?>/public/js/fetchRequests.js"></script> -->
