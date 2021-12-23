@@ -64,6 +64,7 @@ class MangDashboard extends Controller
       // Session::validateSession([3]);
       $this->view('manager/mang_reservations');
    }
+
    public function customers()
    {
       // Session::validateSession([3]);

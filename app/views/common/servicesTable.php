@@ -1,4 +1,4 @@
-<?php if ($userType == "Owner" || $userType == "Manager") : ?>
+<?php if (Session::getUser("typeText") == "Owner" || Session::getUser("typeText") == "Manager") : ?>
    <div class="page-top-main-container">
       <a href="<?php echo URLROOT ?>/services/addNewService" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
    </div>

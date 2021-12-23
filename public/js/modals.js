@@ -110,28 +110,28 @@ removeCustomerBtnList.forEach((btn) => {
 
 
 // Reservation More info Modal Section
-const resMoreInfoModal = document.querySelector(".reservation-more-info");
-const resMoreInfoBtnList = document.querySelectorAll(".btnResMoreInfo");
-resMoreInfoBtnList.forEach((btn) => {
-    btn.addEventListener("click", function () {
-        modalToToggle = resMoreInfoModal;
-        toggleModal();
-    });
-});
+// const resMoreInfoModal = document.querySelector(".reservation-more-info");
+// const resMoreInfoBtnList = document.querySelectorAll(".btnResMoreInfo");
+// resMoreInfoBtnList.forEach((btn) => {
+//     btn.addEventListener("click", function () {
+//         modalToToggle = resMoreInfoModal;
+//         toggleModal();
+//     });
+// });
 
 
 // Reservation Recall Request Modal Section
-const resRecallModal = document.querySelector('.reservation-recall');
-const resRecallBtn = document.querySelector('.btnResRecall');
-if (resRecallBtn) {
-    resRecallBtn.addEventListener("click",
-        function () {
-            toggleModal();
-            modalToToggle = resRecallModal;
-            toggleModal();
-        }
-    );
-}
+// const resRecallModal = document.querySelector('.reservation-recall');
+// const resRecallBtn = document.querySelector('.btnResRecall');
+// if (resRecallBtn) {
+//     resRecallBtn.addEventListener("click",
+//         function () {
+//             toggleModal();
+//             modalToToggle = resRecallModal;
+//             toggleModal();
+//         }
+//     );
+// }
 
 
 /* ------------------------------------------------------------------- */

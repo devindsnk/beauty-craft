@@ -9,13 +9,9 @@
 				<h1 class="header-topic"><?php echo $sDetails->name; ?> Info</h1>
 			</div>
 			<div class="header-right verticalCenter">
-				<a href="
-				<?php
-				echo URLROOT;
-				if ($userTypeNo == 2) echo "/OwnDashboard/services";
-				elseif ($userTypeNo == 3) echo "/MangDashboard/services";
-				elseif ($userTypeNo == 4) echo "/ReceptDashboard/services";
-				?>" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
+				<span class="top-right-closeBtn" onclick="history.back()">
+					<i class=" fal fa-times fa-2x "></i>
+				</span>
 			</div>
 		</header>
 
@@ -141,7 +137,7 @@
 								</div>
 							</div>
 						<?php endif; ?>
-						
+
 						<?php if ($data['noofSlots'] == 2) : ?>
 							<div class="newService-sub">
 								<h4 class="paddingBottom">Slot 2</h4>
@@ -261,7 +257,7 @@
 								<div class="row " id="slotdetails3">
 									<!-- duration -->
 									<div class="column">
-									<div class='row2' id='intervalDetails1'>
+										<div class='row2' id='intervalDetails1'>
 											<label class='labels'>Interval Duration</label><br>
 											<?php $i = $data['sInterval2Duration']; ?>
 											<?php if ($i == 60 || $i == 120) : ?>

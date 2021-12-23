@@ -12,24 +12,17 @@ class User extends Controller
 
    public function signin()
    {
-      // Session::setBundle(
-      //    'toast',
-      //    [
-      //       'toastState' => 1,
-      //       'toastTitle' => "Sample Title",
-      //       'toastSubtitle' => "Sample Subtitle"
-      //    ]
-      // );
-
-
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
          $data = [
             'mobileNo' => trim($_POST['mobileNo']),
             'password' => trim($_POST['password']),
             'mobileNo_error' => '',
-            'password_error' => ''
+            'password_error' => '',
+            // 'contactNo'=>'0762930963'
          ];
+         // $this->userModel->updatePassword($data['contactNo'],$data['password']);
+
 
          $data['mobileNo_error'] = validateMobileNo($data['mobileNo']);
          $data['password_error'] = emptyCheck($data['password']);
@@ -45,10 +38,14 @@ class User extends Controller
 
                if (password_verify($data['password'], $hashedPassword))
                {
+
+
                   $this->createUserSession($user);
-                  // die($_SESSION['userMobileNo']);
                   $this->provideIntialView();
                   // die("SUCCESS");
+
+                  //System log
+                  Systemlog::signin();
                }
                else
                {  //Handle incorrect Attempts
@@ -76,7 +73,8 @@ class User extends Controller
             'mobileNo' => '',
             'password' => '',
             'mobileNo_error' => '',
-            'password_error' => ''
+            'password_error' => '',
+            'contactNo' => '0762930963'
          ];
          $this->view('signin', $data);
       }
@@ -87,6 +85,7 @@ class User extends Controller
       // If the request is a post
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
+
          // Data is loaded
          $data = [
             'mobileNo' => trim($_POST['mobileNo']),
@@ -117,7 +116,7 @@ class User extends Controller
                   if ($OTP)
                   {
                      // Send otp
-                     $SMSResponse = sendPasswordResetSMS($data['mobileNo'], $OTP);
+                     $SMSResponse = SMS::sendPasswordResetSMS($data['mobileNo'], $OTP);
 
                      //If OTP sent successfull then store the OTP
                      if ($SMSResponse)
@@ -177,9 +176,14 @@ class User extends Controller
                {
                   $this->userModel->updatePassword($data['mobileNo'], $data['newPassword']);
                   $this->OTPModel->removeOTP($data['mobileNo'], 2);
+                  Toast::setToast(1, "Password recovery successful!", "Sign in using new password.");
 
                   // Provide success message here
                   header('location: ' . URLROOT . '/user/signin');
+
+                  //system log
+                  $log = "user reset the password";
+                  logger($data['mobileNo'], $log);
                }
             }
             else
@@ -210,22 +214,22 @@ class User extends Controller
 
    private function createUserSession($user)
    {
-      $_SESSION = [
-         'userMobileNo' => $user->mobileNo,
-         'userType' => $user->userType,
-         'userID' => $this->getUserData($user)[0],
-         'username' => $this->getUserData($user)[1]
-      ];
-      //Containes customer id or staff id
-      // echo $_SESSION['userMobileNo'] . " - " . $_SESSION['userType'] . " - " . $_SESSION['userID'] . " - " . $_SESSION['username'];
-      // die();
+      Session::setBundle(
+         'user',
+         [
+            "mobileNo" => $user->mobileNo,
+            "type" => $user->userType,
+            "id" => $this->getUserData($user)[0],
+            "name" =>  $this->getUserData($user)[1]
+         ]
+      );
    }
 
    public function provideIntialView()
    {
-      if (isset($_SESSION['userType']))
+      if (Session::hasLoggedIn())
       {
-         switch ($_SESSION['userType'])
+         switch (Session::getUser("type"))
          {
             case 1:
                redirect('sysAdminDashboard/home');
@@ -273,9 +277,11 @@ class User extends Controller
 
    public function signout()
    {
-      unset($_SESSION['userMobileNo']);
-      unset($_SESSION['userType']);
-      unset($_SESSION['userID']);
+
+      //System log
+      Systemlog::signout();
+
+      Session::clear('user');
       session_destroy();
       redirect('home');
    }

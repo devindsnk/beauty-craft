@@ -41,7 +41,7 @@
                      </div>
                      <div class="column">
                         <div class="text-group">
-                           <span class=title>Contact No</span>
+                           <span class=title>Customer Contact No</span>
                            <span class=content>0717679712</span>
                         </div>
                      </div>

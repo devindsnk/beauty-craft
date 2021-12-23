@@ -3,6 +3,7 @@ class Leaves extends Controller
 {
    public function __construct()
    {
+
       $this->LeaveModel = $this->model('LeaveModel');
    }
 
@@ -40,14 +41,14 @@ class Leaves extends Controller
    {
       Session::validateSession([4, 5]);
 
-      $leaveData = $this->LeaveModel->getLeaveRecordsBystaffID($_SESSION['userID']);
+      $leaveData = $this->LeaveModel->getLeaveRecordsBystaffID(Session::getUser("id"));
       $leaveLimit = $this->LeaveModel->getLeaveLimit();
 
       // die ($leaveLimit);
-      $leaveCount = $this->LeaveModel->getCurrentMonthLeaveCount($_SESSION['userID']);
+      $leaveCount = $this->LeaveModel->getCurrentMonthLeaveCount(Session::getUser("id"));
       $remainingLeaveCount = $leaveLimit - $leaveCount;
-      // echo  $remainingLeaveCount;
-      // die ("hi");
+      // print_r($leaveData);
+      // die("hi");
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
@@ -55,10 +56,12 @@ class Leaves extends Controller
          $data = [
             'date' => trim($_POST['date']),
             'reason' => trim($_POST['reason']),
+            'leavetype' => isset($_POST['leavetype']) ? trim($_POST['leavetype']) : '',
             'date_error' => '',
             'reason_error' => '',
+            'type_error' => '',
             'dateValidationError' => '',
-            'staffID' => $_SESSION['userID'],
+            'staffID' => Session::getUser("id"),
             'tableData' => $leaveData,
             'haveErrors' => 0,
             'remainingCount' => $remainingLeaveCount,
@@ -75,9 +78,9 @@ class Leaves extends Controller
             $today = date('Y-m-d');
             $data['date_error'] = emptyCheck($data['date']);
             $data['reason_error'] = emptyCheck($data['reason']);
-            // die($data['date_error']);$this->leaveRequestDateValidate($data);
+            $data['type_error'] = emptyCheck($data['leavetype']);
 
-            if (empty($data['date_error']) && empty($data['reason_error']))
+            if (empty($data['date_error']) && empty($data['reason_error']) && empty($data['type_error']))
             {
 
                $this->LeaveModel->requestleave($data);
@@ -110,10 +113,12 @@ class Leaves extends Controller
          $data = [
             'date' => '',
             'reason' => '',
+            'leavetype' => '',
             'date_error' => '',
             'reason_error' => '',
+            'type_error' => '',
             'dateValidationError' => '',
-            'staffID' => $_SESSION['userID'],
+            'staffID' => Session::getUser("id"),
             'tableData' => $leaveData,
             'haveErrors' => 0,
             'reasonentered' => '',
@@ -130,12 +135,12 @@ class Leaves extends Controller
    public function provideLeaveRequestReleventView($data)
    {
       Session::validateSession([4, 5]);
-      if ($_SESSION['userType'] == 4)
+      if (Session::getUser("type") == 4)
       {
          $this->view('receptionist/recept_leaves', $data);
       }
 
-      else if ($_SESSION['userType'] == 5)
+      else if (Session::getUser("type") == 5)
       {
          $this->view('serviceProvider/serProv_leaves', $data);
       }
@@ -143,16 +148,30 @@ class Leaves extends Controller
 
    public function leaveRequestDateValidate($date)
    {
+
+      // die("ooooo");
+
       Session::validateSession([4, 5]);
+      // $date = file_get_contents('input://php');
+      // $date = json_decode($date, true);
 
       $alreadyRequestedDay = $this->LeaveModel->checkExsistingLeaveRequestDay($date);
+      // $alreadyRequestedDay = 0;
       header('Content-Type: application/json; charset=utf-8');
 
       if ($alreadyRequestedDay == 1)
       {
          $dateValidationMsg = "The date You entered is already exit";
       }
-      // $dateValidationError="errortttttttt";
+      else
+      {
+         $dateValidationMsg = "";
+      }
+
       print_r(json_encode($dateValidationMsg));
+
+
+      // echo json_encode($dateValidationMsg);
+      // exit;
    }
 }

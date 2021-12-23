@@ -7,15 +7,13 @@
 			<h1 class="header-topic">Services Report</h1>
 		</div>
 		<div class="header-right verticalCenter">
-			<a href="
-				<?php echo URLROOT;
-				if ($userTypeNo == 2) echo "/OwnDashboard/analyticsService";
-				elseif ($userTypeNo == 3) echo "/MangDashboard/analyticsService";
-				?>" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
+			<span class="top-right-closeBtn" onclick="history.back()">
+				<i class=" fal fa-times fa-2x "></i>
+			</span>
 		</div>
 	</header>
 
-		<div class="content serviceReport">
+	<div class="content serviceReport">
 		<form class="form filter-options" action="">
 			<div class="options-container">
 				<div class="left-section">

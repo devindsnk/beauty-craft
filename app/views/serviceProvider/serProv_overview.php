@@ -10,6 +10,7 @@
 
     <?php
     $title = "Overview";
+    
     require APPROOT . "/views/inc/headerBar.php"
     ?>
 
