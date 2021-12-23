@@ -11,6 +11,7 @@ dateSelector.addEventListener('change',
    function () {
       checkDate();      // Checkeing availability of the date
                         // Updating service providers availability if service is selected
+      console.log("hi")
    }
 )
 

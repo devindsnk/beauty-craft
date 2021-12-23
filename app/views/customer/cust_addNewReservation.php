@@ -14,6 +14,8 @@
             <span class="error date-error">
                <!-- <?php echo $data['date_error']; ?> -->
             </span>
+            <span class="info-line">*A reservation can be placed upto maximum of two months ahead. </span>
+
          </div>
          <div class="contentBox service-container">
             <div class="top-container">

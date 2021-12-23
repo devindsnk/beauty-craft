@@ -30,6 +30,7 @@ class test extends Controller
       // $results = $this->reservationModel->getAllPendingRecallRequests();
       // var_dump($results);
 
-      echo DateTimeExtended::getCurrentTime();
+      // echo DateTimeExtended::getCurrentTime();
+      $this->view('test');
    }
 }

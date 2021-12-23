@@ -534,6 +534,13 @@ footer p {
   background-color: #dadada;
 }
 
+.info-line{
+  padding: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--theme-grey);
+}
+
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
 /* ------------------------------------------------------ */

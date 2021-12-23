@@ -164,6 +164,13 @@ class Reservations extends Controller
 
    ////////////////////////////////////////
 
+   public function checkPossibilityOfReservation()
+   {
+      // Date check 
+      // Service providers availability check 
+
+   }
+
    public function getDataForSProvidersList($date, $serviceID)
    {
    }
