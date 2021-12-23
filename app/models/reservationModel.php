@@ -60,7 +60,7 @@ class ReservationModel extends Model
       return $results;
    }
 
-   // FOR MANAGER OVERVIEW
+   // SRART FOR MANAGER OVERVIEW
    public function getTotalIncomeForMangOverview()
    {
 
@@ -89,8 +89,44 @@ class ReservationModel extends Model
       return $results;
    }
 
+   public function getMonthlyIncomeAndTotalReservationsForMangOverviewCharts(){
 
-   // FOR MANAGER OVERVIEW
+      $results = $this->customQuery("SELECT date_format(reservations.date,'%M') AS Month ,sum(services.price) AS TotalIncome, COUNT(*) AS TotalReservations
+         FROM services
+         INNER JOIN reservations
+         ON reservations.serviceID = services.serviceID
+         WHERE reservations.status=:status AND year(reservations.date) = YEAR(CURRENT_DATE())
+         GROUP BY year(reservations.date), month(reservations.date)
+         ORDER BY year(reservations.date), month(reservations.date)",
+         [':status' => 4]
+      );
+      return $results;
+   }
+   
+   // END FOR MANAGER OVERVIEW
+
+   // SRART FOR MANAGER UPDATE SERVICE
+   public function getUpcommingReservationsForService($sID){
+      // upcomming reservations gnn oni 
+      $results = $this->customQuery("SELECT * 
+                                    FROM reservations
+                                    WHERE status=:status AND serviceID=:sID ",
+                                    [':status' => 4 , ':sID' => $sID ]
+      );
+      return $results;
+   }
+
+   public function getUpcommingReservationsForSerProv($staffID, $serviceID)
+   {
+      // upcomming reservations gnn oni 
+      $results = $this->customQuery("SELECT * 
+                                    FROM reservations
+                                    WHERE status=:status AND serviceID=:sID AND staffID=:sProvID OR date >= now() ",
+                                    [':status' => 4 , ':sID' => $serviceID , ':sProvID' => $staffID]
+      );
+      return $results;
+   }
+   // END FOR MANAGER UPDATE SERVICE
 
    //FOR SP overview
    public function getReservationsByStaffID($staffID)

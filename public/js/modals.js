@@ -13,6 +13,16 @@ removeServiceBtnList.forEach((btn) => {
     });
 });
 
+// Hold Service Modal Section
+const holdServiceModal = document.querySelector(".hold-service");
+const holdServiceBtnList = document.querySelectorAll(".btnHoldService");
+holdServiceBtnList.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = holdServiceModal;
+        toggleModal();
+    });
+});
+
 // Remove Resource Modal Section
 const removeResourceModal = document.querySelector(".remove-resource");
 const removeResourceBtnList = document.querySelectorAll(".btnRemoveResource");
