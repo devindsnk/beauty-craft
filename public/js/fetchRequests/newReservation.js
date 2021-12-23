@@ -2,8 +2,9 @@
 
 const dateSelector = document.querySelector(".dateSelect");
 const dateError = document.querySelector(".date-error");
-const serviceSelectDropDown = document.querySelector(".serviceSelect");
-const serviceProviderSelectDropDown = document.querySelector(".serviceProviderSelect");
+const serviceSelector = document.querySelector(".serviceSelect");
+const sProviderSelector = document.querySelector(".serviceProviderSelect");
+const startTimeSelector = document.querySelector(".startTimeSelect");
 const serviceDurationBox = document.querySelector(".durationBox");
 
 // Change of date
@@ -11,7 +12,6 @@ dateSelector.addEventListener('change',
    function () {
       checkDate();      // Checkeing availability of the date
                         // Updating service providers availability if service is selected
-      console.log("hi")
    }
 )
 
@@ -21,41 +21,46 @@ function checkDate() {
        .then(state => {
           dateError.innerHTML = state;
     })
- }
+}
  
-
 // Change of service
-serviceSelectDropDown.addEventListener('change',
+serviceSelector.addEventListener('change',
    function () {
       updateServiceProvidersList();     // Updating  service providers list
       updateServiceDuration();          // Updating service duration
    }
 )
 
+// trigger the below function in dateupdates and service updates accordingly
 function updateServiceProvidersList() {
-   fetch(`http://localhost:80/beauty-craft/Services/getServiceProvidersByService/${serviceSelectDropDown.value}/`)
+   // console.log("triggered");
+   fetch(`http://localhost:80/beauty-craft/Reservations/getUpdatedSProvidersList/${serviceSelector.value}/${dateSelector.value}/${startTimeSelector.value}`)
       .then(response => response.json())
       .then(sProvidersList => {
 
-         serviceProviderSelectDropDown.innerHTML = "";
+         // Adding default option
+         sProviderSelector.innerHTML = "";
          var option = document.createElement("option");
          option.text = 'Select';
          option.disabled = true;
          option.selected = true;
          option.value = '';
-         serviceProviderSelectDropDown.appendChild(option);
+         sProviderSelector.appendChild(option);
 
+         // Adding service providers 
          sProvidersList.forEach(sProvider => {
-            var option = document.createElement("option");
-            option.text = "S" + sProvider.staffID + " - " + sProvider.fName + " " + sProvider.lName;
+            console.log(sProvider);
+            let option = document.createElement("option");
+            let error = (sProvider.leave || sProvider.occupied ? "⚠ " : "");
+            option.text = error + sProvider.name;
             option.value = sProvider.staffID;
-            serviceProviderSelectDropDown.appendChild(option);
+            sProviderSelector.appendChild(option);
          });
       });
 }
 
 function updateServiceDuration() {
-   fetch(`http://localhost:80/beauty-craft/services/getServiceDuration/${serviceSelectDropDown.value}`)
+   fetch(`http://localhost:80/beauty-craft/services/getServiceDuration/${serviceSelector.value}`)
       .then(response => response.json())
       .then(serviceDuration => {
          serviceDurationBox.innerHTML = "";

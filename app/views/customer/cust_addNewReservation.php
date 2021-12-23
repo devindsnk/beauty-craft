@@ -23,13 +23,19 @@
                   <div class="column"> -->
                <div class="dropdown-group left-box start-time">
                   <label class="label" for="lName">Start Time</label>
-                  <select name="startTime" id="">
+                  <select name="startTime" class="startTimeSelect">
                      <option value="" selected disabled>Select</option>
                      <?php for ($i = 9; $i <= 18; $i += 1) : ?>
                         <?php for ($j = 0; $j <= 50; $j += 10) : ?>
-                           <option value="<?php echo $i * 60 + $j; ?>" class=font-numeric <?php if ($data['startTime'] == $i * 60 + $j) echo "selected"; ?>>
-                              <?php echo str_pad($i, 2, "0", STR_PAD_LEFT) . ' : ' . str_pad($j, 2, "0", STR_PAD_LEFT); ?>
-
+                           <option value="<?php echo $i * 60 + $j; ?>" class="font-numeric" <?php if ($data['startTime'] == $i * 60 + $j) echo " selected"; ?>>
+                              <?php
+                              if ($i < 12)
+                                 echo str_pad($i, 2, "0", STR_PAD_LEFT) . ' : ' . str_pad($j, 2, "0", STR_PAD_LEFT) . " AM";
+                              else if ($i == 12)
+                                 echo str_pad($i, 2, "0", STR_PAD_LEFT) . ' : ' . str_pad($j, 2, "0", STR_PAD_LEFT) . " PM";
+                              else
+                                 echo str_pad($i - 12, 2, "0", STR_PAD_LEFT) . ' : ' . str_pad($j, 2, "0", STR_PAD_LEFT) . " PM";
+                              ?>
                            </option>
                         <?php endfor; ?>
                      <?php endfor; ?>

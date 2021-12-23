@@ -165,7 +165,6 @@ class ReservationModel extends Model
    public function getAllPendingRecallRequests()
    {
       // TODO: check with data in table
-      echo "called";
       $SQLstatement =
          "SELECT
           RECALL.reservationID,

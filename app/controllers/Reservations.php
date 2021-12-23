@@ -28,14 +28,12 @@ class Reservations extends Controller
 
    public function newReservationCust()
    {
-      // $sProvidersList = $this->getAllServiceProviders();
-      $servicesList = $this->getAllServices();
-
+      $servicesList = $this->serviceModel->getAllAvailableServices();
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
          $data = [
-            'customerID' => trim($_POST['customerID']),
+            'customerID' => Session::getUser("id"),
             'serviceID' => isset($_POST['serviceID']) ? trim($_POST['serviceID']) : '',
             'staffID' => isset($_POST['staffID']) ? trim($_POST['staffID']) : '',
             'date' => trim($_POST['date']),
@@ -139,12 +137,6 @@ class Reservations extends Controller
       return $sProvidersList;
    }
 
-   public function getAllServices()
-   {
-      $servicesList = $this->serviceModel->getServiceDetails();
-      return $servicesList;
-   }
-
 
    public function checkIfDatePossible($selectedDate)
    {
@@ -177,6 +169,29 @@ class Reservations extends Controller
 
    public function getOverlappingReservations()
    {
+   }
+
+   // Provides active service providers list for a particular service with their avilability based on date and time
+   public function getUpdatedSProvidersList($serviceID, $selectedDate = null, $selectedTime = null)
+   {
+      $sProvidersList = $this->staffModel->getSProvidersByServiceWithLeaveStatus($serviceID, $selectedDate);
+
+      $updatedSProvidersList = array();
+      foreach ($sProvidersList as $sProvider)
+      {
+         $values = [
+            "staffID" => $sProvider->staffID,
+            "name" => $sProvider->fName . " " . $sProvider->lName,
+            "leave" => ($sProvider->leaveStatus > 0 ? true : false),
+            "occupied" => false    // TODO: check overlappings
+         ];
+         array_push($updatedSProvidersList, $values);
+      }
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($updatedSProvidersList));
+      // $serProvList
+      // update that list with availability and leaves 
    }
 
    ////////////////////////////////////////

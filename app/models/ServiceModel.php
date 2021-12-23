@@ -172,7 +172,6 @@ class ServiceModel extends Model
         return $results;
     }
 
-
     public function getResourceDetails()
     {
         $results = $this->getResultSet('resources', ['resourceID', 'name', 'quantity'], null);
@@ -340,25 +339,26 @@ class ServiceModel extends Model
 
     public function getServiceDuration($serviceID)
     {
-        $results = $this->getResultSet('service', ['totalDuration'], ['serviceID' => $serviceID]);
-        // $this->db->query("SELECT totalDuration FROM services WHERE serviceID = :serviceID");
-        // $this->db->bind(':serviceID', $serviceID);
-        // $result = $this->db->single();
+        $results = $this->getSingle('services', ['totalDuration'], ['serviceID' => $serviceID]);
 
         return $results->totalDuration;
     }
 
+    public function getAllAvailableServices()
+    {
+        $results = $this->getResultSet("services",  "*",  ["status" => 1]);
+
+        return $results;
+    }
     // FOR MANAGER OVERVIEW
     public function getAvailableServiceCount()
     {
-
         $results = $this->getRowCount('services', ['status' => 1]);
 
         return $results;
     }
     public function getAvailableServiceProvidersCount()
     {
-
         $results = $this->customQuery(
             "SELECT Count(DISTINCT staffID) AS serProvCount
                                     FROM serviceproviders",

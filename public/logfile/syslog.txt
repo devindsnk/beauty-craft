@@ -12,3 +12,30 @@ IP Add.	    Date & Time	        Mobile No	Name		        Activity
 ::1	        12/22/21 07:35PM	0703807405	Ruwanthi Munasinghe	    user signin to the system
 
 ::1	12/22/21 08:32PM	0703807405	Ruwanthi Munasinghe	user signin to the system
+
+127.0.0.1	12/23/21 08:54AM			user signout from the system
+127.0.0.1	12/23/21 08:56AM			user signin to the system
+127.0.0.1	12/23/21 08:56AM			user signout from the system
+127.0.0.1	12/23/21 08:56AM			user signin to the system
+127.0.0.1	12/23/21 09:48AM			user signout from the system
+127.0.0.1	12/23/21 09:48AM			user signin to the system
+127.0.0.1	12/23/21 10:26AM			user signout from the system
+127.0.0.1	12/23/21 10:26AM	0717679714	 Nisura Dissanayake	user signin to the system
+127.0.0.1	12/23/21 10:31AM			user signout from the system
+127.0.0.1	12/23/21 01:43PM			user signin to the system
+127.0.0.1	12/23/21 02:13PM			user signout from the system
+127.0.0.1	12/23/21 02:13PM			user signin to the system
+127.0.0.1	12/23/21 02:16PM			user signout from the system
+127.0.0.1	12/23/21 02:16PM			user signin to the system
+127.0.0.1	12/23/21 04:43PM			user signout from the system
+127.0.0.1	12/23/21 04:43PM			user signin to the system
+127.0.0.1	12/23/21 04:47PM			user signout from the system
+127.0.0.1	12/23/21 04:47PM			user signin to the system
+127.0.0.1	12/23/21 05:02PM			user signout from the system
+127.0.0.1	12/23/21 05:02PM			user signin to the system
+127.0.0.1	12/23/21 07:40PM			user signout from the system
+127.0.0.1	12/23/21 07:40PM			user signin to the system
+127.0.0.1	12/23/21 07:44PM			user signout from the system
+127.0.0.1	12/23/21 07:44PM			user signin to the system
+127.0.0.1	12/23/21 07:46PM			user signout from the system
+127.0.0.1	12/23/21 07:46PM			user signin to the system

@@ -4,7 +4,6 @@
    <?php
    $selectedMain = "Customers";
    $selectedSub = "";
-   require APPROOT . "/views/manager/mang_sideNav.php";
    switch (Session::getUser("type"))
    {
 
