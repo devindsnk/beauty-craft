@@ -84,6 +84,11 @@ h1 {
     align-items: center;
     justify-content: center;
 }
+form .error {
+    display: block;
+    font-size: 13px;
+    color: var(--theme-red);
+}
 
 .basicinfo .item2 {
     /* background-color: rgb(208, 224, 134); */
