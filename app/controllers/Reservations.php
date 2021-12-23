@@ -201,4 +201,10 @@ class Reservations extends Controller
    {
       $this->view('404');
    }
+
+   public function recallReservationsFromUpdateService($serviceID)
+   {
+      print_r($serviceID);
+      die('fk');
+   }
 }

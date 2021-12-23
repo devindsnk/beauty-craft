@@ -89,7 +89,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
 }
 .hold-service-div{
     display: flex;
@@ -332,6 +332,10 @@
    width: 100vw;
    max-height: 100vh;
    overflow-y: auto;
+}
+.redLetters{
+    color: #DA2346;
+    font-weight: 600;
 }
 
 /* ------------------------------------------------------ */
