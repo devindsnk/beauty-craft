@@ -75,4 +75,13 @@ class CustomerModel extends Model
       return $results;
    }
    // FOR MANAGER OVERVIEW
+
+   public function getUpcomingReservationCountByCusID($cusID){
+
+      // print_r($cusID);
+      $results = $this->getRowCount('reservations',['customerID'=> $cusID, 'status'=> 1]);                               
+      // print_r($results);
+      return $results;
+   }
+   
 }

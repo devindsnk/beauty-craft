@@ -54,8 +54,6 @@ class ClosedDatesModel extends Model
       // print_r($results);
       // var_dump($results);
       $results = $this->getRowCount('reservations', ['date' => $date]);
-      print_r($results);
-
       return $results;
    }
 }

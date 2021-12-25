@@ -71,21 +71,12 @@ echo $currenttime;
                         </span>
                      </td>
                   </tr>
-                  <?php endforeach; ?>
-               </tbody>
-              
-            </table>
-         </div>
-      </div>
-
-
-
-
+                  
       <!-- Remove close date model -->
       <div class="modal-container remove-closeDate">
          <div class="modal-box">
-            <div class="confirm-model-head">
-               <h1>Remove Close Date</h1>
+            <div class="confirm-model-head"> 
+               <h1>Remove Close Date</h1> 
             </div>
             <div class="confirm-model-head">
                <p>Are you sure you want to Remove the Close date ? <br> This action cannot be undone after proceeding.
@@ -98,6 +89,17 @@ echo $currenttime;
          </div>
       </div>
       <!-- End of Remove close date model -->
+      
+                  <?php endforeach; ?>
+               </tbody>
+              
+            </table>
+         </div>
+      </div>
+
+
+
+
 
 
 
@@ -114,7 +116,7 @@ echo $currenttime;
               
                   <div class="addItemsModalDetail1">
                      <label class="addItemsModalLable">Date</label> <br> 
-                     <input type="date" class="addItemsModalDate" name="closeDate"
+                     <input type="date" class="addItemsModalDate closeDate" name="closeDate"
                         value="<?php echo $data['closeDate']; ?>"> <br>
                      <span class="error"><?php echo $data['closeDate_error']; ?></span>
                   </div>
@@ -124,30 +126,23 @@ echo $currenttime;
                         name="closeSalonReason" value="<?php echo $data['closeSalonReason']; ?>"> </textarea> <br>
                      <span class="error"><?php echo $data['closeSalonReason_error']; ?></span>
                   </div>
-              
             </div>
 
             <!-- main grid 1 ends -->
-<!-- 
-            <?php $Resdate = $data['closeDate']; 
-            echo $Resdate;
-            echo $data['reservationCount'];?> -->
 
             <!-- main grid 2 starts -->
-            <?php if ($data['checked'] == 0) : ?> 
-
-            <?php elseif ($data['checked'] == 1 && $data['reservationCount']>0) : ?> 
-               <div class="addItemsModalGrid2">
+            
+               <div class="addItemsModalGrid2 closeSalonReservationRecallAndErrorText"> 
                <div class="addItemsModalError"> 
                   <label class="addItemsModalErrortext">Cannot proceed. Has upcoming reservations</label>
-                  <a href="<?php echo URLROOT ?>/closeDates/closeDateReservtaions/ <?php echo $Resdate; ?>" target="_blank" class="addItemsModalErrorAnchortag"> <label class="addItemsModalErrorLable">View
+                  <a href="<?php echo URLROOT ?>/closeDates/closeDateReservtaions" target="_blank" class="addItemsModalErrorAnchortag closeSalonViewReservations"> <label class="addItemsModalErrorLable ">View
                         Reservaions</label></a> 
-               </div>
+               </div> 
                <div class="addItemsModalRecallMessage">
                   <span class="addItemsModalMessage">Recall requests will be sent if you proceed.</span>
                </div>
             </div>
-            <?php endif; ?>
+          
             <!-- main grid 2 ends -->
 
             <!-- main grid 3 starts -->
@@ -156,9 +151,7 @@ echo $currenttime;
                   <button class="btn btnClose normal ModalCancelButton ModalButton" name="action" value="cancel">Cancel</button>
                </div>
                <div class="addItemsModalbtn2">
-               <?php if ( $data['checked']== 0) echo '<button class="btn ModalGreenButton ModalButton"  name="action"  value="dateCheck">Check date</button>'; ?>
-               
-               <?php if ( $data['checked']== 1 && $data['reservationCount']>0) echo '<button class="btn ModalGreenButton ModalButton"  name="action" value= "addCloseDate" >Proceed</button>'; ?>
+               <button class="btn ModalGreenButton ModalButton"  name="action" value= "addCloseDate" >Proceed</button>
 
                <!-- <?php if ( $data['checked']== 1 && $data['reservationCount']>0 ) echo '<button class="btn ModalGreenButton ModalButton"  name="action" value= "addCloseDateWithRecall" >Proceed</button>'; ?> -->
                  
@@ -175,5 +168,5 @@ echo $currenttime;
    </div>
    <!--End Content-->
 
-
+   <script src="<?php echo URLROOT ?>/public/js/fetchRequests/closeSalon.js"></script>
    <?php require APPROOT . "/views/inc/footer.php" ?>

@@ -478,8 +478,8 @@ class Staff extends Controller
    }
    public function viewStaff($staffID)
    {
-      $bankDetails = $this->staffModel->getStaffDetailsWithBankDetailsByStaffID($staffID);
-      $this->view('owner/own_staffView',$bankDetails[0]);
+      $staffDetails = $this->staffModel->getStaffDetailsWithBankDetailsByStaffID($staffID);
+      $this->view('owner/own_staffView',$staffDetails[0]);
    }  
 
    public function RemStaffReservations() //details
@@ -489,16 +489,14 @@ class Staff extends Controller
 
    public function RemoveStaff($staffID) //details
    {
-      // print_r($RemstaffDetails);
-      // die();
+      
       $this->staffModel->removestaff($staffID);
       redirect('OwnDashboard/staff');
-      // $this->view('owner/own_RemStaffViewReservations');
    }
    public function GetRemovingStaffDetails($staffID) //details
    {
       $RemstaffDetails = $this->staffModel->getStaffDetailsByStaffID($staffID);
-      // die();
+      // die(); 
       print_r($RemstaffDetails);
       // die();
       // $this->staffModel->removestaff($staffID);

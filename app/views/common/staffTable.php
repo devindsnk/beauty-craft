@@ -113,7 +113,21 @@
                         <a href="<?php echo URLROOT ?>/staff/viewStaff/<?php echo $staffD->staffID ?>"><i class="ci ci-view-more table-icon img-gap"></i></a>
                         <?php if ($userType == "Owner") : ?>
                            <a href="<?php echo URLROOT ?>/staff/updateStaff/<?php echo $staffD->staffID ?>"><i class="ci ci-edit table-icon img-gap"></i></a>
-                           <a href="#"><i class="ci ci-trash table-icon btnRemoveStaff img-gap"></i></a>
+                           <a href="#" class=""><i data-staffid = "<?php echo $staffD->staffID; ?>" data-staffname = "<?php echo $staffD->fName; ?> <?php echo $staffD->lName; ?>" 
+                           data-stafftype =
+                           "<?php if ($staffD->staffType == 3)
+                             {
+                              echo 'Manager';
+                             }
+                           elseif ($staffD->staffType == 4)
+                             {
+                              echo 'Receptionist';
+                             }
+                           elseif ($staffD->staffType == 5)
+                             {
+                              echo 'Service Provider';
+                             } ?>"
+                              class="ci ci-trash table-icon btnRemoveStaff removeStaffAnchor img-gap"></i></a>
                         <?php endif; ?>
                      </span>
                   </td>
@@ -137,15 +151,15 @@
          <div class="staffDetails">
             <div class="staffDetail1">
                <label class="staffLable">Staff Id</label>
-               <span class="staffData">M001</span>
+               <span class="staffData staffID">M001</span>
             </div>
             <div class="staffDetail2">
                <label class="staffLable">Type</label>
-               <span class="staffData">Service Provider</span>
+               <span class="staffData staffType">Service Provider</span>
             </div>
             <div class="staffDetail3">
                <label class="staffLable">Name</label>
-               <span class="staffData">Ravindu Madhubhashana</span>
+               <span class="staffData staffName">Ravindu Madhubhashana</span>
             </div>
          </div>
          <!-- main grid 1 ends -->
@@ -164,7 +178,7 @@
                <button class="btn btnClose normal ModalButton ModalCancelButton">Cancel</button>
             </div>
             <div class="ownRemStaffbtn2">
-              <a href="<?php echo URLROOT ?>/staff/removeStaff/<?php echo $staffD->staffID ?>"><button class="btn normal ModalButton ModalBlueButton">Proceed</button></a>
+              <a href="<?php echo URLROOT ?>/staff/removeStaff/<?php echo $staffD->staffID ?>"><button class="btn normal ModalButton ModalBlueButton removeStaff">Proceed</button></a>
             </div>
          </div>
          <!-- main grid 3 ends -->
@@ -174,3 +188,4 @@
 </div>
 
 <!------------------- Remove Staff Container ends ----------------------------->
+<script src="<?php echo URLROOT ?>/public/js/fetchRequests/removeStaff.js"></script>

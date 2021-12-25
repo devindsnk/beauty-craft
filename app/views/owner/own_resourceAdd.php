@@ -49,17 +49,20 @@
                                 </div>
                                 <div class="addType">
                                 <div class="selectType">
-                                    <label class="ownAddstaffLabels">Type</label>
-                                    <select name="name" class="dropdownselectbox">
-                                        <option class="unbold" value="0" option selected="true" disabled="disabled" >Select</option>
-                                        <option value= 'Hair Irons' >Hair Irons</option>
-                                        <option value= 4 >Hair Straightner</option>
-                                        <option value= 3 >Comb</option>
+                                    <label class="ownAddstaffLabels ">Type</label>
+                                    <select name="nameSelected" class="dropdownselectbox resourceTypes">
+                                        <!-- <option class="unbold" value="0" option selected="true" disabled="disabled" >Select</option>
+                                        <?php foreach ($data['resourceTypes'] as $resourceTypeD) : ?>
+                                        <option value = "<?php echo $resourceTypeD->resourceID; ?>" ><?php echo $resourceTypeD->name; ?></option>
+                                        <?php endforeach; ?> -->
+                                        <option value="" selected disabled>Select</option>
+
                                     </select>
-                                    <span class="error"><?php echo $data['name_error']; ?></span>
+                                    <span class="error"><?php echo $data['nameSelected_error']; ?></span>
                                 </div>
                                     <div class="addNewTypeButton"> 
                                     <a href="#"><i class="AddResourceTypebutton btn btn-filled btn-black btnAddResourceType">Add</i></a>
+                                    
                                     </div>
                                 </div>
                                 </div>
@@ -118,7 +121,7 @@
          <div class="addItemsModalGrid1 ownResAddDetails">
             <div class="ownResAddDetail1">
                <label class="addItemsModalLable">Resource Name</label> <br>
-               <input type="text" name="resourceName" class="ownResAddLabeltext" placeholder="--Type in--" value="<?php echo $data['name']; ?>" maxlength="40">
+               <input type="text" name="name" class="ownResAddLabeltext" placeholder="--Type in--" value="<?php echo $data['name']; ?>" maxlength="40">
                <br>
                <span class="error"><?php echo $data['name_error']; ?></span>
             </div>
@@ -154,5 +157,5 @@
 
         
 
-
+<script src="<?php echo URLROOT ?>/public/js/fetchRequests/resources.js"></script>
 <?php require APPROOT . "/views/inc/footer.php" ?>

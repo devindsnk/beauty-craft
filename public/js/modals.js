@@ -13,12 +13,22 @@ removeServiceBtnList.forEach((btn) => {
     });
 });
 
-// Remove Resource Modal Section
+// Remove Resource Type Modal Section
 const removeResourceTypeModal = document.querySelector(".remove-resource-type");
 const removeResourceTypeBtnList = document.querySelectorAll(".btnRemoveResourceType");
 removeResourceTypeBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
         modalToToggle = removeResourceTypeModal;
+        toggleModal();
+    });
+});
+
+// Remove Resource Modal Section
+const removeResourceModal = document.querySelector(".remove-resource");
+const removeResourceBtnList = document.querySelectorAll(".btnRemoveResource");
+removeResourceBtnList.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = removeResourceModal;
         toggleModal();
     });
 });

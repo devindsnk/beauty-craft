@@ -38,49 +38,13 @@ class OwnDashboard extends Controller
             'closeDate_error' => '',
             'closeSalonReason_error' => '',
             'haveErrors' => 0,
-            'checked' => 0,
             'closeDates' => $closeDatesDetails,
-            'reservationCount'=> '',
          ];
          // $date_now = new DateTime();
          // $date_now = strtotime(date('d-m-y'));
-         // $date_selected = strtotime($data['closeDate']);
-
-         if ($_POST['action'] == "dateCheck")
-         {
-            if (empty($data['closeDate']))
-            {
-               $data['closeDate_error'] = "Please select a date";
-            }
-            // else if($date_now > $date_selected)
-            // {
-            //    $data['closeDate_error'] = "Please select a future date";
-            // }
-
-            // if (empty($data['closeSalonReason']))
-            // {
-            //    $data['closeSalonReason_error'] = "Please select number of resource";
-            // }
-            if (empty($data['closeDate_error'])
-            )
-            {
-               $closeDateResCount = $this->closedDatesModel->getCloseDatesReservationCount($data['closeDate']);
-               // echo $closeDateResCount;
-               $data['haveErrors'] = 1;
-               $data['checked'] = 1;
-               $data['reservationCount'] = $closeDateResCount;
-               $this->view('owner/own_closeSalon', $data);
-               // $this->closedDatesModel->addCloseDate($data);
-               // redirect('OwnDashboard/closeSalon');
-            }
-            else
-         {
-            $data['haveErrors'] = 1;
-            $data['checked'] = 0;
-            $this->view('owner/own_closeSalon', $data);
-         }  
-         }
-         else if ($_POST['action'] == "addCloseDate")
+         // $date_selected = strtotime($data['closeDate']); 
+      
+         if ($_POST['action'] == "addCloseDate")
          {
          if (empty($data['closeDate']))
          {
@@ -105,7 +69,6 @@ class OwnDashboard extends Controller
          else
       {
          $data['haveErrors'] = 1;
-         $data['checked'] = 0;
          $this->view('owner/own_closeSalon', $data);
       }
         }
@@ -115,7 +78,7 @@ class OwnDashboard extends Controller
             $this->view('owner/own_closeSalon', $data);
          }
 
-         }
+      }
       else
       {
          // die('success');
@@ -125,9 +88,7 @@ class OwnDashboard extends Controller
             'closeDate_error' => '',
             'closeSalonReason_error' => '',
             'haveErrors' => 0,
-            'checked' => 0,
             'closeDates' => $closeDatesDetails,
-            'reservationCount'=>'',
          ]; 
          // print_r($data['closeDates']); 
          $this->view('owner/own_closeSalon', $data); 

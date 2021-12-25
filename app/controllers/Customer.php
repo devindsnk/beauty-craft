@@ -189,4 +189,15 @@ class Customer extends Controller
 
       $this->view('common/customerView', $ViewCustomerArray);
    }
+
+   public function getReservtaionCountByCustomerID($cusID)
+   {
+      // echo $date;
+   //  die('success');
+    $result=$this->customerModel->getUpcomingReservationCountByCusID($cusID);
+    header('Content-Type: application/json; charset=utf-8');
+    print_r(json_encode($result));
+   //  redirect('OwnDashboard/closeSalon');
+    // $this->view('owner/own_closeSalon');
+   }
 }

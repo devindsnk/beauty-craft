@@ -53,9 +53,9 @@
                   <td data-lable="Action" class="column-center-align">
                      <span>
                      <?php if ($userType == "Owner") : ?>
-                        <a href="#"><i class="ci-trash table-icon btnRemoveResourceType img-gap"></i></a>
+                        <a href="#" class="removeResourceTypeAnchor"><i data-column = "<?php echo $resourceD->resourceID; ?>" class="ci-trash table-icon btnRemoveResourceType img-gap"></i></a>
                      <?php endif; ?>
-                           <a href="<?php echo URLROOT ?>/resources/viewResources"><i class="ci ci-view-more table-icon img-gap"></i></a>
+                           <a href="<?php echo URLROOT ?>/resources/viewResources/<?php echo $resourceD->resourceID; ?>"><i class="ci ci-view-more table-icon img-gap"></i></a>
                      </span>
                   </td>
             </tr>
@@ -76,9 +76,12 @@
       <div class="confirm-model-head">
          <p>Are you sure you want to Remove the Resource Type? <br> This action cannot be undone after proceeding.</p>
       </div>
+      <div class="ownRemCusError removeResourceType">
+         <label class="ownRemCusErrortext">Cannot proceed. Has upcoming reservations</label>
+      </div>
       <div class="confirm-model-head">
          <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
-         <button class="btn normal ModalButton ModalBlueButton">proceed</button>
+         <button class="btn normal ModalButton ModalBlueButton removeCustomer">proceed</button>
       </div>
    </div>
 </div>
@@ -86,3 +89,5 @@
 
 
 <!-- End of Remove Resource model -->
+
+<script src="<?php echo URLROOT ?>/public/js/fetchRequests/resources.js"></script>

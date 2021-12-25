@@ -68,7 +68,7 @@
                   <span>
                      <a href="<?php echo URLROOT ?>/customer/cusDetailView/<?php echo $customerD->customerID ?>"><i class="ci-view-more table-icon img-gap"></i></a>
                      <?php if ($userType == "Owner") : ?>
-                        <a href="#"><i class="ci-trash table-icon btnRemoveCustomer img-gap"></i></a>
+                        <a href="#" ><i data-cusid = "<?php echo $customerD->customerID; ?>"  data-cusname= "<?php echo $customerD->fName; ?> <?php echo $customerD->lName; ?>"  class="ci-trash table-icon btnRemoveCustomer removeCustomerAnchor img-gap"></i></a>
                      <?php endif; ?>
                   </span>
                </td>
@@ -103,13 +103,15 @@
       <!-- main grid 3 starts -->
       <div class="ownRemCusButtons">
          <div class="ownRemCusbtn1">
-            <button class="btn btnClose normal ModalCancelButton ModalButton">Cancel</button>
+            <button class="btn btnClose normal ModalCancelButton ModalButton ">Cancel</button>
          </div>
          <div class="ownRemCusbtn2">
-         <a href="<?php echo URLROOT ?>/customer/remCustomer/<?php echo $customerD->customerID ?>"><button class="btn ModalBlueButton ModalButton">Proceed</button></a>
+         <a href="" class="removeCustomer" ><button class="btn ModalBlueButton ModalButton removeCustomerBtn">Proceed</button></a>
          </div>
       </div>
       <!-- main grid 3 ends -->
    </div>
 </div>
 <!------------------- Remove Customer Container ends ----------------------------->
+
+<script src="<?php echo URLROOT ?>/public/js/fetchRequests/removeCustomer.js"></script>
