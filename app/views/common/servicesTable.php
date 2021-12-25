@@ -116,11 +116,14 @@
                         <td data-lable="" class="column-center-align">
                            <span>
                               <a href="<?php echo URLROOT ?>/services/viewService/<?php echo $sDetails->serviceID; ?>"><i class="ci-view-more table-icon img-gap"></i></a>
-
-                              <?php if (Session::getUser("typeText") == "Owner" || Session::getUser("typeText") == "Manager") : ?>
-                                 <a href="<?php echo URLROOT ?>/services/updateService/<?php echo $sDetails->serviceID; ?>"><i class="ci-edit table-icon img-gap"></i></a>
-                                 <a href="#" class="deletehref" data-columns="<?php echo $sDetails->serviceID; ?>"><i class="ci-trash table-icon btnRemoveService serviceRemove img-gap"></i></a>
-
+                              <?php if ($sDetails->status != 0 ) : ?>
+                                 <?php if (Session::getUser("typeText") == "Owner" || Session::getUser("typeText") == "Manager") : ?>
+                                    <a href="<?php echo URLROOT ?>/services/updateService/<?php echo $sDetails->serviceID; ?>"><i class="ci-edit table-icon img-gap"></i></a>
+                                    <a href="#" ><i data-columns="<?php echo $sDetails->serviceID; ?>" class="ci-trash table-icon btnRemoveService serviceRemove deletehref img-gap"></i></a>
+                                    <?php endif; ?>
+                              <?php else: ?>
+                                    <i class="ci-edit table-icon img-gap"></i>
+                                    <i data-columns="" class="ci-trash table-icon img-gap"></i>
                               <?php endif; ?>
                            </span>
                         </td>
@@ -149,20 +152,14 @@
  <div class="modal-container remove-service">
    <div class="modal-box">
       <div class="confirm-model-head">
-         <h1>Delete Service - <?php echo $sDetails->serviceID; ?></h1>
+         <h1  id="deleteServiceHead"></h1>
       </div>
-      <?php if(!empty($data['resDetails'])): ?>
-         <div class="confirm-model-head">
-            <p class="redLetters"> This service has upcomming reservations. <br>Recall the reservations and Delete the service. <br> Are you sure you want to delete the service?</p>
-         </div>
-      <?php else: ?>
-         <div class="confirm-model-head">
-            <p>Are you sure you want to delete the service? <br> This action cannot be undone after proceeding.</p>
-         </div>
-      <?php endif ;?>
+      <div class="confirm-model-head">
+         <p id="warningMsgDeleteService"></p>
+      </div>
       <div class="confirm-model-head">
          <button class="btn btnClose ModalButton ModalCancelButton">Close</button>
-         <a href="<?php echo URLROOT ?>/services/deleteService/<?php echo $sDetails->serviceID; ?>"><button class="btn ModalButton ModalBlueButton" name="action" value="delete">Confirm</button></a>
+         <a href="#" class="deleteConfirmHref"><button class="btn ModalButton ModalBlueButton recallFromDelete">Confirm</button></a>
       </div>
    </div>
 </div>

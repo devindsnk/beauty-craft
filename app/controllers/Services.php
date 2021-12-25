@@ -276,16 +276,23 @@ class Services extends Controller
 
       die("hi");
    }
-   public function getCheckedSPRovList($details1,$details2)
+   public function getReservationListOfCheckedSPRovList($details1,$details2)
    {
       $serProvDetails = $this->ReservationModel->getUpcommingReservationsForSerProv($details1, $details2);
       
-      $hasRes=0;
-      if($serProvDetails != null){
-         $hasRes=1;
-      }
+      // $hasRes=0;
+      // if($serProvDetails != null){
+      //    $hasRes=1;
+      // }
       header('Content-Type: application/json; charset=utf-8');
-      print_r(json_encode($hasRes));
+      print_r(json_encode($serProvDetails));
+   }
+   public function getReservationListOfSelectedService($serviceID)
+   {
+      $serviceDetails = $this->ReservationModel->getUpcommingReservationsForService($serviceID);
+      
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($serviceDetails));
    }
    public function viewService($serviceID)
    {
@@ -328,7 +335,7 @@ class Services extends Controller
    {
       $serviceDetails = $this->ServiceModel->getOneServiceDetail($serviceID);
       $serProvDetails = $this->ServiceModel->getOneServicesSProvDetail($serviceID);
-
+   
       $noofSlots = $this->ServiceModel->getNoofSlots($serviceID);
 
       for ($i = 1; $i < 4; $i++){
@@ -468,10 +475,10 @@ class Services extends Controller
                }elseif($data['slot2Duration'] != NULL && $data['slot3Duration'] != NULL){
                   $slotNo=2;
                }
-
                $this->ServiceModel->changeServiceStatus($serviceID, 0);
                $this->ServiceModel->addService($data,$slotNo);
                $this->ServiceModel->addServiceProvider($data);
+               // die('awa');
                $this->ServiceModel->addTimeSlot($data, $slotNo);
                $this->ServiceModel->addIntervalTimeSlot($data, $slotNo);
                $this->ServiceModel->addResourcesToService($data, $slotNo);
