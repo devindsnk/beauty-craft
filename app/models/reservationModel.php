@@ -110,8 +110,8 @@ class ReservationModel extends Model
       // upcomming reservations gnn oni 
       $results = $this->customQuery("SELECT * 
                                     FROM reservations
-                                    WHERE status=:status AND serviceID=:sID  AND date >= now() ",
-                                    [':status' => 4 , ':sID' => $sID ]
+                                    WHERE (status=:status1 OR status=:status2) AND serviceID=:sID  AND date >= now() ",
+                                    [':status1' => 1 , ':status2' => 2 , ':sID' => $sID ]
       );
       return $results;
    }
@@ -120,8 +120,8 @@ class ReservationModel extends Model
    {
       $results = $this->customQuery("SELECT * 
                                     FROM reservations
-                                    WHERE status=:status AND serviceID=:sID AND staffID=:sProvID AND date >= now() ",
-                                    [':status' => 4 , ':sID' => $serviceID , ':sProvID' => $staffID]
+                                    WHERE (status=:status1 OR status=:status2) AND serviceID=:sID AND staffID=:sProvID AND date >= now() ",
+                                    [':status1' => 1 , ':status2' => 2 ,':sID' => $serviceID , ':sProvID' => $staffID]
       );
       return $results;
    }
