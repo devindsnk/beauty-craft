@@ -190,7 +190,7 @@ class Customer extends Controller
       $this->view('common/customerView', $ViewCustomerArray);
    }
 
-   public function getReservtaionCountByCustomerID($cusID)
+   public function GetReservtaionCountByCustomerID($cusID)
    {
       // echo $date;
    //  die('success');

@@ -111,9 +111,9 @@
                   <td class="column-center-align">
                      <span>
                         <a href="<?php echo URLROOT ?>/staff/viewStaff/<?php echo $staffD->staffID ?>"><i class="ci ci-view-more table-icon img-gap"></i></a>
-                        <?php if ($userType == "Owner") : ?>
+                        <?php if ($userType == "Owner" && $staffD->status != 0 ) : ?>
                            <a href="<?php echo URLROOT ?>/staff/updateStaff/<?php echo $staffD->staffID ?>"><i class="ci ci-edit table-icon img-gap"></i></a>
-                           <a href="#" class=""><i data-staffid = "<?php echo $staffD->staffID; ?>" data-staffname = "<?php echo $staffD->fName; ?> <?php echo $staffD->lName; ?>" 
+                           <a href="#" class="removeStaffAnchor"><i data-staffid = "<?php echo $staffD->staffID; ?>" data-staffstatus= "<?php echo $staffD->status; ?>" data-staffname = "<?php echo $staffD->fName; ?> <?php echo $staffD->lName; ?>" 
                            data-stafftype =
                            "<?php if ($staffD->staffType == 3)
                              {
@@ -127,7 +127,7 @@
                              {
                               echo 'Service Provider';
                              } ?>"
-                              class="ci ci-trash table-icon btnRemoveStaff removeStaffAnchor img-gap"></i></a>
+                              class="ci ci-trash table-icon btnRemoveStaff removeStafftrash img-gap"></i></a>
                         <?php endif; ?>
                      </span>
                   </td>
@@ -178,7 +178,7 @@
                <button class="btn btnClose normal ModalButton ModalCancelButton">Cancel</button>
             </div>
             <div class="ownRemStaffbtn2">
-              <a href="<?php echo URLROOT ?>/staff/removeStaff/<?php echo $staffD->staffID ?>"><button class="btn normal ModalButton ModalBlueButton removeStaff">Proceed</button></a>
+              <a href="<?php echo URLROOT ?>/staff/removeStaff/<?php echo $staffD->staffID ?>" class="removeStaffAnchorTag"><button class="btn normal ModalButton ModalBlueButton removeStaffBtn">Proceed</button></a>
             </div>
          </div>
          <!-- main grid 3 ends -->

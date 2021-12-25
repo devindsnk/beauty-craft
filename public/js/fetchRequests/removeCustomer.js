@@ -1,7 +1,7 @@
 console.log("hhh");
 const CustomerTableTrashBtn= Array.from(document.querySelectorAll('.removeCustomerAnchor'));
 const RemoveCustomerReservationDiv = document.querySelector('.ownRemCusError');
-const RemoveCustomerBtn = document.querySelector(".removeCustomer");
+const RemoveCustomerBtnAnchorTag = document.querySelector(".removeCustomer");
 RemoveCustomerReservationDiv.style.display = "none";
 let rescount ;
 
@@ -28,7 +28,7 @@ function(){
 
 function checkforUpcomingReservations(cusID){
         console.log("checkforUpcomingReservations works");
-    fetch(`http://localhost:80/beauty-craft/Customer/getReservtaionCountByCustomerID/${cusID}`)
+    fetch(`http://localhost:80/beauty-craft/Customer/GetReservtaionCountByCustomerID/${cusID}`)
      .then(response => response.json())
      .then( reservationCount => {
         console.log("checkforUpcomingReservations works");
@@ -52,7 +52,7 @@ function checkforUpcomingReservations(cusID){
         RemoveCustomerReservationDiv.style.display = "none";
         document.querySelector(".removeCustomerBtn").disabled = false;
         document.querySelector(".removeCustomerBtn").className = "btn ModalBlueButton ModalButton removeCustomerBtn";
-        RemoveCustomerBtn.href = "http://localhost:80/beauty-craft/Customer/remCustomer/" + cusID;
+        RemoveCustomerBtnAnchorTag.href = "http://localhost:80/beauty-craft/Customer/remCustomer/" + cusID;
       }
      });
 }

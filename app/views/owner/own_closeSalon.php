@@ -101,10 +101,6 @@ echo $currenttime;
 
 
 
-
-
-
-
       <!------------------------------------------------- Modal starts ----------------------------------------------------->
       <div class="modal-container add-closeDate  <?php if ($data['haveErrors']) echo ' show'; ?>">
          <div class="modal-box addItems">

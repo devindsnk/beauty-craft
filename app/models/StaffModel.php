@@ -104,7 +104,9 @@ class StaffModel extends Model
 
    public function removeStaff($staffID)
    {
-      $this->delete("staff", ["staffID" => $staffID]);
+      // die("RemoveStaffController");
+      $status = 0;
+      $this->update("staff", ["status" => $status],['staffID' => $staffID ]);
    }
 
    public function getStaffUserData($mobileNo)
@@ -119,6 +121,12 @@ class StaffModel extends Model
       // die('hi');
 
       return [$results->staffID, $results->fName . " " . $results->lName];
+   }
+
+   public function getReservtaionCountByStaffID($staffID)
+   {
+      $results = $this->getRowCount('reservations',['staffID'=> $staffID, 'status'=> 1]);  
+      return $results;
    }
 
    // FOR MANAGER OVERVIEW
@@ -137,5 +145,6 @@ class StaffModel extends Model
       return $results;
    }
    // FOR MANAGER OVERVIEW
+
 
 }

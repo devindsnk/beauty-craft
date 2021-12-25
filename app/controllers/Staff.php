@@ -489,7 +489,7 @@ class Staff extends Controller
 
    public function RemoveStaff($staffID) //details
    {
-      
+      // die("RemoveStaffController");
       $this->staffModel->removestaff($staffID);
       redirect('OwnDashboard/staff');
    }
@@ -504,4 +504,11 @@ class Staff extends Controller
       // $this->view('owner/own_RemStaffViewReservations');
    }
 
+   public function GetReservtaionCountByStaffID($staffID) //details
+   {
+      $result = $this->staffModel->getReservtaionCountByStaffID($staffID);
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($result));
+   }
+   
 }
