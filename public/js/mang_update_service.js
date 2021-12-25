@@ -1,26 +1,21 @@
 // const sProveChecker = document.querySelector(".sProvCheckBoxes");
 const sProveChecker = Array.from(document.querySelectorAll('input[type="checkbox"]:checked[name="serProvCheckbox[]"]'));
-// const sID = sProveChecker.dataset.sID;
 const recallFromUpdateServiceModal = document.querySelector(".recall-reservation-from-update-service");
 const recallFromUpdateServiceBtn = document.querySelectorAll(".sProvCheckBoxes");
-const recallModel = document.querySelector(".recallModal");
+const recallbtnFromUpdate = document.querySelector(".recallModalRecallBtn");
+const cancelbtnFromUpdate = document.querySelector(".recallModalCancelBtn");
 
 for (var i = 0; i < sProveChecker.length; i++) {
     // let myArray = JSON.parse(sProveChecker[i].value);
     let sProvID = sProveChecker[i].value;
     let sID =sProveChecker[i].dataset.columns;
 
-    console.log(sProvID);
-    console.log(sID);
-
-    // console.log(sProveChecker[i].dataset.columns );
+    checkedItem = sProveChecker[i];
 
     sProveChecker[i].addEventListener('change',
         function () {
             if(!this.checked) {
                 // console.log('myArray');
-                // console.log(sProvID);
-
                 checkForUpcomingReservations();
             }
             // if (this.checked) {
@@ -39,7 +34,7 @@ for (var i = 0; i < sProveChecker.length; i++) {
             .then(response => response.json())
             .then(serProvDetails => {
 
-                console.log(serProvDetails);
+                // console.log(serProvDetails);
                 // console.log(serProvDetails[0]['reservationID']);
 
                 const ress = [];
@@ -49,7 +44,7 @@ for (var i = 0; i < sProveChecker.length; i++) {
                     ress.push(serProvDetails[i]['reservationID']);
                 }
                 // console.log(ress);
-                // recallModel.href = "http://localhost/beauty-craft/Services/updateService/"+myArray[1]+"/"+[ress]+"/"+ressReson;
+                // recallbtn.href = "http://localhost/beauty-craft/Services/updateService/"+myArray[1]+"/"+[ress]+"/"+ressReson;
 
                 if(serProvDetails.length !== 0){
                     recallFromUpdateServiceBtn.forEach((btn) => {
@@ -57,30 +52,22 @@ for (var i = 0; i < sProveChecker.length; i++) {
                             toggleModal();
                     });
                 }
-                recallModel.addEventListener('click',
+                recallbtnFromUpdate.addEventListener('click',
                     function () {
                         // console.log('recall1');
 
                         recallReservations(ress, ressReson);
-                        // removeFromService(myArray[1]);
                     }
                 )
+                cancelbtnFromUpdate.addEventListener('click',
+                    function () {
+                        // console.log('awa cancel ekat');
+                        // console.log(checkedItem);
 
-                // console.log(recallModel);
-
-                // document.body.appendChild(recallModel);
-                
-                // if (recallFromUpdateServiceBtn) {
-                //     recallFromUpdateServiceBtn.addEventListener("click",
-                //         function () {
-                //             modalToToggle = recallFromUpdateServiceModal;
-                //             toggleModal();
-                //         }
-                //     );
-                // }
-                // console.log("Hello world! 6");
-
-            // }
+                        checkedItem.checked=true;
+                        
+                    }
+                )
         }).catch(err => {
             // Do something for an error here
             // console.log("Error Reading data :" + err);

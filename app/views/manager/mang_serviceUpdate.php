@@ -572,8 +572,8 @@
 			</div>
 			<label class="labels paddingBottom" for="serviceNewType">Cannot proceed. He/She has upcoming reservations for this service</label>
 			<div class="new-type-head">
-				<button class="btn btnClose normal ModalCancelButton ModalButton">Close</button>
-				<a href="#"><button class="btn ModalBlueButton ModalButton  btnClose recallModal">Recall</button><a>
+				<button class="btn btnClose normal ModalCancelButton ModalButton recallModalCancelBtn">Close</button>
+				<a href="#"><button class="btn ModalBlueButton ModalButton  btnClose recallModalRecallBtn">Recall</button><a>
 			</div>
 		</div>
 	</div>
