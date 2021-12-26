@@ -1,4 +1,5 @@
-// const sProveChecker = document.querySelector(".sProvCheckBoxes");
+// ...........................START UPDATE SERVICE...........................//
+
 const sProveChecker = Array.from(document.querySelectorAll('input[type="checkbox"]:checked[name="serProvCheckbox[]"]'));
 const recallFromUpdateServiceModal = document.querySelector(".recall-reservation-from-update-service");
 const recallFromUpdateServiceBtn = document.querySelectorAll(".sProvCheckBoxes");
@@ -82,46 +83,6 @@ for (var i = 0; i < sProveChecker.length; i++) {
             // console.log("Error Reading data :" + err);
         });
  }
-//  function removeFromService(ress, ressReson) {
-//     console.log('recall2');
-//     fetch(`http://localhost:80/beauty-craft/Reservations/recallReservationsFromUpdateService/${ress}/${ressReson}`)
-//        .then(response => response.json())
-   
-//  }
- 
-// sProveChecker.addEventListener('change',
-//    function () {
-//         if(!this.checked) {
-//             console.log('myArray');
-//             checkForUpcomingReservations();
-//         }
-//         // if (this.checked) {
-//         //     console.log("Checkbox is checked..");
-//         //   } else {
-//         //     console.log("Checkbox is not checked..");
-//         //   }
-//    }
-// )
-// var modalToToggle = null;
-// function checkForUpcomingReservations()
-// {
-//     console.log("Hello world! 5");
-//     console.log('ll');
 
-//     fetch(`http://localhost:80/beauty-craft/Services/getCheckedSPRovList/${myArray[0]}/${myArray[1]}`)
-//         .then(response => response.json())
-//         .then(serProvDetails => {
-//             // if(serProvDetails !== null){
-            
-//             recallFromUpdateServiceBtn.forEach((btn) => {
-//                 // btn.addEventListener("click", function () {
-//                     modalToToggle = recallFromUpdateServiceModal;
-//                     toggleModal();
-//                 // });
-//             });
-//             console.log("Hello world! 6");
+// ...........................END UPDATE SERVICE...........................//
 
-//             console.log(serProvDetails);
-//         // }
-//     });
-// }

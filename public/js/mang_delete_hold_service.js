@@ -1,10 +1,11 @@
+// ...........................START DELETE SERVICE...........................//
 
 const trashServiceBtn = Array.from(document.querySelectorAll('.deletehref'));
 const recallbtn = document.querySelector(".recallFromDelete");
 const deleteHREF = document.querySelector('.deleteConfirmHref');
 
 
-console.log("hi");
+// console.log("hi");
 for (var i = 0; i < trashServiceBtn.length; i++){
     console.log(trashServiceBtn[i].dataset.columns);
     let sID = trashServiceBtn[i].dataset.columns;
@@ -25,10 +26,9 @@ function checkForUpcomingReservations(sID)
         fetch(`http://localhost:80/beauty-craft/Services/getReservationListOfSelectedService/${sID}`)
         .then(response => response.json())
         .then(serviceDetails => {
-            console.log("fetch awa");
-
-            console.log(serviceDetails);
-            console.log(serviceDetails.length);
+            // console.log("fetch awa");
+            // console.log(serviceDetails);
+            // console.log(serviceDetails.length);
             // console.log(serProvDetails[0]['reservationID']);
 
             const ress = [];
@@ -48,8 +48,7 @@ function checkForUpcomingReservations(sID)
 
             recallbtn.addEventListener('click',
                 function () {
-                    console.log('recall1');
-
+                    // console.log('recall1');
                     deleteTheService(sID);
                     recallReservationsFromDelete(ress, ressReason);
                     // removeFromService(myArray[1]);
@@ -71,20 +70,40 @@ function recallReservationsFromDelete(ress, ressReason)
             console.log("Error Reading data :" + err);
         });
 }
-// function deleteTheService(sID)
-// {
-//     console.log('recallReservationsFromDelete awa');
-//     fetch(`http://localhost:80/beauty-craft/Services/deleteService/${sID}`)
-//         .then()
-       
-//         .catch(err => {
-//             console.log("Error Reading data :" + err);
-//         });
-// }
-// recallModel.href = "http://localhost/beauty-craft/Services/updateService/"+myArray[1]+"/"+[ress]+"/"+ressReson;
+
 function deleteTheService(sID)
 {
-    console.log('set');
+    // console.log('set');
     deleteHREF.href = "http://localhost/beauty-craft/Services/deleteService/"+sID;
-    console.log(deleteHREF);
+    // console.log(deleteHREF);
 }
+
+// ...........................END DELETE SERVICE...........................//
+
+
+
+
+// ...........................START HOLD SERVICE...........................//
+
+const holdServiceBtn = Array.from(document.querySelectorAll('.holdhref'));
+const holdConfirmbtn = document.querySelector(".holdServiceConfirm");
+const holdHREF = document.querySelector('.holdConfirmHref');
+
+for (var i = 0; i < holdServiceBtn.length; i++){
+    console.log(holdServiceBtn[i].dataset.columns2);
+    let sID = holdServiceBtn[i].dataset.columns2;
+
+    holdServiceBtn[i].addEventListener('click',
+        function () {
+            document.getElementById("holdServiceHead").innerHTML = "Hold Service - "+sID;
+            document.getElementById("warningMsgHoldService").innerHTML = "Are you sure you want to hold the service? <br> This action cannot be undone after proceeding.";
+
+            holdTheService(sID);
+        }
+    )
+}
+function holdTheService(sID){
+    holdHREF.href = "http://localhost/beauty-craft/Services/holdService/"+sID;
+}
+
+// ...........................END HOLD SERVICE...........................//

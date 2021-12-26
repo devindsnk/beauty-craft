@@ -48,7 +48,6 @@
    </div>
 
 </form>
-<!-- <form action="<?php echo URLROOT; ?>/services/deleteAndHoldService" class="form" method="POST"> -->
    <div class="table-container">
       <div class="table2 table2-responsive">
          <table class="table2-hover">
@@ -68,79 +67,75 @@
 
             <tbody>
                <?php foreach ($data['services'] as $sDetails) : ?>
-                  <!-- <form action="<?php echo URLROOT; ?>/services/deleteAndHoldService/<?php echo $sDetails->serviceID; ?>" class="form" method="POST"> -->
+                  <tr>
+                     <td data-lable="Servie ID" data-lable="" class="column-center-align"><?php echo $sDetails->serviceID; ?></td>
 
-                     <tr>
-                        <td data-lable="Servie ID" data-lable="" class="column-center-align"><?php echo $sDetails->serviceID; ?></td>
+                     <td data-lable="Service" class="column-left-align"><?php echo $sDetails->name; ?></td>
 
-                        <td data-lable="Service" class="column-left-align"><?php echo $sDetails->name; ?></td>
+                     <td data-lable="Type" class="column-left-align"><?php echo $sDetails->type; ?></td>
 
-                        <td data-lable="Type" class="column-left-align"><?php echo $sDetails->type; ?></td>
+                     <?php $i = $sDetails->totalDuration; ?>
+                     <?php $hours = $i/60; ?>
+                     <?php $mins = $i%60; ?>
 
-                        <?php $i = $sDetails->totalDuration; ?>
-                        <?php $hours = $i/60; ?>
-                        <?php $mins = $i%60; ?>
-
-                        <td data-lable="Total Duration" class="column-center-align">
-                           <?php if ((int)$hours <= 0) : ?>
-                              <?php if ($mins > 0) : ?>
-                                 <?php echo $mins; ?> mins
-                              <?php endif; ?>
+                     <td data-lable="Total Duration" class="column-center-align">
+                        <?php if ((int)$hours <= 0) : ?>
+                           <?php if ($mins > 0) : ?>
+                              <?php echo $mins; ?> mins
+                           <?php endif; ?>
+                        <?php else: ?>
+                           <?php if ($mins > 0) : ?>
+                              <?php echo (int)$hours; ?> h <?php echo $mins; ?> mins
                            <?php else: ?>
-                              <?php if ($mins > 0) : ?>
-                                 <?php echo (int)$hours; ?> h <?php echo $mins; ?> mins
-                              <?php else: ?>
-                                 <?php echo (int)$hours; ?> h 
-                              <?php endif; ?>
+                              <?php echo (int)$hours; ?> h 
                            <?php endif; ?>
-                        </td>
+                        <?php endif; ?>
+                     </td>
 
-                        <td data-lable="Price" class="column-right-align"><?php echo number_format($sDetails->price, 2, '.', ' '); ?> LKR</td>
+                     <td data-lable="Price" class="column-right-align"><?php echo number_format($sDetails->price, 2, '.', ' '); ?> LKR</td>
 
-                        <td data-lable="Status" class="column-center-align">
-                           <?php if ($sDetails->status == 0) : ?>
-                              <button type="button" class="table-btn red-status-btn text-uppercase">
-                                 Removed
-                              </button>
-                           <?php elseif ($sDetails->status == 1) : ?>
-                              <button type="button" class="table-btn green-status-btn text-uppercase">
-                                 Available
-                              </button>
-                           <?php elseif ($sDetails->status == 2) : ?>
-                              <button type="button" class="table-btn yellow-status-btn text-uppercase">
-                                 Disabled
-                              </button>
-                           <?php endif; ?>
-                        </td>
+                     <td data-lable="Status" class="column-center-align">
+                        <?php if ($sDetails->status == 0) : ?>
+                           <button type="button" class="table-btn red-status-btn text-uppercase">
+                              Removed
+                           </button>
+                        <?php elseif ($sDetails->status == 1) : ?>
+                           <button type="button" class="table-btn green-status-btn text-uppercase">
+                              Available
+                           </button>
+                        <?php elseif ($sDetails->status == 2) : ?>
+                           <button type="button" class="table-btn yellow-status-btn text-uppercase">
+                              Disabled
+                           </button>
+                        <?php endif; ?>
+                     </td>
 
-                        <td data-lable="" class="column-center-align">
-                           <span>
-                              <a href="<?php echo URLROOT ?>/services/viewService/<?php echo $sDetails->serviceID; ?>"><i class="ci-view-more table-icon img-gap"></i></a>
-                              <?php if ($sDetails->status != 0 ) : ?>
-                                 <?php if (Session::getUser("typeText") == "Owner" || Session::getUser("typeText") == "Manager") : ?>
-                                    <a href="<?php echo URLROOT ?>/services/updateService/<?php echo $sDetails->serviceID; ?>"><i class="ci-edit table-icon img-gap"></i></a>
-                                    <a href="#" ><i data-columns="<?php echo $sDetails->serviceID; ?>" class="ci-trash table-icon btnRemoveService serviceRemove deletehref img-gap"></i></a>
-                                    <?php endif; ?>
-                              <?php else: ?>
-                                    <i class="ci-edit table-icon img-gap"></i>
-                                    <i data-columns="" class="ci-trash table-icon img-gap"></i>
-                              <?php endif; ?>
-                           </span>
-                        </td>
-                        <td class="column-center-align">
-                           <?php if ($sDetails->status == 1 ) : ?>
-                              <a href="#"><button type="submit" class="table-btn black-action-btn btnHoldService">Hold</button></a>
-
-                           <?php elseif ($sDetails->status == 2 ) : ?>
-                              <a href="<?php echo URLROOT ?>/services/activeService/<?php echo $sDetails->serviceID; ?>"><button type="submit" class="table-btn green-action-btn " name="action" value="active">Active</button></a>
-
+                     <td data-lable="" class="column-center-align">
+                        <span>
+                           <a href="<?php echo URLROOT ?>/services/viewService/<?php echo $sDetails->serviceID; ?>"><i class="ci-view-more table-icon img-gap"></i></a>
+                           <?php if ($sDetails->status != 0 ) : ?>
+                              <?php if (Session::getUser("typeText") == "Owner" || Session::getUser("typeText") == "Manager") : ?>
+                                 <a href="<?php echo URLROOT ?>/services/updateService/<?php echo $sDetails->serviceID; ?>"><i class="ci-edit table-icon img-gap"></i></a>
+                                 <a href="#" ><i data-columns="<?php echo $sDetails->serviceID; ?>" class="ci-trash table-icon btnRemoveService serviceRemove deletehref img-gap"></i></a>
+                                 <?php endif; ?>
                            <?php else: ?>
-                              <a href="#"><button type="submit" class="table-btn gray-action-btn"  disabled>Disabled</button></a>
+                                 <i class="ci-edit table-icon img-gap"></i>
+                                 <i data-columns="" class="ci-trash table-icon img-gap"></i>
                            <?php endif; ?>
-                        </td>
-                     </tr>
+                        </span>
+                     </td>
+                     <td class="column-center-align">
+                        <?php if ($sDetails->status == 1 ) : ?>
+                           <a href="#"><button type="submit" data-columns2="<?php echo $sDetails->serviceID; ?>" class="table-btn black-action-btn btnHoldService holdhref">Hold</button></a>
 
-                  <!-- </form> -->
+                        <?php elseif ($sDetails->status == 2 ) : ?>
+                           <a href="<?php echo URLROOT ?>/services/activeService/<?php echo $sDetails->serviceID; ?>"><button type="submit" class="table-btn green-action-btn " name="action" value="active">Active</button></a>
+
+                        <?php else: ?>
+                           <a href="#"><button type="submit" class="table-btn gray-action-btn"  disabled>Disabled</button></a>
+                        <?php endif; ?>
+                     </td>
+                  </tr>
                <?php endforeach; ?>
 
             </tbody>
@@ -152,7 +147,7 @@
  <div class="modal-container remove-service">
    <div class="modal-box">
       <div class="confirm-model-head">
-         <h1  id="deleteServiceHead"></h1>
+         <h1 id="deleteServiceHead"></h1>
       </div>
       <div class="confirm-model-head">
          <p id="warningMsgDeleteService"></p>
@@ -169,26 +164,18 @@
 <div class="modal-container hold-service">
    <div class="modal-box">
       <div class="confirm-model-head">
-         <h1>Hold Service- <?php echo $sDetails->serviceID; ?></h1>
+         <h1 id="holdServiceHead"></h1>
       </div>
-      <?php if(!empty($data['resDetails'])): ?>
-         <div class="confirm-model-head">
-            <p>This service has upcomming reservations.<br> Recallthe reservations and Hold the service. <br> Are you sure you want to Hold the service?</p>
-         </div>
-      <?php else: ?>
-         <div class="confirm-model-head">
-            <p>Are you sure you want to Hold the service? <br> This action cannot be undone after proceeding.</p>
-         </div>
-      <?php endif ;?>
+      <div class="confirm-model-head">
+         <p id="warningMsgHoldService"></p>
+      </div>
       <div class="confirm-model-head">
          <button class="btn btnClose ModalButton ModalCancelButton">Close</button>
-         <a href="<?php echo URLROOT ?>/services/holdService/<?php echo $sDetails->serviceID; ?>"><button class="btn ModalButton ModalBlueButton">Confirm</button></a>
+         <a href="#" class="holdConfirmHref"><button class="btn ModalButton ModalBlueButton holdServiceConfirm">Confirm</button></a>
       </div>
    </div>
 </div>
 <!-- End of Service hold model --> 
-
-<!-- </form> -->
 
 <!-- service status 
 

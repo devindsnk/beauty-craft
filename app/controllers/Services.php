@@ -280,10 +280,6 @@ class Services extends Controller
    {
       $serProvDetails = $this->ReservationModel->getUpcommingReservationsForSerProv($details1, $details2);
       
-      // $hasRes=0;
-      // if($serProvDetails != null){
-      //    $hasRes=1;
-      // }
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($serProvDetails));
    }
@@ -565,67 +561,6 @@ class Services extends Controller
          $data['sResArray'] = $sResGetArray;
 
          $this->view('manager/mang_serviceUpdate', $data);
-
-      }
-   }
-
-   public function deleteAndHoldService($serviceID)
-   {
-      $resDetails = $this->ReservationModel->getUpcommingReservationsForService($serviceID);
-      $sDetails = $this->ServiceModel->getServiceDetails();
-      // print_r($serviceID);
-      // die('kkk');
-      if ($_SERVER['REQUEST_METHOD'] == 'POST')
-      {
-         // die('kkijk');
-         $data = [
-            'services' => $sDetails,
-            'resDetails' => $resDetails,
-         ];
-         // if($_POST['action']=='deleteConfirm')
-         // {
-         //    // print_r($serviceID);
-         //    // die('kkk');
-         //    $state=0;
-         //    $this->ServiceModel->changeServiceStatus($serviceID, $state);
-         //    // header('location: ' . URLROOT . '/MangDashboard/services');
-         //    redirect('MangDashboard/services');
-         // }
-         // if($_POST['action']=='holdConfirm')
-         // {
-         //    // die('ki');
-         //    $state=2;
-         //    $this->ServiceModel->changeServiceStatus($serviceID, $state);
-         //    redirect('MangDashboard/services');
-         // }
-         // if($_POST['action']=='close')
-         // {
-         //    // die('ki');
-         //    $data['modelDeleteOpen'] = 0;
-         //    $data['modelHoldOpen'] = 0;
-         //    redirect('MangDashboard/services');
-         // }
-         // if($_POST['action']=='hold')
-         // {
-         //    $data['modelHoldOpen'] = 1;
-         //    $this->view('manager/mang_services', $data);
-
-         // }elseif($_POST['action']=='active')
-         // {
-         //    $state=1;
-         //    print_r($serviceID);
-         //    // die("sID");
-         //    $this->ServiceModel->changeServiceStatus($serviceID, $state);
-         //    redirect('MangDashboard/services');
-            
-         // }
-      }else{
-         $data = [
-            'services' => $sDetails,
-            'resDetails' => $resDetails,
-            
-         ];
-         $this->view('manager/mang_services', $data);
 
       }
    }
