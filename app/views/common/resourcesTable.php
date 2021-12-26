@@ -40,21 +40,28 @@
                <th class="column-center-align col-1">Resource ID</th>
                <th class="column-center-align col-2">Resource Type</th>
                <th class="column-center-align col-3">Quantity</th>
+               <th class="column-center-align col-4">Status</th>
                <th class="col-7"></th>
             </tr>
          </thead>
-     
          <tbody>
             <tr>
                <?php foreach ($data as $resourceD) : ?>
                   <td class="column-center-align"><?php echo $resourceD->resourceID; ?></td>
                   <td class="column-center-align"><?php echo $resourceD->name; ?></td>
                   <td class="column-center-align"><?php echo $resourceD->quantity; ?></td>
+                  <td data-lable="Status" class="column-center-align">
+                     <?php if ($resourceD->status == 0) : ?>
+                        <button type="button" class="table-btn red-status-btn text-uppercase "> Removed </button>
+                     <?php elseif ($resourceD->status == 1) : ?>
+                        <button type="button" class="table-btn green-status-btn text-uppercase"> Active </button>
+                     <?php endif; ?> 
+                  </td>  
                   <td data-lable="Action" class="column-center-align">
                      <span>
-                     <?php if ($userType == "Owner") : ?>
-                        <a href="#" class="removeResourceTypeAnchor"><i data-column = "<?php echo $resourceD->resourceID; ?>" class="ci-trash table-icon btnRemoveResourceType img-gap"></i></a>
-                     <?php endif; ?>
+                     
+                        <!-- <a href="#" class="removeResourceTypeAnchor"><i  class="ci-trash table-icon btnRemoveResourceType img-gap"></i></a> -->
+                     
                            <a href="<?php echo URLROOT ?>/resources/viewResources/<?php echo $resourceD->resourceID; ?>"><i class="ci ci-view-more table-icon img-gap"></i></a>
                      </span>
                   </td>
@@ -68,7 +75,7 @@
 
 
 <!-- Remove Resource model -->
-<div class="modal-container remove-resource-type">
+<!-- <div class="modal-container remove-resource-type">
    <div class="modal-box">
       <div class="confirm-model-head">
          <h1>Remove Resource</h1>
@@ -84,10 +91,7 @@
          <button class="btn normal ModalButton ModalBlueButton removeCustomer">proceed</button>
       </div>
    </div>
-</div>
-
-
-
+</div> -->
 <!-- End of Remove Resource model -->
 
 <script src="<?php echo URLROOT ?>/public/js/fetchRequests/resources.js"></script>

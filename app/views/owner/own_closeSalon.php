@@ -66,7 +66,7 @@ echo $currenttime;
                      <td data-lable="Action" class="column-center-align">
                         <span>
                            <?php if ($userType == "Owner") : ?>
-                           <a href="#"><i class="ci-trash table-icon btnRemoveCloseDate"></i></a>
+                           <a href="#"><i data-closedateid = "<?php echo $closeSalonD->defKey; ?>" class="ci-trash table-icon btnRemoveCloseDate removeCloseDatetrash"></i></a>
                            <?php endif; ?>
                         </span>
                      </td>
@@ -84,7 +84,7 @@ echo $currenttime;
             </div>
             <div class="confirm-model-head">
             <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
-            <a href="<?php echo URLROOT ?>/closeDates/remCloseDate/<?php echo $closeSalonD->defKey ?>"><button class="btn normal ModalButton ModalBlueButton">proceed</button></a>
+            <a href="" class="closeDateAnchorTag"><button class="btn normal ModalButton ModalBlueButton">proceed</button></a>
             </div>
          </div>
       </div>
@@ -165,4 +165,5 @@ echo $currenttime;
    <!--End Content-->
 
    <script src="<?php echo URLROOT ?>/public/js/fetchRequests/closeSalon.js"></script>
+   <script src="<?php echo URLROOT ?>/public/js/fetchRequests/removeCloseDate.js"></script>
    <?php require APPROOT . "/views/inc/footer.php" ?>

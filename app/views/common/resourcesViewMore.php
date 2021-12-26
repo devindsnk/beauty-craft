@@ -61,10 +61,10 @@
             <tr>
                <th class="column-center-align col-1">Purchase ID</th>
                <th class="column-center-align col-2">Manufacturer</th>
-               <th class="column-center-align col-2">Model No</th>
-               <th class="column-center-align col-2">Price</th>
-               <th class="column-center-align col-2">Purchase Date</th>
-               <th class="column-center-align col-3">Warranty Expiration Date</th>
+               <th class="column-center-align col-3">Model No</th>
+               <th class="column-center-align col-4">Price</th>
+               <th class="column-center-align col-5">Purchase Date</th>
+               <th class="column-center-align col-6">Warranty Expiration Date</th>
                <th class="col-7"></th>
             </tr>
          </thead>
@@ -78,13 +78,15 @@
                   <td class="column-center-align"><?php echo $purchaseD->modelNo; ?></td>
                   <td class="column-center-align"><?php echo $purchaseD->price; ?></td> 
                   <td class="column-center-align"><?php echo $purchaseD->purchaseDate; ?></td> 
-                  <td class="column-center-align"><?php echo $purchaseD->warrantyExpDate; ?></td>                  
+                  <td class="column-center-align"><?php echo $purchaseD->warrantyExpDate; ?></td>                
                   <td data-lable="Action" class="column-center-align">
                      <span>
-                        <!-- <?php if ($userType == "Owner") : ?> -->
+                        <?php if ($userType == "Owner" && $purchaseD->status != 0 ) : ?>
                            <a href="<?php echo URLROOT ?>/resources/updateResource/<?php echo $purchaseD->purchaseID; ?>/<?php echo $purchaseD->resourceID; ?>"><i class="ci-edit table-icon btnUpdateResource img-gap"></i></a>
-                           <a href="#"><i class="ci-trash table-icon btnRemoveResource img-gap"></i></a> 
-                        <!-- <?php endif; ?> -->
+                           <a href="#"><i data-purchaseid = "<?php echo $purchaseD->purchaseID; ?>" data-resourceid = "<?php echo $purchaseD->resourceID; ?>" class="ci-trash table-icon btnRemoveResource img-gap resourceViewMoreTableTrash"></i></a> 
+                           <?php elseif ($userType == "Owner" && $purchaseD->status == 0 ) : ?>
+                              <button type="button" class="table-btn red-status-btn text-uppercase "> Removed </button>
+                        <?php endif; ?>
                      </span>
                   </td>
             </tr>
@@ -101,7 +103,6 @@
 <div class="modal-container remove-resource">
    <div class="modal-box">
       <div class="confirm-model-head">
-      <?php print_r($purchaseD->purchaseID); ?>
          <h1>Remove Resource</h1>
       </div>
       <div class="confirm-model-head">
@@ -109,12 +110,13 @@
       </div>
       <div class="confirm-model-head">
          <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
-         <a href="<?php echo URLROOT ?>/resources/removePurchaseRecord/<?php echo $purchaseD->purchaseID; ?>/<?php echo $purchaseD->resourceID; ?>"><button class="btn normal ModalButton ModalBlueButton">proceed</button></a>
+         <a href=" " class="removeResourceAnchorTag"><button class="btn normal ModalButton ModalBlueButton ">proceed</button></a>
       </div>
    </div>
 </div>
 <!-- End of Remove Purchase Record model -->
 
 <?php require APPROOT . "/views/inc/footer.php" ?>
+<script src="<?php echo URLROOT ?>/public/js/fetchRequests/removeResource.js"></script>
 
 

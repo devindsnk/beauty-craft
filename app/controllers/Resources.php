@@ -278,7 +278,8 @@ class  Resources extends Controller
       // $this->viewResources($ResourceID);
    }
 
-   public function removePurchaseRecord($PurchaseID,$ResourceID){
+   public function removePurchaseRecord($ResourceID,$PurchaseID){
+      // die("removePurchaseRecord");
    
       $this->resourceModel->updateResourceQuantityAfterRemoveResources($ResourceID);
       $this->resourceModel->removeResourcePurchaseRecord($PurchaseID);
