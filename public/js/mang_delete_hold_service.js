@@ -7,12 +7,12 @@ const deleteHREF = document.querySelector('.deleteConfirmHref');
 
 // console.log("hi");
 for (var i = 0; i < trashServiceBtn.length; i++){
-    console.log(trashServiceBtn[i].dataset.columns);
+    // console.log(trashServiceBtn[i].dataset.columns);
     let sID = trashServiceBtn[i].dataset.columns;
 
     trashServiceBtn[i].addEventListener('click',
         function () {
-            console.log('del_hold');
+            // console.log('del_hold');
             document.getElementById("deleteServiceHead").innerHTML = "Delete Service - "+sID;
 
             checkForUpcomingReservations(sID);
@@ -21,7 +21,7 @@ for (var i = 0; i < trashServiceBtn.length; i++){
 }
 function checkForUpcomingReservations(sID)
     {
-        console.log("checkForUpcomingReservations awa");
+        // console.log("checkForUpcomingReservations awa");
 
         fetch(`http://localhost:80/beauty-craft/Services/getReservationListOfSelectedService/${sID}`)
         .then(response => response.json())
@@ -38,7 +38,7 @@ function checkForUpcomingReservations(sID)
                 ress.push(serviceDetails[i]['reservationID']);
             }
 
-            console.log(ress);
+            // console.log(ress);
 
             if(ress.length !== 0){
                 document.getElementById("warningMsgDeleteService").innerHTML = "This service has upcomming reservations. <br>Confirm to Recall the reservations and Delete the service.";
@@ -56,18 +56,18 @@ function checkForUpcomingReservations(sID)
             )
 
         }).catch(err => {
-            console.log("Error Reading data :" + err);
+            // console.log("Error Reading data :" + err);
         });
 }
 
 function recallReservationsFromDelete(ress, ressReason)
 {
-    console.log('recallReservationsFromDelete awa');
+    // console.log('recallReservationsFromDelete awa');
     fetch(`http://localhost:80/beauty-craft/Reservations/recallReservationsFromUpdateService/${ress}/${ressReason}`)
         .then()
        
         .catch(err => {
-            console.log("Error Reading data :" + err);
+            // console.log("Error Reading data :" + err);
         });
 }
 
@@ -90,7 +90,7 @@ const holdConfirmbtn = document.querySelector(".holdServiceConfirm");
 const holdHREF = document.querySelector('.holdConfirmHref');
 
 for (var i = 0; i < holdServiceBtn.length; i++){
-    console.log(holdServiceBtn[i].dataset.columns2);
+    // console.log(holdServiceBtn[i].dataset.columns2);
     let sID = holdServiceBtn[i].dataset.columns2;
 
     holdServiceBtn[i].addEventListener('click',

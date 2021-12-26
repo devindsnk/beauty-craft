@@ -582,34 +582,18 @@
 
 	<script type="module" >
 			import { A } from 'http://localhost/beauty-craft/public/js/mang_service.js';
-			console.log('helloht1');
+			// console.log('helloht1');
 			var x= document.getElementById("fullSlotDetail1");
 			var y= document.getElementById("fullSlotDetail2");
-			// console.log(x);
-			// console.log(y);
-
+			
 			if(y !== null){
-				// console.log('11111');
 				i=3;
 				A(i);
 				
 			}else if(x !== null){
-				// console.log('222222');
 				i=2;
 				A(i);
 				
 			}
-			// import { checkForUpcomingReservations } from 'http://localhost/beauty-craft/public/js/mang_update_service.js';
-
-			// <?php $sID = 0; ?>
-			// console.log('update');
-			
-			// <?php foreach ($data['serProvDetails'] as $sProvDetails)
-			// 	{
-			// 		$sID = $sProvDetails->staffID;
-			// 		checkForUpcomingReservations('000159');
-
-			// 	}
-			// ?>
 	</script>
 	<?php require APPROOT . "/views/inc/footer.php" ?>
