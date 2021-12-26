@@ -29,7 +29,8 @@ class ReceptDashboard extends Controller
    public function recallRequests()
    {
       // Session::validateSession([4]);
-      $this->view('receptionist/recept_recallRequests');
+      $results = $this->reservationModel->getAllPendingRecallRequests();
+      $this->view('receptionist/recept_recallRequests', $results);
    }
    public function sales()
    {

@@ -7,37 +7,50 @@ const sProviderSelector = document.querySelector(".serviceProviderSelect");
 const startTimeSelector = document.querySelector(".startTimeSelect");
 const serviceDurationBox = document.querySelector(".durationBox");
 
+let startTime = null;
+let selectedDate = null;
+let selectedService = null;
+
 // Change of date
 dateSelector.addEventListener('change',
    function () {
+      selectedDate = dateSelector.value;
       checkDate();      // Checkeing availability of the date
-                        // Updating service providers availability if service is selected
+      performChecksAndUpdates();
    }
 )
 
-function checkDate() {
-    fetch(`http://localhost:80/beauty-craft/Reservations/checkIfDatePossible/${dateSelector.value}`)
-       .then(response => response.json())
-       .then(state => {
-          dateError.innerHTML = state;
-    })
-}
- 
 // Change of service
 serviceSelector.addEventListener('change',
    function () {
-      updateServiceProvidersList();     // Updating  service providers list
+      selectedService = serviceSelector.value;
       updateServiceDuration();          // Updating service duration
+      performChecksAndUpdates();
    }
 )
 
+startTimeSelector.addEventListener('change',
+   function () {
+      startTime = startTimeSelector.value;
+      performChecksAndUpdates();
+   }
+)
+
+function performChecksAndUpdates(){
+   if(selectedService !== null && selectedDate !== null && startTime !== null){
+      checkResourcesAvailability();
+   }
+   if(selectedService !== null){
+      updateServiceProvidersList();
+   }
+}
+
 // trigger the below function in dateupdates and service updates accordingly
-function updateServiceProvidersList() {
-   // console.log("triggered");
-   fetch(`http://localhost:80/beauty-craft/Reservations/getUpdatedSProvidersList/${serviceSelector.value}/${dateSelector.value}/${startTimeSelector.value}`)
+function updateServiceProvidersList() {   
+   fetch(`http://localhost:80/beauty-craft/Reservations/getUpdatedSProvidersList/${selectedService}/${selectedDate}/${startTime}`)
       .then(response => response.json())
       .then(sProvidersList => {
-
+         
          // Adding default option
          sProviderSelector.innerHTML = "";
          var option = document.createElement("option");
@@ -48,24 +61,47 @@ function updateServiceProvidersList() {
          sProviderSelector.appendChild(option);
 
          // Adding service providers 
-         sProvidersList.forEach(sProvider => {
-            console.log(sProvider);
+         for (const staffID in sProvidersList) {
+            let sProvider = sProvidersList[staffID];
             let option = document.createElement("option");
             let error = (sProvider.leave || sProvider.occupied ? "⚠ " : "");
+            if(sProvider.leave) console.log(staffID + " " + sProvider.name + " is on LEAVE");
+            if(sProvider.occupied) console.log(staffID + " " + sProvider.name + " is OCCUPIED");
             option.text = error + sProvider.name;
-            option.value = sProvider.staffID;
+            option.value = staffID;
             sProviderSelector.appendChild(option);
-         });
+         }
       });
 }
 
 function updateServiceDuration() {
-   fetch(`http://localhost:80/beauty-craft/services/getServiceDuration/${serviceSelector.value}`)
+   fetch(`http://localhost:80/beauty-craft/services/getServiceDuration/${selectedService}`)
       .then(response => response.json())
       .then(serviceDuration => {
          serviceDurationBox.innerHTML = "";
          serviceDurationBox.text = serviceDuration;
          serviceDurationBox.value = serviceDuration;
+      });
+}
+
+function checkDate() {
+   fetch(`http://localhost:80/beauty-craft/Reservations/checkIfDatePossible/${selectedDate}`)
+      .then(response => response.json())
+      .then(state => {
+         dateError.innerHTML = state;
+   })
+}
+
+function checkResourcesAvailability(){
+   fetch(`http://localhost:80/beauty-craft/reservations/checkResourcesAvailability/${selectedService}/${selectedDate}/${startTime}`)
+      .then(response => response.json())
+      .then(eligibility => {
+         if(eligibility == 1 ){
+            console.log("Can Place");
+         }
+         else{
+            console.log("Not Enough Resources");
+         }
       });
 }
 

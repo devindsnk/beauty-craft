@@ -139,37 +139,40 @@
     font-weight: 500;
 }
 
-.table1 .green-status-btn,
-.table2 .green-status-btn {
-    width: 80px;
+.table1 .status-btn, .table2 .status-btn{
+    border: none;
+    padding: 3px 2px;
+    width: 90px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.table1 .green.status-btn,
+.table2 .green.status-btn {
     background-color: var(--bg-success-green);
     color: var(--success-green);
 }
 
-.table1 .red-status-btn,
-.table2 .red-status-btn {
-    width: 80px;
+.table1 .red.status-btn,
+.table2 .red.status-btn {
     background-color: var(--bg-error-red);
     color: var(--error-red);
 }
 
-.table1 .yellow-status-btn,
-.table2 .yellow-status-btn {
-    width: 80px;
+.table1 .yellow.status-btn,
+.table2 .yellow.status-btn {
     background-color: var(--bg-warning-yellow);
     color: var(--warning-yellow);
 }
 
-.table1 .blue-status-btn,
-.table2 .blue-status-btn {
-    width: 80px;
+.table1 .blue.status-btn,
+.table2 .blue.status-btn {
     background-color: var(--bg-theme-blue);
     color: var(--theme-blue);
 }
 
-.table1 .grey-status-btn,
-.table2 .grey-status-btn {
-    width: 80px;
+.table1 .grey.status-btn,
+.table2 .grey.status-btn {
     background-color: var(--theme-lightgrey);
     color: var(--theme-grey);
 }

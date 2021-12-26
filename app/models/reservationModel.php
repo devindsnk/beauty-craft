@@ -89,9 +89,10 @@ class ReservationModel extends Model
       return $results;
    }
 
-   public function getMonthlyIncomeAndTotalReservationsForMangOverviewCharts(){
-
-      $results = $this->customQuery("SELECT date_format(reservations.date,'%M') AS Month ,sum(services.price) AS TotalIncome, COUNT(*) AS TotalReservations
+   public function getMonthlyIncomeAndTotalReservationsForMangOverviewCharts()
+   {
+      $results = $this->customQuery(
+         "SELECT date_format(reservations.date,'%M') AS Month ,sum(services.price) AS TotalIncome, COUNT(*) AS TotalReservations
          FROM services
          INNER JOIN reservations
          ON reservations.serviceID = services.serviceID
@@ -102,16 +103,18 @@ class ReservationModel extends Model
       );
       return $results;
    }
-   
+
    // END FOR MANAGER OVERVIEW
 
    // SRART FOR MANAGER UPDATE SERVICE
-   public function getUpcommingReservationsForService($sID){
+   public function getUpcommingReservationsForService($sID)
+   {
       // upcomming reservations gnn oni 
-      $results = $this->customQuery("SELECT * 
+      $results = $this->customQuery(
+         "SELECT * 
                                     FROM reservations
                                     WHERE status=:status AND serviceID=:sID ",
-                                    [':status' => 4 , ':sID' => $sID ]
+         [':status' => 4, ':sID' => $sID]
       );
       return $results;
    }
@@ -119,10 +122,11 @@ class ReservationModel extends Model
    public function getUpcommingReservationsForSerProv($staffID, $serviceID)
    {
       // upcomming reservations gnn oni 
-      $results = $this->customQuery("SELECT * 
+      $results = $this->customQuery(
+         "SELECT * 
                                     FROM reservations
                                     WHERE status=:status AND serviceID=:sID AND staffID=:sProvID OR date >= now() ",
-                                    [':status' => 4 , ':sID' => $serviceID , ':sProvID' => $staffID]
+         [':status' => 4, ':sID' => $serviceID, ':sProvID' => $staffID]
       );
       return $results;
    }
@@ -202,54 +206,110 @@ class ReservationModel extends Model
    {
       // TODO: check with data in table
       $SQLstatement =
-         "SELECT
-          RECALL.reservationID,
-          SERV.name,
-          STAFF.fName AS staffFName,
-          STAFF.lName AS staffLName,
-          CUST.fName AS custFName,
-          CUST.lName AS custLName,
-          CUST.mobileNo,
-          RECALL.reason,
-          RES.startTime,
-          RES.date
-      FROM recallrequests AS RECALL
-      INNER JOIN reservations AS RES ON RES.reservationID = RECALL.reservationID
-      INNER JOIN staff AS STAFF ON STAFF.staffID = RES.staffID
-      INNER JOIN customers AS CUST  ON CUST.customerID = RES.customerID
-      INNER JOIN services AS SERV ON SERV.serviceID = RES.serviceID
-      WHERE RECALL.status = 0;";
+         "SELECT RECALL.reservationID,
+                 SERV.name AS serviceName, 
+                 STAFF.fName AS staffFName, 
+                 STAFF.lName AS staffLName, 
+                 CUST.fName AS custFName, 
+                 CUST.lName AS custLName, 
+                 CUST.mobileNo, 
+                 RECALL.reason, 
+                 RES.startTime, 
+                 RES.date
+         FROM recallrequests AS RECALL
+         INNER JOIN reservations AS RES ON RES.reservationID = RECALL.reservationID
+         INNER JOIN staff AS STAFF ON STAFF.staffID = RES.staffID
+         INNER JOIN customers AS CUST  ON CUST.customerID = RES.customerID
+         INNER JOIN services AS SERV ON SERV.serviceID = RES.serviceID
+         WHERE RECALL.status = 0;";
+
       $results = $this->customQuery($SQLstatement);
       return $results;
    }
 
    // Complex reservation process
    ////////////////////////////////////////////////
-
-   public function getOverlappingReservations($date, $slotStartTime, $slotEndTime)
+   // TODO: Create kinda similar methd for sProviders 
+   public function getAllocatedResourcesOfSlot($selectedDate, $givenStartTime, $givenEndTime)
    {
-      // Make sure to consider Pending (1) and Confirmed (2) Only
-      $SQLquery =
-         "SELECT *
-         FROM reservations
-         WHERE 
-            date = :date AND 
-            startTime < :slotEndTime AND endTime > :slotStartTime AND
-            status IN (1,2) AND ;";
+      $SQLstatement =
+         "SELECT RA.resourceID,
+                 SUM(RA.requiredQuantity) AS quantity
+               --   RES.reservationID,
+               --   RES.date AS resDate,
+               --   RES.serviceID,
+               --   TS.slotNo,
+               --   RES.startTime + TS.startingTime AS slotStartTime,
+               --   RES.startTime + TS.startingTime + TS.duration AS slotEndTime
+               --   RES.status AS resStatus
+                 
+         FROM reservations AS RES
+         INNER JOIN timeslots AS TS
+         ON TS.serviceID = RES.serviceID
+         INNER JOIN resourceallocation AS RA
+         ON RA.serviceID = RES.serviceID AND RA.slotNo = TS.slotNo
+         WHERE RES.date = :selectedDate AND RES.status IN(1,2) AND RES.startTime + TS.startingTime < :givenEndTime AND RES.startTime + TS.startingTime + TS.duration > :givenStartTime
+         GROUP BY RA.resourceID;";
+
 
       $results = $this->customQuery(
-         $SQLquery,
+         $SQLstatement,
          [
-            ':date' => $date,
-            ':slotStartTime' => $slotStartTime,
-            ':slotEndTime' => $slotEndTime
+            ':selectedDate' => $selectedDate,
+            ':givenStartTime' => $givenStartTime,
+            ':givenEndTime' => $givenEndTime
          ]
       );
       return $results;
    }
 
+   public function getOccupiedSProviders($selectedDate, $givenStartTime, $givenEndTime)
+   {
+      $SQLstatement =
+         "SELECT RES.staffID
+               --   RES.reservationID,
+               --   RES.serviceID,
+               --   RES.date AS resDate,
+               --   TS.slotNo,
+               --   RES.startTime + TS.startingTime AS slotStartTime,
+               --   RES.startTime + TS.startingTime + TS.duration AS slotEndTime,
+               --   RES.status AS resStatus
+         FROM reservations AS RES
+         INNER JOIN timeslots AS TS
+         ON TS.serviceID = RES.serviceID
+         WHERE RES.date = :selectedDate AND RES.status IN(1, 2) AND RES.startTime + TS.startingTime < :givenEndTime AND RES.startTime + TS.startingTime + TS.duration > :givenStartTime;";
+
+
+      $results = $this->customQuery(
+         $SQLstatement,
+         [
+            ':selectedDate' => $selectedDate,
+            ':givenStartTime' => $givenStartTime,
+            ':givenEndTime' => $givenEndTime
+         ]
+      );
+      return $results;
+   }
 
    ////////////////////////////////////////////////
 
+   public function markRecallResponded($reservationID)
+   {
+      $results = $this->update(
+         "recallrequests",
+         ["status" => 1],
+         ["reservationID" => $reservationID]
+      );
+      return $results;
+   }
 
+   public function cancelReservation($reservationID)
+   {
+      $results = $this->update(
+         "reservations",
+         ["status" => 0],
+         ["reservationID" => $reservationID]
+      );
+      return $results;
+   }
 }

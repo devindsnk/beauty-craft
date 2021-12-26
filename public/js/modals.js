@@ -1,7 +1,8 @@
 // Script Files related all modals
 
 // Contains the modal to toggle
-var modalToToggle = null;
+let modalToToggle = null;
+let recordID = null;
 
 // Remove Service Modal Section
 const removeServiceModal = document.querySelector(".remove-service");
@@ -245,7 +246,9 @@ if (changePasswordBtn) {
 // Common section for all close buttons
 const btnCloseList = document.querySelectorAll(".btnClose");
 btnCloseList.forEach((btn) => {
-    btn.addEventListener("click", toggleModal);
+    btn.addEventListener("click", function(){
+        toggleModal();
+    });
 });
 
 
@@ -256,3 +259,15 @@ function toggleModal() {
 
 /* ------------------------------------------------------------------- */
 /* ------------------------------------------------------------------- */
+
+
+// Reservation Cancel Modal Section
+const resCancelModal = document.querySelector('.reservation-cancel');
+const resCancelBtnList = document.querySelectorAll('.btnResCancel');
+resCancelBtnList.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = resCancelModal;
+        recordID = btn.getAttribute("data-id")
+        toggleModal();
+    });
+});

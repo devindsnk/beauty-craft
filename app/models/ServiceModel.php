@@ -102,39 +102,41 @@ class ServiceModel extends Model
             if ($data['sSelectedResCount1'][$i] != 0)
             {
                 $selCount = $data['sSelectedResCount1'][$i];
-                
+
                 $this->customQuery("INSERT INTO resourceallocation (serviceID, slotNo, resourceID, requiredQuantity) SELECT MAX(serviceID), '1', '$ResoursesArray->resourceID','$selCount' FROM services", []);
             }
             $i++;
         }
-        
-        if($slotNo==1){
+
+        if ($slotNo == 1)
+        {
             $i = 0;
             foreach ($data['sResArray'] as $ResoursesArray)
             {
                 if ($data['sSelectedResCount2'][$i] != NULL)
                 {
                     $selCount = $data['sSelectedResCount2'][$i];
-                    
+
                     $this->customQuery("INSERT INTO resourceallocation (serviceID, slotNo, resourceID, requiredQuantity) SELECT MAX(serviceID), '2', '$ResoursesArray->resourceID','$selCount' FROM services", []);
                 }
                 $i++;
             }
-            
-        }elseif($slotNo==2){
+        }
+        elseif ($slotNo == 2)
+        {
             $i = 0;
             foreach ($data['sResArray'] as $ResoursesArray)
             {
                 if ($data['sSelectedResCount2'][$i] != NULL)
                 {
                     $selCount = $data['sSelectedResCount2'][$i];
-                    
+
                     $this->customQuery("INSERT INTO resourceallocation (serviceID, slotNo, resourceID, requiredQuantity) SELECT MAX(serviceID), '2', '$ResoursesArray->resourceID','$selCount' FROM services", []);
                 }
                 if ($data['sSelectedResCount3'][$i] != NULL)
                 {
                     $selCount = $data['sSelectedResCount3'][$i];
-                    
+
                     $this->customQuery("INSERT INTO resourceallocation (serviceID, slotNo, resourceID, requiredQuantity) SELECT MAX(serviceID), '3', '$ResoursesArray->resourceID','$selCount' FROM services", []);
                 }
                 $i++;
@@ -202,85 +204,109 @@ class ServiceModel extends Model
 
     public function getSlotDuration($serviceID, $slotNo)
     {
-        if($slotNo==1){
-            $duration = $this->customQuery("SELECT duration 
+        if ($slotNo == 1)
+        {
+            $duration = $this->customQuery(
+                "SELECT duration 
                           FROM timeslots 
                           WHERE serviceID=:sID AND slotNo=:slotNo",
-                          [':sID' => $serviceID , ':slotNo' => 1] 
-                          );
-        }elseif($slotNo==2){
-            $duration = $this->customQuery("SELECT duration 
-                        FROM timeslots 
-                        WHERE serviceID=:sID AND slotNo=:slotNo",
-                        [':sID' => $serviceID , ':slotNo' => 2] 
-                        );
-        }elseif($slotNo==3){
-            $duration = $this->customQuery("SELECT duration 
-                        FROM timeslots 
-                        WHERE serviceID=:sID AND slotNo=:slotNo",
-                        [':sID' => $serviceID , ':slotNo' => 3] 
-                        );
+                [':sID' => $serviceID, ':slotNo' => 1]
+            );
         }
-        
-        if($duration!=NULL){
-            $x=$duration[0]->duration;
+        elseif ($slotNo == 2)
+        {
+            $duration = $this->customQuery(
+                "SELECT duration 
+                        FROM timeslots 
+                        WHERE serviceID=:sID AND slotNo=:slotNo",
+                [':sID' => $serviceID, ':slotNo' => 2]
+            );
+        }
+        elseif ($slotNo == 3)
+        {
+            $duration = $this->customQuery(
+                "SELECT duration 
+                        FROM timeslots 
+                        WHERE serviceID=:sID AND slotNo=:slotNo",
+                [':sID' => $serviceID, ':slotNo' => 3]
+            );
+        }
+
+        if ($duration != NULL)
+        {
+            $x = $duration[0]->duration;
             return $x;
         }
     }
-    
+
     public function getIntervalDuration($serviceID, $slotNo)
     {
-        if($slotNo==2){
-            $duration = $this->customQuery("SELECT duration 
+        if ($slotNo == 2)
+        {
+            $duration = $this->customQuery(
+                "SELECT duration 
                         FROM intervals 
                         WHERE serviceID=:sID AND slotNo=:slotNo",
-                        [':sID' => $serviceID , ':slotNo' => 2] 
-                        );
-        }elseif($slotNo==3){
-            $duration = $this->customQuery("SELECT duration 
-                        FROM intervals 
-                        WHERE serviceID=:sID AND slotNo=:slotNo",
-                        [':sID' => $serviceID , ':slotNo' => 3] 
-                        );
+                [':sID' => $serviceID, ':slotNo' => 2]
+            );
         }
-        
-        if($duration!=NULL){
-            $x=$duration[0]->duration;
+        elseif ($slotNo == 3)
+        {
+            $duration = $this->customQuery(
+                "SELECT duration 
+                        FROM intervals 
+                        WHERE serviceID=:sID AND slotNo=:slotNo",
+                [':sID' => $serviceID, ':slotNo' => 3]
+            );
+        }
+
+        if ($duration != NULL)
+        {
+            $x = $duration[0]->duration;
             return $x;
         }
     }
-    
-    public function getAllocatedResourceDetailsofSlot($serviceID, $slotNo){
-        
-        if($slotNo==1){
-            $results = $this->customQuery("SELECT resources.resourceID,resources.name,resourceallocation.requiredQuantity 
+
+    public function getAllocatedResourceDetailsofSlot($serviceID, $slotNo)
+    {
+
+        if ($slotNo == 1)
+        {
+            $results = $this->customQuery(
+                "SELECT resources.resourceID,resources.name,resourceallocation.requiredQuantity 
                                         FROM resources 
                                         INNER JOIN resourceallocation
                                         ON resources.resourceID = resourceallocation.resourceID
                                         WHERE resourceallocation.serviceID=:sID AND resourceallocation.slotNo=:slotNo AND resourceallocation.requiredQuantity <> 0",
-                                        [':sID' => $serviceID , ':slotNo' => 1]
-                          );
-        }elseif($slotNo==2){
-            $results = $this->customQuery("SELECT resources.resourceID,resources.name,resourceallocation.requiredQuantity 
-                                        FROM resources 
-                                        INNER JOIN resourceallocation
-                                        ON resources.resourceID = resourceallocation.resourceID
-                                        WHERE resourceallocation.serviceID=:sID AND resourceallocation.slotNo=:slotNo AND resourceallocation.requiredQuantity <> 0",
-                                        [':sID' => $serviceID , ':slotNo' => 2] 
-                          );
-        }elseif($slotNo==3){
-            $results = $this->customQuery("SELECT resources.resourceID,resources.name,resourceallocation.requiredQuantity 
-                                        FROM resources 
-                                        INNER JOIN resourceallocation
-                                        ON resources.resourceID = resourceallocation.resourceID
-                                        WHERE resourceallocation.serviceID=:sID AND resourceallocation.slotNo=:slotNo AND resourceallocation.requiredQuantity <> 0",
-                                        [':sID' => $serviceID , ':slotNo' => 3] 
-                          );
+                [':sID' => $serviceID, ':slotNo' => 1]
+            );
         }
-            
-            return $results;
+        elseif ($slotNo == 2)
+        {
+            $results = $this->customQuery(
+                "SELECT resources.resourceID,resources.name,resourceallocation.requiredQuantity 
+                                        FROM resources 
+                                        INNER JOIN resourceallocation
+                                        ON resources.resourceID = resourceallocation.resourceID
+                                        WHERE resourceallocation.serviceID=:sID AND resourceallocation.slotNo=:slotNo AND resourceallocation.requiredQuantity <> 0",
+                [':sID' => $serviceID, ':slotNo' => 2]
+            );
+        }
+        elseif ($slotNo == 3)
+        {
+            $results = $this->customQuery(
+                "SELECT resources.resourceID,resources.name,resourceallocation.requiredQuantity 
+                                        FROM resources 
+                                        INNER JOIN resourceallocation
+                                        ON resources.resourceID = resourceallocation.resourceID
+                                        WHERE resourceallocation.serviceID=:sID AND resourceallocation.slotNo=:slotNo AND resourceallocation.requiredQuantity <> 0",
+                [':sID' => $serviceID, ':slotNo' => 3]
+            );
+        }
+
+        return $results;
     }
-    
+
     public function getServiceProvidersByService($serviceID)
     {
 
@@ -331,7 +357,28 @@ class ServiceModel extends Model
     // START FOR MANAGER UPDATE SERVICE
     public function changeServiceStatus($serviceID, $state)
     {
-        $results =  $this->update('services', ['status' =>$state], ['serviceID' => $serviceID]);
+        $results =  $this->update('services', ['status' => $state], ['serviceID' => $serviceID]);
     }
     // END FOR MANAGER UPDATE SERVICE
+
+    // Returns required resources of each slot with start and end times of a given service.
+    public function getServiceSlotsSummary($serviceID)
+    {
+        $SQLstatement =
+            "SELECT TS.slotNo, 
+                    RA.resourceID, 
+                    RA.requiredQuantity, 
+                    TS.startingTime AS givenStartTime, 
+                    TS.startingTime + TS.duration AS givenEndTime
+            FROM timeslots AS TS
+            INNER JOIN resourceallocation AS RA
+            ON RA.serviceID = TS.serviceID AND RA.slotNo = TS.slotNo
+            WHERE TS.serviceID = :serviceID;";
+
+        $results = $this->customQuery(
+            $SQLstatement,
+            [":serviceID" => $serviceID]
+        );
+        return $results;
+    }
 }

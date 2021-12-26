@@ -83,13 +83,13 @@
                      </td>
                      <td data-lable="Status" class="column-center-align">
                         <?php if ($leave->status == 2) : ?>
-                           <button type="button" class="table-btn yellow-status-btn text-uppercase " value="Pending"> Pending
+                           <button type="button" class="status-btn yellow text-uppercase " value="Pending"> Pending
                            </button>
                         <?php elseif ($leave->status == 1) : ?>
-                           <button type="button" class="table-btn green-status-btn text-uppercase" value="Approved"> Approved
+                           <button type="button" class="status-btn green text-uppercase" value="Approved"> Approved
                            </button>
                         <?php else : ?>
-                           <button type="button" class="table-btn red-status-btn text-uppercase value=" Rejected"> Rejected
+                           <button type="button" class="status-btn red text-uppercase value=" Rejected"> Rejected
                            </button>
                         <?php endif; ?>
                      </td>
