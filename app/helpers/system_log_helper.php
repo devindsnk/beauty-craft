@@ -2,28 +2,30 @@
 
 class Systemlog
 {
-    private $data;
-    public function __construct()
-    {
+    private static $bar = 1;
+    // public function __construct()
+    // {
 
-        if (!file_exists('logfile/syslog.txt'))
-        {
-            file_put_contents('logfile/syslog.txt', "");
-        }
+    // if (!file_exists('logfile/syslog.txt'))
+    // {
+    //     file_put_contents('logfile/syslog.txt', "");
+    // }
 
-        // $this->data = array(
-        //     "name" => $_SESSION['username'],
-        //     "mobileNo" => $_SESSION['userMobileNo'],
-        // );
-    }
+    // $this->data = array(
+    //     "name" => $_SESSION['username'],
+    //     "mobileNo" => $_SESSION['userMobileNo'],
+    // );
+    // }
 
 
     public static function signin()
     {
+        echo self::$bar;
+        die();
 
 
-        $userNo = $_SESSION['userMobileNo'];
-        $userName = $_SESSION['username'];
+        $userNo = Session::getUser("mobileNo");
+        $userName = Session::getUser("name");
         $ip = $_SERVER['REMOTE_ADDR'];
         date_default_timezone_set("Asia/Colombo");
         $time = date('m/d/y h:iA', time());
@@ -33,7 +35,7 @@ class Systemlog
         $contents = file_get_contents('logfile/syslog.txt');
 
 
-        $contents .= "\n$ip\t$time\t$userNo\t$userName\t$log";
+        $contents .= "\n$ip\t$time\t$userNo\t$userName\t" . self::$bar;
 
 
         file_put_contents('logfile/syslog.txt', $contents);
@@ -43,8 +45,8 @@ class Systemlog
     {
         // print_r($this->data);
         // die("");
-        $userNo = $_SESSION['userMobileNo'];
-        $userName = $_SESSION['username'];
+        $userNo = Session::getUser("mobileNo");
+        $userName = Session::getUser("name");
         $ip = $_SERVER['REMOTE_ADDR'];
         date_default_timezone_set("Asia/Colombo");
         $time = date('m/d/y h:iA', time());

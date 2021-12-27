@@ -164,7 +164,7 @@ input.selectedReservation{
     width: 150px;
 }
 
-.serprov .confirm-status.blue {
+.serprov .confirm-status.blue,.moredetails-confirm-status.blue {
     padding: 5px 0;
     width: 165px;
     background-color: #DBEBFD;
@@ -175,7 +175,7 @@ input.selectedReservation{
     text-align: center;
 }
 
-.serprov .confirm-status.gray {
+.serprov .confirm-status.gray,.serprov .moredetails-confirm-status.gray {
     padding: 5px 0;
     width: 165px;
     background-color: #E2E3E3;
@@ -186,7 +186,7 @@ input.selectedReservation{
     text-align: center;
 }
 
-.serprov .confirm-status.green {
+.serprov .confirm-status.green,.moredetails-confirm-status.green {
     padding: 5px 0;
     width: 165px;
     background-color: #c0f0d1;
@@ -196,7 +196,7 @@ input.selectedReservation{
   
     text-align: center;
 }
-.serprov .confirm-status.yellow {
+.serprov .confirm-status.yellow,.moredetails-confirm-status.yellow {
     padding: 5px 0;
     width: 165px;
     background-color:#FFF6DC;

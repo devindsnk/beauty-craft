@@ -1,7 +1,8 @@
 // Script Files related all modals
 
 // Contains the modal to toggle
-var modalToToggle = null;
+let modalToToggle = null;
+let recordID = null;
 
 // Remove Service Modal Section
 const removeServiceModal = document.querySelector(".remove-service");
@@ -100,14 +101,15 @@ removeCustomerBtnList.forEach((btn) => {
 
 
 // Reservation More info Modal Section
-// const resMoreInfoModal = document.querySelector(".reservation-more-info");
-// const resMoreInfoBtnList = document.querySelectorAll(".btnResMoreInfo");
-// resMoreInfoBtnList.forEach((btn) => {
-//     btn.addEventListener("click", function () {
-//         modalToToggle = resMoreInfoModal;
-//         toggleModal();
-//     });
-// });
+const resMoreInfoModal = document.querySelector(".reservation-more-info");
+const resMoreInfoBtnList = document.querySelectorAll(".btnResMoreInfo");
+resMoreInfoBtnList.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = resMoreInfoModal;
+        // recordID = btn.getAttribute("data-id")
+        toggleModal();
+    });
+});
 
 
 // Reservation Recall Request Modal Section

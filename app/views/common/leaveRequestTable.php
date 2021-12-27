@@ -194,9 +194,9 @@
                   <div class="leave-date-section">
                      <div class="text-group">
                         <label class="labels" for="serviceName">Date</label><br>
-                        <input class="addItemsModalLeaveRequestDate" type="date" name="date" id="takeLeaveDate" placeholder="--Select a date--" value="">
+                        <input class="LeaveRequestDate" type="date" name="date" id="takeLeaveDate" placeholder="--Select a date--" value="">
                      </div>
-                     <span class="error date-error">
+                     <span class="error request-date-error">
                         <?php if ($data['date_error'])
                         {
                            echo $data['date_error'];
@@ -225,6 +225,7 @@
                      </span>
                   </div>
                </div>
+
 
                <div class="reqleave-reason-section">
                   <div class="text-group">
