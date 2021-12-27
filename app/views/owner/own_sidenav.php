@@ -38,7 +38,7 @@
          <!--End Sidebar Item-->
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Services") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/services">
+            <a class="optionLink <?php if ($selectedMain == "Services") echo " selected" ?>" href="<?php echo URLROOT ?>/Services/viewAllServices">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-elements "></i>
                </div>

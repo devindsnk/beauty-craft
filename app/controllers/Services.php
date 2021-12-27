@@ -7,6 +7,19 @@ class Services extends Controller
       $this->ReservationModel = $this->model('reservationModel');
    }
 
+   public function viewAllServices()
+   {
+      Session::validateSession([2, 3, 4]);
+
+      $sDetails = $this->ServiceModel->getServiceDetails();
+
+      $GetServicesArray = [
+         'services' => $sDetails
+      ];
+
+      $this->view('common/allServicesTable',  $GetServicesArray);
+   }
+
    public function addNewService()
    {
       $slotNo = 0;
@@ -144,7 +157,7 @@ class Services extends Controller
                $this->ServiceModel->addIntervalTimeSlot($data, $slotNo);
                $this->ServiceModel->addResourcesToService($data, $slotNo);
 
-               header('location: ' . URLROOT . '/MangDashboard/services');
+               redirect('Services/viewAllServices');
             }
             else
             {
@@ -479,7 +492,7 @@ class Services extends Controller
                $this->ServiceModel->addIntervalTimeSlot($data, $slotNo);
                $this->ServiceModel->addResourcesToService($data, $slotNo);
 
-               header('location: ' . URLROOT . '/MangDashboard/services');
+               redirect('Services/viewAllServices');
             }
             else
             {
@@ -568,19 +581,19 @@ class Services extends Controller
    {
       $state=0;
       $this->ServiceModel->changeServiceStatus($serviceID, $state);
-      redirect('MangDashboard/services');
+      redirect('Services/viewAllServices');
    }
    public function holdService($serviceID)
    {
       $state=2;
       $this->ServiceModel->changeServiceStatus($serviceID, $state);
-      redirect('MangDashboard/services');
+      redirect('Services/viewAllServices');
    }
    public function activeService($serviceID)
    {
       $state=1;
       $this->ServiceModel->changeServiceStatus($serviceID, $state);
-      redirect('MangDashboard/services');
+      redirect('Services/viewAllServices');
    }
    public function serviceReport()
    {

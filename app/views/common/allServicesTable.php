@@ -1,53 +1,82 @@
-<?php if (Session::getUser("typeText") == "Owner" || Session::getUser("typeText") == "Manager") : ?>
-   <div class="page-top-main-container">
-      <a href="<?php echo URLROOT ?>/services/addNewService" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
-   </div>
-<?php endif; ?>
+<?php require APPROOT . "/views/inc/header.php" ?>
+
+<body class="layout-template-1">
+
+   <!-- TODO: provide relevent sideNav by checking logged in user -->
+   <?php
+   $selectedMain = "Services";
+   $selectedSub = "";
+   switch (Session::getUser("type"))
+   {
+      case "2":
+         require APPROOT . "/views/owner/own_sideNav.php";
+         break;
+      case "3":
+         require APPROOT . "/views/manager/mang_sideNav.php";
+         break;
+      case "4":
+         require APPROOT . "/views/receptionist/recept_sideNav.php";
+   }
+   ?>
+
+   <?php
+   $title = "Services";
+   require APPROOT . "/views/inc/headerBar.php"
+   ?>
+
+   <!--Content-->
+   <div class="content">
+
+   <?php if (Session::getUser("typeText") == "Owner" || Session::getUser("typeText") == "Manager") : ?>
+      <div class="page-top-main-container">
+         <a href="<?php echo URLROOT ?>/services/addNewService" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
+      </div>
+   <?php endif; ?>
 
 
-<form class="form filter-options" action="">
-   <div class="options-container">
-      <div class="left-section">
-         <div class="row">
-            <div class="column">
-               <div class="text-group">
-                  <label class="label" for="fName">Service Name</label>
-                  <input type="text" name="" id="fName" placeholder="Your first name here">
+   <form class="form filter-options" action="">
+      <div class="options-container">
+         <div class="left-section">
+            <div class="row">
+               <div class="column">
+                  <div class="text-group">
+                     <label class="label" for="fName">Service Name</label>
+                     <input type="text" name="" id="fName" placeholder="Your first name here">
+                  </div>
+                  <span class="error"> <?php echo " "; ?></span>
                </div>
-               <span class="error"> <?php echo " "; ?></span>
-            </div>
-            <div class="column">
-               <div class="dropdown-group">
-                  <label class="label" for="lName">Category</label>
-                  <select name="cars" id="cars">
-                     <option value="" selected>All</option>
-                     <option value="volvo">Hair Cuts</option>
-                     <option value="saab">Skin Treatments</option>
-                     <option value="mercedes">Nail Treatments</option>
-                  </select>
+               <div class="column">
+                  <div class="dropdown-group">
+                     <label class="label" for="lName">Category</label>
+                     <select name="cars" id="cars">
+                        <option value="" selected>All</option>
+                        <option value="volvo">Hair Cuts</option>
+                        <option value="saab">Skin Treatments</option>
+                        <option value="mercedes">Nail Treatments</option>
+                     </select>
+                  </div>
+                  <span class="error"> <?php echo " "; ?></span>
                </div>
-               <span class="error"> <?php echo " "; ?></span>
-            </div>
-            <div class="column">
-               <div class="dropdown-group">
-                  <label class="label" for="lName">Status</label>
-                  <select name="cars" id="cars">
-                     <option value="" selected>Any</option>
-                     <option value="volvo">Active</option>
-                     <option value="saab">Inactive</option>
-                  </select>
+               <div class="column">
+                  <div class="dropdown-group">
+                     <label class="label" for="lName">Status</label>
+                     <select name="cars" id="cars">
+                        <option value="" selected>Any</option>
+                        <option value="volvo">Active</option>
+                        <option value="saab">Inactive</option>
+                     </select>
+                  </div>
+                  <span class="error"> <?php echo " "; ?></span>
                </div>
-               <span class="error"> <?php echo " "; ?></span>
             </div>
          </div>
+         <div class="right-section">
+            <a href="" class="btn btn-filled btn-black">Search</a>
+            <!-- <button class="btn btn-search">Search</button> -->
+         </div>
       </div>
-      <div class="right-section">
-         <a href="" class="btn btn-filled btn-black">Search</a>
-         <!-- <button class="btn btn-search">Search</button> -->
-      </div>
-   </div>
 
-</form>
+   </form>
    <div class="table-container">
       <div class="table2 table2-responsive">
          <table class="table2-hover">
@@ -143,39 +172,50 @@
       </div>
    </div>
 
- <!-- Service delete model -->
- <div class="modal-container remove-service">
-   <div class="modal-box">
-      <div class="confirm-model-head">
-         <h1 id="deleteServiceHead"></h1>
-      </div>
-      <div class="confirm-model-head">
-         <p id="warningMsgDeleteService"></p>
-      </div>
-      <div class="confirm-model-head">
-         <button class="btn btnClose ModalButton ModalCancelButton">Close</button>
-         <a href="#" class="deleteConfirmHref"><button class="btn ModalButton ModalBlueButton recallFromDelete">Confirm</button></a>
+   <!-- Service delete model -->
+   <div class="modal-container remove-service">
+      <div class="modal-box">
+         <div class="confirm-model-head">
+            <h1 id="deleteServiceHead"></h1>
+         </div>
+         <div class="confirm-model-head">
+            <p id="warningMsgDeleteService"></p>
+         </div>
+         <div class="confirm-model-head">
+            <button class="btn btnClose ModalButton ModalCancelButton">Close</button>
+            <a href="#" class="deleteConfirmHref"><button class="btn ModalButton ModalBlueButton recallFromDelete">Confirm</button></a>
+         </div>
       </div>
    </div>
-</div>
-<!-- End of Service delete model -->
+   <!-- End of Service delete model -->
 
-<!-- Service hold model -->
-<div class="modal-container hold-service">
-   <div class="modal-box">
-      <div class="confirm-model-head">
-         <h1 id="holdServiceHead"></h1>
-      </div>
-      <div class="confirm-model-head">
-         <p id="warningMsgHoldService"></p>
-      </div>
-      <div class="confirm-model-head">
-         <button class="btn btnClose ModalButton ModalCancelButton">Close</button>
-         <a href="#" class="holdConfirmHref"><button class="btn ModalButton ModalBlueButton holdServiceConfirm">Confirm</button></a>
+   <!-- Service hold model -->
+   <div class="modal-container hold-service">
+      <div class="modal-box">
+         <div class="confirm-model-head">
+            <h1 id="holdServiceHead"></h1>
+         </div>
+         <div class="confirm-model-head">
+            <p id="warningMsgHoldService"></p>
+         </div>
+         <div class="confirm-model-head">
+            <button class="btn btnClose ModalButton ModalCancelButton">Close</button>
+            <a href="#" class="holdConfirmHref"><button class="btn ModalButton ModalBlueButton holdServiceConfirm">Confirm</button></a>
+         </div>
       </div>
    </div>
+
 </div>
+<!--End Content-->
+
+<script type="text/javascript" src="<?php echo URLROOT ?>/public/js/modals.js"></script>
+
+<?php require APPROOT . "/views/inc/footer.php" ?>
 <!-- End of Service hold model --> 
+
+
+
+
 
 <!-- service status 
 
