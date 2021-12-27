@@ -2,7 +2,7 @@
 
 // Contains the modal to toggle
 let modalToToggle = null;
-let recordID = null;
+// let recordID = null;
 
 // Remove Service Modal Section
 const removeServiceModal = document.querySelector(".remove-service");
@@ -20,6 +20,16 @@ const holdServiceBtnList = document.querySelectorAll(".btnHoldService");
 holdServiceBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
         modalToToggle = holdServiceModal;
+        toggleModal();
+    });
+});
+
+// Add Resource Modal Section
+const addResourceModal = document.querySelector(".add-resource");
+const addResourceBtnList = document.querySelectorAll(".btnAddResource");
+addResourceBtnList.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = addResourceModal;
         toggleModal();
     });
 });
@@ -44,16 +54,6 @@ updateResourceBtnList.forEach((btn) => {
     });
 });
 
-
-// Add Resource Modal Section
-const addResourceModal = document.querySelector(".add-resource");
-const addResourceBtnList = document.querySelectorAll(".btnAddResource");
-addResourceBtnList.forEach((btn) => {
-    btn.addEventListener("click", function () {
-        modalToToggle = addResourceModal;
-        toggleModal();
-    });
-});
 
 
 // Salary payment Modal Section
@@ -226,6 +226,37 @@ if (changePasswordBtn) {
 /* ------------------------------------------------------------------- */
 /* --------------------- Reservation Handling ------------------------ */
 
+// Reservation Cancel Modal Section
+const resCancelModal = document.querySelector('.reservation-cancel');
+const resCancelBtnList = document.querySelectorAll('.btnResCancel');
+resCancelBtnList.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = resCancelModal;
+        toggleModal(btn);
+    });
+});
+
+// Reservation No Show Modal Section
+const resNoShowModal = document.querySelector('.reservation-noShow');
+const resNoShowBtnList = document.querySelectorAll('.btnResNoShow');
+resNoShowBtnList.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = resNoShowModal;
+        toggleModal(btn);
+    });
+});
+
+// Reservation Checkout Modal Section
+const resCheckoutModal = document.querySelector('.reservation-checkout');
+const resCheckoutBtnList = document.querySelectorAll('.btnResCheckout');
+resCheckoutBtnList.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = resCheckoutModal;
+        toggleModal(btn);
+    });
+});
+
+
 //Reservation cancel Modal Secrtion
 // const cancelReservationModal = document.querySelector(".cancel-reservation");
 // const cancelReservationBtnList = document.querySelectorAll(".cancel-res-btn");
@@ -240,6 +271,11 @@ if (changePasswordBtn) {
 /* ------------------------------------------------------------------- */
 
 
+
+
+
+
+
 /* ------------------------------------------------------------------- */
 /* ------------------------ Common Section --------------------------- */
 
@@ -247,27 +283,29 @@ if (changePasswordBtn) {
 const btnCloseList = document.querySelectorAll(".btnClose");
 btnCloseList.forEach((btn) => {
     btn.addEventListener("click", function(){
-        toggleModal();
+        closeModal();
     });
 });
+
+// get the id assigned to the clicked btn and assign id to the proceed btn of the modal
+function transferIDToModal(btn){
+    let recordID = btn.getAttribute("data-id")      // get id from the clicked btn of the list
+    const proceedBtn = modalToToggle.querySelector('.proceedBtn');  // get the proceed btn of the modal
+    proceedBtn.setAttribute('data-id', recordID);  // assign id as a data attribute to the proceed btn
+}
 
 
 // Common section for all modal toggle operations
-function toggleModal() {
-    modalToToggle.classList.toggle("show");
+function toggleModal(btn) {
+    transferIDToModal(btn);
+    modalToToggle.classList.add("show");
 }
 
-/* ------------------------------------------------------------------- */
-/* ------------------------------------------------------------------- */
+// Common section for all modal close operations
+function closeModal() {
+    modalToToggle.classList.remove("show");
+}
 
 
-// Reservation Cancel Modal Section
-const resCancelModal = document.querySelector('.reservation-cancel');
-const resCancelBtnList = document.querySelectorAll('.btnResCancel');
-resCancelBtnList.forEach((btn) => {
-    btn.addEventListener("click", function () {
-        modalToToggle = resCancelModal;
-        recordID = btn.getAttribute("data-id")
-        toggleModal();
-    });
-});
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */

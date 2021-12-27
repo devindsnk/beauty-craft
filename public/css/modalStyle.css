@@ -24,6 +24,10 @@
     background-color: white;
 }
 
+.modal-box.size-confirmation{
+    width: 550px;
+}
+
 .normal .modal-box {
     border-radius: 6px;
     width: 600px;
@@ -68,6 +72,11 @@
 
 .ModalRedButton {
     background-color: var(--error-red);
+    color: white;
+}
+
+.ModalPurpleButton {
+    background-color: var(--theme-purple);
     color: white;
 }
 

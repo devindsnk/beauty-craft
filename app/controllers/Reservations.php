@@ -27,6 +27,13 @@ class Reservations extends Controller
       $this->view('common/allReservationsTable', $data);
    }
 
+   public function reservationMoreInfo($reservationID)
+   {
+      $reservationInfo = $this->reservationModel->getReservationDetailsByID($reservationID);
+      $reservationInfo = json_decode(json_encode($reservationInfo), true); // Converting array of classes in to an associative
+      $this->view('common/reservationMoreInfo', $reservationInfo);
+   }
+
    public function newReservationCust()
    {
       $servicesList = $this->serviceModel->getAllAvailableServices();
@@ -123,13 +130,6 @@ class Reservations extends Controller
          ];
          $this->view('receptionist/recept_newReservation', $data);
       }
-   }
-
-   public function reservationMoreInfo($reservationID)
-   {
-      $reservationInfo = $this->reservationModel->getReservationDetailsByID($reservationID);
-
-      $this->view('common/reservationMoreInfo', $reservationInfo);
    }
 
    public function getAllServiceProviders()
@@ -344,13 +344,31 @@ class Reservations extends Controller
       print_r(json_encode($result1 && $result2));
    }
 
-   // public function cancelReservation($reservationID)
-   // {
-   //    $results = $this->reservationModel->cancelReservation($reservationID);
+   public function markNoShowReservation($reservationID)
+   {
+      $results = $this->reservationModel->markNoShowReservation($reservationID);
 
-   //    header('Content-Type: application/json; charset=utf-8');
-   //    print_r(json_encode($results));
-   // }
+      if ($results)
+         Toast::setToast(1, "Reservation marked as a No Show successfully.", "");
+      else
+         Toast::setToast(0, "Reservation could not marked as a No Show.", "");
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($results));
+   }
+
+   public function cancelReservation($reservationID)
+   {
+      $results = $this->reservationModel->cancelReservation($reservationID);
+
+      if ($results)
+         Toast::setToast(1, "Reservation cancelled successfully", "");
+      else
+         Toast::setToast(0, "Reservation cancellation failed", "");
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($results));
+   }
 
    public function notFound()
    {

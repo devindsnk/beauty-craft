@@ -35,7 +35,20 @@ class ReservationModel extends Model
    public function getReservationDetailsByID($reservationID)
    {
       $SQLquery =
-         "SELECT reservations.date, reservations.startTime, services.name AS serviceName, services.totalDuration, staff.fName AS staffFName, staff.lName AS staffLName, reservations.remarks,customers.customerID, customers.fName AS custFName, customers.lName AS custLName, customers.mobileNo, reservations.status  
+         "SELECT reservations.reservationID,
+                 reservations.date, 
+                 reservations.startTime, 
+                 services.name AS serviceName, 
+                 services.totalDuration, 
+                 services.price,
+                 staff.fName AS staffFName, 
+                 staff.lName AS staffLName, 
+                 reservations.remarks,
+                 customers.customerID, 
+                 customers.fName AS custFName, 
+                 customers.lName AS custLName, 
+                 customers.mobileNo, 
+                 reservations.status  
          FROM reservations
          INNER JOIN customers ON customers.customerID = reservations.customerID
          INNER JOIN staff ON staff.staffID = reservations.staffID
@@ -43,13 +56,22 @@ class ReservationModel extends Model
          WHERE reservations.reservationID = :reservationID;";
       $results = $this->customQuery($SQLquery, [':reservationID' => $reservationID]);
 
-      return $results;
+      return $results[0];
    }
 
    public function getReservationsByCustomer($customerID)
    {
       $SQLquery =
-         "SELECT reservations.reservationID, customers.fName AS custFName, customers.lName AS custLName, staff.fName AS staffFName, staff.lName AS staffLName,reservations.remarks, reservations.status, reservations.date, reservations.startTime, services.name AS serviceName
+         "SELECT reservations.reservationID, 
+                 customers.fName AS custFName, 
+                 customers.lName AS custLName, 
+                 staff.fName AS staffFName, 
+                 staff.lName AS staffLName,
+                 reservations.remarks, 
+                 reservations.status, 
+                 reservations.date, 
+                 reservations.startTime, 
+                 services.name AS serviceName
          FROM reservations
          INNER JOIN customers ON customers.customerID = reservations.customerID
          INNER JOIN staff ON staff.staffID = reservations.staffID
@@ -308,6 +330,16 @@ class ReservationModel extends Model
       $results = $this->update(
          "reservations",
          ["status" => 0],
+         ["reservationID" => $reservationID]
+      );
+      return $results;
+   }
+
+   public function markNoShowReservation($reservationID)
+   {
+      $results = $this->update(
+         "reservations",
+         ["status" => 3],
          ["reservationID" => $reservationID]
       );
       return $results;

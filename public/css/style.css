@@ -17,6 +17,7 @@
   --theme-bggrey: #8A8888;
   --theme-grey: #50515A;
   --theme-lightgrey: #EAEAEA;
+  --theme-disabledgrey: #CCCCCC;
   --error-red: #DA2346;
   --bg-error-red: #FFD8DF;
   --success-green: #1BC657;
@@ -58,9 +59,18 @@ header {
   width: 100%;
 }
 
+.header-topic{
+  text-align: center;
+}
+.header-subtopic{
+  text-align: center;
+  color: var(--theme-grey);
+}
+
 h1 {
   font-size: 30px;
   font-weight: 600;
+  display: block;
 }
 
 h3 {
@@ -185,6 +195,10 @@ footer p {
   transition: ease-in-out 0.2s;
 }
 
+.btn:disabled{
+  pointer-events: none; /* easily remove hover effect */
+}
+
 .btn.btn-filled {
   border: none;
   color: var(--white);
@@ -217,9 +231,11 @@ footer p {
   box-shadow: 0px 0px 11px rgba(220, 53, 69, 0.25);
 }
 
-/* .btn.btn-filled.btn-error-red:hover {
-  background-color: #d63452;
-} */
+.btn.btn-outlined.btn-error-red:hover {
+  /* color: #BE2D3B;
+  border: 2px solid #BE2D3B; */
+  box-shadow: 0px 0px 11px rgba(220, 53, 69, 0.25);
+}
 
 .btn.btn-filled.btn-black {
   background-color: var(--theme-black);
@@ -270,6 +286,15 @@ footer p {
 
 .btn.btn-filled.btn-success-green {
   background-color: var(--success-green);
+}
+
+.btn.btn-filled:disabled {
+  background-color: var(--theme-disabledgrey);
+}
+
+.btn.btn-outlined:disabled {
+  border: 2px solid var(--theme-disabledgrey);
+  color: var(--theme-disabledgrey);
 }
 
 /* End of Common button styles */
