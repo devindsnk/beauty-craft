@@ -52,6 +52,8 @@
 //             // });
 //     }
 // });
+var ctx1 = document.getElementById('myChart1').getContext('2d');
+var ctx2 = document.getElementById('myChart2').getContext('2d');
 
 $(document).ready(function(){
     chart1();
@@ -61,7 +63,7 @@ $(document).ready(function(){
             url: "http://localhost:80/beauty-craft/MangDashboard/overviewChart1",
             method: "GET",
             success: function(data) {
-              console.log(data);
+              // console.log(data);
               var month = [];
               var income = [];
               var mL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -77,8 +79,8 @@ $(document).ready(function(){
                   income.splice(i, 0, 0);
                 }
               }
-              console.log(month);
-              console.log(income);
+              // console.log(month);
+              // console.log(income);
         
               var chartdata = {
                 labels: month,
@@ -91,15 +93,14 @@ $(document).ready(function(){
                   }
                 ]
               };
-              var ctx = document.getElementById('myChart1').getContext('2d');
         
-              var barGraph = new Chart(ctx, {
+              var barGraph = new Chart(ctx1, {
                 type: 'line',
                 data: chartdata
               });
             },
             error: function(data) {
-              console.log(data);
+              // console.log(data);
             }
           });
     }
@@ -108,7 +109,7 @@ $(document).ready(function(){
             url: "http://localhost:80/beauty-craft/MangDashboard/overviewChart2",
             method: "GET",
             success: function(data) {
-              console.log(data);
+              // console.log(data);
               var month = [];
               var totalReservations = [];
               var mL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -124,8 +125,8 @@ $(document).ready(function(){
                   totalReservations.splice(i, 0, 0);
                 }
               }
-              console.log(month);
-              console.log(totalReservations);
+              // console.log(month);
+              // console.log(totalReservations);
         
               var chartdata = {
                 labels: month,
@@ -140,9 +141,8 @@ $(document).ready(function(){
                 ]
                 
               };
-              var ctx = document.getElementById('myChart2').getContext('2d');
         
-              var barGraph = new Chart(ctx, {
+              var barGraph = new Chart(ctx2, {
                 type: 'bar',
                 data: chartdata,
                 options: {
@@ -161,7 +161,7 @@ $(document).ready(function(){
               });
             },
             error: function(data) {
-              console.log(data);
+              // console.log(data);
             }
           });
     }

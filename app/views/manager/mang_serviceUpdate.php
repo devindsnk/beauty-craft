@@ -32,7 +32,7 @@
 							<div class="column">
 								<div class="text-group">
 									<label class="labels" for="serviceName"> Service Name</label><br>
-									<input type="text" name="sName"  value="<?php echo $data['name']; ?> <?php echo $data['serviceDetails']->name; ?>" id="sName" disabled>
+									<input type="text" name="sName"  value="<?php echo $data['name']; ?> <?php echo $data['serviceDetails']->name; ?>" id="sName">
 								</div>
 								<span class="error"><?php echo $data['sName_error']; ?></span>
 							</div>
@@ -95,7 +95,7 @@
 								<div class="checkbox-div">
 									<?php foreach ($data['sProvArray'] as $sProv) : ?>
 										<div class="divIndiv">
-											<input type="checkbox" name="serProvCheckbox[]" class="sProvCheckBoxes" value='["<?php echo $sProv->staffID; ?>", "<?php echo $data['serviceDetails']->serviceID; ?>"]'
+											<input type="checkbox" name="serProvCheckbox[]" data-columns="<?php echo $data['serviceDetails']->serviceID; ?>" class="sProvCheckBoxes" value='<?php echo $sProv->staffID; ?>'
 												<?php if (!empty($data['sSelectedProv']))
 												{
 													foreach ($data['sSelectedProv'] as $selectedSP)
@@ -572,8 +572,8 @@
 			</div>
 			<label class="labels paddingBottom" for="serviceNewType">Cannot proceed. He/She has upcoming reservations for this service</label>
 			<div class="new-type-head">
-				<button class="btn btnClose normal ModalCancelButton ModalButton">Close</button>
-				<a href="<?php echo URLROOT ?>/Reservations/recallReservationsFromUpdateService/<?php echo $data['serviceDetails']->serviceID; ?>"><button class="btn ModalBlueButton ModalButton">Recall</button><a>
+				<button class="btn btnClose normal ModalCancelButton ModalButton recallModalCancelBtn">Close</button>
+				<a href="#"><button class="btn ModalBlueButton ModalButton  btnClose recallModalRecallBtn">Recall</button><a>
 			</div>
 		</div>
 	</div>
@@ -582,34 +582,18 @@
 
 	<script type="module" >
 			import { A } from 'http://localhost/beauty-craft/public/js/mang_service.js';
-			console.log('helloht1');
+			// console.log('helloht1');
 			var x= document.getElementById("fullSlotDetail1");
 			var y= document.getElementById("fullSlotDetail2");
-			console.log(x);
-			console.log(y);
-
+			
 			if(y !== null){
-				console.log('11111');
 				i=3;
 				A(i);
 				
 			}else if(x !== null){
-				console.log('222222');
 				i=2;
 				A(i);
 				
 			}
-			// import { checkForUpcomingReservations } from 'http://localhost/beauty-craft/public/js/mang_update_service.js';
-
-			// <?php $sID = 0; ?>
-			// console.log('update');
-			
-			// <?php foreach ($data['serProvDetails'] as $sProvDetails)
-			// 	{
-			// 		$sID = $sProvDetails->staffID;
-			// 		checkForUpcomingReservations('000159');
-
-			// 	}
-			// ?>
 	</script>
 	<?php require APPROOT . "/views/inc/footer.php" ?>

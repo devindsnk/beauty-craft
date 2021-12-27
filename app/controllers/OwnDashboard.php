@@ -394,11 +394,11 @@ class OwnDashboard extends Controller
    }
    public function services()
    {
-      $sDetails = $this->serviceModel->getServiceDetails();
-      $GetServicesArray = [
-         'services' => $sDetails
-      ];
-      $this->view('owner/own_services', $GetServicesArray);
+      // $sDetails = $this->serviceModel->getServiceDetails();
+      // $GetServicesArray = [
+      //    'services' => $sDetails
+      // ];
+      // $this->view('owner/own_services', $GetServicesArray);
    }
 
    public function staff()

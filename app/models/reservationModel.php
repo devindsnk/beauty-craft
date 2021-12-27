@@ -134,21 +134,20 @@ class ReservationModel extends Model
       // upcomming reservations gnn oni 
       $results = $this->customQuery(
          "SELECT * 
-                                    FROM reservations
-                                    WHERE status=:status AND serviceID=:sID ",
-         [':status' => 4, ':sID' => $sID]
+         FROM reservations
+         WHERE (status=:status1 OR status=:status2) AND serviceID=:sID  AND date >= now() ",
+         [':status1' => 1, ':status2' => 2, ':sID' => $sID]
       );
       return $results;
    }
 
    public function getUpcommingReservationsForSerProv($staffID, $serviceID)
    {
-      // upcomming reservations gnn oni 
       $results = $this->customQuery(
          "SELECT * 
-                                    FROM reservations
-                                    WHERE status=:status AND serviceID=:sID AND staffID=:sProvID OR date >= now() ",
-         [':status' => 4, ':sID' => $serviceID, ':sProvID' => $staffID]
+         FROM reservations
+         WHERE (status=:status1 OR status=:status2) AND serviceID=:sID AND staffID=:sProvID AND date >= now() ",
+         [':status1' => 1, ':status2' => 2, ':sID' => $serviceID, ':sProvID' => $staffID]
       );
       return $results;
    }
@@ -202,14 +201,21 @@ class ReservationModel extends Model
 
    public function updateReservationRecalledState($selectedreservation, $status)
    {
-      $results = $this->update('reservations', ['status' => $status], ['reservationID' => $selectedreservation]);
+      foreach ($selectedreservation as $value)
+      {
+         $results = $this->update('reservations', ['status' => $status], ['reservationID' => $value]);
+      }
    }
 
    public function addReservationRecall($selectedreservation, $recallReason)
    {
       date_default_timezone_set("Asia/Colombo");
       $today = date("Y-m-d H:i:s");
-      $results =  $this->insert('recallrequests', ['reservationID' => $selectedreservation, 'reason' => $recallReason, 'requestedDate' => $today, 'status' => 0]);
+
+      foreach ($selectedreservation as $value)
+      {
+         $results =  $this->insert('recallrequests', ['reservationID' => $value, 'reason' => $recallReason, 'requestedDate' => $today, 'status' => 0]);
+      }
    }
 
    public function getRecallReasonByReservationID($selectedreservation)

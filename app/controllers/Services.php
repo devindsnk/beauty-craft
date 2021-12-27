@@ -7,6 +7,19 @@ class Services extends Controller
       $this->ReservationModel = $this->model('reservationModel');
    }
 
+   public function viewAllServices()
+   {
+      Session::validateSession([2, 3, 4]);
+
+      $sDetails = $this->ServiceModel->getServiceDetails();
+
+      $GetServicesArray = [
+         'services' => $sDetails
+      ];
+
+      $this->view('common/allServicesTable',  $GetServicesArray);
+   }
+
    public function addNewService()
    {
       $slotNo = 0;
@@ -144,7 +157,7 @@ class Services extends Controller
                $this->ServiceModel->addIntervalTimeSlot($data, $slotNo);
                $this->ServiceModel->addResourcesToService($data, $slotNo);
 
-               header('location: ' . URLROOT . '/MangDashboard/services');
+               redirect('Services/viewAllServices');
             }
             else
             {
@@ -276,16 +289,19 @@ class Services extends Controller
 
       die("hi");
    }
-   public function getCheckedSPRovList($details1,$details2)
+   public function getReservationListOfCheckedSPRovList($details1,$details2)
    {
       $serProvDetails = $this->ReservationModel->getUpcommingReservationsForSerProv($details1, $details2);
       
-      $hasRes=0;
-      if($serProvDetails != null){
-         $hasRes=1;
-      }
       header('Content-Type: application/json; charset=utf-8');
-      print_r(json_encode($hasRes));
+      print_r(json_encode($serProvDetails));
+   }
+   public function getReservationListOfSelectedService($serviceID)
+   {
+      $serviceDetails = $this->ReservationModel->getUpcommingReservationsForService($serviceID);
+      
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($serviceDetails));
    }
    public function viewService($serviceID)
    {
@@ -328,7 +344,7 @@ class Services extends Controller
    {
       $serviceDetails = $this->ServiceModel->getOneServiceDetail($serviceID);
       $serProvDetails = $this->ServiceModel->getOneServicesSProvDetail($serviceID);
-
+   
       $noofSlots = $this->ServiceModel->getNoofSlots($serviceID);
 
       for ($i = 1; $i < 4; $i++){
@@ -468,15 +484,15 @@ class Services extends Controller
                }elseif($data['slot2Duration'] != NULL && $data['slot3Duration'] != NULL){
                   $slotNo=2;
                }
-
                $this->ServiceModel->changeServiceStatus($serviceID, 0);
                $this->ServiceModel->addService($data,$slotNo);
                $this->ServiceModel->addServiceProvider($data);
+               // die('awa');
                $this->ServiceModel->addTimeSlot($data, $slotNo);
                $this->ServiceModel->addIntervalTimeSlot($data, $slotNo);
                $this->ServiceModel->addResourcesToService($data, $slotNo);
 
-               header('location: ' . URLROOT . '/MangDashboard/services');
+               redirect('Services/viewAllServices');
             }
             else
             {
@@ -561,84 +577,23 @@ class Services extends Controller
 
       }
    }
-
-   public function deleteAndHoldService($serviceID)
-   {
-      $resDetails = $this->ReservationModel->getUpcommingReservationsForService($serviceID);
-      $sDetails = $this->ServiceModel->getServiceDetails();
-      // print_r($serviceID);
-      // die('kkk');
-      if ($_SERVER['REQUEST_METHOD'] == 'POST')
-      {
-         // die('kkijk');
-         $data = [
-            'services' => $sDetails,
-            'resDetails' => $resDetails,
-         ];
-         // if($_POST['action']=='deleteConfirm')
-         // {
-         //    // print_r($serviceID);
-         //    // die('kkk');
-         //    $state=0;
-         //    $this->ServiceModel->changeServiceStatus($serviceID, $state);
-         //    // header('location: ' . URLROOT . '/MangDashboard/services');
-         //    redirect('MangDashboard/services');
-         // }
-         // if($_POST['action']=='holdConfirm')
-         // {
-         //    // die('ki');
-         //    $state=2;
-         //    $this->ServiceModel->changeServiceStatus($serviceID, $state);
-         //    redirect('MangDashboard/services');
-         // }
-         // if($_POST['action']=='close')
-         // {
-         //    // die('ki');
-         //    $data['modelDeleteOpen'] = 0;
-         //    $data['modelHoldOpen'] = 0;
-         //    redirect('MangDashboard/services');
-         // }
-         // if($_POST['action']=='hold')
-         // {
-         //    $data['modelHoldOpen'] = 1;
-         //    $this->view('manager/mang_services', $data);
-
-         // }elseif($_POST['action']=='active')
-         // {
-         //    $state=1;
-         //    print_r($serviceID);
-         //    // die("sID");
-         //    $this->ServiceModel->changeServiceStatus($serviceID, $state);
-         //    redirect('MangDashboard/services');
-            
-         // }
-      }else{
-         $data = [
-            'services' => $sDetails,
-            'resDetails' => $resDetails,
-            
-         ];
-         $this->view('manager/mang_services', $data);
-
-      }
-   }
    public function deleteService($serviceID)
    {
       $state=0;
       $this->ServiceModel->changeServiceStatus($serviceID, $state);
-      redirect('MangDashboard/services');
+      redirect('Services/viewAllServices');
    }
    public function holdService($serviceID)
    {
       $state=2;
       $this->ServiceModel->changeServiceStatus($serviceID, $state);
-      redirect('MangDashboard/services');
+      redirect('Services/viewAllServices');
    }
    public function activeService($serviceID)
    {
       $state=1;
       $this->ServiceModel->changeServiceStatus($serviceID, $state);
-      redirect('MangDashboard/services');
+      redirect('Services/viewAllServices');
    }
    public function serviceReport()
    {

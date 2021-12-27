@@ -28,8 +28,12 @@ class ServiceModel extends Model
 
     public function addServiceProvider($data)
     {
+        // print_r($data['sSelectedProv'][0]);
+        // die('awa2');
         foreach ($data['sSelectedProv'] as $SelectedProv)
-        {
+        {   
+            // print_r($SelectedProv);
+            // die('awa2');
             $this->customQuery("INSERT INTO serviceproviders (serviceID, staffID) SELECT MAX(serviceID), '$SelectedProv' FROM services", []);
         }
     }
