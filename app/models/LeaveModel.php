@@ -104,12 +104,13 @@ class LeaveModel extends Model
 
       return $result->{'COUNT(*)'};
    }
-
+   //////////////////////////////////////////
    public function getAllLeaveRequests()
    {
 
       $results = $this->customQuery("SELECT * 
-                                    FROM generalleaves 
+                                    FROM generalleaves
+                                    WHERE leaveDate >= now() 
                                     ORDER BY leaveDate", []);
 
       return $results;
@@ -129,7 +130,25 @@ class LeaveModel extends Model
 
       return $results;
    }
+   public function getRelevantMonthsMedicalLeaveCount($staffID, $leaveDate, $leaveType)
+   {
 
+      $results = $this->customQuery(
+                        "SELECT COUNT(*) AS leaveCount FROM generalleaves WHERE MONTH(leaveDate)=MONTH(:leaveDate) AND YEAR(leaveDate)=YEAR(:leaveDate) AND (staffID=:staffID) AND (status=1 OR status=2) AND leaveType=:leaveType",
+                        [':staffID' => $staffID, ':leaveDate' => $leaveDate, ':leaveType' =>$leaveType]
+                     );
+      
+      return $results[0]->{'leaveCount'};
+   }
+
+   public function getLeaveLimitsForManagerApproval()
+   {
+
+      $results = $this->customQuery(
+                        "SELECT generalLeave,medicalLeave FROM leavelimits WHERE changedDate =(SELECT MAX(changedDate)FROM leavelimits)", []);
+      
+      return $results;
+   }
    public function addLeaveResponce($responce, $staffID, $leaveDate)
    {
 
@@ -137,6 +156,7 @@ class LeaveModel extends Model
 
       $results = $this->update('generalleaves', ['respondedStaffID' => $ManagerID, 'status' => $responce,], ['staffID' => $staffID, 'leaveDate' => $leaveDate]);
    }
+   ///////////////////////////////////////////
 
    public function getAllManagerLeaves()
    {

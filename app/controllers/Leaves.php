@@ -31,8 +31,23 @@ class Leaves extends Controller
       // Session::validateSession([6]);
 
       $oneLeaveDetails = $this->LeaveModel->getOneLeaveDetail($staffID, $leaveDate);
+      $casualCountOfRelevantMonth = $this->LeaveModel->getRelevantMonthsMedicalLeaveCount($staffID, $leaveDate, 1);
+      $medicalCountOfRelevantMonth = $this->LeaveModel->getRelevantMonthsMedicalLeaveCount($staffID, $leaveDate, 2);
+      $leaveLimits = $this->LeaveModel->getLeaveLimitsForManagerApproval();
 
-      $this->view('manager/mang_leaveRequests', $oneLeaveDetails[0]);
+      $remainingCasual = $leaveLimits[0]->generalLeave - $casualCountOfRelevantMonth;
+      $remainingMedical = $leaveLimits[0]->medicalLeave - $medicalCountOfRelevantMonth;
+
+      $oneLeaveDetails = [
+         'leaveDetails' => $oneLeaveDetails[0],
+         'medicalCount' => $medicalCountOfRelevantMonth,
+         'casualCount' => $casualCountOfRelevantMonth,
+         'remainingCasual' => $remainingCasual,
+         'remainingMedical' => $remainingMedical
+      ];
+      // print_r($oneLeaveDetails['remainingMedical']);
+      // die("hhh");
+      $this->view('manager/mang_leaveRequests', $oneLeaveDetails);
    }
 
 

@@ -72,7 +72,7 @@
                      <th class="column-center-align col-3">Leave Type</th>
                      <th class="column-center-align col-4">Responded Staff ID</th>
                      <th class="column-center-align col-5">Requested Date</th>
-                     <th class="column-center-align col-6 column-center-align">Reason</th>
+                     <!-- <th class="column-center-align col-6 column-center-align">Reason</th> -->
                      <th class="column-center-align col-7">Status</th>
                      <th class="col-8"></th>
                      <th class="col-9"></th>
@@ -85,7 +85,13 @@
                         <tr>
                            <td data-lable="Staff ID" class="column-center-align"><?php echo $leaveDetails->staffID; ?></td>
                            <td data-lable="Leave Date" class="column-center-align"><?php echo $leaveDetails->leaveDate; ?></td>
-                           <td data-lable="Leave Type" class="column-center-align"><?php echo $leaveDetails->leaveType; ?></td>
+                           <td data-lable="Leave Type" class="column-center-align">
+                              <?php if ( $leaveDetails->leaveType == 1): ?>
+                                 Casual
+                              <?php elseif ( $leaveDetails->leaveType == 2): ?>
+                                 Medical
+                              <?php endif; ?>
+                           </td>
                            <td data-lable="Responded Staff ID" class="column-center-align">
                               <?php if(empty($leaveDetails->respondedStaffID)): ?>
                                  - 
@@ -94,7 +100,7 @@
                               <?php endif; ?>
                            </td>
                            <td data-lable="Requested Date" class="column-center-align"><?php echo $leaveDetails->requestedDate; ?></td>
-                           <td data-lable="Reason" class="column-center-align"><?php echo $leaveDetails->reason; ?></td>
+                           <!-- <td data-lable="Reason" class="column-center-align"><?php echo $leaveDetails->reason; ?></td> -->
                            <td data-lable="Status" class="column-center-align">
                               <?php if ($leaveDetails->status == 0) : ?>
                                  <button type="button" class="table-btn red-status-btn text-uppercase">Rejected</button>

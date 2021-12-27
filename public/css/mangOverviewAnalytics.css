@@ -244,13 +244,14 @@
 
 .contentBox.leave-sub-container-card{
     width: 250px;
-    height: 60px;
+    height: 110px;
     font-size: 18px;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
     text-align: center;
-    align-content: center;
+    align-content: space-around;
     padding: 15px 20px 15px 20px;
     margin-top: 15px;
 }
