@@ -417,19 +417,19 @@
 		import {
 			A
 		} from 'http://localhost/beauty-craft/public/js/mang_service.js';
-		console.log('helloht1');
+		// console.log('helloht1');
 		var x = document.getElementById("fullSlotDetail1");
 		var y = document.getElementById("fullSlotDetail2");
-		console.log(x);
-		console.log(y);
+		// console.log(x);
+		// console.log(y);
 
 		if (y !== null) {
-			console.log('11111');
+			// console.log('11111');
 			i = 3;
 			A(i);
 
 		} else if (x !== null) {
-			console.log('222222');
+			// console.log('222222');
 			i = 2;
 			A(i);
 

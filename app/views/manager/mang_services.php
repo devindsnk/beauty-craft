@@ -20,7 +20,7 @@
       <?php require APPROOT . "/views/common/servicesTable.php" ?>
 
       <!-- Service delete model -->
-      <div class="modal-container remove-service">
+      <!-- <div class="modal-container remove-service">
          <div class="modal-box">
                <div class="confirm-model-head">
                   <h1>Delete Service</h1>
@@ -33,7 +33,7 @@
                   <button class="btn btnClose remove-service ModalButton ModalBlueButton">Confirm</button>
                </div>
          </div>
-      </div>
+      </div> -->
       <!-- End of Service delete model -->
       
    </div>
