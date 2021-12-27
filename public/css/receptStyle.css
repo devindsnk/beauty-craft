@@ -444,7 +444,7 @@
 .recept.resMoreInfo .contentBox .row {
    width: 100%;
    display: grid;
-   grid-template-columns: 3fr 4fr;
+   grid-template-columns: 1fr 3fr;
    margin-bottom: 10px;
 }
 
@@ -472,12 +472,12 @@
 
 .recept.resMoreInfo .resDetails .sub-res-container {
    display: grid;
-   grid-template-columns: 2fr 8fr;
+   grid-template-columns: 1fr;
 }
 
 .recept.resMoreInfo .separator {
-   margin: 20px 0;
-   height: 2px;
+   margin: 10px 0 15px;
+   height: 1px;
    color: var(--theme-lightgrey);
 }
 

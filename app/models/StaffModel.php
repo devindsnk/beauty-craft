@@ -116,15 +116,17 @@ class StaffModel extends Model
 
    public function getServiceslistByStaffID($staffID)
    {
-      $results = $this->customQuery("SELECT services.type,services.name
-      FROM services
-      INNER JOIN serviceproviders 
-      ON serviceproviders.serviceID =services.serviceID
-      WHERE serviceproviders.staffID =:staffID",
-      [':staffID'=>$staffID]);
-    return $results;
+      $results = $this->customQuery(
+         "SELECT services.type,services.name
+         FROM services
+         INNER JOIN serviceproviders 
+         ON serviceproviders.serviceID =services.serviceID
+         WHERE serviceproviders.staffID =:staffID",
+         [':staffID' => $staffID]
+      );
+      return $results;
    }
-   
+
    // FOR MANAGER OVERVIEW
    public function getReceptionistCount()
    {
@@ -146,42 +148,31 @@ class StaffModel extends Model
    ///// Methods added by devin ////
 
    // Returns the data of service providers of a given service with their availability on the give date.
-   public function getServiceProvidersByServiceWithAvailability($serviceID, $date)
+   public function getSProvidersByServiceWithLeaveStatus($serviceID, $selectedDate)
    {
-      // should get first name last name and availability
-      // Tables to interact: 'staff', 'serviceproviders', 'generalLeaves'
-
-      $SQLquery =
-         "SELECT S.staffID, S.fName, S.lName, GL.status
-         FROM staff AS S
-         INNER JOIN serviceproviders AS SP
-            ON S.staffID = SP.staffID
-            AND SP.serviceID = :serviceID
-         LEFT JOIN generalleaves AS GL 
-            ON S.staffID = gl.staffID
-            AND GL.leaveDate = :date";
+      $SQLstatement =
+         "SELECT STAFF.staffID, STAFF.fName, STAFF.lName, GLEAVES.status AS leaveStatus
+         FROM serviceproviders AS SP
+         INNER JOIN staff AS STAFF 
+         ON STAFF.staffID = SP.staffID AND STAFF.status = 1 
+         LEFT JOIN generalleaves AS GLEAVES 
+         ON GLEAVES.staffID = SP.staffID AND GLEAVES.leaveDate = :selectedDate AND GLEAVES.status IN (1,2)
+         WHERE SP.serviceID = :serviceID;";
 
       $results = $this->customQuery(
-         $SQLquery,
+         $SQLstatement,
          [
-            ':serviceID' => $serviceID,
-            ':date' => $date
+            ":selectedDate" => $selectedDate,
+            ":serviceID" => $serviceID
          ]
       );
-
       return $results;
-
-      // SELECT
-      // *
-      // FROM
-      // staff AS S
-      // INNER JOIN serviceproviders AS SP
-      // ON
-      // S.staffID = SP.staffID AND SP.serviceID = '000001'
-      // LEFT JOIN generalleaves AS GL
-      // ON
-      // S.staffID = gl.staffID AND GL.leaveDate = '2021-12-08' AND gl.status = 0
    }
+
+
+
+
+
 
    /////////////////////////////////
 }
