@@ -7,6 +7,12 @@ class Staff extends Controller
       $this->staffModel = $this->model('StaffModel');
    }
 
+   public function viewAllStaffMembers(){
+      $staffDetails = $this->staffModel->getAllStaffDetails();
+      $GetStaffArray = ['staff' => $staffDetails];
+      $this->view('common/allStaffTable', $GetStaffArray);
+   }
+
 
    public function addStaff()
    {

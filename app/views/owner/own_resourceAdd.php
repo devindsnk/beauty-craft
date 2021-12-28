@@ -51,11 +51,8 @@
                                 <div class="selectType">
                                     <label class="ownAddstaffLabels ">Type</label>
                                     <select name="nameSelected" class="dropdownselectbox resourceTypes">
-                                        <!-- <option class="unbold" value="0" option selected="true" disabled="disabled" >Select</option>
-                                        <?php foreach ($data['resourceTypes'] as $resourceTypeD) : ?>
-                                        <option value = "<?php echo $resourceTypeD->resourceID; ?>" ><?php echo $resourceTypeD->name; ?></option>
-                                        <?php endforeach; ?> -->
-                                        <option value="" selected disabled>Select</option>
+                                       
+                                        <option value=""  selected disabled>Select</option>
 
                                     </select>
                                     <span class="error"><?php echo $data['nameSelected_error']; ?></span>
@@ -115,7 +112,7 @@
 <div class="modal-container add-resource-type <?php if ($data['haveErrors']) echo ' show'; ?>">
    <div class="modal-box addItems " id="ownResAddContainer">
       <form action="<?php echo URLROOT; ?>/resources/addResource" method="post">
-         <h1 class="addItemsModalHead">Add Resources</h1>
+         <h1 class="addItemsModalHead">Add Resources Type</h1>
          <!-- start main grid 1 -->
 
          <div class="addItemsModalGrid1 ownResAddDetails">

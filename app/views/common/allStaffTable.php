@@ -1,3 +1,45 @@
+<?php require APPROOT . "/views/inc/header.php" ?>
+
+<body class="layout-template-1">
+   <?php
+   $selectedMain = "Staff Members";
+   $selectedSub = "";
+   // require APPROOT . "/views/owner/own_sidenav.php";
+   // switch (Session::getUser("type"))
+   // {
+   //    case "1" :
+   //       require APPROOT . "/views/systemAdmin/systemAdmin_sidenav.php";
+   //       break;
+   //    case "2" :
+   //       require APPROOT . "/views/systemAdmin/owner/own_sidenav.php";
+   //       break; 
+   //    case "3" :
+   //       require APPROOT . "/views/manager/mang_sidenav.php";
+   //       break;
+   //    case "4" :
+   //       require APPROOT . "/views/receptionist/recep_sidenav.php";
+   //       // break;  
+   // }
+   ?>
+
+
+   <?php
+   $title = "Staff Members";
+   require APPROOT . "/views/inc/headerBar.php"
+   ?>
+
+   <!--Content-->
+
+   <!----------------------- temporary buttons --------------------------------------->
+
+   <div class="content own Remstaff">
+
+
+
+
+<!-- //////////////////////////////////////////////////////////////////////// -->
+
+
 <?php if ($userType == "Owner") : ?>
    <div class="page-top-main-container">
       <a href="<?php echo URLROOT ?>/staff/addStaff" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
@@ -166,9 +208,10 @@
 
          <!-- main grid 2 starts -->
          <div class="remStaffError">
-            <label class="remStaffErrortext">Cannot proceed. Has upcoming reservations</label>
-            <a href="<?php echo URLROOT ?>/staff/RemStaffReservations" class="remStaffErrorAnchortag"> <label class="remStaffErrorViewReservaions">View
-                  Reservaions</label></a>
+            <label class="remStaffErrortext">Staff member has upcoming reservations.</label> <br>
+            <span class="remStaffErrorViewReservaions">Select the check box to send recall requests.</span> <input type="checkbox" class="remStaffReservationRecallCheckBox">
+            <!-- <a href="<?php echo URLROOT ?>/staff/RemStaffReservations" class="remStaffErrorAnchortag"> <label class="remStaffErrorViewReservaions">View
+                  Reservaions</label></a> -->
          </div>
          <!-- main grid 2 ends -->
 
@@ -178,7 +221,7 @@
                <button class="btn btnClose normal ModalButton ModalCancelButton">Cancel</button>
             </div>
             <div class="ownRemStaffbtn2">
-              <a href="<?php echo URLROOT ?>/staff/removeStaff/<?php echo $staffD->staffID ?>" class="removeStaffAnchorTag"><button class="btn normal ModalButton ModalBlueButton removeStaffBtn">Proceed</button></a>
+              <a href="" class="removeStaffAnchorTag"><button class="btn normal ModalButton ModalBlueButton removeStaffBtn">Proceed</button></a>
             </div>
          </div>
          <!-- main grid 3 ends -->
@@ -187,5 +230,12 @@
    </div>
 </div>
 
+
 <!------------------- Remove Staff Container ends ----------------------------->
 <script src="<?php echo URLROOT ?>/public/js/fetchRequests/removeStaff.js"></script>
+
+</div>
+
+   <!--End Content-->
+
+   <?php require APPROOT . "/views/inc/footer.php" ?>

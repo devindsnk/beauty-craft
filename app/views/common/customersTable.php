@@ -62,8 +62,13 @@
                <td data-lable="Gender" class="column-center-align">M</td>
                <td data-lable="Registered Date" class="column-center-align"><?php echo $customerD->registeredDate; ?></td>
                <td data-lable="Status" class="column-center-align">
-                  <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
-               </td>
+                     <!-- Staff memeber states >> Removed = 0 Active =1 Disabled =2 -->
+                     <?php if ($customerD->status == 0) : ?>
+                        <button type="button" class="table-btn red-status-btn text-uppercase "> Removed </button>
+                     <?php elseif ($customerD->status == 1) : ?>
+                        <button type="button" class="table-btn green-status-btn text-uppercase"> Active </button>
+                     <?php endif; ?>
+                  </td>
                <td class="column-center-align">
                   <span>
                      <a href="<?php echo URLROOT ?>/customer/cusDetailView/<?php echo $customerD->customerID ?>"><i class="ci-view-more table-icon img-gap"></i></a>
@@ -97,7 +102,7 @@
 
       <!-- main grid 2 starts -->
       <div class="ownRemCusError">
-         <label class="ownRemCusErrortext">Cannot proceed. Has upcoming reservations</label>
+         <label class="ownRemCusErrortext">Customer has upcoming reservations. Reservations will be canceled if you proceed.</label>
       </div>
       <!-- main grid 2 ends -->
       <!-- main grid 3 starts -->

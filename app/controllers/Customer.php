@@ -170,7 +170,9 @@ class Customer extends Controller
    {
       // die('success');
       // echo ($cusID);
+      
       $this->customerModel->removeCustomerDetails($cusID);
+      // Toast::setToast(1,"Customer Removed Successfully!","");
       redirect('OwnDashboard/customers');
    }
 
@@ -190,7 +192,7 @@ class Customer extends Controller
       $this->view('common/customerView', $ViewCustomerArray);
    }
 
-   public function GetReservtaionCountByCustomerID($cusID)
+   public function getReservtaionCountByCustomerID($cusID)
    {
       // echo $date;
    //  die('success');

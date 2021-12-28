@@ -20,7 +20,7 @@ class ResourceModel extends Model
       }
       
    }  
-   
+
 //-------------------------------------- Start -----------------------------------------------------------//
 //---- codes related to updating the resource count when removing and adding resources to the system ----// 
 //------------------------------------------------------------------------------------------------------//
@@ -73,7 +73,7 @@ class ResourceModel extends Model
 
 
 
-   public function getAllRsourceTypeDetails()
+   public function getAllResourceTypeDetails()
    {
       $results = $this->getResultSet('resources', ['name','resourceID'], null);
 

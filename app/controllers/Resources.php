@@ -287,9 +287,9 @@ class  Resources extends Controller
    }
 
    
-   public function getResourceCountByResourceTypeID()
+   public function getResourceTypeDetails()
    {
-      $resourceTypes = $this->resourceModel->getAllRsourceTypeDetails();
+      $resourceTypes = $this->resourceModel->getAllResourceTypeDetails();
       // $this->closedDatesModel->getCloseDatesReservationCount($data['closeDate']);
       // Session::validateSession([6]);
       // $reservationCount = $this->closedDatesModel->getCloseDatesReservationCount($date);

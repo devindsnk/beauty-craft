@@ -61,7 +61,7 @@
 
          <!--Sidebar Item-->
          <li class="mainOption menuOption">
-            <a class="optionLink <?php if ($selectedMain == "StaffMembers") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/staffMembers">
+            <a class="optionLink <?php if ($selectedMain == "StaffMembers") echo " selected" ?>" href="<?php echo URLROOT ?>/Staff/viewAllStaffMembers">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-briefcase "></i>
                </div>

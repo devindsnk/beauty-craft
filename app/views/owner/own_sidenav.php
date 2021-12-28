@@ -28,7 +28,7 @@
 
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Staff Members") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/staff">
+            <a class="optionLink <?php if ($selectedMain == "Staff Members") echo " selected" ?>" href="<?php echo URLROOT ?>/Staff/viewAllStaffMembers">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-briefcase "></i>
                </div>

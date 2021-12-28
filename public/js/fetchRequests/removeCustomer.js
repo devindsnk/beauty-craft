@@ -19,16 +19,16 @@ function(){
     document.querySelector(".ownRemCusData1").innerHTML = cusID;
     document.querySelector(".ownRemCusData2").innerHTML = cusName;
 
-    checkforUpcomingReservations(cusID);
+    checkforUpcomingReservationsAndCreateUrl(cusID);
     // createRemoveCustomerUrl(cusID);
 }
 )
 }
 
 
-function checkforUpcomingReservations(cusID){
+function checkforUpcomingReservationsAndCreateUrl(cusID){
         console.log("checkforUpcomingReservations works");
-    fetch(`http://localhost:80/beauty-craft/Customer/GetReservtaionCountByCustomerID/${cusID}`)
+    fetch(`http://localhost:80/beauty-craft/Customer/getReservtaionCountByCustomerID/${cusID}`)
      .then(response => response.json())
      .then( reservationCount => {
         console.log("checkforUpcomingReservations works");
@@ -40,8 +40,9 @@ function checkforUpcomingReservations(cusID){
       {
          console.log("yo if called");
          RemoveCustomerReservationDiv.style.display = "block";
-         document.querySelector(".removeCustomerBtn").disabled = true;
-         document.querySelector(".removeCustomerBtn").className = "btn ModalCancelButton ModalButton removeCustomerBtn";
+         RemoveCustomerBtnAnchorTag.href = "http://localhost:80/beauty-craft/Customer/remCustomer/" + cusID;
+        //  document.querySelector(".removeCustomerBtn").disabled = true;
+        //  document.querySelector(".removeCustomerBtn").className = "btn ModalCancelButton ModalButton removeCustomerBtn";
         //  .btn.btn-filled.btn-grey
 
          // CloseSalonDateReservationDiv.innerHTML= "";
@@ -50,8 +51,8 @@ function checkforUpcomingReservations(cusID){
       {
           console.log("else called");
         RemoveCustomerReservationDiv.style.display = "none";
-        document.querySelector(".removeCustomerBtn").disabled = false;
-        document.querySelector(".removeCustomerBtn").className = "btn ModalBlueButton ModalButton removeCustomerBtn";
+        // document.querySelector(".removeCustomerBtn").disabled = false;
+        // document.querySelector(".removeCustomerBtn").className = "btn ModalBlueButton ModalButton removeCustomerBtn";
         RemoveCustomerBtnAnchorTag.href = "http://localhost:80/beauty-craft/Customer/remCustomer/" + cusID;
       }
      });
