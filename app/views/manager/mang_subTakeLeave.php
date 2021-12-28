@@ -15,8 +15,21 @@
    <!--Content-->
    <div class="content">
 
-      <div class="page-top-main-container">
-         <button class="btn btn-filled btn-theme-purple btn-main btnTakenLeave">Take Leave</button>
+      <!-- <div class="page-top-main-container"> -->
+      <div class="mang-leaves-top-container">
+         <div class="mang-leaves-top-left-container">
+            <div class="contentBox mang-leave-card">
+               <p>Medical Leaves</p>
+               <p>2</p>
+            </div>
+            <div class="contentBox mang-leave-card">
+               <p>Casual Leaves</p>
+               <p>3</p>
+            </div>
+         </div>
+         <div class="mang-leaves-top-right-container">
+            <button class="btn btn-filled btn-theme-purple btn-main btnTakenLeave">Take Leave</button>
+         </div>
       </div>
       <form class="form filter-options" action="">
          <div class="options-container">
