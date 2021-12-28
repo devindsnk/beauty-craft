@@ -122,6 +122,7 @@ resMoreInfoBtnList.forEach((btn) => {
 });
 
 
+
 // Reservation Recall Request Modal Section
 const resRecallModal = document.querySelector('.reservation-recall');
 const resRecallBtn = document.querySelector('.btnResRecall');
@@ -130,10 +131,47 @@ if (resRecallBtn) {
         function () {
             // console.log(resRecallBtn);
             
-            toggleModal(resRecallBtn);
+            
             modalToToggle = resRecallModal;
             toggleModal(resRecallBtn);
-            resMoreInfoModal.remove("show");
+            modalToToggle = resMoreInfoModal;
+            closeModal(resRecallBtn);
+            // resMoreInfoModal.remove("show");
+        }
+    );
+}
+// Reservation Recall BackBtn  Modal Section
+const resBackRecallBtn = document.querySelector('.btnBack');
+console.log(resBackRecallBtn);
+if (resBackRecallBtn) {
+    resBackRecallBtn.addEventListener("click",
+        function () {
+            // console.log(resRecallBtn);
+            console.log("resBackRecallBtn");
+            
+            modalToToggle = resMoreInfoModal;
+            
+            toggleModal(resRecallBtn);
+            modalToToggle = resRecallModal;
+            closeModal(resRecallBtn);
+            // resMoreInfoModal.remove("show");
+        }
+    );
+}
+const modelCloseBtn = document.querySelector('.modelbtnClose');
+if (modelCloseBtn) {
+    modelCloseBtn.addEventListener("click",
+        function () {
+            console.log("CloseBtn Called");
+            
+            
+            modalToToggle = resMoreInfoModal;
+            closeModal(resRecallBtn);
+            
+            // toggleModal(resRecallBtn);
+            // modalToToggle = resRecallModal;
+            // closeModal(resRecallBtn);
+            // resMoreInfoModal.remove("show");
         }
     );
 }

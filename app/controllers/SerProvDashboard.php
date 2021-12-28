@@ -299,11 +299,26 @@
    public function getReservationDetailsByID($selectedReservation)
    {
       $reservationData = $this->reservationModel->getReservationMoreInfoByID($selectedReservation);
+      // $recallData
+      //    = $this->reservationModel->getReservationRecallDataByID($selectedReservation);
+      // $reservationData['recallReason'] = $recallData['recallReason'];
+      // $data = [
+      //    'reservationData' => $reservationData,
+      //    'recallData' => '',
+
+      // ];
+
       header('Content-Type: application/json; charset=utf-8');
-      echo (json_encode($reservationData[0]));
+      echo (json_encode($reservationData));
       exit;
    }
 
+   public function getReservationRecallData($selectedReservation)
+   {
+      $recallData = $this->reservationModel->getReservationRecallDataByID($selectedReservation);
+      header('Content-Type: application/json; charset=utf-8');
+      echo (json_encode($recallData));
+   }
 
    public function updateCustNote($selectedReservation, $note)
    {
@@ -315,14 +330,5 @@
       // 
       echo (json_encode($reservationData));
       // exit;
-   }
-
-   public function getReservationRecallDetailsByID($selectedReservation)
-   {
-      $recallData = $this->reservationModel->getReservationRecallDetailsByID($selectedReservation);
-      header('Content-Type: application/json; charset=utf-8');
-
-
-      print_r(json_encode($recallData));
    }
 }

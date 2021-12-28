@@ -185,7 +185,15 @@ class ReservationModel extends Model
       INNER JOIN customers ON customers.customerID = reservations.customerID
       WHERE reservationID=:reservationID ", [':reservationID' => $reservationID,]);
 
-      return $results;
+      return $results[0];
+   }
+   public function getReservationRecallDataByID($reservationID)
+   {
+      $results = $this->customQuery("SELECT recallrequests.reason AS recallReason,recallrequests.status As recallStatus
+      FROM recallrequests 
+      WHERE reservationID=:reservationID ", [':reservationID' => $reservationID,]);
+
+      return $results[0];
    }
 
    public function updateCustomerNote($reservationID, $customerNote)
@@ -222,6 +230,11 @@ class ReservationModel extends Model
    {
       $results = $this->getSingle('recallrequests', ['reason'], ['reservationID' => $selectedreservation]);
       return $results->reason;
+   }
+   public function getReservationRecallDetailsByID($selectedreservation)
+   {
+      $results = $this->getSingle('recallrequests', ['status'], ['reservationID' => $selectedreservation]);
+      return $results->status;
    }
    public function deleteReservationRecallRequest($reservationID)
    {

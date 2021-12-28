@@ -287,6 +287,9 @@ footer p {
 .btn.btn-filled.btn-success-green {
   background-color: var(--success-green);
 }
+.btn.btn-filled.btn-success-green:hover {
+  background-color: var(--success-green);
+}
 
 .btn.btn-filled:disabled {
   background-color: var(--theme-disabledgrey);

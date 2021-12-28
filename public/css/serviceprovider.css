@@ -639,7 +639,11 @@ span.leavelimitmsg{
     font-size: 13px;
     margin-left: 70px;
 }
-
+span.error{
+    color:var(--theme-red);
+    font-size: 15px;
+    
+}
 .leavecountcard {
     display: flex;
     align-items: center;

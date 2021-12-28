@@ -182,7 +182,7 @@
 
                     <div class="modalbutton-more">
                         <div class="more-details-modalbtnsection">
-                            <button class="btn btnClose normal" value="close">Close</button>
+                            <button class="btn modelbtnClose normal">Close</button>
 
 
                             <button class="btnOpen btnResRecall button proceedBtn" value="recall" onclick="recallResrvation(this);">Recall</button>
@@ -200,69 +200,70 @@
 
             <div class="modal-box addItems">
 
-                <form>
-                    <h1 class="recall-data-header"></h1>
 
-                    <div class="modaldetails">
-                        <div class="modaldetails-name">
-                            <span class="recall-service"></span><br>
-                            <span class="recall-name"></span>
-                        </div>
-                        <div class="recall-modaldetails-status">
+                <h1 class="recall-data-header"></h1>
 
-                            <div class="recall-moredetails-confirm-status">
-                                <span class="recall-spn-moredetails-confirm-status"></span>
-                            </div>
+                <div class="modaldetails">
+                    <div class="modaldetails-name">
+                        <span class="recall-service"></span><br>
+                        <span class="recall-name"></span>
+                    </div>
+                    <div class="recall-modaldetails-status">
 
+                        <div class="recall-moredetails-confirm-status">
+                            <span class="recall-spn-moredetails-confirm-status"></span>
                         </div>
 
                     </div>
-                    <div class="modelcontent">
 
-                        <div class="modaldatetime">
-                            <div class="modaldatetime-time">
-                                <span class="recall-serviceTime"></span><br>
-                                <span class="recall-duration"></span>
-                            </div>
-                            <div class="modaldatetime-date">
+                </div>
+                <div class="modelcontent">
 
-                                <span class="recall-month-day"></span><br>
-                                <span class="recall-year"></span>
-                            </div>
+                    <div class="modaldatetime">
+                        <div class="modaldatetime-time">
+                            <span class="recall-serviceTime"></span><br>
+                            <span class="recall-duration"></span>
                         </div>
+                        <div class="modaldatetime-date">
 
-                        <div class="Reservationnote">
-                            <div class="Reservationnote-name">
-                                <span>Reason</span>
-                            </div>
-                            <div class="Reservationnote-note editable" contenteditable="true">
-
-                                <textarea class="recall-reason" name="recallReason" value="">reason</textarea>
-                            </div>
-                            <span class="error"> error</span>
-
+                            <span class="recall-month-day"></span><br>
+                            <span class="recall-year"></span>
                         </div>
-                        <div class="savechange">
-                            <input type="text" name="selectedReservation" class="selectedReservation">
+                    </div>
 
+                    <div class="Reservationnote">
+                        <div class="Reservationnote-name">
+                            <span></span>
                         </div>
+                        <div class="Reservationnote-note editable" contenteditable="true">
 
-
-                        <div class="modalbutton-more">
-                            <div class="more-details-modalbtnsection">
-                                <button class="btn btnClose new">Back</button>
-
-                                <button class="btnOpen new proceedBtn" value="sendRecall">Proceed</button>
-
-
-
-
-                            </div>
+                            <textarea class="recall-reason" name="recallReason" value=""></textarea>
                         </div>
+                        <span class="recall error"> </span>
 
                     </div>
-                    <input type="text" name="selectedReservation" class="selectedReservation">
-                </form>
+                    <div class="savechange">
+                        <input type="text" name="selectedReservation" class="selectedReservation">
+
+                    </div>
+
+
+                    <div class="modalbutton-more">
+                        <div class="more-details-modalbtnsection">
+                            <!-- <button class="btn  backBtn btnResMoreInfo" ">Back</button> -->
+                            <button class="btn btnBack normal" value="close">Back</button>
+
+                            <button class="btnOpen recall  proceedBtn btn btn-filled " value="sendRecall">Proceed</button>
+
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <input type="text" name="selectedReservation" class="selectedReservation">
+
 
             </div>
 
