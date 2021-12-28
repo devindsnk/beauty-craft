@@ -90,8 +90,17 @@
                         <td data-lable="Reason" class="column-center-align"><?php echo $managerLeaveDetails->reason; ?></td>
                         <td class="column-center-align">
                            <span>
-                              <a href="#"><i data-columns1="<?php echo $managerLeaveDetails->leaveDate; ?>"  class="ci-edit btnEditTakenLeave table-icon img-gap editMangLeave"></i></a>
-                              <a href="#"><i data-columns3="<?php echo $managerLeaveDetails->leaveDate; ?>" class="ci-trash btnDeleteTakenLeave table-icon img-gap deleteMangLeave"></i></a>
+                              <?php 
+                                 date_default_timezone_set("Asia/Colombo");
+                                 $today = date('Y-m-d');
+                              ?>
+                              <?php if ( $managerLeaveDetails->leaveDate > $today): ?>
+                                 <a href="#"><i data-columns1="<?php echo $managerLeaveDetails->leaveDate; ?>"  class="ci-edit btnEditTakenLeave table-icon img-gap editMangLeave"></i></a>
+                                 <a href="#"><i data-columns3="<?php echo $managerLeaveDetails->leaveDate; ?>" class="ci-trash btnDeleteTakenLeave table-icon img-gap deleteMangLeave"></i></a>
+                              <?php else: ?>
+                                 <i class="ci-edit  table-icon img-gap"></i>
+                                 <i class="ci-trash  table-icon img-gap"></i>
+                              <?php endif; ?>
                            </span>
                         </td>
                      </tr>

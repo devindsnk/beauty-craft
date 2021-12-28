@@ -164,7 +164,9 @@ class LeaveModel extends Model
       $ManagerID = Session::getUser("id");
       $results = $this->customQuery("SELECT * 
                                     FROM managerLeaves 
-                                    WHERE staffID = :staffID ORDER BY leaveDate", [':staffID' => $ManagerID]);
+                                    WHERE staffID = :staffID AND leaveDate >= now() OR MONTH(leaveDate) >= MONTH(now())
+                                    ORDER BY leaveDate",
+                                    [':staffID' => $ManagerID]);
 
       return $results;
    }
