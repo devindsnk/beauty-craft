@@ -8,6 +8,14 @@ class Customer extends Controller
       $this->OTPModel = $this->model('OTPManagementModel');
    }
 
+   public function viewAllCustomers()
+   {
+      Session::validateSession([2, 3, 4]);
+      $CusDetails = $this->customerModel->getAllCustomerDetails();
+      $CustomerDataArray = ['customer' => $CusDetails];
+      $this->view('common/allCustomersTable', $CustomerDataArray);
+   }
+
    public function register()
    {
       // If the request is a post
@@ -52,12 +60,13 @@ class Customer extends Controller
                   if ($OTP)
                   {
                      // Send otp
-                     $SMSResponse = sendMobileVerifySMS($data['mobileNo'], $OTP);
+                     $SMSResponse = SMS::sendMobileVerifySMS($data['mobileNo'], $OTP);
 
                      //If OTP sent successfull then store the OTP
                      if ($SMSResponse)
                      {
                         $this->OTPModel->storeOTP($data['mobileNo'], $OTP, 1);
+                        Toast::setToast(1, "Verification OTP sent!", "Check you mobile for the OTP.");
                      }
                      // If sending OTP sending fails
                      else
@@ -117,8 +126,14 @@ class Customer extends Controller
                   $this->userModel->registerUser($data['mobileNo'], $data['password'], 6);
                   $this->customerModel->registerCustomer($data);
                   $this->OTPModel->removeOTP($data['mobileNo'], 1);
-                  sendCustomerRegSMS($data['mobileNo']);
+
+                  //system log
+                  $log = "user registered into the system";
+                  logger($data['mobileNo'], $log);
+                  SMS::sendCustomerRegSMS($data['mobileNo']);
                   $this->userModel->commit();
+
+                  Toast::setToast(1, "Registration Successful!", "You can login to your account now.");
 
                   // Provide success message here
                   header('location: ' . URLROOT . '/user/signin');

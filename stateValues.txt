@@ -43,6 +43,7 @@ Reservations
 2 - Confirmed
 3 - No Show
 4 - Completed
+5 - Recalled
 
 ---------------------------------------
 
@@ -65,3 +66,22 @@ Customer
 ---------------------------------------
 
 
+Recall Requests
+0 - Pending
+1 - Responded
+
+---------------------------------------
+
+Invoices (Not Confirmed Yet)
+0 - Cancelled
+1 - Pending
+2 - Paid
+3 - No Show
+
+---------------------------------------
+
+Leave Types
+1 - General leave
+2 - Medical Leave
+
+---------------------------------------

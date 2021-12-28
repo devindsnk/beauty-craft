@@ -46,19 +46,33 @@ class OwnDashboard extends Controller
       
          if ($_POST['action'] == "addCloseDate")
          {
-         if (empty($data['closeDate']))
-         {
-            $data['closeDate_error'] = "Please select a date";
-         }
-         // else if($date_now > $date_selected)
-         // {
-         //    $data['closeDate_error'] = "Please select a future date";
-         // }
+            if (empty($data['closeDate']))
+            {
+               $data['closeDate_error'] = "Please select a date";
+            }
+            // else if($date_now > $date_selected)
+            // {
+            //    $data['closeDate_error'] = "Please select a future date";
+            // }
 
-         if (empty($data['closeSalonReason']))
-         {
-            $data['closeSalonReason_error'] = "Please select number of resource";
-         }
+            if (empty($data['closeSalonReason']))
+            {
+               $data['closeSalonReason_error'] = "Please select number of resource";
+            }
+            if (
+               empty($data['closeSalonReason_error']) && empty($data['closeDate_error'])
+            )
+            {
+               $this->closedDatesModel->addCloseDate($data);
+               redirect('OwnDashboard/closeSalon');
+            }
+            else
+            {
+               $data['haveErrors'] = 1;
+               // $data['checked'] = 0;
+               $this->view('owner/own_closeSalon', $data);
+            }
+         
          if (
             empty($data['closeSalonReason_error']) && empty($data['closeDate_error'])
          )
@@ -68,16 +82,17 @@ class OwnDashboard extends Controller
          }
          else
       {
+
          $data['haveErrors'] = 1;
          $this->view('owner/own_closeSalon', $data);
       }
         }
+      
          else if ($_POST['action'] == "cancel")
          {
             $data['haveErrors'] = 0;
             $this->view('owner/own_closeSalon', $data);
          }
-
       }
       else
       {
@@ -91,10 +106,10 @@ class OwnDashboard extends Controller
             'closeDates' => $closeDatesDetails,
          ]; 
          // print_r($data['closeDates']); 
-         $this->view('owner/own_closeSalon', $data); 
-         
+         $this->view('owner/own_closeSalon', $data);
       }
    }
+
    public function customers()
    {
       $CusDetails = $this->customerModel->getAllCustomerDetails();
@@ -289,11 +304,6 @@ class OwnDashboard extends Controller
       }
    }
 
-   public function reservations()
-   {
-      $this->view('owner/own_reservations');
-   }
-
    public function resources()
    {
       $resourceDetails = $this->serviceModel->getResourceDetails();
@@ -364,11 +374,11 @@ class OwnDashboard extends Controller
    }
    public function services()
    {
-      $sDetails = $this->serviceModel->getServiceDetails();
-      $GetServicesArray = [
-         'services' => $sDetails
-      ];
-      $this->view('owner/own_services', $GetServicesArray);
+      // $sDetails = $this->serviceModel->getServiceDetails();
+      // $GetServicesArray = [
+      //    'services' => $sDetails
+      // ];
+      // $this->view('owner/own_services', $GetServicesArray);
    }
 
    // public function staff()

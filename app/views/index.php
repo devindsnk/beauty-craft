@@ -13,10 +13,10 @@
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/style.css">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/home.css">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/icons.css">
-   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/homeSanjana.css">
+   <!-- <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/homeSanjana.css">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/homePageFooter.css" />
-   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/homeRuwanthi.css" />
-   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/whychooseUs.css" />
+   <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/homeRuwanthi.css" /> -->
+   <!-- <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/whychooseUs.css" /> -->
 
 </head>
 
@@ -40,7 +40,7 @@
          </div>
 
          <div class="buttons">
-            <?php if (isset($_SESSION['userMobileNo'])) : ?>
+            <?php if (Session::hasLoggedIn()) : ?>
                <div class="profileIcon">
                   <img src="<?php echo URLROOT ?>/public/imgs/stylist-4.jpg" alt="">
                </div>
@@ -65,7 +65,7 @@
          <div>
             <a href="
             <?php
-            if (isset($_SESSION['userType'])) echo URLROOT . "/reservations/newReservationCust";
+            if (Session::hasLoggedIn()) echo URLROOT . "/reservations/newReservationCust";
             else echo URLROOT . "/user/signin" ?>
             " class="btn-landing btnMakeRes"> Make a Reservation </a>
          </div>
@@ -73,7 +73,7 @@
       <div class="profile_menu">
          <ul>
             <li>
-               <?php if ($_SESSION['userType'] == 6) : ?>
+               <?php if (Session::getUser("type") == 6) : ?>
                   <i class="far fa-user"></i>
                   <a href="<?php echo URLROOT ?>/custDashboard/myReservations">My Reservations</a>
                <?php else : ?>
@@ -196,31 +196,18 @@
    <div class="time-section section">
       <h2>Opening Hours</h2>
       <ul>
-         <li>
-            <span>Monday</span><span>9 AM - 8 PM</span>
-         </li>
-         <li>
-            <span>Tuesday</span><span>9 AM - 8 PM</span>
-         </li>
-         <li>
-            <span>Wednesday</span><span>9 AM - 8 PM</span>
-         </li>
-         <li>
-            <span>Thursday</span><span>9 AM - 8 PM</span>
-         </li>
-         <li>
-            <span>Friday</span><span>9 AM - 8 PM</span>
-         </li>
-         <li>
-            <span>Staurday</span><span>9 AM - 8 PM</span>
-         </li>
-         <li>
-            <span>Sunday</span><span>9 AM - 8 PM</span>
-         </li>
+         <li> <span>Monday</span><span>9 AM - 8 PM</span> </li>
+         <li> <span>Tuesday</span><span>9 AM - 8 PM</span> </li>
+         <li> <span>Wednesday</span><span>9 AM - 8 PM</span> </li>
+         <li> <span>Thursday</span><span>9 AM - 8 PM</span> </li>
+         <li> <span>Friday</span><span>9 AM - 8 PM</span> </li>
+         <li> <span>Staurday</span><span>9 AM - 8 PM</span> </li>
+         <li> <span>Sunday</span><span>9 AM - 8 PM</span> </li>
       </ul>
    </div>
 </footer>
+
 <script src="<?php echo URLROOT ?>/public/js/jquery-3.6.0.min.js"></script>
-<!-- <script src="<?php echo URLROOT ?>/public/js/home.js"></script> -->
+<script src="<?php echo URLROOT ?>/public/js/home.js"></script>
 
 </html>

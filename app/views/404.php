@@ -17,7 +17,7 @@
       <div class="inner-container">
          <h1>Oops!</h1>
          <h3>404 - PAGE NOT FOUND!</h3>
-         <a href="<?php echo URLROOT ?>" class="btn btn-filled btn-theme-purple">Go Back</a>
+         <button class="btn btn-filled btn-theme-purple" onclick="history.back()">Go Back</button>
       </div>
 
    </div>

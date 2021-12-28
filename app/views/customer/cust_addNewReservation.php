@@ -1,10 +1,10 @@
 <?php require APPROOT . "/views/customer/cust_headerBar.php"; ?>
 <!-- Configure this using session variables later -->
-<?php $userID = $_SESSION['userID']; ?>
+<?php $userID = Session::getUser("id"); ?>
 
 <div class="content cust new-res">
    <div class="main-container">
-      <input type="button" value="Go back!" class="btn btn-filled btn-black goBackBtn" onclick="history.back()">
+      <button class="btn btn-filled btn-black goBackBtn" onclick="history.back()">Go back!</button>
       <h1>New Reservation</h1>
 
       <form action="<?php echo URLROOT; ?>/reservations/newReservationCust" method="post" class="form">
@@ -14,6 +14,8 @@
             <span class="error date-error">
                <!-- <?php echo $data['date_error']; ?> -->
             </span>
+            <span class="info-line">*A reservation can be placed upto maximum of two months ahead. </span>
+
          </div>
          <div class="contentBox service-container">
             <div class="top-container">
@@ -21,13 +23,19 @@
                   <div class="column"> -->
                <div class="dropdown-group left-box start-time">
                   <label class="label" for="lName">Start Time</label>
-                  <select name="startTime" id="">
+                  <select name="startTime" class="startTimeSelect">
                      <option value="" selected disabled>Select</option>
                      <?php for ($i = 9; $i <= 18; $i += 1) : ?>
                         <?php for ($j = 0; $j <= 50; $j += 10) : ?>
-                           <option value="<?php echo $i * 60 + $j; ?>" class=font-numeric <?php if ($data['startTime'] == $i * 60 + $j) echo "selected"; ?>>
-                              <?php echo str_pad($i, 2, "0", STR_PAD_LEFT) . ' : ' . str_pad($j, 2, "0", STR_PAD_LEFT); ?>
-
+                           <option value="<?php echo $i * 60 + $j; ?>" class="font-numeric" <?php if ($data['startTime'] == $i * 60 + $j) echo " selected"; ?>>
+                              <?php
+                              if ($i < 12)
+                                 echo str_pad($i, 2, "0", STR_PAD_LEFT) . ' : ' . str_pad($j, 2, "0", STR_PAD_LEFT) . " AM";
+                              else if ($i == 12)
+                                 echo str_pad($i, 2, "0", STR_PAD_LEFT) . ' : ' . str_pad($j, 2, "0", STR_PAD_LEFT) . " PM";
+                              else
+                                 echo str_pad($i - 12, 2, "0", STR_PAD_LEFT) . ' : ' . str_pad($j, 2, "0", STR_PAD_LEFT) . " PM";
+                              ?>
                            </option>
                         <?php endfor; ?>
                      <?php endfor; ?>
@@ -98,7 +106,7 @@
             <div class="column">
                <div class="text-group">
                   <label class="label" for="fName">Customer</label>
-                  <input type="text" name="customerID" id="fName" value="<?php echo $_SESSION['userID']; ?>">
+                  <input type="text" name="customerID" id="fName" value="<?php echo Session::getUser("id"); ?>">
                </div>
             </div>
          </div> -->

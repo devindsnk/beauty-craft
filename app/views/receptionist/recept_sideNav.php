@@ -63,7 +63,7 @@
 
          <!--Sidebar Item-->
          <li class="mainOption menuOption">
-            <a class="optionLink <?php if ($selectedMain == "Services") echo " selected" ?>" href="<?php echo URLROOT ?>/ReceptDashboard/services">
+            <a class="optionLink <?php if ($selectedMain == "Services") echo " selected" ?>" href="<?php echo URLROOT ?>/Services/viewAllServices">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-elements "></i>
                </div>
@@ -74,7 +74,7 @@
 
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Customers") echo " selected" ?>" href="<?php echo URLROOT ?>/ReceptDashboard/customers">
+            <a class="optionLink <?php if ($selectedMain == "Customers") echo " selected" ?>" href="<?php echo URLROOT ?>/Customer/viewAllCustomers">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-people"></i>
                </div>

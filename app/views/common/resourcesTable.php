@@ -1,4 +1,4 @@
-<?php if ($userType == "Owner") : ?>
+<?php if (Session::getUser("typeText") == "Owner") : ?>
    <div class="page-top-main-container">
       <a href="<?php echo URLROOT ?>/resources/addResource" class="btn btn-filled btn-theme-purple btn-main btnAddResource">Add New</a>
    </div>

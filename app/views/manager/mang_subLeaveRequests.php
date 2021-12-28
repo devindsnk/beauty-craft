@@ -87,9 +87,9 @@
                            <td data-lable="Leave Date" class="column-center-align"><?php echo $leaveDetails->leaveDate; ?></td>
                            <td data-lable="Leave Type" class="column-center-align"><?php echo $leaveDetails->leaveType; ?></td>
                            <td data-lable="Responded Staff ID" class="column-center-align">
-                              <?php if(empty($leaveDetails->respondedStaffID)): ?>
-                                 - 
-                              <?php else: ?>
+                              <?php if (empty($leaveDetails->respondedStaffID)) : ?>
+                                 -
+                              <?php else : ?>
                                  <?php echo $leaveDetails->respondedStaffID; ?>
                               <?php endif; ?>
                            </td>
@@ -97,11 +97,11 @@
                            <td data-lable="Reason" class="column-center-align"><?php echo $leaveDetails->reason; ?></td>
                            <td data-lable="Status" class="column-center-align">
                               <?php if ($leaveDetails->status == 0) : ?>
-                                 <button type="button" class="table-btn red-status-btn text-uppercase">Rejected</button>
+                                 <button type="button" class="status-btn red text-uppercase">Rejected</button>
                               <?php elseif ($leaveDetails->status == 1) : ?>
-                                 <button type="button" class="table-btn green-status-btn text-uppercase">Approved</button>
+                                 <button type="button" class="status-btn green text-uppercase">Approved</button>
                               <?php elseif ($leaveDetails->status == 2) : ?>
-                                 <button type="button" class="table-btn yellow-status-btn text-uppercase">Pending</button>
+                                 <button type="button" class="status-btn yellow text-uppercase">Pending</button>
                               <?php endif; ?>
                            </td>
                            <td class="column-center-align">

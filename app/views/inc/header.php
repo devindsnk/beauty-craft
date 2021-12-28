@@ -1,3 +1,9 @@
+<?php
+$username = Session::getUser("name");
+$userTypeNo = Session::getUser("type");
+$userTypeText = Session::getUser("typeText");
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -41,19 +47,5 @@
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/leaves.css">
 </head>
 
-<?php
-switch ($_SESSION['userType'])
-{
-   case 1:
-      $username = "Pasindu Munasinghe";
-      break;
-   case 2:
-      $username = "Ravindu Madhubhashana";
-      break;
-   default:
-      $username = $_SESSION['username'];
-      break;
-}
-$userType = ["System Admin", "Owner", "Manager", "Receptionist", "Service Provider", "Customer"][$_SESSION['userType'] - 1];
-$userTypeNo = $_SESSION['userType'];
-?>
+
+<!-- TODO: Remove hard coded usernames  -->

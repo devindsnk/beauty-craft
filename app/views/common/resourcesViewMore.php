@@ -9,15 +9,9 @@
       </div>
       <div class="header-right verticalCenter">
          <!-- you have to specify the user roll ?????????????????????????????????????????????????????????????????????????? -->
-
-
-         <a href="
-         <?php
-         echo URLROOT;
-         if ($userTypeNo == 2) echo "/OwnDashboard/resources";
-         elseif ($userTypeNo == 3) echo "/MangDashboard/resources";
-         elseif ($userTypeNo == 4) echo "/ReceptDashboard/resources";
-         ?>" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
+         <span class="top-right-closeBtn" onclick="history.back()">
+            <i class=" fal fa-times fa-2x "></i>
+         </span>
 
       </div>
    </header>
@@ -35,27 +29,17 @@
                   <label class="label" for="fName">Manifacturer</label>
                   <input type="text" name="" id="fName" placeholder="Resource name here">
                </div>
-               <span class="error"> <?php echo " "; ?></span>
             </div>
-            <div class="column">
-               <div class="text-group">
-                  <label class="label" for="fName">Purchase ID</label>
-                  <input type="text" name="" id="fName" placeholder="Resource ID here">
-               </div>
-               <span class="error"> <?php echo " "; ?></span>
+            <div class="right-section">
+               <a href="" class="btn btn-filled btn-black">Search</a>
+               <!-- <button class="btn btn-search">Search</button> -->
             </div>
          </div>
-      </div>
-      <div class="right-section">
-         <a href="" class="btn btn-filled btn-black">Search</a>
-         <!-- <button class="btn btn-search">Search</button> -->
-      </div>
-   </div>
-</form>
+      </form>
 
-<div class="table-container">
-   <div class="table2 table2-responsive">
-      <table class="table2-hover">
+      <div class="table-container">
+         <div class="table2 table2-responsive">
+            <table class="table2-hover">
 
          <thead>
             <tr>
@@ -92,8 +76,10 @@
             </tr>
             <?php endforeach; ?>
 
-         </tbody>
-      </table>
+               </tbody>
+            </table>
+         </div>
+      </div>
    </div>
 </div>
 </div>
@@ -120,3 +106,4 @@
 <script src="<?php echo URLROOT ?>/public/js/fetchRequests/removeResource.js"></script>
 
 
+   <?php require APPROOT . "/views/inc/footer.php" ?>

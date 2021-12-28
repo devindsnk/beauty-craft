@@ -29,7 +29,8 @@ class ReceptDashboard extends Controller
    public function recallRequests()
    {
       // Session::validateSession([4]);
-      $this->view('receptionist/recept_recallRequests');
+      $results = $this->reservationModel->getAllPendingRecallRequests();
+      $this->view('receptionist/recept_recallRequests', $results);
    }
    public function sales()
    {
@@ -39,12 +40,9 @@ class ReceptDashboard extends Controller
    public function services()
    {
       // Session::validateSession([4]);
-      $sDetails = $this->serviceModel->getServiceDetails();
+      // $sDetails = $this->serviceModel->getServiceDetails();
 
-      $GetServicesArray = [
-         'services' => $sDetails
-      ];
-      $this->view('receptionist/recept_services', $GetServicesArray);
+      // $this->view('receptionist/recept_services', $sDetails);
    }
    public function customers()
    {

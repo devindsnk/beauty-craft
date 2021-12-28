@@ -14,8 +14,8 @@ class OTPManagementModel extends Model
       // OTP generated already
       if ($result)
       {
-         $timeDiff = getTimeDiff($result->timestamp);
-         var_dump($timeDiff);
+         $timeDiff = DateTimeExtended::getTimeDiff($result->timestamp);
+         // var_dump($timeDiff);
 
          if ($timeDiff[0] > 5 || $timeDiff[0] == 5 && $timeDiff[1] > 0)
             $timeout = true;
@@ -47,7 +47,7 @@ class OTPManagementModel extends Model
    // Remember to dehash when verifying 
    public function storeOTP($mobileNo, $OTP, $type)
    {
-      $timestamp = getCurrentTimeStamp();
+      $timestamp = DateTimeExtended::getCurrentTimeStamp();
 
       // Updates the OTp if key already exists
       $SQLquery = "

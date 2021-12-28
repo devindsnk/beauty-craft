@@ -20,12 +20,12 @@
       </div>
 
       <?php
-// Set the new timezone
-// date_default_timezone_set('Asia/Kolkata');
-$date = date('y/m/d');
-$currenttime= strtotime($date);
-echo $currenttime;
-?>
+      // Set the new timezone
+      // date_default_timezone_set('Asia/Kolkata');
+      $date = date('y/m/d');
+      $currenttime = strtotime($date);
+      echo $currenttime;
+      ?>
 
       <form class="form filter-options" action="">
          <div class="options-container">
@@ -57,7 +57,7 @@ echo $currenttime;
                      <th class="col-7"></th>
                   </tr>
                </thead>
-              
+
                <tbody>
                <?php foreach ($data['closeDates'] as $closeSalonD) : ?>
                   <tr>
@@ -65,7 +65,7 @@ echo $currenttime;
                      <td class="column-left-align"><?php echo $closeSalonD->note; ?></td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <?php if ($userType == "Owner") : ?>
+                        <?php if (Session::getUser("userText") == "Owner") : ?>
                            <a href="#"><i data-closedateid = "<?php echo $closeSalonD->defKey; ?>" class="ci-trash table-icon btnRemoveCloseDate removeCloseDatetrash"></i></a>
                            <?php endif; ?>
                         </span>
@@ -104,12 +104,12 @@ echo $currenttime;
       <!------------------------------------------------- Modal starts ----------------------------------------------------->
       <div class="modal-container add-closeDate  <?php if ($data['haveErrors']) echo ' show'; ?>">
          <div class="modal-box addItems">
-         <form action="<?php echo URLROOT; ?>/OwnDashboard/closeSalon/ " method="post">
-            <h1 class="addItemsModalHead">Close Salon</h1>
-            <!-- start main grid 1 -->
+            <form action="<?php echo URLROOT; ?>/OwnDashboard/closeSalon/ " method="post">
+               <h1 class="addItemsModalHead">Close Salon</h1>
+               <!-- start main grid 1 -->
 
-            <div class="addItemsModalGrid1">
-              
+               <div class="addItemsModalGrid1">
+
                   <div class="addItemsModalDetail1">
                      <label class="addItemsModalLable">Date</label> <br> 
                      <input type="date" class="addItemsModalDate closeDate" name="closeDate"
@@ -118,8 +118,7 @@ echo $currenttime;
                   </div>
                   <div class="addItemsModalDetail2">
                      <label class="addItemsModalLable">Reason</label>
-                     <textarea class="addItemsModalTextArea" rows="4" cols="50" placeholder="Type the reason here"
-                        name="closeSalonReason" value="<?php echo $data['closeSalonReason']; ?>"> </textarea> <br>
+                     <textarea class="addItemsModalTextArea" rows="4" cols="50" placeholder="Type the reason here" name="closeSalonReason" value="<?php echo $data['closeSalonReason']; ?>"> </textarea> <br>
                      <span class="error"><?php echo $data['closeSalonReason_error']; ?></span>
                   </div>
             </div>
@@ -149,12 +148,14 @@ echo $currenttime;
                <div class="addItemsModalbtn2">
                <button class="btn ModalGreenButton ModalButton"  name="action" value= "addCloseDate" >Proceed</button>
 
-               <!-- <?php if ( $data['checked']== 1 && $data['reservationCount']>0 ) echo '<button class="btn ModalGreenButton ModalButton"  name="action" value= "addCloseDateWithRecall" >Proceed</button>'; ?> -->
-                 
+                     <?php if ($data['checked'] == 1 && $data['reservationCount'] > 0) echo '<button class="btn ModalGreenButton ModalButton"  name="action" value= "addCloseDate" >Proceed</button>'; ?>
+
+                     <!-- <?php if ($data['checked'] == 1 && $data['reservationCount'] > 0) echo '<button class="btn ModalGreenButton ModalButton"  name="action" value= "addCloseDateWithRecall" >Proceed</button>'; ?> -->
+
+                  </div>
                </div>
-            </div>
-            
-            <!-- main grid 3 ends -->
+
+               <!-- main grid 3 ends -->
             </form>
          </div>
       </div>

@@ -143,17 +143,17 @@
                   <td data-lable="Status" class="column-center-align">
                      <!-- Staff memeber states >> Removed = 0 Active =1 Disabled =2 -->
                      <?php if ($staffD->status == 0) : ?>
-                        <button type="button" class="table-btn red-status-btn text-uppercase "> Removed </button>
+                        <button type="button" class="status-btn red text-uppercase "> Removed </button>
                      <?php elseif ($staffD->status == 1) : ?>
-                        <button type="button" class="table-btn green-status-btn text-uppercase"> Active </button>
+                        <button type="button" class="status-btn green text-uppercase"> Active </button>
                      <?php elseif ($staffD->status == 2) : ?>
-                        <button type="button" class="table-btn yellow-status-btn text-uppercase "> Disabled </button>
+                        <button type="button" class="status-btn yellow text-uppercase "> Disabled </button>
                      <?php endif; ?>
                   </td>
                   <td class="column-center-align">
                      <span>
                         <a href="<?php echo URLROOT ?>/staff/viewStaff/<?php echo $staffD->staffID ?>"><i class="ci ci-view-more table-icon img-gap"></i></a>
-                        <?php if ($userType == "Owner" && $staffD->status != 0 ) : ?>
+                        <?php if (Session::getUser('typeText') == "Owner" && $staffD->status != 0 ) : ?>
                            <a href="<?php echo URLROOT ?>/staff/updateStaff/<?php echo $staffD->staffID ?>"><i class="ci ci-edit table-icon img-gap"></i></a>
                            <a href="#" class="removeStaffAnchor"><i data-staffid = "<?php echo $staffD->staffID; ?>" data-staffstatus= "<?php echo $staffD->status; ?>" data-staffname = "<?php echo $staffD->fName; ?> <?php echo $staffD->lName; ?>" 
                            data-stafftype =

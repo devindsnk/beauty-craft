@@ -1,13 +1,6 @@
 <?php
 class StaffModel extends Model
 {
-   // private $db;
-
-   // public function __construct()
-   // {
-   //    $this->db = new Database;
-   // }
-
    public function addStaff($data)
    {
       $this->addStaffDetails($data);
@@ -16,7 +9,7 @@ class StaffModel extends Model
    // add staff details to the db
    public function addStaffDetails($data)
    {
-      $results =  $this->insert('staff', ['fName' => $data['staffFname'], 'lName' => $data['staffLname'], 'staffType' => $data['staffType'], 'mobileNo' => $data['staffMobileNo'], 'gender' => $data['gender'], 'nic' => $data['staffNIC'], 'address' => $data['staffHomeAdd'], 'email' => $data['staffEmail'], 'dob' => $data['staffDOB'],'imgPath' =>  $data['staffimagePath']]);
+      $results =  $this->insert('staff', ['fName' => $data['staffFname'], 'lName' => $data['staffLname'], 'staffType' => $data['staffType'], 'mobileNo' => $data['staffMobileNo'], 'gender' => $data['gender'], 'nic' => $data['staffNIC'], 'address' => $data['staffHomeAdd'], 'email' => $data['staffEmail'], 'dob' => $data['staffDOB'], 'imgPath' =>  $data['staffimagePath']]);
       var_dump($results);
    }
 
@@ -55,7 +48,7 @@ class StaffModel extends Model
             ':staffID' => $staffID
          ]
       );
-      var_dump($result);
+      // var_dump($result);
       return $result;
    }
 
@@ -113,7 +106,7 @@ class StaffModel extends Model
    {
       $results = $this->getSingle("staff", "*", ['mobileNo' => $mobileNo]);
 
-      var_dump($results);
+      // var_dump($results);
       // $this->db->query("SELECT * FROM staff WHERE mobileNo =  :mobileNo ");
       // $this->db->bind(':mobileNo', $mobileNo);
       // $result = $this->db->single();
@@ -126,6 +119,20 @@ class StaffModel extends Model
    public function getReservtaionCountByStaffID($staffID)
    {
       $results = $this->getRowCount('reservations',['staffID'=> $staffID, 'status'=> 1]);  
+
+      return $results;
+   }
+   public function getServiceslistByStaffID($staffID)
+    
+   {
+      $results = $this->customQuery(
+         "SELECT services.type,services.name
+         FROM services
+         INNER JOIN serviceproviders 
+         ON serviceproviders.serviceID =services.serviceID
+         WHERE serviceproviders.staffID =:staffID",
+         [':staffID' => $staffID]
+      );
       return $results;
    }
 
@@ -139,7 +146,6 @@ class StaffModel extends Model
 
    public function getManagerCount()
    {
-
       $results = $this->getRowCount('staff', ['staffType' => 3, 'status' => 1]);
 
       return $results;
@@ -147,4 +153,35 @@ class StaffModel extends Model
    // FOR MANAGER OVERVIEW
 
 
+
+   ///// Methods added by devin ////
+
+   // Returns the data of service providers of a given service with their availability on the give date.
+   public function getSProvidersByServiceWithLeaveStatus($serviceID, $selectedDate)
+   {
+      $SQLstatement =
+         "SELECT STAFF.staffID, STAFF.fName, STAFF.lName, GLEAVES.status AS leaveStatus
+         FROM serviceproviders AS SP
+         INNER JOIN staff AS STAFF 
+         ON STAFF.staffID = SP.staffID AND STAFF.status = 1 
+         LEFT JOIN generalleaves AS GLEAVES 
+         ON GLEAVES.staffID = SP.staffID AND GLEAVES.leaveDate = :selectedDate AND GLEAVES.status IN (1,2)
+         WHERE SP.serviceID = :serviceID;";
+
+      $results = $this->customQuery(
+         $SQLstatement,
+         [
+            ":selectedDate" => $selectedDate,
+            ":serviceID" => $serviceID
+         ]
+      );
+      return $results;
+   }
+
+
+
+
+
+
+   /////////////////////////////////
 }

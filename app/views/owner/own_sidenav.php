@@ -38,7 +38,7 @@
          <!--End Sidebar Item-->
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Services") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/services">
+            <a class="optionLink <?php if ($selectedMain == "Services") echo " selected" ?>" href="<?php echo URLROOT ?>/Services/viewAllServices">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-elements "></i>
                </div>
@@ -58,7 +58,7 @@
          <!--End Sidebar Item-->
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/reservations">
+            <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="<?php echo URLROOT ?>/Reservations/viewAllReservations">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-tasks"></i>
                </div>
@@ -68,7 +68,7 @@
          <!--End Sidebar Item-->
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Customers") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/customers">
+            <a class="optionLink <?php if ($selectedMain == "Customers") echo " selected" ?>" href="<?php echo URLROOT ?>/Customer/viewAllCustomers">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-people"></i>
                </div>

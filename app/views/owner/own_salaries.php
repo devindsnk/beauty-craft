@@ -66,7 +66,7 @@
       <!--Content-->
       <div class="table-container">
          <div class="table1 table1-responsive">
-            <table class="table1-hover" >
+            <table class="table1-hover">
                <!--Table head-->
                <thead>
                   <tr>
@@ -88,7 +88,7 @@
 
                   <!--Table row-->
                   <tr>
-                     <td data-lable="" class ="column-center-align">
+                     <td data-lable="" class="column-center-align">
                         <input type="checkbox" class="" name="chk" />
                      </td>
                      <!-- <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person2.jpg" /></td> -->
@@ -97,7 +97,7 @@
                      <td data-lable="Staff Type">Manager</td>
                      <td data-lable="Salary" class="column-right-align">Rs.25195.00</td>
                      <td data-lable="Paid Status" class="column-center-align">
-                        <button type="button" class="table-btn green-status-btn text-uppercase">Paid</button>
+                        <button type="button" class="status-btn green text-uppercase">Paid</button>
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
@@ -123,7 +123,7 @@
                      <td data-lable="Staff Type">Owner</td>
                      <td data-lable="Salary" class="column-right-align">Rs.25000.00</td>
                      <td data-lable="Paid Status" class="column-center-align">
-                        <a href="#"><button type="button" class="table-btn green-status-btn text-uppercase">Paid</button></a>
+                        <a href="#"><button type="button" class="status-btn green text-uppercase">Paid</button></a>
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
@@ -148,7 +148,7 @@
                      <td data-lable="Staff Type">Service Provider</td>
                      <td data-lable="Salary" class="column-right-align">Rs.124000.00</td>
                      <td data-lable="Paid Status" class="column-center-align">
-                        <a href="#"><button type="button" class="table-btn red-status-btn text-uppercase">Not
+                        <a href="#"><button type="button" class="status-btn red text-uppercase">Not
                               Paid</button></a>
                      </td>
                      <td data-lable="Action" class="column-center-align">
@@ -174,7 +174,7 @@
                      <td data-lable="Staff Type">Receptionist</td>
                      <td data-lable="Salary" class="column-right-align">Rs.25000.00</td>
                      <td data-lable="Paid Status" class="column-center-align">
-                        <a href="#"><button type="button" class="table-btn green-status-btn text-uppercase">Paid</button></a>
+                        <a href="#"><button type="button" class="status-btn green text-uppercase">Paid</button></a>
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
@@ -199,7 +199,7 @@
                      <td data-lable="Staff Type">Service Provider</td>
                      <td data-lable="Salary" class="column-right-align">Rs.124000.00</td>
                      <td data-lable="Paid Status" class="column-center-align">
-                        <a href="#"><button type="button" class="table-btn red-status-btn text-uppercase">Not
+                        <a href="#"><button type="button" class="status-btn red text-uppercase">Not
                               Paid</button></a>
                      </td>
                      <td data-lable="Action" class="column-center-align">
@@ -224,7 +224,7 @@
                      <td data-lable="Staff Type">Receptionist</td>
                      <td data-lable="Salary" class="column-right-align">Rs.25000.00</td>
                      <td data-lable="Paid Status" class="column-center-align">
-                        <a href="#"><button type="button" class="table-btn green-status-btn text-uppercase btnRemoveService">Paid</button></a>
+                        <a href="#"><button type="button" class="status-btn green text-uppercase btnRemoveService">Paid</button></a>
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>

@@ -37,7 +37,7 @@
 
 .admin .reg-container {
     height: 700px;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 
 .reg-container.form-container.contentBox input {
@@ -65,7 +65,7 @@
 
 .content.admin .reg-container {
     width: 650px;
-    padding-top: 50px;
+    padding-top: 55px;
 }
 
 @media (max-width: 768px) {
