@@ -1102,8 +1102,8 @@ font-weight: 600;
     color: #037AFF;
     font-size: 14px;
     font-weight: 600;
-    cursor: pointer;
-    text-decoration: underline;
+    /* cursor: pointer;
+    text-decoration: underline; */
 }
 
 .own.Remstaff .remStaffError {

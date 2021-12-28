@@ -184,10 +184,11 @@ class Customer extends Controller
 
    public function cusDetailView($cusID)
    {
+
       $customerDetails = $this->customerModel->getCustomerDetailsByCusID($cusID);
-      $CompletedReservationCount = $this->customerModel->getCompletedReservationCountByCusID($cusID);
+      $AllReservationCount = $this->customerModel->getAllReservationCountByCusID($cusID);
       $CancelledReservationCount = $this->customerModel->getCancelledReservationCountByCusID($cusID);
-      $ViewCustomerArray = ['cusDetails' => $customerDetails, 'completedResCount' => $CompletedReservationCount, 'cancelledResCount' => $CancelledReservationCount];
+      $ViewCustomerArray = ['cusDetails' => $customerDetails, 'allResCount' => $AllReservationCount, 'cancelledResCount' => $CancelledReservationCount];
 
       $this->view('common/customerView', $ViewCustomerArray);
    }

@@ -4,7 +4,7 @@
    <?php
    $selectedMain = "Staff Members";
    $selectedSub = "";
-   // require APPROOT . "/views/owner/own_sidenav.php";
+   require APPROOT . "/views/owner/own_sidenav.php";
    // switch (Session::getUser("type"))
    // {
    //    case "1" :

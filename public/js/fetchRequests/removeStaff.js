@@ -63,7 +63,7 @@ function checkforUpcomingReservations(staffID){
          checkbox.addEventListener('click', function() {
             if (this.checked) {
         // Link creation to remove staff member with recall request (after tick the checked box) reservation count greater than zero
-              RemoveStaffBtnAnchorTag.href = "http://localhost:80/beauty-craft/Staff/RemoveStaffwithRecall/" + staffID;
+              RemoveStaffBtnAnchorTag.href = "http://localhost:80/beauty-craft/Staff/RemoveStaffWithRecall/" + staffID;
             } else {
         // Link creation to remove staff member without recall request (after untick the checked box) reservation count greater than zero
              RemoveStaffBtnAnchorTag.href = "http://localhost:80/beauty-craft/Staff/RemoveStaff/" + staffID;
