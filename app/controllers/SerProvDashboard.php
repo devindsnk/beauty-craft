@@ -292,7 +292,7 @@
       $reservationData = $this->reservationModel->getReservationsByStaffIDandDate($_SESSION['userID'], $date);
       header('Content-Type: application/json; charset=utf-8');
       print_r($reservationData);
-      die();
+
       print_r(json_encode($reservationData));
    }
 
@@ -302,5 +302,27 @@
       header('Content-Type: application/json; charset=utf-8');
       echo (json_encode($reservationData[0]));
       exit;
+   }
+
+
+   public function updateCustNote($selectedReservation, $note)
+   {
+      // $note = urldecode($note);
+      // var_dump($note);
+      $reservationData = $this->reservationModel->updateCustomerNote($selectedReservation, $note);
+      header('Content-Type: application/json; charset=utf-8');
+      // $select = $note;
+      // 
+      echo (json_encode($reservationData));
+      // exit;
+   }
+
+   public function getReservationRecallDetailsByID($selectedReservation)
+   {
+      $recallData = $this->reservationModel->getReservationRecallDetailsByID($selectedReservation);
+      header('Content-Type: application/json; charset=utf-8');
+
+
+      print_r(json_encode($recallData));
    }
 }

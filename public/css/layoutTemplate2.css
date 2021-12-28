@@ -27,9 +27,9 @@
 
 .layout-template-2 .header-center {
    justify-content: center;
-   /* width: auto; */
    width: calc(100vw - 80px);
-   padding-left: 70px;
+   padding: 10px 5px 0px;
+   padding-left: 85px;
    /* background-color: coral; */
 }
 

@@ -101,11 +101,11 @@
                   <td data-lable="Status" class="column-center-align">
                      <!-- Staff memeber states >> Removed = 0 Active =1 Disabled =2 -->
                      <?php if ($staffD->status == 0) : ?>
-                        <button type="button" class="table-btn red-status-btn text-uppercase "> Removed </button>
+                        <button type="button" class="status-btn red text-uppercase "> Removed </button>
                      <?php elseif ($staffD->status == 1) : ?>
-                        <button type="button" class="table-btn green-status-btn text-uppercase"> Active </button>
+                        <button type="button" class="status-btn green text-uppercase"> Active </button>
                      <?php elseif ($staffD->status == 2) : ?>
-                        <button type="button" class="table-btn yellow-status-btn text-uppercase "> Disabled </button>
+                        <button type="button" class="status-btn yellow text-uppercase "> Disabled </button>
                      <?php endif; ?>
                   </td>
                   <td class="column-center-align">

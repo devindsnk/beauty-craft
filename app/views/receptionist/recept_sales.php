@@ -73,7 +73,7 @@
                      <td data-lable="Type" class="column-center-align">Payment</td>
                      <td data-lable="Date" class="column-center-align">2021-10-14</td>
                      <td data-lable="Status" class="column-center-align">
-                        <button type="button" class="table-btn green-status-btn text-uppercase">Paid</button>
+                        <button type="button" class="status-btn green text-uppercase">Paid</button>
                      </td>
                      <td class="column-center-align">
                         <span>
@@ -91,7 +91,7 @@
                      <td data-lable="Type" class="column-center-align">Payment</td>
                      <td data-lable="Date" class="column-center-align">2021-06-21</td>
                      <td data-lable="Status" class="column-center-align">
-                        <button type="button" class="table-btn green-status-btn text-uppercase">Paid</button>
+                        <button type="button" class="status-btn green text-uppercase">Paid</button>
                      </td>
                      <td class="column-center-align">
                         <span>
@@ -109,7 +109,7 @@
                      <td data-lable="Type" class="column-center-align">Payment</td>
                      <td data-lable="Date" class="column-center-align">2021-08-24</td>
                      <td data-lable="Status" class="column-center-align">
-                        <button type="button" class="table-btn red-status-btn text-uppercase">Cancelled</button>
+                        <button type="button" class="status-btn red text-uppercase">Cancelled</button>
                      </td>
                      <td class="column-center-align">
                         <span>

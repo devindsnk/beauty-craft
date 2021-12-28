@@ -115,8 +115,8 @@
                <tbody>
                   <?php foreach ($data['reservationsList'] as $reservation) : ?>
                      <?php
-                     $statusClassList = ["red-status-btn", "yellow-status-btn", "blue-status-btn", "grey-status-btn", "green-status-btn"];
-                     $statusValueList  = ["Cancelled", "Pending", "Confirmed", "No Show", "Completed"];
+                     $statusClassList = ["red", "blue", "green", "red", "grey", "yellow"];
+                     $statusValueList  = ["Cancelled", "Pending", "Confirmed", "No Show", "Completed", "Recalled"];
                      $statusClass = $statusClassList[$reservation->status];
                      $statusValue = $statusValueList[$reservation->status];
                      ?>
@@ -130,7 +130,7 @@
                         <td data-lable="Service Provider" class="column-left-align"><?php echo $reservation->staffFName . " " . $reservation->staffLName; ?></td>
                         <td data-lable="Customer" class="column-left-align"><?php echo $reservation->custFName . " " . $reservation->custLName; ?></td>
                         <td data-lable="Status" class="column-center-align">
-                           <button type="button" class="table-btn text-uppercase <?php echo $statusClass; ?> "><?php echo $statusValue ?></button>
+                           <button type="button" class="status-btn text-uppercase <?php echo $statusClass; ?> "><?php echo $statusValue ?></button>
                         </td>
                         <td class="column-center-align">
                            <span>

@@ -7,3 +7,8 @@ IP Add.	    Date & Time	Mobile No		Name		 Activity
 ::1	12/23/21 10:45AM	0703807405	Ruwanthi Munasinghe	user signout from the system
 ::1	12/26/21 08:58AM	0703807405	Ruwanthi Munasinghe	user signout from the system
 ::1	12/27/21 09:51PM	0703807405	Ruwanthi Munasinghe	user signout from the system
+
+::1	12/28/21 03:27AM	0703807405	Ruwanthi Munasinghe	user signout from the system
+::1	12/28/21 03:27AM	0717679714	Devin Dissanayake	user signout from the system
+::1	12/28/21 03:29AM	0717679714	Devin Dissanayake	user signout from the system
+::1	12/28/21 03:47AM	0717679715	Navin Dissanayake	user signout from the system
