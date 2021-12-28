@@ -189,4 +189,27 @@ class Leaves extends Controller
       // echo json_encode($dateValidationMsg);
       // exit;
    }
+
+   public function checkIfDatePossibleForMangLeave($selectedDate)
+   {
+      $dateState = $this->LeaveModel->checkForDateState($selectedDate);
+      $response = "";
+
+      date_default_timezone_set("Asia/Colombo");
+      $today = date('Y-m-d');
+      
+      if($selectedDate <= $today)
+         $dateState = 3;
+
+      if ($dateState == 1)
+         $response = "The date You entered is already exit";
+      elseif( $dateState == 3)
+         $response = "Select a valid date";
+      else
+         $response = "";
+      
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($response));
+   }
+
 }

@@ -40,3 +40,9 @@ IP Add.	    Date & Time	        Mobile No	Name		        Activity
 ::1	12/27/21 12:22AM			user signin to the system
 ::1	12/27/21 09:30AM			user signin to the system
 ::1	12/27/21 09:32AM			user signin to the system
+::1	12/27/21 04:08PM			user signout from the system
+::1	12/27/21 04:14PM			user signin to the system
+::1	12/27/21 04:14PM			user signout from the system
+::1	12/27/21 04:16PM			user signin to the system
+::1	12/28/21 08:27AM			user signin to the system
+::1	12/28/21 08:47AM			user signin to the system

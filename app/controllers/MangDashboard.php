@@ -112,15 +112,177 @@ class MangDashboard extends Controller
    }
    public function takeLeave()
    {
+      // die('ge');
       // Session::validateSession([3]);
       $managerLeaveDetails = $this->leaveModel->getAllManagerLeaves();
 
-      // $GetManagerLeavesArray = [
-      //    'leaves' => $managerLeaveDetails
-      // ];
+      if ($_SERVER['REQUEST_METHOD'] == 'POST')
+      {
+         $data = [
+            'managerLeaveDetails' => $managerLeaveDetails,
+            'date' => trim($_POST['mangDate']),
+            'leavetype' => isset($_POST['mangLeaveType']) ? trim($_POST['mangLeaveType']) : '',
+            'reason' => trim($_POST['mangLeaveReason']),
+            'date_error' => '',
+            // 'date_error2' => $state,
+            'type_error' => '',
+            'reason_error' => '',
+            'dateValidationError' => '',
+            'staffID' => Session::getUser("id"),
+            'haveErrors' => 0,
+            'haveErrors2' => 0,
+            'dateValidationMsg' => ''
 
-      $this->view('manager/mang_subTakeLeave',  $managerLeaveDetails);
+         ];
+         
+
+         if ($_POST['action'] == "addleave")
+         {
+            // print_r($data['date_error2']);
+            // die('mangLeaves');
+
+            $data['date_error'] = emptyCheck($data['date']);
+            $data['reason_error'] = emptyCheck($data['reason']);
+            $data['type_error'] = emptyCheck($data['leavetype']);
+            // print_r($data['reason_error']);
+            // die("dd1");
+            if (empty($data['date_error']) && empty($data['reason_error']) && empty($data['type_error']))
+            {
+               // die(" dd");
+
+               $this->leaveModel->addMangLeave($data);
+               redirect('MangDashboard/takeLeave');
+            }
+            else{
+               // print_r($data['date_error']);
+               // die("dd1");
+
+               $data['haveErrors'] = 1;
+               $this->view('manager/mang_subTakeLeave', $data);
+            }
+
+         }
+         else if ($_POST['action'] == "cancel")
+         {
+            $data['haveErrors'] = 0;
+            redirect('MangDashboard/takeLeave');
+         }
+         else
+         {
+            die("something went wrong");
+         }
+
+      }
+      else
+      {
+         $data = [
+            'managerLeaveDetails' => $managerLeaveDetails,
+            'date' => '',
+            'leavetype' => '',
+            'reason' => '',
+            'date_error' => '',
+            // 'date_error2' => $state,
+            'reason_error' => '',
+            'type_error' => '',
+            'dateValidationError' => '',
+            'staffID' => Session::getUser("id"),
+            'haveErrors' => 0,
+            'haveErrors2' => 0,
+            'dateValidationMsg' => '',
+            'typeValidationMsg' => '',
+
+         ];
+         $this->view('manager/mang_subTakeLeave', $data);
+      }
    }
+   public function getOneMangLeaveDetails($leaveID)
+   {
+      $userID = Session::getUser("id");
+
+      $managerOneLeaveDetails = $this->leaveModel->getOneManagerLeave($leaveID, $userID);
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($managerOneLeaveDetails));
+
+   }
+   public function updateTakenLeave($leaveID)
+   {
+      // Session::validateSession([3]);
+      $userID = Session::getUser("id");
+
+      $managerLeaveDetails = $this->leaveModel->getAllManagerLeaves();
+      
+      if ($_SERVER['REQUEST_METHOD'] == 'POST')
+      {
+         $data = [
+            'managerLeaveDetails' => $managerLeaveDetails,
+            'date' => trim($_POST['mangDate']),
+            'leavetype' => isset($_POST['mangLeaveType2']) ? trim($_POST['mangLeaveType2']) : '',
+            'reason' => trim($_POST['mangLeaveReason']),
+            'date_error' => '',
+            'type_error' => '',
+            'reason_error' => '',
+            'dateValidationError' => '',
+            'staffID' => Session::getUser("id"),
+            'haveErrors2' => 0,
+            'dateValidationMsg' => ''
+
+         ];
+         
+         if ($_POST['action'] == "updateleave")
+         {
+            $data['date_error'] = emptyCheck($data['date']);
+            $data['reason_error'] = emptyCheck($data['reason']);
+            $data['type_error'] = emptyCheck($data['leavetype']);
+            
+            if (empty($data['date_error']) && empty($data['reason_error']) && empty($data['type_error']))
+            {
+               $this->leaveModel->updateMangLeave($data, $userID, $leaveID);
+               redirect('MangDashboard/takeLeave');
+            }
+            else{
+               $data['haveErrors2'] = 1;
+               $this->view('manager/mang_subTakeLeave', $data);
+            }
+         }
+         else if ($_POST['action'] == "cancel")
+         {
+            $data['haveErrors2'] = 0;
+            redirect('MangDashboard/takeLeave');
+         }
+         else
+         {
+            die("something went wrong");
+         }
+      }
+      else
+      {
+         $data = [
+            'managerLeaveDetails' => $managerLeaveDetails,
+            'date' => '',
+            'leavetype' => '',
+            'reason' => '',
+            'date_error' => '',
+            'reason_error' => '',
+            'type_error' => '',
+            'dateValidationError' => '',
+            'staffID' => Session::getUser("id"),
+            'haveErrors2' => 0,
+            'dateValidationMsg' => '',
+            'typeValidationMsg' => '',
+
+         ];
+         $this->view('manager/mang_subTakeLeave', $data);
+      }
+   }
+   public function deleteLeave($leaveDate)
+   {
+      $staffID=Session::getUser("id");
+      $this->leaveModel->deleteMangLeave($leaveDate, $staffID);
+      redirect('MangDashboard/takeLeave');
+
+   }
+
    public function analyticsOverall()
    {
       // Session::validateSession([3]);

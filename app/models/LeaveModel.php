@@ -168,7 +168,52 @@ class LeaveModel extends Model
 
       return $results;
    }
+   public function getOneManagerLeave($leaveID, $userID)
+   {
+      $results = $this->customQuery("SELECT * 
+                                    FROM managerLeaves 
+                                    WHERE staffID = :staffID AND leaveDate= :leaveDate",
+                                    [':staffID' => $userID ,':leaveDate' => $leaveID]);
 
+      return $results;
+   }
+   public function checkForDateState($date)
+   {
+      $results = $this->getResultSet('managerLeaves', '*', ['leaveDate' => $date]);
+
+      if (!empty($results))
+         return 1;
+      else
+         return 2;
+   }
+   public function addMangLeave($data)
+   {
+      date_default_timezone_set("Asia/Colombo");
+      $today = date('Y-m-d');
+      $results = $this->insert('managerleaves', ['staffID' => $data['staffID'], 'leaveDate' => $data['date'], 'markedDate' => $today, 'reason' => $data['reason'], 'leaveType' => $data['leavetype']]);
+   }
+   public function updateMangLeave($data, $staffID, $leaveID)
+   {
+      date_default_timezone_set("Asia/Colombo");
+      $today = date('Y-m-d');
+      // print_r($data['date']);
+      // print_r($data['leavetype']);
+      // print_r($data['reason']);
+
+      // die('mangLeaves');
+
+      // $results = $this->customQuery("UPDATE managerleaves
+      //                               SET leaveDate = :leaveDate, markedDate= :markedDate, reason =:reason, leaveType =:leaveType
+      //                               WHERE staffID = :staffID",
+      //                               [':staffID' => $userID , ':leaveDate' => $data['leaveDate'], ':markedDate' => $today, ':reason' => $data['reason'], ':leaveType' => $data['leavetype']]);
+
+      $results = $this->update('managerleaves',[ 'markedDate' => $today, 'reason' => $data['reason'], 'leaveType' => $data['leavetype']], ['staffID' => $staffID, 'leaveDate' => $leaveID] );
+
+   }
+   public function deleteMangLeave($leaveDate, $staffID)
+   {
+      $results = $this->delete('managerleaves', ['leaveDate' => $leaveDate, 'staffID' => $staffID]);
+   }
    // FOR MANAGER OVERVIEW
    public function getPendingLeaveRequestCount()
    {
