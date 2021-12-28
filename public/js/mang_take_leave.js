@@ -3,6 +3,7 @@
 const mangLeaveSelectedDate = document.querySelector(".mangSelectedDate");
 const mangDateError = document.querySelector(".mangDateError");
 const mangLeaveType = document.querySelector(".mangSelecedLeaveType");
+const mangTypeError = document.querySelector(".mangTypeError");
 console.log('leave awa');
 
 mangLeaveSelectedDate.addEventListener('change',
@@ -11,6 +12,7 @@ mangLeaveSelectedDate.addEventListener('change',
         checkDateStatus();      
     }
 )
+
 
 function checkDateStatus() {
     console.log('func awa1');
@@ -21,11 +23,26 @@ function checkDateStatus() {
         console.log('func awa2');
 
         mangDateError.innerHTML = state;
-
-        // passDateError(state);
-
     })
  }
+
+mangLeaveType.addEventListener('change',
+    function () {
+        console.log('listener awa2');
+        checkForMedicals();      
+    }
+)
+function checkForMedicals() {
+    console.log('func awa3');
+
+    fetch(`http://localhost:80/beauty-craft/Leaves/checkIfDatePossibleForMangMedicalLeave/${mangLeaveType.value}`)
+        .then(response => response.json())
+        .then(state => {
+        console.log('func awa4');
+
+        mangTypeError.innerHTML = state;
+    })
+}
 //  function passDateError(state) {
 //     fetch(`http://localhost:80/beauty-craft/MangDashboard/takeLeave/${state}`)
 //     .then()

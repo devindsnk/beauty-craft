@@ -197,19 +197,41 @@ class Leaves extends Controller
 
       date_default_timezone_set("Asia/Colombo");
       $today = date('Y-m-d');
+      $nextDates = date('Y-m-d', strtotime(' + 2 month'));
       
+      if( $selectedDate > $nextDates)
+         $dateState = 4;
+
       if($selectedDate <= $today)
          $dateState = 3;
 
-      if ($dateState == 1)
-         $response = "The date You entered is already exit";
-      elseif( $dateState == 3)
+      if ($dateState == 4)
+         $response = "Select a date between 2 months";
+      elseif ($dateState == 3)
          $response = "Select a valid date";
+      elseif( $dateState == 1)
+         $response = "The date You entered is already exit";
       else
          $response = "";
       
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($response));
    }
-
+   public function checkIfDatePossibleForMangMedicalLeave($selectedType)
+   {
+      $mangMedicalLeaveLimit = $this->LeaveModel->getmangMedicalLeaveLimit();
+      $mangMedicalLeaveCount = $this->LeaveModel->getMangCurrentMonthLeaveCount(Session::getUser("id"), 2);
+      $remainingMedical = $mangMedicalLeaveLimit - $mangMedicalLeaveCount ;
+   
+      $response = "";
+   
+      if($selectedType==2 && $remainingMedical <= 0)
+         $response = "You cannot take anymore medical leaves";
+      else
+         $response = "";
+   
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($response));
+   }
 }
+  

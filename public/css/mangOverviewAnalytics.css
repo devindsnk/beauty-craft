@@ -345,10 +345,14 @@
     padding-right: 15px;
     margin-right: 20px;
     width: 250px;
+    font-size: 18px;
 }
 .btnTakenLeave{
     width: 120px;
     height: 38px;
+}
+.count-color{
+    color: var(--theme-purple);
 }
 @media (max-width: 940px) {
     .mang-leaves-top-left-container {

@@ -114,6 +114,21 @@ class MangDashboard extends Controller
    {
       // die('ge');
       // Session::validateSession([3]);
+      $mangCasualLeaveLimit = $this->leaveModel->getmangCasualLeaveLimit();
+      $mangMedicalLeaveLimit = $this->leaveModel->getmangMedicalLeaveLimit();
+
+      $mangCasualLeaveCount = $this->leaveModel->getMangCurrentMonthLeaveCount(Session::getUser("id"), 1);
+      $mangMedicalLeaveCount = $this->leaveModel->getMangCurrentMonthLeaveCount(Session::getUser("id"), 2);
+
+      $remainingCasual = $mangCasualLeaveLimit - $mangCasualLeaveCount ;
+      $remainingMedical = $mangMedicalLeaveLimit - $mangMedicalLeaveCount ;
+
+      // print_r($mangCasualLeaveLimit);
+      // print_r($mangMedicalLeaveLimit);
+      // print_r($mangCasualLeaveCount);
+      // print_r($mangMedicalLeaveCount);
+      // die('fff');
+
       $managerLeaveDetails = $this->leaveModel->getAllManagerLeaves();
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -131,7 +146,9 @@ class MangDashboard extends Controller
             'staffID' => Session::getUser("id"),
             'haveErrors' => 0,
             'haveErrors2' => 0,
-            'dateValidationMsg' => ''
+            'dateValidationMsg' => '',
+            'remainingCasual' => $remainingCasual,
+            'remainingMedical' => $remainingMedical,
 
          ];
          
@@ -190,8 +207,13 @@ class MangDashboard extends Controller
             'haveErrors2' => 0,
             'dateValidationMsg' => '',
             'typeValidationMsg' => '',
-
+            'remainingCasual' => $remainingCasual,
+            'remainingMedical' => $remainingMedical,
          ];
+         // print_r($data['remainingCasual']);
+         // print_r($data['remainingMedical']);
+         
+         // die('fff');
          $this->view('manager/mang_subTakeLeave', $data);
       }
    }

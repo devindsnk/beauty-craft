@@ -179,6 +179,34 @@ class LeaveModel extends Model
 
       return $results;
    }
+   public function getmangCasualLeaveLimit()
+   {
+      $results = $this->customQuery("SELECT managerGeneralLeave 
+                                    FROM leavelimits 
+                                    WHERE changedDate =(SELECT MAX(changedDate) FROM leavelimits)", []);
+      
+      return $results[0]->{'managerGeneralLeave'};
+   }
+   public function getmangMedicalLeaveLimit()
+   {
+      $results = $this->customQuery("SELECT managerMedicalLeave 
+                                    FROM leavelimits 
+                                    WHERE changedDate =(SELECT MAX(changedDate) FROM leavelimits)", []);
+
+      return $results[0]->{'managerMedicalLeave'};
+   }
+   public function getMangCurrentMonthLeaveCount($userID, $leaveType)
+   {
+      $results = $this->customQuery("SELECT COUNT(*) AS takenLeaveCount
+                                    FROM managerLeaves 
+                                    WHERE (MONTH(leaveDate) = MONTH(now()) AND YEAR(leaveDate) = YEAR(now())) AND (staffID=:staffID) AND leaveType = :leaveType",
+                                    [':staffID' => $userID, ':leaveType' => $leaveType]
+      );
+      //  print_r($results[0]->{'COUNT(*)'});
+      //  die("hhh");
+      return $results[0]->{'takenLeaveCount'};
+   }
+   
    public function checkForDateState($date)
    {
       $results = $this->getResultSet('managerLeaves', '*', ['leaveDate' => $date]);
@@ -198,16 +226,6 @@ class LeaveModel extends Model
    {
       date_default_timezone_set("Asia/Colombo");
       $today = date('Y-m-d');
-      // print_r($data['date']);
-      // print_r($data['leavetype']);
-      // print_r($data['reason']);
-
-      // die('mangLeaves');
-
-      // $results = $this->customQuery("UPDATE managerleaves
-      //                               SET leaveDate = :leaveDate, markedDate= :markedDate, reason =:reason, leaveType =:leaveType
-      //                               WHERE staffID = :staffID",
-      //                               [':staffID' => $userID , ':leaveDate' => $data['leaveDate'], ':markedDate' => $today, ':reason' => $data['reason'], ':leaveType' => $data['leavetype']]);
 
       $results = $this->update('managerleaves',[ 'markedDate' => $today, 'reason' => $data['reason'], 'leaveType' => $data['leavetype']], ['staffID' => $staffID, 'leaveDate' => $leaveID] );
 

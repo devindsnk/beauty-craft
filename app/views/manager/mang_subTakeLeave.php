@@ -15,16 +15,15 @@
    <!--Content-->
    <div class="content">
 
-      <!-- <div class="page-top-main-container"> -->
       <div class="mang-leaves-top-container">
          <div class="mang-leaves-top-left-container">
             <div class="contentBox mang-leave-card">
                <p>Medical Leaves</p>
-               <p>2</p>
+               <p class="count-color"><?php echo $data['remainingMedical'] ?></p>
             </div>
             <div class="contentBox mang-leave-card">
                <p>Casual Leaves</p>
-               <p>3</p>
+               <p class="count-color"><?php echo $data['remainingCasual'] ?></p>
             </div>
          </div>
          <div class="mang-leaves-top-right-container">
@@ -136,10 +135,10 @@
                         <label class="addItemsModalLable">Leave Type</label><br>
                         <select name="mangLeaveType" id="" class="mangSelecedLeaveType" >
                            <option class="unbold" value="0" option selected="true" disabled="disabled">Select</option>
-                           <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>General</option>
+                           <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>Casual</option>
                            <option value=2 <?php if ($data['leavetype'] == 2) echo 'selected'; ?>>Medical</option>
                         </select>
-                        <span class="error paddingBottom">
+                        <span class="error paddingBottom mangTypeError">
                            <?php 
                            if ($data['type_error'])
                            {
@@ -196,7 +195,7 @@
                         <label class="addItemsModalLable">Leave Type</label><br>
                         <select name="mangLeaveType2" id="mangLeaveType" class="mangSelecedLeaveType" >
                            <option class="unbold" value="0" option selected="true" disabled="disabled">Select</option>
-                           <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>General</option>
+                           <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>Casual</option>
                            <option value=2 <?php if ($data['leavetype'] == 2) echo 'selected'; ?>>Medical</option>
                         </select>
                         <span class="error paddingBottom">
