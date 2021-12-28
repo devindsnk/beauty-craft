@@ -193,12 +193,12 @@
                      </div>
                      <div class="column">
                         <label class="addItemsModalLable">Leave Type</label><br>
-                        <select name="mangLeaveType2" id="mangLeaveType" class="mangSelecedLeaveType" >
+                        <select name="mangLeaveType2" id="mangLeaveType" class="mangSelecedLeaveType2" >
                            <option class="unbold" value="0" option selected="true" disabled="disabled">Select</option>
                            <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>Casual</option>
                            <option value=2 <?php if ($data['leavetype'] == 2) echo 'selected'; ?>>Medical</option>
                         </select>
-                        <span class="error paddingBottom">
+                        <span class="error paddingBottom mangTypeError2">
                            <?php 
                            if ($data['type_error'])
                            {

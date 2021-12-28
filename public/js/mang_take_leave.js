@@ -60,6 +60,8 @@ function checkForMedicals() {
 const mangLeaveSelectedDate2 = document.querySelector(".mangSelectedDate2");
 const mangDateError2 = document.querySelector(".mangDateError2");
 const mangLeaveType2 = document.querySelector(".mangSelecedLeaveType2");
+const mangTypeError2 = document.querySelector(".mangTypeError2");
+
 console.log('leave awa');
 
 mangLeaveSelectedDate2.addEventListener('change',
@@ -84,6 +86,23 @@ function checkDateStatus2() {
     })
  }
 
+ mangLeaveType2.addEventListener('change',
+    function () {
+        console.log('listener awa2');
+        checkForMedicals2();      
+    }
+)
+function checkForMedicals2() {
+    console.log('func awa3');
+
+    fetch(`http://localhost:80/beauty-craft/Leaves/checkIfDatePossibleForMangMedicalLeave/${mangLeaveType2.value}`)
+        .then(response => response.json())
+        .then(state => {
+        console.log('func awa4');
+
+        mangTypeError2.innerHTML = state;
+    })
+}
 
 
 const editLeaveBtn = Array.from(document.querySelectorAll('.editMangLeave'));
