@@ -70,7 +70,8 @@
                         <div class="column">
                             <div class="text-group">
                                 <label class="labels" for="">Leave Type</label>
-                                <input type="text" name="" id="" placeholder="<?php echo $data['leaveDetails']->leaveType ?>" disabled>
+                                <input type="text" name="" id="" placeholder="<?php if ( $data['leaveDetails']->leaveType == 1): ?>Casual<?php elseif ( $data['leaveDetails']->leaveType == 2): ?>Medical 
+                              <?php endif; ?>" disabled>
                             </div>
                         </div>
                     </div>
@@ -86,13 +87,14 @@
                 </div>
 
                 <div class="leave-requests-button-div">
+                    <?php if ( $data['leaveDetails']->status != 3): ?>
                         <div class="">
                             <button type="submit" class="buttonLeaveRequest btn btn-filled btn-success-green" name="action" value="approve">Approve</button>
                         </div>
                         <div class="">
                             <button type="submit" class="buttonLeaveRequest btn btn-filled btn-error-red" name="action" value="reject">Reject</button>
                         </div>
-                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
 

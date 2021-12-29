@@ -31,8 +31,8 @@ class Leaves extends Controller
       // Session::validateSession([6]);
 
       $oneLeaveDetails = $this->LeaveModel->getOneLeaveDetail($staffID, $leaveDate);
-      $casualCountOfRelevantMonth = $this->LeaveModel->getRelevantMonthsMedicalLeaveCount($staffID, $leaveDate, 1);
-      $medicalCountOfRelevantMonth = $this->LeaveModel->getRelevantMonthsMedicalLeaveCount($staffID, $leaveDate, 2);
+      $casualCountOfRelevantMonth = $this->LeaveModel->getRelevantMonthsLeaveCount($staffID, $leaveDate, 1);
+      $medicalCountOfRelevantMonth = $this->LeaveModel->getRelevantMonthsLeaveCount($staffID, $leaveDate, 2);
       $leaveLimits = $this->LeaveModel->getLeaveLimitsForManagerApproval();
 
       $remainingCasual = $leaveLimits[0]->generalLeave - $casualCountOfRelevantMonth;
@@ -45,7 +45,7 @@ class Leaves extends Controller
          'remainingCasual' => $remainingCasual,
          'remainingMedical' => $remainingMedical
       ];
-      // print_r($oneLeaveDetails['remainingMedical']);
+      // print_r($oneLeaveDetails['leaveDetails']);
       // die("hhh");
       $this->view('manager/mang_leaveRequests', $oneLeaveDetails);
    }
@@ -217,16 +217,18 @@ class Leaves extends Controller
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($response));
    }
-   public function checkIfDatePossibleForMangMedicalLeave($selectedType)
+   public function checkIfDatePossibleForMangMedicalLeave($selectedType, $selectedDate, $st=null)
    {
       $mangMedicalLeaveLimit = $this->LeaveModel->getmangMedicalLeaveLimit();
-      $mangMedicalLeaveCount = $this->LeaveModel->getMangCurrentMonthLeaveCount(Session::getUser("id"), 2);
+      $mangMedicalLeaveCount = $this->LeaveModel->getMangRelevantMonthLeaveCount(Session::getUser("id"), 2, $selectedDate);
       $remainingMedical = $mangMedicalLeaveLimit - $mangMedicalLeaveCount ;
-   
-      $response = "";
-   
+      
+      // if($st == 1 && $selectedType=2){
+      //    $remainingMedical=$remainingMedical+1;
+      //    $response = "";
+      // }
       if($selectedType==2 && $remainingMedical <= 0)
-         $response = "You cannot take anymore medical leaves";
+         $response = "You can't take anymore medical leaves for this month";
       else
          $response = "";
    

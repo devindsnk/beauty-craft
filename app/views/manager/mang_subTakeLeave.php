@@ -134,7 +134,7 @@
                      <div class="column">
                         <label class="addItemsModalLable">Leave Type</label><br>
                         <select name="mangLeaveType" id="" class="mangSelecedLeaveType" >
-                           <option class="unbold" value="0" option selected="true" disabled="disabled">Select</option>
+                           <option class="unbold" value=0 option selected="true" disabled="disabled">Select</option>
                            <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>Casual</option>
                            <option value=2 <?php if ($data['leavetype'] == 2) echo 'selected'; ?>>Medical</option>
                         </select>
@@ -161,7 +161,7 @@
                      <button type="submit" name="action" value="cancel"  class="btn btnClose ModalCancelButton ModalButton">Cancel</button>
                   </div>
                   <div class="addItemsModalbtn2">
-                     <button type="submit" name="action" value="addleave"  class="btn  ModalGreenButton ModalButton">Proceed</button>
+                     <button type="submit" name="action" id="takeLeaveProceed" value="addleave"  class="btn  ModalGreenButton ModalButton">Proceed</button>
                   </div>
                </div>
                <!-- main grid 3 ends -->
@@ -194,7 +194,7 @@
                      <div class="column">
                         <label class="addItemsModalLable">Leave Type</label><br>
                         <select name="mangLeaveType2" id="mangLeaveType" class="mangSelecedLeaveType2" >
-                           <option class="unbold" value="0" option selected="true" disabled="disabled">Select</option>
+                           <option class="unbold" value=0 option selected="true" disabled="disabled">Select</option>
                            <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>Casual</option>
                            <option value=2 <?php if ($data['leavetype'] == 2) echo 'selected'; ?>>Medical</option>
                         </select>
@@ -221,7 +221,7 @@
                      <button type="submit" name="action" value="cancel" class="btn btnClose ModalCancelButton ModalButton">Cancel</button>
                   </div>
                   <div class="addItemsModalbtn2">
-                     <button type="submit" name="action" value="updateleave" class="btn ModalGreenButton ModalButton proceedBtn">Proceed</button>
+                     <button type="submit" name="action" value="updateleave" id="editLeaveProceed" class="btn ModalGreenButton ModalButton proceedBtn">Proceed</button>
                   </div>
                </div>
                <!-- main grid 3 ends -->

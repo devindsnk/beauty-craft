@@ -4,51 +4,65 @@ const mangLeaveSelectedDate = document.querySelector(".mangSelectedDate");
 const mangDateError = document.querySelector(".mangDateError");
 const mangLeaveType = document.querySelector(".mangSelecedLeaveType");
 const mangTypeError = document.querySelector(".mangTypeError");
-console.log('leave awa');
 
 mangLeaveSelectedDate.addEventListener('change',
     function () {
-        console.log('listener awa');
         checkDateStatus();      
     }
 )
 
-
 function checkDateStatus() {
-    console.log('func awa1');
 
     fetch(`http://localhost:80/beauty-craft/Leaves/checkIfDatePossibleForMangLeave/${mangLeaveSelectedDate.value}`)
        .then(response => response.json())
        .then(state => {
-        console.log('func awa2');
 
         mangDateError.innerHTML = state;
+        if(state != ''){
+            document.getElementById("takeLeaveProceed").disabled = true;
+        }else{
+            document.getElementById("takeLeaveProceed").disabled = false;
+        }
     })
+
+    if (mangLeaveType.value !== null) {
+        fetch(`http://localhost:80/beauty-craft/Leaves/checkIfDatePossibleForMangMedicalLeave/${mangLeaveType.value}/${mangLeaveSelectedDate.value}`)
+        .then(response => response.json())
+        .then(state => {
+            
+            mangTypeError.innerHTML = state;
+            if(state != ''){
+                console.log('wwwww');
+                document.getElementById("takeLeaveProceed").disabled = true;
+            }else{
+                document.getElementById("takeLeaveProceed").disabled = false;
+            }
+
+        })
+    }
  }
 
 mangLeaveType.addEventListener('change',
     function () {
-        console.log('listener awa2');
         checkForMedicals();      
     }
 )
 function checkForMedicals() {
-    console.log('func awa3');
-
-    fetch(`http://localhost:80/beauty-craft/Leaves/checkIfDatePossibleForMangMedicalLeave/${mangLeaveType.value}`)
+    if (mangLeaveSelectedDate.value !== null) {
+        fetch(`http://localhost:80/beauty-craft/Leaves/checkIfDatePossibleForMangMedicalLeave/${mangLeaveType.value}/${mangLeaveSelectedDate.value}`)
         .then(response => response.json())
         .then(state => {
-        console.log('func awa4');
-
-        mangTypeError.innerHTML = state;
-    })
+            
+            mangTypeError.innerHTML = state;
+            if(state != ''){
+                document.getElementById("takeLeaveProceed").disabled = true;
+            }else{
+                document.getElementById("takeLeaveProceed").disabled = false;
+            }
+        })
+    }
+    
 }
-//  function passDateError(state) {
-//     fetch(`http://localhost:80/beauty-craft/MangDashboard/takeLeave/${state}`)
-//     .then()
-//     console.log('func awa3');
-
-//  }
 
 // ...........................END ADD MANG LEAVE...........................//
 
@@ -57,88 +71,29 @@ function checkForMedicals() {
 
 // ...........................START EDIT MANG LEAVE...........................//
 
-const mangLeaveSelectedDate2 = document.querySelector(".mangSelectedDate2");
-const mangDateError2 = document.querySelector(".mangDateError2");
-const mangLeaveType2 = document.querySelector(".mangSelecedLeaveType2");
-const mangTypeError2 = document.querySelector(".mangTypeError2");
-
-console.log('leave awa');
-
-mangLeaveSelectedDate2.addEventListener('change',
-    function () {
-        console.log('listener awa');
-        checkDateStatus2();      
-    }
-)
-
-function checkDateStatus2() {
-    console.log('func awa1');
-
-    fetch(`http://localhost:80/beauty-craft/Leaves/checkIfDatePossibleForMangLeave/${mangLeaveSelectedDate2.value}`)
-       .then(response => response.json())
-       .then(state => {
-        console.log('func awa2');
-
-        mangDateError2.innerHTML = state;
-
-        // passDateError(state);
-
-    })
- }
-
- mangLeaveType2.addEventListener('change',
-    function () {
-        console.log('listener awa2');
-        checkForMedicals2();      
-    }
-)
-function checkForMedicals2() {
-    console.log('func awa3');
-
-    fetch(`http://localhost:80/beauty-craft/Leaves/checkIfDatePossibleForMangMedicalLeave/${mangLeaveType2.value}`)
-        .then(response => response.json())
-        .then(state => {
-        console.log('func awa4');
-
-        mangTypeError2.innerHTML = state;
-    })
-}
-
-
 const editLeaveBtn = Array.from(document.querySelectorAll('.editMangLeave'));
 const proceedbtn = document.querySelector(".proceedBtn");
 const mangSelectedDate2 = document.querySelector(".mangSelectedDate2");
 
-console.log(editLeaveBtn.length);
-
 for (var i = 0; i < editLeaveBtn.length; i++){
 
     let leaveID = editLeaveBtn[i].dataset.columns1;
-    // let userID = editLeaveBtn[i].dataset.columns2;
-
-    // console.log(leaveID);
-    // console.log(userID);
-
+    
     editLeaveBtn[i].addEventListener('click',
         function () {
-            console.log('hello');
-
             document.getElementById("updateForm").action = "http://localhost:80/beauty-craft/MangDashboard/updateTakenLeave/"+leaveID;
-
             getLeaveDetails(leaveID);
         }
     )
 
     function getLeaveDetails(leaveID)
     {
-        // console.log("checkForUpcomingReservations awa");
-
         fetch(`http://localhost:80/beauty-craft/MangDashboard/getOneMangLeaveDetails/${leaveID}`)
             .then(response => response.json())
             .then(leaveDetails => {
-                console.log(leaveDetails);
 
                 document.getElementById("mangLeaveDate").value = leaveDetails[0]['leaveDate'];
+                // document.getElementById("mangLeaveDate").disabled = true; /////////////date disable krnn oni
                 document.getElementById("mangLeaveType").value = leaveDetails[0]['leaveType'];
                 document.getElementById("mangLeaveReason").value = leaveDetails[0]['reason'];
 
@@ -146,14 +101,94 @@ for (var i = 0; i < editLeaveBtn.length; i++){
             // console.log("Error Reading data :" + err);
         });
     }
-    // proceedbtn.addEventListener('click',
-    //     function () {
-    //         console.log('hello2');
-
-    //         document.getElementById("updateForm").action = "http://localhost:80/beauty-craft/MangDashboard/updateTakenLeave/"+leaveID+"/"+userID;
-    //     }
-    // )
+   
 }
+const mangLeaveSelectedDate2 = document.querySelector(".mangSelectedDate2");
+const mangDateError2 = document.querySelector(".mangDateError2");
+const mangLeaveType2 = document.querySelector(".mangSelecedLeaveType2");
+const mangTypeError2 = document.querySelector(".mangTypeError2");
+
+mangLeaveSelectedDate2.addEventListener('change', ////////////date disable kroth oni ne
+    function () {
+        // checkDateStatus2();      
+        let state = 'You cannot change the date';
+        mangDateError2.innerHTML = state;
+        if(existDate != mangLeaveSelectedDate2.value){
+            document.getElementById("editLeaveProceed").disabled = true;
+        }else{
+            document.getElementById("editLeaveProceed").disabled = false;
+        }
+    }
+)
+
+// function checkDateStatus2() { ////////////date disable kroth oni ne
+//     console.log('func awa1');
+
+//     fetch(`http://localhost:80/beauty-craft/Leaves/checkIfDatePossibleForMangLeave/${mangLeaveSelectedDate2.value}`)
+//        .then(response => response.json())
+//        .then(state => {
+//         console.log('func awa5');
+
+//         mangDateError2.innerHTML = state;
+
+//         let st = 1;
+//         if (mangLeaveType2.value !== null) {
+//             fetch(`http://localhost:80/beauty-craft/Leaves/checkIfDatePossibleForMangMedicalLeave/${mangLeaveType2.value}/${mangLeaveSelectedDate2.value}/${st}`)
+//             .then(response => response.json())
+//             .then(state => {
+//                 console.log('func awa6');
+//                 console.log(st);
+//                 mangTypeError2.innerHTML = state;
+//                 if(state != ''){
+//                     console.log('sssssss');
+//                     document.getElementById("editLeaveProceed").disabled = true;
+//                 }else{
+//                     document.getElementById("editLeaveProceed").disabled = false;
+//                 }
+//             })
+//         }
+
+//     })
+//  }
+
+mangLeaveType2.addEventListener('change',
+    function () {
+        checkForMedicals2();      
+    }
+)
+function checkForMedicals2() {
+    let st = 1;
+    // if (mangLeaveSelectedDate2.value !== null) {   /////////////date disable kroth oni ne
+    //     fetch(`http://localhost:80/beauty-craft/Leaves/checkIfDatePossibleForMangMedicalLeave/${mangLeaveType2.value}/${mangLeaveSelectedDate2.value}/${st}`)
+    //     .then(response => response.json())
+    //     .then(state => {
+    //         console.log('func awa8');
+    //         console.log(st);
+    //         mangTypeError2.innerHTML = state;
+    //         if(state != ''){
+    //             console.log('sssssss');
+    //             document.getElementById("editLeaveProceed").disabled = true;
+    //         }else{
+    //             document.getElementById("editLeaveProceed").disabled = false;
+    //         }
+    //     })
+    // }
+
+    if (document.getElementById("mangLeaveDate").value !== null) {
+        fetch(`http://localhost:80/beauty-craft/Leaves/checkIfDatePossibleForMangMedicalLeave/${mangLeaveType2.value}/${document.getElementById("mangLeaveDate").value}/${st}`)
+        .then(response => response.json())
+        .then(state => {
+            
+            mangTypeError2.innerHTML = state;
+            if(state != ''){
+                document.getElementById("editLeaveProceed").disabled = true;
+            }else{
+                document.getElementById("editLeaveProceed").disabled = false;
+            }
+        })
+    }
+}
+
 
 // ...........................END EDIT MANG LEAVE...........................//
 
@@ -171,7 +206,6 @@ for (var i = 0; i < deleteLeaveBtn.length; i++){
 
     deleteLeaveBtn[i].addEventListener('click',
         function () {
-            console.log('del_hold');
             document.getElementById("deleteLeaveHead").innerHTML = "Delete Leave - ["+leaveDate+"]";
 
             deleteTheLeaveProceed(leaveDate);
@@ -181,7 +215,6 @@ for (var i = 0; i < deleteLeaveBtn.length; i++){
 function deleteTheLeaveProceed(leaveDate){
     deleteproceedbtn.addEventListener('click',
         function () {
-            console.log('recall1');
             deleteLeaveHREF.href = "http://localhost/beauty-craft/MangDashboard/deleteLeave/"+leaveDate;
         }
     )

@@ -103,10 +103,31 @@ class MangDashboard extends Controller
    {
       // Session::validateSession([3]);
       $leaveDetails = $this->leaveModel->getAllLeaveRequests();
+      $evidanceLimit = $this->leaveModel->getEvidenceLimit();
 
-      // $GetLeavesArray = [
-      //    'leaves' => $leaveDetails
-      // ];
+      date_default_timezone_set("Asia/Colombo");
+      $today = date('Y-m-d');
+      // print_r(count($leaveDetails));
+      foreach ($leaveDetails as $MLDetails)
+      {
+         if ($MLDetails->leaveType == 2 && $MLDetails->status == 2) {
+            // print_r($MLDetails->leaveDate);
+            $date1=date_create($today);
+            $date2=date_create($MLDetails->leaveDate);
+            $diff=date_diff($date2,$date1);
+            $diff2= $diff->format("%R%a days");
+            print_r($diff->days);
+            // die('hi');
+
+            if($MLDetails->leaveDate < $today && $diff->days >= $evidanceLimit)
+            {
+
+               $this->leaveModel->changeMedicalToCasual($MLDetails->staffID, $MLDetails->leaveDate);
+
+            }
+         }
+      }
+      // die('hi');
 
       $this->view('manager/mang_subLeaveRequests',  $leaveDetails);
    }
@@ -231,6 +252,14 @@ class MangDashboard extends Controller
    {
       // Session::validateSession([3]);
       $userID = Session::getUser("id");
+      $mangCasualLeaveLimit = $this->leaveModel->getmangCasualLeaveLimit();
+      $mangMedicalLeaveLimit = $this->leaveModel->getmangMedicalLeaveLimit();
+
+      $mangCasualLeaveCount = $this->leaveModel->getMangCurrentMonthLeaveCount(Session::getUser("id"), 1);
+      $mangMedicalLeaveCount = $this->leaveModel->getMangCurrentMonthLeaveCount(Session::getUser("id"), 2);
+
+      $remainingCasual = $mangCasualLeaveLimit - $mangCasualLeaveCount ;
+      $remainingMedical = $mangMedicalLeaveLimit - $mangMedicalLeaveCount ;
 
       $managerLeaveDetails = $this->leaveModel->getAllManagerLeaves();
       
@@ -247,7 +276,9 @@ class MangDashboard extends Controller
             'dateValidationError' => '',
             'staffID' => Session::getUser("id"),
             'haveErrors2' => 0,
-            'dateValidationMsg' => ''
+            'dateValidationMsg' => '',
+            'remainingCasual' => $remainingCasual,
+            'remainingMedical' => $remainingMedical,
 
          ];
          
@@ -292,6 +323,8 @@ class MangDashboard extends Controller
             'haveErrors2' => 0,
             'dateValidationMsg' => '',
             'typeValidationMsg' => '',
+            'remainingCasual' => $remainingCasual,
+            'remainingMedical' => $remainingMedical,
 
          ];
          $this->view('manager/mang_subTakeLeave', $data);

@@ -108,6 +108,8 @@
                                  <button type="button" class="table-btn green-status-btn text-uppercase">Approved</button>
                               <?php elseif ($leaveDetails->status == 2) : ?>
                                  <button type="button" class="table-btn yellow-status-btn text-uppercase">Pending</button>
+                              <?php elseif ($leaveDetails->status == 3) : ?>
+                                 <button type="button" class="table-btn grey-status-btn text-uppercase">MReject</button>
                               <?php endif; ?>
                            </td>
                            <td class="column-center-align">
@@ -120,6 +122,8 @@
                                  <a href="#"><button type="button" class="table-btn gray-action-btn">Approve</button></a>
                               <?php elseif ($leaveDetails->status == 0 || $leaveDetails->status == 2) : ?>
                                  <a href="#"><button type="submit" class="table-btn black-action-btn" name="action" value="approve">Approve</button></a>
+                              <?php elseif ($leaveDetails->status == 3) : ?>
+                                 <a href="#"><button type="submit" class="table-btn gray-action-btn">Approve</button></a>
                               <?php endif; ?>
                            </td>
                         </tr>
