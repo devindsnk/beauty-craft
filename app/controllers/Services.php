@@ -603,4 +603,19 @@ class Services extends Controller
    {
       $this->view('common/serviceProviderReport');
    }
+   public function analyticsOverall()
+   {
+      // Session::validateSession([3]);
+      $this->view('common/SubAnalyticsOverall');
+   }
+   public function analyticsService()
+   {
+      // Session::validateSession([3]);
+      $this->view('common/SubAnalyticsService');
+   }
+   public function analyticsSProvider()
+   {
+      // Session::validateSession([3]);
+      $this->view('common/SubAnalyticsSProvider');
+   }
 }

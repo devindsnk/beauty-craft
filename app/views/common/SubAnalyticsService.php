@@ -1,4 +1,28 @@
+<?php require APPROOT . "/views/inc/header.php" ?>
 
+<body class="layout-template-1">
+
+   <!-- TODO: provide relevent sideNav by checking logged in user -->
+   <?php
+   $selectedMain = "Analytics";
+   $selectedSub = "ServiceAnalytics";
+   switch (Session::getUser("type"))
+   {
+      case "2":
+         require APPROOT . "/views/owner/own_sideNav.php";
+         break;
+      case "3":
+         require APPROOT . "/views/manager/mang_sideNav.php";
+         break;
+      case "4":
+         require APPROOT . "/views/receptionist/recept_sideNav.php";
+   }
+   ?>
+
+   <?php
+   $title = "Service Analytics";
+   require APPROOT . "/views/inc/headerBar.php"
+   ?>
 
    <!--Content-->
    <div class="content">
@@ -276,3 +300,5 @@
          document.querySelector("#serviceToDate").value = today;
 
    </script>
+
+<?php require APPROOT . "/views/inc/footer.php" ?>

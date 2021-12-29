@@ -338,19 +338,4 @@ class MangDashboard extends Controller
 
    }
 
-   public function analyticsOverall()
-   {
-      // Session::validateSession([3]);
-      $this->view('manager/mang_subAnalyticsOverall');
-   }
-   public function analyticsService()
-   {
-      // Session::validateSession([3]);
-      $this->view('manager/mang_subAnalyticsService');
-   }
-   public function analyticsSProvider()
-   {
-      // Session::validateSession([3]);
-      $this->view('manager/mang_subAnalyticsSProvider');
-   }
 }

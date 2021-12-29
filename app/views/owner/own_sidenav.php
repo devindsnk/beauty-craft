@@ -121,7 +121,7 @@
             <ul class="subMenu <?php if ($selectedMain == "Analytics") echo " expanded" ?>">
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
-                  <a class="optionLink <?php if ($selectedSub == "OverallAnalytics") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/analyticsOverall">
+                  <a class="optionLink <?php if ($selectedSub == "OverallAnalytics") echo " selected" ?>" href="<?php echo URLROOT ?>/Services/analyticsOverall">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Overall</div>
                   </a>
@@ -129,7 +129,7 @@
                <!--End Sidebar Sub Item-->
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
-                  <a class="optionLink <?php if ($selectedSub == "ServiceAnalytics") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/analyticsService">
+                  <a class="optionLink <?php if ($selectedSub == "ServiceAnalytics") echo " selected" ?>" href="<?php echo URLROOT ?>/Services/analyticsService">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Service's</div>
                   </a>
@@ -137,7 +137,7 @@
                <!--End Sidebar Sub Item-->
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
-                  <a class="optionLink <?php if ($selectedSub == "ServiceProviderAnalytics") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/analyticsSProvider">
+                  <a class="optionLink <?php if ($selectedSub == "ServiceProviderAnalytics") echo " selected" ?>" href="<?php echo URLROOT ?>/Services/analyticsSProvider">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Service Provider's</div>
                   </a>
