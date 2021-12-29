@@ -311,7 +311,7 @@ class ServiceModel extends Model
         return $results->totalDuration;
     }
 
-    // FOR MANAGER OVERVIEW
+    // START FOR MANAGER OVERVIEW
     public function getAvailableServiceCount()
     {
 
@@ -330,7 +330,7 @@ class ServiceModel extends Model
 
         return $results;
     }
-    // FOR MANAGER OVERVIEW
+    // END FOR MANAGER OVERVIEW
 
     // START FOR MANAGER UPDATE SERVICE
     public function changeServiceStatus($serviceID, $state)
@@ -338,4 +338,21 @@ class ServiceModel extends Model
         $results =  $this->update('services', ['status' =>$state], ['serviceID' => $serviceID]);
     }
     // END FOR MANAGER UPDATE SERVICE
+
+    // START FOR ANALYTICS 
+    public function getDetailsForServiceReportJS($serviceID,$year,$month)
+    {
+        $results = $this->customQuery("SELECT S.serviceID, S.name, COUNT(DISTINCT SP.staffID) AS NoOFStaff, COUNT(DISTINCT RES.reservationID) AS NoOfRes, COUNT(DISTINCT RES.reservationID)*S.price AS TotalServicePrice
+                                        FROM services AS S
+                                        INNER JOIN serviceproviders AS SP
+                                        ON S.serviceID = SP.serviceID
+                                        AND SP.serviceID = :serviceID
+                                        LEFT JOIN reservations AS RES 
+                                        ON S.serviceID = RES.serviceID
+                                        AND RES.serviceID = :serviceID AND RES.status = 4 AND MONTH(RES.date) = $month AND YEAR(RES.date)=$year",
+                                        ['serviceID' => $serviceID]
+                                    );
+        return $results;
+    }
+    // END FOR ANALYTICS 
 }

@@ -597,7 +597,27 @@ class Services extends Controller
    }
    public function serviceReport()
    {
-      $this->view('common/serviceReport');
+      $serviceList = $this->ServiceModel->getServiceDetails();
+      $this->view('common/serviceReport',count($serviceList));
+   }
+   public function serviceReportJS($smonth)
+   {
+      $serviceList = $this->ServiceModel->getServiceDetails();
+
+      $sReportDetails =array();
+      $dateOld=date_create($smonth);
+      
+      $year=date_format($dateOld,"Y");
+      $month=date_format($dateOld,"m");
+      
+      foreach($serviceList as $services)
+      {
+         $serviceDetails = $this->ServiceModel->getDetailsForServiceReportJS($services->serviceID,$year,$month);
+         array_push($sReportDetails, $serviceDetails);
+      }
+      
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($sReportDetails));
    }
    public function serviceProviderReport()
    {
