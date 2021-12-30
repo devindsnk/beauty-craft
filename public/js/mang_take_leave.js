@@ -8,7 +8,7 @@ const mangTypeError = document.querySelector(".mangTypeError");
 if(mangLeaveSelectedDate != null){
     mangLeaveSelectedDate.addEventListener('change',
         function () {
-            checkDateStatus();      
+            checkDateStatus();     
         }
     )
 }
@@ -25,8 +25,7 @@ function checkDateStatus() {
         }else{
             document.getElementById("takeLeaveProceed").disabled = false;
         }
-    })
-
+    });
     if (mangLeaveType.value !== null) {
         fetch(`http://localhost:80/beauty-craft/Leaves/checkIfDatePossibleForMangMedicalLeave/${mangLeaveType.value}/${mangLeaveSelectedDate.value}`)
         .then(response => response.json())
@@ -36,13 +35,10 @@ function checkDateStatus() {
             if(state != ''){
                 console.log('wwwww');
                 document.getElementById("takeLeaveProceed").disabled = true;
-            }else{
-                document.getElementById("takeLeaveProceed").disabled = false;
             }
-
-        })
+        });
     }
- }
+}
 if(mangLeaveType != null){
     mangLeaveType.addEventListener('change',
         function () {
@@ -51,8 +47,8 @@ if(mangLeaveType != null){
     )
 }
 function checkForMedicals() {
-    if (mangLeaveSelectedDate.value !== null) {
-        fetch(`http://localhost:80/beauty-craft/Leaves/checkIfDatePossibleForMangMedicalLeave/${mangLeaveType.value}/${mangLeaveSelectedDate.value}`)
+    
+    fetch(`http://localhost:80/beauty-craft/Leaves/checkIfDatePossibleForMangMedicalLeave/${mangLeaveType.value}/${mangLeaveSelectedDate.value}`)
         .then(response => response.json())
         .then(state => {
             
@@ -62,9 +58,19 @@ function checkForMedicals() {
             }else{
                 document.getElementById("takeLeaveProceed").disabled = false;
             }
-        })
-    }
+        });
+    if (mangLeaveSelectedDate.value !== null) {
+        fetch(`http://localhost:80/beauty-craft/Leaves/checkIfDatePossibleForMangLeave/${mangLeaveSelectedDate.value}`)
+        .then(response => response.json())
+        .then(state => {
     
+            mangDateError.innerHTML = state;
+            if(state != ''){
+                console.log('awooo');
+                document.getElementById("takeLeaveProceed").disabled = true;
+            }
+        });
+    }
 }
 
 // ...........................END ADD MANG LEAVE...........................//
@@ -191,7 +197,7 @@ function checkForMedicals2() {
             }else{
                 document.getElementById("editLeaveProceed").disabled = false;
             }
-        })
+        });
     }
 }
 
