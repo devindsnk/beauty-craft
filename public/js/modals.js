@@ -337,7 +337,10 @@ function transferIDToModal(btn){
 
 // Common section for all modal toggle operations
 function toggleModal(btn) {
+    if(btn){
     transferIDToModal(btn);
+    }
+
     modalToToggle.classList.add("show");
 }
 

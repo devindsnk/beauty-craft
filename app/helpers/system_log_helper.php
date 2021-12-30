@@ -59,7 +59,7 @@ class Systemlog
         $log = 'change password';
         $contents = file_get_contents('logfile/syslog.txt');
 
-        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t\t$log";
+        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
         file_put_contents('logfile/syslog.txt', $contents);
     }
     public static function resetPassword()
@@ -67,7 +67,7 @@ class Systemlog
         $log = 'reset password';
         $contents = file_get_contents('logfile/syslog.txt');
 
-        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t\t$log";
+        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
         file_put_contents('logfile/syslog.txt', $contents);
     }
 
@@ -76,7 +76,7 @@ class Systemlog
         $log = 'signup';
         $contents = file_get_contents('logfile/syslog.txt');
 
-        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t\t$log";
+        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
         file_put_contents('logfile/syslog.txt', $contents);
     }
     public static function createAccount($staffMobileNo)
@@ -84,7 +84,7 @@ class Systemlog
         $log = 'create account mobileNo:' . $staffMobileNo;
         $contents = file_get_contents('logfile/syslog.txt');
 
-        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t\t$log";
+        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
         file_put_contents('logfile/syslog.txt', $contents);
     }
 
@@ -93,7 +93,7 @@ class Systemlog
         $log = 'download systemLog file';
         $contents = file_get_contents('logfile/syslog.txt');
 
-        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t\t$log";
+        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
         file_put_contents('logfile/syslog.txt', $contents);
     }
     public static function customLog($log)

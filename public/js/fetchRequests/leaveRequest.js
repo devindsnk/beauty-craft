@@ -3,13 +3,39 @@ console.log("hhh");
 
 const leaveRequestSelectedDate = document.querySelector(".LeaveRequestDate");
 const dateError = document.querySelector(".request-date-error");
+const dateSpan = document.querySelector(".dateEmpty");
 const dropdown = document.querySelector(".dropdowntype");
+dropdown.disabled=true;
+console.log(dropdown);
 
-console.log(dateError);
 leaveRequestSelectedDate.addEventListener('change',
    function () {
-      leaveRequestedDateValidation();      // Checkeing availability of the date
-                        // Updating service providers availability if service is selected
+   console.log(leaveRequestSelectedDate.value);
+      
+      if(leaveRequestSelectedDate.value){
+      dropdown.disabled=false;
+      leaveRequestedDateValidation(); 
+      }else{
+         dropdown.disabled=true;
+         dropdown.options[0].selected = true;
+         dateError.innerHTML =  '';
+      }                
+   }
+)
+
+dropdown.addEventListener('change',
+   function () {
+      console.log(dropdown.value);
+       fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestDateValidate/${leaveRequestSelectedDate.value}`)
+      .then(response => response.json())
+      .then(dateValidationError => {
+          console.log(dateValidationError);
+         dateSpan.innerHTML="";
+         dateError.innerHTML =  dateValidationError;
+        
+
+      });
+      
    }
 )
 
@@ -20,10 +46,10 @@ function leaveRequestedDateValidation() {
    fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestDateValidate/${leaveRequestSelectedDate.value}`)
       .then(response => response.json())
       .then(dateValidationError => {
-         //  console.log(dateValidationError);
+          console.log(dateValidationError);
+         dateSpan.innerHTML="";
          dateError.innerHTML =  dateValidationError;
-         dateError.text = dateValidationError;
-         dateError.value = dateValidationError;
+        
 
       });
 }

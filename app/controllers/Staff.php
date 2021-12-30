@@ -524,9 +524,9 @@ class Staff extends Controller
    public function profile()
    {
       Session::validateSession([1, 2, 3, 4, 5]);
-      $profileData = $this->staffModel->getStaffDetailsWithBankDetailsByStaffID($_SESSION['userID']);
-      $serviceslist = $this->staffModel->getServiceslistByStaffID($_SESSION['userID']);
-      $result = $this->userModel->getUser($_SESSION['userMobileNo']);
+      $profileData = $this->staffModel->getStaffDetailsWithBankDetailsByStaffID(Session::getUser("id"));
+      $serviceslist = $this->staffModel->getServiceslistByStaffID(Session::getUser("id"));
+      $result = $this->userModel->getUser(Session::getUser("mobileNo"));
 
 
       $hashedPassword = $result->password;
@@ -588,11 +588,11 @@ class Staff extends Controller
                   if (empty($data['currentPassword_error']) && empty($data['newPassword_error']) && empty($data['confirmPassword_error']))
                   {
 
-                     $this->userModel->updatePassword($_SESSION['userMobileNo'], $data['newPassword1']);
+                     $this->userModel->updatePassword(Session::getUser("mobileNo"), $data['newPassword1']);
 
-                     $log = "user changed the password";
-                     logger($_SESSION['userMobileNo'], $log);
-                     die("password changed");
+                     //System log
+                     Systemlog::changePassword();
+                     $data['changePasswordModelOpen'] = 0;
                      $this->view('staff/staff_profileview', $data);
                   }
                }
@@ -630,7 +630,7 @@ class Staff extends Controller
    public function changePassword()
    {
       Session::validateSession([1, 2]);
-      $result = $this->userModel->getUser($_SESSION['userMobileNo']);
+      $result = $this->userModel->getUser(Session::getUser("mobileNo"));
 
       $hashedPassword = $result->password;
       if ($_SERVER['REQUEST_METHOD'] == 'POST')

@@ -174,4 +174,7 @@ class Leaves extends Controller
       // echo json_encode($dateValidationMsg);
       // exit;
    }
+   public function leaveRequestDateValidate($date)
+   {
+   }
 }

@@ -754,6 +754,8 @@ input#date_input.selecteddate  {
 }
 .reqleave-type-section,.leave-date-section{
     width: 50%;
+    height: 70px;
+    
 }
 .reqleave-type-section{
     padding-left: 50px;
