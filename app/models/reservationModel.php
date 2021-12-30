@@ -230,15 +230,11 @@ class ReservationModel extends Model
       $results = $this->getSingle('recallrequests', ['reason'], ['reservationID' => $selectedreservation]);
       return $results->reason;
    }
-<<<<<<< HEAD
    public function getReservationRecallDetailsByID($selectedreservation)
    {
       $results = $this->getSingle('recallrequests', ['status'], ['reservationID' => $selectedreservation]);
       return $results->status;
    }
-=======
-
->>>>>>> f91460ddb113dbfb5096cc6c4a53d93fcfd1d930
    public function deleteReservationRecallRequest($reservationID)
    {
 
