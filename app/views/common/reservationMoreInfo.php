@@ -3,7 +3,7 @@
 
 <body class="layout-template-2">
    <header class="full-header">
-      <div class="header-center verticalCenter">
+      <div class="header-center">
          <h1 class="header-topic">View Reservation</h1>
          <h3 class="header-subtopic">R<?php echo $data["reservationID"]; ?></h3>
       </div>
@@ -25,7 +25,7 @@
                   <?php echo DateTimeExtended::convertToFullFormatDate($data["date"]); ?>
                </span>
                <?php
-               $statusClassList = ["status-error-red", "status-blue", "status-success-green", "status-error-red", "status-grey", "status-warning-yellow"];
+               $statusClassList = ["status-error-red", "status-blue", "status-success-green", "status-grey", "status-grey", "status-warning-yellow"];
                $statusValueList  = ["Cancelled", "Pending", "Confirmed", "No Show", "Completed", "Recalled"];
                $statusClass = $statusClassList[$data["status"]];
                $statusValue = $statusValueList[$data["status"]];
@@ -54,7 +54,7 @@
                   <div class="column">
                      <div class="text-group">
                         <label for="">Duration</label>
-                        <p><?php echo $data["totalDuration"]; ?></p>
+                        <p><?php echo DateTimeExtended::minsToDuration($data["totalDuration"]); ?></p>
                      </div>
                   </div>
                   <div class="column">
@@ -199,7 +199,7 @@
          </div>
          <div class="confirm-model-head">
             <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
-            <button class="btn normal ModalButton ModalBlueButton proceedBtn" onclick="markNoShowReservation(this);">Yes</button>
+            <button class="btn normal ModalButton ModalBlueButton proceedBtn" onclick="markReservationNoShow(this);">Yes</button>
          </div>
       </div>
    </div>
@@ -216,7 +216,7 @@
          </div>
          <div class="confirm-model-head">
             <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
-            <button class="btn normal ModalButton ModalPurpleButton proceedBtn" onclick="recallCancelReservation(this);">Yes, Checkout</button>
+            <button class="btn normal ModalButton ModalPurpleButton proceedBtn" onclick="checkoutReservation(this);">Yes, Checkout</button>
          </div>
       </div>
    </div>

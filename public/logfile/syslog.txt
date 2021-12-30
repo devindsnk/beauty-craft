@@ -81,3 +81,16 @@ IP Add.	    Date & Time	        Mobile No	Name		        Activity
 ::1	12/27/21 12:22AM			user signin to the system
 ::1	12/27/21 09:30AM			user signin to the system
 ::1	12/27/21 09:32AM			user signin to the system
+
+127.0.0.1	12/27/21 07:27PM			user signout from the system
+127.0.0.1	12/27/21 07:27PM			user signin to the system
+127.0.0.1	12/27/21 07:27PM			user signout from the system
+127.0.0.1	12/27/21 07:29PM			user signin to the system
+127.0.0.1	12/28/21 01:35AM			user signout from the system
+127.0.0.1	12/28/21 01:35AM			user signin to the system
+127.0.0.1	12/28/21 07:49AM			user signout from the system
+127.0.0.1	12/28/21 07:49AM			user signin to the system
+127.0.0.1	12/29/21 09:02AM			user signout from the system
+127.0.0.1	12/29/21 09:02AM			user signin to the system
+127.0.0.1	12/29/21 09:41AM			user signout from the system
+127.0.0.1	12/29/21 12:34PM			user signin to the system

@@ -53,11 +53,16 @@ Recall Requests
 
 ---------------------------------------
 
-Invoices (Not Confirmed Yet)
-0 - Cancelled
-1 - Pending
+Payment Invoices (type 1)
+0 - Void (payment invoice is cancelled)
+1 - Unpaid (but completed) //  
 2 - Paid
-3 - No Show
+
+---------------------------------------
+
+Refund Invoices (type 0)
+0 - Void (Cancelled)
+1 - Refund
 
 ---------------------------------------
 

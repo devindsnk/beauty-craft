@@ -270,7 +270,38 @@ resCheckoutBtnList.forEach((btn) => {
 /* ------------------------------------------------------------------- */
 /* ------------------------------------------------------------------- */
 
+/* ------------------------------------------------------------------- */
+/* ------------------------- Sales Section --------------------------- */
 
+// Refund Invoice Modal Section
+const refundInvModal = document.querySelector('.refund-invoice');
+const refundInvBtnModal = document.querySelectorAll('.btnRefundInv');
+refundInvBtnModal.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = refundInvModal;
+        toggleModal(btn);
+    });
+});
+
+// Void payment Invoice Modal Section
+const voidPayInvModal = document.querySelector('.void-payInvoice');
+const voidPayInvBtnModal = document.querySelectorAll('.btnVoidPayInv');
+voidPayInvBtnModal.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = voidPayInvModal;
+        toggleModal(btn);
+    });
+});
+
+// Void Refund Invoice Modal Section
+const voidRefInvModal = document.querySelector('.void-refInvoice');
+const voidRefInvBtnModal = document.querySelectorAll('.btnVoidRefInv');
+voidRefInvBtnModal.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = voidRefInvModal;
+        toggleModal(btn);
+    });
+});
 
 
 /* ------------------------------------------------------------------- */
