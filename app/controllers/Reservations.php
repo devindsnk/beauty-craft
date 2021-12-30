@@ -9,6 +9,7 @@ class Reservations extends Controller
       $this->reservationModel = $this->model('ReservationModel');
       $this->closedDatesModel = $this->model('ClosedDatesModel');
       $this->resourceModel = $this->model('ResourceModel');
+      $this->salesModel = $this->model('SalesModel');
    }
 
    public function viewAllReservations()
@@ -344,9 +345,9 @@ class Reservations extends Controller
       print_r(json_encode($result1 && $result2));
    }
 
-   public function markNoShowReservation($reservationID)
+   public function markReservationNoShow($reservationID)
    {
-      $results = $this->reservationModel->markNoShowReservation($reservationID);
+      $results = $this->reservationModel->markReservationNoShow($reservationID);
 
       if ($results)
          Toast::setToast(1, "Reservation marked as a No Show successfully.", "");
@@ -370,6 +371,22 @@ class Reservations extends Controller
       print_r(json_encode($results));
    }
 
+   public function checkoutReservation($reservationID)
+   {
+      $this->reservationModel->beginTransaction();
+      $result1 = $this->reservationModel->markReservationCompleted($reservationID);
+      $result2 = $this->salesModel->makePayment($reservationID);
+      $this->reservationModel->commit();
+
+      if ($result1 && $result2)
+         Toast::setToast(1, "Reservation marked completed successfully", "Payment invoice generated.");
+      else
+         Toast::setToast(0, "Reservation mark completed failed", "");
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($result1 && $result2));
+   }
+
    public function notFound()
    {
       $this->view('404');
@@ -380,7 +397,7 @@ class Reservations extends Controller
       $selectedreservationList = explode(",", $reservationIDs);
 
       $this->reservationModel->updateReservationRecalledState($selectedreservationList, 5);
-      $this->reservationModel->addReservationRecall($selectedreservationList,$reason);
+      $this->reservationModel->addReservationRecall($selectedreservationList, $reason);
       // print_r($serviceID);
       // die('fk');
       //  $this->view('manager/mang_serviceUpdate', $data);

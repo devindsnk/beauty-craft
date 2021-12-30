@@ -7,6 +7,7 @@ class ReceptDashboard extends Controller
       $this->serviceModel = $this->model('ServiceModel');
       $this->reservationModel = $this->model('ReservationModel');
       $this->staffModel = $this->model('StaffModel');
+      $this->salesModel = $this->model('SalesModel');
    }
    public function home()
    {
@@ -35,15 +36,27 @@ class ReceptDashboard extends Controller
    public function sales()
    {
       // Session::validateSession([4]);
-      $this->view('receptionist/recept_sales');
-   }
-   public function services()
-   {
-      // Session::validateSession([4]);
-      // $sDetails = $this->serviceModel->getServiceDetails();
 
-      // $this->view('receptionist/recept_services', $sDetails);
+      // TODO : sort invoices by date 
+      $invoices = $this->salesModel->getAllInvoices();
+      $this->view('receptionist/recept_sales', $invoices);
    }
+
+   public function invoiceView($invoiceNo, $type)
+   {
+      if ($type == 1)
+      {
+         $data = $this->salesModel->getPayInvoice_ReservationData_RefundInvoice($invoiceNo);
+      }
+      else
+      {
+         $data = $this->salesModel->getRefInvoice_ReservationData($invoiceNo);
+      }
+      $data->type = $type;
+      // var_dump($data);
+      $this->view('receptionist/recept_invoiceView', $data);
+   }
+
    public function customers()
    {
       // Session::validateSession([4]);
