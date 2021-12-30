@@ -123,44 +123,15 @@ if(mangLeaveSelectedDate2 != null){
             // checkDateStatus2();      
             let state = 'You cannot change the date';
             mangDateError2.innerHTML = state;
-            if(existDate != mangLeaveSelectedDate2.value){
+            // if(existDate != mangLeaveSelectedDate2.value){
                 document.getElementById("editLeaveProceed").disabled = true;
-            }else{
-                document.getElementById("editLeaveProceed").disabled = false;
-            }
+            // }else{
+            //     document.getElementById("editLeaveProceed").disabled = false;
+            // }
         }
     )
 }
 
-// function checkDateStatus2() { ////////////date disable kroth oni ne
-//     console.log('func awa1');
-
-//     fetch(`http://localhost:80/beauty-craft/Leaves/checkIfDatePossibleForMangLeave/${mangLeaveSelectedDate2.value}`)
-//        .then(response => response.json())
-//        .then(state => {
-//         console.log('func awa5');
-
-//         mangDateError2.innerHTML = state;
-
-//         let st = 1;
-//         if (mangLeaveType2.value !== null) {
-//             fetch(`http://localhost:80/beauty-craft/Leaves/checkIfDatePossibleForMangMedicalLeave/${mangLeaveType2.value}/${mangLeaveSelectedDate2.value}/${st}`)
-//             .then(response => response.json())
-//             .then(state => {
-//                 console.log('func awa6');
-//                 console.log(st);
-//                 mangTypeError2.innerHTML = state;
-//                 if(state != ''){
-//                     console.log('sssssss');
-//                     document.getElementById("editLeaveProceed").disabled = true;
-//                 }else{
-//                     document.getElementById("editLeaveProceed").disabled = false;
-//                 }
-//             })
-//         }
-
-//     })
-//  }
 if(mangLeaveType2 != null){
     mangLeaveType2.addEventListener('change',
         function () {
@@ -170,21 +141,6 @@ if(mangLeaveType2 != null){
 }
 function checkForMedicals2() {
     let st = 1;
-    // if (mangLeaveSelectedDate2.value !== null) {   /////////////date disable kroth oni ne
-    //     fetch(`http://localhost:80/beauty-craft/Leaves/checkIfDatePossibleForMangMedicalLeave/${mangLeaveType2.value}/${mangLeaveSelectedDate2.value}/${st}`)
-    //     .then(response => response.json())
-    //     .then(state => {
-    //         console.log('func awa8');
-    //         console.log(st);
-    //         mangTypeError2.innerHTML = state;
-    //         if(state != ''){
-    //             console.log('sssssss');
-    //             document.getElementById("editLeaveProceed").disabled = true;
-    //         }else{
-    //             document.getElementById("editLeaveProceed").disabled = false;
-    //         }
-    //     })
-    // }
 
     if (document.getElementById("mangLeaveDate").value !== null) {
         fetch(`http://localhost:80/beauty-craft/Leaves/checkIfDatePossibleForMangMedicalLeave/${mangLeaveType2.value}/${document.getElementById("mangLeaveDate").value}/${st}`)
