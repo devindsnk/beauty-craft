@@ -28,12 +28,27 @@ class UserModel extends Model
 
    public function updatePassword($mobileNo, $password)
    {
-      $this->update("users", ["password" => password_hash($password, PASSWORD_DEFAULT)], ["mobileNo" => $mobileNo]);
-      // $this->db->query("UPDATE users SET password = :password WHERE mobileNo = :mobileNo");
+      $results = $this->update("users", ["password" => password_hash($password, PASSWORD_DEFAULT)], ["mobileNo" => $mobileNo]);
+      return $results;
+   }
 
-      // $this->db->bind(':mobileNo', $mobileNo);
-      // $this->db->bind(':password', password_hash($password, PASSWORD_DEFAULT));
+   public function incrementFailedAttempts($mobileNo)
+   {
+      $SQLstatement = "UPDATE users SET failedAttempts = failedAttempts + 1 WHERE mobileNo = :mobileNo;";
+      $results = $this->customQuery($SQLstatement, ["mobileNo" => $mobileNo]);
 
-      // $this->db->execute();
+      return $results;
+   }
+
+   public function resetFailedAttempts($mobileNo)
+   {
+      $results = $this->update("users", ["failedAttempts" => 0], ["mobileNO" => $mobileNo]);
+      return $results;
+   }
+
+   public function getFailedAttempts($mobileNo)
+   {
+      $results = $this->getSingle("users", ["failedAttempts"], ["mobileNO" => $mobileNo]);
+      return $results->failedAttempts;
    }
 }
