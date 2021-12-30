@@ -1,17 +1,15 @@
 ~~~system log~~~
 
-IP Add.	    Date & Time	Mobile No		Name		 Activity
-::1	12/23/21 07:28AM	0703807405	Ruwanthi Munasinghe	user signin to the system
-::1	12/23/21 07:29AM	0703807405	Ruwanthi Munasinghe	user signout from the system
-::1	12/23/21 08:20AM	0703807405	Ruwanthi Munasinghe	user signout from the system
-::1	12/23/21 10:45AM	0703807405	Ruwanthi Munasinghe	user signout from the system
-::1	12/26/21 08:58AM	0703807405	Ruwanthi Munasinghe	user signout from the system
-::1	12/27/21 09:51PM	0703807405	Ruwanthi Munasinghe	user signout from the system
-
-::1	12/28/21 03:27AM	0703807405	Ruwanthi Munasinghe	user signout from the system
-::1	12/28/21 03:27AM	0717679714	Devin Dissanayake	user signout from the system
-::1	12/28/21 03:29AM	0717679714	Devin Dissanayake	user signout from the system
-::1	12/28/21 03:47AM	0717679715	Navin Dissanayake	user signout from the system
-::1	12/28/21 08:34PM	0703807405	Ruwanthi Munasinghe	user signout from the system
-::1	12/29/21 02:06AM	0703807405	Ruwanthi Munasinghe	user signout from the system
-::1	12/29/21 02:10AM	0717679714	Devin Dissanayake	user signout from the system
+IP Address	Date & Time	        Mobile No	Name		            Activity
+::1       	12/30/21 10:28AM	0703807405	Ravindu               	signout
+::1       	12/30/21 10:28AM	0703807405	Ravindu               	signin
+127.0.0.1 	12/30/21 10:28AM	0703807405	Ravindu               	signout
+127.0.0.1 	12/30/21 10:28AM	0703807405	Ravindu               	signin
+::1       	12/30/21 10:29AM	0703807405	Ravindu Madhubhashana 	signout
+::1       	12/30/21 10:29AM	0703807405	Ravindu Madhubhashana 	signin
+127.0.0.1 	12/30/21 10:29AM	0703807405	Ravindu Madhubhashana 	signout
+127.0.0.1 	12/30/21 10:29AM	0703807405	Ravindu Madhubhashana 	signin
+::1       	12/30/21 10:30AM	0703807405	Ruwanthi Munasinghe   	signout
+::1       	12/30/21 10:31AM	0703807405	Ruwanthi Munasinghe   	signin
+127.0.0.1 	12/30/21 10:34AM	0703807405	Ruwanthi Munasinghe   	signout
+127.0.0.1 	12/30/21 10:34AM	0703807405	Ruwanthi Munasinghe   	User CustomLog

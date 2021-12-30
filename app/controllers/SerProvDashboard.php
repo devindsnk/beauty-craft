@@ -331,4 +331,16 @@
       echo (json_encode($reservationData));
       // exit;
    }
+
+   public function deleteRecallRequest($selectedReservation)
+   {
+      $this->reservationModel->updateReservationRecalledState($selectedReservation, 1);
+      $this->reservationModel->deleteReservationRecallRequest($selectedReservation);
+
+      header('Content-Type: application/json; charset=utf-8');
+      // $select = $note;
+      // 
+      echo (json_encode($reservationData));
+      // exit;
+   }
 }

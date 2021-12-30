@@ -253,7 +253,7 @@
                             <!-- <button class="btn  backBtn btnResMoreInfo" ">Back</button> -->
                             <button class="btn btnBack normal" value="close">Back</button>
 
-                            <button class="btnOpen recall  proceedBtn btn btn-filled " value="sendRecall">Proceed</button>
+                            <button class="btnOpen recall  proceedBtn btn btn-filled " value="sendRecall" onclick="proceedRecall(this);"></button>
 
 
 

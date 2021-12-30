@@ -220,6 +220,10 @@ class Staff extends Controller
             $this->userModel->registerUser($data['staffMobileNo'], $data['staffNIC'], $data['staffType']);
             $this->staffModel->addStaffDetails($data);
             $this->staffModel->addBankDetails($data);
+
+            //System log
+            Systemlog::createAccount($data['staffMobileNo']);
+
             Toast::setToast(1, "Staff Member Successfully Registered!", "");
 
             header('location: ' . URLROOT . '/OwnDashboard/staff');
@@ -666,8 +670,8 @@ class Staff extends Controller
                {
                   $this->userModel->updatePassword($data['mobileNo'], $data['newPassword1']);
 
-                  $log = "user changed the password";
-                  logger($data['mobileNo'], $log);
+                  //System log
+                  Systemlog::changePassword();
                   $this->view('staff/staff_changepassword', $data);
                }
             }

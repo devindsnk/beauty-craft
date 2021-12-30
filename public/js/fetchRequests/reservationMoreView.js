@@ -198,10 +198,10 @@ function getReservationMoreData (selectedReservation){
             {
                recallModelHeader.innerHTML="Reservation Recall";
                         
-                     console.log("ok");   
+                     
             }else{
 
-               console.log("not-ok"); 
+               
                const recallModelHeader = document.querySelector(".recall-data-header");
                recallModelHeader.innerHTML="Recalle Details";
 
@@ -304,7 +304,7 @@ function recallResrvation(btn){
       // console.log(statusdiv.getAttribute("data-id"));
       // get reservation recall data
       if(statusdiv.getAttribute("data-id")==5){
-         console.log(btn.dataset.id);
+        
          recallModelBtn.classList.add('btn-error-red');
 
          fetch(`http://localhost:80/beauty-craft/SerProvDashboard/getReservationRecallData/${btn.dataset.id}`)
@@ -314,31 +314,38 @@ function recallResrvation(btn){
             recallReason.innerHTML=recallData['recallReason'];
             recallReason.setAttribute('data-id', recallData['recallStatus']); 
    
-         });
+        
 
             recallStatus=recallReason.getAttribute("data-id");
             console.log(recallStatus);
-            // if(recallData['recallStatus']==1){
-            //       const errormsg = document.querySelector(".recall.error");
-            //       errormsg.innerHTML="Already Responded,can not delete the recall request."
-            //       recallModelBtn.innerHTML="Close";
+            if(recallStatus==1){
+                  recallModelBtn.classList.add('btn-error-red');
+                  const errormsg = document.querySelector(".recall.error");
+                  errormsg.innerHTML="Already Responded,can not delete the recall request."
+                  recallModelBtn.innerHTML="Close";
+                  recallModelBtn.setAttribute('data-Rstatus', recallStatus); 
 
          
-            //       if (recallModelBtn) {
-            //             recallModelBtn.addEventListener("click",function () {
-            //             resRecallModal.classList.remove("show"); 
-            //          });
-            //       }
+                  if (recallModelBtn) {
+                        recallModelBtn.addEventListener("click",function () {
+                        resRecallModal.classList.remove("show"); 
+                     });
+                  }
 
-            //    }else{
-            //       recallModelBtn.innerHTML="Delete Recall";
+               }else if(recallStatus==0){
+                  recallModelBtn.setAttribute('data-Rstatus', recallStatus);
+                  const errormsg = document.querySelector(".recall.error");
+                  errormsg.innerHTML=""
+                  recallModelBtn.innerHTML="Delete Recall";
+
 
                   
-            //    }
+               }
+          });
 
 
       }else{
-
+         recallModelBtn.setAttribute('data-Rstatus', 2);
          recallModelBtn.innerHTML="Send Recall"
          recallModelBtn.classList.add('btn-success-green');
 
@@ -349,6 +356,24 @@ function recallResrvation(btn){
 
 }
 
+function proceedRecall(){
+   
+   // const proceedRecallBtn = ;
+   // console.log(proceedRecallBtn);
+rStatusID=document.querySelector(".recall-reason").getAttribute("data-id");
+selectedReservation=document.querySelector(".proceedBtn").getAttribute("data-id");
+
+// console.log(selectedReservation);
+if(rStatusID==0){
+   fetch(`http://localhost:80/beauty-craft/SerProvDashboard/deleteRecallRequest/${selectedReservation}`)
+       .then(response => response.json())
+       .then(state => {
+          dateError.innerHTML = state;
+    })
+
+
+}
+}
 
 
 
