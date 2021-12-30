@@ -16,7 +16,7 @@ class UserModel extends Model
       return $results;
    }
 
-   public function checkUserExists($mobileNo)
+   public function checkLoginExists($mobileNo)
    {
       $results = $this->getRowCount("users", ["mobileNo" => $mobileNo]);
       if ($results == 0)
@@ -24,6 +24,36 @@ class UserModel extends Model
          return false;
       }
       return true;
+   }
+
+   public function checkAlreadyRegistered($mobileNo)  // Check already registered and not removed
+   {
+      $custExists = $this->checkCustExists($mobileNo);
+      $staffExists = $this->checkStaffExists($mobileNo);
+
+      return ($custExists || $staffExists);
+   }
+
+   public function checkCustExists($mobileNo)
+   {
+      $SQLstatement = "SELECT * FROM customers WHERE mobileNo = :mobileNo AND status = 1;";
+      $results = $this->customQuery($SQLstatement, [":mobileNo" => $mobileNo]);
+
+      if (is_null($results))
+         return false;
+      else
+         return true;
+   }
+
+   public function checkStaffExists($mobileNo)
+   {
+      $SQLstatement = "SELECT * FROM staff WHERE mobileNo = :mobileNo AND status IN (1,2);";
+      $results = $this->customQuery($SQLstatement, [":mobileNo" => $mobileNo]);
+
+      if (is_null($results))
+         return false;
+      else
+         return true;
    }
 
    public function updatePassword($mobileNo, $password)
