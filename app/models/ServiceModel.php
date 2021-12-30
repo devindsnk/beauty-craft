@@ -333,13 +333,14 @@ class ServiceModel extends Model
         return $results->totalDuration;
     }
 
+    // START FOR MANAGER OVERVIEW
     public function getAllAvailableServices()
     {
         $results = $this->getResultSet("services",  "*",  ["status" => 1]);
 
         return $results;
     }
-    // FOR MANAGER OVERVIEW
+    
     public function getAvailableServiceCount()
     {
         $results = $this->getRowCount('services', ['status' => 1]);
@@ -356,7 +357,7 @@ class ServiceModel extends Model
 
         return $results;
     }
-    // FOR MANAGER OVERVIEW
+    // END FOR MANAGER OVERVIEW
 
     // START FOR MANAGER UPDATE SERVICE
     public function changeServiceStatus($serviceID, $state)
@@ -365,6 +366,54 @@ class ServiceModel extends Model
     }
     // END FOR MANAGER UPDATE SERVICE
 
+    // START FOR ANALYTICS 
+    public function getDetailsForServiceReportJS($serviceID,$year,$month)
+    {
+        $results = $this->customQuery("SELECT S.serviceID, S.name, COUNT(DISTINCT SP.staffID) AS NoOFStaff, COUNT(DISTINCT RES.reservationID) AS NoOfRes, COUNT(DISTINCT RES.reservationID)*S.price AS TotalServicePrice
+                                        FROM services AS S
+                                        INNER JOIN serviceproviders AS SP
+                                        ON S.serviceID = SP.serviceID
+                                        AND SP.serviceID = :serviceID
+                                        LEFT JOIN reservations AS RES 
+                                        ON S.serviceID = RES.serviceID
+                                        AND RES.serviceID = :serviceID AND RES.status = 4 AND MONTH(RES.date) = $month AND YEAR(RES.date)=$year",
+                                        ['serviceID' => $serviceID]
+                                    );
+        return $results;
+    }
+
+    public function getDetailsForServiceProvReportJS($staffID,$year,$month)
+    {
+        $results = $this->customQuery("SELECT S.staffID,S.fName,S.lName,COUNT(SP.serviceID) AS NoOFService,COUNT(DISTINCT RES.reservationID) AS NoOfRes,COUNT(DISTINCT RES.reservationID) * SV.price AS TotalServicePrice
+                                    FROM staff AS S
+                                    INNER JOIN serviceproviders AS SP
+                                    ON S.staffID = SP.staffID AND SP.staffID = :staffID
+                                    INNER JOIN services AS SV
+                                    ON SP.serviceID = SV.serviceID
+                                    LEFT JOIN reservations AS RES
+                                    ON S.staffID = RES.staffID 
+                                    AND S.staffID = :staffID AND RES.status = 4 AND S.staffType = 5 AND MONTH(RES.date) =  $month AND YEAR(RES.date) = $year",
+                                    ['staffID' => $staffID]
+                                    );
+        return $results;
+    }
+
+    public function getServiceAnalyticsDetails($serviceID, $from, $to)
+    {
+        $results = $this->customQuery("SELECT DATE_FORMAT(reservations.date, '%Y-%m') AS YearAndMonth, FLOOR((DayOfMonth(reservations.date)-1)/7)+1 AS weekNo, SUM(services.price) AS TotalIncome, COUNT(*) AS TotalReservations
+                                    FROM services
+                                    INNER JOIN reservations ON reservations.serviceID = services.serviceID
+                                    WHERE reservations.status = :status AND (reservations.date BETWEEN '$from' AND '$to') AND services.serviceID=$serviceID
+                                    GROUP BY DATE_FORMAT(reservations.date, '%u-%Y')
+                                    ORDER BY reservations.date, DATE_FORMAT(reservations.date, '%u-%Y')",
+                                    [':status' => 4]
+                                    );
+        // print_r($results);
+        // die('ss');
+        return $results;
+    }
+    // END FOR ANALYTICS 
+    
     // Returns required resources of each slot with start and end times of a given service.
     public function getServiceSlotsSummary($serviceID)
     {

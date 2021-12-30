@@ -407,16 +407,5 @@ class OwnDashboard extends Controller
       $GetStaffArray = ['staff' => $staffDetails];
       $this->view('owner/own_staff', $GetStaffArray);
    }
-   public function analyticsOverall()
-   {
-      $this->view('owner/own_subAnalyticsOverall');
-   }
-   public function analyticsService()
-   {
-      $this->view('owner/own_subAnalyticsService');
-   }
-   public function analyticsSProvider()
-   {
-      $this->view('owner/own_subAnalyticsSProvider');
-   }
+  
 }
