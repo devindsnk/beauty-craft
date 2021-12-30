@@ -51,25 +51,27 @@ const selectedServiceFromDate = document.querySelector(".serviceFromDate");
 const selectedServiceToDate = document.querySelector(".serviceToDate");
 const serviceSearchBtn = document.querySelector(".serviceSearchBtn");
 
-serviceSearchBtn.addEventListener('click',
-    function () {
-        // console.log(selectedService.value);
-        // console.log(selectedServiceFromDate.value);
-        // console.log(selectedServiceToDate.value);
+if(selectedService != null){
+    serviceSearchBtn.addEventListener('click',
+        function () {
+            // console.log(selectedService.value);
+            // console.log(selectedServiceFromDate.value);
+            // console.log(selectedServiceToDate.value);
 
-        // const today = new Date()
-        // const tomorrow = new Date(today)
-        // tomorrow.setDate(tomorrow.getDate() + 1)
-        // console.log(tomorrow);
+            // const today = new Date()
+            // const tomorrow = new Date(today)
+            // tomorrow.setDate(tomorrow.getDate() + 1)
+            // console.log(tomorrow);
 
-        // if(selectedServiceFromDate.value==tomorrow || selectedServiceToDate.value==tomorrow){
-        //     console.log(tomorrow);
+            // if(selectedServiceFromDate.value==tomorrow || selectedServiceToDate.value==tomorrow){
+            //     console.log(tomorrow);
 
-        // }
-        analyticsSelector();
-            
-    }
-)
+            // }
+            analyticsSelector();
+                
+        }
+    )
+}
 
 function analyticsSelector(){
     // fetch(`http://localhost:80/beauty-craft/Services/analyticsServiceChartJS`)

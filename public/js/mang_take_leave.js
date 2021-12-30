@@ -5,11 +5,13 @@ const mangDateError = document.querySelector(".mangDateError");
 const mangLeaveType = document.querySelector(".mangSelecedLeaveType");
 const mangTypeError = document.querySelector(".mangTypeError");
 
-mangLeaveSelectedDate.addEventListener('change',
-    function () {
-        checkDateStatus();      
-    }
-)
+if(mangLeaveSelectedDate != null){
+    mangLeaveSelectedDate.addEventListener('change',
+        function () {
+            checkDateStatus();      
+        }
+    )
+}
 
 function checkDateStatus() {
 
@@ -41,12 +43,13 @@ function checkDateStatus() {
         })
     }
  }
-
-mangLeaveType.addEventListener('change',
-    function () {
-        checkForMedicals();      
-    }
-)
+if(mangLeaveType != null){
+    mangLeaveType.addEventListener('change',
+        function () {
+            checkForMedicals();      
+        }
+    )
+}
 function checkForMedicals() {
     if (mangLeaveSelectedDate.value !== null) {
         fetch(`http://localhost:80/beauty-craft/Leaves/checkIfDatePossibleForMangMedicalLeave/${mangLeaveType.value}/${mangLeaveSelectedDate.value}`)
@@ -108,18 +111,20 @@ const mangDateError2 = document.querySelector(".mangDateError2");
 const mangLeaveType2 = document.querySelector(".mangSelecedLeaveType2");
 const mangTypeError2 = document.querySelector(".mangTypeError2");
 
-mangLeaveSelectedDate2.addEventListener('change', ////////////date disable kroth oni ne
-    function () {
-        // checkDateStatus2();      
-        let state = 'You cannot change the date';
-        mangDateError2.innerHTML = state;
-        if(existDate != mangLeaveSelectedDate2.value){
-            document.getElementById("editLeaveProceed").disabled = true;
-        }else{
-            document.getElementById("editLeaveProceed").disabled = false;
+if(mangLeaveSelectedDate2 != null){
+    mangLeaveSelectedDate2.addEventListener('change', ////////////date disable kroth oni ne
+        function () {
+            // checkDateStatus2();      
+            let state = 'You cannot change the date';
+            mangDateError2.innerHTML = state;
+            if(existDate != mangLeaveSelectedDate2.value){
+                document.getElementById("editLeaveProceed").disabled = true;
+            }else{
+                document.getElementById("editLeaveProceed").disabled = false;
+            }
         }
-    }
-)
+    )
+}
 
 // function checkDateStatus2() { ////////////date disable kroth oni ne
 //     console.log('func awa1');
@@ -150,12 +155,13 @@ mangLeaveSelectedDate2.addEventListener('change', ////////////date disable kroth
 
 //     })
 //  }
-
-mangLeaveType2.addEventListener('change',
-    function () {
-        checkForMedicals2();      
-    }
-)
+if(mangLeaveType2 != null){
+    mangLeaveType2.addEventListener('change',
+        function () {
+            checkForMedicals2();      
+        }
+    )
+}
 function checkForMedicals2() {
     let st = 1;
     // if (mangLeaveSelectedDate2.value !== null) {   /////////////date disable kroth oni ne

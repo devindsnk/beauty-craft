@@ -2,13 +2,15 @@
 
 const selectedMonth2 = document.querySelector(".serviceProvSelectedMonth");
 
-putServiceProvReportTableData(selectedMonth2.value);
+if(selectedMonth2 != null){
+    putServiceProvReportTableData(selectedMonth2.value);
 
-selectedMonth2.addEventListener('change',
-    function () {
-        putServiceProvReportTableData(selectedMonth2.value)     
-    }
-)
+    selectedMonth2.addEventListener('change',
+        function () {
+            putServiceProvReportTableData(selectedMonth2.value)     
+        }
+    )
+}
 
 var myTable2 = document.getElementById('serviceProvTable');
 
