@@ -66,12 +66,12 @@
 						<!--Table row-->
 						<?php for ($i=0; $i < $data; $i++):?>
 							<tr>
-							<td data-lable="Service ID"></td>
-							<td data-lable="Service Name"></td>
-							<td data-lable="No of service providers" class="column-center-align"></td>
-							<td data-lable="No of reservations" class="column-center-align"></td>
-							<td data-lable="Income" class="column-right-align"></td>
-						</tr>
+								<td data-lable="Service ID"></td>
+								<td data-lable="Service Name"></td>
+								<td data-lable="No of service providers" class="column-center-align"></td>
+								<td data-lable="No of reservations" class="column-center-align"></td>
+								<td data-lable="Income" class="column-right-align"></td>
+							</tr>
 						<?php endfor;?>
 						<!--End of table row-->
 						<!--Table row-->
@@ -79,8 +79,8 @@
 							<td class="text-special">Total</td>
 							<td></td>
 							<td></td>
-							<td class="column-center-align text-special">250</td>
-							<td class="column-right-align text-special">250.00 LKR</td>
+							<td class="column-center-align text-special"></td>
+							<td class="column-right-align text-special"></td>
 						</tr>
 						<!--End of table row-->
 					</tbody>

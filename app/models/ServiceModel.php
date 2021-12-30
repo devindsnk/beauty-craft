@@ -354,5 +354,21 @@ class ServiceModel extends Model
                                     );
         return $results;
     }
+
+    public function getDetailsForServiceProvReportJS($staffID,$year,$month)
+    {
+        $results = $this->customQuery("SELECT S.staffID,S.fName,S.lName,COUNT(SP.serviceID) AS NoOFService,COUNT(DISTINCT RES.reservationID) AS NoOfRes,COUNT(DISTINCT RES.reservationID) * SV.price AS TotalServicePrice
+                                    FROM staff AS S
+                                    INNER JOIN serviceproviders AS SP
+                                    ON S.staffID = SP.staffID AND SP.staffID = :staffID
+                                    INNER JOIN services AS SV
+                                    ON SP.serviceID = SV.serviceID
+                                    LEFT JOIN reservations AS RES
+                                    ON S.staffID = RES.staffID 
+                                    AND S.staffID = :staffID AND RES.status = 4 AND S.staffType = 5 AND MONTH(RES.date) =  $month AND YEAR(RES.date) = $year",
+                                    ['staffID' => $staffID]
+                                    );
+        return $results;
+    }
     // END FOR ANALYTICS 
 }
