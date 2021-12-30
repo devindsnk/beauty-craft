@@ -2,61 +2,105 @@
 
 class Systemlog
 {
-    private $data;
-    public function __construct()
+    private static function getUserData()
     {
 
-        if (!file_exists('logfile/syslog.txt'))
-        {
-            file_put_contents('logfile/syslog.txt', "");
-        }
+        $name = Session::getUser("name");
+        // $name = 'Ravindu Madhubhashana';
+        $length = strlen($name);
 
-        // $this->data = array(
-        //     "name" => $_SESSION['username'],
-        //     "mobileNo" => $_SESSION['userMobileNo'],
-        // );
+        if ($length < 22)
+        {
+            $userName = str_pad($name, 22, ' ', STR_PAD_RIGHT);
+        }
+        else
+        {
+            $lastname = end(explode(" ", $name));
+            $firstname = str_replace($lastname, '', $name);
+            $userName = str_pad($firstname, 22, ' ', STR_PAD_RIGHT);
+        }
+        return Session::getUser("mobileNo") . "\t" . $userName;
     }
 
+    private static function getLogData()
+    {
+        $ip = $_SERVER['REMOTE_ADDR'];
+
+
+        $length = strlen($ip);
+        if ($length < 10)
+        {
+            $ip = str_pad($ip, 10, ' ', STR_PAD_RIGHT);
+        }
+        date_default_timezone_set("Asia/Colombo");
+        $time = date('m/d/y h:iA', time());
+        return $ip . "\t" . $time;
+    }
 
     public static function signin()
     {
-
-
-        $userNo = $_SESSION['userMobileNo'];
-        $userName = $_SESSION['username'];
-        $ip = $_SERVER['REMOTE_ADDR'];
-        date_default_timezone_set("Asia/Colombo");
-        $time = date('m/d/y h:iA', time());
-        $log = 'user signin to the system';
-
-
+        $log = 'signin';
         $contents = file_get_contents('logfile/syslog.txt');
 
-
-        $contents .= "\n$ip\t$time\t$userNo\t$userName\t$log";
-
-
+        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
         file_put_contents('logfile/syslog.txt', $contents);
     }
 
     public static function signout()
     {
-        // print_r($this->data);
-        // die("");
-        $userNo = $_SESSION['userMobileNo'];
-        $userName = $_SESSION['username'];
-        $ip = $_SERVER['REMOTE_ADDR'];
-        date_default_timezone_set("Asia/Colombo");
-        $time = date('m/d/y h:iA', time());
-        $log = 'user signout from the system';
-
-
+        $log = 'signout';
         $contents = file_get_contents('logfile/syslog.txt');
 
+        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
+        file_put_contents('logfile/syslog.txt', $contents);
+    }
+    public static function changePassword()
+    {
+        $log = 'change password';
+        $contents = file_get_contents('logfile/syslog.txt');
 
-        $contents .= "\n$ip\t$time\t$userNo\t$userName\t$log";
+        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
+        file_put_contents('logfile/syslog.txt', $contents);
+    }
+    public static function resetPassword()
+    {
+        $log = 'reset password';
+        $contents = file_get_contents('logfile/syslog.txt');
 
+        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
+        file_put_contents('logfile/syslog.txt', $contents);
+    }
 
+    public static function signup()
+    {
+        $log = 'signup';
+        $contents = file_get_contents('logfile/syslog.txt');
+
+        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
+        file_put_contents('logfile/syslog.txt', $contents);
+    }
+    public static function createAccount($staffMobileNo)
+    {
+        $log = 'create account mobileNo:' . $staffMobileNo;
+        $contents = file_get_contents('logfile/syslog.txt');
+
+        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
+        file_put_contents('logfile/syslog.txt', $contents);
+    }
+
+    public static function downloadSysLog()
+    {
+        $log = 'download systemLog file';
+        $contents = file_get_contents('logfile/syslog.txt');
+
+        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
+        file_put_contents('logfile/syslog.txt', $contents);
+    }
+    public static function customLog($log)
+    {
+        $contents = file_get_contents('logfile/syslog.txt');
+
+        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
         file_put_contents('logfile/syslog.txt', $contents);
     }
 }

@@ -186,14 +186,12 @@ class User extends Controller
                   $this->userModel->resetFailedAttempts($data['mobileNo']);
                   $this->OTPModel->removeOTP($data['mobileNo'], 2);
                   $this->userModel->commit();
+
+                  //System log
+                  Systemlog::resetPassword();
+
                   Toast::setToast(1, "Password recovery successful!", "Sign in using new password.");
-
-                  // Provide success message here
                   header('location: ' . URLROOT . '/user/signin');
-
-                  //system log
-                  $log = "user reset the password";
-                  logger($data['mobileNo'], $log);
                }
             }
             else

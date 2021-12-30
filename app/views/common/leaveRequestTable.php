@@ -82,13 +82,16 @@
 
                      </td>
                      <td data-lable="Status" class="column-center-align">
-                        <?php if ($leave->status == 2) : ?>
+                        <?php if ($leave->status == 3) : ?>
+                           <button type="button" class="status-btn blue text-uppercase " value="Pending"> MRejected
+                           </button>
+                        <?php elseif ($leave->status == 2) : ?>
                            <button type="button" class="status-btn yellow text-uppercase " value="Pending"> Pending
                            </button>
                         <?php elseif ($leave->status == 1) : ?>
                            <button type="button" class="status-btn green text-uppercase" value="Approved"> Approved
                            </button>
-                        <?php else : ?>
+                        <?php elseif ($leave->status == 0) : ?>
                            <button type="button" class="status-btn red text-uppercase value=" Rejected"> Rejected
                            </button>
                         <?php endif; ?>
@@ -96,7 +99,11 @@
                      <td data-lable="Action" class="column-center-align">
                         <span>
                            <button class="editicon btnEditLeave"><a href="#" data-a=""><i class="ci-edit table-icon"></i></a></button>
-                           <button class="editicon btnDeleteLeave"><a><i class="ci-trash table-icon"></i></a></button>
+                           <?php if ($leave->status == 2) : ?>
+                              <button class="editicon btnDeleteLeave"><a><i class="ci-trash table-icon"></i></a></button>
+                           <?php else : ?>
+                              <button class="editicon btnDeleteLeave" disabled><a><i class="ci-trash-disable table-icon"></i></a></button>
+                           <?php endif; ?>
                         </span>
                      </td>
 
@@ -194,14 +201,11 @@
                   <div class="leave-date-section">
                      <div class="text-group">
                         <label class="labels" for="serviceName">Date</label><br>
-                        <input class="addItemsModalLeaveRequestDate" type="date" name="date" id="takeLeaveDate" placeholder="--Select a date--" value="">
+                        <input class="LeaveRequestDate" type="date" name="date" id="takeLeaveDate" placeholder="--Select a date--" value="">
                      </div>
-                     <span class="error date-error">
-                        <?php if ($data['date_error'])
-                        {
-                           echo $data['date_error'];
-                        }
-                        else echo $data['dateValidationMsg']; ?>
+
+                     <span class="error dateEmpty">
+                        <?php echo $data['date_error']; ?>
                      </span>
                      <!-- <input class="dateValidationMsg"> -->
                   </div>
@@ -217,7 +221,7 @@
 
                         </select>
                      </div>
-                     <span class="error date-error">
+                     <span class="error type-error">
                         <?php if ($data['type_error'])
                         {
                            echo $data['type_error'];
@@ -225,6 +229,9 @@
                      </span>
                   </div>
                </div>
+               <span class="error request-date-error">
+
+               </span>
 
                <div class="reqleave-reason-section">
                   <div class="text-group">
@@ -301,16 +308,16 @@
    <!-- delete leave Request model -->
    <div class="modal-container delete-leave">
       <div class="modal-box leave_delete">
-         <h2>Delete Leave Request</h2>
+         <h2>Cancel Leave Request</h2>
          <div class="confirmationmsg-container">
-            <span>Are you sure you want to delete this service?</span>
+            <span>Are you sure you want to cancel this leave request?</span>
          </div>
          <div class="modalbutton">
             <div class="btn1">
                <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
             </div>
             <div class="btn2">
-               <button type="submit" name="action" value="deleteLeave" class="delete leave confirm-service-btn btn btn-filled btn-blue">Delete</button>
+               <button type="submit" name="action" value="deleteLeave" class="delete leave  btn btn-filled btn-error-red" onclick="recallCancelReservation(recordID);">Yes, Cancel</button>
             </div>
          </div>
 

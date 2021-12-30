@@ -1,5 +1,5 @@
 .reqleave-date-section{
-    height: 100px;
+    height: 80px;
 }
 .reqleave-reason-section{
     height: 130px;
@@ -10,4 +10,8 @@
 
 input.dateValidationMsg{
 border:none;
+}
+
+span.error.request-date-error{
+    height: 20px;
 }
