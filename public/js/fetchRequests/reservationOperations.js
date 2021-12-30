@@ -1,5 +1,5 @@
 function recallCancelReservation(btn) {
-    reservationID = btn.getAttribute("data-id");
+    let reservationID = btn.getAttribute("data-id");
     fetch(`http://localhost:80/beauty-craft/Reservations/recallCancelReservation/${reservationID}`)
         .then(response => response.json())
         .then(state => {
@@ -10,23 +10,34 @@ function recallCancelReservation(btn) {
  }
 
 function cancelReservation(btn) {
-    reservationID = btn.getAttribute("data-id");
-    console.log(reservationID);
-//     recordID = null;
-//     fetch(`http://localhost:80/beauty-craft/Reservations/cancelReservation/${reservationID}`)
-//       .then(response => response.json())
-//       .then(state => {
-//          console.log(state);
-//    })
+    let reservationID = btn.getAttribute("data-id");
+    fetch(`http://localhost:80/beauty-craft/Reservations/cancelReservation/${reservationID}`)
+      .then(response => response.json())
+      .then(state => {
+        if(state){
+            window.location.reload();
+        }
+   })
  }
 
- function markNoShowReservation(btn) {
-    reservationID = btn.getAttribute("data-id");
-    fetch(`http://localhost:80/beauty-craft/Reservations/markNoShowReservation/${reservationID}`)
+ function markReservationNoShow(btn) {
+    let reservationID = btn.getAttribute("data-id");
+    fetch(`http://localhost:80/beauty-craft/Reservations/markReservationNoShow/${reservationID}`)
         .then(response => response.json())
         .then(state => {
             if(state){
                 window.location.reload();
+            }
+    })
+ }
+
+ function checkoutReservation(btn) {
+    let reservationID = btn.getAttribute("data-id");
+    fetch(`http://localhost:80/beauty-craft/Reservations/checkoutReservation/${reservationID}`)
+        .then(response => response.json())
+        .then(state => {
+            if(state){
+                window.location.reload(); 
             }
     })
  }

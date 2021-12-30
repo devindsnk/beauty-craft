@@ -82,7 +82,7 @@ class ReservationModel extends Model
       return $results;
    }
 
-   // SRART FOR MANAGER OVERVIEW
+   // START FOR MANAGER OVERVIEW
    public function getTotalIncomeForMangOverview()
    {
 
@@ -128,7 +128,7 @@ class ReservationModel extends Model
 
    // END FOR MANAGER OVERVIEW
 
-   // SRART FOR MANAGER UPDATE SERVICE
+   // START FOR MANAGER UPDATE SERVICE
    public function getUpcommingReservationsForService($sID)
    {
       // upcomming reservations gnn oni 
@@ -166,7 +166,6 @@ class ReservationModel extends Model
 
    public function getReservationsByStaffIDandDate($staffID, $date)
    {
-      //  die("hii555555");
       $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
       FROM reservations 
       INNER JOIN services ON services.serviceID = reservations.serviceID
@@ -231,17 +230,20 @@ class ReservationModel extends Model
       $results = $this->getSingle('recallrequests', ['reason'], ['reservationID' => $selectedreservation]);
       return $results->reason;
    }
+<<<<<<< HEAD
    public function getReservationRecallDetailsByID($selectedreservation)
    {
       $results = $this->getSingle('recallrequests', ['status'], ['reservationID' => $selectedreservation]);
       return $results->status;
    }
+=======
+
+>>>>>>> f91460ddb113dbfb5096cc6c4a53d93fcfd1d930
    public function deleteReservationRecallRequest($reservationID)
    {
 
       $results = $this->delete('recallrequests', ['reservationID' => $reservationID]);
    }
-
 
    public function getAllPendingRecallRequests()
    {
@@ -354,11 +356,31 @@ class ReservationModel extends Model
       return $results;
    }
 
-   public function markNoShowReservation($reservationID)
+   public function markReservationConfirmed($reservationID)
+   {
+      $results = $this->update(
+         "reservations",
+         ["status" => 2],
+         ["reservationID" => $reservationID]
+      );
+      return $results;
+   }
+
+   public function markReservationNoShow($reservationID)
    {
       $results = $this->update(
          "reservations",
          ["status" => 3],
+         ["reservationID" => $reservationID]
+      );
+      return $results;
+   }
+
+   public function markReservationCompleted($reservationID)
+   {
+      $results = $this->update(
+         "reservations",
+         ["status" => 4],
          ["reservationID" => $reservationID]
       );
       return $results;

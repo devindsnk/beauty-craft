@@ -115,7 +115,7 @@
                <tbody>
                   <?php foreach ($data['reservationsList'] as $reservation) : ?>
                      <?php
-                     $statusClassList = ["red", "blue", "green", "red", "grey", "yellow"];
+                     $statusClassList = ["red", "blue", "green", "grey", "grey", "yellow"];
                      $statusValueList  = ["Cancelled", "Pending", "Confirmed", "No Show", "Completed", "Recalled"];
                      $statusClass = $statusClassList[$reservation->status];
                      $statusValue = $statusValueList[$reservation->status];
