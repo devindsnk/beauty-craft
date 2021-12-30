@@ -67,59 +67,49 @@
                </thead>
 
                <tbody>
-                  <tr>
-                     <td data-lable="Invoice No" class="column-center-align font-numeric">I000001</td>
-                     <td data-lable="Amount" class="column-left-align font-numeric">750.00 LKR</td>
-                     <td data-lable="Type" class="column-center-align">Payment</td>
-                     <td data-lable="Date" class="column-center-align">2021-10-14</td>
-                     <td data-lable="Status" class="column-center-align">
-                        <button type="button" class="table-btn green-status-btn text-uppercase">Paid</button>
-                     </td>
-                     <td class="column-center-align">
-                        <span>
-                           <a href="#"><i class="ci-view-more table-icon"></i></a>
-                           <?php if ($userLevel == "Owner") : ?>
-                              <a href="#"><i class="ci-trash table-icon btnRemoveCustomer"></i></a>
-                           <?php endif; ?>
-                        </span>
-                     </td>
-                  </tr>
 
-                  <tr>
-                     <td data-lable="Invoice No" class="column-center-align font-numeric">I000002</td>
-                     <td data-lable="Amount" class="column-left-align font-numeric">1000.00 LKR</td>
-                     <td data-lable="Type" class="column-center-align">Payment</td>
-                     <td data-lable="Date" class="column-center-align">2021-06-21</td>
-                     <td data-lable="Status" class="column-center-align">
-                        <button type="button" class="table-btn green-status-btn text-uppercase">Paid</button>
-                     </td>
-                     <td class="column-center-align">
-                        <span>
-                           <a href="#"><i class="ci-view-more table-icon"></i></a>
-                           <?php if ($userLevel == "Owner") : ?>
-                              <a href="#"><i class="ci-trash table-icon btnRemoveCustomer"></i></a>
-                           <?php endif; ?>
-                        </span>
-                     </td>
-                  </tr>
-
-                  <tr>
-                     <td data-lable="Invoice No" class="column-center-align font-numeric">I000003</td>
-                     <td data-lable="Amount" class="column-left-align font-numeric">1000.00 LKR</td>
-                     <td data-lable="Type" class="column-center-align">Payment</td>
-                     <td data-lable="Date" class="column-center-align">2021-08-24</td>
-                     <td data-lable="Status" class="column-center-align">
-                        <button type="button" class="table-btn red-status-btn text-uppercase">Cancelled</button>
-                     </td>
-                     <td class="column-center-align">
-                        <span>
-                           <a href="#"><i class="ci-view-more table-icon"></i></a>
-                           <?php if ($userLevel == "Owner") : ?>
-                              <a href="#"><i class="ci-trash table-icon btnRemoveCustomer"></i></a>
-                           <?php endif; ?>
-                        </span>
-                     </td>
-                  </tr>
+                  <?php foreach ($data as $invoice) : ?>
+                     <!-- invoice type payment  -->
+                     <?php if ($invoice->type == 1) :
+                        $statusClassList = ["red", "yellow", "green"];
+                        $statusValueList  = ["Voided", "Unpaid", "Paid"];
+                        $statusClass = $statusClassList[$invoice->status];
+                        $statusValue = $statusValueList[$invoice->status]; ?>
+                        <tr>
+                           <td data-lable="Invoice No" class="column-center-align font-numeric">Pay_<?php echo $invoice->paymentInvoiceNo ?></td>
+                           <td data-lable="Amount" class="column-right-align font-numeric"><?php echo $invoice->amount ?> LKR</td>
+                           <td data-lable="Type" class="column-center-align">Payment</td>
+                           <td data-lable="Date" class="column-center-align"><?php echo $invoice->datetime ?></td>
+                           <td data-lable="Status" class="column-center-align">
+                              <button type="button" class="status-btn green text-uppercase <?php echo $statusClass ?>"><?php echo $statusValue ?></button>
+                           </td>
+                           <td class="column-center-align">
+                              <span>
+                                 <a href="<?php echo URLROOT . "/ReceptDashboard/invoiceView/" . $invoice->paymentInvoiceNo . "/" . $invoice->type ?>"><i class="ci-view-more table-icon"></i></a>
+                              </span>
+                           </td>
+                        </tr>
+                     <?php else :
+                        $statusClassList = ["red", "yellow"];
+                        $statusValueList  = ["Voided", "Refunded"];
+                        $statusClass = $statusClassList[$invoice->status];
+                        $statusValue = $statusValueList[$invoice->status]; ?>
+                        <tr>
+                           <td data-lable="Invoice No" class="column-center-align font-numeric">Ref_<?php echo $invoice->refundInvoiceNo ?></td>
+                           <td data-lable="Amount" class="column-right-align font-numeric"><?php echo $invoice->amount ?> LKR</td>
+                           <td data-lable="Type" class="column-center-align">Refund</td>
+                           <td data-lable="Date" class="column-center-align"><?php echo $invoice->datetime ?></td>
+                           <td data-lable="Status" class="column-center-align">
+                              <button type="button" class="status-btn green text-uppercase <?php echo $statusClass ?>"><?php echo $statusValue ?></button>
+                           </td>
+                           <td class="column-center-align">
+                              <span>
+                                 <a href="<?php echo URLROOT . "/ReceptDashboard/invoiceView/" . $invoice->refundInvoiceNo . "/" . $invoice->type ?>"><i class="ci-view-more table-icon"></i></a>
+                              </span>
+                           </td>
+                        </tr>
+                     <?php endif; ?>
+                  <?php endforeach; ?>
                </tbody>
             </table>
          </div>

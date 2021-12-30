@@ -24,12 +24,14 @@ class test extends Controller
       // $this->testModel2->commit();
    }
 
-   public function check1()
+   public function check1($w)
    {
+      echo $w;
       // echo "Testing 1.. 2.. 3..";
       // $results = $this->reservationModel->getAllPendingRecallRequests();
       // var_dump($results);
 
-      echo DateTimeExtended::getCurrentTime();
+      // echo DateTimeExtended::getCurrentTime();
+      // $this->view('test');
    }
 }

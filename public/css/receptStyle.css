@@ -5,99 +5,6 @@
 /* --------------STYLES ADDED BY DEVIN -------------------*/
 /* ------------------------------------------------------ */
 
-/* Common button styles */
-/*Currently moved to style.css check for conflicts*/
-
-/* .recept .btn{
-   display: block;
-   border-radius: 6px;
-   text-align: center;
-}
-
-.recept .btn.btn-filled{
-   border: none;
-   color:var(--white);
-}
-
-.recept .btn.btn-outlined{
-   background-color: transparent;
-}
-
-.recept .btn.btn-filled.btn-theme-purple{
-   background-color: var(--theme-purple);
-}
-
-.recept .btn.btn-filled.btn-red{
-   background-color: var(--theme-red);
-}
-
-.recept .btn.btn-filled.btn-black{
-   background-color: var(--theme-black);
-}
-
-.recept .btn.btn-outlined.btn-black{
-   border: 2px solid var(--theme-black);
-   color: var(--theme-black);
-} */
-
-/* End of Common button styles */
-
-/* Common template for pages with tables */
-/*Currently moved to style.css check for conflicts*/
-
-/* .recept.content .top-container {
-   margin: 30px 0 10px 0;
-   padding: 0 70px;
-   display: flex;
-   justify-content: right;
-   width: 100%;
-}
-
-.recept .top-container .btn{
-   font-weight: 500;
-   padding: 7px;
-   width: 120px;
-}
-
-.recept.content .options-container {
-   display: flex;
-   padding: 30px 70px;
-   width: 100%;
-   min-width: 330px;
-}
-
-.recept.content .options-container .left-section {
-   width: 100%;
-   margin-right: auto;
-}
-
-.recept.content .options-container .right-section {
-   margin-left: 30px;
-}
-
-.recept .options-container .btn{
-   margin-top: 26px;
-   font-weight: 500;
-   padding: 7px;
-   width: 120px;
-}
-
-@media (max-width: 940px) {
-   .recept.content .options-container {
-      flex-direction: column;
-   }
-
-   .recept.content .options-container .right-section {
-      margin-left: auto;
-   }
-
-   .recept .options-container .btn{
-      margin-top: 0px;
-   }
-} */
-
-/* End of Common template for pages with tables */
-
 
 /******************** Styles of recall request page ************************/
 
@@ -440,12 +347,18 @@
    padding: 30px;
 }
 
-
 .recept.resMoreInfo .contentBox .row {
    width: 100%;
    display: grid;
-   grid-template-columns: 3fr 4fr;
    margin-bottom: 10px;
+}
+
+.recept.resMoreInfo .resDetails .row {
+   grid-template-columns: 1fr 3fr;
+}
+
+.recept.resMoreInfo .custDetails .row {
+   grid-template-columns: 3fr 5fr;
 }
 
 .recept.resMoreInfo .contentBox .column {
@@ -472,12 +385,12 @@
 
 .recept.resMoreInfo .resDetails .sub-res-container {
    display: grid;
-   grid-template-columns: 2fr 8fr;
+   grid-template-columns: 1fr;
 }
 
 .recept.resMoreInfo .separator {
-   margin: 20px 0;
-   height: 2px;
+   margin: 10px 0 15px;
+   height: 1px;
    color: var(--theme-lightgrey);
 }
 
@@ -505,6 +418,83 @@
 
 /**************** End of Styles of res More info page *******************/
 
+/*********************** Styles of invoice View **************************/
+
+.recept.invoiceView .innerContainer {
+   max-width: 630px;
+   margin: 30px auto 15px;
+}
+
+.recept.invoiceView .contentBox {
+   margin: 10px 0 30px;
+   padding: 30px;
+}
+
+.recept.invoiceView .contentBox .row {
+   width: 100%;
+   display: grid;
+   margin-bottom: 10px;
+}
+
+.recept.invoiceView .invoiceDetails .row {
+   grid-template-columns: 3fr 3fr 2fr;
+}
+
+.recept.invoiceView .invoiceDetails .invoice-status{
+   margin-left: auto;
+}
+
+.recept.invoiceView .resDetails .row {
+   grid-template-columns: 2fr 4fr;
+}
+
+.recept.invoiceView .contentBox .column {
+   width: 100%;
+}
+
+.recept.invoiceView .text-group label {
+   font-size: 14px;
+   font-weight: 400;
+   color: var(--theme-grey);
+}
+
+.recept.invoiceView .text-group p {
+   font-size: 14px;
+   font-weight: 600;
+}
+
+.recept.invoiceView .summary{
+   font-size: 13px;
+   color: var(--theme-grey);
+}
+
+.recept.invoiceView .summary .highlighted{
+   font-size: 12px;
+   font-weight: 600;
+   color: var(--theme-black);
+}
+
+.recept.invoiceView .separator {
+   margin: 16px 0 15px;
+   height: 1px;
+   color: var(--theme-lightgrey);
+}
+
+/* btn-container */
+
+.recept.invoiceView .btn-container {
+   display: flex;
+   justify-content: flex-end;
+   gap: 20px;
+   width: 100%;
+   flex-direction: row;
+}
+
+.recept.invoiceView .btn-container .btn {
+   padding: 4px;
+   width: 120px;
+}
+/****************** End of Styles of invoice View ************************/
 
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/

@@ -4,7 +4,6 @@
    <?php
    $selectedMain = "Customers";
    $selectedSub = "";
-   require APPROOT . "/views/manager/mang_sideNav.php";
    switch (Session::getUser("type"))
    {
 
@@ -91,7 +90,7 @@
                         <td data-lable="Gender" class="column-center-align">M</td>
                         <td data-lable="Registered Date" class="column-center-align"><?php echo $customerD->registeredDate; ?></td>
                         <td data-lable="Status" class="column-center-align">
-                           <button type="button" class="table-btn green-status-btn text-uppercase">Active</button>
+                           <button type="button" class="status-btn green text-uppercase">Active</button>
                         </td>
                         <td class="column-center-align">
                            <span>

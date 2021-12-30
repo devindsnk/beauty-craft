@@ -117,7 +117,11 @@
    background-repeat: no-repeat;
    background-size: contain;
 }
-
+.ci-trash-disable {
+   background: url(../../public/svg/trash-disable.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
 .ci-edit {
    background: url(../../public/svg/edit.svg);
    background-repeat: no-repeat;

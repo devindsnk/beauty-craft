@@ -29,6 +29,20 @@ class DateTimeExtended
       return $date;
    }
 
+   public static function dateToShortMonthFormat($datetime, $flag)
+   {
+      $timestamp = strtotime($datetime);
+      switch ($flag)
+      {
+         case "D":
+            return date('j',  $timestamp);
+         case "M":
+            return date('M',  $timestamp);
+         case "Y":
+            return date('o',  $timestamp);
+      }
+   }
+
    public static function getTimeDiff($fromTime, $toTime = NULL)
    {
       if (is_null($toTime))
@@ -42,11 +56,21 @@ class DateTimeExtended
       return [$minsDiff, $secDiff];
    }
 
-   public static function minsToDuration()
+   public static function minsToDuration($durationInMins)
    {
+      $hours = (int)($durationInMins / 60);
+      $mins = $durationInMins % 60;
+      if ($hours == 0)
+         return $mins . " mins";
+      elseif ($mins == 0)
+      {
+         return $hours . " hours";
+      }
+      else
+      {
+         return $hours . " h " . $mins . " mins";
+      }
    }
-
-
 
    public static function minsToTime($timeInMins)
    {
