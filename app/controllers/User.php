@@ -18,11 +18,8 @@ class User extends Controller
             'mobileNo' => trim($_POST['mobileNo']),
             'password' => trim($_POST['password']),
             'mobileNo_error' => '',
-            'password_error' => '',
-            // 'contactNo'=>'0762930963'
+            'password_error' => ''
          ];
-         // $this->userModel->updatePassword($data['contactNo'],$data['password']);
-
 
          $data['mobileNo_error'] = validateMobileNo($data['mobileNo']);
          $data['password_error'] = emptyCheck($data['password']);
@@ -92,7 +89,6 @@ class User extends Controller
       // If the request is a post
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
-
          // Data is loaded
          $data = [
             'mobileNo' => trim($_POST['mobileNo']),
@@ -113,9 +109,9 @@ class User extends Controller
             if (empty($data['mobileNo_error']))
             {
                // Checking if already registered
-               $isUserExists = $this->userModel->checkUserExists($data['mobileNo']);
+               $isLoginExists = $this->userModel->checkLoginExists($data['mobileNo']);
                // Handle already registered but inactive customers properly
-               if ($isUserExists)
+               if ($isLoginExists)
                {
                   // If no issues
                   //GET otp
