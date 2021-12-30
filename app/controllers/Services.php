@@ -657,7 +657,18 @@ class Services extends Controller
    public function analyticsService()
    {
       // Session::validateSession([3]);
-      $this->view('common/SubAnalyticsService');
+      $serviceList = $this->ServiceModel->getServiceDetails();
+      // $serviceChartDetails = $this->ServiceModel->getServiceAnalyticsDetails();
+      // print_r($serviceChartDetails);
+      // die('dddd');
+      $this->view('common/SubAnalyticsService', $serviceList);
+   }
+   public function analyticsServiceChartJS($serviceID, $from, $to)
+   {
+      // Session::validateSession([3]);
+      $serviceChartDetails = $this->ServiceModel->getServiceAnalyticsDetails($serviceID, $from, $to);
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($serviceChartDetails));
    }
    public function analyticsSProvider()
    {
