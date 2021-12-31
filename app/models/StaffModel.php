@@ -115,14 +115,7 @@ class StaffModel extends Model
 
    public function getStaffUserData($mobileNo)
    {
-      $results = $this->getSingle("staff", "*", ['mobileNo' => $mobileNo]);
-      
-      // var_dump($results);
-      // $this->db->query("SELECT * FROM staff WHERE mobileNo =  :mobileNo ");
-      // $this->db->bind(':mobileNo', $mobileNo);
-      // $result = $this->db->single();
-      // print_r($results);
-      // die('hi');
+      $results = $this->getSingle("staff", "*", ['mobileNo' => $mobileNo, "status" => 1]);
 
       return [$results->staffID, $results->fName . " " . $results->lName, $results->imgPath];
    }

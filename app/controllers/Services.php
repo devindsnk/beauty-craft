@@ -595,12 +595,84 @@ class Services extends Controller
       $this->ServiceModel->changeServiceStatus($serviceID, $state);
       redirect('Services/viewAllServices');
    }
+
    public function serviceReport()
    {
-      $this->view('common/serviceReport');
+      $serviceList = $this->ServiceModel->getServiceDetails();
+      $this->view('common/serviceReport',count($serviceList));
    }
+
+   public function serviceReportJS($smonth)
+   {
+      $serviceList = $this->ServiceModel->getServiceDetails();
+
+      $sReportDetails =array();
+      $dateOld=date_create($smonth);
+      
+      $year=date_format($dateOld,"Y");
+      $month=date_format($dateOld,"m");
+
+      foreach($serviceList as $services)
+      {
+         $serviceDetails = $this->ServiceModel->getDetailsForServiceReportJS($services->serviceID,$year,$month);
+         array_push($sReportDetails, $serviceDetails);
+      }
+      
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($sReportDetails));
+   }
+
    public function serviceProviderReport()
    {
-      $this->view('common/serviceProviderReport');
+      $serviceProviderList = $this->ServiceModel->getServiceProviderDetails();
+
+      $this->view('common/serviceProviderReport',count($serviceProviderList));
+   }
+
+   public function serviceProviderReportJS($smonth)
+   {
+      $sProvList = $this->ServiceModel->getServiceProviderDetails();
+
+      $sProvReportDetails =array();
+      $dateOld=date_create($smonth);
+      
+      $year=date_format($dateOld,"Y");
+      $month=date_format($dateOld,"m");
+
+      foreach($sProvList as $sProv)
+      {
+         $sProvDetails = $this->ServiceModel->getDetailsForServiceProvReportJS($sProv->staffID,$year,$month);
+         array_push($sProvReportDetails, $sProvDetails);
+      }
+      
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($sProvReportDetails));
+   }
+
+   public function analyticsOverall()
+   {
+      // Session::validateSession([3]);
+      $this->view('common/SubAnalyticsOverall');
+   }
+   public function analyticsService()
+   {
+      // Session::validateSession([3]);
+      $serviceList = $this->ServiceModel->getServiceDetails();
+      // $serviceChartDetails = $this->ServiceModel->getServiceAnalyticsDetails();
+      // print_r($serviceChartDetails);
+      // die('dddd');
+      $this->view('common/SubAnalyticsService', $serviceList);
+   }
+   public function analyticsServiceChartJS($serviceID, $from, $to)
+   {
+      // Session::validateSession([3]);
+      $serviceChartDetails = $this->ServiceModel->getServiceAnalyticsDetails($serviceID, $from, $to);
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($serviceChartDetails));
+   }
+   public function analyticsSProvider()
+   {
+      // Session::validateSession([3]);
+      $this->view('common/SubAnalyticsSProvider');
    }
 }

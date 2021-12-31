@@ -26,7 +26,7 @@ class CustomerModel extends Model
 
    public function getCustomerUserData($mobileNo)
    {
-      $result = $this->getSingle("customers", ["customerID", "fName", "lName"], ["mobileNo" => $mobileNo]);
+      $result = $this->getSingle("customers", ["customerID", "fName", "lName"], ["mobileNo" => $mobileNo, "status" => 1]);
       return [$result->customerID, $result->fName . " " . $result->lName];
    }
 
@@ -47,14 +47,13 @@ class CustomerModel extends Model
 
    public function getAllCustomerDetails()
    {
-      $result = $this->getResultSet('customers','*', null);
+      $result = $this->getResultSet('customers', '*', null);
       return ($result);
-    
    }
 
    public function getCustomerDetailsByCusID($cusID)
    {
-      $result = $this->getResultSet('customers','*',  ["customerID" => $cusID] );
+      $result = $this->getResultSet('customers', '*',  ["customerID" => $cusID]);
       // print_r($result);
       return ($result);
    }
@@ -62,8 +61,7 @@ class CustomerModel extends Model
    public function getAllReservationCountByCusID($cusID)
    {
       // die('sucess');
-      $result = $this->getRowCount('reservations', ['customerID' => $cusID]);
-    
+      $result = $this->getRowCount('reservations', ['customerID ' => $cusID, 'status' => 1]);
       print_r($result);
       // die();
       return ($result);
@@ -80,11 +78,15 @@ class CustomerModel extends Model
 
 
 
-   // FOR MANAGER OVERVIEW
-   public function getActiveCustomerCount(){
 
-      $results = $this->getRowCount('customers', ['status' => 'active']);                               
-      
+
+
+   // FOR MANAGER OVERVIEW
+   public function getActiveCustomerCount()
+   {
+
+      $results = $this->getRowCount('customers', ['status' => 'active']);
+
       return $results;
    }
    // FOR MANAGER OVERVIEW

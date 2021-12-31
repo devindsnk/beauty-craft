@@ -16,7 +16,7 @@ class UserModel extends Model
       return $results;
    }
 
-   public function checkUserExists($mobileNo)
+   public function checkLoginExists($mobileNo)
    {
       $results = $this->getRowCount("users", ["mobileNo" => $mobileNo]);
       if ($results == 0)
@@ -26,14 +26,59 @@ class UserModel extends Model
       return true;
    }
 
+   public function checkAlreadyRegistered($mobileNo)  // Check already registered and not removed
+   {
+      $custExists = $this->checkCustExists($mobileNo);
+      $staffExists = $this->checkStaffExists($mobileNo);
+
+      return ($custExists || $staffExists);
+   }
+
+   public function checkCustExists($mobileNo)
+   {
+      $SQLstatement = "SELECT * FROM customers WHERE mobileNo = :mobileNo AND status = 1;";
+      $results = $this->customQuery($SQLstatement, [":mobileNo" => $mobileNo]);
+
+      if (is_null($results))
+         return false;
+      else
+         return true;
+   }
+
+   public function checkStaffExists($mobileNo)
+   {
+      $SQLstatement = "SELECT * FROM staff WHERE mobileNo = :mobileNo AND status IN (1,2);";
+      $results = $this->customQuery($SQLstatement, [":mobileNo" => $mobileNo]);
+
+      if (is_null($results))
+         return false;
+      else
+         return true;
+   }
+
    public function updatePassword($mobileNo, $password)
    {
-      $this->update("users", ["password" => password_hash($password, PASSWORD_DEFAULT)], ["mobileNo" => $mobileNo]);
-      // $this->db->query("UPDATE users SET password = :password WHERE mobileNo = :mobileNo");
+      $results = $this->update("users", ["password" => password_hash($password, PASSWORD_DEFAULT)], ["mobileNo" => $mobileNo]);
+      return $results;
+   }
 
-      // $this->db->bind(':mobileNo', $mobileNo);
-      // $this->db->bind(':password', password_hash($password, PASSWORD_DEFAULT));
+   public function incrementFailedAttempts($mobileNo)
+   {
+      $SQLstatement = "UPDATE users SET failedAttempts = failedAttempts + 1 WHERE mobileNo = :mobileNo;";
+      $results = $this->customQuery($SQLstatement, ["mobileNo" => $mobileNo]);
 
-      // $this->db->execute();
+      return $results;
+   }
+
+   public function resetFailedAttempts($mobileNo)
+   {
+      $results = $this->update("users", ["failedAttempts" => 0], ["mobileNO" => $mobileNo]);
+      return $results;
+   }
+
+   public function getFailedAttempts($mobileNo)
+   {
+      $results = $this->getSingle("users", ["failedAttempts"], ["mobileNO" => $mobileNo]);
+      return $results->failedAttempts;
    }
 }

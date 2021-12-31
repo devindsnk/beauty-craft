@@ -47,8 +47,8 @@ class Customer extends Controller
             if (empty($data['mobileNo_error']))
             {
                // Checking if already registered
-               $isUserExists = $this->userModel->checkUserExists($data['mobileNo']);
-               // Handle already registered but inactive customers properly
+               $isUserExists = $this->userModel->checkAlreadyRegistered($data['mobileNo']);
+
                if ($isUserExists)
                {
                   $data['mobileNo_error'] = "Number is already registered";

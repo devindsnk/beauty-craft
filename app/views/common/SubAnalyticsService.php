@@ -1,4 +1,28 @@
+<?php require APPROOT . "/views/inc/header.php" ?>
 
+<body class="layout-template-1">
+
+   <!-- TODO: provide relevent sideNav by checking logged in user -->
+   <?php
+   $selectedMain = "Analytics";
+   $selectedSub = "ServiceAnalytics";
+   switch (Session::getUser("type"))
+   {
+      case "2":
+         require APPROOT . "/views/owner/own_sideNav.php";
+         break;
+      case "3":
+         require APPROOT . "/views/manager/mang_sideNav.php";
+         break;
+      case "4":
+         require APPROOT . "/views/receptionist/recept_sideNav.php";
+   }
+   ?>
+
+   <?php
+   $title = "Service Analytics";
+   require APPROOT . "/views/inc/headerBar.php"
+   ?>
 
    <!--Content-->
    <div class="content">
@@ -12,10 +36,14 @@
                   <div class="column">
                      <div class="dropdown-group">
                         <label class="label" for="serviceName">Service</label>
-                        <select>
-                           <option value="" selected>Select</option>
-                           <option value="Service 01">Service 01</option>
-                           <option value="Service 02">Service 02</option>
+                        <select class="serviceSelectDropDown">
+                           <option value=0 selected disabled>Select</option>
+                           <?php foreach ($data as $services) : ?>
+
+                              <option value="<?php echo $services->serviceID; ?>">
+                              <?php echo $services->serviceID; ?> - <?php echo $services->name; ?></option>
+
+                           <?php endforeach; ?>
                         </select>
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
@@ -23,22 +51,22 @@
                   <div class="column">
                      <div class="text-group">
                         <label class="label" for="serviceFromDate">From</label>
-                        <input type="date" name="" id="serviceFromDate" placeholder="--select--">
+                        <input type="date" name="" id="serviceFromDate" class="serviceFromDate" >
                      </div>
-                     <span class="error"></span>
+                     <span class="error serviceFromError"></span>
                   </div>
 
                   <div class="column">
                      <div class="text-group">
                         <label class="label" for="serviceToDate">To</label>
-                        <input type="date" name="" id="serviceToDate" placeholder="--select--">
+                        <input type="date" name="" id="serviceToDate" class="serviceToDate">
                      </div>
-                     <span class="error"></span>
+                     <span class="error serviceToError"></span>
                   </div>
                </div>
             </div>
             <div class="right-section">
-               <a href="" class="btn btn-filled btn-black">Search</a>
+               <a href="#" class="btn btn-filled btn-black serviceSearchBtn">Search</a>
                <!-- <button class="btn btn-search">Search</button> -->
             </div>
          </div>
@@ -229,33 +257,33 @@
    <script>
       
       //mychart2
-      var ctx = document.getElementById('myChart5').getContext('2d');
-      var myChart = new Chart(ctx, {
-         type: 'bar',
-         data: {
-         labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
-         datasets: [{ 
-               data: [70,90,44,60,83,90,100,30,80.35,45,39],
-               label: "No of reservations",
-               borderColor: "#00b4d8",
-               backgroundColor: "#90e0ef",
-               borderWidth:2
-            }
-         ]
-         },
-         options: {
-         scales: {
-            xAxes: [{ 
-               stacked: true    
-            }],
-            yAxes: [{
-               stacked:true
-            }],
-            }
-         },
-      });
+      // var ctx = document.getElementById('myChart5').getContext('2d');
+      // var myChart = new Chart(ctx, {
+      //    type: 'bar',
+      //    data: {
+      //    labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
+      //    datasets: [{ 
+      //          data: [70,90,44,60,83,90,100,30,80.35,45,39],
+      //          label: "No of reservations",
+      //          borderColor: "#00b4d8",
+      //          backgroundColor: "#90e0ef",
+      //          borderWidth:2
+      //       }
+      //    ]
+      //    },
+      //    options: {
+      //    scales: {
+      //       xAxes: [{ 
+      //          stacked: true    
+      //       }],
+      //       yAxes: [{
+      //          stacked:true
+      //       }],
+      //       }
+      //    },
+      // });
 
-      //mychart1
+      // //mychart1
       var ctx = document.getElementById('myChart6').getContext('2d');
       var myChart = new Chart(ctx, {
             type: 'line',
@@ -273,6 +301,10 @@
          });
 
          let today = new Date().toISOString().substr(0, 10);
+         let yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000).toISOString().substr(0, 10);
          document.querySelector("#serviceToDate").value = today;
+         document.querySelector("#serviceFromDate").value = yesterday;
 
    </script>
+
+<?php require APPROOT . "/views/inc/footer.php" ?>

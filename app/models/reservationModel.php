@@ -82,7 +82,7 @@ class ReservationModel extends Model
       return $results;
    }
 
-   // SRART FOR MANAGER OVERVIEW
+   // START FOR MANAGER OVERVIEW
    public function getTotalIncomeForMangOverview()
    {
 
@@ -128,7 +128,7 @@ class ReservationModel extends Model
 
    // END FOR MANAGER OVERVIEW
 
-   // SRART FOR MANAGER UPDATE SERVICE
+   // START FOR MANAGER UPDATE SERVICE
    public function getUpcommingReservationsForService($sID)
    {
       // upcomming reservations gnn oni 
@@ -166,7 +166,6 @@ class ReservationModel extends Model
 
    public function getReservationsByStaffIDandDate($staffID, $date)
    {
-      //  die("hii555555");
       $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
       FROM reservations 
       INNER JOIN services ON services.serviceID = reservations.serviceID
@@ -185,14 +184,22 @@ class ReservationModel extends Model
       INNER JOIN customers ON customers.customerID = reservations.customerID
       WHERE reservationID=:reservationID ", [':reservationID' => $reservationID,]);
 
-      return $results;
+      return $results[0];
+   }
+   public function getReservationRecallDataByID($reservationID)
+   {
+      $results = $this->customQuery("SELECT recallrequests.reason AS recallReason,recallrequests.status As recallStatus
+      FROM recallrequests 
+      WHERE reservationID=:reservationID ", [':reservationID' => $reservationID,]);
+
+      return $results[0];
    }
 
-   public function updateCustomerNote($data)
+   public function updateCustomerNote($reservationID, $customerNote)
    {
       //  print_r($data);
-      $reservationID = $data['selectedReservation'];
-      $custNote = $data['customerNote'];
+      $reservationID = $reservationID;
+      $custNote = $customerNote;
       $results = $this->customQuery(
          "UPDATE customers SET customerNote=:custNote WHERE customerID=(SELECT customerID FROM reservations WHERE reservationID=:resID )",
          [':custNote' => $custNote, ':resID' => $reservationID]
@@ -223,12 +230,16 @@ class ReservationModel extends Model
       $results = $this->getSingle('recallrequests', ['reason'], ['reservationID' => $selectedreservation]);
       return $results->reason;
    }
+   public function getReservationRecallDetailsByID($selectedreservation)
+   {
+      $results = $this->getSingle('recallrequests', ['status'], ['reservationID' => $selectedreservation]);
+      return $results->status;
+   }
    public function deleteReservationRecallRequest($reservationID)
    {
 
       $results = $this->delete('recallrequests', ['reservationID' => $reservationID]);
    }
-
 
    public function getAllPendingRecallRequests()
    {
@@ -341,11 +352,31 @@ class ReservationModel extends Model
       return $results;
    }
 
-   public function markNoShowReservation($reservationID)
+   public function markReservationConfirmed($reservationID)
+   {
+      $results = $this->update(
+         "reservations",
+         ["status" => 2],
+         ["reservationID" => $reservationID]
+      );
+      return $results;
+   }
+
+   public function markReservationNoShow($reservationID)
    {
       $results = $this->update(
          "reservations",
          ["status" => 3],
+         ["reservationID" => $reservationID]
+      );
+      return $results;
+   }
+
+   public function markReservationCompleted($reservationID)
+   {
+      $results = $this->update(
+         "reservations",
+         ["status" => 4],
          ["reservationID" => $reservationID]
       );
       return $results;

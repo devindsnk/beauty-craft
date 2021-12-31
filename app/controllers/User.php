@@ -18,38 +18,42 @@ class User extends Controller
             'mobileNo' => trim($_POST['mobileNo']),
             'password' => trim($_POST['password']),
             'mobileNo_error' => '',
-            'password_error' => '',
-            // 'contactNo'=>'0762930963'
+            'password_error' => ''
          ];
-         // $this->userModel->updatePassword($data['contactNo'],$data['password']);
-
 
          $data['mobileNo_error'] = validateMobileNo($data['mobileNo']);
          $data['password_error'] = emptyCheck($data['password']);
 
          if (empty($data['mobileNo_error']) && empty($data['password_error']))
          {
-            $result = $this->userModel->getUser($data['mobileNo']);
+            $user = $this->userModel->getUser($data['mobileNo']);
 
-            if (!empty($result))
+            if (!empty($user))
             {
-               $user = $result;   //Remove after creating query builders
-               $hashedPassword = $user->password;
+               $tooManyAttempts =  $this->checkFailedAttempsts($data['mobileNo']);
 
-               if (password_verify($data['password'], $hashedPassword))
+               if ($tooManyAttempts)
                {
-
-
-                  $this->createUserSession($user);
-                  $this->provideIntialView();
-                  // die("SUCCESS");
-
-                  //System log
-                  Systemlog::signin();
+                  $data['mobileNo_error'] = "Too many failed attempts.<br>Please reset the password!";
                }
                else
-               {  //Handle incorrect Attempts
-                  $data['password_error'] = "Incorrect password";
+               {
+                  $hashedPassword = $user->password;
+
+                  if (password_verify($data['password'], $hashedPassword))
+                  {
+                     $this->userModel->resetFailedAttempts($data['mobileNo']);
+                     $this->createUserSession($user);
+                     $this->provideIntialView();
+
+                     //System log
+                     Systemlog::signin();
+                  }
+                  else
+                  {  //Handle incorrect Attempts
+                     $this->userModel->incrementFailedAttempts($data['mobileNo']);
+                     $data['password_error'] = "Incorrect password";
+                  }
                }
             }
             else
@@ -85,7 +89,6 @@ class User extends Controller
       // If the request is a post
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
-
          // Data is loaded
          $data = [
             'mobileNo' => trim($_POST['mobileNo']),
@@ -106,9 +109,9 @@ class User extends Controller
             if (empty($data['mobileNo_error']))
             {
                // Checking if already registered
-               $isUserExists = $this->userModel->checkUserExists($data['mobileNo']);
+               $isLoginExists = $this->userModel->checkLoginExists($data['mobileNo']);
                // Handle already registered but inactive customers properly
-               if ($isUserExists)
+               if ($isLoginExists)
                {
                   // If no issues
                   //GET otp
@@ -174,16 +177,17 @@ class User extends Controller
                }
                else
                {
+                  $this->userModel->beginTransaction();
                   $this->userModel->updatePassword($data['mobileNo'], $data['newPassword']);
+                  $this->userModel->resetFailedAttempts($data['mobileNo']);
                   $this->OTPModel->removeOTP($data['mobileNo'], 2);
+                  $this->userModel->commit();
+
+                  //System log
+                  Systemlog::resetPassword();
+
                   Toast::setToast(1, "Password recovery successful!", "Sign in using new password.");
-
-                  // Provide success message here
                   header('location: ' . URLROOT . '/user/signin');
-
-                  //system log
-                  $log = "user reset the password";
-                  logger($data['mobileNo'], $log);
                }
             }
             else
@@ -274,6 +278,17 @@ class User extends Controller
             return [null, null];
             break;
       }
+   }
+
+   public function checkFailedAttempsts($mobileNo)
+   {
+      $allowedMaxFailedAttempts = 5; // consecutive
+      $currentFailedAttempts = $this->userModel->getFailedAttempts($mobileNo);
+
+      if ($currentFailedAttempts >= $allowedMaxFailedAttempts)
+         return true;
+      else
+         return false;
    }
 
    public function signout()

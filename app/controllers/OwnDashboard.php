@@ -318,22 +318,11 @@ class OwnDashboard extends Controller
       // $this->view('owner/own_services', $GetServicesArray);
    }
 
-   // public function staff()
-   // {
-   //    $staffDetails = $this->staffModel->getAllStaffDetails();
-   //    $GetStaffArray = ['staff' => $staffDetails];
-   //    $this->view('owner/own_staff', $GetStaffArray);
-   // }
-   public function analyticsOverall()
+   public function staff()
    {
-      $this->view('owner/own_subAnalyticsOverall');
+      $staffDetails = $this->staffModel->getAllStaffDetails();
+      $GetStaffArray = ['staff' => $staffDetails];
+      $this->view('owner/own_staff', $GetStaffArray);
    }
-   public function analyticsService()
-   {
-      $this->view('owner/own_subAnalyticsService');
-   }
-   public function analyticsSProvider()
-   {
-      $this->view('owner/own_subAnalyticsSProvider');
-   }
+  
 }

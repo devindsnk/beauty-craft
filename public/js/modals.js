@@ -121,28 +121,70 @@ removeCustomerBtnList.forEach((btn) => {
 
 
 // Reservation More info Modal Section
-// const resMoreInfoModal = document.querySelector(".reservation-more-info");
-// const resMoreInfoBtnList = document.querySelectorAll(".btnResMoreInfo");
-// resMoreInfoBtnList.forEach((btn) => {
-//     btn.addEventListener("click", function () {
-//         modalToToggle = resMoreInfoModal;
-//         toggleModal();
-//     });
-// });
+const resMoreInfoModal = document.querySelector(".reservation-more-info");
+const resMoreInfoBtnList = document.querySelectorAll(".btnResMoreInfo");
+resMoreInfoBtnList.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = resMoreInfoModal;
+        // recordID = btn.getAttribute("data-id")
+        toggleModal(btn);
+    });
+});
+
 
 
 // Reservation Recall Request Modal Section
-// const resRecallModal = document.querySelector('.reservation-recall');
-// const resRecallBtn = document.querySelector('.btnResRecall');
-// if (resRecallBtn) {
-//     resRecallBtn.addEventListener("click",
-//         function () {
-//             toggleModal();
-//             modalToToggle = resRecallModal;
-//             toggleModal();
-//         }
-//     );
-// }
+const resRecallModal = document.querySelector('.reservation-recall');
+const resRecallBtn = document.querySelector('.btnResRecall');
+if (resRecallBtn) {
+    resRecallBtn.addEventListener("click",
+        function () {
+            // console.log(resRecallBtn);
+            
+            
+            modalToToggle = resRecallModal;
+            toggleModal(resRecallBtn);
+            modalToToggle = resMoreInfoModal;
+            closeModal(resRecallBtn);
+            // resMoreInfoModal.remove("show");
+        }
+    );
+}
+// Reservation Recall BackBtn  Modal Section
+const resBackRecallBtn = document.querySelector('.btnBack');
+console.log(resBackRecallBtn);
+if (resBackRecallBtn) {
+    resBackRecallBtn.addEventListener("click",
+        function () {
+            // console.log(resRecallBtn);
+            console.log("resBackRecallBtn");
+            
+            modalToToggle = resMoreInfoModal;
+            
+            toggleModal(resRecallBtn);
+            modalToToggle = resRecallModal;
+            closeModal(resRecallBtn);
+            // resMoreInfoModal.remove("show");
+        }
+    );
+}
+const modelCloseBtn = document.querySelector('.modelbtnClose');
+if (modelCloseBtn) {
+    modelCloseBtn.addEventListener("click",
+        function () {
+            console.log("CloseBtn Called");
+            
+            
+            modalToToggle = resMoreInfoModal;
+            closeModal(resRecallBtn);
+            
+            // toggleModal(resRecallBtn);
+            // modalToToggle = resRecallModal;
+            // closeModal(resRecallBtn);
+            // resMoreInfoModal.remove("show");
+        }
+    );
+}
 
 
 /* ------------------------------------------------------------------- */
@@ -241,6 +283,7 @@ const resCancelModal = document.querySelector('.reservation-cancel');
 const resCancelBtnList = document.querySelectorAll('.btnResCancel');
 resCancelBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
+        
         modalToToggle = resCancelModal;
         toggleModal(btn);
     });
@@ -280,7 +323,38 @@ resCheckoutBtnList.forEach((btn) => {
 /* ------------------------------------------------------------------- */
 /* ------------------------------------------------------------------- */
 
+/* ------------------------------------------------------------------- */
+/* ------------------------- Sales Section --------------------------- */
 
+// Refund Invoice Modal Section
+const refundInvModal = document.querySelector('.refund-invoice');
+const refundInvBtnModal = document.querySelectorAll('.btnRefundInv');
+refundInvBtnModal.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = refundInvModal;
+        toggleModal(btn);
+    });
+});
+
+// Void payment Invoice Modal Section
+const voidPayInvModal = document.querySelector('.void-payInvoice');
+const voidPayInvBtnModal = document.querySelectorAll('.btnVoidPayInv');
+voidPayInvBtnModal.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = voidPayInvModal;
+        toggleModal(btn);
+    });
+});
+
+// Void Refund Invoice Modal Section
+const voidRefInvModal = document.querySelector('.void-refInvoice');
+const voidRefInvBtnModal = document.querySelectorAll('.btnVoidRefInv');
+voidRefInvBtnModal.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = voidRefInvModal;
+        toggleModal(btn);
+    });
+});
 
 
 /* ------------------------------------------------------------------- */
@@ -304,7 +378,10 @@ function transferIDToModal(btn){
 
 // Common section for all modal toggle operations
 function toggleModal(btn) {
+    if(btn){
     transferIDToModal(btn);
+    }
+
     modalToToggle.classList.add("show");
 }
 

@@ -103,37 +103,239 @@ class MangDashboard extends Controller
    {
       // Session::validateSession([3]);
       $leaveDetails = $this->leaveModel->getAllLeaveRequests();
+      $evidanceLimit = $this->leaveModel->getEvidenceLimit();
 
-      // $GetLeavesArray = [
-      //    'leaves' => $leaveDetails
-      // ];
+      date_default_timezone_set("Asia/Colombo");
+      $today = date('Y-m-d');
+      // print_r(count($leaveDetails));
+      foreach ($leaveDetails as $MLDetails)
+      {
+         if ($MLDetails->leaveType == 2 && $MLDetails->status == 2) {
+            // print_r($MLDetails->leaveDate);
+            $date1=date_create($today);
+            $date2=date_create($MLDetails->leaveDate);
+            $diff=date_diff($date2,$date1);
+            $diff2= $diff->format("%R%a days");
+            print_r($diff->days);
+            // die('hi');
+
+            if($MLDetails->leaveDate < $today && $diff->days >= $evidanceLimit)
+            {
+
+               $this->leaveModel->changeMedicalToCasual($MLDetails->staffID, $MLDetails->leaveDate);
+
+            }
+         }
+      }
+      // die('hi');
 
       $this->view('manager/mang_subLeaveRequests',  $leaveDetails);
    }
    public function takeLeave()
    {
+      // die('ge');
       // Session::validateSession([3]);
+      $mangCasualLeaveLimit = $this->leaveModel->getmangCasualLeaveLimit();
+      $mangMedicalLeaveLimit = $this->leaveModel->getmangMedicalLeaveLimit();
+
+      $mangCasualLeaveCount = $this->leaveModel->getMangCurrentMonthLeaveCount(Session::getUser("id"), 1);
+      $mangMedicalLeaveCount = $this->leaveModel->getMangCurrentMonthLeaveCount(Session::getUser("id"), 2);
+
+      $remainingCasual = $mangCasualLeaveLimit - $mangCasualLeaveCount ;
+      $remainingMedical = $mangMedicalLeaveLimit - $mangMedicalLeaveCount ;
+
+      // print_r($mangCasualLeaveLimit);
+      // print_r($mangMedicalLeaveLimit);
+      // print_r($mangCasualLeaveCount);
+      // print_r($mangMedicalLeaveCount);
+      // die('fff');
+
       $managerLeaveDetails = $this->leaveModel->getAllManagerLeaves();
 
-      // $GetManagerLeavesArray = [
-      //    'leaves' => $managerLeaveDetails
-      // ];
+      if ($_SERVER['REQUEST_METHOD'] == 'POST')
+      {
+         $data = [
+            'managerLeaveDetails' => $managerLeaveDetails,
+            'date' => trim($_POST['mangDate']),
+            'leavetype' => isset($_POST['mangLeaveType']) ? trim($_POST['mangLeaveType']) : '',
+            'reason' => trim($_POST['mangLeaveReason']),
+            'date_error' => '',
+            // 'date_error2' => $state,
+            'type_error' => '',
+            'reason_error' => '',
+            'dateValidationError' => '',
+            'staffID' => Session::getUser("id"),
+            'haveErrors' => 0,
+            'haveErrors2' => 0,
+            'dateValidationMsg' => '',
+            'remainingCasual' => $remainingCasual,
+            'remainingMedical' => $remainingMedical,
 
-      $this->view('manager/mang_subTakeLeave',  $managerLeaveDetails);
+         ];
+         
+
+         if ($_POST['action'] == "addleave")
+         {
+            // print_r($data['date_error2']);
+            // die('mangLeaves');
+
+            $data['date_error'] = emptyCheck($data['date']);
+            $data['reason_error'] = emptyCheck($data['reason']);
+            $data['type_error'] = emptyCheck($data['leavetype']);
+            // print_r($data['reason_error']);
+            // die("dd1");
+            if (empty($data['date_error']) && empty($data['reason_error']) && empty($data['type_error']))
+            {
+               // die(" dd");
+
+               $this->leaveModel->addMangLeave($data);
+               redirect('MangDashboard/takeLeave');
+            }
+            else{
+               // print_r($data['date_error']);
+               // die("dd1");
+
+               $data['haveErrors'] = 1;
+               $this->view('manager/mang_subTakeLeave', $data);
+            }
+
+         }
+         else if ($_POST['action'] == "cancel")
+         {
+            $data['haveErrors'] = 0;
+            redirect('MangDashboard/takeLeave');
+         }
+         else
+         {
+            die("something went wrong");
+         }
+
+      }
+      else
+      {
+         $data = [
+            'managerLeaveDetails' => $managerLeaveDetails,
+            'date' => '',
+            'leavetype' => '',
+            'reason' => '',
+            'date_error' => '',
+            // 'date_error2' => $state,
+            'reason_error' => '',
+            'type_error' => '',
+            'dateValidationError' => '',
+            'staffID' => Session::getUser("id"),
+            'haveErrors' => 0,
+            'haveErrors2' => 0,
+            'dateValidationMsg' => '',
+            'typeValidationMsg' => '',
+            'remainingCasual' => $remainingCasual,
+            'remainingMedical' => $remainingMedical,
+         ];
+         // print_r($data['remainingCasual']);
+         // print_r($data['remainingMedical']);
+         
+         // die('fff');
+         $this->view('manager/mang_subTakeLeave', $data);
+      }
    }
-   public function analyticsOverall()
+   public function getOneMangLeaveDetails($leaveID)
+   {
+      $userID = Session::getUser("id");
+
+      $managerOneLeaveDetails = $this->leaveModel->getOneManagerLeave($leaveID, $userID);
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($managerOneLeaveDetails));
+
+   }
+   public function updateTakenLeave($leaveID)
    {
       // Session::validateSession([3]);
-      $this->view('manager/mang_subAnalyticsOverall');
+      $userID = Session::getUser("id");
+      $mangCasualLeaveLimit = $this->leaveModel->getmangCasualLeaveLimit();
+      $mangMedicalLeaveLimit = $this->leaveModel->getmangMedicalLeaveLimit();
+
+      $mangCasualLeaveCount = $this->leaveModel->getMangCurrentMonthLeaveCount(Session::getUser("id"), 1);
+      $mangMedicalLeaveCount = $this->leaveModel->getMangCurrentMonthLeaveCount(Session::getUser("id"), 2);
+
+      $remainingCasual = $mangCasualLeaveLimit - $mangCasualLeaveCount ;
+      $remainingMedical = $mangMedicalLeaveLimit - $mangMedicalLeaveCount ;
+
+      $managerLeaveDetails = $this->leaveModel->getAllManagerLeaves();
+      
+      if ($_SERVER['REQUEST_METHOD'] == 'POST')
+      {
+         $data = [
+            'managerLeaveDetails' => $managerLeaveDetails,
+            'date' => trim($_POST['mangDate']),
+            'leavetype' => isset($_POST['mangLeaveType2']) ? trim($_POST['mangLeaveType2']) : '',
+            'reason' => trim($_POST['mangLeaveReason']),
+            'date_error' => '',
+            'type_error' => '',
+            'reason_error' => '',
+            'dateValidationError' => '',
+            'staffID' => Session::getUser("id"),
+            'haveErrors2' => 0,
+            'dateValidationMsg' => '',
+            'remainingCasual' => $remainingCasual,
+            'remainingMedical' => $remainingMedical,
+
+         ];
+         
+         if ($_POST['action'] == "updateleave")
+         {
+            $data['date_error'] = emptyCheck($data['date']);
+            $data['reason_error'] = emptyCheck($data['reason']);
+            $data['type_error'] = emptyCheck($data['leavetype']);
+            
+            if (empty($data['date_error']) && empty($data['reason_error']) && empty($data['type_error']))
+            {
+               $this->leaveModel->updateMangLeave($data, $userID, $leaveID);
+               redirect('MangDashboard/takeLeave');
+            }
+            else{
+               $data['haveErrors2'] = 1;
+               $this->view('manager/mang_subTakeLeave', $data);
+            }
+         }
+         else if ($_POST['action'] == "cancel")
+         {
+            $data['haveErrors2'] = 0;
+            redirect('MangDashboard/takeLeave');
+         }
+         else
+         {
+            die("something went wrong");
+         }
+      }
+      else
+      {
+         $data = [
+            'managerLeaveDetails' => $managerLeaveDetails,
+            'date' => '',
+            'leavetype' => '',
+            'reason' => '',
+            'date_error' => '',
+            'reason_error' => '',
+            'type_error' => '',
+            'dateValidationError' => '',
+            'staffID' => Session::getUser("id"),
+            'haveErrors2' => 0,
+            'dateValidationMsg' => '',
+            'typeValidationMsg' => '',
+            'remainingCasual' => $remainingCasual,
+            'remainingMedical' => $remainingMedical,
+
+         ];
+         $this->view('manager/mang_subTakeLeave', $data);
+      }
    }
-   public function analyticsService()
+   public function deleteLeave($leaveDate)
    {
-      // Session::validateSession([3]);
-      $this->view('manager/mang_subAnalyticsService');
+      $staffID=Session::getUser("id");
+      $this->leaveModel->deleteMangLeave($leaveDate, $staffID);
+      redirect('MangDashboard/takeLeave');
+
    }
-   public function analyticsSProvider()
-   {
-      // Session::validateSession([3]);
-      $this->view('manager/mang_subAnalyticsSProvider');
-   }
+
 }

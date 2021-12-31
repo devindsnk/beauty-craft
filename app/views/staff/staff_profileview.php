@@ -1,6 +1,6 @@
 <?php require APPROOT . "/views/inc/header.php" ?>
 
-<body class="ownViewStaffBody layout-template-2">
+<body class="layout-template-2">
     <header class="full-header">
         <div class="header-center verticalCenter">
             <h1 class="header-topic">Profile Details</h1>
