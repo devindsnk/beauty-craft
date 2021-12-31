@@ -290,9 +290,17 @@ class User extends Controller
          return false;
    }
 
+   public function autoLogout()
+   {
+      // Systemlog::signout();
+
+      // Session::clear('user');
+      // session_destroy();
+      return;
+   }
+
    public function signout()
    {
-
       //System log
       Systemlog::signout();
 
