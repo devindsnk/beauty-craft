@@ -545,7 +545,7 @@
 						<p id="add"><a href="#addDiv" class="AddSlotToService">+ Add another slot</a></p>
 					</div>
 
-					<div class="newService-sub-head">
+					<!-- <div class="newService-sub-head">
 						<h3>Editing Options</h3>
 					</div>
 					<div class="newService-sub">
@@ -553,7 +553,7 @@
 							<input type="checkbox" class="toglecheckbox">
 							<label class="lableInDiv2">Hold the Service</label> <br>
 						</div>
-					</div>
+					</div> -->
 
 					<!-- submit service button -->
 					<div class="button-Add-Div">

@@ -26,7 +26,7 @@ for (var i = 0; i < sProveChecker.length; i++) {
             //   }
         }
     )
-    var modalToToggle = null;
+ 
     function checkForUpcomingReservations()
     {
         // console.log("Hello world! 5");
@@ -49,8 +49,8 @@ for (var i = 0; i < sProveChecker.length; i++) {
 
                 if(serProvDetails.length !== 0){
                     recallFromUpdateServiceBtn.forEach((btn) => {
-                            modalToToggle = recallFromUpdateServiceModal;
-                            toggleModal();
+                            modalToToggleUS = recallFromUpdateServiceModal;
+                            toggleModalUS();
                     });
                 }
                 recallbtnFromUpdate.addEventListener('click',
@@ -83,6 +83,22 @@ for (var i = 0; i < sProveChecker.length; i++) {
             // console.log("Error Reading data :" + err);
         });
  }
+
+//  start model for recall request
+ let modalToToggleUS = null;
+ const btnCloseListUS = document.querySelectorAll(".btnClose");
+ btnCloseListUS.forEach((btn) => {
+     btn.addEventListener("click", function(){
+         closeModalUS();
+     });
+ });
+ function toggleModalUS(btn) {
+     modalToToggleUS.classList.add("show");
+ }
+ function closeModalUS() {
+     modalToToggleUS.classList.remove("show");
+ }
+//  end model for recall request
 
 // ...........................END UPDATE SERVICE...........................//
 
