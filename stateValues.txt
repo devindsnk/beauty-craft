@@ -48,6 +48,25 @@ Reservations
 
 ---------------------------------------
 
+Resources Type
+0 - Not Available
+1 - Available
+
+---------------------------------------
+
+Resource
+0 - Removed
+1 - Active
+
+---------------------------------------
+
+Customer 
+0 - Removed
+1 - Active   
+
+---------------------------------------
+
+
 Recall Requests
 0 - Pending
 1 - Responded

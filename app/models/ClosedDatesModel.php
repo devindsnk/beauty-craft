@@ -40,9 +40,10 @@ class ClosedDatesModel extends Model
    {
       // echo $data;
       // die("bla");
-      $results =  $this->getResultSet('reservations', '*', ['date' => $date]);
+      $SQLstatement = "SELECT * FROM reservations WHERE date = :date AND status IN (1,2);";
+      $results = $this->customQuery($SQLstatement, [":date" => $date]);
       // ['date' => $date]
-      // print_r($results);
+      
       // var_dump($results);
       return $results;
    }
@@ -54,8 +55,6 @@ class ClosedDatesModel extends Model
       // print_r($results);
       // var_dump($results);
       $results = $this->getRowCount('reservations', ['date' => $date]);
-      print_r($results);
-
       return $results;
    }
 }

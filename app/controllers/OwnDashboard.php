@@ -24,6 +24,8 @@ class OwnDashboard extends Controller
    public function closeSalon()
    {
       $closeDatesDetails = $this->closedDatesModel->getCloseDatesDetails();
+      $CurrentCloseDateaCount = sizeof($closeDatesDetails);
+      $date_now = date("Y-m-d");
       // $closeDateResCount = $this->closedDatesModel->getCloseDatesReservationCount($date);
       // printf('\n');
       // print_r($closeDatesDetails);
@@ -38,76 +40,49 @@ class OwnDashboard extends Controller
             'closeDate_error' => '',
             'closeSalonReason_error' => '',
             'haveErrors' => 0,
-            'checked' => 0,
             'closeDates' => $closeDatesDetails,
-            'reservationCount' => '',
          ];
-         // $date_now = new DateTime();
-         // $date_now = strtotime(date('d-m-y'));
-         // $date_selected = strtotime($data['closeDate']);
-
-         if ($_POST['action'] == "dateCheck")
+      
+         if ($_POST['action'] == "addCloseDate")
          {
             if (empty($data['closeDate']))
             {
                $data['closeDate_error'] = "Please select a date";
             }
-            // else if($date_now > $date_selected)
-            // {
-            //    $data['closeDate_error'] = "Please select a future date";
-            // }
-
-            // if (empty($data['closeSalonReason']))
-            // {
-            //    $data['closeSalonReason_error'] = "Please select number of resource";
-            // }
-            if (empty($data['closeDate_error']))
+            else if($date_now > $data['closeDate'])
             {
-               $closeDateResCount = $this->closedDatesModel->getCloseDatesReservationCount($data['closeDate']);
-               // echo $closeDateResCount;
-               $data['haveErrors'] = 1;
-               $data['checked'] = 1;
-               $data['reservationCount'] = $closeDateResCount;
-               $this->view('owner/own_closeSalon', $data);
-               // $this->closedDatesModel->addCloseDate($data);
-               // redirect('OwnDashboard/closeSalon');
+               $data['closeDate_error'] = "Please select a future date";
             }
-            else
-            {
-               $data['haveErrors'] = 1;
-               $data['checked'] = 0;
-               $this->view('owner/own_closeSalon', $data);
+            else {
+            for ($x = 0; $x < $CurrentCloseDateaCount ; $x++) {
+                  // echo ($closeDatesDetails[$x]->date) . "<br>";
+                  if ($data['closeDate']==$closeDatesDetails[$x]->date){
+                  $data['closeDate_error'] = "Date already selected";
+                  }
+             }
             }
-         }
-         else if ($_POST['action'] == "addCloseDate")
-         {
-            if (empty($data['closeDate']))
-            {
-               $data['closeDate_error'] = "Please select a date";
-            }
-            // else if($date_now > $date_selected)
-            // {
-            //    $data['closeDate_error'] = "Please select a future date";
-            // }
 
             if (empty($data['closeSalonReason']))
             {
                $data['closeSalonReason_error'] = "Please select number of resource";
             }
-            if (
-               empty($data['closeSalonReason_error']) && empty($data['closeDate_error'])
-            )
-            {
-               $this->closedDatesModel->addCloseDate($data);
-               redirect('OwnDashboard/closeSalon');
-            }
-            else
-            {
-               $data['haveErrors'] = 1;
-               $data['checked'] = 0;
-               $this->view('owner/own_closeSalon', $data);
-            }
+         
+         if (
+            empty($data['closeSalonReason_error']) && empty($data['closeDate_error'])
+         )
+         {
+            $this->closedDatesModel->addCloseDate($data);
+            Toast::setToast(1, "Close date added successfully", "");
+            redirect('OwnDashboard/closeSalon');
          }
+         else
+        {
+
+         $data['haveErrors'] = 1;
+         $this->view('owner/own_closeSalon', $data);
+        }
+        }
+      
          else if ($_POST['action'] == "cancel")
          {
             $data['haveErrors'] = 0;
@@ -123,14 +98,13 @@ class OwnDashboard extends Controller
             'closeDate_error' => '',
             'closeSalonReason_error' => '',
             'haveErrors' => 0,
-            'checked' => 0,
             'closeDates' => $closeDatesDetails,
-            'reservationCount' => '',
-         ];
+         ]; 
          // print_r($data['closeDates']); 
          $this->view('owner/own_closeSalon', $data);
       }
    }
+
    public function customers()
    {
       $CusDetails = $this->customerModel->getAllCustomerDetails();
@@ -328,65 +302,8 @@ class OwnDashboard extends Controller
    public function resources()
    {
       $resourceDetails = $this->serviceModel->getResourceDetails();
+      $this->view('owner/own_resources', $resourceDetails);
 
-      if ($_SERVER['REQUEST_METHOD'] == 'POST')
-      {
-         $data = [
-            'resourceName' => trim($_POST['resourceName']),
-            'resourceQuantity' => isset($_POST['resourceQuantity']) ? trim($_POST['resourceQuantity']) : '',
-            'resourceName_error' => '',
-            'resourceQuantity_error' => '',
-            'haveErrors' => 0,
-            'resource' => $resourceDetails
-         ];
-         // Validating ResName
-         if ($_POST['action'] == "addResource")
-         {
-            if (empty($data['resourceName']))
-            {
-               $data['resourceName_error'] = "Please enter Resource Name";
-            }
-            else if (!preg_match("/^[a-zA-Z-' ]*$/", $data['resourceName']))
-            {
-               $data['resourceName_error']  = "Only letters are allowed";
-            }
-
-            // Validating 
-            if (empty($data['resourceQuantity']))
-            {
-               $data['resourceQuantity_error'] = "Please select number of resource";
-            }
-            if (
-               empty($data['resourceName_error']) && empty($data['resourceQuantity_error'])
-            )
-            {
-               $this->resourceModel->addResourceDetails($data);
-               redirect('OwnDashboard/resources');
-            }
-            else
-            {
-               $data['haveErrors'] = 1;
-               $this->view('owner/own_resources', $data);
-            }
-         }
-         else if ($_POST['action'] == "cancel")
-         {
-            $data['haveErrors'] = 0;
-            $this->view('owner/own_resources', $data);
-         }
-      }
-      else
-      {
-         $data = [
-            'resourceName' => '',
-            'resourceQuantity' => '',
-            'resourceName_error' => '',
-            'resourceQuantity_error' => '',
-            'haveErrors' => 0,
-            'resource' => $resourceDetails
-         ];
-         $this->view('owner/own_resources', $data);
-      }
    }
    public function salaries()
    {
