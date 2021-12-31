@@ -244,13 +244,14 @@
 
 .contentBox.leave-sub-container-card{
     width: 250px;
-    height: 60px;
+    height: 110px;
     font-size: 18px;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
     text-align: center;
-    align-content: center;
+    align-content: space-around;
     padding: 15px 20px 15px 20px;
     margin-top: 15px;
 }
@@ -318,6 +319,59 @@
 }
 
 /* End of accept|reject leave requests */
+
+
+/* for mang leave card */
+.mang-leaves-top-container{
+    display: flex;
+    padding: 15px 70px 10px;
+    width: 100%;
+    min-width: 330px;
+}
+.mang-leaves-top-left-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-right: auto;
+}
+.mang-leaves-top-right-container{
+    margin-left: 30px;
+}
+.mang-leave-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 20px;
+    width: 250px;
+    font-size: 18px;
+}
+.btnTakenLeave{
+    width: 120px;
+    height: 38px;
+}
+.count-color{
+    color: var(--theme-purple);
+}
+@media (max-width: 940px) {
+    .mang-leaves-top-left-container {
+      flex-direction: column;
+    }
+    .mang-leave-card{
+        margin-bottom: 10px;
+
+    }
+    .mang-leaves-top-right-container {
+      margin-left: auto;
+    }
+  
+    .btnTakenLeave {
+      margin-top: 0px;
+    }
+  }
+/* End mang leave card */
+
 
 /* ------------------------------------------------------ */
 /* ----------END OF STYLES ADDED BY SANJANA-------------- */
