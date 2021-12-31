@@ -4,34 +4,18 @@
    <?php
    $selectedMain = "Staff Members";
    $selectedSub = "";
-   require APPROOT . "/views/owner/own_sidenav.php";
-   // switch (Session::getUser("type"))
-   // {
-   //    case "1" :
-   //       require APPROOT . "/views/systemAdmin/systemAdmin_sidenav.php";
-   //       break;
-   //    case "2" :
-   //       require APPROOT . "/views/systemAdmin/owner/own_sidenav.php";
-   //       break; 
-   //    case "3" :
-   //       require APPROOT . "/views/manager/mang_sidenav.php";
-   //       break;
-   //    case "4" :
-   //       require APPROOT . "/views/receptionist/recep_sidenav.php";
-   //       // break;  
-   // }
-   // switch (Session::getUser("type"))
-   // {
-
-   //    case "2":
-   //       require APPROOT . "/views/owner/own_sideNav.php";
-   //       break;
-   //    case "3":
-   //       require APPROOT . "/views/manager/mang_sideNav.php";
-   //       break;
-   //    case "4":
-   //       require APPROOT . "/views/receptionist/recept_sideNav.php";
-   // }
+   switch (Session::getUser("type"))
+   {
+      case "2" :
+         require APPROOT . "/views/owner/own_sidenav.php";
+         break; 
+      case "3" :
+         require APPROOT . "/views/manager/mang_sidenav.php";
+         break;
+      case "4" :
+         require APPROOT . "/views/receptionist/recept_sidenav.php";
+         // break;  
+   }
    ?>
 
 

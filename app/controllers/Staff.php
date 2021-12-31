@@ -17,16 +17,12 @@ class Staff extends Controller
    public function addStaff()
    {
       $staffD = $this->staffModel->getAllStaffDetails();
-      // $CurrentNICD = $this->staffModel->getAllActiveDisableStaffNICDetails();
       $CurrentStaffCount = sizeof($staffD);
       
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'FILES')
       {
-         // echo "<pre>";
-         // print_r($_FILES['staffimage']);
-         // echo "</pre>";
-         // die();
+
          $img_name = " ";
          $new_img_name =  " ";
          $img_name = $_FILES['staffimage']['name'];
@@ -45,9 +41,7 @@ class Staff extends Controller
                move_uploaded_file($tmp_name, $img_upload_path);
             }
          }
-         // $tempvar= $new_img_name;
-         // echo $tempvar;
-         // die();
+
 
          $data = [
             'staffimagePath' => $new_img_name,
@@ -81,8 +75,6 @@ class Staff extends Controller
             'staffAccBranch_error' => '',
          ];
 
-         // print_r($data['staffimage']);
-         // die();
          $data['staffHomeAddTyped'] = $data['staffHomeAdd'];
 
          if (($data['staffimagePath'] == " "))
@@ -144,12 +136,6 @@ class Staff extends Controller
                $data['staffNIC_error'] = "The NIC number you entered is already exist.";
             }
       }
-
-         // $data['staffNIC_error'] = "Invalid NIC format";
-
-         // elseif (!(strlen($data['staffNIC']) == 10) && !preg_match ("/^[V]*$/", $data['staffNIC'])){
-         //    $data['staffNIC_error'] = "Invalid NIC format";
-         // }
 
          // Validating date of birth
          if (empty($data['staffDOB']))
@@ -229,9 +215,6 @@ class Staff extends Controller
          {
             $data['staffAccBranch_error'] = "Please enter branch name";
          }
-         // else if (!preg_match("/^[a-zA-Z-' ]*$/",$data['staffAccBank'])) {
-         //    $data['staffAccBank_error']  = "Only letters are allowed";
-         //  }
 
 
 
@@ -251,7 +234,7 @@ class Staff extends Controller
 
             Toast::setToast(1, "Staff Member Successfully Registered!", "");
 
-            header('location: ' . URLROOT . '/OwnDashboard/staff');
+            header('location: ' . URLROOT . '/Staff/viewAllStaffMembers');
          }
          else
          {
