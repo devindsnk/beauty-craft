@@ -9,7 +9,7 @@
             <h1 class="header-topic">Add New Staff Members</h1>
         </div>
         <div class="header-right verticalCenter">
-            <a href="<?php echo URLROOT ?>/OwnDashboard/staff" class="top-right-closeBtn"><i
+            <a href="<?php echo URLROOT ?>/Staff/viewAllStaffMembers" class="top-right-closeBtn"><i
                     class="fal fa-times fa-2x "></i></a>
         </div>
     </header>
@@ -91,7 +91,7 @@
                                         <option class="unbold" value="0" option selected="true" disabled="disabled" >Select</option>
                                         <option value=5 <?php if ($data['staffType'] == 5) echo 'selected'; ?>>Service Provider</option>
                                         <option value= 4 <?php if ($data['staffType'] == 4) echo 'selected'; ?>>Receptionist</option>
-                                        <option value= 3 <?php if ($data['staffType'] == 3) echo 'selected'; ?>>Manager</option>
+                                        <option value= 3 <?php if ($data['staffType'] == 3) echo 'selected'; ?>>Manager</option> 
                                     </select>
                                     <span class="error"><?php echo $data['staffType_error']; ?></span>
                                 </div>

@@ -17,7 +17,13 @@
    </header>
    <div class="content contentNewRes own ViewCustomer">
 
-      <?php print_r($data['cusDetails']) ?>
+<?php $cusD = $data['cusDetails'];
+      $cusCancelledResC =  $data['cancelledResCount'];
+      $cusAllResC = $data['allResCount'];
+print_r($cusD[0]);
+print_r($cusCancelledResC);
+print_r($cusAllResC);
+?>
       <div class="Cards">
          <!----------------------------------------------------- Profile details starts --------------------------------->
          <div class="Card1 contentBox ">
@@ -26,8 +32,8 @@
                   <img src="<?php echo URLROOT ?>/public//imgs/img_avatar.png" alt="Avatar" class="ProfileDetailsImgCircle">
                </div>
                <div class="ProfileDetailsInfo">
-                  <span class="ProfileDetailsName"><?php echo ($data['cusDetails']->fName) ?> <?php echo ($data['cusDetails']->lName) ?></span> <br>
-                  <span class="ProfileDetailsStaffId">Customer ID : <?php echo ($data['cusDetails']->customerID) ?></span>
+                  <span class="ProfileDetailsName"><?php echo ($cusD[0]->fName) ?> <?php echo ($cusD[0]->lName) ?></span> <br>
+                  <span class="ProfileDetailsStaffId">Customer ID : <?php echo ($cusD[0]->customerID) ?></span>
                </div>
             </div>
          </div>
@@ -62,7 +68,7 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                        <?php echo ($data['cusDetails']->fName) ?>
+                     <?php echo ($cusD[0]->fName) ?>
                      </span>
                   </div>
                </div>
@@ -77,7 +83,7 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                        <?php echo ($data['cusDetails']->lName) ?>
+                     <?php echo ($cusD[0]->lName) ?>
                      </span>
                   </div>
                </div>
@@ -92,10 +98,10 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                        <?php if ($data['cusDetails']->gender == 'M')
-                           echo ('Male');
-                        elseif ($data['cusDetails']->gender == 'F')
-                           echo ('Female'); ?>
+                     <?php if($cusD[0]->gender=='M')
+                     echo ('Male');
+                     elseif($cusD[0]->gender=='F')
+                     echo ('Female'); ?>
                      </span>
                   </div>
                </div>
@@ -109,7 +115,7 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                        <?php echo ($data['cusDetails']->registeredDate) ?>
+                      <?php echo ($cusD[0]->registeredDate) ?>
                      </span>
                   </div>
                </div>
@@ -143,7 +149,7 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                        27
+                     <?php echo $cusAllResC ?>
                      </span>
                   </div>
                </div>
@@ -171,7 +177,7 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                        3
+                     <?php echo $cusCancelledResC ?>
                      </span>
                   </div>
                </div>

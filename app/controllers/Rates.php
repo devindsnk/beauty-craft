@@ -6,7 +6,7 @@ class Rates extends Controller
     
       $this->ratesModel = $this->model('RatesModel');
    }
-
+   
    public function updateLeaveLimit()  
    {  
 

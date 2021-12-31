@@ -224,7 +224,8 @@ class User extends Controller
             "mobileNo" => $user->mobileNo,
             "type" => $user->userType,
             "id" => $this->getUserData($user)[0],
-            "name" =>  $this->getUserData($user)[1]
+            "name" =>  $this->getUserData($user)[1],
+            "img" => $this->getUserData($user)[2]
          ]
       );
    }

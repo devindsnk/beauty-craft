@@ -83,67 +83,72 @@
                <tbody>
 
                   <?php foreach ($data['customer'] as $customerD) : ?>
-                     <tr>
-                        <td data-lable="Customer ID" class="column-center-align"><?php echo $customerD->customerID; ?></td>
-                        <td data-lable="Customer Name" class="column-left-align"><?php echo $customerD->fName; ?> <?php echo $customerD->lName; ?></td>
-                        <td data-lable="Contact No" class="column-center-align"><?php echo $customerD->mobileNo; ?></td>
-                        <td data-lable="Gender" class="column-center-align">M</td>
-                        <td data-lable="Registered Date" class="column-center-align"><?php echo $customerD->registeredDate; ?></td>
-                        <td data-lable="Status" class="column-center-align">
-                           <button type="button" class="status-btn green text-uppercase">Active</button>
-                        </td>
-                        <td class="column-center-align">
-                           <span>
-                              <a href="<?php echo URLROOT ?>/customer/cusDetailView/<?php echo $customerD->customerID ?>"><i class="ci-view-more table-icon img-gap"></i></a>
-                              <?php if (Session::getUser("typeText") == "Owner") : ?>
-                                 <a href="#"><i class="ci-trash table-icon btnRemoveCustomer img-gap"></i></a>
-                              <?php endif; ?>
-                           </span>
-                        </td>
-                     </tr>
+                  <tr>
+                     <td data-lable="Customer ID" class="column-center-align"><?php echo $customerD->customerID; ?></td>
+                     <td data-lable="Customer Name" class="column-left-align"><?php echo $customerD->fName; ?>
+                        <?php echo $customerD->lName; ?></td>
+                     <td data-lable="Contact No" class="column-center-align"><?php echo $customerD->mobileNo; ?></td>
+                     <td data-lable="Gender" class="column-center-align">M</td>
+                     <td data-lable="Registered Date" class="column-center-align">
+                        <?php echo $customerD->registeredDate; ?></td>
+                     <td data-lable="Status" class="column-center-align">
+                        <button type="button" class="status-btn green text-uppercase">Active</button>
+                     </td>
+                     <td class="column-center-align">
+                        <a href="<?php echo URLROOT ?>/customer/cusDetailView/<?php echo $customerD->customerID ?>"><i
+                              class="ci-view-more table-icon img-gap"></i></a>
+                        <?php if (Session::getUser("typeText") == "Owner") : ?>
+                        <a href="#"><i data-cusid="<?php echo $customerD->customerID; ?>"
+                              data-cusmobileno= "<?php echo $customerD->mobileNo; ?>" data-cusname="<?php echo $customerD->fName; ?> <?php echo $customerD->lName; ?>"
+                              class="ci-trash table-icon btnRemoveCustomer removeCustomerAnchor img-gap"></i></a>
+                        <?php endif; ?>
+                        </span>
+                     </td>
+                  </tr>
                   <?php endforeach; ?>
                </tbody>
             </table>
          </div>
       </div>
-
-      <!------------------- Remove Customer Container starts ----------------------------->
-      <div class="modal-container remove-customer">
-         <div class="modal-box">
-            <h1 class="ownRemCusHead own">Remove Customer</h1>
-            <!-- start main grid 1 -->
-            <div class="ownRemCusDetails">
-
-               <label class="ownRemCusLabel1">Customer Id</label>
-               <span class="ownRemCusData1">M001</span>
-               <br>
-               <label class="ownRemCusLabel2">Name</label>
-               <span class="ownRemCusData2">Ravindu Madhubhashana</span>
-               <br>
-            </div>
-            <!-- main grid 1 ends -->
-
-            <!-- main grid 2 starts -->
-            <div class="ownRemCusError">
-               <label class="ownRemCusErrortext">Cannot proceed. Has upcoming reservations</label>
-            </div>
-            <!-- main grid 2 ends -->
-            <!-- main grid 3 starts -->
-            <div class="ownRemCusButtons">
-               <div class="ownRemCusbtn1">
-                  <button class="btn btnClose normal ModalCancelButton ModalButton">Cancel</button>
-               </div>
-               <div class="ownRemCusbtn2">
-                  <a href="<?php echo URLROOT ?>/customer/remCustomer/<?php echo $customerD->customerID ?>"><button class="btn ModalBlueButton ModalButton">Proceed</button></a>
-               </div>
-            </div>
-            <!-- main grid 3 ends -->
-         </div>
-      </div>
-      <!------------------- Remove Customer Container ends ----------------------------->
-
    </div>
-   <!--End Content-->
+
+   <!------------------- Remove Customer Container starts ----------------------------->
+   <div class="modal-container remove-customer  own customers">
+      <div class="modal-box">
+         <h1 class="ownRemCusHead own">Remove Customer</h1>
+         <!-- start main grid 1 -->
+         <div class="ownRemCusDetails">
+
+            <label class="ownRemCusLabel1">Customer Id</label>
+            <span class="ownRemCusData1">M001</span>
+            <br>
+            <label class="ownRemCusLabel2">Name</label>
+            <span class="ownRemCusData2">Ravindu Madhubhashana</span>
+            <br>
+         </div>
+         <!-- main grid 1 ends -->
+
+         <!-- main grid 2 starts -->
+         <div class="ownRemCusError">
+            <label class="ownRemCusErrortext">Customer has upcoming reservations. Reservations will be canceled if you
+               proceed.</label>
+         </div>
+         <!-- main grid 2 ends -->
+         <!-- main grid 3 starts -->
+         <div class="ownRemCusButtons">
+            <div class="ownRemCusbtn1">
+               <button class="btn btnClose normal ModalCancelButton ModalButton ">Cancel</button>
+            </div>
+            <div class="ownRemCusbtn2">
+               <a href="" class="removeCustomer"><button
+                     class="btn ModalBlueButton ModalButton removeCustomerBtn">Proceed</button></a>
+            </div>
+         </div>
+         <!-- main grid 3 ends -->
+      </div>
+   </div>
+   <!------------------- Remove Customer Container ends ----------------------------->
 
 
+   <script src="<?php echo URLROOT ?>/public/js/fetchRequests/removeCustomer.js"></script>
    <?php require APPROOT . "/views/inc/footer.php" ?>
