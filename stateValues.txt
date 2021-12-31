@@ -47,13 +47,13 @@ Reservations
 
 ---------------------------------------
 
-Resources
+Resources Type
 0 - Not Available
 1 - Available
 
 ---------------------------------------
 
-Resource Type
+Resource
 0 - Removed
 1 - Active
 
