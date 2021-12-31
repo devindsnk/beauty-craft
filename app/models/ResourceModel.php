@@ -4,7 +4,9 @@ class ResourceModel extends Model
    public function addResourceType($data)
    {
       // die('erroraddResourceDetails');
-      $results =  $this->insert('resources', ['name'=> $data['name'] ]);
+     
+      $this->insert('resources', ['name'=> $data['name'] ]);
+      $this->update('resources',['status' => 0] , ['name'=> $data['name'] ]);
       // var_dump($results);
    }  
    public function addPurchaseDetails($data)
@@ -32,17 +34,22 @@ class ResourceModel extends Model
 
       // Get the current total resource count from resources table
       $currentQuantity = $this->getSingle('resources', ['quantity'], ['resourceID' => $ResourceID]);
+      print_r($currentQuantity);
+      // die("stopped updating quatity");
 
       // Calcultate the total resource count by adding one for resources count
       $totalQuantity= (int)$data['quantity'] + $currentQuantity->quantity;
 
        // If the previous resource count 0 then it'll be updating the status as active resource type as well as the quantity
-      if ($currentQuantity == 0){
+      if ($currentQuantity->quantity == 0){
+        
          $result1= $this->update('resources', ['status' => 1,'quantity' => $totalQuantity], ['resourceID' => $ResourceID]);
+         
       }
 
       // After adding the resource if the resource count greater than 0 then it'll be only updating the quantity
-      elseif($currentQuantity > 0) {
+      elseif($currentQuantity->quantity > 0) {
+         
       $result2= $this->update('resources', ['quantity' => $totalQuantity], ['resourceID' => $ResourceID]);
       }
    } 
@@ -73,7 +80,7 @@ class ResourceModel extends Model
 
 
 
-   public function getAllResourceTypeDetails()
+   public function getAllRsourceTypeDetails()
    {
       $results = $this->getResultSet('resources', ['name','resourceID'], null);
 

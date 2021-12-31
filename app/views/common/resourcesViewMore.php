@@ -43,7 +43,7 @@
 
          <thead>
             <tr>
-               <th class="column-center-align col-1">Purchase ID</th>
+               <th class="column-center-align col-1">Product ID</th>
                <th class="column-center-align col-2">Manufacturer</th>
                <th class="column-center-align col-3">Model No</th>
                <th class="column-center-align col-4">Price</th>
@@ -65,11 +65,12 @@
                   <td class="column-center-align"><?php echo $purchaseD->warrantyExpDate; ?></td>                
                   <td data-lable="Action" class="column-center-align">
                      <span>
-                        <?php if ($userType == "Owner" && $purchaseD->status != 0 ) : ?>
+                     
+                        <?php if (Session::getUser('typeText') && $purchaseD->status != 0 ) : ?>
                            <a href="<?php echo URLROOT ?>/resources/updateResource/<?php echo $purchaseD->purchaseID; ?>/<?php echo $purchaseD->resourceID; ?>"><i class="ci-edit table-icon btnUpdateResource img-gap"></i></a>
                            <a href="#"><i data-purchaseid = "<?php echo $purchaseD->purchaseID; ?>" data-resourceid = "<?php echo $purchaseD->resourceID; ?>" class="ci-trash table-icon btnRemoveResource img-gap resourceViewMoreTableTrash"></i></a> 
-                           <?php elseif ($userType == "Owner" && $purchaseD->status == 0 ) : ?>
-                              <button type="button" class="table-btn red-status-btn text-uppercase "> Removed </button>
+                           <?php elseif (Session::getUser('typeText') && $purchaseD->status == 0 ) : ?>
+                              <button type="button" class="status-btn text-uppercase red"> Removed </button>
                         <?php endif; ?>
                      </span>
                   </td>

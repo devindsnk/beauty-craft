@@ -1,6 +1,6 @@
 <?php if (Session::getUser("typeText") == "Owner") : ?>
    <div class="page-top-main-container">
-      <a href="<?php echo URLROOT ?>/resources/addResource" class="btn btn-filled btn-theme-purple btn-main btnAddResource">Add New</a>
+      <a href="<?php echo URLROOT ?>/resources/addResource" class="btn btn-filled btn-theme-purple btn-main btnAddResourceBtn">Add New</a>
    </div>
 <?php endif; ?>
 
@@ -52,9 +52,9 @@
                   <td class="column-center-align"><?php echo $resourceD->quantity; ?></td>
                   <td data-lable="Status" class="column-center-align">
                      <?php if ($resourceD->status == 0) : ?>
-                        <button type="button" class="table-btn red-status-btn text-uppercase "> Removed </button>
+                        <button type="button" class="status-btn text-uppercase red"> Not Available </button>
                      <?php elseif ($resourceD->status == 1) : ?>
-                        <button type="button" class="table-btn green-status-btn text-uppercase"> Active </button>
+                        <button type="button" class="status-btn text-uppercase green"> Available </button>
                      <?php endif; ?> 
                   </td>  
                   <td data-lable="Action" class="column-center-align">
@@ -72,26 +72,5 @@
       </table>
    </div>
 </div>
-
-
-<!-- Remove Resource model -->
-<!-- <div class="modal-container remove-resource-type">
-   <div class="modal-box">
-      <div class="confirm-model-head">
-         <h1>Remove Resource</h1>
-      </div>
-      <div class="confirm-model-head">
-         <p>Are you sure you want to Remove the Resource Type? <br> This action cannot be undone after proceeding.</p>
-      </div>
-      <div class="ownRemCusError removeResourceType">
-         <label class="ownRemCusErrortext">Cannot proceed. Has upcoming reservations</label>
-      </div>
-      <div class="confirm-model-head">
-         <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
-         <button class="btn normal ModalButton ModalBlueButton removeCustomer">proceed</button>
-      </div>
-   </div>
-</div> -->
-<!-- End of Remove Resource model -->
 
 <script src="<?php echo URLROOT ?>/public/js/fetchRequests/resources.js"></script>

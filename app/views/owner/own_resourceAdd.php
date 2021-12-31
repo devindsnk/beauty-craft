@@ -50,10 +50,11 @@
                                 <div class="addType">
                                 <div class="selectType">
                                     <label class="ownAddstaffLabels ">Type</label>
-                                    <select name="nameSelected" class="dropdownselectbox resourceTypes">
-                                       
-                                        <option value=""  selected disabled>Select</option>
-
+                                    <select name="nameSelected" class="dropdownselectbox ">
+                                    <option value=" " class="resourceTypes" selected disabled>Select</option>
+                                    <?php foreach ($data['resourceTypes'] as $typesd) : ?>
+                                        <option value="<?php echo $typesd->resourceID ?>" ><?php echo $typesd->name ?></option>
+                                    <?php endforeach; ?>
                                     </select>
                                     <span class="error"><?php echo $data['nameSelected_error']; ?></span>
                                 </div>
@@ -105,7 +106,7 @@
                     </div>
                     <!----------------------------------------- form submit button starts ------------------------------------------------------------------------>
                     <div class="ownAddstaffButton">
-                        <button type="submit" name="action" value="addResource" class="ownAddstaffbutton btn btn-filled btn-theme-purple">Save</button>
+                        <button type="submit" name="action" value="addResource" class="ownAddstaffbutton btn btn-filled btn-theme-purple btn-main">Save</button>
                     </div>
                     <!----------------------------------------- form submit button ends -------------------------------------------------------------------------->
                     <!--------------------------------------------------------------------------------- Add resource starts ---------------------------------------------------------------->
@@ -132,7 +133,7 @@
                <button class="btn btnClose normal ModalCancelButton ModalButton " name="action" value="cancel">Cancel</button>
             </div>
             <div class="addItemsModalbtn2">
-               <button class="btn ModalGreenButton ModalButton" name="action" value="addType">Add</button>
+               <button class="btn ModalGreenButton ModalButton btnAddResourceTypeProceed" name="action" value="addType">Add</button>
             </div>
          </div>
          <!-- main grid 3 ends -->

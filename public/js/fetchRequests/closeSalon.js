@@ -1,42 +1,45 @@
 // console.log("hhh");
 const CloseSalonDate = document.querySelector(".addItemsModalDate");
-const CloseSalonViewReservationUrl = document.querySelector(".closeSalonViewReservations");
+const AddCloseDateProceedBtn = document.querySelector(".addCloseDateProceed")
 let rescount = 0;
 const CloseSalonDateReservationDiv = document.querySelector(".closeSalonReservationRecallAndErrorText");
-// CloseSalonDateReservationDiv.innerHTML= "";
 CloseSalonDateReservationDiv.style.display = "none";
 
 CloseSalonDate.addEventListener('change',
    function () {
-    CloseSalonDateCount();
-    CloseSalonReservationViewUrl();
+    CloseSalonDateResCount();
    }
 )
 
-// CloseSalonViewReservationUrl.addEventListener('click',
-//    function () {
-//       console.log("hi");
-//       CloseSalonViewReservationUrl.href= "http://localhost:80/beauty-craft/closeDates/closeDateReservtaions/" + $CloseSalonDate.value ;
-//    }
-// )
-function CloseSalonReservationViewUrl() {
-   console.log(CloseSalonViewReservationUrl);
-   CloseSalonViewReservationUrl.href= "http://localhost:80/beauty-craft/closeDates/closeDateReservtaions/" + CloseSalonDate.value;
-}
+function CloseSalonDateResCount() { 
+   console.log("hihi"); 
+  fetch(`http://localhost:80/beauty-craft/CloseDates/getCloseDateReservtaions/${CloseSalonDate.value}`)
+     .then(response => response.json())  
+     .then( reservations => {  
+       reservationD = reservations;  
+       console.log("got reservations ");  
+
+       const ress = [];
+                const ressReason = 'Salon will be closed on this day';
+
+                for (var i = 0; i < reservationD.length; i++){
+                    ress.push(reservationD[i]['reservationID']);
+                }
 
 
-function CloseSalonDateCount() {
-   // console.log("hihi");
-  fetch(`http://localhost:80/beauty-craft/CloseDates/getCloseDateReservtaionsCount/${CloseSalonDate.value}`)
-     .then(response => response.json())
-     .then( reservationCount => {
-       rescount = reservationCount;
-      //  console.log("yo");
-      if (rescount > 0)
+
+      if (reservationD.length > 0)  
       {
-         // console.log("yo");
          CloseSalonDateReservationDiv.style.display = "block";
-         // CloseSalonDateReservationDiv.innerHTML= "";
+         $reason = "Close salon";
+         $
+         //Reservation recall function call with click event listner after proceed with 
+         AddCloseDateProceedBtn.addEventListener('click',
+            function () {
+            CloseSalonDateResRecall(ress,ressReason);
+            }
+            )
+
       }
       else 
       {
@@ -45,5 +48,10 @@ function CloseSalonDateCount() {
      });
 }
  
+function CloseSalonDateResRecall(ress,ressReason){
+   console.log('recall2');
+   fetch(`http://localhost:80/beauty-craft/Reservations/recallReservationsFromUpdateService/${ress}/${ressReason}`)
+   .then()
+}
 
 

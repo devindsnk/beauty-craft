@@ -40,7 +40,7 @@ const removeResourceBtnList = document.querySelectorAll(".btnRemoveResource");
 removeResourceBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
         modalToToggle = removeResourceModal;
-        toggleModal();
+        toggleModal(btn);
     });
 });
 
@@ -61,7 +61,7 @@ const addResourceTypeBtnList = document.querySelectorAll(".btnAddResourceType");
 addResourceTypeBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
         modalToToggle = addResourceTypeModal;
-        toggleModal();
+        toggleModal(btn);
     });
 });
 
@@ -72,7 +72,7 @@ const salaryPayBtnList = document.querySelectorAll(".btnSalaryPay");
 salaryPayBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
         modalToToggle = salaryPayModal;
-        toggleModal();
+        toggleModal(btn);
     });
 });
 
@@ -83,7 +83,7 @@ const addCloseDateBtnList = document.querySelectorAll(".btnAddCloseDate");
 addCloseDateBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
         modalToToggle = addCloseDateModal;
-        toggleModal();
+        toggleModal(btn);
     });
 });
 
@@ -94,7 +94,7 @@ const removeCloseDateBtnList = document.querySelectorAll(".btnRemoveCloseDate");
 removeCloseDateBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
         modalToToggle = removeCloseDateModal;
-        toggleModal();
+        toggleModal(btn);
     });
 });
 
@@ -105,7 +105,7 @@ const removeStaffBtnList = document.querySelectorAll(".btnRemoveStaff");
 removeStaffBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
         modalToToggle = removeStaffModal;
-        toggleModal();
+        toggleModal(btn);
     });
 });
 
@@ -115,7 +115,7 @@ const removeCustomerBtnList = document.querySelectorAll(".btnRemoveCustomer");
 removeCustomerBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
         modalToToggle = removeCustomerModal;
-        toggleModal();
+        toggleModal(btn);
     });
 });
 
@@ -298,7 +298,7 @@ btnCloseList.forEach((btn) => {
 function transferIDToModal(btn){
     let recordID = btn.getAttribute("data-id")      // get id from the clicked btn of the list
     const proceedBtn = modalToToggle.querySelector('.proceedBtn');  // get the proceed btn of the modal
-    proceedBtn.setAttribute('data-id', recordID);  // assign id as a data attribute to the proceed btn
+    if(proceedBtn){proceedBtn.setAttribute('data-id', recordID);}   // assign id as a data attribute to the proceed btn
 }
 
 

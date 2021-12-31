@@ -20,6 +20,18 @@
    //       require APPROOT . "/views/receptionist/recep_sidenav.php";
    //       // break;  
    // }
+   // switch (Session::getUser("type"))
+   // {
+
+   //    case "2":
+   //       require APPROOT . "/views/owner/own_sideNav.php";
+   //       break;
+   //    case "3":
+   //       require APPROOT . "/views/manager/mang_sideNav.php";
+   //       break;
+   //    case "4":
+   //       require APPROOT . "/views/receptionist/recept_sideNav.php";
+   // }
    ?>
 
 
@@ -40,7 +52,7 @@
 <!-- //////////////////////////////////////////////////////////////////////// -->
 
 
-<?php if ($userType == "Owner") : ?>
+<?php if (Session::getUser('typeText') == "Owner") : ?>
    <div class="page-top-main-container">
       <a href="<?php echo URLROOT ?>/staff/addStaff" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
    </div>
@@ -143,11 +155,11 @@
                   <td data-lable="Status" class="column-center-align">
                      <!-- Staff memeber states >> Removed = 0 Active =1 Disabled =2 -->
                      <?php if ($staffD->status == 0) : ?>
-                        <button type="button" class="status-btn red text-uppercase "> Removed </button>
+                        <button type="button" class="status-btn text-uppercase red"> Removed </button>
                      <?php elseif ($staffD->status == 1) : ?>
-                        <button type="button" class="status-btn green text-uppercase"> Active </button>
+                        <button type="button" class="status-btn text-uppercase green"> Active </button>
                      <?php elseif ($staffD->status == 2) : ?>
-                        <button type="button" class="status-btn yellow text-uppercase "> Disabled </button>
+                        <button type="button" class="status-btn text-uppercase yellow"> Disabled </button>
                      <?php endif; ?>
                   </td>
                   <td class="column-center-align">
@@ -155,7 +167,7 @@
                         <a href="<?php echo URLROOT ?>/staff/viewStaff/<?php echo $staffD->staffID ?>"><i class="ci ci-view-more table-icon img-gap"></i></a>
                         <?php if (Session::getUser('typeText') == "Owner" && $staffD->status != 0 ) : ?>
                            <a href="<?php echo URLROOT ?>/staff/updateStaff/<?php echo $staffD->staffID ?>"><i class="ci ci-edit table-icon img-gap"></i></a>
-                           <a href="#" class="removeStaffAnchor"><i data-staffid = "<?php echo $staffD->staffID; ?>" data-staffstatus= "<?php echo $staffD->status; ?>" data-staffname = "<?php echo $staffD->fName; ?> <?php echo $staffD->lName; ?>" 
+                           <a href="#" class="removeStaffAnchor"><i data-staffmobileno = "<?php echo $staffD->mobileNo; ?>" data-staffid = "<?php echo $staffD->staffID; ?>" data-staffstatus= "<?php echo $staffD->status; ?>" data-staffname = "<?php echo $staffD->fName; ?> <?php echo $staffD->lName; ?>" 
                            data-stafftype =
                            "<?php if ($staffD->staffType == 3)
                              {

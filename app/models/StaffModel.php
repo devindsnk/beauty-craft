@@ -64,6 +64,14 @@ class StaffModel extends Model
       return $result;
    }
 
+   public function getStaffBankDetailsByStaffID($staffID)
+   {
+      $result = $this->getResultSet('bankdetails', '*', ["staffID" => $staffID]);
+
+      return $result;
+   }
+
+
    public function getStaffDataByMobileNo($mobileNo)
    {
       $this->db->query("SELECT * FROM staff WHERE mobileNo =  :mobileNo ");
@@ -95,17 +103,20 @@ class StaffModel extends Model
       var_dump($results);
    }
 
-   public function removeStaff($staffID)
+   public function removeStaff($staffID,$staffMobileNo)
    {
+      // print_r($staffNIC);
       // die("RemoveStaffController");
       $status = 0;
-      $this->update("staff", ["status" => $status],['staffID' => $staffID ]);
+      $this->update("staff", ["status" => $status],['staffID' => $staffID ]); 
+      $this->delete("users", ['mobileNo' => $staffMobileNo ]); 
+
    }
 
    public function getStaffUserData($mobileNo)
    {
       $results = $this->getSingle("staff", "*", ['mobileNo' => $mobileNo]);
-
+      
       // var_dump($results);
       // $this->db->query("SELECT * FROM staff WHERE mobileNo =  :mobileNo ");
       // $this->db->bind(':mobileNo', $mobileNo);
@@ -113,13 +124,14 @@ class StaffModel extends Model
       // print_r($results);
       // die('hi');
 
-      return [$results->staffID, $results->fName . " " . $results->lName];
+      return [$results->staffID, $results->fName . " " . $results->lName, $results->imgPath];
    }
 
-   public function getReservtaionCountByStaffID($staffID)
+   public function getReservtaionDetailsByStaffID($staffID)
    {
-      $results = $this->getRowCount('reservations',['staffID'=> $staffID, 'status'=> 1]);  
-
+      
+      $SQLstatement = "SELECT * FROM reservations WHERE staffID = :staffID AND status IN (1,2);";
+      $results = $this->customQuery($SQLstatement, [":staffID" => $staffID]);
       return $results;
    }
    public function getServiceslistByStaffID($staffID)
@@ -135,6 +147,13 @@ class StaffModel extends Model
       );
       return $results;
    }
+   // public function getAllActiveDisableStaffNICDetails()
+    
+   // {
+   //    $results =  $this->getResultSet('staff', '*', ['status' => 1 ,'status'=> 2]);
+   //    return $results;
+   // }
+   
 
    // FOR MANAGER OVERVIEW
    public function getReceptionistCount()

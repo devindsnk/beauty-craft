@@ -1,19 +1,10 @@
 console.log("hi hi");
 const ResourceTypeDropDown = document.querySelector(".resourceTypes");
+// const ResourceAddBtn = document.querySelector(".btnAddResourceBtn");
+const ResourceTypeAddBtn = document.querySelector(".btnAddResourceTypeProceed");
+console.log("hi hi");
+console.log(ResourceTypeAddBtn);
 
-
-ResourceTypeDropDown.addEventListener('click',
-   function () {
-      console.log("clicked");
-      
-      getAllResourceTypes();
-   } 
-) 
-
-
-// document.getElementById('inner').addEventListener('click', function(event) {
-//    event.stopPropagation();
-// });
 
 function getAllResourceTypes() {
    fetch(`http://localhost:80/beauty-craft/Resources/getResourceTypeDetails/`)
@@ -36,4 +27,3 @@ function getAllResourceTypes() {
          });
       });
 }
-

@@ -2,18 +2,13 @@ console.log("hhh");
 const StaffTableTrashBtn= Array.from(document.querySelectorAll('.removeStafftrash'));
 const RemoveStaffReservationDiv = document.querySelector('.remStaffError');
 const RemoveStaffBtnAnchorTag = document.querySelector(".removeStaffAnchorTag");
+const RemoveStaffProceedBtn = document.querySelector(".removeStaffBtn");
 RemoveStaffReservationDiv.style.display = "none";
 let rescount ;
 
 const checkbox = document.querySelector(".remStaffReservationRecallCheckBox");
 
-// checkbox.addEventListener('change', function() {
-//   if (this.checked) {
-//     console.log("Checkbox is checked..");
-//   } else {
-//     console.log("Checkbox is not checked..");
-//   }
-// });
+
 
 for ( var i = 0; i< StaffTableTrashBtn.length ; i++){
    // console.log("hi hi");
@@ -21,12 +16,13 @@ console.log(StaffTableTrashBtn[i].dataset.staffid);
 console.log(StaffTableTrashBtn[i].dataset.staffname);
 console.log(StaffTableTrashBtn[i].dataset.stafftype);
 console.log(StaffTableTrashBtn[i].dataset.staffstatus);
+console.log(StaffTableTrashBtn[i].dataset.staffmobileno);
 let staffID = StaffTableTrashBtn[i].dataset.staffid;
 let staffName = StaffTableTrashBtn[i].dataset.staffname;
 let staffType = StaffTableTrashBtn[i].dataset.stafftype;
 let staffStatus = StaffTableTrashBtn[i].dataset.staffstatus;
+let staffMobileNo = StaffTableTrashBtn[i].dataset.staffmobileno;
 
-// checkStaffmemberStatus(staffStatus);
 
 StaffTableTrashBtn[i].addEventListener('click',
 function(){
@@ -34,57 +30,68 @@ function(){
     document.querySelector(".staffName").innerHTML = staffName;
     document.querySelector(".staffType").innerHTML = staffType;
 
-    checkforUpcomingReservations(staffID);
-
-    // checkforcheckbox
-    // createRemoveCustomerUrl(cusID);
+    checkforUpcomingReservations(staffID,staffMobileNo);
 }
 )}
 
-function checkforUpcomingReservations(staffID){
-        console.log("checkforUpcomingReservations works");
-    fetch(`http://localhost:80/beauty-craft/Staff/GetReservtaionCountByStaffID/${staffID}`)
+function checkforUpcomingReservations(staffID,staffMobileNo){
+    fetch(`http://localhost:80/beauty-craft/Staff/getAllReservtaionDetailsByStaffID/${staffID}`)
      .then(response => response.json())
-     .then( reservationCount => {
-        console.log("checkforUpcomingReservations works");
-       rescount = reservationCount;
-       console.log(rescount);
+     .then( reservations => {
+        console.log("checkforUpcomingReservations");
+        reservationD = reservations;
+       console.log(reservationD);
        console.log("checkforUpcomingReservations works");
       //  console.log("yo");
       
-      if (rescount > 0)
+      if (reservationD.length > 0)
       {
-         console.log("yo if called");
+
+        const ress = [];
+        const ressReason = 'For remove the staff member';
+
+        for (var i = 0; i < reservationD.length; i++)
+        {
+            ress.push(reservationD[i]['reservationID']);
+        }
+
+
          RemoveStaffReservationDiv.style.display = "block";
 
          // Default link creation to reservation count gtreater than zero
-         RemoveStaffBtnAnchorTag.href = "http://localhost:80/beauty-craft/Staff/RemoveStaff/" + staffID;
+         RemoveStaffBtnAnchorTag.href = "http://localhost:80/beauty-craft/Staff/RemoveStaff/" + staffID + "/" + staffMobileNo;
 
          checkbox.addEventListener('click', function() {
             if (this.checked) {
         // Link creation to remove staff member with recall request (after tick the checked box) reservation count greater than zero
-              RemoveStaffBtnAnchorTag.href = "http://localhost:80/beauty-craft/Staff/RemoveStaffWithRecall/" + staffID;
+              SendResRecallByResIDs(ress,ressReason);
             } else {
         // Link creation to remove staff member without recall request (after untick the checked box) reservation count greater than zero
-             RemoveStaffBtnAnchorTag.href = "http://localhost:80/beauty-craft/Staff/RemoveStaff/" + staffID;
+             RemoveStaffBtnAnchorTag.href = "http://localhost:80/beauty-craft/Staff/RemoveStaff/" + staffID + "/" + staffMobileNo;
             }
           });
-
-        //  document.querySelector(".removeStaffBtn").disabled = true;
-        //  document.querySelector(".removeStaffBtn").className = "btn ModalCancelButton ModalButton removeStaffBtn";
-        //  .btn.btn-filled.btn-grey
-        
-         // CloseSalonDateReservationDiv.innerHTML= "";
       } 
       else 
       { 
           console.log("Url to remove the staff member without recall requests");
           RemoveStaffReservationDiv.style.display = "none";
-        // document.querySelector(".removeStaffBtn").disabled = false;
-        // document.querySelector(".removeStaffBtn").className = "btn ModalBlueButton ModalButton removeStaffBtn";
-        RemoveStaffBtnAnchorTag.href = "http://localhost:80/beauty-craft/Staff/RemoveStaff/" + staffID;
+        RemoveStaffBtnAnchorTag.href = "http://localhost:80/beauty-craft/Staff/RemoveStaff/" + staffID + "/" + staffMobileNo;
       }
     
      });
+}
+
+
+
+function SendResRecallByResIDs(ress,ressReason){
+  console.log('recall2');
+  RemoveStaffProceedBtn.addEventListener('click',
+  function () {
+    fetch(`http://localhost:80/beauty-craft/Reservations/recallReservationsFromUpdateService/${ress}/${ressReason}`)
+    .then()
+  }
+  )
+
+ 
 }
 

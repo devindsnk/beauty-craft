@@ -30,11 +30,18 @@ class CustomerModel extends Model
       return [$result->customerID, $result->fName . " " . $result->lName];
    }
 
-   public function removeCustomerDetails($cusID)
+   public function removeCustomerDetails($cusID,$mobileNo,$rescount)
    {
-      $result = $this->update('reservations',['status' => 0 ], ['customerID' => $cusID]);
-      print_r($result);
+      if($rescount>0){
+         $result = $this->update('reservations',['status' => 0 ], ['customerID' => $cusID]);
+         $this->update('customers', ['status' => 0 ], ["customerID" => $cusID]); 
+         $this->delete("users", ['mobileNo' => $mobileNo ]); 
+      }
+      else {
       $this->update('customers', ['status' => 0 ], ["customerID" => $cusID]); 
+      $this->delete("users", ['mobileNo' => $mobileNo ]); 
+      }
+
     
    }
 

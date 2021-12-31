@@ -12,10 +12,20 @@ class  Resources extends Controller
 
    }
    public function addResource(){
-   // $resourceTypes = $this->resourceModel->getAllRsourceTypeDetails();
+   $resourceTypes = $this->resourceModel->getAllRsourceTypeDetails();
+   // print_r($resourceTypes);
+   // die("succcess");
+   $CurrentResourceTypeCount =  sizeof($resourceTypes);
+   // print_r($totalNumberOfResourceTypes);
+   // die("success");
+   // $string = 'Paneer Pakoda dish';
+   // $bar = strtolower($string);
+   // echo $data = preg_replace('/\s+/', '', $bar);
+   // die();
 
    if ($_SERVER['REQUEST_METHOD'] == 'POST' )
    {
+      $date_now = date("Y-m-d");
          $data = [
             'manufacturer' => trim($_POST['manufacturer']),
             'modelNo' => trim($_POST['modelNo']),
@@ -34,7 +44,7 @@ class  Resources extends Controller
             'quantity_error' => '',
             'purchaseDate_error' => '',
             'haveErrors' => 0,
-            // 'resourceTypes' => $resourceTypes,
+            'resourceTypes' => $resourceTypes,
          ];
       if ($_POST['action'] == "addType")
       {
@@ -44,13 +54,27 @@ class  Resources extends Controller
          {
             $data['name_error'] = "Please enter a type";
          }
+         for($i = 0; $i < $CurrentResourceTypeCount ; $i++)
+         {
+            // echo "hi";
+            $CurrentResType =  strtolower($resourceTypes[$i]->name);
+            $data1 = preg_replace('/\s+/', '', $CurrentResType);
+            // echo "<br>" ; 
+            $NewResType = strtolower($data['name']);
+            $data2 = preg_replace('/\s+/', '', $NewResType);
+            // echo "<br>" ; 
+            if($data1 == $data2){
+               $data['name_error'] = "Type already exists.";
+            }
+
+         }
+         // die("success");
          if ( empty($data['name_error']) )
-         { 
-          
-           // print_r($data[]);
+         {            
            $this->resourceModel->addResourceType($data);
+           $data['resourceTypes'] =  $this->resourceModel->getAllRsourceTypeDetails();
+           Toast::setToast(1, "Resource type added successfully", "");
            $this->view('owner/own_resourceAdd', $data);
-         //   redirect('resources/addResource',$data);
         } 
         else 
         { 
@@ -84,6 +108,10 @@ class  Resources extends Controller
          if (empty($data['warrantyExpDate']))
          {
             $data['warrantyExpDate_error'] = "Please select warrantyExpDate";
+         }
+         else if($date_now > $data['warrantyExpDate'])
+         {
+               $data['warrantyExpDate_error'] = "Warranty expiration date must be a future date";
          }
          
          if (empty($data['price']))
@@ -137,7 +165,7 @@ class  Resources extends Controller
             'quantity_error' => '',
             'purchaseDate_error' => '',
             'haveErrors' => 0,
-            // 'resourceTypes' => $resourceTypes,
+            'resourceTypes' => $resourceTypes,
          ];
          $this->view('owner/own_resourceAdd', $data);
       }
@@ -145,7 +173,7 @@ class  Resources extends Controller
    }
    
    public function updateResource($PurchaseID,$ResourceID){
-      // $resourceTypes = $this->resourceModel->getAllRsourceTypeDetails();
+      $resourceTypes = $this->resourceModel->getAllRsourceTypeDetails();
       $resourcePurchaseDetails = $this->resourceModel->getRsourcePurchaseDetailsByPurchaseID($PurchaseID);
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST' )
@@ -166,7 +194,7 @@ class  Resources extends Controller
                'price_error' => '',
                'purchaseDate_error' => '',
                'haveErrors' => 0,
-               // 'resourceTypes' => $resourceTypes,
+               'resourceTypes' => $resourceTypes,
                'purchaseDetails' => $resourcePurchaseDetails,
             ];
          if ($_POST['action'] == "addType")
@@ -180,10 +208,13 @@ class  Resources extends Controller
             if ( empty($data['name_error']) )
             { 
              
-              // print_r($data[]);
+            //   print_r($data[]);
+            //   die();
+            //   Toast::setToast(1, "Resource type added successfully", "");
               $this->resourceModel->addResourceType($data);
-            //   $this->view('owner/own_resourceAdd', $data);
-              redirect('resources/updateResource',$data);
+              Toast::setToast(1, "Resource type added successfully", "");
+              $this->view('owner/own_resourceAdd', $data);
+            //   redirect('resources/updateResource',$data);
            } 
            else 
            { 
@@ -241,6 +272,7 @@ class  Resources extends Controller
                // die('controllercalled');
                $this->resourceModel->updateResourceQuantityAfterAddResources($data);
                $this->resourceModel->addPurchaseDetails($data);
+               Toast::setToast(1, "Resource added successfully", "");
                $this->viewResources($ResourceID);
             } 
             else 
@@ -268,7 +300,7 @@ class  Resources extends Controller
                'price_error' => '',
                'purchaseDate_error' => '',
                'haveErrors' => 0,
-               // 'resourceTypes' => $resourceTypes,
+               'resourceTypes' => $resourceTypes,
                'purchaseDetails' => $resourcePurchaseDetails,
             ];
             $this->view('owner/own_resourceUpdate', $data);
@@ -283,13 +315,14 @@ class  Resources extends Controller
    
       $this->resourceModel->updateResourceQuantityAfterRemoveResources($ResourceID);
       $this->resourceModel->removeResourcePurchaseRecord($PurchaseID);
+      Toast::setToast(1, "Resource removed successfully", "");
       $this->viewResources($ResourceID);
    }
 
    
    public function getResourceTypeDetails()
    {
-      $resourceTypes = $this->resourceModel->getAllResourceTypeDetails();
+      $resourceTypes = $this->resourceModel->getAllRsourceTypeDetails();
       // $this->closedDatesModel->getCloseDatesReservationCount($data['closeDate']);
       // Session::validateSession([6]);
       // $reservationCount = $this->closedDatesModel->getCloseDatesReservationCount($date);

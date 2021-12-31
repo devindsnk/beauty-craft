@@ -181,13 +181,13 @@ class Customer extends Controller
       Session::validateSession([6]);
       $this->view('customer/cust_myReservation');
    }
-   public function remCustomer($cusID)
+   public function remCustomer($cusID,$mobileNo,$rescount)
    {
       // die('success');
       // echo ($cusID);
       
-      $this->customerModel->removeCustomerDetails($cusID);
-      // Toast::setToast(1,"Customer Removed Successfully!","");
+      $this->customerModel->removeCustomerDetails($cusID,$mobileNo,$rescount);
+      Toast::setToast(1,"Customer Removed Successfully!","");
       redirect('OwnDashboard/customers');
    }
 

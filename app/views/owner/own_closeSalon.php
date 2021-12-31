@@ -65,7 +65,7 @@
                      <td class="column-left-align"><?php echo $closeSalonD->note; ?></td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                        <?php if (Session::getUser("userText") == "Owner") : ?>
+                        <?php if (Session::getUser('typeText') == "Owner") : ?>
                            <a href="#"><i data-closedateid = "<?php echo $closeSalonD->defKey; ?>" class="ci-trash table-icon btnRemoveCloseDate removeCloseDatetrash"></i></a>
                            <?php endif; ?>
                         </span>
@@ -96,9 +96,6 @@
             </table>
          </div>
       </div>
-
-
-
 
 
       <!------------------------------------------------- Modal starts ----------------------------------------------------->
@@ -146,11 +143,11 @@
                   <button class="btn btnClose normal ModalCancelButton ModalButton" name="action" value="cancel">Cancel</button>
                </div>
                <div class="addItemsModalbtn2">
-               <button class="btn ModalGreenButton ModalButton"  name="action" value= "addCloseDate" >Proceed</button>
+               <button class="btn ModalGreenButton ModalButton addCloseDateProceed"  name="action" value= "addCloseDate" >Proceed</button>
 
-                     <?php if ($data['checked'] == 1 && $data['reservationCount'] > 0) echo '<button class="btn ModalGreenButton ModalButton"  name="action" value= "addCloseDate" >Proceed</button>'; ?>
+                     <!-- <?php if ($data['reservationCount'] > 0) echo '<button class="btn ModalGreenButton ModalButton"  name="action" value= "addCloseDate" >Proceed</button>'; ?> -->
 
-                     <!-- <?php if ($data['checked'] == 1 && $data['reservationCount'] > 0) echo '<button class="btn ModalGreenButton ModalButton"  name="action" value= "addCloseDateWithRecall" >Proceed</button>'; ?> -->
+                   
 
                   </div>
                </div>

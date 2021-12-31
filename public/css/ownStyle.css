@@ -823,7 +823,12 @@ font-weight: 600;
     grid-area: quantity;
     padding-bottom: 10px;
 }
-
+.own.staff.resources  .addItemsModalGrid3{
+    grid-gap : 15px;
+}
+.own.staff.resources .contentBox{
+    height: 650px;
+}
 /* --------------------------------------------------------------------------------------------------- */
 /* -----------Styles for Update Resources(Other Than Styles in Add Resources) Starts------------------ */
 /* --------------------------------------------------------------------------------------------------- */
@@ -1615,8 +1620,8 @@ font-weight: 600;
     grid-template-columns: 1fr 2fr;
     grid-gap: 5px;
     grid-template-areas:
-        'ownAddstaffFormGroupImage ownAddstaffFormGroupLname'
         'ownAddstaffFormGroupImage ownAddstaffFormGroupFname'
+        'ownAddstaffFormGroupImage ownAddstaffFormGroupLname'
         'ownAddstaffFormGroupRadio ownAddstaffFormGroupNIC';
 
 }

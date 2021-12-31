@@ -48,8 +48,8 @@ Reservations
 ---------------------------------------
 
 Resources
-0 - Removed
-1 - Active
+0 - Not Available
+1 - Available
 
 ---------------------------------------
 
@@ -61,7 +61,7 @@ Resource Type
 
 Customer 
 0 - Removed
-1 - Active
+1 - Active   
 
 ---------------------------------------
 
