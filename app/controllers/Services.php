@@ -659,7 +659,8 @@ class Services extends Controller
       // Session::validateSession([3]);
       $serviceList = $this->ServiceModel->getServiceDetails();
       // $serviceChartDetails = $this->ServiceModel->getServiceAnalyticsDetails();
-      // print_r($serviceChartDetails);
+      // $serviceAnalyticResDetails = $this->ReservationModel->getResDetailsForServiceAnalytics(000006, '2021-10-01', '2021-12-01');
+      // print_r($serviceAnalyticResDetails);
       // die('dddd');
       $this->view('common/SubAnalyticsService', $serviceList);
    }
@@ -670,6 +671,30 @@ class Services extends Controller
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($serviceChartDetails));
    }
+   public function analyticsServiceResTable($serviceID, $from, $to)
+   {
+      // Session::validateSession([3]);
+      $serviceAnalyticResDetails = $this->ReservationModel->getResDetailsForServiceAnalytics($serviceID, $from, $to);
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($serviceAnalyticResDetails));
+   }
+   
+   // public function analyticsServiceCard1($serviceID, $from, $to)
+   // {
+   //    // Session::validateSession([3]);
+   //    $serviceAnalyticCard1Details = $this->ReservationModel->getCard1DetailsForServiceAnalytics($serviceID, $from, $to);
+
+   //    header('Content-Type: application/json; charset=utf-8');
+   //    print_r(json_encode($serviceAnalyticCard1Details));
+   // }
+   // public function analyticsServiceCard2($serviceID, $from, $to)
+   // {
+   //    // Session::validateSession([3]);
+   //    $serviceAnalyticCard2Details = $this->ReservationModel->getCard2DetailsForServiceAnalytics($serviceID, $from, $to);
+
+   //    header('Content-Type: application/json; charset=utf-8');
+   //    print_r(json_encode($serviceAnalyticCard2Details));
+   // }
    public function analyticsSProvider()
    {
       // Session::validateSession([3]);

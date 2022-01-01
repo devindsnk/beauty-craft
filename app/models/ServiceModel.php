@@ -400,7 +400,8 @@ class ServiceModel extends Model
 
     public function getServiceAnalyticsDetails($serviceID, $from, $to)
     {
-        $results = $this->customQuery("SELECT DATE_FORMAT(reservations.date, '%Y-%m') AS YearAndMonth, FLOOR((DayOfMonth(reservations.date)-1)/7)+1 AS weekNo, SUM(services.price) AS TotalIncome, COUNT(*) AS TotalReservations
+        if($serviceID!=0){
+            $results = $this->customQuery("SELECT DATE_FORMAT(reservations.date, '%Y-%m') AS YearAndMonth, FLOOR((DayOfMonth(reservations.date)-1)/7)+1 AS weekNo, SUM(services.price) AS TotalIncome, COUNT(*) AS TotalReservations
                                     FROM services
                                     INNER JOIN reservations ON reservations.serviceID = services.serviceID
                                     WHERE reservations.status = :status AND (reservations.date BETWEEN '$from' AND '$to') AND services.serviceID=$serviceID
@@ -408,8 +409,17 @@ class ServiceModel extends Model
                                     ORDER BY reservations.date, DATE_FORMAT(reservations.date, '%u-%Y')",
                                     [':status' => 4]
                                     );
-        // print_r($results);
-        // die('ss');
+        }else{
+            $results = $this->customQuery("SELECT DATE_FORMAT(reservations.date, '%Y-%m') AS YearAndMonth, FLOOR((DayOfMonth(reservations.date)-1)/7)+1 AS weekNo, SUM(services.price) AS TotalIncome, COUNT(*) AS TotalReservations
+                                    FROM services
+                                    INNER JOIN reservations ON reservations.serviceID = services.serviceID
+                                    WHERE reservations.status = :status AND (reservations.date BETWEEN '$from' AND '$to')
+                                    GROUP BY DATE_FORMAT(reservations.date, '%u-%Y')
+                                    ORDER BY reservations.date, DATE_FORMAT(reservations.date, '%u-%Y')",
+                                    [':status' => 4]
+                                    );
+        }
+        
         return $results;
     }
     // END FOR ANALYTICS 

@@ -285,8 +285,11 @@ class LeaveModel extends Model
    public function getPendingLeaveRequestCount()
    {
 
-      $results = $this->getRowCount('generalleaves', ['status' => 2, 'leaveType' => 'casual']);
-
+      // $results = $this->getRowCount('generalleaves', ['status' => 2, 'leaveType' => 1, 'leaveType' => 2]);
+      $results = $this->customQuery("SELECT * 
+                                    FROM generalleaves 
+                                    WHERE status = 2 AND (leaveType = 1 OR leaveType = 2)", []);
+      
       return $results;
    }
    // FOR MANAGER OVERVIEW

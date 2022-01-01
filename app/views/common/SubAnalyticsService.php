@@ -37,16 +37,21 @@
                      <div class="dropdown-group">
                         <label class="label" for="serviceName">Service</label>
                         <select class="serviceSelectDropDown">
-                           <option value=0 selected disabled>Select</option>
+                           <option value=0 selected >All services</option>
                            <?php foreach ($data as $services) : ?>
 
                               <option value="<?php echo $services->serviceID; ?>">
-                              <?php echo $services->serviceID; ?> - <?php echo $services->name; ?></option>
+                                 <?php if($services->status == 0): ?>
+                                    <?php echo $services->serviceID; ?> - <?php echo $services->name;  ?> (REMOVED)
+                                 <?php else: ?>
+                                    <?php echo $services->serviceID; ?> - <?php echo $services->name; ?>
+                                 <?php endif; ?>  
+                              </option>
 
                            <?php endforeach; ?>
                         </select>
                      </div>
-                     <span class="error"> <?php echo " "; ?></span>
+                     <span class="error serviceSelectError"> <?php echo " "; ?></span>
                   </div>
                   <div class="column">
                      <div class="text-group">
@@ -80,7 +85,7 @@
                <p>Total Reservation</p>
             </div>
             <div class="mang-sub-container-card-amount"> 
-               <p>400</p>
+               <p id="totResCount"></p>
             </div>
          </div>
          <!--End of card1-->
@@ -91,7 +96,7 @@
                <p>Total Income</p>
             </div>
             <div class="mang-sub-container-card-amount"> 
-               <p>45,000.00 LKR</p>
+               <p id="totIncome"></p>
             </div>
          </div>
          <!--End of card2-->
@@ -100,7 +105,7 @@
 
       <div class="mang-sub-container2 mang">
          <!--chart-container-->
-         <div class="chart-container">
+         <div class="chart-container" id="chart-container">
             <div class="chart-head"> 
                <p>Reservations</p>
             </div>
@@ -126,7 +131,7 @@
       </div>
       <div class="table-container mang">
         <div class="table2 table2-responsive">
-           <table class="table2 table2-hover">
+           <table class="table2 table2-hover" id="serviceAnalyResTable"> 
               <!--Table head-->
               <thead>
                  <tr>
@@ -139,113 +144,17 @@
               <!--End of table head-->
 
               <!--Table body-->
-              <tbody>
+              <tbody id="rows">
 
                  <!--Table row-->
-                 <tr>
+                 <!-- <tr>
                     <td data-lable="Reservation No">Res0001</td>
                     <td data-lable="Service Provider">Sanjana Rajapaksha</td>
                     <td data-lable="Customer">Ruwanthi Munasinghe</td>
                     <td data-lable="Price" class="column-right-align">250.00 LKR</td>
-                 </tr>
+                 </tr> -->
                  <!--End of table row-->
 
-                 <!--Table row-->
-                 <tr>
-                    <td data-lable="Reservation No">Res0002</td>
-                    <td data-lable="Service Provider">Sethni Nimesha</td>
-                    <td data-lable="Customer">Kamal Perera</td>
-                    <td data-lable="Price" class="column-right-align">350.00 LKR</td>
-                 </tr>
-                 <!--End of table row-->
-
-                 <!--Table row-->
-                 <tr>
-                    <td data-lable="Reservation No">Res0003</td>
-                    <td data-lable="Service Provider">Ravindu Madhubashana</td>
-                    <td data-lable="Customer">Sarith Karunarathne</td>
-                    <td data-lable="Price" class="column-right-align">150.00 LKR</td>
-                 </tr>
-                 <!--End of table row-->
-
-                 <!--Table row-->
-                 <tr>
-                    <td data-lable="Reservation No">Res0001</td>
-                    <td data-lable="Service Provider">Sanjana Rajapaksha</td>
-                    <td data-lable="Customer">Ruwanthi Munasinghe</td>
-                    <td data-lable="Price" class="column-right-align">250.00 LKR</td>
-                 </tr>
-                 <!--End of table row-->
-                 <!--Table row-->
-                 <tr>
-                    <td data-lable="Reservation No">Res0001</td>
-                    <td data-lable="Service Provider">Sanjana Rajapaksha</td>
-                    <td data-lable="Customer">Ruwanthi Munasinghe</td>
-                    <td data-lable="Price" class="column-right-align">250.00 LKR</td>
-                 </tr>
-                 <!--End of table row-->
-
-                 <!--Table row-->
-                 <tr>
-                    <td data-lable="Reservation No">Res0002</td>
-                    <td data-lable="Service Provider">Sethni Nimesha</td>
-                    <td data-lable="Customer">Kamal Perera</td>
-                    <td data-lable="Price" class="column-right-align">350.00 LKR</td>
-                 </tr>
-                 <!--End of table row-->
-
-                 <!--Table row-->
-                 <tr>
-                    <td data-lable="Reservation No">Res0003</td>
-                    <td data-lable="Service Provider">Ravindu Madhubashana</td>
-                    <td data-lable="Customer">Sarith Karunarathne</td>
-                    <td data-lable="Price" class="column-right-align">150.00 LKR</td>
-                 </tr>
-                 <!--End of table row-->
-
-                 <!--Table row-->
-                 <tr>
-                    <td data-lable="Reservation No">Res0001</td>
-                    <td data-lable="Service Provider">Sanjana Rajapaksha</td>
-                    <td data-lable="Customer">Ruwanthi Munasinghe</td>
-                    <td data-lable="Price" class="column-right-align">250.00 LKR</td>
-                 </tr>
-                 <!--End of table row-->
-                 <!--Table row-->
-                 <tr>
-                    <td data-lable="Reservation No">Res0001</td>
-                    <td data-lable="Service Provider">Sanjana Rajapaksha</td>
-                    <td data-lable="Customer">Ruwanthi Munasinghe</td>
-                    <td data-lable="Price" class="column-right-align">250.00 LKR</td>
-                 </tr>
-                 <!--End of table row-->
-
-                 <!--Table row-->
-                 <tr>
-                    <td data-lable="Reservation No">Res0002</td>
-                    <td data-lable="Service Provider">Sethni Nimesha</td>
-                    <td data-lable="Customer">Kamal Perera</td>
-                    <td data-lable="Price" class="column-right-align">350.00 LKR</td>
-                 </tr>
-                 <!--End of table row-->
-
-                 <!--Table row-->
-                 <tr>
-                    <td data-lable="Reservation No">Res0003</td>
-                    <td data-lable="Service Provider">Ravindu Madhubashana</td>
-                    <td data-lable="Customer">Sarith Karunarathne</td>
-                    <td data-lable="Price" class="column-right-align">150.00 LKR</td>
-                 </tr>
-                 <!--End of table row-->
-
-                 <!--Table row-->
-                 <tr>
-                    <td data-lable="Reservation No">Res0001</td>
-                    <td data-lable="Service Provider">Sanjana Rajapaksha</td>
-                    <td data-lable="Customer">Ruwanthi Munasinghe</td>
-                    <td data-lable="Price" class="column-right-align">250.00 LKR</td>
-                 </tr>
-                 <!--End of table row-->
               </tbody>
               <!--End of table body-->
            </table>
@@ -284,21 +193,21 @@
       // });
 
       // //mychart1
-      var ctx = document.getElementById('myChart6').getContext('2d');
-      var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-            labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
-            datasets: [{ 
-                  lineTension: 0,
-                  data: [35000,21400,30600,30600,32700,21100,23300,35000,32000,23500,27500,22400],
-                  label: "Income",
-                  borderColor: "#87986a",
-                  backgroundColor: "#b5c99a",
-               }
-            ]
-            },
-         });
+      // var ctx = document.getElementById('myChart6').getContext('2d');
+      // var myChart = new Chart(ctx, {
+      //       type: 'line',
+      //       data: {
+      //       labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
+      //       datasets: [{ 
+      //             lineTension: 0,
+      //             data: [35000,21400,30600,30600,32700,21100,23300,35000,32000,23500,27500,22400],
+      //             label: "Income",
+      //             borderColor: "#87986a",
+      //             backgroundColor: "#b5c99a",
+      //          }
+      //       ]
+      //       },
+      //    });
 
          let today = new Date().toISOString().substr(0, 10);
          let yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000).toISOString().substr(0, 10);
