@@ -55,9 +55,9 @@ const serviceFromError = document.querySelector(".serviceFromError");
 const serviceToError = document.querySelector(".serviceToError");
 
 if(selectedService != null){
-    console.log(selectedService.value);
-    analyticsSelector();
-    resTableData();
+    // console.log(selectedService.value);
+    serviceAnalyticsSelector();
+    serviceResCardTableData();
     serviceSearchBtn.addEventListener('click',
         function () {
             // console.log(selectedService.value);
@@ -73,67 +73,18 @@ if(selectedService != null){
             //     console.log(tomorrow);
 
             // }
-            analyticsSelector();
-            resTableData();
+            serviceAnalyticsSelector();
+            serviceResCardTableData();
         }
     )
 }
 
-function analyticsSelector(){
-    // fetch(`http://localhost:80/beauty-craft/Services/analyticsServiceChartJS`)
-    // .then(response => response.json())
-    // .then(serviceChartDetails => {
-    //     console.log('awa');
-    //     console.log(serviceChartDetails);
-
-    // })
-    // var ctx = document.getElementById('myChart5').getContext('2d');
-    //   var myChart = new Chart(ctx, {
-    //      type: 'bar',
-    //      data: {
-    //      labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
-    //      datasets: [{ 
-    //            data: [70,90,44,60,83,90,100,30,80.35,45,39],
-    //            label: "No of reservations",
-    //            borderColor: "#00b4d8",
-    //            backgroundColor: "#90e0ef",
-    //            borderWidth:2
-    //         }
-    //      ]
-    //      },
-    //      options: {
-    //      scales: {
-    //         xAxes: [{ 
-    //            stacked: true    
-    //         }],
-    //         yAxes: [{
-    //            stacked:true
-    //         }],
-    //         }
-    //      },
-    //   });
-
-    //   var ctx = document.getElementById('myChart6').getContext('2d');
-    //   var myChart = new Chart(ctx, {
-    //         type: 'line',
-    //         data: {
-    //         labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
-    //         datasets: [{ 
-    //               lineTension: 0,
-    //               data: [35000,21400,30600,30600,32700,21100,23300,35000,32000,23500,27500,22400],
-    //               label: "Income",
-    //               borderColor: "#87986a",
-    //               backgroundColor: "#b5c99a",
-    //            }
-    //         ]
-    //         },
-    //      });
-
-        var ctx3 = document.getElementById('myChart5').getContext('2d');
-        var ctx4 = document.getElementById('myChart6').getContext('2d');
+function serviceAnalyticsSelector(){
+    
+        var ctx5 = document.getElementById('myChart5').getContext('2d');
+        var ctx6 = document.getElementById('myChart6').getContext('2d');
 
          $(document).ready(function(){
-            // var barGraph=null;
 
             chart3();
             chart4();
@@ -158,7 +109,7 @@ function analyticsSelector(){
                     url: "http://localhost:80/beauty-craft/Services/analyticsServiceChartJS/"+selectedService.value+"/"+selectedServiceFromDate.value+"/"+selectedServiceToDate.value,
                     method: "GET",
                     success: function(data) {
-                      console.log(data);
+                      // console.log(data);
                       
                       var YearAndMonth = [];
                       var weekNo = [];
@@ -188,7 +139,7 @@ function analyticsSelector(){
                         ]
                       };
                 
-                      var barGraph1 = new Chart(ctx3, {
+                      var barGraph1 = new Chart(ctx5, {
                         type: 'bar',
                         data: chartdata,
                         options: {
@@ -218,7 +169,7 @@ function analyticsSelector(){
                   url: "http://localhost:80/beauty-craft/Services/analyticsServiceChartJS/"+selectedService.value+"/"+selectedServiceFromDate.value+"/"+selectedServiceToDate.value,
                   method: "GET",
                   success: function(data) {
-                    console.log(data);
+                    // console.log(data);
                     
                     var YearAndMonth = [];
                     var weekNo = [];
@@ -249,7 +200,7 @@ function analyticsSelector(){
                       ]
                     };
               
-                    var barGraph2 = new Chart(ctx4, {
+                    var barGraph2 = new Chart(ctx6, {
                       type: 'line',
                       data: chartdata,
                     });
@@ -263,15 +214,15 @@ function analyticsSelector(){
         });
 }
 
-function resTableData(){
-  console.log('resTableData');
+function serviceResCardTableData(){
+  // console.log('resTableData');
   var serviceRes = document.getElementById('serviceAnalyResTable');
-  document.getElementById("rows").innerHTML='';
+  document.getElementById("rows1").innerHTML='';
 
   fetch(`http://localhost:80/beauty-craft/Services/analyticsServiceResTable/${selectedService.value}/${selectedServiceFromDate.value}/${selectedServiceToDate.value}`)
         .then(response => response.json())
         .then(serviceAnalyticResDetails => {
-          console.log(serviceAnalyticResDetails);
+          // console.log(serviceAnalyticResDetails);
           let totIncome=0;
           for (let i = 0; i < serviceAnalyticResDetails.length; i++) {
             var newRow = document.createElement("tr");
@@ -290,7 +241,7 @@ function resTableData(){
             newRow.append(cell2);
             newRow.append(cell3);
             newRow.append(cell4);
-            document.getElementById("rows").appendChild(newRow);
+            document.getElementById("rows1").appendChild(newRow);
 
           }
           let totalIncome =  (Math.round(totIncome * 100) / 100).toFixed(2);

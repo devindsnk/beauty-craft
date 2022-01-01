@@ -678,26 +678,25 @@ class Services extends Controller
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($serviceAnalyticResDetails));
    }
-   
-   // public function analyticsServiceCard1($serviceID, $from, $to)
-   // {
-   //    // Session::validateSession([3]);
-   //    $serviceAnalyticCard1Details = $this->ReservationModel->getCard1DetailsForServiceAnalytics($serviceID, $from, $to);
-
-   //    header('Content-Type: application/json; charset=utf-8');
-   //    print_r(json_encode($serviceAnalyticCard1Details));
-   // }
-   // public function analyticsServiceCard2($serviceID, $from, $to)
-   // {
-   //    // Session::validateSession([3]);
-   //    $serviceAnalyticCard2Details = $this->ReservationModel->getCard2DetailsForServiceAnalytics($serviceID, $from, $to);
-
-   //    header('Content-Type: application/json; charset=utf-8');
-   //    print_r(json_encode($serviceAnalyticCard2Details));
-   // }
    public function analyticsSProvider()
    {
       // Session::validateSession([3]);
-      $this->view('common/SubAnalyticsSProvider');
+      $serviceProvList = $this->ServiceModel->getServiceProviderDetails();
+
+      $this->view('common/SubAnalyticsSProvider',$serviceProvList);
+   }
+   public function analyticsServiceProvChartJS($staffID, $from, $to)
+   {
+      // Session::validateSession([3]);
+      $serviceProvChartDetails = $this->ServiceModel->getServiceProvAnalyticsDetails($staffID, $from, $to);
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($serviceProvChartDetails));
+   }
+   public function analyticsServiceProvResTable($staffID, $from, $to)
+   {
+      // Session::validateSession([3]);
+      $serviceProvAnalyticResDetails = $this->ReservationModel->getResDetailsForServiceProvAnalytics($staffID, $from, $to);
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($serviceProvAnalyticResDetails));
    }
 }

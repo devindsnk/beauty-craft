@@ -422,6 +422,29 @@ class ServiceModel extends Model
         
         return $results;
     }
+    public function getServiceProvAnalyticsDetails($staffID, $from, $to)
+    {
+        if($staffID!=0){
+            $results = $this->customQuery("SELECT DATE_FORMAT(reservations.date, '%Y-%m') AS YearAndMonth, FLOOR((DayOfMonth(reservations.date)-1)/7)+1 AS weekNo, SUM(services.price) AS TotalIncome, COUNT(*) AS TotalReservations
+            FROM reservations
+            INNER JOIN services ON reservations.serviceID = services.serviceID
+            WHERE reservations.status = :status AND (reservations.date BETWEEN '$from' AND '$to') AND reservations.staffID=$staffID
+            GROUP BY DATE_FORMAT(reservations.date, '%u-%Y')
+            ORDER BY reservations.date, DATE_FORMAT(reservations.date, '%u-%Y')",
+            [':status' => 4]
+            );
+        }else{
+            $results = $this->customQuery("SELECT DATE_FORMAT(reservations.date, '%Y-%m') AS YearAndMonth, FLOOR((DayOfMonth(reservations.date)-1)/7)+1 AS weekNo, SUM(services.price) AS TotalIncome, COUNT(*) AS TotalReservations
+            FROM reservations
+            INNER JOIN services ON reservations.serviceID = services.serviceID
+            WHERE reservations.status = :status AND (reservations.date BETWEEN '$from' AND '$to')
+            GROUP BY DATE_FORMAT(reservations.date, '%u-%Y')
+            ORDER BY reservations.date, DATE_FORMAT(reservations.date, '%u-%Y')",
+            [':status' => 4]
+            );
+        }
+        return $results;
+    }
     // END FOR ANALYTICS 
     
     // Returns required resources of each slot with start and end times of a given service.
