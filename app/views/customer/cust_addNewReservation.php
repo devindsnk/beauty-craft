@@ -101,15 +101,6 @@
             </div>
             <button type="submit" class="btn btn-filled btn-theme-red addResBtn">Add Reservation</button>
          </div>
-
-         <!-- <div class="row hideElement">
-            <div class="column">
-               <div class="text-group">
-                  <label class="label" for="fName">Customer</label>
-                  <input type="text" name="customerID" id="fName" value="<?php echo Session::getUser("id"); ?>">
-               </div>
-            </div>
-         </div> -->
       </form>
    </div>
 </div>
@@ -131,7 +122,6 @@
    document.getElementById("date_picker").setAttribute('min', today);
    document.getElementById("date_picker").setAttribute('max', maxDate);
 </script>
-<script src="<?php echo URLROOT ?>/public/js/fetchRequests.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/fetchRequests/newReservation.js"></script>
 
 </body>

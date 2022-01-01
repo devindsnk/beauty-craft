@@ -129,7 +129,7 @@ class Customer extends Controller
 
                   //system log
                   $log = "user registered into the system";
-                  logger($data['mobileNo'], $log);
+                  // logger($data['mobileNo'], $log);
                   SMS::sendCustomerRegSMS($data['mobileNo']);
                   $this->userModel->commit();
 
@@ -181,13 +181,13 @@ class Customer extends Controller
       Session::validateSession([6]);
       $this->view('customer/cust_myReservation');
    }
-   public function remCustomer($cusID,$mobileNo,$rescount)
+   public function remCustomer($cusID, $mobileNo, $rescount)
    {
       // die('success');
       // echo ($cusID);
-      
-      $this->customerModel->removeCustomerDetails($cusID,$mobileNo,$rescount);
-      Toast::setToast(1,"Customer Removed Successfully!","");
+
+      $this->customerModel->removeCustomerDetails($cusID, $mobileNo, $rescount);
+      Toast::setToast(1, "Customer Removed Successfully!", "");
       redirect('OwnDashboard/customers');
    }
 
@@ -211,11 +211,11 @@ class Customer extends Controller
    public function getReservtaionCountByCustomerID($cusID)
    {
       // echo $date;
-   //  die('success');
-    $result=$this->customerModel->getUpcomingReservationCountByCusID($cusID);
-    header('Content-Type: application/json; charset=utf-8');
-    print_r(json_encode($result));
-   //  redirect('OwnDashboard/closeSalon');
-    // $this->view('owner/own_closeSalon');
+      //  die('success');
+      $result = $this->customerModel->getUpcomingReservationCountByCusID($cusID);
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($result));
+      //  redirect('OwnDashboard/closeSalon');
+      // $this->view('owner/own_closeSalon');
    }
 }

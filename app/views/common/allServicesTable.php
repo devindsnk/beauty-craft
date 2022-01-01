@@ -29,7 +29,7 @@
 
       <?php if (Session::getUser("typeText") == "Owner" || Session::getUser("typeText") == "Manager") : ?>
          <div class="page-top-main-container">
-            <a href="<?php echo URLROOT ?>/services/addNewService" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
+            <a href="<?php echo URLROOT ?>/services/addNewService" class="btn btn-filled btn-theme-purple btn-main" onclick="sessionStorage.setItem('returnReferer',window.location.href);">Add New</a>
          </div>
       <?php endif; ?>
 

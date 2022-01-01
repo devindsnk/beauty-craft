@@ -6,7 +6,7 @@
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale = 1.0" />
    <link rel="shortcut icon" type="image/x-icon" href="<?php echo URLROOT ?>/logo/miniIcon.ico">
-   <title>Beauty Craft</title>
+   <title>Beauty Craft - Home</title>
 
    <!--Style Sheets-->
    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />

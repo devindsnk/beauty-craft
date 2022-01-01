@@ -58,7 +58,7 @@ class User extends Controller
             }
             else
             {
-               $data['mobileNo_error'] = "Invalid mobile no";
+               $data['mobileNo_error'] = "User does not exists.";
             }
 
             if (!empty($data['mobileNo_error']) || !empty($data['password_error']))
@@ -184,7 +184,7 @@ class User extends Controller
                   $this->userModel->commit();
 
                   //System log
-                  Systemlog::resetPassword();
+                  // Systemlog::resetPassword();
 
                   Toast::setToast(1, "Password recovery successful!", "Sign in using new password.");
                   header('location: ' . URLROOT . '/user/signin');
@@ -266,6 +266,8 @@ class User extends Controller
    {
       switch ($user->userType)
       {
+         case 1:
+         case 2:
          case 3:
          case 4:
          case 5:
@@ -291,9 +293,17 @@ class User extends Controller
          return false;
    }
 
+   public function autoLogout()
+   {
+      // Systemlog::signout();
+
+      // Session::clear('user');
+      // session_destroy();
+      return;
+   }
+
    public function signout()
    {
-
       //System log
       Systemlog::signout();
 

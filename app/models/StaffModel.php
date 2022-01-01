@@ -71,15 +71,6 @@ class StaffModel extends Model
       return $result;
    }
 
-
-   public function getStaffDataByMobileNo($mobileNo)
-   {
-      $this->db->query("SELECT * FROM staff WHERE mobileNo =  :mobileNo ");
-      $this->db->bind(':mobileNo', $mobileNo);
-      $result = $this->db->single();
-      return [$result->staffID, $result->fName . " " . $result->lName];
-   }
-
    public function updateStaffDetails($data, $staffID)
    {
 
@@ -103,14 +94,13 @@ class StaffModel extends Model
       var_dump($results);
    }
 
-   public function removeStaff($staffID,$staffMobileNo)
+   public function removeStaff($staffID, $staffMobileNo)
    {
       // print_r($staffNIC);
       // die("RemoveStaffController");
       $status = 0;
-      $this->update("staff", ["status" => $status],['staffID' => $staffID ]); 
-      $this->delete("users", ['mobileNo' => $staffMobileNo ]); 
-
+      $this->update("staff", ["status" => $status], ['staffID' => $staffID]);
+      $this->delete("users", ['mobileNo' => $staffMobileNo]);
    }
 
    public function getStaffUserData($mobileNo)
@@ -122,13 +112,13 @@ class StaffModel extends Model
 
    public function getReservtaionDetailsByStaffID($staffID)
    {
-      
+
       $SQLstatement = "SELECT * FROM reservations WHERE staffID = :staffID AND status IN (1,2);";
       $results = $this->customQuery($SQLstatement, [":staffID" => $staffID]);
       return $results;
    }
    public function getServiceslistByStaffID($staffID)
-    
+
    {
       $results = $this->customQuery(
          "SELECT services.type,services.name
@@ -141,12 +131,12 @@ class StaffModel extends Model
       return $results;
    }
    // public function getAllActiveDisableStaffNICDetails()
-    
+
    // {
    //    $results =  $this->getResultSet('staff', '*', ['status' => 1 ,'status'=> 2]);
    //    return $results;
    // }
-   
+
 
    // FOR MANAGER OVERVIEW
    public function getReceptionistCount()
@@ -189,11 +179,6 @@ class StaffModel extends Model
       );
       return $results;
    }
-
-
-
-
-
 
    /////////////////////////////////
 }
