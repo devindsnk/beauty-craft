@@ -52,8 +52,8 @@
 //             // });
 //     }
 // });
-var ctx1 = document.getElementById('myChart1').getContext('2d');
-var ctx2 = document.getElementById('myChart2').getContext('2d');
+var mangChart1 = document.getElementById('mangChart1').getContext('2d');
+var mangChart2 = document.getElementById('mangChart2').getContext('2d');
 
 $(document).ready(function(){
     chart1();
@@ -94,7 +94,7 @@ $(document).ready(function(){
                 ]
               };
         
-              var barGraph = new Chart(ctx1, {
+              var barGraph = new Chart(mangChart1, {
                 type: 'line',
                 data: chartdata
               });
@@ -142,7 +142,7 @@ $(document).ready(function(){
                 
               };
         
-              var barGraph = new Chart(ctx2, {
+              var barGraph = new Chart(mangChart2, {
                 type: 'bar',
                 data: chartdata,
                 options: {

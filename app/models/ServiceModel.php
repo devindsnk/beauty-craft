@@ -445,6 +445,43 @@ class ServiceModel extends Model
         }
         return $results;
     }
+    public function getTop5ServiceProvs()
+    {
+        // $results = $this->customQuery("SELECT staff.staffID, staff.fName, staff.lName, SUM(services.price)
+        //     FROM staff
+        //     INNER JOIN services ON reservations.serviceID = services.serviceID  555
+        //     INNER JOIN reservations ON reservations.serviceID = services.serviceID
+        //     INNER JOIN serviceproviders ON serviceproviders.serviceID = reservations.serviceID
+        //     WHERE reservations.status = :status1 AND services.status = :status2 AND (MONTH(reservations.date) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH) AND YEAR(reservations.date) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH)) 
+        //     GROUP BY staff.staffID 
+        //     ORDER BY MAX(SUM(services.price))",
+        //     [':status1' => 4, 'status2' => 1]
+        //     );
+        $results = $this->customQuery("SELECT reservations.staffID, staff.fName, staff.lName, COUNT(*) AS resCount, SUM(services.price) AS totIncome
+            FROM reservations
+            INNER JOIN services ON services.serviceID = reservations.serviceID
+            INNER JOIN staff ON reservations.staffID = staff.staffID
+            WHERE reservations.status = :status
+            GROUP BY reservations.staffID
+            ORDER BY SUM(services.price) DESC
+            LIMIT 5",
+            [':status' => 4]
+            );
+        return $results;
+    }
+    public function getTop5Services()
+    {
+        $results = $this->customQuery("SELECT services.name, COUNT(DISTINCT reservations.reservationID), COUNT( DISTINCT reservations.serviceID)* SUM(services.price) AS totIncome
+                                    FROM reservations
+                                    INNER JOIN services ON reservations.serviceID = services.serviceID AND services.status = :status2
+                                    WHERE reservations.status = :status1 AND(MONTH(reservations.date) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH) AND YEAR(reservations.date) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH))
+                                    GROUP BY reservations.serviceID
+                                    ORDER BY SUM(services.price) DESC
+                                    LIMIT 5;",
+                                    [':status1' => 4, 'status2' => 1]
+                                    );
+        return $results;
+    }
     // END FOR ANALYTICS 
     
     // Returns required resources of each slot with start and end times of a given service.

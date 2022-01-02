@@ -5,6 +5,7 @@ class Services extends Controller
    {
       $this->ServiceModel = $this->model('ServiceModel');
       $this->ReservationModel = $this->model('reservationModel');
+      $this->CustomerModel = $this->model('CustomerModel');
    }
 
    public function viewAllServices()
@@ -652,7 +653,53 @@ class Services extends Controller
    public function analyticsOverall()
    {
       // Session::validateSession([3]);
-      $this->view('common/SubAnalyticsOverall');
+      $totalRes = $this->ReservationModel->getTotalResForOverallOverview();
+      $availableServices = $this->ServiceModel->getAvailableServiceCount();
+      $availableServiceProviders = $this->ServiceModel->getAvailableServiceProvidersCount();
+      $top5SProvs = $this->ServiceModel->getTop5ServiceProvs();
+      $top5Services = $this->ServiceModel->getTop5Services();
+      $customerPopulation = $this->CustomerModel->getCustomerPopulation();
+
+      $overallDetails = [
+         'totalRes' => $totalRes,
+         'availableServices' => $availableServices,
+         'availableServiceProviders' => $availableServiceProviders,
+         'top5SProvs' => $top5SProvs,
+         'top5Services' => $top5Services,
+         'customerPopulation' => $customerPopulation,
+
+      ];
+      // print_r($overallDetails['top5Services']);
+      // foreach($overallDetails['top5Services'] as $ts){
+      //    print_r($ts->totIncome);
+      // }
+      // die();
+      $this->view('common/SubAnalyticsOverall',$overallDetails);
+   }
+   public function overallAnalyticsChart1()
+   {
+      $getCustomerCount = $this->CustomerModel->getWalkInCustomerCount(); 
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($getCustomerCount));
+   }
+   public function overallAnalyticsChart2()
+   {
+      $customerDetails = $this->CustomerModel->getCustomerPopulation();
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($customerDetails));
+   }
+   public function overallAnalyticsChart3()
+   {
+      $totalIncomeForChart = $this->ReservationModel->getMonthlyIncomeAndTotalReservationsForMangOverviewCharts(); 
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($totalIncomeForChart));
+   }
+   public function overallAnalyticsChart4()
+   {
+      $totalReservationsForChart = $this->ReservationModel->getMonthlyIncomeAndTotalReservationsForMangOverviewCharts();
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($totalReservationsForChart));
    }
    public function analyticsService()
    {

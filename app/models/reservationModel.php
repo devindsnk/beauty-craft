@@ -153,7 +153,7 @@ class ReservationModel extends Model
    }
    // END FOR MANAGER UPDATE SERVICE
 
-   // END FOR SERVICE ANALYTICS
+   // END FOR ANALYTICS
    public function getResDetailsForServiceAnalytics($serviceID,$from,$to)
    {
       if($serviceID!=0){
@@ -210,7 +210,17 @@ class ReservationModel extends Model
       }
       return $results;
    }
-   // END FOR SERVICE ANALYTICS
+   public function getTotalResForOverallOverview()
+   {
+      $results = $this->customQuery("SELECT COUNT(reservations.reservationID) AS resCount, SUM(services.price) AS totalIncome
+                                    FROM reservations
+                                    INNER JOIN services ON services.serviceID = reservations.serviceID
+                                    WHERE reservations.status=:status",
+                                    [':status' => 4]
+                                    );
+      return $results;
+   }
+   // END FOR ANALYTICS
 
    //FOR SP overview
    public function getReservationsByStaffID($staffID)
