@@ -287,25 +287,15 @@ class Staff extends Controller
    {
 
 
-      $staffdetails = $this->staffModel->getStaffDetailsByStaffID($staffID);
-      $bankdetails = $this->staffModel->getStaffBankDetailsByStaffID($staffID);
-
-
-
-   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
+      $staffdetailsBystaffID = $this->staffModel->getStaffDetailsByStaffID($staffID);
+      $bankdetailsBystaffID = $this->staffModel->getStaffBankDetailsByStaffID($staffID);
+      $currentStatus =  $staffdetailsBystaffID[0]->status;
       $staffD = $this->staffModel->getAllStaffDetails();
       $CurrentStaffCount = sizeof($staffD);
       
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'FILES')
       {
-         // echo "<pre>";
-         // print_r($_FILES['staffimage']);
-         // echo "</pre>";
-         // die();
          $img_name = " ";
          $new_img_name =  " ";
          $img_name = $_FILES['staffimage']['name'];
@@ -332,22 +322,20 @@ class Staff extends Controller
             'gender' => isset($_POST['gender']) ? trim($_POST['gender']) : '',
             'nic' => trim($_POST['nic']),
             'dob' => trim($_POST['dob']),
-            // 'staffType' => isset($_POST['staffType']) ? trim($_POST['staffType']) : '',
             'address' => trim($_POST['address']),
-            // 'staffHomeAddTyped' => '',
             'mobileNo' => trim($_POST['mobileNo']),
             'email' => trim($_POST['email']),
             'accountNo' => trim($_POST['accountNo']),
             'holdersName' => trim($_POST['holdersName']),
             'bankName' => trim($_POST['bankName']),
             'branchName' => trim($_POST['branchName']),
+            'status' => isset($_POST['status']) ? $_POST['status'] : 1,
             'staffimagePath_error' => '',
             'fName_error' => '',
             'lName_error' => '',
             'gender_error' => '',
             'nic_error' => '',
             'dob_error' => '',
-            // 'staffType_error' => '',
             'address_error' => '',
             'mobileNo_error' => '',
             'email_error' => '',
@@ -355,13 +343,12 @@ class Staff extends Controller
             'holdersName_error' => '',
             'bankName_error' => '',
             'branchName_error' => '',
-            // 'status' => trim($_POST['status']),
-            'staffdetails' => $staffdetails[0],
-            'bankdetails' => $bankdetails[0]
+            'staffdetails' => $staffdetailsBystaffID[0],
+            'bankdetails' => $bankdetailsBystaffID[0]
          ];
 
-         // print_r($data);
-         // die();
+         print_r($data);
+         die();
          // $data['staffHomeAddTyped'] = $data['staffHomeAdd'];
 
          if (($data['staffimagePath'] == " "))
@@ -420,15 +407,11 @@ class Staff extends Controller
 
          for ($i = 0 ; $i< $CurrentStaffCount; $i++){
             if($staffD[$i]->nic == $data['nic']){
+               if($staffdetailsBystaffID[0]->nic != $data['nic']){
                $data['nic_error'] = "The NIC number you entered is already exist.";
+               }
             }
       }
-
-         // $data['staffNIC_error'] = "Invalid NIC format";
-
-         // elseif (!(strlen($data['staffNIC']) == 10) && !preg_match ("/^[V]*$/", $data['staffNIC'])){
-         //    $data['staffNIC_error'] = "Invalid NIC format";
-         // }
 
          // Validating date of birth
          if (empty($data['dob']))
@@ -514,22 +497,28 @@ class Staff extends Controller
             empty($data['accountNo_error']) && empty($data['holdersName_error']) && empty($data['bankName_error']) && empty($data['branchName_error'])
          )
          {
+               $newstatus = $data['status'];
+               if($currentStatus == 2){
+                  if($currentStatus != $newstatus ){
+                     $this->userModel->registerUser($data['staffMobileNo'], $data['staffNIC'], $data['staffType']);
+                     $this->staffModel->updateStaff($data, $staffID);
+                  }
+                  else {
+                     $this->staffModel->updateStaff($data, $staffID);
+                  }
+               }
 
-            // $this->userModel->registerUser($data['mobileNo'], $data['nic'], $data['staffType']);
-            // $this->staffModel->addStaffDetails($data);
-            // $this->staffModel->addBankDetails($data);
-            // Toast::setToast(1, "Staff Member Successfully Registered!", "");
-            // header('location: ' . URLROOT . '/OwnDashboard/staff');
-
-            // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-            print_r($staffID);
-            print_r($data);
-            $this->staffModel->updateStaffDetails($data, $staffID);
-            $this->staffModel->updateBankDetails($data, $staffID);
-            // $this->userModel->registerUser($data['staffMobileNo'], $data['staffNIC'], $data['staffType']);
+               elseif($currentStatus == 1){
+                     if($currentStatus != $newstatus){
+                        $this->userModel->removeUserAccount($data['staffMobileNo']);
+                        $this->staffModel->updateStaff($data, $staffID);
+                     }
+                     else{
+                        $this->staffModel->updateStaff($data, $staffID);
+                     }
+                  }
             Toast::setToast(1, "Staff Member Successfully Updated!", "");
             header('location: ' . URLROOT . '/Staff/viewAllStaffMembers');
-            // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
          }
          else
          {
@@ -554,6 +543,7 @@ class Staff extends Controller
             'holdersName' => '',
             'bankName' => '',
             'branchName' => '',
+            'status' => '',
             'staffimagePath_error' => '',
             'fName_error' => '',
             'lName_error' => '',
@@ -569,8 +559,8 @@ class Staff extends Controller
             'branchName_error' => '',
             // 'status' => '',
             // 'staffHomeAddTyped' => '',
-            'staffdetails' => $staffdetails[0],
-            'bankdetails' => $bankdetails[0]
+            'staffdetails' => $staffdetailsBystaffID[0],
+            'bankdetails' => $bankdetailsBystaffID[0]
 
          ];
          $this->view('owner/own_staffUpdate', $data);

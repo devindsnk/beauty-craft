@@ -23,6 +23,85 @@ class ResourceModel extends Model
       
    }  
 
+   public function updatePurchaseDetails($data)
+   {
+      //Define relevant data in to variables
+      $purchaseID = $data['purchaseID'];
+      $CurrentResourceID = $data['currentResourceID'];
+      $NewResourceID = $data['nameSelected'];
+      $currentQuantityCurrentResourceID = $this->getSingle('resources', ['quantity'], ['resourceID' => $CurrentResourceID]);
+      $currentQuantityNewResourceID = $this->getSingle('resources', ['quantity'], ['resourceID' => $NewResourceID]);
+      print_r($currentQuantityCurrentResourceID->quantity );
+      echo "<br>";
+      print_r($currentQuantityNewResourceID->quantity );
+      // die("resourcemodel called");
+      echo "<br>";
+      $UpdatedQuantityForCurrentResourceID = $currentQuantityCurrentResourceID->quantity - 1 ;
+      $UpdatedQuantityForNewResourceID = $currentQuantityNewResourceID->quantity + 1 ;
+      print_r($UpdatedQuantityForCurrentResourceID);
+      echo "<br>";
+      print_r($UpdatedQuantityForNewResourceID);
+      // conditions and queries 
+      // if current resource id equal to new resource id 
+      if($CurrentResourceID == $NewResourceID)
+      {
+      // print_r($CurrentResourceID);
+      // print_r($NewResourceID);
+      die('errorUpdatePurchaseDetails if called');
+      $this->update('purchaserecords', ['resourceID'=> $NewResourceID ,'manufacturer'=> $data['manufacturer'] , 'modelNo'=> $data['modelNo'], 'warrantyExpDate'=> $data['warrantyExpDate'], 'price'=> $data['price'] , 'purchaseDate'=> $data['purchaseDate']]);
+      }
+
+      // if current resource id not equal to new resource id
+      elseif($CurrentResourceID != $NewResourceID){
+         
+      // die('errorUpdatePurchaseDetails else if called');
+       
+         if ($currentQuantityCurrentResourceID->quantity == 1 && $currentQuantityNewResourceID->quantity  == 0) {
+         // die("currentQuantityCurrentResourceID = 1 and currentQuantityNewResourceID = 0");
+         // current resource id eke status eka change wenna one not available widiyt
+         // new res id eke status eka availble widiyt change wenna one 
+         // details tika update wenn one
+         // resource table eke id dekatama adalawa quantity deka change wenna one (CurrentResourceID eke table eke quantity eka 0 and NewResourceID eke quantity eka ekakin wadi wenna one )
+         $this->update('resources', ['status' => 0,'quantity' => $UpdatedQuantityForCurrentResourceID], ['resourceID' => $CurrentResourceID]);
+         $this->update('resources', ['status' => 1,'quantity' => $UpdatedQuantityForNewResourceID], ['resourceID' => $NewResourceID]);
+         $this->update('purchaserecords', ['resourceID'=> $NewResourceID ,'manufacturer'=> $data['manufacturer'] , 'modelNo'=> $data['modelNo'], 'warrantyExpDate'=> $data['warrantyExpDate'], 'price'=> $data['price'] , 'purchaseDate'=> $data['purchaseDate']],['purchaseID' => $purchaseID] );
+      }
+
+
+         elseif ($currentQuantityCurrentResourceID->quantity  == 1 && $currentQuantityNewResourceID->quantity  > 0) {
+         // die("currentQuantityCurrentResourceID = 1 and currentQuantityNewResourceID > 0");
+          // current resource id eke status eka change wenna one not available widiyt
+          // details tika update wenn one
+          // quantity deka update krnna one 
+          $this->update('resources', ['status' => 0,'quantity' => $UpdatedQuantityForCurrentResourceID], ['resourceID' => $CurrentResourceID]);
+          $this->update('resources', ['quantity' => $UpdatedQuantityForNewResourceID], ['resourceID' => $NewResourceID]);
+          $this->update('purchaserecords', ['resourceID'=> $NewResourceID ,'manufacturer'=> $data['manufacturer'] , 'modelNo'=> $data['modelNo'], 'warrantyExpDate'=> $data['warrantyExpDate'], 'price'=> $data['price'] , 'purchaseDate'=> $data['purchaseDate']],['purchaseID' => $purchaseID] );
+         }
+         elseif ($currentQuantityCurrentResourceID->quantity  > 1 && $currentQuantityNewResourceID->quantity  == 0) {
+            // die("currentQuantityCurrentResourceID > 0 and currentQuantityNewResourceID = 0");
+             // current resource id eke status eka change wenna one not available widiyt
+             // details tika update wenn one
+             // quantity deka update krnna one
+             $this->update('resources', ['quantity' => $UpdatedQuantityForCurrentResourceID], ['resourceID' => $CurrentResourceID]);
+             $this->update('resources', ['status' => 1,'quantity' => $UpdatedQuantityForNewResourceID], ['resourceID' => $NewResourceID]);
+             $this->update('purchaserecords', ['resourceID'=> $NewResourceID ,'manufacturer'=> $data['manufacturer'] , 'modelNo'=> $data['modelNo'], 'warrantyExpDate'=> $data['warrantyExpDate'], 'price'=> $data['price'] , 'purchaseDate'=> $data['purchaseDate']],['purchaseID' => $purchaseID]);
+            }
+
+
+         elseif ($currentQuantityCurrentResourceID->quantity  > 1 && $currentQuantityNewResourceID->quantity  > 0) {
+            // die("currentQuantityCurrentResourceID > 0 and currentQuantityNewResourceID > 0");
+            // details tika update wenn one
+            // quantity deka update krnna one
+            $this->update('resources', ['quantity' => $UpdatedQuantityForCurrentResourceID], ['resourceID' => $CurrentResourceID]);
+            $this->update('resources', ['quantity' => $UpdatedQuantityForNewResourceID], ['resourceID' => $NewResourceID]);
+            $this->update('purchaserecords', ['resourceID'=> $NewResourceID ,'manufacturer'=> $data['manufacturer'] , 'modelNo'=> $data['modelNo'], 'warrantyExpDate'=> $data['warrantyExpDate'], 'price'=> $data['price'] , 'purchaseDate'=> $data['purchaseDate']],['purchaseID' => $purchaseID]);
+         }
+
+      }
+     
+      
+   }  
+
 //-------------------------------------- Start -----------------------------------------------------------//
 //---- codes related to updating the resource count when removing and adding resources to the system ----// 
 //------------------------------------------------------------------------------------------------------//

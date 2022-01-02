@@ -31,7 +31,6 @@
                 <form action="<?php echo URLROOT; ?>/staff/updateStaff/<?php echo $data['staffdetails']->staffID; ?>"
                     method="post" enctype="multipart/form-data">
 
-                    <!-- <?php print_r($data);?> -->
                     <div class="ownAddstaff_formWrapper">
                         <!------------------------------ Basic Info Starts------------------------------------------------------------------------------->
 
@@ -65,7 +64,6 @@
                                         value="<?php echo $data['lName']; ?> <?php echo $data['staffdetails']->lName; ?>">
                                     <span class="error"><?php echo $data['lName_error']; ?></span>
                                 </div>
-
 
 
                                 <div class="ownAddstaffFormGroupRadio">
@@ -109,8 +107,8 @@
                                         <option value=5 <?php if ($data['staffdetails']->staffType == 5) echo 'selected'; ?>>Service Provider</option>
                                         <option value=4 <?php if ($data['staffdetails']->staffType == 4) echo 'selected'; ?>>Receptionist</option>
                                         <option value=3 <?php if ($data['staffdetails']->staffType == 3) echo 'selected'; ?>>Manager</option>
-                                    </select> 
-                                </div>
+                                    </select>  
+                                </div>  
                             </div> 
                         </div> 
                         <!------------------ maingrid2 ends --------------------------------------------------------------->
@@ -195,20 +193,19 @@
                             </div>
                         </div>
 
-
                         <div class="ownUpdateStaffFormGroupDisable">
                             <div class="ownUpdateStaffFormGroupDisableLable">
                                 <h3 class="subhead">Temporarily Disable</h3>
                             </div>
                             <div class="ownUpdateStaffFormGroupDisableTogle">
-                                <input type="checkbox"  name = "status" class="toglecheckbox" value='' >
+                                <input type="checkbox"  name = "status" class="toglecheckbox" value = 2 <?php if($data['staffdetails']->status == 2) echo 'checked'; ?>>
                                 <!-- <?php if ($data['staffdetails']->status == 5) echo 'selected'; ?> <?php if ($data['staffType'] == 5) echo 'selected'; ?> -->
                             </div>
                         </div>
                     </div>
                     <!----------------------------------------- form submit button starts ------------------------------------------------------------------------>
                     <div class="ownAddstaffButton">
-                        <button class="ownAddstaffbutton btn btn-filled btn-theme-purple">Save</button>
+                        <button class="ownAddstaffbutton btn btn-filled btn-theme-purple" >Save</button>
                     </div>
                     <!----------------------------------------- form submit button ends -------------------------------------------------------------------------->
                 </form>

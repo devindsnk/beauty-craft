@@ -136,6 +136,7 @@ class  Resources extends Controller
             // die('controllercalled');
             $this->resourceModel->updateResourceQuantityAfterAddResources($data);
             $this->resourceModel->addPurchaseDetails($data);
+            Toast::setToast(1, "Resources added successfully", "");
             header('location: ' . URLROOT . '/OwnDashboard/resources');
          } 
          else 
@@ -173,8 +174,14 @@ class  Resources extends Controller
    }
    
    public function updateResource($PurchaseID,$ResourceID){
+
       $resourceTypes = $this->resourceModel->getAllRsourceTypeDetails();
+      $CurrentResourceTypeCount =  sizeof($resourceTypes);
       $resourcePurchaseDetails = $this->resourceModel->getRsourcePurchaseDetailsByPurchaseID($PurchaseID);
+      $CurrentResId = $resourcePurchaseDetails->resourceID;
+
+      // print_r($CurrentResId);
+
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST' )
       {
@@ -196,6 +203,8 @@ class  Resources extends Controller
                'haveErrors' => 0,
                'resourceTypes' => $resourceTypes,
                'purchaseDetails' => $resourcePurchaseDetails,
+               'currentResourceID' => $CurrentResId,
+               'purchaseID' => $PurchaseID
             ];
          if ($_POST['action'] == "addType")
          {
@@ -205,6 +214,20 @@ class  Resources extends Controller
             {
                $data['name_error'] = "Please enter a type";
             }
+            for($i = 0; $i < $CurrentResourceTypeCount ; $i++)
+         {
+            // echo "hi";
+            $CurrentResType =  strtolower($resourceTypes[$i]->name);
+            $data1 = preg_replace('/\s+/', '', $CurrentResType);
+            // echo "<br>" ; 
+            $NewResType = strtolower($data['name']);
+            $data2 = preg_replace('/\s+/', '', $NewResType);
+            // echo "<br>" ; 
+            if($data1 == $data2){
+               $data['name_error'] = "Type already exists.";
+            }
+
+         }
             if ( empty($data['name_error']) )
             { 
              
@@ -212,16 +235,17 @@ class  Resources extends Controller
             //   die();
             //   Toast::setToast(1, "Resource type added successfully", "");
               $this->resourceModel->addResourceType($data);
+              $data['resourceTypes'] =  $this->resourceModel->getAllRsourceTypeDetails();
               Toast::setToast(1, "Resource type added successfully", "");
-              $this->view('owner/own_resourceAdd', $data);
+              $this->view('owner/own_resourceUpdate', $data);
             //   redirect('resources/updateResource',$data);
            } 
            else 
            { 
             $data['haveErrors'] = 1;
-              $this->view('owner/own_resourceAdd', $data);
+              $this->view('owner/own_resourceUpdate', $data);
            } 
-         }
+         } 
          else if ($_POST['action'] == "cancel")
             {
                $data['haveErrors'] = 0;
@@ -265,14 +289,13 @@ class  Resources extends Controller
                $data['purchaseDate_error'] = "Please select purchaseDate";
             }
    
-            if ( empty($data['manufacturer_error']) && empty($data['modelNo_error']) && empty($data['staffLname_error']) && empty($data['nameSelected_error']) && empty($data['warrantyExpDate_error']) && empty($data['price_error']) && empty($data['quantity_error']) && empty($data['purchaseDate_error']) )
+            if ( empty($data['manufacturer_error']) && empty($data['modelNo_error']) && empty($data['staffLname_error']) && empty($data['nameSelected_error']) && empty($data['warrantyExpDate_error']) && empty($data['price_error']) && empty($data['purchaseDate_error']) )
              { 
    
                // print_r($data);
                // die('controllercalled');
-               $this->resourceModel->updateResourceQuantityAfterAddResources($data);
-               $this->resourceModel->addPurchaseDetails($data);
-               Toast::setToast(1, "Resource added successfully", "");
+               $this->resourceModel->updatePurchaseDetails($data);
+               Toast::setToast(1, "Resource updated successfully", "");
                $this->viewResources($ResourceID);
             } 
             else 
@@ -302,6 +325,8 @@ class  Resources extends Controller
                'haveErrors' => 0,
                'resourceTypes' => $resourceTypes,
                'purchaseDetails' => $resourcePurchaseDetails,
+               'currentResourceID' => $CurrentResId,
+               'purchaseID' => $PurchaseID
             ];
             $this->view('owner/own_resourceUpdate', $data);
          }

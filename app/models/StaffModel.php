@@ -31,6 +31,8 @@ class StaffModel extends Model
    {
 
       $result = $this->getResultSet('staff', '*', null);
+      // $SQLstatement = "SELECT * FROM staff WHERE status IN (3,4,5);";
+      // $results = $this->customQuery("SELECT * FROM staff WHERE status IN (3,4,5)");
 
       return $result;
    }
@@ -51,7 +53,6 @@ class StaffModel extends Model
       // var_dump($result);
       return $result;
    }
-
 
 
    public function getStaffDetailsByStaffID($staffID)
@@ -80,35 +81,19 @@ class StaffModel extends Model
       return [$result->staffID, $result->fName . " " . $result->lName];
    }
 
-   public function updateStaffDetails($data, $staffID)
+
+   public function updateStaff($data, $staffID)
    {
-
-      $results =  $this->update('staff', ['image' =>  $data['staffimage'], 'fName' => $data['staffFname'], 'lName' => $data['staffLname'], 'staffType' => $data['staffType'], 'mobileNo' => $data['staffMobileNo'], 'gender' => $data['gender'], 'address' => $data['staffHomeAdd'], 'email' => $data['staffEmail'], 'dob' => $data['staffDOB']], ['staffID' => '$staffID']);
-      var_dump($results);
-   }
-
-   public function updateBankDetails($data, $staffID)
-   {
-      // $result = $this->customQuery(
-      //    "SELECT staffID FROM staff WHERE mobileNo = :mobileNo ",
-      //    [
-      //       ' :mobileNo' =>  $data['staffMobileNo'],
-      //    ]
-      // );
-
-      // $staffID = $result[0]->staffID;
-      // var_dump($result);
-
-      $results =  $this->update('bankdetails', ['staffID' => $staffID, 'accountNo' => $data['staffAccNum'], 'bankName' => $data['staffAccBank'], 'holdersName' => $data['staffAccHold'], 'branchName' => $data['staffAccBranch']], ['staffID' => '$staffID']);
-      var_dump($results);
+    $this->update('staff', ['image' =>  $data['staffimage'], 'fName' => $data['staffFname'], 'lName' => $data['staffLname'], 'staffType' => $data['staffType'], 'mobileNo' => $data['staffMobileNo'], 'gender' => $data['gender'], 'address' => $data['staffHomeAdd'], 'email' => $data['staffEmail'], 'dob' => $data['staffDOB']], ['staffID' => '$staffID']);
+    $this->update('bankdetails', ['staffID' => $staffID, 'accountNo' => $data['staffAccNum'], 'bankName' => $data['staffAccBank'], 'holdersName' => $data['staffAccHold'], 'branchName' => $data['staffAccBranch']], ['staffID' => '$staffID']);
    }
 
    public function removeStaff($staffID,$staffMobileNo)
    {
-      // print_r($staffNIC);
+      print_r($staffMobileNo);
       // die("RemoveStaffController");
       $status = 0;
-      $this->update("staff", ["status" => $status],['staffID' => $staffID ]); 
+      $this->update("staff", ["status" => $status],['staffID' => $staffID ]);
       $this->delete("users", ['mobileNo' => $staffMobileNo ]); 
 
    }
@@ -189,10 +174,6 @@ class StaffModel extends Model
       );
       return $results;
    }
-
-
-
-
 
 
    /////////////////////////////////

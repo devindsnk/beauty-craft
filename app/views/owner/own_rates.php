@@ -19,122 +19,174 @@
             <input type="date">
         </div>
         <form action="<?php echo URLROOT; ?>/ownDashboard/rates" method="post">
-        <div class="cardContainer">
-        
-            <div class="card1 contentBox">   
-                <h3>Leave Limit</h3>   
-                
-                <!-- <?php print_r($data['leaveLimits']);?> --> 
-                <!-- <?php print_r($data['salaryRates']);?> -->
-                 <!-- <?php print_r($data['minimumNoOfManagers']);?> -->
-                
-                
-                <!-- <form action="<?php echo URLROOT; ?>/rates/updateLeaveLimit" method="post"> --> 
-                
-                <div class="deatailbox"> 
-                    <div class="labelBox">
-                        <div class="detailLableLine">
-                            <label class="rateLabel">Service Provider</label> <br>
-                            <span class="error"><?php echo $data['managerLeaveLimit_error']; ?></span>
+            <div class="cardContainer">
+
+                <div class="card1 contentBox">
+                    <h3>Leave Limit</h3>
+                    <!-- <?php print_r($data);?> -->
+
+                    <?php $leaveLimitsD =$data['leaveLimits'] ;?>
+                    <?php  $salaryD = $data['salaryRates'];?>
+                    <?php $commissionRateD = $data['commissionRates'];?>
+                    <?php $minimumNumberOfManagersD = $data['minimumNoOfManagers'];?>
+                    <!-- <?php echo $salaryD->managerSalaryRate;?> -->
+                    <!-- <?php echo $commissionRateD->rate; ?> -->
+
+
+                    <form action="<?php echo URLROOT; ?>/rates/updateLeaveLimit" method="post">
+
+                        <div class="deatailbox">
+
+                            <div class="labelBox">
+                                <div class="detailLableLine">
+                                    <label class="rateLabel">General Leave Limit</label> <br>
+                                    <span class="error"><?php echo $data['generalLeave_error']; ?></span>
+                                </div>
+                                <div class="detailLableLine">
+                                    <label class="rateLabel">Medical Leave Limit</label> <br>
+                                    <span class="error"><?php echo $data['medicalLeave_error']; ?></span>
+                                </div>
+                                <div class="detailLableLine">
+                                    <label class="rateLabel">Manager General Leave Limit</label> <br>
+                                    <span class="error"><?php echo $data['managerGeneralLeave_error']; ?></span>
+                                </div>
+                                <div class="detailLableLine">
+                                    <label class="rateLabel">Manager Medical Leave Limit</label> <br>
+                                    <span class="error"><?php echo $data['managerMedicalLeave_error']; ?></span>
+                                </div>
+                                <div class="detailLableLine">
+                                    <label class="rateLabel">Manager Daily Leave Limit</label> <br>
+                                    <span class="error"><?php echo $data['managerDailyLeave_error']; ?></span>
+                                </div>
+                                
+                                <div class="detailLableLine">
+                                    <label class="rateLabel">Evidence Limit</label> <br>
+                                    <span class="error"><?php echo $data['evidenceLimit_error']; ?></span>
+                                </div>
+
+                            </div>
+                            <div class="valueBox">
+                                <div class="detailValueLine">
+                                    <input type="text" class="rateValue" name="generalLeave"
+                                        value="<?php echo $data['generalLeave']; ?> <?php echo $leaveLimitsD->generalLeave; ?>">
+                                </div>
+                                <div class="detailValueLine">
+                                    <input type="text" name="medicalLeave" class="rateValue"
+                                        value="<?php echo $data['medicalLeave']; ?> <?php echo $leaveLimitsD->medicalLeave; ?>">
+                                </div>
+                                <div class="detailValueLine">
+                                    <input type="text" class="rateValue" name="managerGeneralLeave"
+                                        value="<?php echo $data['managerGeneralLeave']; ?>  <?php echo $leaveLimitsD->managerGeneralLeave; ?>">
+                                </div>
+                                <!-- <br> -->
+                                <div class="detailValueLine">
+                                    <input type="text" class="rateValue" name="managerMedicalLeave"
+                                        value="<?php echo $data['managerMedicalLeave']; ?>  <?php echo $leaveLimitsD->managerMedicalLeave; ?>">
+                                </div>
+                                <!-- <br> -->
+                                <div class="detailValueLine">
+                                    <input type="text" class="rateValue" name="managerDailyLeave"
+                                        value="<?php echo $data['managerDailyLeave']; ?>  <?php echo $leaveLimitsD->managerDailyLeave; ?>">
+                                </div>
+                                <!-- <br> -->
+                                <div class="detailValueLine">
+                                    <input type="text" class="rateValue" name="evidenceLimit"
+                                        value="<?php echo $data['evidenceLimit']; ?>  <?php echo $leaveLimitsD->evidenceLimit; ?>">
+                                </div>
+                            </div>
+                            <div class="ratebutton">
+                                <button class="btn btn-filled btn-grey" name="action" value="saveLeaveLimits">Save Changes</button>
+                            </div>
+
                         </div>
-                        <div class="detailLableLine">
-                            <label class="rateLabel">Receptionist</label> <br>
-                            <span class="error"><?php echo $data['serviceProviderLeaveLimit_error']; ?></span>
-                        </div>
-                        <div class="detailLableLine">
-                            <label class="rateLabel">Manager</label> <br> 
-                            <span class="error"><?php echo $data['receptionistLeaveLimit_error']; ?></span> 
-                        </div>
-                    </div>
-                    <div class="valueBox">
-                        <div class="detailValueLine">
-                            <input type="text" class="rateValue" name="managerLeaveLimit" value="<?php echo $data['managerLeaveLimit']; ?>" placeholder=" <?php echo $data['leaveLimits']->managerLeaveLimit; ?>">
-                        </div>
-                        <div class="detailValueLine">
-                            <input type="text" name="serviceProviderLeaveLimit" class="rateValue" value="<?php echo $data['serviceProviderLeaveLimit']; ?>" placeholder=" <?php echo $data['leaveLimits']->serviceProviderLeaveLimit; ?>">
-                        </div>
-                        <div class="detailValueLine">
-                            <input type="text" class="rateValue" name="receptionistLeaveLimit"  value="<?php echo $data['receptionistLeaveLimit']; ?>" placeholder="  <?php echo $data['leaveLimits']->receptionistLeaveLimit; ?>">
-                        </div>
-                    </div>
-                    <div class="ratebutton">
-                        <button class="btn btn-filled btn-grey" name="action" value="saveLeaveLimits">Save Changes</button> 
-                    </div>
+
                 </div>
-               
+
+                <div class="card2 contentBox">
+                    <h3>Basic Salary</h3>
+
+                    <div class="deatailbox">
+                        <div class="labelBox">
+                            <div class="detailLine">
+                                <label class="rateLabel">Service Provider</label><br>
+                                <span class="error"><?php echo $data['managerSalaryRate_error']; ?></span>
+                            </div>
+                            <div class="detailLine">
+                                <label class="rateLabel">Rceptionist</label><br>
+                                <span class="error"><?php echo $data['serviceProviderSalaryRate_error']; ?></span>
+                            </div>
+                            <div class="detailLine">
+                                <label class="rateLabel">Manager</label><br>
+                                <span class="error"><?php echo $data['receptionistSalaryRate_error']; ?></span>
+                            </div>
+                        </div>
+                        <div class="valueBox">
+                            
+                            <div class="detailLine">
+                                <input type="text" class="rateValue" name="serviceProviderSalaryRate"
+                                    value="<?php echo $data['serviceProviderSalaryRate']; ?> <?php echo $salaryD->serviceProviderSalaryRate; ?>">
+                            </div>
+                            <div class="detailLine">
+                                <input type="text" class="rateValue" name="receptionistSalaryRate"
+                                    value="<?php echo $data['receptionistSalaryRate']; ?> <?php echo $salaryD->receptionistSalaryRate ; ?>">
+                            </div>
+                            <div class="detailLine">
+                                <input type="text" class="rateValue" name="managerSalaryRate"
+                                    value="<?php echo $data['managerSalaryRate']; ?> <?php echo $salaryD->managerSalaryRate; ?>">
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="ratebutton">
+                            <button class="btn btn-filled btn-grey" name="action" value="saveSalaryRates">Save Changes</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card3 contentBox">
+                    <h3>Other</h3>
+
+                    <div class="deatailbox">
+
+                        <div class=" labelBox">
+                            <label class="rateLabel">Service Commision Rate</label><br>
+                            <span class="error"><?php echo $data['rate_error']; ?></span>
+                        </div>
+                        <div class="valueBox">
+                            <input type="text" class="rateValue" name="rate"
+                                value="<?php echo $data['rate']; ?> <?php echo $commissionRateD->rate; ?>%">
+                        </div>
+                        <div class="ratebutton">
+                            <button class="btn btn-filled btn-grey" name="action" value="saveCommissionRate">Save
+                                Changes</button>
+                        </div>
+
+                    </div>
+                    <div class="ownAddstaffLineContainer">
+                        <div class="ownAddstaffLines">
+                        </div>
+                    </div>
+                    <div class="deatailbox">
+
+                        <div class=" labelBox">
+                            <label class="rateLabel">Minimum Number of Managers</label><br>
+                            <span class="error"><?php echo $data['minimumNumber_error']; ?></span>
+                        </div>
+                        <div class="valueBox">
+                            <input type="text" class="rateValue" name="minimumNumber"
+                                value="<?php echo $data['minimumNumber']; ?> <?php echo $minimumNumberOfManagersD->minimumNumber;?>">
+                        </div>
+                        <div class="ratebutton">
+                            <button class="btn btn-filled btn-grey" name="action"
+                                value="saveMinimumNumberOfManagers">Save Changes</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
-
-            <div class="card2 contentBox">
-                <h3>Basic Salary</h3>
-
-                <div class="deatailbox">
-                    <div class="labelBox">
-                        <div class="detailLine">
-                            <label class="rateLabel">Service Provider</label><br> 
-                            <span class="error"><?php echo $data['managerSalaryRate_error']; ?></span> 
-                        </div>
-                        <div class="detailLine">
-                            <label class="rateLabel">Rceptionist</label><br> 
-                            <span class="error"><?php echo $data['serviceProviderSalaryRate_error']; ?></span> 
-                        </div>
-                        <div class="detailLine">
-                            <label class="rateLabel">Manager</label><br> 
-                            <span class="error"><?php echo $data['receptionistSalaryRate_error']; ?></span> 
-                        </div>
-                    </div>
-                    <div class="valueBox">
-                        <div class="detailLine">
-                            <input type="text" class="rateValue" name="managerSalaryRate" value="<?php echo $data['managerSalaryRate']; ?>" placeholder="<?php echo $data['salaryRates']->managerSalaryRate; ?>">
-                        </div>
-                        <div class="detailLine">
-                            <input type="text" class="rateValue" name="serviceProviderSalaryRate"  value="<?php echo $data['serviceProviderSalaryRate']; ?>" placeholder="<?php echo $data['salaryRates']->serviceProviderSalaryRate; ?>">
-                        </div>
-                        <div class="detailLine">
-                            <input type="text" class="rateValue" name="receptionistSalaryRate" value="<?php echo $data['receptionistSalaryRate']; ?>" placeholder="<?php echo $data['salaryRates']->receptionistSalaryRate; ?>">
-                        </div>
-                    </div>
-                    <div class="ratebutton">
-                        <button class="btn btn-filled btn-grey" name="action" value="saveSalaryRates">Save Changes</button>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="card3 contentBox">
-                <h3>Other</h3>
-
-                <div class="deatailbox">
-                    <div class=" labelBox">
-                        <label class="rateLabel">Service Commision Rate</label><br> 
-                        <span class="error"><?php echo $data['commisionRate_error']; ?></span>
-                    </div>
-                    <div class="valueBox">
-                        <input type="text" class="rateValue" name="commisionRate" value="<?php echo $data['commisionRate']; ?>" placeholder="<?php echo $data['commissionRates']->rate; ?>%">
-                    </div>
-                    <div class="ratebutton">
-                        <button class="btn btn-filled btn-grey" name="action" value="saveCommissionRate">Save Changes</button>
-                    </div>
-                </div>
-                <div class="ownAddstaffLineContainer">
-                    <div class="ownAddstaffLines">
-                    </div>
-                </div>
-                <div class="deatailbox">
-                    <div class=" labelBox">
-                        <label class="rateLabel">Minimum Number of Managers</label><br> 
-                        <span class="error"><?php echo $data['minimumNumberOfManagers_error']; ?></span>
-                    </div>
-                    <div class="valueBox">
-                        <input type="text" class="rateValue" name="minimumNumberOfManagers" value="<?php echo $data['minimumNumberOfManagers']; ?>" placeholder="<?php echo $data['minimumNoOfManagers']->minimumNumber;?>">
-                    </div>
-                    <div class="ratebutton">
-                        <button class="btn btn-filled btn-grey" name="action" value="saveMinimumNumberOfManagers">Save Changes</button>
-                    </div>
-                </div>
-
-            </div>
-        
-        </div>
         </form>
 
 

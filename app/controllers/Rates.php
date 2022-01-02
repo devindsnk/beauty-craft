@@ -7,38 +7,48 @@ class Rates extends Controller
       $this->ratesModel = $this->model('RatesModel');
    }
    
+   public function viewRateDetails()
+   {
+     $result1 = $this->ratesModel->getLeaveLimitsDetails();
+     $result2 = $this->ratesModel->getSalaryRateDetails();
+     $result3 = $this->ratesModel->getCommissionRateDetails();
+     $result4 = $this->ratesModel->getMinimumNumberOfManagers();
+     $GetRateArray = ['leaveLimits' => $result1,'salaryRate' => $result2,'commissionRate' => $result3,'minimumNumberOfManagers' => $result4 ]; 
+     $this->view('owner/own_rates', $GetRateArray); 
+   }
+
    public function updateLeaveLimit()  
    {  
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST') 
       {
         $data = [   
-            'managerLeaveLimit' => trim($_POST['managerLeaveLimit']),
-            'serviceProviderLeaveLimit' => trim($_POST['serviceProviderLeaveLimit']),
-            'receptionistLeaveLimit' => trim($_POST['receptionistLeaveLimit']),
-            'managerLeaveLimit_error' => '', 
-            'serviceProviderLeaveLimit_error' => '', 
-            'receptionistLeaveLimit_error' => '', 
+            'generalLeave' => trim($_POST['generalLeave']),
+            'medicalLeave' => trim($_POST['medicalLeave']),
+            'managerGeneralLeave' => trim($_POST['managerGeneralLeave']),
+            'generalLeave_error' => '', 
+            'medicalLeave_error' => '', 
+            'managerGeneralLeave_error' => '', 
             // 'leaveLimits' => $LeavelimitsDetails[0],  
          ];
 
-         if (empty($data['managerLeaveLimit']))
+         if (empty($data['generalLeave']))
          {
-            $data['managerLeaveLimit_error'] = "Please insert a image";
+            $data['generalLeave_error'] = "Please insert a image";
          }
          // Validating fname
-         if (empty($data['serviceProviderLeaveLimit']))  
+         if (empty($data['medicalLeave']))  
         {
-         $data['serviceProviderLeaveLimit_error'] = "Please enter First Name"; 
+         $data['medicalLeave_error'] = "Please enter First Name"; 
         }
 
         // Validating lname
-        if (empty($data['receptionistLeaveLimit'])) 
+        if (empty($data['managerGeneralLeave'])) 
         {
-         $data['receptionistLeaveLimit_error'] = "Please enter Last Name";
+         $data['managerGeneralLeave_error'] = "Please enter Last Name";
         } 
         if (
-            empty($data['managerLeaveLimit_error']) && empty($data['serviceProviderLeaveLimit_error']) && empty($data['receptionistLeaveLimit_error']))
+            empty($data['generalLeave_error']) && empty($data['medicalLeave_error']) && empty($data['managerGeneralLeave_error']))
           {
 
             // print_r($data);
@@ -54,12 +64,12 @@ class Rates extends Controller
       {
 
          $data = [  
-            'managerLeaveLimit' => '',
-            'serviceProviderLeaveLimit' => '',
-            'receptionistLeaveLimit' => '',
-            'managerLeaveLimit_error' => '',
-            'serviceProviderLeaveLimit_error' => '',
-            'receptionistLeaveLimit_error' => '',
+            'generalLeave' => '',
+            'medicalLeave' => '',
+            'managerGeneralLeave' => '',
+            'generalLeave_error' => '',
+            'medicalLeave_error' => '',
+            'managerGeneralLeave_error' => '',
             // 'leaveLimits' => $LeavelimitsDetails[0],
          ];
          // die('Success');
@@ -73,28 +83,51 @@ class Rates extends Controller
        if ($_SERVER['REQUEST_METHOD'] == 'POST')
        {
         $data = [
-            'staffimage' => trim($_POST['staffimage']),
-            'staffFname' => trim($_POST['staffFname']),
-            'staffLname' => trim($_POST['staffLname']),
-            'staffimage_error' => '',
-            'staffFname_error' => '',
-            'staffLname_error' => '',
+            'managerSalaryRate' => trim($_POST['managerSalaryRate']),
+            'serviceProviderSalaryRate' => trim($_POST['serviceProviderSalaryRate']),
+            'receptionistSalaryRate' => trim($_POST['receptionistSalaryRate']),
+            'managerSalaryRate_error' => '',
+            'serviceProviderSalaryRate_error' => '',
+            'receptionistSalaryRate_error' => '',
          ];
-         if (empty($data['staffimage']))
+         if (empty($data['managerSalaryRate']))
          {
-            $data['staffimage_error'] = "Please insert a image";
+            $data['managerSalaryRate_error'] = "Please insert a image";
          }
          // Validating fname
-         if (empty($data['staffFname']))
+         if (empty($data['serviceProviderSalaryRate']))
         {
-         $data['staffFname_error'] = "Please enter First Name";
+         $data['serviceProviderSalaryRate_error'] = "Please enter First Name";
         }
 
         // Validating lname
         if (empty($data['staffLname']))
         {
-         $data['staffLname_error'] = "Please enter Last Name";
+         $data['receptionistSalaryRate_error'] = "Please enter Last Name";
         }
+        if (
+         empty($data['managerSalaryRate_error']) && empty($data['serviceProviderSalaryRate_error']) && empty($data['receptionistSalaryRate_error']))
+       {
+
+         // print_r($data);
+         $this->ratesModel->updateSalaryRateDetails($data);
+         $this->view('owner/own_rates', $data);
+      }
+      else
+      {
+         $this->view('owner/own_rates', $data); 
+      }
+       }
+       else{
+         $data = [
+            'managerSalaryRate' => '',
+            'serviceProviderSalaryRate' => '',
+            'serviceProviderSalaryRate' => '',
+            'managerSalaryRate_error' => '',
+            'serviceProviderSalaryRate_error' => '',
+            'receptionistSalaryRate_error' => '',
+         ];
+         $this->view('owner/own_rates', $data); 
        }
      }
 
@@ -103,14 +136,32 @@ class Rates extends Controller
        if ($_SERVER['REQUEST_METHOD'] == 'POST')
        {
         $data = [
-            'staffimage' => trim($_POST['staffimage']),
-            'staffLname_error' => '',
+            'rate' => trim($_POST['rate']),
+            'rate_error' => '',
          ];
-         if (empty($data['staffimage']))
+         if (empty($data['rate']))
          {
-            $data['staffimage_error'] = "Please insert a image";
+            $data['rate_error'] = "Please insert a image";
          }
-       }
+         if (empty($data['rate_error']))
+          {
+   
+            // print_r($data);
+            $this->ratesModel->updateCommissionRateDetails($data);
+            $this->view('owner/own_rates', $data);
+         }
+         else
+         {
+            $this->view('owner/own_rates', $data); 
+         }
+         }
+          else{
+            $data = [
+               'rate' => '',
+               'rate_error' => '',
+            ];
+            $this->view('owner/own_rates', $data); 
+          }
      }
 
      public function updateMinimumNumberOfManagers()
@@ -118,14 +169,34 @@ class Rates extends Controller
        if ($_SERVER['REQUEST_METHOD'] == 'POST')
        {
         $data = [
-            'staffimage' => trim($_POST['staffimage']),
-            'staffLname_error' => '',
+            'minimumNumber' => trim($_POST['minimumNumber']),
+            'minimumNumber_error' => '',
          ];
-         if (empty($data['staffimage']))
+         if (empty($data['minimumNumber']))
          {
-            $data['staffimage_error'] = "Please insert a image";
+            $data['minimumNumber_error'] = "Please insert a image";
          }
-       }
+         if (empty($data['minimumNumber_error']))
+         {
+  
+           // print_r($data);
+           $this->ratesModel->updateMinimumNumberOfManagers($data);
+           $this->view('owner/own_rates', $data);
+        }
+        else
+        {
+           $this->view('owner/own_rates', $data); 
+        }
+        }
+         else{
+           $data = [
+              'minimumNumber' => '',
+              'minimumNumber_error' => '',
+           ];
+           $this->view('owner/own_rates', $data); 
+         }
      }
+
+
 
 }
