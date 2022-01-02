@@ -4,7 +4,7 @@
 //         make sure this file is connected properly to the full screen view 
 
 let returnReferer = sessionStorage.getItem("returnReferer");
-const backBtn = document.querySelector(".top-right-closeBtn");
+const backBtn = document.querySelector(".top-right-closeBtnSpecial");
 
 if(backBtn){
     backBtn.onclick = function() {

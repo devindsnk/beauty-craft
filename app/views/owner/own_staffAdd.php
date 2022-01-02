@@ -9,7 +9,7 @@
             <h1 class="header-topic">Add New Staff Members</h1>
         </div>
         <div class="header-right verticalCenter">
-            <span class="top-right-closeBtn">
+            <span class="top-right-closeBtnSpecial">
                 <i class=" fal fa-times fa-2x "></i>
             </span>
         </div>
