@@ -71,9 +71,9 @@ class Systemlog
         file_put_contents('logfile/syslog.txt', $contents);
     }
 
-    public static function signup()
+    public static function createCustomerAccount()
     {
-        $log = 'signup';
+        $log = 'create customer account';
         $contents = file_get_contents('logfile/syslog.txt');
 
         $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";

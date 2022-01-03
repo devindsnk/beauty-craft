@@ -42,32 +42,35 @@ class Leaves extends Controller
       Session::validateSession([4, 5]);
 
       $leaveData = $this->LeaveModel->getLeaveRecordsBystaffID(Session::getUser("id"));
-      $leaveLimit = $this->LeaveModel->getLeaveLimit();
+      $leaveLimit = $this->LeaveModel->getGeneralLeaveLimit();
 
       // die ($leaveLimit);
       $leaveCount = $this->LeaveModel->getCurrentMonthLeaveCount(Session::getUser("id"));
       $remainingLeaveCount = $leaveLimit - $leaveCount;
       // print_r($leaveData);
       // die("hi");
+      $data = [
+         'date' => '',
+         'reason' => '',
+         'leavetype' => '',
+         'date_error' => '',
+         'reason_error' => '',
+         'type_error' => '',
+         'dateValidationError' => '',
+         'staffID' => Session::getUser("id"),
+         'tableData' => $leaveData,
+         'haveErrors' => 0,
+         'reasonentered' => '',
+         'remainingCount' => $remainingLeaveCount,
+         'leaveexceed' => '',
+         'dateValidationMsg' => ''
+
+      ];
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
 
-         $data = [
-            'date' => trim($_POST['date']),
-            'reason' => trim($_POST['reason']),
-            'leavetype' => isset($_POST['leavetype']) ? trim($_POST['leavetype']) : '',
-            'date_error' => '',
-            'reason_error' => '',
-            'type_error' => '',
-            'dateValidationError' => '',
-            'staffID' => Session::getUser("id"),
-            'tableData' => $leaveData,
-            'haveErrors' => 0,
-            'remainingCount' => $remainingLeaveCount,
-            'leaveexceed' => 0,
-            'dateValidationMsg' => ''
-         ];
+
          // check exsisting dates
          // $checkDate = $this->LeaveModel->checkExsistingDate($data['date']);
          // $this->leaveRequestDateValidate($data);
@@ -75,6 +78,24 @@ class Leaves extends Controller
 
          if ($_POST['action'] == "addleave")
          {
+
+            $data = [
+               'date' => isset($_POST['leavetype']) ? trim($_POST['date']) : '',
+               'reason' => isset($_POST['leavetype']) ? trim($_POST['reason']) : '',
+               'leavetype' => isset($_POST['leavetype']) ? trim($_POST['leavetype']) : '',
+               'date_error' => '',
+               'reason_error' => '',
+               'type_error' => '',
+               'dateValidationError' => '',
+               'staffID' => Session::getUser("id"),
+               'tableData' => $leaveData,
+               'haveErrors' => 0,
+               'remainingCount' => $remainingLeaveCount,
+               'leaveexceed' => 0,
+               'dateValidationMsg' => ''
+            ];
+
+
             $today = date('Y-m-d');
             $data['date_error'] = emptyCheck($data['date']);
             $data['reason_error'] = emptyCheck($data['reason']);
@@ -83,9 +104,30 @@ class Leaves extends Controller
             if (empty($data['date_error']) && empty($data['reason_error']) && empty($data['type_error']))
             {
 
-               $this->LeaveModel->requestleave($data);
-               // redirect to this view
-               redirect('Leaves/leaves');
+               if ($data['leavetype'] == 1) //general
+               {
+                  $this->LeaveModel->requestleave($data);
+                  // redirect to this view
+                  redirect('Leaves/leaves');
+               }
+               else if ($data['leavetype'] == 2) //medical
+               {
+                  $d = date_parse_from_format("Y-m-d", $data['date']);
+                  $count = $this->LeaveModel->getLeaveCountOfSelectedMonth($d["month"], $d["year"], Session::getUser("id"), 2);
+                  $leaveLimit = $this->LeaveModel->getMedicalLeaveLimit();
+                  if ($count >= $leaveLimit)
+                  {
+                     $data['dateValidationMsg'] = 'Can not send leave request,Medical limit exceeded';
+                     $data['haveErrors'] = 1;
+                     $this->provideLeaveRequestReleventView($data);
+                  }
+                  else
+                  {
+                     $this->LeaveModel->requestleave($data);
+                     // redirect to this view
+                     redirect('Leaves/leaves');
+                  }
+               }
             }
 
 
@@ -93,18 +135,17 @@ class Leaves extends Controller
             {
                $data['haveErrors'] = 1;
                $this->provideLeaveRequestReleventView($data);
-               // $this->view('serviceProvider/serProv_leaves', $data);
+               $this->view('serviceProvider/serProv_leaves', $data);
             }
          }
          else if ($_POST['action'] == "cancel")
          {
             $data['haveErrors'] = 0;
-            // $this->view('serviceProvider/serProv_leaves', $data);
             redirect('Leaves/leaves');
          }
          else
          {
-            die("something went wrong");
+            redirect('Leaves/leaves');
          }
       }
 
@@ -169,12 +210,56 @@ class Leaves extends Controller
       }
 
       print_r(json_encode($dateValidationMsg));
-
-
-      // echo json_encode($dateValidationMsg);
-      // exit;
    }
-   public function leaveRequestDateValidate($date)
+   public function leaveRequestTypeValidate($date, $leaveType)
    {
+      Session::validateSession([4, 5]);
+
+      $d = date_parse_from_format("Y-m-d", $date);
+      $data = [
+         'month' => $d["month"],
+         'year' => $d["year"],
+         'user' => Session::getUser("id"),
+         'lType' => $leaveType,
+      ];
+      $count = $this->LeaveModel->getLeaveCountOfSelectedMonth($d["month"], $d["year"], Session::getUser("id"), $leaveType);
+      $validationError = '';
+      if ($leaveType == 1)
+      {
+         $leaveLimit = $this->LeaveModel->getgeneralLeaveLimit();
+         $lType = 'general';
+      }
+      else if ($leaveType == 2)
+      {
+         $leaveLimit = $this->LeaveModel->getMedicalLeaveLimit();
+         $lType = 'medical';
+      }
+
+      if ($count >= $leaveLimit)
+      {
+         $validationError = 'Monthly ' . $lType . ' leave limit exceed.' . $leaveLimit;
+      }
+      else
+      {
+         $validationError = '';
+      }
+
+
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($validationError));
+   }
+
+   public function leaveRequestCancel($date)
+   {
+      Session::validateSession([4, 5]);
+      $this->LeaveModel->cancelLeaveRequest($date, Session::getUser("id"));
+   }
+   public function getSelectedLeaveDetails($date)
+   {
+      Session::validateSession([4, 5]);
+      $ldata = $this->LeaveModel->getSelectedLeaveDetails($date, Session::getUser("id"));
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($ldata));
    }
 }
