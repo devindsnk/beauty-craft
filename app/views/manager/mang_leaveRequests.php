@@ -12,7 +12,7 @@
 		</div>
 	</header>
     <div class="content leaveReq">
-        <form class="form" action="<?php echo URLROOT; ?>/leaves/responceForLeaveRequest/<?php echo $data->staffID; ?>/<?php echo $data->leaveDate; ?>" method="post">
+        <form class="form" action="<?php echo URLROOT; ?>/leaves/responceForLeaveRequest/<?php echo $data['leaveDetails']->staffID; ?>/<?php echo $data['leaveDetails']->leaveDate; ?>" method="post">
 
             <div class="leave-requests-main leave-request">
                 <!-- <div class="leave-request-main-head">
@@ -21,15 +21,19 @@
                 <div class="mang-sub-container1 leave-sub-container">
                     <!--card1-->
                     <div class="contentBox leave-sub-container-card">
-                        <p>Leaves taken</p>
-                        <p>2</p>
+                        <p>Medical Taken</p>
+                        <p><?php echo $data['medicalCount']; ?></p>
+                        <p>Casual Taken</p>
+                        <p><?php echo $data['casualCount']; ?></p>
                     </div>
                     <!--End of card1-->
 
                     <!--card2-->
                     <div class="contentBox leave-sub-container-card">
-                        <p>Remaining Leaves</p>
-                        <p>5</p>
+                        <p>Medical Remaining</p>
+                        <p><?php echo $data['remainingMedical']; ?></p>
+                        <p>Casual Remaining</p>
+                        <p><?php echo $data['remainingCasual']; ?></p>
                     </div>
                     <!--End of card2-->
                 </div>
@@ -39,16 +43,16 @@
                         <div class="column">
                             <div class="text-group">
                                 <label class="labels" for="">Staff Member</label>
-                                <input type="text" name="" id="" placeholder="<?php echo $data->staffID ?> - <?php echo $data->fName ?>" disabled>
+                                <input type="text" name="" id="" placeholder="<?php echo $data['leaveDetails']->staffID ?> - <?php echo $data['leaveDetails']->fName ?>" disabled>
                             </div>
                         </div>
                         <div class="column">
                             <div class="text-group">
                                 <label class="labels" for="">Staff Type</label>
                                 <input type="text" name="" id="" 
-                                    <?php if ($data->staffType == 4) : ?>
+                                    <?php if ($data['leaveDetails']->staffType == 4) : ?>
                                     placeholder="Receptionist" 
-                                    <?php elseif ($data->staffType == 5) : ?>
+                                    <?php elseif ($data['leaveDetails']->staffType == 5) : ?>
                                     placeholder="Service Provider" 
                                     <?php endif; ?>
                                 disabled>
@@ -60,13 +64,14 @@
                         <div class="column">
                             <div class="text-group">
                                 <label class="labels" for="">Date</label>
-                                <input type="text" name="" id="" placeholder="<?php echo $data->leaveDate ?>" disabled>
+                                <input type="text" name="" id="" placeholder="<?php echo $data['leaveDetails']->leaveDate ?>" disabled>
                             </div>
                         </div>
                         <div class="column">
                             <div class="text-group">
                                 <label class="labels" for="">Leave Type</label>
-                                <input type="text" name="" id="" placeholder="<?php echo $data->leaveType ?>" disabled>
+                                <input type="text" name="" id="" placeholder="<?php if ( $data['leaveDetails']->leaveType == 1): ?>Casual<?php elseif ( $data['leaveDetails']->leaveType == 2): ?>Medical 
+                              <?php endif; ?>" disabled>
                             </div>
                         </div>
                     </div>
@@ -75,20 +80,21 @@
                         <div class="column">
                             <div class="text-group">
                                 <label class="labels" for="">Reason</label><br>
-                                <textarea id="takeLeaveReason"  class="" name="" rows="4" cols="50" disabled><?php echo $data->reason ?></textarea>
+                                <textarea id="takeLeaveReason"  class="" name="" rows="4" cols="50" disabled><?php echo $data['leaveDetails']->reason ?></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="leave-requests-button-div">
+                    <?php if ( $data['leaveDetails']->status != 3): ?>
                         <div class="">
                             <button type="submit" class="buttonLeaveRequest btn btn-filled btn-success-green" name="action" value="approve">Approve</button>
                         </div>
                         <div class="">
                             <button type="submit" class="buttonLeaveRequest btn btn-filled btn-error-red" name="action" value="reject">Reject</button>
                         </div>
-                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
 

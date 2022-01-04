@@ -289,17 +289,17 @@ class Services extends Controller
 
       die("hi");
    }
-   public function getReservationListOfCheckedSPRovList($details1,$details2)
+   public function getReservationListOfCheckedSPRovList($details1, $details2)
    {
       $serProvDetails = $this->ReservationModel->getUpcommingReservationsForSerProv($details1, $details2);
-      
+
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($serProvDetails));
    }
    public function getReservationListOfSelectedService($serviceID)
    {
       $serviceDetails = $this->ReservationModel->getUpcommingReservationsForService($serviceID);
-      
+
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($serviceDetails));
    }
@@ -309,14 +309,16 @@ class Services extends Controller
       $sOneDetails = $this->ServiceModel->getOneServiceDetail($serviceID);
       $sSprovDetails = $this->ServiceModel->getOneServicesSProvDetail($serviceID);
 
-      for ($i = 1; $i < 4; $i++){
+      for ($i = 1; $i < 4; $i++)
+      {
          $slotNo = $i;
-         ${'sSlot'.$i.'Duration'} = $this->ServiceModel->getSlotDuration($serviceID, $slotNo);
-         ${'sAllocatedResDetailsSlot'.$i} = $this->ServiceModel->getAllocatedResourceDetailsofSlot($serviceID, $slotNo);
+         ${'sSlot' . $i . 'Duration'} = $this->ServiceModel->getSlotDuration($serviceID, $slotNo);
+         ${'sAllocatedResDetailsSlot' . $i} = $this->ServiceModel->getAllocatedResourceDetailsofSlot($serviceID, $slotNo);
       }
-      for ($i = 1; $i < 3; $i++){
-         $slotNo = $i+1;
-         ${'sInterval'.($i).'Duration'} = $this->ServiceModel->getIntervalDuration($serviceID, $slotNo);
+      for ($i = 1; $i < 3; $i++)
+      {
+         $slotNo = $i + 1;
+         ${'sInterval' . ($i) . 'Duration'} = $this->ServiceModel->getIntervalDuration($serviceID, $slotNo);
       }
 
       $GetOneServicesArray = [
@@ -344,17 +346,19 @@ class Services extends Controller
    {
       $serviceDetails = $this->ServiceModel->getOneServiceDetail($serviceID);
       $serProvDetails = $this->ServiceModel->getOneServicesSProvDetail($serviceID);
-   
+
       $noofSlots = $this->ServiceModel->getNoofSlots($serviceID);
 
-      for ($i = 1; $i < 4; $i++){
+      for ($i = 1; $i < 4; $i++)
+      {
          $slotNo = $i;
-         ${'slot'.$i.'Details'} = $this->ServiceModel->getSlotDuration($serviceID, $slotNo);
-         ${'resDetailsSlot'.$i} = $this->ServiceModel->getAllocatedResourceDetailsofSlot($serviceID, $slotNo);
+         ${'slot' . $i . 'Details'} = $this->ServiceModel->getSlotDuration($serviceID, $slotNo);
+         ${'resDetailsSlot' . $i} = $this->ServiceModel->getAllocatedResourceDetailsofSlot($serviceID, $slotNo);
       }
-      for ($i = 1; $i < 3; $i++){
-         $slotNo = $i+1;
-         ${'interval'.($i).'Details'} = $this->ServiceModel->getIntervalDuration($serviceID, $slotNo);
+      for ($i = 1; $i < 3; $i++)
+      {
+         $slotNo = $i + 1;
+         ${'interval' . ($i) . 'Details'} = $this->ServiceModel->getIntervalDuration($serviceID, $slotNo);
       }
 
       $sProvGetArray = $this->getServiceProvider();
@@ -420,7 +424,7 @@ class Services extends Controller
          $data['sProvArray'] = $sProvGetArray;
          $data['sTypesArray'] = $sTypeGetArray;
          $data['sResArray'] = $sResGetArray;
-       
+
          if ($_POST['action'] == "updateService")
          {
             if (empty($data['name']))
@@ -455,37 +459,48 @@ class Services extends Controller
             {
                $data['sSlot1Duration_error'] = "Please enter slot duration";
             }
-            
-            if(!empty($data['slot3Duration']) || !empty($data['sSelectedResCount3']) || !empty($data['interval2Duration'])){
-               for($i = 2; $i < 4; $i++){
-                  if (empty($data['slot'.($i).'Duration'])) {
-                     $data['sSlot'.($i).'Duration_error'] = "Please enter slot duration";
+
+            if (!empty($data['slot3Duration']) || !empty($data['sSelectedResCount3']) || !empty($data['interval2Duration']))
+            {
+               for ($i = 2; $i < 4; $i++)
+               {
+                  if (empty($data['slot' . ($i) . 'Duration']))
+                  {
+                     $data['sSlot' . ($i) . 'Duration_error'] = "Please enter slot duration";
                   }
-                  if (empty($data['interval'.($i-1).'Duration'])) {
-                     $data['interval'.($i-1).'Duration_error'] = "Please enter interval duration";
+                  if (empty($data['interval' . ($i - 1) . 'Duration']))
+                  {
+                     $data['interval' . ($i - 1) . 'Duration_error'] = "Please enter interval duration";
                   }
                }
             }
-            elseif(!empty($data['slot2Duration']) || !empty($data['sSelectedResCount2']) || !empty($data['interval1Duration'])){
-               for($i = 2; $i < 3; $i++){
-                  if (empty($data['slot'.($i).'Duration'])) {
-                     $data['sSlot'.($i).'Duration_error'] = "Please enter slot duration";
+            elseif (!empty($data['slot2Duration']) || !empty($data['sSelectedResCount2']) || !empty($data['interval1Duration']))
+            {
+               for ($i = 2; $i < 3; $i++)
+               {
+                  if (empty($data['slot' . ($i) . 'Duration']))
+                  {
+                     $data['sSlot' . ($i) . 'Duration_error'] = "Please enter slot duration";
                   }
-                  if (empty($data['interval'.($i-1).'Duration'])) {
-                     $data['interval'.($i-1).'Duration_error'] = "Please enter interval duration";
+                  if (empty($data['interval' . ($i - 1) . 'Duration']))
+                  {
+                     $data['interval' . ($i - 1) . 'Duration_error'] = "Please enter interval duration";
                   }
                }
             }
 
             if (empty($data['sName_error']) && empty($data['sSelectedCusCategory_error']) && empty($data['sPrice_error']) && empty($data['sSelectedAllType_error']) && empty($data['sSelectedSProve_error']) && empty($data['sSlot1Duration_error']) && empty($data['sSlot2Duration_error']) && empty($data['sSlot3Duration_error']) && empty($data['interval1Duration_error']) && empty($data['interval2Duration_error']))
             {
-               if($data['slot2Duration'] != NULL && $data['slot3Duration'] == NULL){
-                  $slotNo=1;
-               }elseif($data['slot2Duration'] != NULL && $data['slot3Duration'] != NULL){
-                  $slotNo=2;
+               if ($data['slot2Duration'] != NULL && $data['slot3Duration'] == NULL)
+               {
+                  $slotNo = 1;
+               }
+               elseif ($data['slot2Duration'] != NULL && $data['slot3Duration'] != NULL)
+               {
+                  $slotNo = 2;
                }
                $this->ServiceModel->changeServiceStatus($serviceID, 0);
-               $this->ServiceModel->addService($data,$slotNo);
+               $this->ServiceModel->addService($data, $slotNo);
                $this->ServiceModel->addServiceProvider($data);
                // die('awa');
                $this->ServiceModel->addTimeSlot($data, $slotNo);
@@ -496,7 +511,7 @@ class Services extends Controller
             }
             else
             {
-               
+
                $selectesResCount = count($data['sSelectedResCount1']);
 
                for ($i = 0; $i < $selectesResCount; $i++)
@@ -508,15 +523,15 @@ class Services extends Controller
                }
                $this->view('manager/mang_serviceAdd', $data);
             }
-
          }
          else
          {
             die("Something went wrong");
          }
+      }
+      else
+      {
 
-      }else{
-         
          $data = [
             'name' => '',
             'customerCategory' => '',
@@ -574,33 +589,104 @@ class Services extends Controller
          $data['sResArray'] = $sResGetArray;
 
          $this->view('manager/mang_serviceUpdate', $data);
-
       }
    }
    public function deleteService($serviceID)
    {
-      $state=0;
+      $state = 0;
       $this->ServiceModel->changeServiceStatus($serviceID, $state);
       redirect('Services/viewAllServices');
    }
    public function holdService($serviceID)
    {
-      $state=2;
+      $state = 2;
       $this->ServiceModel->changeServiceStatus($serviceID, $state);
       redirect('Services/viewAllServices');
    }
    public function activeService($serviceID)
    {
-      $state=1;
+      $state = 1;
       $this->ServiceModel->changeServiceStatus($serviceID, $state);
       redirect('Services/viewAllServices');
    }
+
    public function serviceReport()
    {
-      $this->view('common/serviceReport');
+      $serviceList = $this->ServiceModel->getServiceDetails();
+      $this->view('common/serviceReport', count($serviceList));
    }
+
+   public function serviceReportJS($smonth)
+   {
+      $serviceList = $this->ServiceModel->getServiceDetails();
+
+      $sReportDetails = array();
+      $dateOld = date_create($smonth);
+
+      $year = date_format($dateOld, "Y");
+      $month = date_format($dateOld, "m");
+
+      foreach ($serviceList as $services)
+      {
+         $serviceDetails = $this->ServiceModel->getDetailsForServiceReportJS($services->serviceID, $year, $month);
+         array_push($sReportDetails, $serviceDetails);
+      }
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($sReportDetails));
+   }
+
    public function serviceProviderReport()
    {
-      $this->view('common/serviceProviderReport');
+      $serviceProviderList = $this->ServiceModel->getServiceProviderDetails();
+
+      $this->view('common/serviceProviderReport', count($serviceProviderList));
+   }
+
+   public function serviceProviderReportJS($smonth)
+   {
+      $sProvList = $this->ServiceModel->getServiceProviderDetails();
+
+      $sProvReportDetails = array();
+      $dateOld = date_create($smonth);
+
+      $year = date_format($dateOld, "Y");
+      $month = date_format($dateOld, "m");
+
+      foreach ($sProvList as $sProv)
+      {
+         $sProvDetails = $this->ServiceModel->getDetailsForServiceProvReportJS($sProv->staffID, $year, $month);
+         array_push($sProvReportDetails, $sProvDetails);
+      }
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($sProvReportDetails));
+   }
+
+   public function analyticsOverall()
+   {
+      // Session::validateSession([3]);
+      $this->view('common/SubAnalyticsOverall');
+   }
+   public function analyticsService()
+   {
+      // Session::validateSession([3]);
+      $serviceList = $this->ServiceModel->getServiceDetails();
+      // $serviceChartDetails = $this->ServiceModel->getServiceAnalyticsDetails();
+      // print_r($serviceChartDetails);
+      // die('dddd');
+      $this->view('common/SubAnalyticsService', $serviceList);
+   }
+   public function analyticsServiceChartJS($serviceID, $from, $to)
+   {
+      // Session::validateSession([3]);
+      $serviceChartDetails = $this->ServiceModel->getServiceAnalyticsDetails($serviceID, $from, $to);
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($serviceChartDetails));
+   }
+   public function analyticsSProvider()
+   {
+      // Session::validateSession([3]);
+      $this->view('common/SubAnalyticsSProvider');
    }
 }

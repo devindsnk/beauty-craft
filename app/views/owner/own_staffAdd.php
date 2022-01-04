@@ -9,13 +9,14 @@
             <h1 class="header-topic">Add New Staff Members</h1>
         </div>
         <div class="header-right verticalCenter">
-            <a href="<?php echo URLROOT ?>/OwnDashboard/staff" class="top-right-closeBtn"><i
-                    class="fal fa-times fa-2x "></i></a>
+            <span class="top-right-closeBtnSpecial">
+                <i class=" fal fa-times fa-2x "></i>
+            </span>
         </div>
     </header>
     <div class="content contentNewRes">
 
-    
+
         <div class="ownStaff_allignmentbox own staff">
 
             <div class="ownAddstaffContainer contentBox">
@@ -30,11 +31,9 @@
 
                                 <div class="ownAddstaffFormGroupImage">
                                     <div class="ownAddstaffBasicinfoFilesubBtn">
-                                        <label for="ownAddstaffBasicinfoImagesub"
-                                            class="ownAddstaffBasicinfoImagewrapper">
-                                            <input type="file" name="staffimage" id="ownAddstaffBasicinfoImagesub" >
-                                            <img src="<?php echo URLROOT ?>/public/icons/add_graph_report_64px.png"
-                                                class="ownAddstaffBasicinfoIcon"> <br>
+                                        <label for="ownAddstaffBasicinfoImagesub" class="ownAddstaffBasicinfoImagewrapper">
+                                            <input type="file" name="staffimage" id="ownAddstaffBasicinfoImagesub">
+                                            <img src="<?php echo URLROOT ?>/public/icons/add_graph_report_64px.png" class="ownAddstaffBasicinfoIcon"> <br>
                                             <span class="ownAddstaffBasicinfoImagetitle">Add Image</span>
                                         </label>
                                     </div>
@@ -43,14 +42,12 @@
 
                                 <div class="ownAddstaffFormGroupFname">
                                     <label class="ownAddstaffLabels">First Name</label>
-                                    <input type="text" name="staffFname" id="ownAddstaffBasicinfoFirstname"
-                                        placeholder="Your first name here" value="<?php echo $data['staffFname']; ?>">
+                                    <input type="text" name="staffFname" id="ownAddstaffBasicinfoFirstname" placeholder="Your first name here" value="<?php echo $data['staffFname']; ?>">
                                     <span class="error"><?php echo $data['staffFname_error']; ?></span>
                                 </div>
                                 <div class="ownAddstaffFormGroupLname">
                                     <label class="ownAddstaffLabels">Last Name</label>
-                                    <input type="text" name="staffLname" id="ownAddstaffLastname"
-                                        placeholder="Your last name here" value="<?php echo $data['staffLname']; ?>">
+                                    <input type="text" name="staffLname" id="ownAddstaffLastname" placeholder="Your last name here" value="<?php echo $data['staffLname']; ?>">
                                     <span class="error"><?php echo $data['staffLname_error']; ?></span>
                                 </div>
 
@@ -59,11 +56,9 @@
                                     <label class="ownAddstaffLabels">Gender</label>
                                     <div class="ownAddstaffBasicinfoRadiowrapper">
 
-                                        <input type="radio" name="gender" id="option-1" value="M"
-                                            <?php if ($data['gender'] == 'M') echo 'checked'; ?>>
+                                        <input type="radio" name="gender" id="option-1" value="M" <?php if ($data['gender'] == 'M') echo 'checked'; ?>>
                                         <label for="option1"> Male</label> <br>
-                                        <input type="radio" name="gender" id="option-2" value="F"
-                                            <?php if ($data['gender'] == 'F') echo 'checked'; ?>>
+                                        <input type="radio" name="gender" id="option-2" value="F" <?php if ($data['gender'] == 'F') echo 'checked'; ?>>
                                         <label for="option2">Female</label>
                                         <br>
                                         <span class="error"><?php echo $data['gender_error']; ?></span>
@@ -72,8 +67,7 @@
                                 </div>
                                 <div class="ownAddstaffFormGroupNIC">
                                     <label class="ownAddstaffLabels">NIC</label>
-                                    <input type="text" name="staffNIC" id="NIC" placeholder="Your NIC here"
-                                        value="<?php echo $data['staffNIC']; ?>">
+                                    <input type="text" name="staffNIC" id="NIC" placeholder="Your NIC here" value="<?php echo $data['staffNIC']; ?>">
                                     <span class="error"><?php echo $data['staffNIC_error']; ?></span>
                                 </div>
                             </div>
@@ -88,10 +82,10 @@
                                 <div class="ownAddstaffFormGroupStype">
                                     <label class="ownAddstaffLabels">Staff Type</label>
                                     <select name="staffType" class="dropdownselectbox">
-                                        <option class="unbold" value="0" option selected="true" disabled="disabled" >Select</option>
+                                        <option class="unbold" value="0" option selected="true" disabled="disabled">Select</option>
                                         <option value=5 <?php if ($data['staffType'] == 5) echo 'selected'; ?>>Service Provider</option>
-                                        <option value= 4 <?php if ($data['staffType'] == 4) echo 'selected'; ?>>Receptionist</option>
-                                        <option value= 3 <?php if ($data['staffType'] == 3) echo 'selected'; ?>>Manager</option>
+                                        <option value=4 <?php if ($data['staffType'] == 4) echo 'selected'; ?>>Receptionist</option>
+                                        <option value=3 <?php if ($data['staffType'] == 3) echo 'selected'; ?>>Manager</option>
                                     </select>
                                     <span class="error"><?php echo $data['staffType_error']; ?></span>
                                 </div>
@@ -113,9 +107,7 @@
                             <div class="ownAddstaffMaingrid3">
                                 <div class="ownAddstaffFormGroupADD">
                                     <label class="ownAddstaffLabels">Address</label>
-                                    <textarea class="homeAdd" name="staffHomeAdd" rows="4" cols="50"
-                                        placeholder="Your address here"
-                                        value="<?php echo $data['staffHomeAdd']; ?>" ><?php if ($data['staffHomeAdd'] == $data['staffHomeAddTyped']) echo $data['staffHomeAdd'] ; ?></textarea>
+                                    <textarea class="homeAdd" name="staffHomeAdd" rows="4" cols="50" placeholder="Your address here" value="<?php echo $data['staffHomeAdd']; ?>"><?php if ($data['staffHomeAdd'] == $data['staffHomeAddTyped']) echo $data['staffHomeAdd']; ?></textarea>
                                     <span class="error"><?php echo $data['staffHomeAdd_error']; ?></span>
                                 </div>
                             </div>
@@ -124,15 +116,12 @@
                             <div class="ownAddstaffMaingrid4">
                                 <div class="ownAddstaffFormGroupTP">
                                     <label class="ownAddstaffLabels">Contact Number</label>
-                                    <input type="text" name="staffMobileNo" id="contactnum"
-                                        placeholder="Your contact number here"
-                                        value="<?php echo $data['staffMobileNo']; ?>">
+                                    <input type="text" name="staffMobileNo" id="contactnum" placeholder="Your contact number here" value="<?php echo $data['staffMobileNo']; ?>">
                                     <span class="error"><?php echo $data['staffMobileNo_error']; ?></span>
                                 </div>
                                 <div class="ownAddstaffFormGroupMAIL">
                                     <label class="ownAddstaffLabels">E-mail</label>
-                                    <input type="text" name="staffEmail" id="email" placeholder="Your email here"
-                                        value="<?php echo $data['staffEmail']; ?>">
+                                    <input type="text" name="staffEmail" id="email" placeholder="Your email here" value="<?php echo $data['staffEmail']; ?>">
                                     <span class="error"><?php echo $data['staffEmail_error']; ?></span>
                                 </div>
                             </div>
@@ -153,30 +142,23 @@
                             <div class="ownAddstaffMaingrid5">
                                 <div class="ownAddstaffFormGroupACCNUM">
                                     <label class="ownAddstaffLabels">Account Number</label>
-                                    <input type="text" name="staffAccNum" id="accnum"
-                                        placeholder="Your account number here"
-                                        value="<?php echo $data['staffAccNum']; ?>">
+                                    <input type="text" name="staffAccNum" id="accnum" placeholder="Your account number here" value="<?php echo $data['staffAccNum']; ?>">
                                     <span class="error"><?php echo $data['staffAccNum_error']; ?></span>
                                 </div>
                                 <div class="ownAddstaffFormGroupACCNAME">
                                     <label class="ownAddstaffLabels">Account Holders Name</label>
-                                    <input type="text" name="staffAccHold" id="acchold"
-                                        placeholder="Your account holders name here"
-                                        value="<?php echo $data['staffAccHold']; ?>">
+                                    <input type="text" name="staffAccHold" id="acchold" placeholder="Your account holders name here" value="<?php echo $data['staffAccHold']; ?>">
                                     <span class="error"><?php echo $data['staffAccHold_error']; ?></span>
                                 </div>
                                 <div class="ownAddstaffFormGroupBankNAME">
                                     <label class="ownAddstaffLabels">Bank Name</label>
-                                    <input type="text" name="staffAccBank" id="accbank"
-                                        placeholder="Your bank name here" value="<?php echo $data['staffAccBank']; ?>">
+                                    <input type="text" name="staffAccBank" id="accbank" placeholder="Your bank name here" value="<?php echo $data['staffAccBank']; ?>">
                                     <span class="error"><?php echo $data['staffAccBank_error']; ?></span>
                                 </div>
                                 <div class="ownAddstaffFormGroupBranchNAME">
                                     <label class="ownAddstaffLabels">Branch Name</label>
-                                    <input type="text" name="staffAccBranch" id="accbranch"
-                                        placeholder="Your branch name here"
-                                        value="<?php echo $data['staffAccBranch'];?>" maxlength="40">
-                                    <span class="error"><?php echo $data['staffAccBranch_error'];?></span>
+                                    <input type="text" name="staffAccBranch" id="accbranch" placeholder="Your branch name here" value="<?php echo $data['staffAccBranch']; ?>" maxlength="40">
+                                    <span class="error"><?php echo $data['staffAccBranch_error']; ?></span>
                                 </div>
                             </div>
                             <!------------------ maingrid5 end ---------------------------------------------------------------->

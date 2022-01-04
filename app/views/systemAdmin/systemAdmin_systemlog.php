@@ -25,10 +25,21 @@
    <!--End Content-->
    <script>
       function storelogRecord() {
+         console.log('button clicked');
+         fetch(`http://localhost:80/beauty-craft/SysAdminDashboard /systemLogRecordstore`)
+            .then(response => response.json())
+            .then(msg => {
+               console.log(msg);
+               console.log('msg');
+
+               dateError.innerHTML = msg;
+
+
+            });
 
          <?php
          //System log
-         Systemlog::downloadSysLog();
+         // Systemlog::downloadSysLog();
          ?>
       }
    </script>

@@ -31,8 +31,23 @@ class Leaves extends Controller
       // Session::validateSession([6]);
 
       $oneLeaveDetails = $this->LeaveModel->getOneLeaveDetail($staffID, $leaveDate);
+      $casualCountOfRelevantMonth = $this->LeaveModel->getRelevantMonthsLeaveCount($staffID, $leaveDate, 1);
+      $medicalCountOfRelevantMonth = $this->LeaveModel->getRelevantMonthsLeaveCount($staffID, $leaveDate, 2);
+      $leaveLimits = $this->LeaveModel->getLeaveLimitsForManagerApproval();
 
-      $this->view('manager/mang_leaveRequests', $oneLeaveDetails[0]);
+      $remainingCasual = $leaveLimits[0]->generalLeave - $casualCountOfRelevantMonth;
+      $remainingMedical = $leaveLimits[0]->medicalLeave - $medicalCountOfRelevantMonth;
+
+      $oneLeaveDetails = [
+         'leaveDetails' => $oneLeaveDetails[0],
+         'medicalCount' => $medicalCountOfRelevantMonth,
+         'casualCount' => $casualCountOfRelevantMonth,
+         'remainingCasual' => $remainingCasual,
+         'remainingMedical' => $remainingMedical
+      ];
+      // print_r($oneLeaveDetails['leaveDetails']);
+      // die("hhh");
+      $this->view('manager/mang_leaveRequests', $oneLeaveDetails);
    }
 
 
@@ -261,5 +276,50 @@ class Leaves extends Controller
       $ldata = $this->LeaveModel->getSelectedLeaveDetails($date, Session::getUser("id"));
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($ldata));
+   }
+   public function checkIfDatePossibleForMangLeave($selectedDate)
+   {
+      $dateState = $this->LeaveModel->checkForDateState($selectedDate);
+      $response = "";
+
+      date_default_timezone_set("Asia/Colombo");
+      $today = date('Y-m-d');
+      $nextDates = date('Y-m-d', strtotime(' + 2 month'));
+
+      if ($selectedDate > $nextDates)
+         $dateState = 4;
+
+      if ($selectedDate <= $today)
+         $dateState = 3;
+
+      if ($dateState == 4)
+         $response = "Select a date between 2 months";
+      elseif ($dateState == 3)
+         $response = "Select a valid date";
+      elseif ($dateState == 1)
+         $response = "The date You entered is already exit";
+      else
+         $response = "";
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($response));
+   }
+   public function checkIfDatePossibleForMangMedicalLeave($selectedType, $selectedDate, $st = null)
+   {
+      $mangMedicalLeaveLimit = $this->LeaveModel->getmangMedicalLeaveLimit();
+      $mangMedicalLeaveCount = $this->LeaveModel->getMangRelevantMonthLeaveCount(Session::getUser("id"), 2, $selectedDate);
+      $remainingMedical = $mangMedicalLeaveLimit - $mangMedicalLeaveCount;
+
+      // if($st == 1 && $selectedType=2){
+      //    $remainingMedical=$remainingMedical+1;
+      //    $response = "";
+      // }
+      if ($selectedType == 2 && $remainingMedical <= 0)
+         $response = "You can't take anymore medical leaves for this month";
+      else
+         $response = "";
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($response));
    }
 }

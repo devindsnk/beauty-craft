@@ -15,8 +15,20 @@
    <!--Content-->
    <div class="content">
 
-      <div class="page-top-main-container">
-         <button class="btn btn-filled btn-theme-purple btn-main btnTakenLeave">Take Leave</button>
+      <div class="mang-leaves-top-container">
+         <div class="mang-leaves-top-left-container">
+            <div class="contentBox mang-leave-card">
+               <p>Medical Leaves</p>
+               <p class="count-color"><?php echo $data['remainingMedical'] ?></p>
+            </div>
+            <div class="contentBox mang-leave-card">
+               <p>Casual Leaves</p>
+               <p class="count-color"><?php echo $data['remainingCasual'] ?></p>
+            </div>
+         </div>
+         <div class="mang-leaves-top-right-container">
+            <button class="btn btn-filled btn-theme-purple btn-main btnTakenLeave">Take Leave</button>
+         </div>
       </div>
       <form class="form filter-options" action="">
          <div class="options-container">
@@ -62,17 +74,32 @@
                </thead>
 
                <tbody>
-
-                  <?php foreach ($data as $managerLeaveDetails) : ?>
+                  <!-- <?php print_r($data); ?> -->
+                  <?php foreach ($data['managerLeaveDetails'] as $managerLeaveDetails) : ?>
                      <tr>
                         <td data-lable="Leave Date" class="column-center-align"><?php echo $managerLeaveDetails->leaveDate; ?></td>
-                        <td data-lable="Leave Type" class="column-center-align"><?php echo $managerLeaveDetails->leaveType; ?></td>
+                        <td data-lable="Leave Type" class="column-center-align">
+                           <?php if ( $managerLeaveDetails->leaveType == 1): ?>
+                              Casual
+                           <?php elseif ( $managerLeaveDetails->leaveType == 2): ?>
+                              Medical
+                           <?php endif; ?>
+                        </td>
                         <td data-lable="Marked Date" class="column-center-align"><?php echo $managerLeaveDetails->markedDate; ?></td>
                         <td data-lable="Reason" class="column-center-align"><?php echo $managerLeaveDetails->reason; ?></td>
                         <td class="column-center-align">
                            <span>
-                              <a href="#"><i class="ci-edit btnEditTakenLeave table-icon img-gap"></i></a>
-                              <a href="#"><i class="ci-trash btnDeleteTakenLeave table-icon img-gap"></i></a>
+                              <?php 
+                                 date_default_timezone_set("Asia/Colombo");
+                                 $today = date('Y-m-d');
+                              ?>
+                              <?php if ( $managerLeaveDetails->leaveDate > $today): ?>
+                                 <a href="#"><i data-columns1="<?php echo $managerLeaveDetails->leaveDate; ?>"  class="ci-edit btnEditTakenLeave table-icon img-gap editMangLeave"></i></a>
+                                 <a href="#"><i data-columns3="<?php echo $managerLeaveDetails->leaveDate; ?>" class="ci-trash btnDeleteTakenLeave table-icon img-gap deleteMangLeave"></i></a>
+                              <?php else: ?>
+                                 <i class="ci-edit  table-icon img-gap"></i>
+                                 <i class="ci-trash  table-icon img-gap"></i>
+                              <?php endif; ?>
                            </span>
                         </td>
                      </tr>
@@ -84,30 +111,57 @@
       </div>
 
       <!-- Take leave model -->
-      <div class="modal-container take-leave">
+      <div class="modal-container take-leave <?php if ($data['haveErrors']) echo "show" ?>" >
          <div class="modal-box addItems">
             <h1 class="addItemsModalHead">Take Leave</h1>
-            <form action="" class="form">
+            <form action="<?php echo URLROOT; ?>/MangDashboard/takeLeave" class="form" method="POST">
                <!-- start main grid 1 -->
                <div class="addItemsModalGrid1">
-                  <div class="addItemsModalDetail1">
-                     <label class="addItemsModalLable">Date</label><br>
-                     <input type="date" class="addItemsModalDate"><br>
-                     <span class="error"> <?php echo "Limit has exceeded for the date "; ?></span>
+                  <div class="row">
+                     <div class="column">
+                        <label class="addItemsModalLable">Date</label><br>
+                        <input type="date" name="mangDate" class="addItemsModalDate mangSelectedDate" value="<?php echo $data['date']; ?>"><br>
+                        <span class="error paddingBottom mangDateError">
+                           <?php 
+                           if ($data['date_error'])
+                           {
+                              echo $data['date_error'];
+                           }
+                           else echo $data['dateValidationMsg']; 
+                           ?>
+                        </span>
+                     </div>
+                     <div class="column">
+                        <label class="addItemsModalLable">Leave Type</label><br>
+                        <select name="mangLeaveType" id="" class="mangSelecedLeaveType" >
+                           <option class="unbold" value=0 option selected="true" disabled="disabled">Select</option>
+                           <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>Casual</option>
+                           <option value=2 <?php if ($data['leavetype'] == 2) echo 'selected'; ?>>Medical</option>
+                        </select>
+                        <span class="error paddingBottom mangTypeError">
+                           <?php 
+                           if ($data['type_error'])
+                           {
+                              echo $data['type_error'];
+                           } 
+                           ?>
+                        </span>
+                     </div>
                   </div>
-                  <div class="addItemsModalDetail2">
+                  <div class="row">
                      <label class="addItemsModalLable">Reason</label>
-                     <textarea class="addItemsModalTextArea" name="addItemsModalTextArea" rows="4" cols="50" placeholder="Type the reason here"> </textarea>
+                     <textarea class="addItemsModalTextArea" name="mangLeaveReason" rows="4" cols="50" placeholder="Type the reason here" value="<?php echo $data['reason']; ?>"> <?php echo $data['reason']; ?></textarea>
+                     <span class="error paddingBottom"><?php echo $data['reason_error']; ?></span>
                   </div>
                </div>
                <!-- main grid 1 ends -->
                <!-- main grid 3 starts -->
                <div class="addItemsModalGrid3">
                   <div class="addItemsModalbtn1">
-                     <button class="btn btnClose ModalCancelButton ModalButton">Cancel</button>
+                     <button type="submit" name="action" value="cancel"  class="btn btnClose ModalCancelButton ModalButton">Cancel</button>
                   </div>
                   <div class="addItemsModalbtn2">
-                     <button class="btn btnClose ModalGreenButton ModalButton">Proceed</button>
+                     <button type="submit" name="action" id="takeLeaveProceed" value="addleave"  class="btn  ModalGreenButton ModalButton">Proceed</button>
                   </div>
                </div>
                <!-- main grid 3 ends -->
@@ -117,30 +171,57 @@
       <!-- End of take leave model -->
 
       <!-- Edit Taken leave model -->
-      <div class="modal-container edit-taken-leave">
+      <div class="modal-container edit-taken-leave <?php if ($data['haveErrors2']) echo "show" ?>">
          <div class="modal-box addItems">
             <h1 class="addItemsModalHead">Edit Leave</h1>
-            <form action="" class="form">
+            <form action="" id="updateForm" class="form" method="POST">
                <!-- start main grid 1 -->
                <div class="addItemsModalGrid1">
-                  <div class="addItemsModalDetail1">
-                     <label class="addItemsModalLable">Date</label><br>
-                     <input type="date" class="addItemsModalDate"><br>
-                     <span class="error"> <?php echo "Limit has exceeded for the date "; ?></span>
+                  <div class="row">
+                     <div class="column">
+                        <label class="addItemsModalLable">Date</label><br>
+                        <input type="date" name="mangDate" id="mangLeaveDate" class="addItemsModalDate mangSelectedDate2" value="<?php echo $data['date']; ?>"><br>
+                        <span class="error paddingBottom mangDateError2">
+                           <?php 
+                           if ($data['date_error'])
+                           {
+                              echo $data['date_error'];
+                           }
+                           else echo $data['dateValidationMsg']; 
+                           ?>
+                        </span>
+                     </div>
+                     <div class="column">
+                        <label class="addItemsModalLable">Leave Type</label><br>
+                        <select name="mangLeaveType2" id="mangLeaveType" class="mangSelecedLeaveType2" >
+                           <option class="unbold" value=0 option selected="true" disabled="disabled">Select</option>
+                           <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>Casual</option>
+                           <option value=2 <?php if ($data['leavetype'] == 2) echo 'selected'; ?>>Medical</option>
+                        </select>
+                        <span class="error paddingBottom mangTypeError2">
+                           <?php 
+                           if ($data['type_error'])
+                           {
+                              echo $data['type_error'];
+                           } 
+                           ?>
+                        </span>
+                     </div>
                   </div>
-                  <div class="addItemsModalDetail2">
+                  <div class="row">
                      <label class="addItemsModalLable">Reason</label>
-                     <textarea class="addItemsModalTextArea" name="addItemsModalTextArea" rows="4" cols="50" placeholder="Type the reason here"> </textarea>
+                     <textarea class="addItemsModalTextArea" id="mangLeaveReason" name="mangLeaveReason" rows="4" cols="50" placeholder="Type the reason here" value="<?php echo $data['reason']; ?>"> <?php echo $data['reason']; ?></textarea>
+                     <span class="error paddingBottom"><?php echo $data['reason_error']; ?></span>
                   </div>
                </div>
                <!-- main grid 1 ends -->
                <!-- main grid 3 starts -->
                <div class="addItemsModalGrid3">
                   <div class="addItemsModalbtn1">
-                     <button class="btn btnClose ModalCancelButton ModalButton">Cancel</button>
+                     <button type="submit" name="action" value="cancel" class="btn btnClose ModalCancelButton ModalButton">Cancel</button>
                   </div>
                   <div class="addItemsModalbtn2">
-                     <button class="btn btnClose ModalGreenButton ModalButton">Proceed</button>
+                     <button type="submit" name="action" value="updateleave" id="editLeaveProceed" class="btn ModalGreenButton ModalButton proceedBtn">Proceed</button>
                   </div>
                </div>
                <!-- main grid 3 ends -->
@@ -153,14 +234,14 @@
       <div class="modal-container delete-taken-leave">
          <div class="modal-box">
             <div class="confirm-model-head">
-               <h1>Delete Leave</h1>
+               <h1 id="deleteLeaveHead">Delete Leave</h1>
             </div>
             <div class="confirm-model-head">
-               <p>Are you sure you want to delete the leave? <br> This action cannot be undone after proceeding.</p>
+               <p id="warningMsgDeleteLeave">Are you sure you want to delete the leave? <br> This action cannot be undone after proceeding.</p>
             </div>
             <div class="confirm-model-head">
                <button class="btn btnClose ModalButton ModalCancelButton">Close</button>
-               <button class="btn btnClose ModalButton ModalBlueButton">proceed</button>
+               <a href="#" class="deleteConfirmHref"><button class="btn btnClose ModalButton ModalBlueButton deleteProceedBtn">proceed</button>
             </div>
          </div>
       </div>

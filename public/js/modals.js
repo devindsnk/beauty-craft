@@ -25,14 +25,14 @@ holdServiceBtnList.forEach((btn) => {
 });
 
 // Add Resource Modal Section
-const addResourceModal = document.querySelector(".add-resource");
-const addResourceBtnList = document.querySelectorAll(".btnAddResource");
-addResourceBtnList.forEach((btn) => {
-    btn.addEventListener("click", function () {
-        modalToToggle = addResourceModal;
-        toggleModal();
-    });
-});
+// const addResourceModal = document.querySelector(".add-resource");
+// const addResourceBtnList = document.querySelectorAll(".btnAddResource");
+// addResourceBtnList.forEach((btn) => {
+//     btn.addEventListener("click", function () {
+//         modalToToggle = addResourceModal;
+//         toggleModal();
+//     });
+// });
 
 // Remove Resource Modal Section
 const removeResourceModal = document.querySelector(".remove-resource");
@@ -40,20 +40,30 @@ const removeResourceBtnList = document.querySelectorAll(".btnRemoveResource");
 removeResourceBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
         modalToToggle = removeResourceModal;
-        toggleModal();
+        toggleModal(btn);
     });
 });
 
 // Update Resource Modal Section
-const updateResourceModal = document.querySelector(".update-resource");
-const updateResourceBtnList = document.querySelectorAll(".btnUpdateResource");
-updateResourceBtnList.forEach((btn) => {
+// const updateResourceModal = document.querySelector(".update-resource");
+// const updateResourceBtnList = document.querySelectorAll(".btnUpdateResource");
+// updateResourceBtnList.forEach((btn) => {
+//     btn.addEventListener("click", function () {
+//         modalToToggle = updateResourceModal;
+//         toggleModal();
+//     });
+// });
+
+
+// Add Resource Modal Section
+const addResourceTypeModal = document.querySelector(".add-resource-type");
+const addResourceTypeBtnList = document.querySelectorAll(".btnAddResourceType");
+addResourceTypeBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
-        modalToToggle = updateResourceModal;
-        toggleModal();
+        modalToToggle = addResourceTypeModal;
+        toggleModal(btn);
     });
 });
-
 
 
 // Salary payment Modal Section
@@ -62,7 +72,7 @@ const salaryPayBtnList = document.querySelectorAll(".btnSalaryPay");
 salaryPayBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
         modalToToggle = salaryPayModal;
-        toggleModal();
+        toggleModal(btn);
     });
 });
 
@@ -73,7 +83,7 @@ const addCloseDateBtnList = document.querySelectorAll(".btnAddCloseDate");
 addCloseDateBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
         modalToToggle = addCloseDateModal;
-        toggleModal();
+        toggleModal(btn);
     });
 });
 
@@ -84,7 +94,7 @@ const removeCloseDateBtnList = document.querySelectorAll(".btnRemoveCloseDate");
 removeCloseDateBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
         modalToToggle = removeCloseDateModal;
-        toggleModal();
+        toggleModal(btn);
     });
 });
 
@@ -95,7 +105,7 @@ const removeStaffBtnList = document.querySelectorAll(".btnRemoveStaff");
 removeStaffBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
         modalToToggle = removeStaffModal;
-        toggleModal();
+        toggleModal(btn);
     });
 });
 
@@ -105,7 +115,7 @@ const removeCustomerBtnList = document.querySelectorAll(".btnRemoveCustomer");
 removeCustomerBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
         modalToToggle = removeCustomerModal;
-        toggleModal();
+        toggleModal(btn);
     });
 });
 
@@ -129,9 +139,6 @@ const resRecallBtn = document.querySelector('.btnResRecall');
 if (resRecallBtn) {
     resRecallBtn.addEventListener("click",
         function () {
-            // console.log(resRecallBtn);
-            
-            
             modalToToggle = resRecallModal;
             toggleModal(resRecallBtn);
             modalToToggle = resMoreInfoModal;
@@ -146,32 +153,20 @@ const resBackRecallBtn = document.querySelector('.btnBack');
 if (resBackRecallBtn) {
     resBackRecallBtn.addEventListener("click",
         function () {
-            // console.log(resRecallBtn);
-            console.log("resBackRecallBtn");
-            
             modalToToggle = resMoreInfoModal;
             
             toggleModal(resRecallBtn);
             modalToToggle = resRecallModal;
             closeModal(resRecallBtn);
-            // resMoreInfoModal.remove("show");
         }
     );
 }
 const modelCloseBtn = document.querySelector('.modelbtnClose');
 if (modelCloseBtn) {
     modelCloseBtn.addEventListener("click",
-        function () {
-            console.log("CloseBtn Called");
-            
-            
+        function () {         
             modalToToggle = resMoreInfoModal;
             closeModal(resRecallBtn);
-            
-            // toggleModal(resRecallBtn);
-            // modalToToggle = resRecallModal;
-            // closeModal(resRecallBtn);
-            // resMoreInfoModal.remove("show");
         }
     );
 }
@@ -364,8 +359,7 @@ btnCloseList.forEach((btn) => {
 function transferIDToModal(btn){
     let recordID = btn.getAttribute("data-id")      // get id from the clicked btn of the list
     const proceedBtn = modalToToggle.querySelector('.proceedBtn');  // get the proceed btn of the modal
-    //  console.log(modalToToggle);
-    proceedBtn.setAttribute('data-id', recordID);  // assign id as a data attribute to the proceed btn
+    if(proceedBtn){proceedBtn.setAttribute('data-id', recordID);}   // assign id as a data attribute to the proceed btn
 }
 
 
@@ -374,8 +368,7 @@ function toggleModal(btn) {
     // console.log('toggle model')
  
     if(btn){
-    transferIDToModal(btn);
-    
+        transferIDToModal(btn);
     }
 
     modalToToggle.classList.add("show");

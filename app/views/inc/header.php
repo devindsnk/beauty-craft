@@ -1,4 +1,6 @@
 <?php
+$userID  = Session::getUser("id");
+$userImg = Session::getUser("img");
 $username = Session::getUser("name");
 $userTypeNo = Session::getUser("type");
 $userTypeText = Session::getUser("typeText");

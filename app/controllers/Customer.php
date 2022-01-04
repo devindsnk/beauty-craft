@@ -47,8 +47,8 @@ class Customer extends Controller
             if (empty($data['mobileNo_error']))
             {
                // Checking if already registered
-               $isUserExists = $this->userModel->checkUserExists($data['mobileNo']);
-               // Handle already registered but inactive customers properly
+               $isUserExists = $this->userModel->checkAlreadyRegistered($data['mobileNo']);
+
                if ($isUserExists)
                {
                   $data['mobileNo_error'] = "Number is already registered";
@@ -182,11 +182,13 @@ class Customer extends Controller
       Session::validateSession([6]);
       $this->view('customer/cust_myReservation');
    }
-   public function remCustomer($cusID)
+   public function remCustomer($cusID, $mobileNo, $rescount)
    {
       // die('success');
       // echo ($cusID);
-      $this->customerModel->removeCustomerDetails($cusID);
+
+      $this->customerModel->removeCustomerDetails($cusID, $mobileNo, $rescount);
+      Toast::setToast(1, "Customer Removed Successfully!", "");
       redirect('OwnDashboard/customers');
    }
 
@@ -198,11 +200,23 @@ class Customer extends Controller
 
    public function cusDetailView($cusID)
    {
+
       $customerDetails = $this->customerModel->getCustomerDetailsByCusID($cusID);
-      $CompletedReservationCount = $this->customerModel->getCompletedReservationCountByCusID($cusID);
+      $AllReservationCount = $this->customerModel->getAllReservationCountByCusID($cusID);
       $CancelledReservationCount = $this->customerModel->getCancelledReservationCountByCusID($cusID);
-      $ViewCustomerArray = ['cusDetails' => $customerDetails, 'completedResCount' => $CompletedReservationCount, 'cancelledResCount' => $CancelledReservationCount];
+      $ViewCustomerArray = ['cusDetails' => $customerDetails, 'allResCount' => $AllReservationCount, 'cancelledResCount' => $CancelledReservationCount];
 
       $this->view('common/customerView', $ViewCustomerArray);
+   }
+
+   public function getReservtaionCountByCustomerID($cusID)
+   {
+      // echo $date;
+      //  die('success');
+      $result = $this->customerModel->getUpcomingReservationCountByCusID($cusID);
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($result));
+      //  redirect('OwnDashboard/closeSalon');
+      // $this->view('owner/own_closeSalon');
    }
 }
