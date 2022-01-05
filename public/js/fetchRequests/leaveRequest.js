@@ -13,15 +13,15 @@ const editLeaveType = document.querySelector(".editleavetype");
 const editLeaveError = document.querySelector(".edit-type-error");
 const editLeaveReason = document.querySelector(".editTextArea");
 
-      console.log(editLeaveType);
-   console.log(editLeaveError);
+      console.log(leaveRequestSelectedDate);
+   // console.log(editLeaveError);
 
 dropdown.disabled=true;
 // console.log(dropdown);
 
 leaveRequestSelectedDate.addEventListener('change',
    function () {
-   // console.log(leaveRequestSelectedDate.value);
+   
             dropdown.disabled=true;
          dropdown.options[0].selected = true;
          dateError.innerHTML =  '';

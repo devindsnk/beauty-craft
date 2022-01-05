@@ -23,17 +23,9 @@ class SysAdminDashboard extends Controller
    }
    public function systemLogRecordstore()
    {
-   // .then(response => response.json())
-   // .then(msg => {
-   //     console.log(msg);
-   //     console.log('msg');
-
-   //   dateError.innerHTML =  msg;
-
-
-   // });
-   header('Content-Type: application/json; charset=utf-8');
-   print_r(json_encode('fetch called');
-
+      // System log
+      $content = Systemlog::downloadSysLog();
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($content));
    }
 }

@@ -104,6 +104,7 @@ class Systemlog
 
         $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
         file_put_contents('logfile/syslog.txt', $contents);
+        return $contents;
     }
     public static function customLog($log)
     {
