@@ -2,10 +2,18 @@
 
 class Systemlog
 {
-    private static function getUserData()
+    private static function getUserData($name = null, $mobileNo = null)
     {
+        if ($name == null)
+        {
+            $name = Session::getUser("name");
+        }
+        if ($mobileNo == null)
+        {
+            $mobileNo = Session::getUser("mobileNo");
+        }
 
-        $name = Session::getUser("name");
+
         // $name = 'Ravindu Madhubhashana';
         $length = strlen($name);
 
@@ -19,7 +27,7 @@ class Systemlog
             $firstname = str_replace($lastname, '', $name);
             $userName = str_pad($firstname, 22, ' ', STR_PAD_RIGHT);
         }
-        return Session::getUser("mobileNo") . "\t" . $userName;
+        return $mobileNo . "\t" . $userName;
     }
 
     private static function getLogData()
@@ -62,18 +70,19 @@ class Systemlog
         $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
         file_put_contents('logfile/syslog.txt', $contents);
     }
-    public static function resetPassword()
+    public static function resetPassword($mobileNo, $name)
     {
+
         $log = 'reset password';
         $contents = file_get_contents('logfile/syslog.txt');
 
-        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
+        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData($mobileNo, $name) . "\t$log";
         file_put_contents('logfile/syslog.txt', $contents);
     }
 
-    public static function signup()
+    public static function createCustomerAccount()
     {
-        $log = 'signup';
+        $log = 'create customer account';
         $contents = file_get_contents('logfile/syslog.txt');
 
         $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
@@ -95,6 +104,7 @@ class Systemlog
 
         $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
         file_put_contents('logfile/syslog.txt', $contents);
+        return $contents;
     }
     public static function customLog($log)
     {
