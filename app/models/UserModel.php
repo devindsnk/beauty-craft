@@ -26,11 +26,12 @@ class UserModel extends Model
       return true;
    }
 
-   public function checkAlreadyRegistered($mobileNo)  // Check already registered and not removed
+   public function checkAlreadyRegistered($mobileNo)  // Check already registered AND not removed
    {
       $custExists = $this->checkCustExists($mobileNo);
+      var_dump($custExists);
       $staffExists = $this->checkStaffExists($mobileNo);
-
+      var_dump($staffExists);
       return ($custExists || $staffExists);
    }
 
@@ -38,8 +39,8 @@ class UserModel extends Model
    {
       $SQLstatement = "SELECT * FROM customers WHERE mobileNo = :mobileNo AND status = 1;";
       $results = $this->customQuery($SQLstatement, [":mobileNo" => $mobileNo]);
-
-      if (is_null($results))
+      var_dump($results);
+      if (empty($results))
          return false;
       else
          return true;
@@ -50,7 +51,7 @@ class UserModel extends Model
       $SQLstatement = "SELECT * FROM staff WHERE mobileNo = :mobileNo AND status IN (1,2);";
       $results = $this->customQuery($SQLstatement, [":mobileNo" => $mobileNo]);
 
-      if (is_null($results))
+      if (empty($results))
          return false;
       else
          return true;

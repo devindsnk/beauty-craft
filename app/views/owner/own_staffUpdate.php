@@ -11,8 +11,9 @@
             <h1 class="header-topic">Update Staff Member</h1>
         </div>
         <div class="header-right verticalCenter">
-            <a href="<?php echo URLROOT ?>/Staff/viewAllStaffMembers" class="top-right-closeBtn"><i
-                    class="fal fa-times fa-2x "></i></a>
+            <span class="top-right-closeBtnSpecial">
+                <i class=" fal fa-times fa-2x "></i>
+            </span>
         </div>
     </header>
     <div class="content contentNewRes">
@@ -39,13 +40,11 @@
                             <!------------------ maingrid1 start --------------------------------------------------------->
                             <div class="ownAddstaffMaingrid1">
 
-                            <div class="ownAddstaffFormGroupImage">
+                                <div class="ownAddstaffFormGroupImage">
                                     <div class="ownAddstaffBasicinfoFilesubBtn">
-                                        <label for="ownAddstaffBasicinfoImagesub"
-                                            class="ownAddstaffBasicinfoImagewrapper">
-                                            <input type="file" name="staffimage" id="ownAddstaffBasicinfoImagesub" >
-                                            <img src="<?php echo URLROOT ?>/public/icons/add_graph_report_64px.png"
-                                                class="ownAddstaffBasicinfoIcon"> <br>
+                                        <label for="ownAddstaffBasicinfoImagesub" class="ownAddstaffBasicinfoImagewrapper">
+                                            <input type="file" name="staffimage" id="ownAddstaffBasicinfoImagesub">
+                                            <img src="<?php echo URLROOT ?>/public/icons/add_graph_report_64px.png" class="ownAddstaffBasicinfoIcon"> <br>
                                             <span class="ownAddstaffBasicinfoImagetitle">Add Image</span>
                                         </label>
                                     </div>
@@ -127,9 +126,9 @@
                                     <span class="error"><?php echo $data['address_error']; ?></span>
                                 </div>
                             </div>
-                            <!------------------ maingrid3 ends ----------------------------------------------------------> 
+                            <!------------------ maingrid3 ends ---------------------------------------------------------->
                             <!------------------ maingrid4 start ---------------------------------------------------------->
-                            <div class="ownAddstaffMaingrid4"> 
+                            <div class="ownAddstaffMaingrid4">
                                 <div class="ownAddstaffFormGroupTP">
                                     <label class="ownAddstaffLabels">Contact Number</label>
                                     <input type="text" name="mobileNo" id="contactnum"

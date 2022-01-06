@@ -8,7 +8,7 @@
 			<h1 class="header-topic">New Service</h1>
 		</div>
 		<div class="header-right verticalCenter">
-			<span class="top-right-closeBtn" onclick="history.back()">
+			<span class="top-right-closeBtnSpecial">
 				<i class=" fal fa-times fa-2x "></i>
 			</span>
 		</div>

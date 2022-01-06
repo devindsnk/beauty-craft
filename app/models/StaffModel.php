@@ -90,7 +90,7 @@ class StaffModel extends Model
     $this->update('bankdetails', ['staffID' => $staffID, 'accountNo' => $data['staffAccNum'], 'bankName' => $data['staffAccBank'], 'holdersName' => $data['staffAccHold'], 'branchName' => $data['staffAccBranch']], ['staffID' => '$staffID']);
    }
 
-   public function removeStaff($staffID,$staffMobileNo)
+   public function removeStaff($staffID, $staffMobileNo)
    {
       print_r($staffMobileNo);
       // die("RemoveStaffController");
@@ -109,13 +109,13 @@ class StaffModel extends Model
 
    public function getReservtaionDetailsByStaffID($staffID)
    {
-      
+
       $SQLstatement = "SELECT * FROM reservations WHERE staffID = :staffID AND status IN (1,2);";
       $results = $this->customQuery($SQLstatement, [":staffID" => $staffID]);
       return $results;
    }
    public function getServiceslistByStaffID($staffID)
-    
+
    {
       $results = $this->customQuery(
          "SELECT services.type,services.name
@@ -128,12 +128,12 @@ class StaffModel extends Model
       return $results;
    }
    // public function getAllActiveDisableStaffNICDetails()
-    
+
    // {
    //    $results =  $this->getResultSet('staff', '*', ['status' => 1 ,'status'=> 2]);
    //    return $results;
    // }
-   
+
 
    // FOR MANAGER OVERVIEW
    public function getReceptionistCount()
@@ -176,7 +176,6 @@ class StaffModel extends Model
       );
       return $results;
    }
-
 
    /////////////////////////////////
 }

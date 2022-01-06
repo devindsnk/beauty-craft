@@ -139,9 +139,6 @@ const resRecallBtn = document.querySelector('.btnResRecall');
 if (resRecallBtn) {
     resRecallBtn.addEventListener("click",
         function () {
-            // console.log(resRecallBtn);
-            
-            
             modalToToggle = resRecallModal;
             toggleModal(resRecallBtn);
             modalToToggle = resMoreInfoModal;
@@ -152,36 +149,23 @@ if (resRecallBtn) {
 }
 // Reservation Recall BackBtn  Modal Section
 const resBackRecallBtn = document.querySelector('.btnBack');
-console.log(resBackRecallBtn);
 if (resBackRecallBtn) {
     resBackRecallBtn.addEventListener("click",
         function () {
-            // console.log(resRecallBtn);
-            console.log("resBackRecallBtn");
-            
             modalToToggle = resMoreInfoModal;
             
             toggleModal(resRecallBtn);
             modalToToggle = resRecallModal;
             closeModal(resRecallBtn);
-            // resMoreInfoModal.remove("show");
         }
     );
 }
 const modelCloseBtn = document.querySelector('.modelbtnClose');
 if (modelCloseBtn) {
     modelCloseBtn.addEventListener("click",
-        function () {
-            console.log("CloseBtn Called");
-            
-            
+        function () {         
             modalToToggle = resMoreInfoModal;
             closeModal(resRecallBtn);
-            
-            // toggleModal(resRecallBtn);
-            // modalToToggle = resRecallModal;
-            // closeModal(resRecallBtn);
-            // resMoreInfoModal.remove("show");
         }
     );
 }
@@ -379,7 +363,7 @@ function transferIDToModal(btn){
 // Common section for all modal toggle operations
 function toggleModal(btn) {
     if(btn){
-    transferIDToModal(btn);
+        transferIDToModal(btn);
     }
 
     modalToToggle.classList.add("show");

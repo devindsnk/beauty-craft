@@ -4,6 +4,8 @@
  * Contains few functions required to format date and time
  */
 
+date_default_timezone_set("Asia/Colombo");
+
 class DateTimeExtended
 {
    public static function getCurrentTimeStamp()

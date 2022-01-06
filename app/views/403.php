@@ -8,7 +8,7 @@
    <link rel="shortcut icon" type="image/x-icon" href="<?php echo URLROOT ?>/icons/Logo1.ico">
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/style.css" />
    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-   <title>403</title>
+   <title>403 Error</title>
 </head>
 
 <body class="error404">
