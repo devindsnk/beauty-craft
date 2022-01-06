@@ -36,7 +36,7 @@
                         <!------------------------------ Basic Info Starts------------------------------------------------------------------------------->
 
                         <div class="ownAddstaffBasicinfo">
-                            <h3 class="ownAddstaffBasicinfoSubHead">Basic Info</h3> <br>
+                            <h3 clas s="ownAddstaffBasicinfoSubHead">Basic Info</h3> <br>
                             <!------------------ maingrid1 start --------------------------------------------------------->
                             <div class="ownAddstaffMaingrid1">
 
