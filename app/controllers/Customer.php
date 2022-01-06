@@ -127,9 +127,10 @@ class Customer extends Controller
                   $this->customerModel->registerCustomer($data);
                   $this->OTPModel->removeOTP($data['mobileNo'], 1);
 
-                  //system log
-                  $log = "user registered into the system";
-                  // logger($data['mobileNo'], $log);
+                  //System log
+                  Systemlog::createCustomerAccount();
+
+
                   SMS::sendCustomerRegSMS($data['mobileNo']);
                   $this->userModel->commit();
 

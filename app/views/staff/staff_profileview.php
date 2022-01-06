@@ -19,7 +19,7 @@
 
                 <div class="basicinfo">
                     <div class="item1">
-                        <img class="item1img" src="<?php echo URLROOT ?>/public/imgs/person1.jpg"></img>
+                        <img class="item1img" src="<?php echo URLROOT ?>/public/imgs/staffImgs/<?php echo $userImg; ?>"></img>
                     </div>
                     <div class="item2">
                         <span class="item2name"><?php echo $data['profileData'][0]->fName . " " . $data['profileData'][0]->lName; ?></span>
