@@ -18,7 +18,6 @@
    }
    ?>
 
-
    <?php
    $title = "Staff Members";
    require APPROOT . "/views/inc/headerBar.php"
@@ -152,8 +151,7 @@
                         <?php if (Session::getUser('typeText') == "Owner" && $staffD->status != 0 ) : ?>
                            <a href="<?php echo URLROOT ?>/staff/updateStaff/<?php echo $staffD->staffID ?>"><i class="ci ci-edit table-icon img-gap"></i></a>
                            <a href="#" class="removeStaffAnchor"><i data-staffmobileno = "<?php echo $staffD->mobileNo; ?>" data-staffid = "<?php echo $staffD->staffID; ?>" data-staffstatus= "<?php echo $staffD->status; ?>" data-staffname = "<?php echo $staffD->fName; ?> <?php echo $staffD->lName; ?>" 
-                           data-stafftype =
-                           "<?php if ($staffD->staffType == 3)
+                           data-stafftype ="<?php if ($staffD->staffType == 3)
                              {
                               echo 'Manager';
                              }

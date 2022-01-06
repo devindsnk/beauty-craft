@@ -12,10 +12,10 @@ class LeaveModel extends Model
    public function getLeaveLimit()
    {
 
-      $results = $this->customQuery("SELECT generalLeave FROM leavelimits WHERE changedDate =(SELECT MAX(changedDate)FROM leavelimits)", []);
-      //  print_r($results[0]->{'leaveLimit'}); 
+      $results = $this->customQuery("SELECT generalLeave FROM leavelimits WHERE changedDate =(SELECT MAX(changedDate)FROM leavelimits)", []);  
+      //  print_r($results[0]->{'leaveLimit'});  
       //  die("Leave limit");  
-      return $results[0]->{'generalLeave'};
+      return $results[0]->{'generalLeave'}; 
    }
 
    //   leave Approved=1 pending=2 rejected=0 
@@ -275,4 +275,29 @@ class LeaveModel extends Model
       return $results;
    }
    // FOR MANAGER OVERVIEW
+
+   //for owner salaries
+   //to get casual leave count of a receptionist/servise provider for a relavant month 
+   public function casualLeaveByStaffID($staffID,$staffType)
+   {
+      $time=strtotime($dateValue);
+      $month=date("F",$time);
+      $year=date("Y",$time);
+
+      $results = $this->getResultSet('generalleaves','*', ['staffID' => $staffID ,'status'=> 4, 'leaveType' => 'casual']);
+      print_r($results);
+      return $results;
+   }
+
+   public function managerCasualLeaveByStaffID($staffID,$staffType)
+   {
+      // $time=strtotime($dateValue);
+      // $month=date("F",$time);
+      // $year=date("Y",$time);
+
+      $results = $this->getResultSet('generalleaves','*', ['staffID' => $staffID ,'status'=> 4, 'leaveType' => 'casual']);
+      print_r($results);
+      return $results;
+   }
+   //for owner salaries
 }

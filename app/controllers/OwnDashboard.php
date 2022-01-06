@@ -170,6 +170,7 @@ class OwnDashboard extends Controller
             'rate' =>  trim($_POST['rate']),
             'rate_error' => '',
 
+            //is this neeeded to dd here 
             'leaveLimits' => $result1[0],
             'salaryRates' => $result2[0],
             'commissionRates' => $result3[0],
@@ -181,27 +182,45 @@ class OwnDashboard extends Controller
          // die("error");
             if (empty($data['generalLeave']))
             {
-               $data['generalLeave_error'] = "Please insert a image";
+               $data['generalLeave_error'] = "Please insert a value";
             }
             // Validating fname
             if (empty($data['medicalLeave']))  
            {
-            $data['medicalLeave_error'] = "Please enter First Name"; 
+            $data['medicalLeave_error'] =  "Please insert a value";
            }
    
            // Validating lname
            if (empty($data['managerGeneralLeave'])) 
            {
-            $data['managerGeneralLeave_error'] = "Please enter Last Name";
+            $data['managerGeneralLeave_error'] = "Please insert a value";
            } 
+           if (empty($data['managerGeneralLeave'])) 
+           { 
+            $data['managerMedicalLeave_error'] = "Please insert a value";
+           } 
+           if (empty($data['managerMedicalLeave'])) 
+           {
+            $data['managerDailyLeave_error'] = "Please insert a value";
+           } 
+           if (empty($data['managerDailyLeave'])) 
+           {
+            $data['managerDailyLeave_error'] = "Please insert a value";
+           } 
+
+           if (empty($data['evidenceLimit'])) 
+           {
+            $data['evidenceLimit_error'] = "Please insert a value";
+           } 
+
            if (
-               empty($data['generalLeave_error']) && empty($data['medicalLeave_error']) && empty($data['managerGeneralLeave_error']))
+               empty($data['generalLeave_error']) && empty($data['medicalLeave_error']) && empty($data['managerGeneralLeave_error']) && empty($data['managerMedicalLeave_error']) && empty($data['managerDailyLeave_error']) && empty($data['evidenceLimit_error']))
              {
    
                // print_r($data);
                $this->ratesModel->updateLeaveLimitDeatils($data);
                $this->view('owner/own_rates', $data);
-            }
+             }
             else
             {
                $this->view('owner/own_rates', $data); 
@@ -213,18 +232,18 @@ class OwnDashboard extends Controller
            
             if (empty($data['managerSalaryRate']))
             {
-               $data['managerSalaryRate_error'] = "Please insert a image";
+               $data['managerSalaryRate_error'] =  "Please insert a value";
             }
             // Validating fname
             if (empty($data['serviceProviderSalaryRate']))
            {
-            $data['serviceProviderSalaryRate_error'] = "Please enter First Name";
+            $data['serviceProviderSalaryRate_error'] =  "Please insert a value";
            }
    
            // Validating lname
            if (empty($data['receptionistSalaryRate']))
            {
-            $data['receptionistSalaryRate_error'] = "Please enter Last Name";
+            $data['receptionistSalaryRate_error'] =  "Please insert a value";
            }
            if (empty($data['managerSalaryRate_error']) && empty($data['serviceProviderSalaryRate_error']) && empty($data['receptionistSalaryRate_error']))
           {
@@ -286,13 +305,15 @@ class OwnDashboard extends Controller
       else
       {
          // die('success');
+         print_r($result1[0]->generalLeave);
+         // die('success');
          $data = [
-            'generalLeave' =>  '',
-            'medicalLeave' => '',
-            'managerGeneralLeave' =>  '',
-            'managerMedicalLeave' =>  '',
-            'managerDailyLeave' =>  '',
-            'evidenceLimit' =>  '',
+            'generalLeave' => $result1[0]->generalLeave,
+            'medicalLeave' => $result1[0]->medicalLeave,
+            'managerGeneralLeave' =>  $result1[0]->managerGeneralLeave,
+            'managerMedicalLeave' =>  $result1[0]->managerMedicalLeave,
+            'managerDailyLeave' =>  $result1[0]->managerDailyLeave,
+            'evidenceLimit' =>  $result1[0]->evidenceLimit,
             'generalLeave_error' => '', 
             'medicalLeave_error' => '', 
             'managerGeneralLeave_error' => '',
@@ -301,24 +322,24 @@ class OwnDashboard extends Controller
             'evidenceLimit_error' => '',
 
 
-            'managerSalaryRate' => '',
-            'serviceProviderSalaryRate' => '',
-            'receptionistSalaryRate' => '',
+            'managerSalaryRate' => $result2[0]->managerSalaryRate,
+            'serviceProviderSalaryRate' => $result2[0]->serviceProviderSalaryRate,
+            'receptionistSalaryRate' => $result2[0]->receptionistSalaryRate,
             'managerSalaryRate_error' => '',
             'serviceProviderSalaryRate_error' => '',
             'receptionistSalaryRate_error' => '',
 
-            'rate' => '',
+            'rate' => $result3[0]->rate,
             'rate_error' => '',
 
-            'minimumNumber' => '',
+            'minimumNumber' => $result4[0]->minimumNumber,
             'minimumNumber_error' => '',
 
             
-            'leaveLimits' => $result1[0],
-            'salaryRates' => $result2[0],
-            'commissionRates' => $result3[0],
-            'minimumNoOfManagers' => $result4[0],
+            // 'leaveLimits' => $result1[0],
+            // 'salaryRates' => $result2[0],
+            // 'commissionRates' => $result3[0],
+            // 'minimumNoOfManagers' => $result4[0],
          ];
          // print_r($data);
          $this->view('owner/own_rates', $data);

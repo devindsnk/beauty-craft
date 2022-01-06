@@ -53,52 +53,16 @@ class ResourceModel extends Model
 
       // if current resource id not equal to new resource id
       elseif($CurrentResourceID != $NewResourceID){
-         
-      // die('errorUpdatePurchaseDetails else if called');
-       
-         if ($currentQuantityCurrentResourceID->quantity == 1 && $currentQuantityNewResourceID->quantity  == 0) {
          // die("currentQuantityCurrentResourceID = 1 and currentQuantityNewResourceID = 0");
          // current resource id eke status eka change wenna one not available widiyt
          // new res id eke status eka availble widiyt change wenna one 
          // details tika update wenn one
          // resource table eke id dekatama adalawa quantity deka change wenna one (CurrentResourceID eke table eke quantity eka 0 and NewResourceID eke quantity eka ekakin wadi wenna one )
-         $this->update('resources', ['status' => 0,'quantity' => $UpdatedQuantityForCurrentResourceID], ['resourceID' => $CurrentResourceID]);
-         $this->update('resources', ['status' => 1,'quantity' => $UpdatedQuantityForNewResourceID], ['resourceID' => $NewResourceID]);
+         $this->update('resources', ['quantity' => $UpdatedQuantityForCurrentResourceID], ['resourceID' => $CurrentResourceID]);
+         $this->update('resources', ['quantity' => $UpdatedQuantityForNewResourceID], ['resourceID' => $NewResourceID]);
          $this->update('purchaserecords', ['resourceID'=> $NewResourceID ,'manufacturer'=> $data['manufacturer'] , 'modelNo'=> $data['modelNo'], 'warrantyExpDate'=> $data['warrantyExpDate'], 'price'=> $data['price'] , 'purchaseDate'=> $data['purchaseDate']],['purchaseID' => $purchaseID] );
-      }
-
-
-         elseif ($currentQuantityCurrentResourceID->quantity  == 1 && $currentQuantityNewResourceID->quantity  > 0) {
-         // die("currentQuantityCurrentResourceID = 1 and currentQuantityNewResourceID > 0");
-          // current resource id eke status eka change wenna one not available widiyt
-          // details tika update wenn one
-          // quantity deka update krnna one 
-          $this->update('resources', ['status' => 0,'quantity' => $UpdatedQuantityForCurrentResourceID], ['resourceID' => $CurrentResourceID]);
-          $this->update('resources', ['quantity' => $UpdatedQuantityForNewResourceID], ['resourceID' => $NewResourceID]);
-          $this->update('purchaserecords', ['resourceID'=> $NewResourceID ,'manufacturer'=> $data['manufacturer'] , 'modelNo'=> $data['modelNo'], 'warrantyExpDate'=> $data['warrantyExpDate'], 'price'=> $data['price'] , 'purchaseDate'=> $data['purchaseDate']],['purchaseID' => $purchaseID] );
-         }
-         elseif ($currentQuantityCurrentResourceID->quantity  > 1 && $currentQuantityNewResourceID->quantity  == 0) {
-            // die("currentQuantityCurrentResourceID > 0 and currentQuantityNewResourceID = 0");
-             // current resource id eke status eka change wenna one not available widiyt
-             // details tika update wenn one
-             // quantity deka update krnna one
-             $this->update('resources', ['quantity' => $UpdatedQuantityForCurrentResourceID], ['resourceID' => $CurrentResourceID]);
-             $this->update('resources', ['status' => 1,'quantity' => $UpdatedQuantityForNewResourceID], ['resourceID' => $NewResourceID]);
-             $this->update('purchaserecords', ['resourceID'=> $NewResourceID ,'manufacturer'=> $data['manufacturer'] , 'modelNo'=> $data['modelNo'], 'warrantyExpDate'=> $data['warrantyExpDate'], 'price'=> $data['price'] , 'purchaseDate'=> $data['purchaseDate']],['purchaseID' => $purchaseID]);
-            }
-
-
-         elseif ($currentQuantityCurrentResourceID->quantity  > 1 && $currentQuantityNewResourceID->quantity  > 0) {
-            // die("currentQuantityCurrentResourceID > 0 and currentQuantityNewResourceID > 0");
-            // details tika update wenn one
-            // quantity deka update krnna one
-            $this->update('resources', ['quantity' => $UpdatedQuantityForCurrentResourceID], ['resourceID' => $CurrentResourceID]);
-            $this->update('resources', ['quantity' => $UpdatedQuantityForNewResourceID], ['resourceID' => $NewResourceID]);
-            $this->update('purchaserecords', ['resourceID'=> $NewResourceID ,'manufacturer'=> $data['manufacturer'] , 'modelNo'=> $data['modelNo'], 'warrantyExpDate'=> $data['warrantyExpDate'], 'price'=> $data['price'] , 'purchaseDate'=> $data['purchaseDate']],['purchaseID' => $purchaseID]);
-         }
-
-      }
-     
+      }    
+      
       
    }  
 
@@ -118,19 +82,9 @@ class ResourceModel extends Model
 
       // Calcultate the total resource count by adding one for resources count
       $totalQuantity= (int)$data['quantity'] + $currentQuantity->quantity;
-
-       // If the previous resource count 0 then it'll be updating the status as active resource type as well as the quantity
-      if ($currentQuantity->quantity == 0){
-        
-         $result1= $this->update('resources', ['status' => 1,'quantity' => $totalQuantity], ['resourceID' => $ResourceID]);
+  
+      $result1= $this->update('resources', ['quantity' => $totalQuantity], ['resourceID' => $ResourceID]);
          
-      }
-
-      // After adding the resource if the resource count greater than 0 then it'll be only updating the quantity
-      elseif($currentQuantity->quantity > 0) {
-         
-      $result2= $this->update('resources', ['quantity' => $totalQuantity], ['resourceID' => $ResourceID]);
-      }
    } 
 
    public function updateResourceQuantityAfterRemoveResources($ResourceID)
@@ -138,18 +92,10 @@ class ResourceModel extends Model
 
       // Get the current total resource count from resources table
       $currentQuantity = $this->getSingle('resources', ['quantity'], ['resourceID' => $ResourceID]);
-      
+
       // Calcultate the resource count by redusing the removed resource
       $totalQuantity=  (int)$currentQuantity->quantity - 1 ;
-
-      // After removing the resource if the resource count become 0 then it'll be updating the status as removed resource type as well as the quantity
-      if ($totalQuantity == 0){
-         $result1= $this->update('resources', ['status' => 0 ,'quantity' => $totalQuantity], ['resourceID' => $ResourceID]);
-      }
-      // After removing the resource if the resource count greater than 0 then it'll be only updating the quantity
-      elseif($totalQuantity > 0) {
       $result2= $this->update('resources', ['quantity' => $totalQuantity], ['resourceID' => $ResourceID]);
-      }
 
    } 
 

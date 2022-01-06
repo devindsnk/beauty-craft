@@ -22,37 +22,39 @@ class StaffModel extends Model
             ':mobileNo' =>  $data['staffMobileNo'],
          ]
       );
-      $staffID = $result[0]->staffID;
-      $results =  $this->insert('bankdetails', ['staffID' => $staffID, 'accountNo' => $data['staffAccNum'], 'bankName' => $data['staffAccBank'], 'holdersName' => $data['staffAccHold'], 'branchName' => $data['staffAccBranch']]);
-      var_dump($results);
+      $staffID = $result[0]->staffID; 
+      $results =  $this->insert('bankdetails', ['staffID' => $staffID, 'accountNo' => $data['staffAccNum'], 'bankName' => $data['staffAccBank'], 'holdersName' => $data['staffAccHold'], 'branchName' => $data['staffAccBranch']]); 
+      var_dump($results); 
    }
    // get one staff details to the table
    public function  getAllStaffDetails()
    {
-
-      $result = $this->getResultSet('staff', '*', null);
-      // $SQLstatement = "SELECT * FROM staff WHERE status IN (3,4,5);";
-      // $results = $this->customQuery("SELECT * FROM staff WHERE status IN (3,4,5)");
+      // $result = $this->getResultSet('staff', '*', null); 
+      // $SQLstatement = "SELECT * FROM staff WHERE status IN (3,4);"; 
+      $result = $this->customQuery("SELECT * FROM staff WHERE staffType IN (3,4,5)"); 
+      // $result = $this->customQuery("SELECT * FROM staff WHERE staffID = 3 OR staffID = 4 OR staffID = 5"); 
+      // print_r($result);
+      // die("error");
 
       return $result;
    }
 
    // get one staff details to the view 
-   public function getStaffDetailsWithBankDetailsByStaffID($staffID)
-   {
+   public function getStaffDetailsWithBankDetailsByStaffID($staffID) 
+   { 
 
-      $result = $this->customQuery(
+      $result = $this->customQuery( 
          "SELECT * FROM bankdetails 
                         INNER JOIN staff 
                         ON staff.staffID = bankdetails.staffID 
-                        WHERE bankdetails.staffID =:staffID",
-         [
-            ':staffID' => $staffID
-         ]
-      );
-      // var_dump($result);
-      return $result;
-   }
+                        WHERE bankdetails.staffID =:staffID", 
+         [ 
+            ':staffID' => $staffID 
+         ] 
+      ); 
+      // var_dump($result); 
+      return $result; 
+   } 
 
 
    public function getStaffDetailsByStaffID($staffID)

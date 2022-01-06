@@ -347,8 +347,8 @@ class Staff extends Controller
             'bankdetails' => $bankdetailsBystaffID[0]
          ];
 
-         print_r($data);
-         die();
+         // print_r($data);
+         // die();
          // $data['staffHomeAddTyped'] = $data['staffHomeAdd'];
 
          if (($data['staffimagePath'] == " "))
@@ -437,7 +437,9 @@ class Staff extends Controller
 
          for ($i = 0 ; $i< $CurrentStaffCount; $i++){
                if($staffD[$i]->mobileNo == $data['mobileNo']){
-                  $data['mobileNo_error'] = "The mobile number you entered is already exist.";
+                  if($staffD[$i]->mobileNo == $data['nic']){            
+                      $data['mobileNo_error'] = "The mobile number you entered is already exist.";
+                  }
                }
          }
 
@@ -529,21 +531,21 @@ class Staff extends Controller
       {
 
          $data = [
-            'staffimagePath' => '',
-            'fName' => '',
-            'lName' => '',
-            'gender' => '',
-            'nic' => '',
-            'dob' => '',
+            'staffimagePath' => $staffdetailsBystaffID[0]->imgPath,
+            'fName' =>  $staffdetailsBystaffID[0]->fName,
+            'lName' =>  $staffdetailsBystaffID[0]->lName,
+            'gender' =>  $staffdetailsBystaffID[0]->gender,
+            'nic' =>  $staffdetailsBystaffID[0]->nic,
+            'dob' =>  $staffdetailsBystaffID[0]->dob,
             // 'staffType' => '',
-            'address' => '',
-            'mobileNo' => '',
-            'email' => '',
-            'accountNo' => '',
-            'holdersName' => '',
-            'bankName' => '',
-            'branchName' => '',
-            'status' => '',
+            'address' =>  $staffdetailsBystaffID[0]->address,
+            'mobileNo' =>  $staffdetailsBystaffID[0]->mobileNo,
+            'email' =>  $staffdetailsBystaffID[0]->email,
+            'accountNo' => $bankdetailsBystaffID[0]->accountNo,
+            'holdersName' => $bankdetailsBystaffID[0]->holdersName,
+            'bankName' => $bankdetailsBystaffID[0]->bankName,
+            'branchName' => $bankdetailsBystaffID[0]->branchName,
+            'status' =>  $staffdetailsBystaffID[0]->status,
             'staffimagePath_error' => '',
             'fName_error' => '',
             'lName_error' => '',
@@ -557,24 +559,12 @@ class Staff extends Controller
             'holdersName_error' => '',
             'bankName_error' => '',
             'branchName_error' => '',
-            // 'status' => '',
-            // 'staffHomeAddTyped' => '',
-            'staffdetails' => $staffdetailsBystaffID[0],
-            'bankdetails' => $bankdetailsBystaffID[0]
+            'staffID' => $staffID,
 
          ];
          $this->view('owner/own_staffUpdate', $data);
       }
    }
-
-
-
-
-
-
-
-
-
 
 
 

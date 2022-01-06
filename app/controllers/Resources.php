@@ -4,13 +4,20 @@ class  Resources extends Controller
    public function __construct()
    {
       $this->resourceModel = $this->model('ResourceModel');
+      $this->serviceModel = $this->model('ServiceModel');
+   }
+
+   
+   public function viewAllResources(){
+      $resourceDetails = $this->serviceModel->getResourceDetails();
+      $this->view('common/allResourcesTable', $resourceDetails);   
    }
 
    public function viewResources($resourceID){
    $PurchaseDetails = $this->resourceModel->getPurchaseDetailsByResourceID($resourceID);
     $this->view('common/resourcesViewMore', $PurchaseDetails);
-
    }
+
    public function addResource(){
    $resourceTypes = $this->resourceModel->getAllRsourceTypeDetails();
    // print_r($resourceTypes);
@@ -25,9 +32,9 @@ class  Resources extends Controller
 
    if ($_SERVER['REQUEST_METHOD'] == 'POST' )
    {
-      $date_now = date("Y-m-d");
-         $data = [
-            'manufacturer' => trim($_POST['manufacturer']),
+      $date_now = date("Y-m-d"); 
+         $data = [ 
+            'manufacturer' => trim($_POST['manufacturer']), 
             'modelNo' => trim($_POST['modelNo']),
             'name' => trim($_POST['name']),
             'nameSelected' => isset($_POST['nameSelected']) ? trim($_POST['nameSelected']) : '',
@@ -41,9 +48,9 @@ class  Resources extends Controller
             'nameSelected_error' => '',
             'warrantyExpDate_error' => '',
             'price_error' => '',
-            'quantity_error' => '',
-            'purchaseDate_error' => '',
-            'haveErrors' => 0,
+            'quantity_error' => '', 
+            'purchaseDate_error' => '', 
+            'haveErrors' => 0, 
             'resourceTypes' => $resourceTypes,
          ];
       if ($_POST['action'] == "addType")
@@ -137,7 +144,7 @@ class  Resources extends Controller
             $this->resourceModel->updateResourceQuantityAfterAddResources($data);
             $this->resourceModel->addPurchaseDetails($data);
             Toast::setToast(1, "Resources added successfully", "");
-            header('location: ' . URLROOT . '/OwnDashboard/resources');
+            header('location: ' . URLROOT . '/Resources/viewAllResources');
          } 
          else 
          {
@@ -207,72 +214,72 @@ class  Resources extends Controller
                'purchaseID' => $PurchaseID
             ];
          if ($_POST['action'] == "addType")
-         {
-            // die("addtypecalled");
-            // $this->addResourceType($data);
-            if (empty($data['name']))
-            {
-               $data['name_error'] = "Please enter a type";
-            }
-            for($i = 0; $i < $CurrentResourceTypeCount ; $i++)
-         {
-            // echo "hi";
-            $CurrentResType =  strtolower($resourceTypes[$i]->name);
-            $data1 = preg_replace('/\s+/', '', $CurrentResType);
+         { 
+            // die("addtypecalled"); 
+            // $this->addResourceType($data); 
+            if (empty($data['name'])) 
+            { 
+               $data['name_error'] = "Please enter a type"; 
+            } 
+            for($i = 0; $i < $CurrentResourceTypeCount ; $i++) 
+         { 
+            // echo "hi"; 
+            $CurrentResType =  strtolower($resourceTypes[$i]->name); 
+            $data1 = preg_replace('/\s+/', '', $CurrentResType); 
             // echo "<br>" ; 
-            $NewResType = strtolower($data['name']);
-            $data2 = preg_replace('/\s+/', '', $NewResType);
+            $NewResType = strtolower($data['name']); 
+            $data2 = preg_replace('/\s+/', '', $NewResType); 
             // echo "<br>" ; 
-            if($data1 == $data2){
-               $data['name_error'] = "Type already exists.";
-            }
+            if($data1 == $data2){ 
+               $data['name_error'] = "Type already exists."; 
+            } 
 
-         }
-            if ( empty($data['name_error']) )
+         } 
+            if ( empty($data['name_error']) ) 
             { 
              
-            //   print_r($data[]);
-            //   die();
-            //   Toast::setToast(1, "Resource type added successfully", "");
-              $this->resourceModel->addResourceType($data);
-              $data['resourceTypes'] =  $this->resourceModel->getAllRsourceTypeDetails();
-              Toast::setToast(1, "Resource type added successfully", "");
-              $this->view('owner/own_resourceUpdate', $data);
-            //   redirect('resources/updateResource',$data);
+            //   print_r($data[]); 
+            //   die(); 
+            //   Toast::setToast(1, "Resource type added successfully", ""); 
+              $this->resourceModel->addResourceType($data); 
+              $data['resourceTypes'] =  $this->resourceModel->getAllRsourceTypeDetails(); 
+              Toast::setToast(1, "Resource type added successfully", ""); 
+              $this->view('owner/own_resourceUpdate', $data); 
+            //   redirect('resources/updateResource',$data); 
            } 
            else 
            { 
-            $data['haveErrors'] = 1;
-              $this->view('owner/own_resourceUpdate', $data);
-           } 
+            $data['haveErrors'] = 1; 
+              $this->view('owner/own_resourceUpdate', $data); 
+           }  
          } 
-         else if ($_POST['action'] == "cancel")
-            {
-               $data['haveErrors'] = 0;
-               $this->view('owner/own_resourceUpdate', $data);
-               // redirect('owner/own_resourceAdd');
+         else if ($_POST['action'] == "cancel") 
+            { 
+               $data['haveErrors'] = 0; 
+               $this->view('owner/own_resourceUpdate', $data); 
+               // redirect('owner/own_resourceAdd'); 
             }
-         else if ($_POST['action'] == "addResource")
-         {
-            if (empty($data['manufacturer']))
-            {
-               $data['manufacturer_error'] = "Please enter manufacturer";
-            }
+         else if ($_POST['action'] == "addResource") 
+         { 
+            if (empty($data['manufacturer'])) 
+            { 
+               $data['manufacturer_error'] = "Please enter manufacturer"; 
+            } 
    
-            if (empty($data['modelNo']))
-            {
-               $data['modelNo_error'] = "Please enter model number";
-            }
+            if (empty($data['modelNo'])) 
+            { 
+               $data['modelNo_error'] = "Please enter model number"; 
+            } 
             
-            if (empty($data['nameSelected']) )
-            {
-               $data['nameSelected_error'] = "Please enter or select a type";
-            }
+            if (empty($data['nameSelected']) ) 
+            { 
+               $data['nameSelected_error'] = "Please enter or select a type"; 
+            } 
    
-            if (empty($data['warrantyExpDate']))
-            {
-               $data['warrantyExpDate_error'] = "Please select warrantyExpDate";
-            }
+            if (empty($data['warrantyExpDate'])) 
+            { 
+               $data['warrantyExpDate_error'] = "Please select warrantyExpDate"; 
+            } 
             
             if (empty($data['price']))
             {

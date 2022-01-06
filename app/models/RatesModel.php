@@ -24,16 +24,16 @@ class RatesModel extends Model
    public function updateCommissionRateDetails($data)
    {
       print_r($data);
-      die("updateCommissionRateDetails");
+      // die("updateCommissionRateDetails");
       $this->insert('commissionrates', ['rate' => $data['rate']],null);
-   }
+   } 
 
-   public function updateMinimumNumberOfManagers($data)
-   {
-      print_r($data);
-      die("updateMinimumNumberOfManagers");
-       print_r($data);
-      $this->insert('minimumnumberofmanagers', ['minimumNumber' => $data['minimumNumber']],null);
+   public function updateMinimumNumberOfManagers($data) 
+   { 
+      print_r($data); 
+      die("updateMinimumNumberOfManagers"); 
+       print_r($data); 
+      $this->insert('minimumnumberofmanagers', ['minimumNumber' => $data['minimumNumber']],null); 
    }
 
 
