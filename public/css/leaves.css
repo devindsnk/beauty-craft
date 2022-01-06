@@ -12,7 +12,7 @@ input.dateValidationMsg{
 border:none;
 }
 
-span.error.request-date-error{
+span.error.request-date-error,span.error.request-date-error1{
     height: 20px;
 }
 

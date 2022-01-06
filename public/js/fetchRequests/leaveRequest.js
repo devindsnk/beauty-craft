@@ -2,7 +2,7 @@
 console.log("hhh");
 
 const leaveRequestSelectedDate = document.querySelector(".LeaveRequestDate");
-const dateError = document.querySelector(".request-date-error");
+const dateError = document.querySelector(".request-date-error1");
 const dateSpan = document.querySelector(".dateEmpty");
 const typeSpan = document.querySelector(".typeEmpty");
 const dropdown = document.querySelector(".dropdowntype");
@@ -13,11 +13,8 @@ const editLeaveType = document.querySelector(".editleavetype");
 const editLeaveError = document.querySelector(".edit-type-error");
 const editLeaveReason = document.querySelector(".editTextArea");
 
-      console.log(leaveRequestSelectedDate);
-   // console.log(editLeaveError);
-
+// console.log(editLeaveError);
 dropdown.disabled=true;
-// console.log(dropdown);
 
 leaveRequestSelectedDate.addEventListener('change',
    function () {
@@ -37,9 +34,25 @@ leaveRequestSelectedDate.addEventListener('change',
    }
 )
 
+function leaveRequestedDateValidation() {
+    
+   fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestDateValidate/${leaveRequestSelectedDate.value}`)
+      .then(response => response.json())
+      .then(dateValidationError => {
+         console.log(dateError);
+         console.log(dateValidationError );
+         dateSpan.innerHTML="";
+         dateError.innerHTML =dateValidationError;
+        
+        
+
+      });
+}
+
 dropdown.addEventListener('change',
    function () {
-      dateError.innerHTML =  '';
+      dateSpan.innerHTML='';
+      typeSpan.innerHTML='';
       console.log(dropdown.value);
       console.log(leaveRequestSelectedDate.value);
        fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestTypeValidate/${leaveRequestSelectedDate.value}/${dropdown.value}`)
@@ -47,8 +60,10 @@ dropdown.addEventListener('change',
       .then(msg => {
           console.log(msg);
           console.log('msg');
-         
-        dateError.innerHTML =  msg;
+         if(!dateError.innerHTML){
+   dateError.innerHTML =  msg;
+         }
+     
  
 
       });
@@ -58,26 +73,11 @@ dropdown.addEventListener('change',
 
 
 
-function leaveRequestedDateValidation() {
-   //  console.log("hihi");
-   fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestDateValidate/${leaveRequestSelectedDate.value}`)
-      .then(response => response.json())
-      .then(dateValidationError => {
-         // console.log(dateValidationError);
-         dateSpan.innerHTML="";
-         dateError.innerHTML =  dateValidationError;
-        
-        
 
-      });
-}
 
 function cancelLeaveRequest(btn){
-   // console.log("function called");
 leaveDate=btn.getAttribute("data-id");
-
 fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestCancel/${leaveDate}`)
-
 }
 
 function editLeaveRequest(btn){

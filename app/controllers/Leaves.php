@@ -119,35 +119,76 @@ class Leaves extends Controller
             if (empty($data['date_error']) && empty($data['reason_error']) && empty($data['type_error']))
             {
 
-               if ($data['leavetype'] == 1) //general
+               $alreadyRequestedDay = $this->LeaveModel->checkExsistingLeaveRequestDay($data['date']);
+               $haveReservation = $this->LeaveModel->checkHaveReservationByDate($data['date'], Session::getUser("id"));
+               $isSalonClosed = $this->LeaveModel->checkSalonClosedDates($data['date']);
+               // $alreadyRequestedDay = 0;
+
+
+               if ($isSalonClosed == 1)
                {
-                  $this->LeaveModel->requestleave($data);
-                  // redirect to this view
-                  redirect('Leaves/leaves');
+                  $dateValidationMsg = "Salon Closed";
                }
-               else if ($data['leavetype'] == 2) //medical
+               else
                {
-                  $d = date_parse_from_format("Y-m-d", $data['date']);
-                  $count = $this->LeaveModel->getLeaveCountOfSelectedMonth($d["month"], $d["year"], Session::getUser("id"), 2);
-                  $leaveLimit = $this->LeaveModel->getMedicalLeaveLimit();
-                  if ($count >= $leaveLimit)
+                  if ($alreadyRequestedDay == 1)
                   {
-                     $data['dateValidationMsg'] = 'Can not send leave request,Medical limit exceeded';
-                     $data['haveErrors'] = 1;
-                     $this->provideLeaveRequestReleventView($data);
+                     $dateValidationMsg = "The date You entered is already exit";
                   }
                   else
+                  {
+                     if ($haveReservation == 1)
+                     {
+                        $dateValidationMsg = "Can not request a leave,You have ongoing reservations.";
+                     }
+                     else
+                     {
+                        $dateValidationMsg = "";
+                     }
+                  }
+               }
+               if (empty($dateValidationMsg))
+               {
+                  if ($data['leavetype'] == 1) //general
                   {
                      $this->LeaveModel->requestleave($data);
                      // redirect to this view
                      redirect('Leaves/leaves');
                   }
+                  else if ($data['leavetype'] == 2) //medical
+                  {
+                     $d = date_parse_from_format("Y-m-d", $data['date']);
+                     $count = $this->LeaveModel->getLeaveCountOfSelectedMonth($d["month"], $d["year"], Session::getUser("id"), 2);
+                     $leaveLimit = $this->LeaveModel->getMedicalLeaveLimit();
+                     if ($count >= $leaveLimit)
+                     {
+                        $data['dateValidationMsg'] = 'Can not send leave request,Medical limit exceeded';
+                        $data['haveErrors'] = 1;
+                        $this->provideLeaveRequestReleventView($data);
+                     }
+                     else
+                     {
+                        // $haveReservation = $this->LeaveModel->checkHaveReservationByDate($data['date'], Session::getUser("id"));
+                        // print_r($haveReservation);
+                        // die('hh');
+                        $this->LeaveModel->requestleave($data);
+                        // redirect to this view
+                        redirect('Leaves/leaves');
+                     }
+                  }
+               }
+               else
+               {
+                  $data['haveErrors'] = 1;
+                  $data['reason_error'] = 'Can not send the leave request.';
+                  $this->view('serviceProvider/serProv_leaves', $data);
                }
             }
 
 
             else
             {
+
                $data['haveErrors'] = 1;
                $this->provideLeaveRequestReleventView($data);
                $this->view('serviceProvider/serProv_leaves', $data);
@@ -212,16 +253,32 @@ class Leaves extends Controller
       // $date = json_decode($date, true);
 
       $alreadyRequestedDay = $this->LeaveModel->checkExsistingLeaveRequestDay($date);
+      $haveReservation = $this->LeaveModel->checkHaveReservationByDate($date, Session::getUser("id"));
+      $isSalonClosed = $this->LeaveModel->checkSalonClosedDates($date);
       // $alreadyRequestedDay = 0;
       header('Content-Type: application/json; charset=utf-8');
 
-      if ($alreadyRequestedDay == 1)
+      if ($isSalonClosed == 1)
       {
-         $dateValidationMsg = "The date You entered is already exit";
+         $dateValidationMsg = "Salon Closed";
       }
       else
       {
-         $dateValidationMsg = "";
+         if ($alreadyRequestedDay == 1)
+         {
+            $dateValidationMsg = "The date You entered is already exit";
+         }
+         else
+         {
+            if ($haveReservation == 1)
+            {
+               $dateValidationMsg = "Can not request a leave,You have ongoing reservations.";
+            }
+            else
+            {
+               $dateValidationMsg = "";
+            }
+         }
       }
 
       print_r(json_encode($dateValidationMsg));
@@ -252,7 +309,7 @@ class Leaves extends Controller
 
       if ($count >= $leaveLimit)
       {
-         $validationError = 'Monthly ' . $lType . ' leave limit exceed.' . $leaveLimit;
+         $validationError = 'Monthly ' . $lType . ' leave limit exceed.';
       }
       else
       {

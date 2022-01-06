@@ -115,6 +115,84 @@
       </div>
    </div>
    <!-- Request leave model -->
+
+   <!-- End of Take leave model -->
+
+   <!--  leave Request model -->
+   <div class="modal-container normal leaverequest <?php if ($data['haveErrors']) echo "show" ?>">
+      <div class="modal-box addItems leave_request ">
+         <div class="new-type-head">
+            <h1>Request Leave</h1>
+         </div>
+         <form action="<?php echo URLROOT; ?>/Leaves/leaves" class="form" method="POST">
+            <div class="leaverequest-form-content">
+
+               <div class="reqleave-date-section">
+                  <!-- <p class="test-class">Bla bla</p> -->
+                  <div class="leave-date-section">
+                     <div class="text-group">
+                        <label class="labels" for="serviceName">Date</label><br>
+                        <input class="LeaveRequestDate" type="date" name="date" id="takeLeaveDate" placeholder="--Select a date--">
+
+                     </div>
+
+                     <span class="error dateEmpty">
+                        <?php echo $data['date_error']; ?>
+                     </span>
+                     <!-- <input class="dateValidationMsg"> -->
+                  </div>
+                  <div class="reqleave-type-section">
+                     <label class="labels" for="serviceName">Type</label><br>
+                     <div class="dropdown-group">
+
+                        <select name="leavetype" id="lstatus" class="dropdowntype">
+                           <!-- <option value="All" selected></option> -->
+                           <option class="unbold" value="0" option selected="true" disabled="disabled">Select</option>
+                           <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>General</option>
+                           <option value=2 <?php if ($data['leavetype'] == 2) echo 'selected'; ?>>Medical</option>
+
+                        </select>
+                        <span class="error typeEmpty">
+                           <?php if ($data['type_error'])
+                           {
+                              echo $data['type_error'];
+                           } ?>
+
+                        </span>
+                     </div>
+
+                  </div>
+               </div>
+               <span class="error request-date-error1">
+
+               </span>
+
+               <div class="reqleave-reason-section">
+                  <div class="text-group">
+                     <label class="labels" for="serviceName">Reason</label><br>
+
+                     <textarea type="text" name="reason" id="takeLeaveReason" placeholder="-- Type in --" class="addItemsModalTextArea" value="<?php echo $data['reason']; ?>"><?php echo $data['reason']; ?></textarea>
+                  </div>
+                  <span class="error"> <?php echo $data['reason_error']; ?></span>
+
+
+               </div>
+               <div class="reqleave-button-section">
+                  <div class="modalbutton">
+                     <div class="btn1">
+                        <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
+                     </div>
+                     <div class="btn2">
+                        <button type="submit" name="action" value="addleave" class="confirm-service-btn">Request</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </form>
+
+      </div>
+   </div>
+   <!-- edit leave model -->
    <div class=" modal-container edit-leave request">
       <div class="modal-box addItems leave_request ">
          <div class="new-type-head">
@@ -186,84 +264,6 @@
 
       </div>
    </div>
-   <!-- End of Take leave model -->
-
-   <!--  leave Request model -->
-   <div class="modal-container normal leaverequest <?php if ($data['haveErrors']) echo "show" ?>">
-      <div class="modal-box addItems leave_request ">
-         <div class="new-type-head">
-            <h1>Request Leave</h1>
-         </div>
-         <form action="<?php echo URLROOT; ?>/Leaves/leaves" class="form" method="POST">
-            <div class="leaverequest-form-content">
-
-               <div class="reqleave-date-section">
-                  <!-- <p class="test-class">Bla bla</p> -->
-                  <div class="leave-date-section">
-                     <div class="text-group">
-                        <label class="labels" for="serviceName">Date</label><br>
-                        <input class="LeaveRequestDate" type="date" name="date" id="takeLeaveDate" placeholder="--Select a date--" value="">
-                     </div>
-
-                     <span class="error dateEmpty">
-                        <?php echo $data['date_error']; ?>
-                     </span>
-                     <!-- <input class="dateValidationMsg"> -->
-                  </div>
-                  <div class="reqleave-type-section">
-                     <label class="labels" for="serviceName">Type</label><br>
-                     <div class="dropdown-group">
-
-                        <select name="leavetype" id="lstatus" class="dropdowntype">
-                           <!-- <option value="All" selected></option> -->
-                           <option class="unbold" value="0" option selected="true" disabled="disabled">Select</option>
-                           <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>General</option>
-                           <option value=2 <?php if ($data['leavetype'] == 2) echo 'selected'; ?>>Medical</option>
-
-                        </select>
-                     </div>
-                     <span class="error typeEmpty">
-                        <?php if ($data['type_error'])
-                        {
-                           echo $data['type_error'];
-                        } ?>
-                     </span>
-                  </div>
-               </div>
-               <span class="error request-date-error">
-                  <?php if ($data['dateValidationMsg'])
-                  {
-                     echo $data['dateValidationMsg'];
-                  } ?>
-               </span>
-
-               <div class="reqleave-reason-section">
-                  <div class="text-group">
-                     <label class="labels" for="serviceName">Reason</label><br>
-
-                     <textarea type="text" name="reason" id="takeLeaveReason" placeholder="-- Type in --" class="addItemsModalTextArea" value="<?php echo $data['reason']; ?>"><?php echo $data['reason']; ?></textarea>
-                  </div>
-                  <span class="error"> <?php echo $data['reason_error']; ?></span>
-
-
-               </div>
-               <div class="reqleave-button-section">
-                  <div class="modalbutton">
-                     <div class="btn1">
-                        <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
-                     </div>
-                     <div class="btn2">
-                        <button type="submit" name="action" value="addleave" class="confirm-service-btn">Request</button>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </form>
-
-      </div>
-   </div>
-
-
 
 
 
@@ -293,7 +293,6 @@
 
    <!-- end delete leave request model -->
 </div>
-
 
 
 
