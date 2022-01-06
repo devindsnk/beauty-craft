@@ -64,7 +64,7 @@ class OwnDashboard extends Controller
 
             if (empty($data['closeSalonReason']))
             {
-               $data['closeSalonReason_error'] = "Please select number of resource";
+               $data['closeSalonReason_error'] = "Please add a reason";
             }
          
          if (
@@ -120,10 +120,10 @@ class OwnDashboard extends Controller
    public function rates()
    {
       // die('success');
-      $LeavelimitsDetails = $this->ratesModel->getLeaveLimitsDetails();
-      $SalaryRateDetails = $this->ratesModel->getSalaryRateDetails();
-      $CommsionRateDetails = $this->ratesModel->getCommissionRateDetails();
-      $MinimumNumberOfManagers = $this->ratesModel->getMinimumNumberOfManagers();
+      // $LeavelimitsDetails = $this->ratesModel->getLeaveLimitsDetails();
+      // $SalaryRateDetails = $this->ratesModel->getSalaryRateDetails();
+      // $CommsionRateDetails = $this->ratesModel->getCommissionRateDetails();
+      // $MinimumNumberOfManagers = $this->ratesModel->getMinimumNumberOfManagers();
       // print_r($SalaryRateDetails); 
       // print_r($CommsionRateDetails);  
       // $GetLeaveLimitsArray = ['leavelimits' => $LeavelimitsDetails];
@@ -132,16 +132,30 @@ class OwnDashboard extends Controller
       // $this->view('owner/own_rates',  $LeavelimitsDetails[0]);
       // $this->view('owner/own_rates',  $LeavelimitsDetails[0]);
 
+
+     $result1 = $this->ratesModel->getLeaveLimitsDetails();
+     $result2 = $this->ratesModel->getSalaryRateDetails();
+     $result3 = $this->ratesModel->getCommissionRateDetails();
+     $result4 = $this->ratesModel->getMinimumNumberOfManagers();
+   //   $GetRateArray = ['leaveLimits' => $result1,'salaryRate' => $result2,'commissionRate' => $result3,'minimumNumberOfManagers' => $result4 ]; 
+   //   $this->view('owner/own_rates', $GetRateArray); 
+
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
-         // die('success');
+         
          $data = [
-            'managerLeaveLimit' => trim($_POST['managerLeaveLimit']),
-            'serviceProviderLeaveLimit' => trim($_POST['serviceProviderLeaveLimit']),
-            'receptionistLeaveLimit' => trim($_POST['receptionistLeaveLimit']),
-            'managerLeaveLimit_error' => '',
-            'serviceProviderLeaveLimit_error' => '',
-            'receptionistLeaveLimit_error' => '',
+            'generalLeave' => trim($_POST['generalLeave']),
+            'medicalLeave' => trim($_POST['medicalLeave']),
+            'managerGeneralLeave' => trim($_POST['managerGeneralLeave']),
+            'managerMedicalLeave' => trim($_POST['managerMedicalLeave']),
+            'managerDailyLeave' => trim($_POST['managerDailyLeave']),
+            'evidenceLimit' => trim($_POST['evidenceLimit']),
+            'generalLeave_error' => '', 
+            'medicalLeave_error' => '', 
+            'managerGeneralLeave_error' => '',
+            'managerMedicalLeave_error' => '',
+            'managerDailyLeave_error' => '',
+            'evidenceLimit_error' => '',
 
             'managerSalaryRate' => trim($_POST['managerSalaryRate']),
             'serviceProviderSalaryRate' => trim($_POST['serviceProviderSalaryRate']),
@@ -150,153 +164,188 @@ class OwnDashboard extends Controller
             'serviceProviderSalaryRate_error' => '',
             'receptionistSalaryRate_error' => '',
 
-            'minimumNumberOfManagers' =>  trim($_POST['minimumNumberOfManagers']),
-            'minimumNumberOfManagers_error' => '',
+            'minimumNumber' =>  trim($_POST['minimumNumber']),
+            'minimumNumber_error' => '',
 
-            'commisionRate' =>  trim($_POST['commisionRate']),
-            'commisionRate_error' => '',
+            'rate' =>  trim($_POST['rate']),
+            'rate_error' => '',
 
-            'leaveLimits' => $LeavelimitsDetails[0],
-            'salaryRates' => $SalaryRateDetails[0],
-            'commissionRates' => $CommsionRateDetails[0],
-            'minimumNoOfManagers' => $MinimumNumberOfManagers[0],
+            //is this neeeded to dd here 
+            'leaveLimits' => $result1[0],
+            'salaryRates' => $result2[0],
+            'commissionRates' => $result3[0],
+            'minimumNoOfManagers' => $result4[0],
          ];
          if ($_POST['action'] == "saveLeaveLimits")
          {
-            if (empty($data['managerLeaveLimit']))
+         //    print_r($data);
+         // die("error");
+            if (empty($data['generalLeave']))
             {
-               $data['managerLeaveLimit_error'] = "Please insert manager leave limit";
+               $data['generalLeave_error'] = "Please insert a value";
             }
             // Validating fname
-            if (empty($data['serviceProviderLeaveLimit']))
-            {
-               $data['serviceProviderLeaveLimit_error'] = "Please enter service provider leave limit";
-            }
+            if (empty($data['medicalLeave']))  
+           {
+            $data['medicalLeave_error'] =  "Please insert a value";
+           }
+   
+           // Validating lname
+           if (empty($data['managerGeneralLeave'])) 
+           {
+            $data['managerGeneralLeave_error'] = "Please insert a value";
+           } 
+           if (empty($data['managerGeneralLeave'])) 
+           { 
+            $data['managerMedicalLeave_error'] = "Please insert a value";
+           } 
+           if (empty($data['managerMedicalLeave'])) 
+           {
+            $data['managerDailyLeave_error'] = "Please insert a value";
+           } 
+           if (empty($data['managerDailyLeave'])) 
+           {
+            $data['managerDailyLeave_error'] = "Please insert a value";
+           } 
 
-            // Validating lname
-            if (empty($data['receptionistLeaveLimit']))
-            {
-               $data['receptionistLeaveLimit_error'] = "Please enter receptionist leave limit";
-            }
-            if (
-               empty($data['managerLeaveLimit_error']) && empty($data['serviceProviderLeaveLimit_error']) && empty($data['receptionistLeaveLimit_error'])
-            )
-            {
-               // die('success');
+           if (empty($data['evidenceLimit'])) 
+           {
+            $data['evidenceLimit_error'] = "Please insert a value";
+           } 
+
+           if (
+               empty($data['generalLeave_error']) && empty($data['medicalLeave_error']) && empty($data['managerGeneralLeave_error']) && empty($data['managerMedicalLeave_error']) && empty($data['managerDailyLeave_error']) && empty($data['evidenceLimit_error']))
+             {
+   
                // print_r($data);
                $this->ratesModel->updateLeaveLimitDeatils($data);
                $this->view('owner/own_rates', $data);
-            }
+             }
             else
             {
-               $this->view('owner/own_rates', $data);
+               $this->view('owner/own_rates', $data); 
             }
          }
 
          if ($_POST['action'] == "saveSalaryRates")
          {
+           
             if (empty($data['managerSalaryRate']))
             {
-               $data['managerSalaryRate_error'] = "Please insert manager leave limit";
+               $data['managerSalaryRate_error'] =  "Please insert a value";
             }
             // Validating fname
             if (empty($data['serviceProviderSalaryRate']))
-            {
-               $data['serviceProviderSalaryRate_error'] = "Please enter service provider leave limit";
-            }
-
-            // Validating lname
-            if (empty($data['receptionistSalaryRate']))
-            {
-               $data['receptionistSalaryRate_error'] = "Please enter receptionist leave limit";
-            }
-            if (
-               empty($data['managerSalaryRate _error']) && empty($data['serviceProviderSalaryRate_error']) && empty($data['receptionistSalaryRate_error'])
-            )
-            {
-               // die('success');
-               // print_r($data);
-               $this->ratesModel->updateSalaryRateDetails($data);
-               $this->view('owner/own_rates', $data);
-            }
-            else
-            {
-               $this->view('owner/own_rates', $data);
-            }
+           {
+            $data['serviceProviderSalaryRate_error'] =  "Please insert a value";
+           }
+   
+           // Validating lname
+           if (empty($data['receptionistSalaryRate']))
+           {
+            $data['receptionistSalaryRate_error'] =  "Please insert a value";
+           }
+           if (empty($data['managerSalaryRate_error']) && empty($data['serviceProviderSalaryRate_error']) && empty($data['receptionistSalaryRate_error']))
+          {
+   
+          
+            $this->ratesModel->updateSalaryRateDetails($data);
+            $this->view('owner/own_rates', $data);
+          }
+          else
+          {
+            // print_r($data);
+            // die("error");
+            $this->view('owner/own_rates', $data); 
+          }
          }
 
          if ($_POST['action'] == "saveCommissionRate")
          {
-            if (empty($data['commisionRate']))
+            $data = [
+               'rate' => trim($_POST['rate']),
+               'rate_error' => '',
+            ];
+            if (empty($data['rate']))
             {
-               $data['commisionRate_error'] = "Please insert manager leave limit";
+               $data['rate_error'] = "Please insert a image";
             }
-
-            if (
-               empty($data['commisionRate_error'])
-            )
-            {
-               // die('success');
+            if (empty($data['rate_error']))
+             {
+      
                // print_r($data);
                $this->ratesModel->updateCommissionRateDetails($data);
                $this->view('owner/own_rates', $data);
             }
             else
             {
-               $this->view('owner/own_rates', $data);
+               $this->view('owner/own_rates', $data); 
             }
          }
 
          if ($_POST['action'] == "saveMinimumNumberOfManagers")
          {
-            if (empty($data['minimumNumberOfManagers']))
+            if (empty($data['minimumNumber']))
             {
-               $data['minimumNumberOfManagers_error'] = "Please insert manager leave limit";
+               $data['minimumNumber_error'] = "Please insert a image";
             }
-
-            if (
-               empty($data['minimumNumberOfManagers_error'])
-            )
+            if (empty($data['minimumNumber_error']))
             {
-               // die('success');
-               print_r($data);
-               $this->ratesModel->updateMinimumNumberOfManagers($data);
-               $this->view('owner/own_rates', $data);
-            }
-            else
-            {
-               $this->view('owner/own_rates', $data);
-            }
+     
+              // print_r($data);
+              $this->ratesModel->updateMinimumNumberOfManagers($data);
+              $this->view('owner/own_rates', $data);
+           }
+           else
+           {
+              $this->view('owner/own_rates', $data); 
+           }
          }
       }
       else
       {
          // die('success');
+         print_r($result1[0]->generalLeave);
+         // die('success');
          $data = [
-            'managerLeaveLimit' => '',
-            'serviceProviderLeaveLimit' => '',
-            'receptionistLeaveLimit' => '',
-            'managerLeaveLimit_error' => '',
-            'serviceProviderLeaveLimit_error' => '',
-            'receptionistLeaveLimit_error' => '',
-            'managerSalaryRate' => '',
-            'serviceProviderSalaryRate' => '',
-            'receptionistSalaryRate' => '',
+            'generalLeave' => $result1[0]->generalLeave,
+            'medicalLeave' => $result1[0]->medicalLeave,
+            'managerGeneralLeave' =>  $result1[0]->managerGeneralLeave,
+            'managerMedicalLeave' =>  $result1[0]->managerMedicalLeave,
+            'managerDailyLeave' =>  $result1[0]->managerDailyLeave,
+            'evidenceLimit' =>  $result1[0]->evidenceLimit,
+            'generalLeave_error' => '', 
+            'medicalLeave_error' => '', 
+            'managerGeneralLeave_error' => '',
+            'managerMedicalLeave_error' => '',
+            'managerDailyLeave_error' => '',
+            'evidenceLimit_error' => '',
+
+
+            'managerSalaryRate' => $result2[0]->managerSalaryRate,
+            'serviceProviderSalaryRate' => $result2[0]->serviceProviderSalaryRate,
+            'receptionistSalaryRate' => $result2[0]->receptionistSalaryRate,
             'managerSalaryRate_error' => '',
             'serviceProviderSalaryRate_error' => '',
             'receptionistSalaryRate_error' => '',
-            'commisionRate' => '',
-            'commisionRate_error' => '',
-            'minimumNumberOfManagers' =>  '',
-            'minimumNumberOfManagers_error' => '',
-            'leaveLimits' => $LeavelimitsDetails[0],
-            'salaryRates' => $SalaryRateDetails[0],
-            'commissionRates' => $CommsionRateDetails[0],
-            'minimumNoOfManagers' =>  $MinimumNumberOfManagers[0],
+
+            'rate' => $result3[0]->rate,
+            'rate_error' => '',
+
+            'minimumNumber' => $result4[0]->minimumNumber,
+            'minimumNumber_error' => '',
+
+            
+            // 'leaveLimits' => $result1[0],
+            // 'salaryRates' => $result2[0],
+            // 'commissionRates' => $result3[0],
+            // 'minimumNoOfManagers' => $result4[0],
          ];
          // print_r($data);
          $this->view('owner/own_rates', $data);
       }
+      // $rateDetails = $this->rate->getResourceDetails();
+      // $this->view('owner/own_rates');
    }
 
    public function resources()

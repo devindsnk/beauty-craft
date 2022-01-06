@@ -22,36 +22,39 @@ class StaffModel extends Model
             ':mobileNo' =>  $data['staffMobileNo'],
          ]
       );
-      $staffID = $result[0]->staffID;
-      $results =  $this->insert('bankdetails', ['staffID' => $staffID, 'accountNo' => $data['staffAccNum'], 'bankName' => $data['staffAccBank'], 'holdersName' => $data['staffAccHold'], 'branchName' => $data['staffAccBranch']]);
-      var_dump($results);
+      $staffID = $result[0]->staffID; 
+      $results =  $this->insert('bankdetails', ['staffID' => $staffID, 'accountNo' => $data['staffAccNum'], 'bankName' => $data['staffAccBank'], 'holdersName' => $data['staffAccHold'], 'branchName' => $data['staffAccBranch']]); 
+      var_dump($results); 
    }
    // get one staff details to the table
    public function  getAllStaffDetails()
    {
-
-      $result = $this->getResultSet('staff', '*', null);
+      // $result = $this->getResultSet('staff', '*', null); 
+      // $SQLstatement = "SELECT * FROM staff WHERE status IN (3,4);"; 
+      $result = $this->customQuery("SELECT * FROM staff WHERE staffType IN (3,4,5)"); 
+      // $result = $this->customQuery("SELECT * FROM staff WHERE staffID = 3 OR staffID = 4 OR staffID = 5"); 
+      // print_r($result);
+      // die("error");
 
       return $result;
    }
 
    // get one staff details to the view 
-   public function getStaffDetailsWithBankDetailsByStaffID($staffID)
-   {
+   public function getStaffDetailsWithBankDetailsByStaffID($staffID) 
+   { 
 
-      $result = $this->customQuery(
+      $result = $this->customQuery( 
          "SELECT * FROM bankdetails 
                         INNER JOIN staff 
                         ON staff.staffID = bankdetails.staffID 
-                        WHERE bankdetails.staffID =:staffID",
-         [
-            ':staffID' => $staffID
-         ]
-      );
-      // var_dump($result);
-      return $result;
-   }
-
+                        WHERE bankdetails.staffID =:staffID", 
+         [ 
+            ':staffID' => $staffID 
+         ] 
+      ); 
+      // var_dump($result); 
+      return $result; 
+   } 
 
 
    public function getStaffDetailsByStaffID($staffID)
@@ -71,36 +74,30 @@ class StaffModel extends Model
       return $result;
    }
 
-   public function updateStaffDetails($data, $staffID)
-   {
 
-      $results =  $this->update('staff', ['image' =>  $data['staffimage'], 'fName' => $data['staffFname'], 'lName' => $data['staffLname'], 'staffType' => $data['staffType'], 'mobileNo' => $data['staffMobileNo'], 'gender' => $data['gender'], 'address' => $data['staffHomeAdd'], 'email' => $data['staffEmail'], 'dob' => $data['staffDOB']], ['staffID' => '$staffID']);
-      var_dump($results);
+   public function getStaffDataByMobileNo($mobileNo)
+   {
+      $this->db->query("SELECT * FROM staff WHERE mobileNo =  :mobileNo ");
+      $this->db->bind(':mobileNo', $mobileNo);
+      $result = $this->db->single();
+      return [$result->staffID, $result->fName . " " . $result->lName];
    }
 
-   public function updateBankDetails($data, $staffID)
+
+   public function updateStaff($data, $staffID)
    {
-      // $result = $this->customQuery(
-      //    "SELECT staffID FROM staff WHERE mobileNo = :mobileNo ",
-      //    [
-      //       ' :mobileNo' =>  $data['staffMobileNo'],
-      //    ]
-      // );
-
-      // $staffID = $result[0]->staffID;
-      // var_dump($result);
-
-      $results =  $this->update('bankdetails', ['staffID' => $staffID, 'accountNo' => $data['staffAccNum'], 'bankName' => $data['staffAccBank'], 'holdersName' => $data['staffAccHold'], 'branchName' => $data['staffAccBranch']], ['staffID' => '$staffID']);
-      var_dump($results);
+    $this->update('staff', ['image' =>  $data['staffimage'], 'fName' => $data['staffFname'], 'lName' => $data['staffLname'], 'staffType' => $data['staffType'], 'mobileNo' => $data['staffMobileNo'], 'gender' => $data['gender'], 'address' => $data['staffHomeAdd'], 'email' => $data['staffEmail'], 'dob' => $data['staffDOB']], ['staffID' => '$staffID']);
+    $this->update('bankdetails', ['staffID' => $staffID, 'accountNo' => $data['staffAccNum'], 'bankName' => $data['staffAccBank'], 'holdersName' => $data['staffAccHold'], 'branchName' => $data['staffAccBranch']], ['staffID' => '$staffID']);
    }
 
    public function removeStaff($staffID, $staffMobileNo)
    {
-      // print_r($staffNIC);
+      print_r($staffMobileNo);
       // die("RemoveStaffController");
       $status = 0;
-      $this->update("staff", ["status" => $status], ['staffID' => $staffID]);
-      $this->delete("users", ['mobileNo' => $staffMobileNo]);
+      $this->update("staff", ["status" => $status],['staffID' => $staffID ]);
+      $this->delete("users", ['mobileNo' => $staffMobileNo ]); 
+
    }
 
    public function getStaffUserData($mobileNo)

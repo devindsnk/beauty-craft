@@ -17,36 +17,3 @@ IP Address  Date & Time	        Mobile No	Name		            Activity
 127.0.0.1 	12/30/21 11:03AM	0703807405	Ruwanthi Munasinghe   	signout
 ::1       	12/31/21 12:07PM	0717679715	Navin Dissanayake     	signin
 ::1       	12/31/21 12:11PM	0717679715	Navin Dissanayake     	signout
-::1       	12/31/21 12:17PM	0717679715	Navin Dissanayake     	signin
-::1       	01/04/22 04:29AM	0703807405	Ruwanthi Munasinghe   	signout
-::1       	01/04/22 04:29AM	0703807405	Ruwanthi Munasinghe   	signin
-::1       	01/04/22 04:29AM	0703807405	Ruwanthi Munasinghe   	signout
-::1       	01/04/22 04:30AM	0703807405	Ruwanthi Munasinghe   	signin
-::1       	01/04/22 08:09AM	0703807405	Ruwanthi Munasinghe   	signout
-::1       	01/04/22 08:21AM	0703807405	Ruwanthi Munasinghe   	signin
-::1       	01/04/22 08:22AM	0703807405	Ruwanthi Munasinghe   	signout
-::1       	01/04/22 08:28AM	0762930963	Ruwanthi Amaya        	signin
-::1       	01/04/22 08:28AM	0762930963	Ruwanthi Amaya        	download systemLog file
-::1       	01/04/22 08:28AM	0762930963	Ruwanthi Amaya        	signout
-::1       	01/04/22 08:41AM	0762930963	Ruwanthi Amaya        	signin
-::1       	01/04/22 08:41AM	0762930963	Ruwanthi Amaya        	download systemLog file
-::1       	01/04/22 08:43AM	0762930963	Ruwanthi Amaya        	signout
-::1       	01/04/22 08:43AM	0762930963	Ruwanthi Amaya        	signin
-::1       	01/04/22 08:43AM	0762930963	Ruwanthi Amaya        	download systemLog file
-::1       	01/04/22 08:59PM	0703807405	Ruwanthi Munasinghe   	signin
-::1       	01/05/22 08:17AM	0703807405	Ruwanthi Munasinghe   	signin
-::1       	01/05/22 08:31AM	0703807405	Ruwanthi Munasinghe   	signout
-::1       	01/05/22 08:31AM	0762930963	Ruwanthi Amaya        	signin
-::1       	01/05/22 08:39AM	0762930963	Ruwanthi Amaya        	download systemLog file
-::1       	01/05/22 08:41AM	0762930963	Ruwanthi Amaya        	download systemLog file
-::1       	01/05/22 08:44AM	0762930963	Ruwanthi Amaya        	download systemLog file
-::1       	01/05/22 08:44AM	0762930963	Ruwanthi Amaya        	download systemLog file
-::1       	01/06/22 12:25AM	0703807405	Ruwanthi Munasinghe   	signin
-::1       	01/06/22 12:31AM	0703807405	Ruwanthi Munasinghe   	signout
-::1       	01/06/22 12:32AM	0703807405	Ruwanthi Munasinghe   	signin
-::1       	01/06/22 04:07AM	0703807405	Ruwanthi Munasinghe   	signout
-::1       	01/06/22 04:07AM	0703807405	Ruwanthi Munasinghe   	signin
-::1       	01/06/22 08:13PM	0703807405	Ruwanthi Munasinghe   	signout
-::1       	01/06/22 08:14PM	0762930963	Ruwanthi Amaya        	signin
-::1       	01/06/22 08:15PM	0762930963	Ruwanthi Amaya        	signout
-::1       	01/06/22 08:15PM	0703807405	Ruwanthi Munasinghe   	signin

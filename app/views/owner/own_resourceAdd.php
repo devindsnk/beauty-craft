@@ -9,7 +9,7 @@
             <h1 class="header-topic">Add Resource</h1>
         </div>
         <div class="header-right verticalCenter">
-            <a href="<?php echo URLROOT ?>/OwnDashboard/resources" class="top-right-closeBtn"><i
+            <a href="<?php echo URLROOT ?>/Resources/viewAllResources" class="top-right-closeBtn"><i
                     class="fal fa-times fa-2x "></i></a>
         </div>
     </header>

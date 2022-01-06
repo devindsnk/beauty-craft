@@ -9,7 +9,7 @@
             <h1 class="header-topic">Update Resource</h1>
         </div>
         <div class="header-right verticalCenter">
-            <a href="<?php echo URLROOT ?>/resources/viewResources/" class="top-right-closeBtn"><i
+            <a href="<?php echo URLROOT ?>/resources/viewResources/<?php echo $data['purchaseDetails']->resourceID; ?>" class="top-right-closeBtn"><i
                     class="fal fa-times fa-2x "></i></a>
         </div>
     </header>
@@ -29,12 +29,12 @@
                                 <div class="manufacturer">
                                     <label class="ownAddstaffLabels">Manufacturer</label>
                                     <input type="text" name="manufacturer" id="contactnum"
-                                        placeholder="Resource manufacturer here" value="<?php echo $data['manufacturer']; ?><?php echo $data['purchaseDetails']->manufacturer; ?>">
+                                        placeholder="Resource manufacturer here" value="<?php echo $data['manufacturer']; ?> <?php echo $data['purchaseDetails']->manufacturer; ?>">
                                     <span class="error"><?php echo $data['manufacturer_error']; ?></span>
                                 </div> 
                                 <div class="modelNumber">
                                     <label class="ownAddstaffLabels">Model Number</label>
-                                    <input type="text" name="modelNo" id="email" placeholder="Resource model number here" value="<?php echo $data['modelNo']; ?>">
+                                    <input type="text" name="modelNo" id="email" placeholder="Resource model number here" value="<?php echo $data['modelNo']; ?>  <?php echo $data['purchaseDetails']->modelNo; ?>">
                                     <span class="error"><?php echo $data['modelNo_error']; ?></span>
                                 </div>
                                 </div>
@@ -42,20 +42,20 @@
                                 <div class="Maingrid2">
                                 <div class="warrantyExpDate"> 
                                     <label class="ownAddstaffLabels">Warranty Expiration Date</label> 
-                                    <input type="date" name="warrantyExpDate" class="Date" value="<?php echo $data['warrantyExpDate']; ?>"> 
+                                    <input type="date" name="warrantyExpDate" class="Date" value="<?php echo $data['warrantyExpDate']; ?>  <?php echo $data['purchaseDetails']->warrantyExpDate; ?>"> 
                                     <span class="error"><?php echo $data['warrantyExpDate_error']; ?></span> 
                                 </div>
                                 <div class="addType">
                                 <div class="selectType">
                                     <label class="ownAddstaffLabels">Type</label>
                                     <select name="nameSelected" class="dropdownselectbox resourceTypes">
-                                        <!-- <option class="unbold" value="0" option selected="true" disabled="disabled" >Select</option>
+                                        <option class="unbold" value="0" option selected="true" disabled="disabled" >Select</option>
                                         <?php foreach ($data['resourceTypes'] as $resourceTypeD) : ?>
-                                        <option value = "<?php echo $resourceTypeD->resourceID; ?>" ><?php echo $resourceTypeD->name; ?></option>
-                                        <?php endforeach; ?> -->
-                                        <option value="" selected disabled>Select</option>
+                                        <option value = "<?php echo $resourceTypeD->resourceID; ?>  " ><?php echo $resourceTypeD->name; ?></option>
+                                        <?php endforeach; ?>
+                                        
                                     </select>
-                                    <span class="error">Error text here</span>
+                                    <span class="error"><?php echo $data['nameSelected_error']; ?></span>
                                 </div>
                                     <div class="addNewTypeButton">
                                     <a href="#"><i class="AddResourceTypebutton btn btn-filled btn-black btnAddResourceType">Add</i></a>
@@ -80,17 +80,17 @@
                                 <div class="price">
                                     <label class="ownAddstaffLabels">Price</label>
                                     <input type="text" name="price" id="contactnum"
-                                        placeholder="Resource price here" value="<?php echo $data['price']; ?>">
+                                        placeholder="Resource price here" value="<?php echo $data['price']; ?> <?php echo $data['purchaseDetails']->price; ?>">
                                     <span class="error"><?php echo $data['price_error']; ?></span>
                                 </div>
                                 <div class="purchaseDateUpdate">
                                     <label class="ownAddstaffLabels">Purchase Date</label>
-                                    <input type="date" name="purchaseDate" class="Date" value="<?php echo $data['purchaseDate']; ?>">
+                                    <input type="date" name="purchaseDate" class="Date" value="<?php echo $data['purchaseDate']; ?>  <?php echo $data['purchaseDetails']->purchaseDate; ?>">
                                     <span class="error"><?php echo $data['purchaseDate_error']; ?></span>
                                 </div>
                             </div>
                         </div>
-
+                           <br>
                     </div>
                     <!----------------------------------------- form submit button starts ------------------------------------------------------------------------>
                     <div class="ownAddstaffButton">

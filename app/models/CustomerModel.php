@@ -76,11 +76,6 @@ class CustomerModel extends Model
       return ($result);
    }
 
-
-
-
-
-
    // FOR MANAGER OVERVIEW
    public function getActiveCustomerCount()
    {

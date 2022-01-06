@@ -106,7 +106,7 @@
 
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Resources") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/resources">
+            <a class="optionLink <?php if ($selectedMain == "Resources") echo " selected" ?>" href="<?php echo URLROOT ?>/Resources/viewAllResources">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-resources "></i>
                </div>
