@@ -48,7 +48,7 @@
 
 								<!-- New customer category -->
 								<div class="labels"><label class="labels" for="serviceCusCategory">Customer Category</label></div>
-								<input type="text" name="" id="serviceCusCategory" placeholder="<?php echo $sDetails->customerCategory; ?>" disabled>
+								<input type="text" name="" id="serviceCusCategory" placeholder="<?php if($sDetails->customerCategory == 1):?>Gents<?php elseif($sDetails->customerCategory == 2):?>Ladies<?php else: ?>Both<?php endif; ?>" disabled>
 								<!-- end of customer category -->
 
 								<!-- New service type -->

@@ -43,9 +43,9 @@
 
 								<select class="dropdownSelectBox" name="serviceCusCategory">
 									<option class="unbold" value="val1" option selected="true" disabled="disabled">Select One</option>
-									<option value="Gent" <?php if ($data['customerCategory'] == 'Gent') echo 'selected'; ?>>Gents</option>
-									<option value="Ladies" <?php if ($data['customerCategory'] == 'Ladies') echo 'selected'; ?>>Ladies</option>
-									<option value="Both" <?php if ($data['customerCategory'] == 'Both') echo 'selected'; ?>>Both</option>
+									<option value=1 <?php if ($data['customerCategory'] == 1) echo 'selected'; ?>>Gents</option>
+									<option value=2 <?php if ($data['customerCategory'] == 2) echo 'selected'; ?>>Ladies</option>
+									<option value=3 <?php if ($data['customerCategory'] == 3) echo 'selected'; ?>>Both</option>
 								</select>
 							</div>
 							<span class="error"><?php echo $data['sSelectedCusCategory_error']; ?></span>
@@ -60,7 +60,7 @@
 							<!-- New service type -->
 							<label class="labels" for="serviceType">Service Type</label>
 							<select class="dropdownSelectBox" name="serviceType">
-								<option class="unbold" value="val1" option selected="true" disabled="disabled">Select One
+								<option class="unbold" value="" option selected="true" >Select One
 								</option>
 
 								<?php foreach ($data['sTypesArray'] as $sType) : ?>

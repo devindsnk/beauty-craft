@@ -65,7 +65,7 @@ class CustomerModel extends Model
    // FOR MANAGER OVERVIEW
    public function getActiveCustomerCount(){
 
-      $results = $this->getRowCount('customers', ['status' => 'active']);                               
+      $results = $this->getRowCount('customers', ['status' => 1]);                               
       
       return $results;
    }

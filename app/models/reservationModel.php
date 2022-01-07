@@ -283,10 +283,11 @@ class ReservationModel extends Model
       }
    }
 
-   public function addReservationRecall($selectedreservation, $recallReason)
+   public function addReservationRecall($selectedreservation)
    {
       date_default_timezone_set("Asia/Colombo");
       $today = date("Y-m-d H:i:s");
+      $recallReason = "For update the service";
 
       foreach ($selectedreservation as $value)
       {

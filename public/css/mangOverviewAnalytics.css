@@ -113,10 +113,13 @@
 }
 
 .report-month-selector input[type="month"]{
-    padding: 8px 10px;
+    padding: 5px 10px;
     border-radius: 6px;
     border: 1.2px solid #c4cae0;
     margin-top: 5px;
+}
+.report-month-width{
+    width: 100%;
 }
 .text-special{
     font-size: 16px;
