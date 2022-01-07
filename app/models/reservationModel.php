@@ -11,11 +11,12 @@ class ReservationModel extends Model
             "staffID" => $data['staffID'],
             "date" => $data['date'],
             "startTime" => $data['startTime'],
-            "endTime" => $data['endTime'],
             "remarks" => $data['remarks'],
             "status" => 1
          ]
       );
+
+      return $results;
    }
 
    public function getAllReservations()
@@ -379,6 +380,20 @@ class ReservationModel extends Model
          ["status" => 4],
          ["reservationID" => $reservationID]
       );
+      return $results;
+   }
+
+   public function storeFeedback($reservationID, $rating, $comment)
+   {
+      $results = $this->insert(
+         "feedback",
+         [
+            "reservationID" => $reservationID,
+            "rating" => $rating,
+            "testimonial" => $comment
+         ]
+      );
+
       return $results;
    }
 }

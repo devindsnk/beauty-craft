@@ -53,7 +53,5 @@ require APPROOT . "/views/customer/cust_headerBar.php";
         </div>
     </div>
 </div>
-<script src="<?php echo URLROOT ?>/public/js/home.js"></script>
-</body>
 
-</html>
+<?php require APPROOT . "/views/customer/cust_footer.php" ?>

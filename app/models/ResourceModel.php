@@ -4,24 +4,31 @@ class ResourceModel extends Model
    public function addResourceType($data)
    {
       // die('erroraddResourceDetails');
-     
-      $this->insert('resources', ['name'=> $data['name'] ]);
-      $this->update('resources',['status' => 0] , ['name'=> $data['name'] ]);
+
+      $this->insert('resources', ['name' => $data['name']]);
+      $this->update('resources', ['status' => 0], ['name' => $data['name']]);
       // var_dump($results);
-   }  
+   }
+
+   public function getCountsOfAllResources()
+   {
+      // TODO: check if okay with new db changes 
+      $results = $this->getResultSet("resources", ["resourceID", "quantity"]);
+      return $results;
+   }
+
    public function addPurchaseDetails($data)
    {
 
       // die('erroraddPurchaseDetails');
       $NoOfResources = $data['quantity'];
-      $ResourceID= $data['nameSelected'];
+      $ResourceID = $data['nameSelected'];
       for ($x = 1; $x <= $NoOfResources; $x++)
       {
-      $this->insert('purchaserecords', ['resourceID'=> $ResourceID ,'manufacturer'=> $data['manufacturer'] , 'modelNo'=> $data['modelNo'], 'warrantyExpDate'=> $data['warrantyExpDate'], 'price'=> $data['price'] , 'purchaseDate'=> $data['purchaseDate']]);
-      // var_dump($results);
+         $this->insert('purchaserecords', ['resourceID' => $ResourceID, 'manufacturer' => $data['manufacturer'], 'modelNo' => $data['modelNo'], 'warrantyExpDate' => $data['warrantyExpDate'], 'price' => $data['price'], 'purchaseDate' => $data['purchaseDate']]);
+         // var_dump($results);
       }
-      
-   }  
+   }
 
    public function updatePurchaseDetails($data)
    {
@@ -61,9 +68,7 @@ class ResourceModel extends Model
          $this->update('resources', ['quantity' => $UpdatedQuantityForCurrentResourceID], ['resourceID' => $CurrentResourceID]);
          $this->update('resources', ['quantity' => $UpdatedQuantityForNewResourceID], ['resourceID' => $NewResourceID]);
          $this->update('purchaserecords', ['resourceID'=> $NewResourceID ,'manufacturer'=> $data['manufacturer'] , 'modelNo'=> $data['modelNo'], 'warrantyExpDate'=> $data['warrantyExpDate'], 'price'=> $data['price'] , 'purchaseDate'=> $data['purchaseDate']],['purchaseID' => $purchaseID] );
-      }    
-      
-      
+      }          
    }  
 
 //-------------------------------------- Start -----------------------------------------------------------//
@@ -72,8 +77,8 @@ class ResourceModel extends Model
 
    public function updateResourceQuantityAfterAddResources($data)
    {
-      
-      $ResourceID= $data['nameSelected'];
+
+      $ResourceID = $data['nameSelected'];
 
       // Get the current total resource count from resources table
       $currentQuantity = $this->getSingle('resources', ['quantity'], ['resourceID' => $ResourceID]);
@@ -97,40 +102,35 @@ class ResourceModel extends Model
       $totalQuantity=  (int)$currentQuantity->quantity - 1 ;
       $result2= $this->update('resources', ['quantity' => $totalQuantity], ['resourceID' => $ResourceID]);
 
-   } 
-
-//-------------------------------------- End -------------------------------------------------------------//
-//---- codes related to updating the resource count when removing and adding resources to the system ----// 
-//------------------------------------------------------------------------------------------------------//
+   //-------------------------------------- End -------------------------------------------------------------//
+   //---- codes related to updating the resource count when removing and adding resources to the system ----// 
+   //------------------------------------------------------------------------------------------------------//
 
 
 
    public function getAllRsourceTypeDetails()
    {
-      $results = $this->getResultSet('resources', ['name','resourceID'], null);
+      $results = $this->getResultSet('resources', ['name', 'resourceID'], null);
 
       return $results;
-   } 
+   }
    public function getPurchaseDetailsByResourceID($resourceID)
    {
       // die("success");
-      $results = $this->getResultSet('purchaserecords', '*' ,  ['resourceID' => $resourceID]);
+      $results = $this->getResultSet('purchaserecords', '*',  ['resourceID' => $resourceID]);
 
       return $results;
-   } 
+   }
    public function removeResourcePurchaseRecord($purchaseID) //details
    {
-   $this->update('purchaserecords', ['status' => 0], ["purchaseID" => $purchaseID]);
+      $this->update('purchaserecords', ['status' => 0], ["purchaseID" => $purchaseID]);
    }
 
    public function getRsourcePurchaseDetailsByPurchaseID($purchaseID)
    {
       // die("success");
-      $results = $this->getSingle('purchaserecords', '*' ,  ['purchaseID' => $purchaseID]);
+      $results = $this->getSingle('purchaserecords', '*',  ['purchaseID' => $purchaseID]);
 
       return $results;
-   } 
-   
-   
+   }
 }
-
