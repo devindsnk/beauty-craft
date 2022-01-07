@@ -193,9 +193,10 @@ footer p {
   font-size: 16px;
   box-shadow: rgba(67, 90, 111, 0.3) 0px 0px 1px, rgba(67, 90, 111, 0.47) 0px 2px 4px -2px;
   transition: ease-in-out 0.2s;
+  cursor: default;
 }
 
-.btn:disabled{
+.btn:disabled, .btn[disabled]{
   pointer-events: none; /* easily remove hover effect */
 }
 
@@ -291,11 +292,11 @@ footer p {
   background-color: var(--success-green);
 }
 
-.btn.btn-filled:disabled {
+.btn.btn-filled:disabled, .btn.btn-filled[disabled]{
   background-color: var(--theme-disabledgrey);
 }
 
-.btn.btn-outlined:disabled {
+.btn.btn-outlined:disabled ,.btn.btn-outlined[disabled]{
   border: 2px solid var(--theme-disabledgrey);
   color: var(--theme-disabledgrey);
 }

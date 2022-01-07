@@ -293,17 +293,16 @@ resCheckoutBtnList.forEach((btn) => {
     });
 });
 
+// Customer Provide Feedback Modal Section
+const provideFeedbackModal = document.querySelector('.provide-feedback');
+const provideFeedbackBtnList = document.querySelectorAll('.btnProvFeedback');
+provideFeedbackBtnList.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = provideFeedbackModal;
+        toggleModal(btn);
+    });
+});
 
-//Reservation cancel Modal Secrtion
-// const cancelReservationModal = document.querySelector(".cancel-reservation");
-// const cancelReservationBtnList = document.querySelectorAll(".cancel-res-btn");
-// console.log(cancelReservationModal);
-// cancelReservationBtnList.forEach((btn) => {
-//     btn.addEventListener("click", function () {
-//         modalToToggle = cancelReservationModal ;
-//         toggleModal();
-//     });
-// });
 /* ------------------------------------------------------------------- */
 /* ------------------------------------------------------------------- */
 
@@ -315,6 +314,7 @@ const refundInvModal = document.querySelector('.refund-invoice');
 const refundInvBtnModal = document.querySelectorAll('.btnRefundInv');
 refundInvBtnModal.forEach((btn) => {
     btn.addEventListener("click", function () {
+        console.log("yo");
         modalToToggle = refundInvModal;
         toggleModal(btn);
     });

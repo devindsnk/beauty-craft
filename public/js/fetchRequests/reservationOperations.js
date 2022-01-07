@@ -41,3 +41,17 @@ function cancelReservation(btn) {
             }
     })
  }
+
+ 
+ function provideFeedback(btn) {
+    let reservationID = btn.getAttribute("data-id");
+    const feedbackModal = btn.parentNode.parentNode;
+    const rating = feedbackModal.querySelector(".ratingBox").value;
+    const comment =  feedbackModal.querySelector(".commentBox").value;
+    
+    fetch(`http://localhost:80/beauty-craft/Reservations/provideFeedback/${reservationID}/${rating}/${comment}`)
+        .then(response => response.json())
+        .then(state => {
+                window.location.reload(); 
+    })
+ }
