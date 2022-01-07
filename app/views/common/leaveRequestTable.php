@@ -98,11 +98,11 @@
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <button class="editicon btnEditLeave"><a href="#" data-a=""><i class="ci-edit table-icon"></i></a></button>
+                           <button class="editicon btnEditLeave" data-id="<?php echo $leave->leaveDate; ?>" onclick="editLeaveRequest(this);"><a href="#" data-id="<?php echo $leave->leaveDate; ?>"><i class="ci-edit table-icon" data-id="<?php echo $leave->leaveDate; ?>"></i></a></button>
                            <?php if ($leave->status == 2) : ?>
-                              <button class="editicon btnDeleteLeave"><a><i class="ci-trash table-icon"></i></a></button>
+                              <button class="editicon btnDeleteLeave" data-id="<?php echo $leave->leaveDate; ?>"><a data-id="<?php echo $leave->leaveDate; ?>"><i class=" ci-trash table-icon" data-id="<?php echo $leave->leaveDate; ?>"></i></a></button>
                            <?php else : ?>
-                              <button class="editicon btnDeleteLeave" disabled><a><i class="ci-trash-disable table-icon"></i></a></button>
+                              <button class="editicon btnDeleteLeave" disabled><a><i class=" ci-trash-disable table-icon "></i></a></button>
                            <?php endif; ?>
                         </span>
                      </td>
@@ -115,76 +115,7 @@
       </div>
    </div>
    <!-- Request leave model -->
-   <div class="modal-container edit-leave">
-      <div class="modal-box addItems leave_request ">
-         <div class="new-type-head">
-            <h1>Edit Leave Request</h1>
-         </div>
-         <form action="<?php echo URLROOT; ?>/Leaves/leaves" class="form" method="POST">
-            <div class="leaverequest-form-content">
 
-               <div class="reqleave-date-section">
-                  <!-- <p class="test-class">Bla bla</p> -->
-                  <div class="leave-date-section">
-                     <div class="text-group">
-                        <label class="labels" for="serviceName">Date</label><br>
-                        <input class="addItemsModalLeaveRequestDate" type="date" name="date" id="date_picker" placeholder="--Select a date--" value="<?php echo $data['date']; ?>">
-                     </div>
-                     <span class="error date-error">
-                        <?php if ($data['date_error'])
-                        {
-                           echo $data['date_error'];
-                        }
-                        else echo $data['dateValidationMsg']; ?>
-                     </span>
-                     <!-- <input class="dateValidationMsg"> -->
-                  </div>
-                  <div class="reqleave-type-section">
-                     <label class="labels" for="serviceName">Type</label><br>
-                     <div class="dropdown-group">
-
-                        <select name="leavetype" id="lstatus">
-                           <!-- <option value="All" selected></option> -->
-                           <option class="unbold" value="0" option selected="true" disabled="disabled">Select</option>
-                           <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>General</option>
-                           <option value=2 <?php if ($data['leavetype'] == 2) echo 'selected'; ?>>Medical</option>
-
-                        </select>
-                     </div>
-                     <span class="error date-error">
-                        <?php if ($data['type_error'])
-                        {
-                           echo $data['type_error'];
-                        } ?>
-                     </span>
-                  </div>
-               </div>
-
-               <div class="reqleave-reason-section">
-                  <div class="text-group">
-                     <label class="labels" for="serviceName">Reason</label><br>
-
-                     <textarea type="text" name="reason" id="takeLeaveReason" placeholder="-- Type in --" class="addItemsModalTextArea" value="<?php echo $data['reason']; ?>"><?php echo $data['reason']; ?></textarea>
-                  </div>
-                  <span class="error"> <?php echo $data['reason_error']; ?></span>
-
-
-               </div>
-               <div class="reqleave-button-section">
-                  <div class="modalbutton">
-                     <div class="btn1">
-                        <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
-                     </div>
-                     <div class="btn2">
-                        <button type="submit" name="action" value="addleave" class="confirm-service-btn">Request</button>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </form>
-
-      </div>
-   </div>
    <!-- End of Take leave model -->
 
    <!--  leave Request model -->
@@ -201,7 +132,8 @@
                   <div class="leave-date-section">
                      <div class="text-group">
                         <label class="labels" for="serviceName">Date</label><br>
-                        <input class="LeaveRequestDate" type="date" name="date" id="takeLeaveDate" placeholder="--Select a date--" value="">
+                        <input class="LeaveRequestDate" type="date" name="date" id="takeLeaveDate" placeholder="--Select a date--">
+
                      </div>
 
                      <span class="error dateEmpty">
@@ -220,16 +152,18 @@
                            <option value=2 <?php if ($data['leavetype'] == 2) echo 'selected'; ?>>Medical</option>
 
                         </select>
+                        <span class="error typeEmpty">
+                           <?php if ($data['type_error'])
+                           {
+                              echo $data['type_error'];
+                           } ?>
+
+                        </span>
                      </div>
-                     <span class="error type-error">
-                        <?php if ($data['type_error'])
-                        {
-                           echo $data['type_error'];
-                        } ?>
-                     </span>
+
                   </div>
                </div>
-               <span class="error request-date-error">
+               <span class="error request-date-error1">
 
                </span>
 
@@ -258,68 +192,100 @@
 
       </div>
    </div>
-
-
-
-   <div class="modal-container edit-leave">
-      <div class="modal-box leave_request">
+   <!-- edit leave model -->
+   <div class=" modal-container edit-leave request">
+      <div class="modal-box addItems leave_request ">
          <div class="new-type-head">
-            <h1>Edit Leave</h1>
+            <h1>Edit Leave Request</h1>
          </div>
-         <form>
+         <!-- <form action="<?php echo URLROOT; ?>/Leaves/leaves" class="form" method="POST"> -->
+         <div class="leaverequest-form-content">
 
-            <div class="row">
-               <div class="column">
+            <div class="reqleave-date-section">
+               <!-- <p class="test-class">Bla bla</p> -->
+               <div class="leave-date-section">
                   <div class="text-group">
-                     <label class="labels" for="serviceName">2021-10-05</label><br>
-                     <input type="date" vale="2021-10-15" placeholder="Because of sickness" value="">
+                     <label class="labels" for="serviceName">Date</label><br>
+                     <form>
+                        <input class="editLeaveRequestDate" type="text" name="date" id="date_picker" disabled>
+                     </form>
+                  </div>
+                  <span class="error date-error">
+                     <?php if ($data['date_error'])
+                     {
+                        echo $data['date_error'];
+                     }
+                     else echo $data['dateValidationMsg']; ?>
+                  </span>
+                  <!-- <input class="dateValidationMsg"> -->
+               </div>
+               <div class="reqleave-type-section">
+                  <label class="labels" for="serviceName">Type</label><br>
+                  <div class="dropdown-group">
+
+                     <select name="leavetype" class="editleavetype" id="lstatus">
+                        <!-- <option value="All" selected></option> -->
+                        <option class="unbold" value="0" option selected="true" disabled="disabled">Select</option>
+                        <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>General</option>
+                        <option value=2 <?php if ($data['leavetype'] == 2) echo 'selected'; ?>>Medical</option>
+
+                     </select>
+                  </div>
+
+               </div>
+            </div>
+
+            <span class="error request-date-error">
+
+            </span>
+
+            <div class="reqleave-reason-section">
+               <div class="text-group">
+                  <label class="labels" for="serviceName">Reason</label><br>
+
+                  <textarea type="text" name="reason" id="takeLeaveReason" placeholder="-- Type in --" class="editTextArea" value="<?php echo $data['reason']; ?>"><?php echo $data['reason']; ?></textarea>
+               </div>
+               <span class="error"> <?php echo $data['reason_error']; ?></span>
+
+
+            </div>
+            <div class="reqleave-button-section">
+               <div class="modalbutton">
+                  <div class="btn1">
+                     <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
+                  </div>
+                  <div class="btn2">
+                     <button type="submit" name="action" value="edit" class="confirm-service-btn proceedBtn" onclick="leaveRequestSaveChanges(this);">Save Changes</button>
                   </div>
                </div>
             </div>
-            <div class="row">
-               <div class="column">
-                  <div class="text-group">
-                     <label class="labels" for="serviceName">Reason</label><br>
-
-                     <textarea type="text" placeholder="-- Type in --" value="<?php echo $data['reason']; ?>">Because of sickness</textarea>
-
-                  </div>
-               </div>
-            </div>
-
-            <div class="modalbutton">
-               <div class="btn1">
-                  <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
-               </div>
-               <div class="btn2">
-                  <button type="submit" name="action" value="addleave" class="edit-leave confirm-service-btn">Save
-                     Changes</button>
-               </div>
-            </div>
-
-         </form>
+         </div>
+         <!-- </form> -->
 
       </div>
-
    </div>
+
+
 
    <!-- end edit leave model -->
 
    <!-- delete leave Request model -->
    <div class="modal-container delete-leave">
       <div class="modal-box leave_delete">
-         <h2>Cancel Leave Request</h2>
-         <div class="confirmationmsg-container">
-            <span>Are you sure you want to cancel this leave request?</span>
-         </div>
-         <div class="modalbutton">
-            <div class="btn1">
-               <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
+         <form>
+            <h2>Cancel Leave Request</h2>
+            <div class="confirmationmsg-container">
+               <span>Are you sure you want to cancel this leave request?</span>
             </div>
-            <div class="btn2">
-               <button type="submit" name="action" value="deleteLeave" class="delete leave  btn btn-filled btn-error-red" onclick="recallCancelReservation(recordID);">Yes, Cancel</button>
+            <div class="modalbutton">
+               <div class="btn1">
+                  <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
+               </div>
+               <div class="btn2">
+                  <button type="submit" name="action" value="deleteLeave" class="delete leave  btn btn-filled btn-error-red proceedBtn" onclick="cancelLeaveRequest(this);">Yes, Cancel</button>
+               </div>
             </div>
-         </div>
+         </form>
 
       </div>
 
@@ -327,7 +293,6 @@
 
    <!-- end delete leave request model -->
 </div>
-
 
 
 

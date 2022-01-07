@@ -1,86 +1,7 @@
 ~~~system log~~~
 
-IP Add.	    Date & Time	        Mobile No	Name		        Activity
+IP Address  Date & Time	        Mobile No	Name		            Activity
 
-::1	        12/22/21 07:12PM	0703807405	Ruwanthi Munasinghe	    user signin to the system
-127.0.0.1	12/22/21 07:13PM	0703807405	Ruwanthi Munasinghe 	user signout from the system
-127.0.0.1	12/22/21 07:13PM	0703807405	Ruwanthi Munasinghe	    user signin to the system
-127.0.0.1	12/22/21 07:13PM	0703807405	Ruwanthi Munasinghe	    user signout from the system
-127.0.0.1	12/22/21 07:16PM	0762930963		                    user signout from the system
-127.0.0.1	12/22/21 07:16PM	0762930963		                    user signin to the system
-127.0.0.1	12/22/21 07:16PM	0762930963		                    user signout from the system
-::1	        12/22/21 07:35PM	0703807405	Ruwanthi Munasinghe	    user signin to the system
-
-::1	12/22/21 08:32PM	0703807405	Ruwanthi Munasinghe	user signin to the system
-::1	12/23/21 10:03PM	0714665240	Sanjana Rajapaksha	user signin to the system
-::1	12/24/21 11:48AM			user signin to the system
-::1	12/24/21 08:02PM			user signout from the system
-::1	12/24/21 08:05PM			user signin to the system
-::1	12/25/21 09:27AM			user signin to the system
-::1	12/26/21 08:41AM			user signin to the system
-::1	12/26/21 10:15PM			user signout from the system
-::1	12/26/21 10:15PM			user signin to the system
-::1	12/26/21 10:48PM			user signout from the system
-::1	12/26/21 10:48PM			user signin to the system
-::1	12/26/21 10:55PM			user signout from the system
-::1	12/26/21 10:55PM			user signin to the system
-::1	12/26/21 10:58PM			user signout from the system
-::1	12/26/21 10:58PM			user signin to the system
-::1	12/26/21 10:58PM			user signout from the system
-::1	12/26/21 10:58PM			user signin to the system
-::1	12/26/21 10:58PM			user signout from the system
-::1	12/26/21 10:59PM			user signin to the system
-::1	12/27/21 12:11AM			user signout from the system
-::1	12/27/21 12:11AM			user signin to the system
-::1	12/27/21 12:12AM			user signout from the system
-::1	12/27/21 12:19AM			user signin to the system
-::1	12/27/21 12:19AM			user signout from the system
-::1	12/27/21 12:19AM			user signin to the system
-::1	12/27/21 12:22AM			user signout from the system
-::1	12/27/21 12:22AM			user signin to the system
-::1	12/27/21 09:30AM			user signin to the system
-::1	12/27/21 09:32AM			user signin to the system
-
-::1	12/28/21 09:15AM	0766581992		user signin to the system
-::1	12/28/21 09:15AM	0766581992		user signin to the system
-::1	12/28/21 05:15PM			user signin to the system
-::1	12/29/21 09:39AM			user signout from the system
-::1	12/29/21 09:39AM			user signin to the system
-::1	12/29/21 12:57PM			user signout from the system
-::1	12/29/21 12:58PM			user signin to the system
-::1	12/29/21 04:56PM			user signin to the system
-::1	12/30/21 02:19PM			user signin to the system
-
-::1	12/27/21 04:08PM			user signout from the system
-::1	12/27/21 04:14PM			user signin to the system
-::1	12/27/21 04:14PM			user signout from the system
-::1	12/27/21 04:16PM			user signin to the system
-::1	12/28/21 08:27AM			user signin to the system
-::1	12/28/21 08:47AM			user signin to the system
-::1	12/29/21 12:33AM			user signin to the system
-::1	12/29/21 02:06AM			user signout from the system
-::1	12/29/21 08:38AM			user signin to the system
-::1	12/29/21 03:14PM			user signout from the system
-::1	12/29/21 03:14PM			user signin to the system
-::1	12/29/21 03:15PM			user signout from the system
-::1	12/29/21 03:15PM			user signin to the system
-::1	12/29/21 03:15PM			user signout from the system
-::1	12/29/21 03:15PM			user signin to the system
-::1	12/29/21 03:22PM			user signout from the system
-::1	12/29/21 03:22PM			user signin to the system
-::1	12/29/21 03:26PM			user signout from the system
-::1	12/29/21 03:26PM			user signin to the system
-::1	12/29/21 03:27PM			user signout from the system
-::1	12/29/21 03:27PM			user signin to the system
-::1	12/29/21 03:32PM			user signout from the system
-::1	12/29/21 03:32PM			user signin to the system
-::1	12/29/21 03:32PM			user signout from the system
-::1	12/29/21 03:32PM			user signin to the system
-::1	12/30/21 08:27AM			user signout from the system
-::1	12/30/21 08:27AM			user signin to the system
-::1	12/30/21 01:58PM			user signout from the system
-::1	12/30/21 01:58PM			user signin to the system
-IP Address	Date & Time	        Mobile No	Name		            Activity
 ::1       	12/30/21 10:28AM	0703807405	Ravindu               	signout
 ::1       	12/30/21 10:28AM	0703807405	Ravindu               	signin
 127.0.0.1 	12/30/21 10:28AM	0703807405	Ravindu               	signout
@@ -94,42 +15,5 @@ IP Address	Date & Time	        Mobile No	Name		            Activity
 127.0.0.1 	12/30/21 10:34AM	0703807405	Ruwanthi Munasinghe   	signout
 127.0.0.1 	12/30/21 10:34AM	0703807405	Ruwanthi Munasinghe   	User CustomLog
 127.0.0.1 	12/30/21 11:03AM	0703807405	Ruwanthi Munasinghe   	signout
-127.0.0.1 	12/30/21 11:03AM	0703807405	Ruwanthi Munasinghe   	signin
-::1       	12/30/21 11:05AM	0703807405	Ruwanthi Munasinghe   	change password
-127.0.0.1 	12/30/21 11:05AM	0703807405	Ruwanthi Munasinghe   	signout
-127.0.0.1 	12/30/21 11:05AM	0703807405	Ruwanthi Munasinghe   	signin
-::1       	12/30/21 11:06AM	0703807405	Ruwanthi Munasinghe   	change password
-127.0.0.1 	12/30/21 11:09AM	0703807405	Ruwanthi Munasinghe   	signout
-127.0.0.1 	12/30/21 11:10AM	0711239876	Kasun Mendis          	signin
-127.0.0.1 	12/30/21 11:11AM	0711239876	Kasun Mendis          	signout
-127.0.0.1 	12/30/21 11:13AM	0711239876	                      	signin
-::1       	12/30/21 11:31AM	0703807405	Ruwanthi Munasinghe   	signout
-::1       	12/30/21 11:31AM	0762930963	                      	signin
-::1       	12/30/21 11:31AM	0762930963	                      	download systemLog file
-::1       	12/30/21 11:31AM	0762930963	                      	download systemLog file
-::1       	12/30/21 11:32AM	0762930963	                      	download systemLog file
-::1       	12/30/21 11:33AM	0762930963	                      	download systemLog file
-::1       	12/30/21 11:33AM	0762930963	                      	signout
-::1       	12/30/21 11:34AM	0703807405	Ruwanthi Munasinghe   	signin
-
-::1       	12/30/21 03:51PM	0714665240	Sanjana Rajapaksha    	signout
-::1       	12/30/21 03:51PM	0714665240	Sanjana Rajapaksha    	signin
-
-::1       	12/31/21 11:38AM	0766581992	                      	signout
-::1       	12/31/21 11:39AM	0714665240	Sanjana Rajapaksha    	signin
-::1       	12/31/21 11:39AM	0714665240	Sanjana Rajapaksha    	signout
-::1       	12/31/21 11:39AM	0703807404	                      	signin
-::1       	12/31/21 11:39AM	0703807404	                      	download systemLog file
-::1       	12/31/21 11:40AM	0703807404	                      	download systemLog file
-::1       	12/31/21 11:40AM	0703807404	                      	signout
-::1       	12/31/21 11:40AM	0717679714	Devin Dissanayake     	signin
-::1       	12/31/21 11:40AM	0717679714	Devin Dissanayake     	signout
-::1       	12/31/21 12:05PM		                      	signout
-::1       	12/31/21 12:06PM	0703807404	                      	signin
-::1       	12/31/21 12:06PM	0703807404	                      	download systemLog file
-::1       	12/31/21 12:06PM	0703807404	                      	download systemLog file
 ::1       	12/31/21 12:07PM	0717679715	Navin Dissanayake     	signin
 ::1       	12/31/21 12:11PM	0717679715	Navin Dissanayake     	signout
-::1       	12/31/21 12:12PM	0766581992	                      	signin
-::1       	12/31/21 12:14PM	0766581992	                      	signout
-::1       	12/31/21 12:17PM	0717679715	Navin Dissanayake     	signin

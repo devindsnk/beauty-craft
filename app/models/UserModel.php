@@ -82,4 +82,10 @@ class UserModel extends Model
       $results = $this->getSingle("users", ["failedAttempts"], ["mobileNO" => $mobileNo]);
       return $results->failedAttempts;
    }
+
+   //to remove staf user account when disable staff member
+   public function removeUserAccount($mobileNo)
+   {
+      $this->delete("users", ['mobileNo' => $mobileNo ]); 
+   }
 }

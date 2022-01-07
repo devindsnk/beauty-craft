@@ -1,15 +1,35 @@
 // console.log("hhh");
 const CloseSalonDate = document.querySelector(".addItemsModalDate");
-const AddCloseDateProceedBtn = document.querySelector(".addCloseDateProceed")
+const AddCloseDateProceedBtn = document.querySelector(".addCloseDateProceed");
+const AddCloseDateBtn = document.querySelector(".btnAddCloseDate");
 let rescount = 0;
 const CloseSalonDateReservationDiv = document.querySelector(".closeSalonReservationRecallAndErrorText");
+
+
+
 CloseSalonDateReservationDiv.style.display = "none";
+
 
 CloseSalonDate.addEventListener('change',
    function () {
+
     CloseSalonDateResCount();
    }
 )
+
+
+
+AddCloseDateBtn.addEventListener('click',
+   function () {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month= today.getMonth() + 1 ;
+    const day = today.getDate();
+    CloseSalonDate.min = year + "-" + month + "-" + day ;
+    
+   }
+)
+
 
 function CloseSalonDateResCount() { 
    console.log("hihi"); 

@@ -598,7 +598,7 @@ button.editicon {
 }
 
 .leaverequest .modal-box {
-    height: 450px;
+    height: 470px;
     width: 500px;
 }
 .edit-leave .modal-box {
@@ -631,7 +631,7 @@ button.editicon {
     min-width: 330px;
 }
 
-.leaverequesttable .dropdown-group {
+.leaverequesttable .dropdown-group select {
     width: 70%;
 }
 span.leavelimitmsg{

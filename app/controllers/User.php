@@ -187,7 +187,9 @@ class User extends Controller
                   $this->userModel->commit();
 
                   //System log
-                  // Systemlog::resetPassword();
+                  $user = $this->userModel->getUser($data['mobileNo']);
+                  die($this->getUserData($user)[1]);
+                  Systemlog::resetPassword($data['mobileNo'], $this->getUserData($user)[1]);
 
                   Toast::setToast(1, "Password recovery successful!", "Sign in using new password.");
                   header('location: ' . URLROOT . '/user/signin');

@@ -149,6 +149,7 @@ if (resRecallBtn) {
 }
 // Reservation Recall BackBtn  Modal Section
 const resBackRecallBtn = document.querySelector('.btnBack');
+// console.log(resBackRecallBtn);
 if (resBackRecallBtn) {
     resBackRecallBtn.addEventListener("click",
         function () {
@@ -223,13 +224,15 @@ if (leaveRequestBtn) {
 }
 
 // Edit Leave Request Modal Section
-const editLeaveModal = document.querySelector(".edit-leave");
+const editLeaveModal = document.querySelector(".edit-leave.request");
 const editLeaveBtnList = document.querySelectorAll(".btnEditLeave");
+console.log(editLeaveModal);
 if (editLeaveBtnList) {
     editLeaveBtnList.forEach((btn) => {
         btn.addEventListener("click", function () {
             modalToToggle = editLeaveModal;
-            toggleModal();
+            console.log(btn);
+            toggleModal(btn);
         });
     });
 }
@@ -241,7 +244,7 @@ if (deleteLeaveBtnList) {
     deleteLeaveBtnList.forEach((btn) => {
         btn.addEventListener("click", function () {
             modalToToggle = deleteLeaveModal;
-            toggleModal();
+            toggleModal(btn);
         });
     });
 }
@@ -362,6 +365,8 @@ function transferIDToModal(btn){
 
 // Common section for all modal toggle operations
 function toggleModal(btn) {
+    // console.log('toggle model')
+ 
     if(btn){
         transferIDToModal(btn);
     }
