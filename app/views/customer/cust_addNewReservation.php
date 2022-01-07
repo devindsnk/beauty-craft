@@ -7,20 +7,19 @@
       <button class="btn btn-filled btn-black goBackBtn" onclick="history.back()">Go back!</button>
       <h1>New Reservation</h1>
 
-      <form action="<?php echo URLROOT; ?>/reservations/newReservationCust" method="post" class="form">
-         <div class="text-group date">
-            <label class="label" for="fName">Date</label>
-            <input type="date" id="date_picker" name="date" value="<?php echo $data['date']; ?>" class="dateSelect">
-            <span class="error date-error">
-               <!-- <?php echo $data['date_error']; ?> -->
-            </span>
-            <span class="info-line">*A reservation can be placed upto maximum of two months ahead. </span>
+      <div class="form">
 
-         </div>
          <div class="contentBox service-container">
             <div class="top-container">
-               <!-- <div class="row">
-                  <div class="column"> -->
+               <div class="text-group date">
+                  <label class="label" for="fName">Date</label>
+                  <input type="date" id="date_picker" name="date" value="" class="dateSelect">
+                  <span class="error date-error">
+                     <!-- <?php echo $data['date_error']; ?> -->
+                  </span>
+                  <span class="info-line">*A reservation can be placed upto maximum of two months ahead. </span>
+
+               </div>
                <div class="dropdown-group left-box start-time">
                   <label class="label" for="lName">Start Time</label>
                   <select name="startTime" class="startTimeSelect">
@@ -40,7 +39,7 @@
                         <?php endfor; ?>
                      <?php endfor; ?>
                   </select>
-                  <span class="error"><?php echo $data['startTime_error']; ?></span>
+                  <span class="error sTime-error"></span>
                </div>
                <!-- </div> -->
                <!-- <div class="column"> -->
@@ -52,7 +51,7 @@
                         <option value="<?php echo $service->serviceID ?>"><?php echo $service->name ?></option>
                      <?php endforeach; ?>
                   </select>
-                  <span class="error"><?php echo $data['serviceID_error']; ?></span>
+                  <span class="error service-error"></span>
                </div>
                <!-- </div> -->
                <!-- </div> -->
@@ -69,7 +68,7 @@
                   <select name="staffID" id="" class="serviceProviderSelect">
                      <option value="" selected disabled>Select service first</option>
                   </select>
-                  <span class="error"><?php echo $data['staffID_error']; ?></span>
+                  <span class="error sProv-error"><?php echo $data['staffID_error']; ?></span>
                </div>
 
                <!-- </div> -->
@@ -80,60 +79,30 @@
                <label class="label" for="fName">Remarks</label>
                <textarea name="remarks" id="" maxlength="200" class="remarks"></textarea>
             </div>
-            <span class="error"><?php echo $data['remarks_error']; ?></span>
+            <span class="error remarks-error"><?php echo $data['remarks_error']; ?></span>
          </div>
 
-         <span class="another-service">+ Add another service</span>
+         <button class="btn btn-filled btn-theme-red addResBtn">Add Reservation</button>
 
-         <div class="contentBox summary-container">
-            <label class="title">Summary</label>
-            <div>
-               <label>Service Name 1</label>
-               <span> 888.00 LKR</span>
-            </div>
-            <div>
-               <label>Service Name 1</label>
-               <span> 888.00 LKR</span>
-            </div>
-            <div>
-               <label>Service Name 1</label>
-               <span> 888.00 LKR</span>
-            </div>
-            <button type="submit" class="btn btn-filled btn-theme-red addResBtn">Add Reservation</button>
-         </div>
-
-         <!-- <div class="row hideElement">
-            <div class="column">
-               <div class="text-group">
-                  <label class="label" for="fName">Customer</label>
-                  <input type="text" name="customerID" id="fName" value="<?php echo Session::getUser("id"); ?>">
-               </div>
-            </div>
-         </div> -->
-      </form>
+      </div>
    </div>
 </div>
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> -->
-<!-- <script src="<?php echo URLROOT ?>/public/js/jquery-3.6.0.min.js"></script> -->
-<!-- <script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script> -->
 <script language="javascript">
-   console.log(new Date().toISOString().split('T')[0]);
+   const datePicker = document.getElementById("date_picker");
 
-   var today = new Date().toISOString().split('T')[0];
-   var maxDate = new Date();
+   let today = new Date().toISOString().split('T')[0];
+   let maxDate = new Date();
    month = new Date().getMonth();
    maxDate.setMonth(maxDate.getMonth() + 2);
    maxDate = maxDate.toISOString().split('T')[0];
-   console.log(maxDate);
-   document.getElementById("date_picker").setAttribute('min', today);
-   document.getElementById("date_picker").setAttribute('max', maxDate);
+
+   datePicker.setAttribute('min', today);
+   datePicker.setAttribute('max', maxDate);
+   datePicker.setAttribute('format', 'yyyy-MM-dd')
 </script>
-<script src="<?php echo URLROOT ?>/public/js/fetchRequests.js"></script>
+
 <script src="<?php echo URLROOT ?>/public/js/fetchRequests/newReservation.js"></script>
+<script src="<?php echo URLROOT ?>/public/js/newReservationUI.js"></script>
 
-</body>
-
-</html>
+<?php require APPROOT . "/views/customer/cust_footer.php" ?>

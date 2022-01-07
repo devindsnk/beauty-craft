@@ -10,7 +10,7 @@
    <!--Header profile section-->
 
    <div class="header-profile">
-      <img class="header-profilepic" src="<?php echo URLROOT ?>/public/imgs/person1.jpg"></img>
+      <img class="header-profilepic" src="<?php echo URLROOT ?>/public/imgs/staffImgs/<?php echo $userImg; ?>"></img>
       <span class="header-username"><?php echo $username ?></span>
       <span class="header-userRole"><?php echo $userTypeText ?></span>
       <div class="header-profile-arrow">

@@ -127,45 +127,15 @@
 
 /********************* Styles of new reservation page ***********************/
 
-/* .main-container {
-   display: grid;
-   grid-template-columns: 400px 400px;
-   gap: 25px;
-   width: 100%;
-   justify-content: center;
-   align-content: center;
-}
-
-.row {
-   width: 400px;
-}
-
-.box-1 {
-   width: max-content;
-}
-
-.box-2 {
-   width: max-content;
-}
-
-.serviceSelection {
-   display: flex;
-}
-
-.recept.newRes .contentBox {
-   padding: 22px;
-}
-
-.recept.newRes .cusDetails .btn-main {
-   margin: 10px auto;
-   padding: 6px;
-   width: 200px;
+.recept.newRes .inner-container{
+   max-width: 600px;
+   margin: 20px auto 10px;
 }
 
 .profile-info {
    display: flex;
    padding: 0 0 0 10px;
-   margin: 15px 0 30px;
+   margin: 15px 0 0;
    border-radius: 6px;
    height: 70px;
    background-color: var(--theme-lightgrey);
@@ -194,6 +164,10 @@
    flex-direction: column;
 }
 
+.profile-info .text-container .cust-name{
+   font-size: 14px;
+}
+
 .profile-info div label {
    margin-top: auto;
    display: block;
@@ -212,35 +186,60 @@
    right: 0;
 }
 
-.price-calc .tag {
-   height: 45px;
-   width: 100%;
+.recept.newRes .cust-container{
+   padding: 20px;
+   margin: 10px 0 30px;
+}
+
+.recept.newRes .service-container{
+   padding: 30px;
+   margin: 10px 0 15px;
+}
+
+.recept.newRes .service-container .top-container {
    display: flex;
-   flex-direction: row;
-   justify-content: space-between;
-   align-items: center;
-   border-bottom: 1px solid var(--theme-lightgrey);
+   flex-wrap: wrap;
+   column-gap: 5%;
 }
 
-.total.tag {
-   border: none;
+.recept.newRes .service-container .start-time,
+.recept.newRes .service-container .service {
+    order: 1;
 }
 
-.total.tag p {
-   font-weight: 600;
+.recept.newRes .service-container .duration,
+.recept.newRes .service-container .ser-provider {
+    order: 2;
 }
 
-.price-calc .price-tag .price {
-   margin-right: 0;
+.recept.newRes .service-container .left-box {
+    flex-basis: 110px;
 }
 
-.num-text {
-   font-family: "Roboto", sans-serif;
+.recept.newRes .service-container .right-box {
+    min-width: 400px;
+    flex-basis: auto;
 }
 
-.mini {
-   width: 100px !important;
-} */
+.recept.newRes .text-group, .dropdown-group{
+   margin-bottom: 20px;
+}
+
+.recept.newRes .last-group {
+   margin-bottom: 0 !important;
+}
+
+.recept.newRes .btn-container{
+   max-width: 600px;
+   margin: 10px auto 10px;
+}
+
+.recept.newRes .btn-main {
+   margin: 0px auto;
+   padding: 6px;
+   width: 200px;
+   float: right;
+}
 
 
 /****************** End of Styles of new reservation page *******************/

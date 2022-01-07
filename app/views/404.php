@@ -9,7 +9,7 @@
 
    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/style.css" />
    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-   <title>404</title>
+   <title>404 Error</title>
 </head>
 
 <body class="error404">

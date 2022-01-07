@@ -39,14 +39,33 @@ Leave Requests
 ---------------------------------------
 
 Reservations
-0 - Cancelled
+0 - Cancelled 
 1 - Pending
 2 - Confirmed
-3 - No Show
+3 - No Show 
 4 - Completed
 5 - Recalled
 
 ---------------------------------------
+
+Resources Type
+0 - Not Available
+1 - Available
+
+---------------------------------------
+
+Resource
+0 - Removed
+1 - Active
+
+---------------------------------------
+
+Customer 
+0 - Removed
+1 - Active   
+
+---------------------------------------
+
 
 Recall Requests
 0 - Pending
@@ -68,7 +87,7 @@ Refund Invoices (type 0)
 ---------------------------------------
 
 Leave Types
-1 - General leave
-2 - Medical Leave
+1 - General leave--0,1,2,3
+2 - Medical Leave--2,1
 
 ---------------------------------------

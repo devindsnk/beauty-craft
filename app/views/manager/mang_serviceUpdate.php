@@ -7,7 +7,7 @@
 			<h1 class="header-topic">Update Service</h1>
 		</div>
 		<div class="header-right verticalCenter">
-			<span class="top-right-closeBtn" onclick="history.back()">
+			<span class="top-right-closeBtnSpecial">
 				<i class=" fal fa-times fa-2x "></i>
 			</span>
 		</div>
@@ -103,13 +103,13 @@
 																																																							}
 																																																						}
 																																																						?> <?php if ($_SERVER['REQUEST_METHOD'] != 'POST')
-													{
-														foreach ($data['serProvDetails'] as $sProvDetails)
-														{
-															if ($sProvDetails->staffID == $sProv->staffID) echo 'checked';
-														}
-													}
-													?>>
+																																																							{
+																																																								foreach ($data['serProvDetails'] as $sProvDetails)
+																																																								{
+																																																									if ($sProvDetails->staffID == $sProv->staffID) echo 'checked';
+																																																								}
+																																																							}
+																																																							?>>
 
 										<!-- <?php foreach ($data['serProvDetails'] as $sProvDetails)
 												{

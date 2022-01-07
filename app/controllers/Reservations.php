@@ -39,65 +39,82 @@ class Reservations extends Controller
    {
       $servicesList = $this->serviceModel->getAllAvailableServices();
 
-      if ($_SERVER['REQUEST_METHOD'] == 'POST')
-      {
-         $data = [
-            'customerID' => Session::getUser("id"),
-            'serviceID' => isset($_POST['serviceID']) ? trim($_POST['serviceID']) : '',
-            'staffID' => isset($_POST['staffID']) ? trim($_POST['staffID']) : '',
-            'date' => trim($_POST['date']),
-            'startTime' => isset($_POST['startTime']) ? trim($_POST['startTime']) : '',
-            'endTime' => 0,
-            'remarks' => trim($_POST['remarks']),
-            // 'status' => trim($_POST['mobileNo']),
+      //    if ($_SERVER['REQUEST_METHOD'] == 'POST')
+      //    {
+      //       $data = [
+      //          'customerID' => Session::getUser("id"),
+      //          'serviceID' => isset($_POST['serviceID']) ? trim($_POST['serviceID']) : '',
+      //          'staffID' => isset($_POST['staffID']) ? trim($_POST['staffID']) : '',
+      //          'date' => trim($_POST['date']),
+      //          'startTime' => isset($_POST['startTime']) ? trim($_POST['startTime']) : '',
+      //          'endTime' => 0,
+      //          'remarks' => trim($_POST['remarks']),
+      //          // 'status' => trim($_POST['mobileNo']),
 
-            'serviceID_error' => '',
-            'staffID_error' => '',
-            'date_error' => '',
-            'startTime_error' => '',
-            'remarks_error' => '',
+      //          'serviceID_error' => '',
+      //          'staffID_error' => '',
+      //          'date_error' => '',
+      //          'startTime_error' => '',
+      //          'remarks_error' => '',
 
-            'servicesList' => $servicesList
-         ];
+      //          'servicesList' => $servicesList
+      //       ];
 
-         $data['startTime_error'] = emptyCheck($data['startTime']);
-         $data['serviceID_error'] = emptyCheck($data['serviceID']);
-         $data['staffID_error'] = emptyCheck($data['staffID']);
-         $data['date_error'] = emptyCheck($data['date']);
+      //       $data['startTime_error'] = emptyCheck($data['startTime']);
+      //       $data['serviceID_error'] = emptyCheck($data['serviceID']);
+      //       $data['staffID_error'] = emptyCheck($data['staffID']);
+      //       $data['date_error'] = emptyCheck($data['date']);
 
-         if (empty($data['serviceID_error']) && empty($data['staffID_error']) && empty($data['date_error'])  && empty($data['startTime_error']))
-         {
-            $this->reservationModel->addReservation($data);
-            redirect('CustDashboard/myReservations');
-         }
-         else
-         {
-            $this->view('customer/cust_addNewReservation', $data);
-         }
-      }
-      else
-      {
-         $data = [
-            'customerID' => '',
-            'serviceID' => '',
-            'staffID' => '',
-            'date' => '',
-            'startTime' => '',
-            'endTime' => 0,
-            'remarks' => '',
-            // 'status' => trim($_POST['mobileNo']),
+      //       if (empty($data['serviceID_error']) && empty($data['staffID_error']) && empty($data['date_error'])  && empty($data['startTime_error']))
+      //       {
+      //          $this->reservationModel->addReservation($data);
+      //          redirect('CustDashboard/myReservations');
+      //       }
+      //       else
+      //       {
+      //          $this->view('customer/cust_addNewReservation', $data);
+      //       }
+      //    }
+      //    else
+      //    {
+      $data = [
+         'customerID' => '',
+         'serviceID' => '',
+         'staffID' => '',
+         'date' => '',
+         'startTime' => '',
+         'endTime' => 0,
+         'remarks' => '',
+         // 'status' => trim($_POST['mobileNo']),
 
-            'serviceID_error' => '',
-            'staffID_error' => '',
-            'date_error' => '',
-            'startTime_error' => '',
-            'remarks_error' => '',
+         'serviceID_error' => '',
+         'staffID_error' => '',
+         'date_error' => '',
+         'startTime_error' => '',
+         'remarks_error' => '',
 
-            'servicesList' => $servicesList
-         ];
+         'servicesList' => $servicesList
+      ];
 
-         $this->view('customer/cust_addNewReservation', $data);
-      }
+      $this->view('customer/cust_addNewReservation', $data);
+      //    }
+   }
+
+   public function placeReservation($serviceID, $staffID, $date, $startTime, $remarks = null)
+   {
+      $data = [
+         'customerID' => Session::getUser("id"),
+         'serviceID' => $serviceID,
+         'staffID' => $staffID,
+         'date' => $date,
+         'startTime' => $startTime,
+         'remarks' => $remarks
+      ];
+
+      $results = $this->reservationModel->addReservation($data);
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($results));
    }
 
    public function addNewResRecept()
@@ -392,4 +409,16 @@ class Reservations extends Controller
       $this->view('404');
    }
 
+   public function provideFeedback($reservationID, $rating, $comment)
+   {
+      $results = $this->reservationModel->storeFeedback($reservationID, $rating, $comment);
+
+      if ($results)
+         Toast::setToast(1, "Feedback submitted seccessfully", "");
+      else
+         Toast::setToast(0, "Something went wrong", "Feedback has not been saved");
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($results));
+   }
 }

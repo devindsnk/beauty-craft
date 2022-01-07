@@ -502,9 +502,9 @@ class ServiceModel extends Model
     }
 
     public function getResourceDetails()
-    {
+    {   
         $results = $this->getResultSet('resources', ['resourceID', 'name', 'quantity'], null);
-
+        
         return $results;
     }
 

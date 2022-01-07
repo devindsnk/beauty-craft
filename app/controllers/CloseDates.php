@@ -10,7 +10,9 @@ class CloseDates extends Controller
    {
    //  die('success');
     $this->closedDatesModel->removeCloseDateDetails($defKey);
+    Toast::setToast(1, "Close date removed successfully", "");
     redirect('OwnDashboard/closeSalon');
+   //  $this->view('owner/own_closeSalon');
     // $this->view('owner/own_closeSalon');
    }
 
@@ -23,6 +25,17 @@ class CloseDates extends Controller
    //  redirect('OwnDashboard/closeSalon');
     // $this->view('owner/own_closeSalon');
    }
+
+   public function getCloseDateReservtaions($date)
+   {
+      // $this->closedDatesModel->getCloseDatesReservationCount($data['closeDate']);
+      // Session::validateSession([6]);
+      $reservations = $this->closedDatesModel->getCloseDatesReservationDetails($date);
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($reservations));
+   }
+
+
 
 
 }

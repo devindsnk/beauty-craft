@@ -80,57 +80,6 @@
                <p for="">Remarks</p>
                <label><?php echo $data["remarks"]; ?></label>
             </div>
-
-            <!-- <div class="sub-res-container">
-               <div class="left-section">
-                  <div class="text-group">
-                     <label for="">Time</label>
-                     <p>
-                        <?php echo $data->startTime; ?>08:30 AM
-                     </p>
-                  </div>
-               </div>
-               <div class="right-section">
-                  <div class="row">
-                     <div class="column">
-                        <div class="text-group">
-                           <label for="">Service</label>
-                           <p><?php echo $data->serviceName; ?></p>
-                        </div>
-                     </div>
-                     <div class="column">
-                        <div class="text-group">
-                           <label for="">Service Provider</label>
-                           <p><?php echo $data->staffFName . " " . $data->staffLName; ?></p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="column">
-                        <div class="text-group">
-                           <label for="">Duration</label>
-                           <p><?php echo $data->totalDuration; ?></p>
-                        </div>
-                     </div>
-                     <div class="column">
-                        <div class="text-group">
-                           <label for="">Price</label>
-                           <p><?php echo $data->totalDuration; ?></p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="text-group">
-                     <p for="">Remarks</p>
-                     <label><?php echo $data->remarks; ?>Lorem ipsum dolor sit amet consectetur adipisicing elit. </label>
-                  </div>
-               </div>
-            </div> 
-
-            <hr class="separator">-->
-            <!-- <label>Total Duration</label>
-            <p><?php echo $data["totalDuration"]; ?></p>
-            <label>Total Price</label>
-            <p><?php echo $data["price"]; ?></p> -->
          </div>
 
          <div class="bottom-container">
@@ -188,7 +137,7 @@
    </div>
    <!-- End of Res Cancellation modal -->
 
-   <!-- Res Cancellation modal -->
+   <!-- Res NoShow modal -->
    <div class="modal-container reservation-noShow">
       <div class="modal-box size-confirmation">
          <div class="confirm-model-head">
@@ -203,9 +152,9 @@
          </div>
       </div>
    </div>
-   <!-- End of Res Cancellation modal -->
+   <!-- End of Res NoShow modal -->
 
-   <!-- Res Cancellation modal -->
+   <!-- Res Checkout modal -->
    <div class="modal-container reservation-checkout">
       <div class="modal-box size-confirmation">
          <div class="confirm-model-head">
@@ -220,7 +169,7 @@
          </div>
       </div>
    </div>
-   <!-- End of Res Cancellation modal -->
+   <!-- End of Res Checkout modal -->
 
    <script src="<?php echo URLROOT ?>/public/js/fetchRequests/reservationOperations.js"></script>
    <?php require APPROOT . "/views/inc/footer.php" ?>

@@ -12,17 +12,17 @@ class User extends Controller
 
    public function signin()
    {
+      // Session::setSingle("returnReferer", $_SERVER["HTTP_REFERER"]);
+      // var_dump($_SERVER["HTTP_REFERER"]);
+      // var_dump($_SERVER["REQUEST_METHOD"]);
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
          $data = [
             'mobileNo' => trim($_POST['mobileNo']),
             'password' => trim($_POST['password']),
             'mobileNo_error' => '',
-            'password_error' => '',
-            // 'contactNo'=>'0762930963'
+            'password_error' => ''
          ];
-         // $this->userModel->updatePassword($data['contactNo'],$data['password']);
-
 
          $data['mobileNo_error'] = validateMobileNo($data['mobileNo']);
          $data['password_error'] = emptyCheck($data['password']);
@@ -61,7 +61,7 @@ class User extends Controller
             }
             else
             {
-               $data['mobileNo_error'] = "Invalid mobile no";
+               $data['mobileNo_error'] = "User does not exists.";
             }
 
             if (!empty($data['mobileNo_error']) || !empty($data['password_error']))
@@ -92,7 +92,6 @@ class User extends Controller
       // If the request is a post
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
-
          // Data is loaded
          $data = [
             'mobileNo' => trim($_POST['mobileNo']),
@@ -113,9 +112,9 @@ class User extends Controller
             if (empty($data['mobileNo_error']))
             {
                // Checking if already registered
-               $isUserExists = $this->userModel->checkUserExists($data['mobileNo']);
+               $isLoginExists = $this->userModel->checkLoginExists($data['mobileNo']);
                // Handle already registered but inactive customers properly
-               if ($isUserExists)
+               if ($isLoginExists)
                {
                   // If no issues
                   //GET otp
@@ -188,7 +187,9 @@ class User extends Controller
                   $this->userModel->commit();
 
                   //System log
-                  Systemlog::resetPassword();
+                  $user = $this->userModel->getUser($data['mobileNo']);
+                  die($this->getUserData($user)[1]);
+                  Systemlog::resetPassword($data['mobileNo'], $this->getUserData($user)[1]);
 
                   Toast::setToast(1, "Password recovery successful!", "Sign in using new password.");
                   header('location: ' . URLROOT . '/user/signin');
@@ -228,7 +229,8 @@ class User extends Controller
             "mobileNo" => $user->mobileNo,
             "type" => $user->userType,
             "id" => $this->getUserData($user)[0],
-            "name" =>  $this->getUserData($user)[1]
+            "name" =>  $this->getUserData($user)[1],
+            "img" => $this->getUserData($user)[2]
          ]
       );
    }
@@ -269,6 +271,8 @@ class User extends Controller
    {
       switch ($user->userType)
       {
+         case 1:
+         case 2:
          case 3:
          case 4:
          case 5:
@@ -294,9 +298,17 @@ class User extends Controller
          return false;
    }
 
+   public function autoLogout()
+   {
+      // Systemlog::signout();
+
+      // Session::clear('user');
+      // session_destroy();
+      return;
+   }
+
    public function signout()
    {
-
       //System log
       Systemlog::signout();
 

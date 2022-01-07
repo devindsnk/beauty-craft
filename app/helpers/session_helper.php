@@ -78,7 +78,8 @@ class Session
 
          case "id":
             return Self::get("user")["id"];
-
+         case "img":
+            return Self::get("user")["img"];
          default:
             echo "Invalid Parameter";
             break;

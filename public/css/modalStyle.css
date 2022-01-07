@@ -14,18 +14,28 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    visibility: hidden;
     z-index: 3;
+    transition: 0.3s;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .modal-box {
+    position: absolute;
     padding: 30px 50px;
     border-radius: 6px;
     background-color: white;
+    transition: 0.3s;
+    /* bottom: 50%; */
+    transform: translate(0, 60%)
 }
 
 .modal-box.size-confirmation{
     width: 550px;
+}
+
+.modal-box.size-form{
+    width: 600px;
 }
 
 .normal .modal-box {
@@ -41,7 +51,12 @@
 }
 
 .modal-container.show {
+    opacity: 1;
     visibility: visible;
+}
+
+.modal-container.show .modal-box{
+    transform: translate(0, 0%)
 }
 
 

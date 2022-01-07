@@ -16,7 +16,7 @@ class UserModel extends Model
       return $results;
    }
 
-   public function checkUserExists($mobileNo)
+   public function checkLoginExists($mobileNo)
    {
       $results = $this->getRowCount("users", ["mobileNo" => $mobileNo]);
       if ($results == 0)
@@ -24,6 +24,37 @@ class UserModel extends Model
          return false;
       }
       return true;
+   }
+
+   public function checkAlreadyRegistered($mobileNo)  // Check already registered AND not removed
+   {
+      $custExists = $this->checkCustExists($mobileNo);
+      var_dump($custExists);
+      $staffExists = $this->checkStaffExists($mobileNo);
+      var_dump($staffExists);
+      return ($custExists || $staffExists);
+   }
+
+   public function checkCustExists($mobileNo)
+   {
+      $SQLstatement = "SELECT * FROM customers WHERE mobileNo = :mobileNo AND status = 1;";
+      $results = $this->customQuery($SQLstatement, [":mobileNo" => $mobileNo]);
+      var_dump($results);
+      if (empty($results))
+         return false;
+      else
+         return true;
+   }
+
+   public function checkStaffExists($mobileNo)
+   {
+      $SQLstatement = "SELECT * FROM staff WHERE mobileNo = :mobileNo AND status IN (1,2);";
+      $results = $this->customQuery($SQLstatement, [":mobileNo" => $mobileNo]);
+
+      if (empty($results))
+         return false;
+      else
+         return true;
    }
 
    public function updatePassword($mobileNo, $password)
@@ -50,5 +81,11 @@ class UserModel extends Model
    {
       $results = $this->getSingle("users", ["failedAttempts"], ["mobileNO" => $mobileNo]);
       return $results->failedAttempts;
+   }
+
+   //to remove staf user account when disable staff member
+   public function removeUserAccount($mobileNo)
+   {
+      $this->delete("users", ['mobileNo' => $mobileNo ]); 
    }
 }
