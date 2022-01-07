@@ -161,7 +161,7 @@ class ReservationModel extends Model
                                        FROM reservations
                                        INNER JOIN staff ON staff.staffID = reservations.staffID
                                        INNER JOIN services ON services.serviceID = reservations.serviceID
-                                       INNER JOIN serviceproviders ON serviceproviders.serviceID = reservations.serviceID
+                                       -- INNER JOIN serviceproviders ON serviceproviders.serviceID = reservations.serviceID
                                        INNER JOIN customers ON customers.customerID = reservations.customerID
                                        WHERE reservations.status = :status AND ( reservations.date BETWEEN '$from' AND '$to' ) AND services.serviceID =$serviceID 
                                        -- GROUP BY reservations.date 
@@ -173,7 +173,7 @@ class ReservationModel extends Model
                                     FROM reservations
                                     INNER JOIN staff ON staff.staffID = reservations.staffID
                                     INNER JOIN services ON services.serviceID = reservations.serviceID
-                                    INNER JOIN serviceproviders ON serviceproviders.serviceID = reservations.serviceID
+                                    -- INNER JOIN serviceproviders ON serviceproviders.serviceID = reservations.serviceID
                                     INNER JOIN customers ON customers.customerID = reservations.customerID
                                     WHERE reservations.status = :status AND ( reservations.date BETWEEN '$from' AND '$to' ) 
                                     -- GROUP BY reservations.date 
@@ -189,7 +189,7 @@ class ReservationModel extends Model
          $results = $this->customQuery("SELECT reservations.reservationID AS reservationID, services.name AS sName, customers.fName AS cFName, customers.lName AS cLName, services.price AS price  
                                        FROM reservations
                                        INNER JOIN services ON services.serviceID = reservations.serviceID
-                                       INNER JOIN serviceproviders ON serviceproviders.serviceID = reservations.serviceID
+                                       -- INNER JOIN serviceproviders ON serviceproviders.serviceID = reservations.serviceID
                                        INNER JOIN customers ON customers.customerID = reservations.customerID
                                        WHERE reservations.status = :status AND ( reservations.date BETWEEN '$from' AND '$to' ) AND reservations.staffID =$staffID 
                                        -- GROUP BY reservations.date 
@@ -200,7 +200,7 @@ class ReservationModel extends Model
          $results = $this->customQuery("SELECT reservations.reservationID AS reservationID, services.name AS sName, customers.fName AS cFName, customers.lName AS cLName, services.price AS price  
                                     FROM reservations
                                     INNER JOIN services ON services.serviceID = reservations.serviceID
-                                    INNER JOIN serviceproviders ON serviceproviders.serviceID = reservations.serviceID
+                                    -- INNER JOIN serviceproviders ON serviceproviders.serviceID = reservations.serviceID
                                     INNER JOIN customers ON customers.customerID = reservations.customerID
                                     WHERE reservations.status = :status AND ( reservations.date BETWEEN '$from' AND '$to' ) 
                                     -- GROUP BY reservations.date 
