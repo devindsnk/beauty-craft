@@ -12,6 +12,7 @@ class User extends Controller
 
    public function signin()
    {
+      // TODO:
       // Session::setSingle("returnReferer", $_SERVER["HTTP_REFERER"]);
       // var_dump($_SERVER["HTTP_REFERER"]);
       // var_dump($_SERVER["REQUEST_METHOD"]);
@@ -53,7 +54,7 @@ class User extends Controller
                      Systemlog::signin();
                   }
                   else
-                  {  //Handle incorrect Attempts
+                  {
                      $this->userModel->incrementFailedAttempts($data['mobileNo']);
                      $data['password_error'] = "Incorrect password";
                   }
@@ -80,8 +81,7 @@ class User extends Controller
             'mobileNo' => '',
             'password' => '',
             'mobileNo_error' => '',
-            'password_error' => '',
-            'contactNo' => '0762930963'
+            'password_error' => ''
          ];
          $this->view('signin', $data);
       }
@@ -298,14 +298,15 @@ class User extends Controller
          return false;
    }
 
-   public function autoLogout()
-   {
-      // Systemlog::signout();
+   // TODO:
+   // public function autoLogout()
+   // {
+   //    // Systemlog::signout();
 
-      // Session::clear('user');
-      // session_destroy();
-      return;
-   }
+   //    // Session::clear('user');
+   //    // session_destroy();
+   //    return;
+   // }
 
    public function signout()
    {

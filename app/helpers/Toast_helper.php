@@ -1,4 +1,12 @@
 <?php
+
+/*
+ *
+ * Contains functions related Toast notification
+ * Use session variables to store notification data
+ * 
+ */
+
 class Toast
 {
     public static function setToast($state, $title, $subtitle)

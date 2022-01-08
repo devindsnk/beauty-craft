@@ -3,6 +3,7 @@
 /*
  * Common validation helper 
  * Contains validation functions for general forms
+ * TODO: convert to a class
  */
 
 function emptyCheck($value)

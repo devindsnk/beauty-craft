@@ -30,7 +30,7 @@ function(){
 
 function checkforUpcomingReservationsAndCreateUrl(cusID,cusMobileNo){
         console.log("checkforUpcomingReservations works");
-    fetch(`http://localhost:80/beauty-craft/Customer/getReservtaionCountByCustomerID/${cusID}`)
+    fetch(`http://localhost:80/beauty-craft/Customer/getReservataionCountByCustomerID/${cusID}`)
      .then(response => response.json())
      .then( reservationCount => {
         console.log("checkforUpcomingReservations works");
