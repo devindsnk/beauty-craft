@@ -22,58 +22,43 @@ class StaffModel extends Model
             ':mobileNo' =>  $data['staffMobileNo'],
          ]
       );
-      $staffID = $result[0]->staffID; 
-      $results =  $this->insert('bankdetails', ['staffID' => $staffID, 'accountNo' => $data['staffAccNum'], 'bankName' => $data['staffAccBank'], 'holdersName' => $data['staffAccHold'], 'branchName' => $data['staffAccBranch']]); 
-      var_dump($results); 
+      $staffID = $result[0]->staffID;
+      $results =  $this->insert('bankdetails', ['staffID' => $staffID, 'accountNo' => $data['staffAccNum'], 'bankName' => $data['staffAccBank'], 'holdersName' => $data['staffAccHold'], 'branchName' => $data['staffAccBranch']]);
+      var_dump($results);
    }
    // get one staff details to the table
    public function  getAllStaffDetails()
    {
-      // $result = $this->getResultSet('staff', '*', null); 
-      // $SQLstatement = "SELECT * FROM staff WHERE status IN (3,4);"; 
-      $result = $this->customQuery("SELECT * FROM staff WHERE staffType IN (3,4,5)"); 
-      // $result = $this->customQuery("SELECT * FROM staff WHERE staffID = 3 OR staffID = 4 OR staffID = 5"); 
-      // print_r($result);
-      // die("error");
-
+      $result = $this->customQuery("SELECT * FROM staff WHERE staffType IN (3,4,5)");
       return $result;
    }
 
    // get one staff details to the view 
-   public function getStaffDetailsWithBankDetailsByStaffID($staffID) 
-   { 
-
-      $result = $this->customQuery( 
+   public function getStaffDetailsWithBankDetailsByStaffID($staffID)
+   {
+      $result = $this->customQuery(
          "SELECT * FROM bankdetails 
                         INNER JOIN staff 
                         ON staff.staffID = bankdetails.staffID 
-                        WHERE bankdetails.staffID =:staffID", 
-         [ 
-            ':staffID' => $staffID 
-         ] 
-      ); 
-      // var_dump($result); 
-      return $result; 
-   } 
-
+                        WHERE bankdetails.staffID =:staffID",
+         [
+            ':staffID' => $staffID
+         ]
+      );
+      return $result;
+   }
 
    public function getStaffDetailsByStaffID($staffID)
    {
       $result = $this->getResultSet('staff', '*', ["staffID" => $staffID]);
-      // $this->db->customQuery("SELECT * FROM staff
-      //                   WHERE staffID = '$staffID'");
-      // $result = $this->db->resultSet();
-
       return $result;
    }
 
    public function getStaffBankDetailsByStaffID($staffID)
    {
       $result = $this->getResultSet('bankdetails', '*', ["staffID" => $staffID]);
-
       return $result;
    }
-
 
    public function getStaffDataByMobileNo($mobileNo)
    {
@@ -83,21 +68,17 @@ class StaffModel extends Model
       return [$result->staffID, $result->fName . " " . $result->lName];
    }
 
-
    public function updateStaff($data, $staffID)
    {
-    $this->update('staff', ['image' =>  $data['staffimage'], 'fName' => $data['staffFname'], 'lName' => $data['staffLname'], 'staffType' => $data['staffType'], 'mobileNo' => $data['staffMobileNo'], 'gender' => $data['gender'], 'address' => $data['staffHomeAdd'], 'email' => $data['staffEmail'], 'dob' => $data['staffDOB']], ['staffID' => '$staffID']);
-    $this->update('bankdetails', ['staffID' => $staffID, 'accountNo' => $data['staffAccNum'], 'bankName' => $data['staffAccBank'], 'holdersName' => $data['staffAccHold'], 'branchName' => $data['staffAccBranch']], ['staffID' => '$staffID']);
+      $this->update('staff', ['image' =>  $data['staffimage'], 'fName' => $data['staffFname'], 'lName' => $data['staffLname'], 'staffType' => $data['staffType'], 'mobileNo' => $data['staffMobileNo'], 'gender' => $data['gender'], 'address' => $data['staffHomeAdd'], 'email' => $data['staffEmail'], 'dob' => $data['staffDOB']], ['staffID' => '$staffID']);
+      $this->update('bankdetails', ['staffID' => $staffID, 'accountNo' => $data['staffAccNum'], 'bankName' => $data['staffAccBank'], 'holdersName' => $data['staffAccHold'], 'branchName' => $data['staffAccBranch']], ['staffID' => '$staffID']);
    }
 
    public function removeStaff($staffID, $staffMobileNo)
    {
-      print_r($staffMobileNo);
-      // die("RemoveStaffController");
       $status = 0;
-      $this->update("staff", ["status" => $status],['staffID' => $staffID ]);
-      $this->delete("users", ['mobileNo' => $staffMobileNo ]); 
-
+      $this->update("staff", ["status" => $status], ['staffID' => $staffID]);
+      $this->delete("users", ['mobileNo' => $staffMobileNo]);
    }
 
    public function getStaffUserData($mobileNo)
@@ -109,7 +90,6 @@ class StaffModel extends Model
 
    public function getReservtaionDetailsByStaffID($staffID)
    {
-
       $SQLstatement = "SELECT * FROM reservations WHERE staffID = :staffID AND status IN (1,2);";
       $results = $this->customQuery($SQLstatement, [":staffID" => $staffID]);
       return $results;
@@ -139,22 +119,17 @@ class StaffModel extends Model
    public function getReceptionistCount()
    {
       $results = $this->getRowCount('staff', ['staffType' => 4, 'status' => 1]);
-
       return $results;
    }
 
    public function getManagerCount()
    {
       $results = $this->getRowCount('staff', ['staffType' => 3, 'status' => 1]);
-
       return $results;
    }
    // FOR MANAGER OVERVIEW
 
-
-
    ///// Methods added by devin ////
-
    // Returns the data of service providers of a given service with their availability on the give date.
    public function getSProvidersByServiceWithLeaveStatus($serviceID, $selectedDate)
    {
@@ -176,6 +151,5 @@ class StaffModel extends Model
       );
       return $results;
    }
-
    /////////////////////////////////
 }

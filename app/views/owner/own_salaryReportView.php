@@ -24,11 +24,11 @@
                 <h3 class="ownSalaryReportHead3">Month-August</h3>
             </div>
             <?php $staffD = $data['staffD'][0]; ?>
-            <?php  $bankD = $data['bankD'][0]; ?>
-            <?php  $salaryRateD = $data['salaryRateD'][0]; ?>
-            <?php  $leaveRateD = $data['leaveRateD'][0]; ?>
-            <?php  $commisionRateD = $data['commisionRateD'][0]; ?>
-            <?php  $StaffSalaryPaymentD = $data['StaffSalaryPaymentD']; ?>
+            <?php $bankD = $data['bankD'][0]; ?>
+            <?php $salaryRateD = $data['salaryRateD'][0]; ?>
+            <?php $leaveRateD = $data['leaveRateD'][0]; ?>
+            <?php $commisionRateD = $data['commisionRateD'][0]; ?>
+            <?php $StaffSalaryPaymentD = $data['StaffSalaryPaymentD']; ?>
             <?php print_r($StaffSalaryPaymentD); ?>
             <!-- Staff member details starts  -->
             <div class="SalaryReportContainer">
@@ -46,18 +46,18 @@
                         <br> <br>
                         <label class="ownSalaryReportStaffMemberDetailsContentData">Type</label>
                         <label class="ownSalaryReportStaffMemberDetailsContentValue">
-                        <?php if ($staffD->staffType == 3)
-                     {
-                        echo 'Manager';
-                     }
-                     elseif ($staffD->staffType == 4)
-                     {
-                        echo 'Receptionist';
-                     }
-                     elseif ($staffD->staffType == 5)
-                     {
-                        echo 'Service Provider';
-                     } ?>
+                            <?php if ($staffD->staffType == 3)
+                            {
+                                echo 'Manager';
+                            }
+                            elseif ($staffD->staffType == 4)
+                            {
+                                echo 'Receptionist';
+                            }
+                            elseif ($staffD->staffType == 5)
+                            {
+                                echo 'Service Provider';
+                            } ?>
                         </label>
                         <br> <br>
                         <label class="ownSalaryReportStaffMemberDetailsContentData">Contact Number</label>
@@ -98,20 +98,20 @@
                     <div class="ownSalaryReportSalaryDetailsContent">
                         <label class="ownSalaryReportSalaryDetailsContentData">Basic Salary</label>
                         <label class="ownSalaryReportSalaryDetailsContentValue">
-                        <?php if ($staffD->staffType == 3)
-                        {
-                            echo $salaryRateD->managerSalaryRate;
-                        }
-                        elseif ($staffD->staffType == 4)
-                        {
-                            echo $salaryRateD->receptionistSalaryRate;
-                        }
-                        elseif ($staffD->staffType == 5)
-                        {
-                            echo $salaryRateD->serviceProviderSalaryRate;
-                        } ?> LKR
-                        </label> 
-                        <br> <br> 
+                            <?php if ($staffD->staffType == 3)
+                            {
+                                echo $salaryRateD->managerSalaryRate;
+                            }
+                            elseif ($staffD->staffType == 4)
+                            {
+                                echo $salaryRateD->receptionistSalaryRate;
+                            }
+                            elseif ($staffD->staffType == 5)
+                            {
+                                echo $salaryRateD->serviceProviderSalaryRate;
+                            } ?> LKR
+                        </label>
+                        <br> <br>
                         <label class="ownSalaryReportSalaryDetailsContentData">Service Commision</label>
                         <label class="ownSalaryReportSalaryDetailsContentValue">20000.00 LKR</label>
                         <br>
@@ -121,20 +121,21 @@
                         </div>
                         <label class="ownSalaryReportSalaryDetailsContentData">Addtional Leave Count</label>
                         <label class="ownSalaryReportSalaryDetailsContentValue">
-                             <?php if ($staffD->staffType == 3)
-                        {
-                            if($staffD->staffType == 3 ){
+                            <?php if ($staffD->staffType == 3)
+                            {
+                                if ($staffD->staffType == 3)
+                                {
+                                    echo $salaryRateD->receptionistSalaryRate;
+                                }
+                            }
+                            elseif ($staffD->staffType == 4)
+                            {
                                 echo $salaryRateD->receptionistSalaryRate;
                             }
-                        }
-                        elseif ($staffD->staffType == 4)
-                        {
-                            echo $salaryRateD->receptionistSalaryRate;
-                        }
-                        elseif ($staffD->staffType == 5)
-                        {
-                            echo $salaryRateD->serviceProviderSalaryRate;
-                        } ?>
+                            elseif ($staffD->staffType == 5)
+                            {
+                                echo $salaryRateD->serviceProviderSalaryRate;
+                            } ?>
                         </label>
                         <br> <br>
                         <label class="ownSalaryReportDeductionsDetailsContentData">Leave Deduction</label>
@@ -149,15 +150,14 @@
                         <br> <br>
                         <div class="ownSalaryReportTotalSalaryStatus">
                             <label class="ownSalaryReportTotalSalaryStatusLabel">
-                        <?php if (empty($StaffSalaryPaymentD->status) == 1)
-                        {
-                              echo 'Paid';
-                            
-                        }
-                        elseif ($StaffSalaryPaymentD->status != 1)
-                        {
-                            echo 'Not paid';
-                        } ?>
+                                <?php if (empty($StaffSalaryPaymentD->status) == 1)
+                                {
+                                    echo 'Paid';
+                                }
+                                elseif ($StaffSalaryPaymentD->status != 1)
+                                {
+                                    echo 'Not paid';
+                                } ?>
                             </label>
                         </div>
                         <br> <br>

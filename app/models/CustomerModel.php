@@ -45,12 +45,16 @@ class CustomerModel extends Model
       }
    }
 
+   // for customer table
    public function getAllCustomerDetails()
    {
       $result = $this->getResultSet('customers', '*', null);
       return ($result);
    }
+   // for customer table end
 
+   // added by ravindu
+   // for customer view
    public function getCustomerDetailsByCusID($cusID)
    {
       $result = $this->getResultSet('customers', '*',  ["customerID" => $cusID]);
@@ -59,8 +63,22 @@ class CustomerModel extends Model
 
    public function getAllReservationCountByCusID($cusID)
    {
-      $result = $this->getRowCount('reservations', ['customerID ' => $cusID, 'status' => 1]);
-      return ($result);
+      $result = $this->getRowCount('reservations', ['customerID' => $cusID, 'status' => 1]);
+      return $result;
+   }
+
+   public function getAllCompletedReservationSalesByCusID($cusID)
+   {
+      $result = $this->getResultSet('reservations', '*', ["customerID" => $cusID, 'status' => 4]);
+      $CompletedReservationCount = sizeof($result);
+      $totalSales = 0;
+      for ($i = 0; $i < $CompletedReservationCount; $i++)
+      {
+         $servId = $result[$i]->serviceID;
+         $servPrice = ($this->getSingle("services", ["price"], ["serviceID" => $servId]))->price;
+         $totalSales = $totalSales + (int)$servPrice;
+      }
+      return $totalSales;
    }
 
    public function getCancelledReservationCountByCusID($cusID)
@@ -68,6 +86,7 @@ class CustomerModel extends Model
       $result = $this->getRowCount('reservations', ['customerID' => $cusID, 'status' => 0]);
       return ($result);
    }
+   // for customer view end
 
    // FOR MANAGER OVERVIEW
    public function getActiveCustomerCount()
@@ -117,6 +136,7 @@ class CustomerModel extends Model
    }
 
    // FOR ANALYTICS
+
    public function getUpcomingReservationCountByCusID($cusID)
    {
       $result1 = $this->getRowCount('reservations', ['customerID' => $cusID, 'status' => 1]);
