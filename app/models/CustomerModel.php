@@ -54,25 +54,18 @@ class CustomerModel extends Model
    public function getCustomerDetailsByCusID($cusID)
    {
       $result = $this->getResultSet('customers', '*',  ["customerID" => $cusID]);
-      // print_r($result);
       return ($result);
    }
 
    public function getAllReservationCountByCusID($cusID)
    {
-      // die('sucess');
       $result = $this->getRowCount('reservations', ['customerID ' => $cusID, 'status' => 1]);
-      print_r($result);
-      // die();
       return ($result);
    }
 
    public function getCancelledReservationCountByCusID($cusID)
    {
-      // die('sucess');
       $result = $this->getRowCount('reservations', ['customerID' => $cusID, 'status' => 0]);
-      print_r($result);
-      // die();
       return ($result);
    }
 
@@ -80,7 +73,6 @@ class CustomerModel extends Model
    public function getActiveCustomerCount()
    {
       $results = $this->getRowCount('customers', ['status' => 1]);
-
       return $results;
    }
    // FOR MANAGER OVERVIEW
@@ -110,6 +102,7 @@ class CustomerModel extends Model
       ];
       return $results;
    }
+
    public function getCustomerPopulation()
    {
       $results = $this->customQuery(
@@ -122,16 +115,13 @@ class CustomerModel extends Model
       );
       return $results;
    }
+
    // FOR ANALYTICS
    public function getUpcomingReservationCountByCusID($cusID)
    {
-
-      // print_r($cusID);
       $result1 = $this->getRowCount('reservations', ['customerID' => $cusID, 'status' => 1]);
       $result2 = $this->getRowCount('reservations', ['customerID' => $cusID, 'status' => 2]);
       $results = $result1 + $result2;
-      print_r($results);
-      // die("success");
       return $results;
    }
 }

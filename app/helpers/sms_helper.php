@@ -2,13 +2,16 @@
 
 /*
  * Contains functions related SMS sending
+ * A separate function for each SMS msg template is included
+ * With a common sending function
+ * 
+ * Accepts sms in the format of 07912345678
+ * 
+ * PRIORITY LEVEL VALUE
+ * 1 => PRIOROTY
+ * 0 => ECONOMY
+ * 
  */
-
-// Accepts sms in the format of 07912345678
-
-// PRIORITY LEVEL VALUE
-// 1 => PRIOROTY
-// 0 => ECONOMY
 
 class SMS
 {
@@ -35,8 +38,6 @@ class SMS
       );
       return self::sendSMS($mobileNo, $SMSText, 1);
    }
-
-
 
    public static function sendSMS($mobileNo, $SMSText, $priorityFlag)
    {

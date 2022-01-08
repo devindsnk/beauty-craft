@@ -226,7 +226,6 @@ if (leaveRequestBtn) {
 // Edit Leave Request Modal Section
 const editLeaveModal = document.querySelector(".edit-leave.request");
 const editLeaveBtnList = document.querySelectorAll(".btnEditLeave");
-console.log(editLeaveModal);
 if (editLeaveBtnList) {
     editLeaveBtnList.forEach((btn) => {
         btn.addEventListener("click", function () {
