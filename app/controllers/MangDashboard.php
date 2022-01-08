@@ -31,7 +31,7 @@ class MangDashboard extends Controller
       $activeManagers = $this->staffModel->getManagerCount();
       $pendingLeaveRequests = $this->leaveModel->getPendingLeaveRequestCount();
       // $totalIncomeForChart = $this->reservationModel->getMonthlyIncomeAndTotalReservationsForMangOverviewCharts();
-      
+
       $mangOverviewDetails = [
          'totalIncome' => $totalIncome,
          'upcommingReservations' => $upcommingReservations,
@@ -43,12 +43,12 @@ class MangDashboard extends Controller
          'pendingLeaveRequests' => count($pendingLeaveRequests),
          // 'totalIncomeForChart' => $totalIncomeForChart,
       ];
-     
+
       $this->view('manager/mang_overview',  $mangOverviewDetails);
    }
    public function overviewChart1()
    {
-      $totalIncomeForChart = $this->reservationModel->getMonthlyIncomeAndTotalReservationsForMangOverviewCharts(); 
+      $totalIncomeForChart = $this->reservationModel->getMonthlyIncomeAndTotalReservationsForMangOverviewCharts();
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($totalIncomeForChart));
    }
@@ -110,20 +110,20 @@ class MangDashboard extends Controller
       // print_r(count($leaveDetails));
       foreach ($leaveDetails as $MLDetails)
       {
-         if ($MLDetails->leaveType == 2 && $MLDetails->status == 2) {
+         if ($MLDetails->leaveType == 2 && $MLDetails->status == 2)
+         {
             // print_r($MLDetails->leaveDate);
-            $date1=date_create($today);
-            $date2=date_create($MLDetails->leaveDate);
-            $diff=date_diff($date2,$date1);
-            $diff2= $diff->format("%R%a days");
+            $date1 = date_create($today);
+            $date2 = date_create($MLDetails->leaveDate);
+            $diff = date_diff($date2, $date1);
+            $diff2 = $diff->format("%R%a days");
             print_r($diff->days);
             // die('hi');
 
-            if($MLDetails->leaveDate < $today && $diff->days >= $evidanceLimit)
+            if ($MLDetails->leaveDate < $today && $diff->days >= $evidanceLimit)
             {
 
                $this->leaveModel->changeMedicalToCasual($MLDetails->staffID, $MLDetails->leaveDate);
-
             }
          }
       }
@@ -141,8 +141,8 @@ class MangDashboard extends Controller
       $mangCasualLeaveCount = $this->leaveModel->getMangCurrentMonthLeaveCount(Session::getUser("id"), 1);
       $mangMedicalLeaveCount = $this->leaveModel->getMangCurrentMonthLeaveCount(Session::getUser("id"), 2);
 
-      $remainingCasual = $mangCasualLeaveLimit - $mangCasualLeaveCount ;
-      $remainingMedical = $mangMedicalLeaveLimit - $mangMedicalLeaveCount ;
+      $remainingCasual = $mangCasualLeaveLimit - $mangCasualLeaveCount;
+      $remainingMedical = $mangMedicalLeaveLimit - $mangMedicalLeaveCount;
 
       // print_r($mangCasualLeaveLimit);
       // print_r($mangMedicalLeaveLimit);
@@ -172,7 +172,7 @@ class MangDashboard extends Controller
             'remainingMedical' => $remainingMedical,
 
          ];
-         
+
 
          if ($_POST['action'] == "addleave")
          {
@@ -191,14 +191,14 @@ class MangDashboard extends Controller
                $this->leaveModel->addMangLeave($data);
                redirect('MangDashboard/takeLeave');
             }
-            else{
+            else
+            {
                // print_r($data['date_error']);
                // die("dd1");
 
                $data['haveErrors'] = 1;
                $this->view('manager/mang_subTakeLeave', $data);
             }
-
          }
          else if ($_POST['action'] == "cancel")
          {
@@ -209,7 +209,6 @@ class MangDashboard extends Controller
          {
             die("something went wrong");
          }
-
       }
       else
       {
@@ -233,7 +232,7 @@ class MangDashboard extends Controller
          ];
          // print_r($data['remainingCasual']);
          // print_r($data['remainingMedical']);
-         
+
          // die('fff');
          $this->view('manager/mang_subTakeLeave', $data);
       }
@@ -246,7 +245,6 @@ class MangDashboard extends Controller
 
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($managerOneLeaveDetails));
-
    }
    public function updateTakenLeave($leaveID)
    {
@@ -258,11 +256,11 @@ class MangDashboard extends Controller
       $mangCasualLeaveCount = $this->leaveModel->getMangCurrentMonthLeaveCount(Session::getUser("id"), 1);
       $mangMedicalLeaveCount = $this->leaveModel->getMangCurrentMonthLeaveCount(Session::getUser("id"), 2);
 
-      $remainingCasual = $mangCasualLeaveLimit - $mangCasualLeaveCount ;
-      $remainingMedical = $mangMedicalLeaveLimit - $mangMedicalLeaveCount ;
+      $remainingCasual = $mangCasualLeaveLimit - $mangCasualLeaveCount;
+      $remainingMedical = $mangMedicalLeaveLimit - $mangMedicalLeaveCount;
 
       $managerLeaveDetails = $this->leaveModel->getAllManagerLeaves();
-      
+
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
          $data = [
@@ -281,19 +279,20 @@ class MangDashboard extends Controller
             'remainingMedical' => $remainingMedical,
 
          ];
-         
+
          if ($_POST['action'] == "updateleave")
          {
             $data['date_error'] = emptyCheck($data['date']);
             $data['reason_error'] = emptyCheck($data['reason']);
             $data['type_error'] = emptyCheck($data['leavetype']);
-            
+
             if (empty($data['date_error']) && empty($data['reason_error']) && empty($data['type_error']))
             {
                $this->leaveModel->updateMangLeave($data, $userID, $leaveID);
                redirect('MangDashboard/takeLeave');
             }
-            else{
+            else
+            {
                $data['haveErrors2'] = 1;
                $this->view('manager/mang_subTakeLeave', $data);
             }
@@ -332,10 +331,8 @@ class MangDashboard extends Controller
    }
    public function deleteLeave($leaveDate)
    {
-      $staffID=Session::getUser("id");
+      $staffID = Session::getUser("id");
       $this->leaveModel->deleteMangLeave($leaveDate, $staffID);
       redirect('MangDashboard/takeLeave');
-
    }
-
 }

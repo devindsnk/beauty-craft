@@ -86,9 +86,9 @@
                            <td data-lable="Staff ID" class="column-center-align"><?php echo $leaveDetails->staffID; ?></td>
                            <td data-lable="Leave Date" class="column-center-align"><?php echo $leaveDetails->leaveDate; ?></td>
                            <td data-lable="Leave Type" class="column-center-align">
-                              <?php if ( $leaveDetails->leaveType == 1): ?>
+                              <?php if ($leaveDetails->leaveType == 1) : ?>
                                  Casual
-                              <?php elseif ( $leaveDetails->leaveType == 2): ?>
+                              <?php elseif ($leaveDetails->leaveType == 2) : ?>
                                  Medical
                               <?php endif; ?>
                            </td>

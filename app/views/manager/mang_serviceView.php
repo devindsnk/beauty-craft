@@ -48,7 +48,7 @@
 
 								<!-- New customer category -->
 								<div class="labels"><label class="labels" for="serviceCusCategory">Customer Category</label></div>
-								<input type="text" name="" id="serviceCusCategory" placeholder="<?php if($sDetails->customerCategory == 1):?>Gents<?php elseif($sDetails->customerCategory == 2):?>Ladies<?php else: ?>Both<?php endif; ?>" disabled>
+								<input type="text" name="" id="serviceCusCategory" placeholder="<?php if ($sDetails->customerCategory == 1) : ?>Gents<?php elseif ($sDetails->customerCategory == 2) : ?>Ladies<?php else : ?>Both<?php endif; ?>" disabled>
 								<!-- end of customer category -->
 
 								<!-- New service type -->
@@ -161,7 +161,7 @@
 										<div class='row4' id='slotDetails" + i + "'>
 											<label class='labels'>Slot Duration</label><br>
 											<input type="text" name="" id="" placeholder="<?php echo DateTimeExtended::minsToDuration($data['sSlot2Duration']); ?>" disabled>
-											
+
 											<!-- <?php $i = $data['sSlot2Duration']; ?>
 											<?php if ($i == 60 || $i == 120) : ?>
 												<input type="text" name="" id="" placeholder="<?php echo ($i / 60); ?> h" disabled>

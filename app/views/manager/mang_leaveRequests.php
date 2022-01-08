@@ -3,14 +3,13 @@
 <body class="layout-template-2">
 
     <header class="full-header">
-		<div class="header-center verticalCenter">
-			<h1 class="header-topic">Leave Request</h1>
-		</div>
-		<div class="header-right verticalCenter">
-			<a href="<?php echo URLROOT ?>/MangDashboard/leaveRequests" class="top-right-closeBtn"><i
-					class="fal fa-times fa-2x "></i></a>
-		</div>
-	</header>
+        <div class="header-center verticalCenter">
+            <h1 class="header-topic">Leave Request</h1>
+        </div>
+        <div class="header-right verticalCenter">
+            <a href="<?php echo URLROOT ?>/MangDashboard/leaveRequests" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
+        </div>
+    </header>
     <div class="content leaveReq">
         <form class="form" action="<?php echo URLROOT; ?>/leaves/responceForLeaveRequest/<?php echo $data['leaveDetails']->staffID; ?>/<?php echo $data['leaveDetails']->leaveDate; ?>" method="post">
 
@@ -49,13 +48,7 @@
                         <div class="column">
                             <div class="text-group">
                                 <label class="labels" for="">Staff Type</label>
-                                <input type="text" name="" id="" 
-                                    <?php if ($data['leaveDetails']->staffType == 4) : ?>
-                                    placeholder="Receptionist" 
-                                    <?php elseif ($data['leaveDetails']->staffType == 5) : ?>
-                                    placeholder="Service Provider" 
-                                    <?php endif; ?>
-                                disabled>
+                                <input type="text" name="" id="" <?php if ($data['leaveDetails']->staffType == 4) : ?> placeholder="Receptionist" <?php elseif ($data['leaveDetails']->staffType == 5) : ?> placeholder="Service Provider" <?php endif; ?> disabled>
                             </div>
                         </div>
                     </div>
@@ -70,7 +63,7 @@
                         <div class="column">
                             <div class="text-group">
                                 <label class="labels" for="">Leave Type</label>
-                                <input type="text" name="" id="" placeholder="<?php if ( $data['leaveDetails']->leaveType == 1): ?>Casual<?php elseif ( $data['leaveDetails']->leaveType == 2): ?>Medical 
+                                <input type="text" name="" id="" placeholder="<?php if ($data['leaveDetails']->leaveType == 1) : ?>Casual<?php elseif ($data['leaveDetails']->leaveType == 2) : ?>Medical 
                               <?php endif; ?>" disabled>
                             </div>
                         </div>
@@ -80,14 +73,14 @@
                         <div class="column">
                             <div class="text-group">
                                 <label class="labels" for="">Reason</label><br>
-                                <textarea id="takeLeaveReason"  class="" name="" rows="4" cols="50" disabled><?php echo $data['leaveDetails']->reason ?></textarea>
+                                <textarea id="takeLeaveReason" class="" name="" rows="4" cols="50" disabled><?php echo $data['leaveDetails']->reason ?></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="leave-requests-button-div">
-                    <?php if ( $data['leaveDetails']->status != 3): ?>
+                    <?php if ($data['leaveDetails']->status != 3) : ?>
                         <div class="">
                             <button type="submit" class="buttonLeaveRequest btn btn-filled btn-success-green" name="action" value="approve">Approve</button>
                         </div>
@@ -100,4 +93,4 @@
 
         </form>
     </div>
-<?php require APPROOT . "/views/inc/footer.php" ?>
+    <?php require APPROOT . "/views/inc/footer.php" ?>

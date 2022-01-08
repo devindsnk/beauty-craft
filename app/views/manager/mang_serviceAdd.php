@@ -60,7 +60,7 @@
 							<!-- New service type -->
 							<label class="labels" for="serviceType">Service Type</label>
 							<select class="dropdownSelectBox" name="serviceType">
-								<option class="unbold" value="" option selected="true" >Select One
+								<option class="unbold" value="" option selected="true">Select One
 								</option>
 
 								<?php foreach ($data['sTypesArray'] as $sType) : ?>

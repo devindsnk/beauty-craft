@@ -22,7 +22,7 @@
 							<div class="column">
 								<div class="text-group">
 									<label class="label" for="">Month</label>
-									<input type="month" name="" class="serviceSelectedMonth" id="" placeholder="Date" value="<?=date('Y-m')?>">
+									<input type="month" name="" class="serviceSelectedMonth" id="" placeholder="Date" value="<?= date('Y-m') ?>">
 								</div>
 								<span class="error"> <?php echo " "; ?></span>
 							</div>
@@ -52,19 +52,19 @@
 					<!--Table body-->
 					<tbody>
 						<!-- <?php foreach ($data as $sDetails) : ?> -->
-							<!--Table row-->
-							<!-- <tr>
+						<!--Table row-->
+						<!-- <tr>
 								<td data-lable="Service ID"><?php echo $sDetails[0]->serviceID ?></td>
 								<td data-lable="Service Name"><?php echo $sDetails[0]->name ?></td>
 								<td data-lable="No of service providers" class="column-center-align"><?php echo $sDetails[0]->NoOFStaff ?></td>
 								<td data-lable="No of reservations" class="column-center-align"><?php echo $sDetails[0]->NoOfRes ?></td>
 								<td data-lable="Income" class="column-right-align"><?php echo $sDetails[0]->TotalServicePrice ?></td>
 							</tr> -->
-							<!--End of table row-->
+						<!--End of table row-->
 						<!-- <?php endforeach; ?> -->
 
 						<!--Table row-->
-						<?php for ($i=0; $i < $data; $i++):?>
+						<?php for ($i = 0; $i < $data; $i++) : ?>
 							<tr>
 								<td data-lable="Service ID"></td>
 								<td data-lable="Service Name"></td>
@@ -72,7 +72,7 @@
 								<td data-lable="No of reservations" class="column-center-align"></td>
 								<td data-lable="Income" class="column-right-align"></td>
 							</tr>
-						<?php endfor;?>
+						<?php endfor; ?>
 						<!--End of table row-->
 						<!--Table row-->
 						<tr>
