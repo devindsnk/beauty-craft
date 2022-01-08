@@ -21,4 +21,11 @@ class SysAdminDashboard extends Controller
    {
       $this->view('systemAdmin/systemAdmin_customer');
    }
+   public function systemLogRecordstore()
+   {
+      // System log
+      $content = Systemlog::downloadSysLog();
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($content));
+   }
 }

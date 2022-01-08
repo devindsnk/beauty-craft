@@ -87,7 +87,7 @@ Refund Invoices (type 0)
 ---------------------------------------
 
 Leave Types
-1 - General leave
-2 - Medical Leave
+1 - General leave--0,1,2,3
+2 - Medical Leave--2,1
 
 ---------------------------------------

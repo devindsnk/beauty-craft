@@ -20,7 +20,7 @@
 <!-- <script src="<?php echo URLROOT ?>/public/js/mang_service.js"></script> -->
 <!-- <script src="<?php echo URLROOT ?>/public/js/mang_update_service.js"></script> -->
 <script src="<?php echo URLROOT ?>/public/js/mang_delete_hold_service.js"></script>
-<script src="<?php echo URLROOT ?>/public/js/mang_charts.js"></script>
+<!-- <script src="<?php echo URLROOT ?>/public/js/mang_charts.js"></script> -->
 <script src="<?php echo URLROOT ?>/public/js/mang_take_leave.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/serviceReport.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/serProvReport.js"></script>
