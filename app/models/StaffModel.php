@@ -101,7 +101,7 @@ class StaffModel extends Model
 
    public function getStaffUserData($mobileNo)
    {
-      $results = $this->getSingle("staff", "*", ['mobileNo' => $mobileNo, "status" => 1]);
+      $results = $this->getSingle("staff", "*", ['mobileNo' => $mobileNo, 'status' => 1]);
 
       return [$results->staffID, $results->fName . " " . $results->lName, $results->imgPath];
    }

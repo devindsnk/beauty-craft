@@ -12,6 +12,9 @@ class User extends Controller
 
    public function signin()
    {
+      // Session::setSingle("returnReferer", $_SERVER["HTTP_REFERER"]);
+      // var_dump($_SERVER["HTTP_REFERER"]);
+      // var_dump($_SERVER["REQUEST_METHOD"]);
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
          $data = [

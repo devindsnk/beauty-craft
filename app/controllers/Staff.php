@@ -13,10 +13,10 @@ class Staff extends Controller
       $GetStaffArray = ['staff' => $staffDetails];
       $this->view('common/allStaffTable', $GetStaffArray);
    }
-   
 
    public function addStaff()
    {
+      Session::validateSession([1, 2]);
       $staffD = $this->staffModel->getAllStaffDetails();
       $CurrentStaffCount = sizeof($staffD);
 
@@ -239,11 +239,21 @@ class Staff extends Controller
 
             Toast::setToast(1, "Staff Member Successfully Registered!", "");
 
-            header('location: ' . URLROOT . '/Staff/viewAllStaffMembers');
+
+            if (Session::getUser("type") == 2)
+            {
+               header('location: ' . URLROOT . '/Staff/viewAllStaffMembers');
+            }
+
+            else if (Session::getUser("type") == 1)
+            {
+               redirect('Staff/addStaff');
+            }
          }
          else
          {
-            $this->view('owner/own_staffAdd', $data);
+
+            $this->provideAddStaffReleventView($data);
          }
       }
       else
@@ -281,11 +291,23 @@ class Staff extends Controller
             'staffHomeAddTyped' => '',
 
          ];
-         $this->view('owner/own_staffAdd', $data);
+         $this->provideAddStaffReleventView($data);
       }
    }
 
+   public function provideAddStaffReleventView($data)
+   {
+      Session::validateSession([1, 2]);
+      if (Session::getUser("type") == 2)
+      {
+         $this->view('owner/own_staffAdd', $data);
+      }
 
+      else if (Session::getUser("type") == 1)
+      {
+         $this->view('systemAdmin/systemAdmin_staff', $data);
+      }
+   }
 
 
    public function updateStaff($staffID)

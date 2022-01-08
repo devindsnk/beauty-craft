@@ -9,6 +9,14 @@ class ResourceModel extends Model
       $this->update('resources', ['status' => 0], ['name' => $data['name']]);
       // var_dump($results);
    }
+
+   public function getCountsOfAllResources()
+   {
+      // TODO: check if okay with new db changes 
+      $results = $this->getResultSet("resources", ["resourceID", "quantity"]);
+      return $results;
+   }
+
    public function addPurchaseDetails($data)
    {
 
@@ -93,13 +101,12 @@ class ResourceModel extends Model
       // Calcultate the resource count by redusing the removed resource
       $totalQuantity =  (int)$currentQuantity->quantity - 1;
       $result2 = $this->update('resources', ['quantity' => $totalQuantity], ['resourceID' => $ResourceID]);
+
+      //-------------------------------------- End -------------------------------------------------------------//
+      //---- codes related to updating the resource count when removing and adding resources to the system ----// 
+      //------------------------------------------------------------------------------------------------------//
+
    }
-
-   //-------------------------------------- End -------------------------------------------------------------//
-   //---- codes related to updating the resource count when removing and adding resources to the system ----// 
-   //------------------------------------------------------------------------------------------------------//
-
-
 
    public function getAllRsourceTypeDetails()
    {

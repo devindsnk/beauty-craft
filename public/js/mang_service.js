@@ -147,7 +147,7 @@ $(document).on('click', '.close-slot', function(){
 
 
 export function A(k){
-    console.log('hellooooo2',k);
+    // console.log('hellooooo2',k);
 
     i=k;
     j=i-1

@@ -8,7 +8,7 @@
 
         <div class="header-right verticalCenter">
 
-            <input type="button" value="X" class="" onclick="history.back()">
+            <input type="button" class="top-right-closeBtn" onclick="history.back()">
 
         </div>
     </header>
