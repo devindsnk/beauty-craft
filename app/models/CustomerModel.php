@@ -53,12 +53,11 @@ class CustomerModel extends Model
    }
    // for customer table end
 
-
+   // added by ravindu
    // for customer view
    public function getCustomerDetailsByCusID($cusID)
    {
       $result = $this->getResultSet('customers', '*',  ["customerID" => $cusID]);
-      // print_r($result);
       return ($result);
    }
 
@@ -73,15 +72,12 @@ class CustomerModel extends Model
       $result = $this->getResultSet('reservations', '*', ["customerID" => $cusID, 'status' => 4]);
       $CompletedReservationCount = sizeof($result);
       $totalSales = 0;
-      for($i=0 ; $i<$CompletedReservationCount ; $i++){
-        $servId = $result[$i]->serviceID;
-      //   print_r($servId);
-        $servPrice = ($this->getSingle("services", ["price"], ["serviceID" => $servId]))->price;
-        $totalSales = $totalSales + (int)$servPrice;
+      for ($i = 0; $i < $CompletedReservationCount; $i++)
+      {
+         $servId = $result[$i]->serviceID;
+         $servPrice = ($this->getSingle("services", ["price"], ["serviceID" => $servId]))->price;
+         $totalSales = $totalSales + (int)$servPrice;
       }
-      echo "<br>";
-      // print_r($totalSales);
-      // die("sales");
       return $totalSales;
    }
 
@@ -96,7 +92,6 @@ class CustomerModel extends Model
    public function getActiveCustomerCount()
    {
       $results = $this->getRowCount('customers', ['status' => 1]);
-
       return $results;
    }
    // FOR MANAGER OVERVIEW
@@ -126,6 +121,7 @@ class CustomerModel extends Model
       ];
       return $results;
    }
+
    public function getCustomerPopulation()
    {
       $results = $this->customQuery(
@@ -138,6 +134,7 @@ class CustomerModel extends Model
       );
       return $results;
    }
+
    // FOR ANALYTICS
 
    public function getUpcomingReservationCountByCusID($cusID)

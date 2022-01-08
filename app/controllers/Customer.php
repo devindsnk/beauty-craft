@@ -94,7 +94,7 @@ class Customer extends Controller
             $data['gender_error'] = emptyCheck($data['gender']);
             $data['mobileNo_error'] = validateMobileNo($data['mobileNo']);
             $data['OTP_error'] = emptyCheck($data['OTP']);
-            // Check Password strength here
+            // TODO: Check Password strength here
             $data['password_error'] = emptyCheck($data['password']);
             $data['confirmPassword_error'] = emptyCheck($data['confirmPassword']);
             if (empty($data['password_error']) && empty($data['confirmPassword_error']) && $data['password'] != $data['confirmPassword'])
@@ -107,9 +107,6 @@ class Customer extends Controller
                empty($data['OTP_error']) && empty($data['password_error']) && empty($data['confirmPassword_error'])
             )
             {
-               // $con = (new Database);
-               // $dbTemp = $con->getConnection();
-
                // OTP verification
                $isVerified = $this->OTPModel->verifyOTP($data['mobileNo'], $data['OTP'], 1);
 
@@ -130,13 +127,10 @@ class Customer extends Controller
                   //System log
                   Systemlog::createCustomerAccount();
 
-
                   SMS::sendCustomerRegSMS($data['mobileNo']);
                   $this->userModel->commit();
 
                   Toast::setToast(1, "Registration Successful!", "You can login to your account now.");
-
-                  // Provide success message here
                   header('location: ' . URLROOT . '/user/signin');
                }
             }
@@ -184,23 +178,13 @@ class Customer extends Controller
    }
    public function remCustomer($cusID, $mobileNo, $rescount)
    {
-      // die('success');
-      // echo ($cusID);
-
       $this->customerModel->removeCustomerDetails($cusID, $mobileNo, $rescount);
       Toast::setToast(1, "Customer Removed Successfully!", "");
       redirect('OwnDashboard/customers');
    }
 
-   // public function viewStaff($staffID)
-   // {
-   //    $bankDetails = $this->staffModel->getStaffDetailsByStaffID($staffID);
-   //    $this->view('owner/own_staffView',$bankDetails[0]);
-   // } 
-
    public function cusDetailView($cusID)
    {
-
       $customerDetails = $this->customerModel->getCustomerDetailsByCusID($cusID);
       // print_r($customerDetails);
       // die("controller error");
@@ -219,15 +203,11 @@ class Customer extends Controller
       $this->view('common/customerView', $ViewCustomerArray);
    }
 
-   public function getReservtaionCountByCustomerID($cusID)
+   public function getReservataionCountByCustomerID($cusID)
    {
-      // echo $date;
-      //  die('success');
       $result = $this->customerModel->getUpcomingReservationCountByCusID($cusID);
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($result));
-      //  redirect('OwnDashboard/closeSalon');
-      // $this->view('owner/own_closeSalon');
    }
 
    public function createCustomerAccount()

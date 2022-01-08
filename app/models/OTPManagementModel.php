@@ -1,4 +1,5 @@
 <?php
+
 class OTPManagementModel extends Model
 {
    // OTP type number
@@ -15,7 +16,6 @@ class OTPManagementModel extends Model
       if ($result)
       {
          $timeDiff = DateTimeExtended::getTimeDiff($result->timestamp);
-         // var_dump($timeDiff);
 
          if ($timeDiff[0] > 5 || $timeDiff[0] == 5 && $timeDiff[1] > 0)
             $timeout = true;
