@@ -19,7 +19,116 @@ class ReservationModel extends Model
       return $results;
    }
 
-   public function getAllReservations()
+   // ************************************************* //
+   // ******* Get reservations (by conditions) ******** //
+
+   public function getAllReservationsWithFilters($sType, $sProvider, $status)
+   {
+      $conditions = array();
+
+      // Extract specially defined conditions to a separate array
+      // Note that both tableName and columnName are used as the keys
+      if ($sType != "all") $conditions["services.type"] = $sType;
+      if ($sProvider != "all") $conditions["reservations.staffID"] = $sProvider;
+      if ($status != "all") $conditions["reservations.status"] = $status;
+
+      $preparedConditions = array();
+      $dataToBind = array();
+
+      foreach ($conditions as $column => $value)
+      {
+         $colName = explode(".", $column, 2)[1]; // Only taking the column name for binding (discards tableName)
+         array_push($preparedConditions, "$column = :$colName");
+         $dataToBind[":$colName"] = $value;
+      }
+
+      $consditionsString = implode(" AND ", $preparedConditions);
+
+      $SQLstatement =
+         "SELECT reservations.reservationID, customers.fName AS custFName, customers.lName AS custLName, staff.fName AS staffFName, staff.lName AS staffLName, reservations.remarks, reservations.status, reservations.date, reservations.startTime, services.name AS serviceName
+         FROM reservations
+         INNER JOIN customers ON customers.customerID = reservations.customerID
+         INNER JOIN staff ON staff.staffID = reservations.staffID
+         INNER JOIN services ON services.serviceID = reservations.serviceID";
+
+      // Appending conditions string
+      if (!empty($conditions)) $SQLstatement .= " WHERE $consditionsString";
+
+      $results = $this->customQuery($SQLstatement,  $dataToBind);
+      return $results;
+   }
+
+   public function getReservationsByStaffID($staffID)
+   {
+      $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
+      FROM reservations 
+      INNER JOIN services ON services.serviceID = reservations.serviceID
+      INNER JOIN customers ON customers.customerID = reservations.customerID
+      WHERE staffID=:staffID ORDER BY date", [':staffID' => $staffID,]);
+      return $results;
+   }
+
+   public function getReservationsByStaffIDandDate($staffID, $date)
+   {
+      $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
+      FROM reservations 
+      INNER JOIN services ON services.serviceID = reservations.serviceID
+      INNER JOIN customers ON customers.customerID = reservations.customerID
+      WHERE staffID=:staffID AND date=:date ORDER BY date", [':staffID' => $staffID, ':date' => $date]);
+      return $results;
+   }
+
+   // Return all reservations excluding cancelled and recalled
+   public function getUpcomingReservationsByDate($date)
+   {
+      $SQLquery =
+         "SELECT reservations.reservationID, 
+                 customers.fName AS custFName, 
+                 customers.lName AS custLName, 
+                 customers.mobileNo AS custMobileNo,
+                 staff.fName AS staffFName, 
+                 staff.lName AS staffLName,
+                 reservations.remarks, 
+                 reservations.status, 
+                 reservations.date, 
+                 reservations.startTime, 
+                 services.name AS serviceName
+         FROM reservations
+         INNER JOIN customers ON customers.customerID = reservations.customerID
+         INNER JOIN staff ON staff.staffID = reservations.staffID
+         INNER JOIN services ON services.serviceID = reservations.serviceID
+         WHERE reservations.date = :date AND reservations.status NOT IN (0,5) ;";
+
+      $results = $this->customQuery($SQLquery, [':date' => $date]);
+      return $results;
+   }
+
+   // Return all reservations of the staffMember excluding cancelled and recalled
+   public function getUpcomingReservationsByDateAndStaff($date, $sProvider)
+   {
+      $SQLquery =
+         "SELECT reservations.reservationID, 
+                 customers.fName AS custFName, 
+                 customers.lName AS custLName, 
+                 customers.mobileNo AS custMobileNo,
+                 staff.fName AS staffFName, 
+                 staff.lName AS staffLName,
+                 reservations.remarks, 
+                 reservations.status, 
+                 reservations.date, 
+                 reservations.startTime, 
+                 services.name AS serviceName
+         FROM reservations
+         INNER JOIN customers ON customers.customerID = reservations.customerID
+         INNER JOIN staff ON staff.staffID = reservations.staffID
+         INNER JOIN services ON services.serviceID = reservations.serviceID
+         WHERE reservations.date = :date AND reservations.staffID = :sProvider AND reservations.status NOT IN (0,5) ;";
+
+      $results = $this->customQuery($SQLquery, [':date' => $date, ':sProvider' => $sProvider]);
+      return $results;
+   }
+
+   public function getReservationsByCustomer($customerID)
    {
       $SQLquery =
          "SELECT reservations.reservationID, 
@@ -35,10 +144,22 @@ class ReservationModel extends Model
          FROM reservations
          INNER JOIN customers ON customers.customerID = reservations.customerID
          INNER JOIN staff ON staff.staffID = reservations.staffID
-         INNER JOIN services ON services.serviceID = reservations.serviceID;";
+         INNER JOIN services ON services.serviceID = reservations.serviceID
+         WHERE reservations.customerID = :customerID;";
 
-      $results = $this->customQuery($SQLquery, []);
+      $results = $this->customQuery($SQLquery, [':customerID' => $customerID]);
       return $results;
+   }
+
+   public function getReservationMoreInfoByID($reservationID)
+   {
+      $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName,customers.customerNote 
+      FROM reservations 
+      INNER JOIN services ON services.serviceID = reservations.serviceID
+      INNER JOIN customers ON customers.customerID = reservations.customerID
+      WHERE reservationID=:reservationID ", [':reservationID' => $reservationID,]);
+
+      return $results[0];
    }
 
    public function getReservationDetailsByID($reservationID)
@@ -67,27 +188,229 @@ class ReservationModel extends Model
       $results = $this->customQuery($SQLquery, [':reservationID' => $reservationID]);
       return $results[0];
    }
+   // ************************************************* //
+   // ************************************************* //
 
-   public function getReservationsByCustomer($customerID)
+
+   // ************************************************* //
+   // ******** Complex reservation process ************ //
+
+   public function getAllocatedResourcesOfSlot($selectedDate, $givenStartTime, $givenEndTime)
    {
-      $SQLquery =
-         "SELECT reservations.reservationID, 
-                 customers.fName AS custFName, 
-                 customers.lName AS custLName, 
-                 staff.fName AS staffFName, 
-                 staff.lName AS staffLName,
-                 reservations.remarks, 
-                 reservations.status, 
-                 reservations.date, 
-                 reservations.startTime, 
-                 services.name AS serviceName
-         FROM reservations
-         INNER JOIN customers ON customers.customerID = reservations.customerID
-         INNER JOIN staff ON staff.staffID = reservations.staffID
-         INNER JOIN services ON services.serviceID = reservations.serviceID
-         WHERE reservations.customerID = :customerID;";
+      $SQLstatement =
+         "SELECT RA.resourceID,
+                 SUM(RA.requiredQuantity) AS quantity
+               --   RES.reservationID,
+               --   RES.date AS resDate,
+               --   RES.serviceID,
+               --   TS.slotNo,
+               --   RES.startTime + TS.startingTime AS slotStartTime,
+               --   RES.startTime + TS.startingTime + TS.duration AS slotEndTime
+               --   RES.status AS resStatus
+                 
+         FROM reservations AS RES
+         INNER JOIN timeslots AS TS
+         ON TS.serviceID = RES.serviceID
+         INNER JOIN resourceallocation AS RA
+         ON RA.serviceID = RES.serviceID AND RA.slotNo = TS.slotNo
+         WHERE RES.date = :selectedDate AND RES.status IN(1,2) AND RES.startTime + TS.startingTime < :givenEndTime AND RES.startTime + TS.startingTime + TS.duration > :givenStartTime
+         GROUP BY RA.resourceID;";
 
-      $results = $this->customQuery($SQLquery, [':customerID' => $customerID]);
+
+      $results = $this->customQuery(
+         $SQLstatement,
+         [
+            ':selectedDate' => $selectedDate,
+            ':givenStartTime' => $givenStartTime,
+            ':givenEndTime' => $givenEndTime
+         ]
+      );
+      return $results;
+   }
+
+   public function getOccupiedSProviders($selectedDate, $givenStartTime, $givenEndTime)
+   {
+      $SQLstatement =
+         "SELECT RES.staffID
+               --   RES.reservationID,
+               --   RES.serviceID,
+               --   RES.date AS resDate,
+               --   TS.slotNo,
+               --   RES.startTime + TS.startingTime AS slotStartTime,
+               --   RES.startTime + TS.startingTime + TS.duration AS slotEndTime,
+               --   RES.status AS resStatus
+         FROM reservations AS RES
+         INNER JOIN timeslots AS TS
+         ON TS.serviceID = RES.serviceID
+         WHERE RES.date = :selectedDate AND RES.status IN(1, 2) AND RES.startTime + TS.startingTime < :givenEndTime AND RES.startTime + TS.startingTime + TS.duration > :givenStartTime;";
+
+
+      $results = $this->customQuery(
+         $SQLstatement,
+         [
+            ':selectedDate' => $selectedDate,
+            ':givenStartTime' => $givenStartTime,
+            ':givenEndTime' => $givenEndTime
+         ]
+      );
+      return $results;
+   }
+   // ************************************************* //
+   // ************************************************* //
+
+
+   // ************************************************** //
+   // *Functions related state changes of reservations * //
+
+   public function markReservationConfirmed($reservationID)
+   {
+      $results = $this->update(
+         "reservations",
+         ["status" => 2],
+         ["reservationID" => $reservationID]
+      );
+      return $results;
+   }
+
+   public function markReservationCompleted($reservationID)
+   {
+      $results = $this->update(
+         "reservations",
+         ["status" => 4],
+         ["reservationID" => $reservationID]
+      );
+      return $results;
+   }
+
+   public function markReservationCancelled($reservationID)
+   {
+      $results = $this->update(
+         "reservations",
+         ["status" => 0],
+         ["reservationID" => $reservationID]
+      );
+      return $results;
+   }
+
+   public function markReservationNoShow($reservationID)
+   {
+      $results = $this->update(
+         "reservations",
+         ["status" => 3],
+         ["reservationID" => $reservationID]
+      );
+      return $results;
+   }
+   // ************************************************** //
+   // ************************************************** //
+
+   // ************************************************** //
+   // ******* Functions related recall requests ******** //
+
+   public function addReservationRecall($selectedreservation)
+   {
+      date_default_timezone_set("Asia/Colombo");
+      $today = date("Y-m-d H:i:s");
+      $recallReason = "For update the service";
+
+      foreach ($selectedreservation as $value)
+      {
+         $results =  $this->insert('recallrequests', ['reservationID' => $value, 'reason' => $recallReason, 'requestedDate' => $today, 'status' => 0]);
+      }
+   }
+
+   public function getRecallReasonByReservationID($selectedreservation)
+   {
+      $results = $this->getSingle('recallrequests', ['reason'], ['reservationID' => $selectedreservation]);
+      return $results->reason;
+   }
+
+   public function getReservationRecallDetailsByID($selectedreservation)
+   {
+      $results = $this->getSingle('recallrequests', ['status'], ['reservationID' => $selectedreservation]);
+      return $results->status;
+   }
+
+   public function deleteReservationRecallRequest($reservationID)
+   {
+      $results = $this->delete('recallrequests', ['reservationID' => $reservationID]);
+   }
+
+   public function getReservationRecallDataByID($reservationID)
+   {
+      $results = $this->customQuery("SELECT recallrequests.reason AS recallReason,recallrequests.status As recallStatus
+      FROM recallrequests 
+      WHERE reservationID=:reservationID ", [':reservationID' => $reservationID,]);
+
+      return $results[0];
+   }
+
+   public function updateReservationRecalledState($selectedreservation, $status)
+   {
+      foreach ($selectedreservation as $value)
+      {
+         $results = $this->update('reservations', ['status' => $status], ['reservationID' => $value]);
+      }
+   }
+
+   public function getAllPendingRecallRequests()
+   {
+      // TODO: check with data in table
+      $SQLstatement =
+         "SELECT RECALL.reservationID,
+                 SERV.name AS serviceName, 
+                 STAFF.fName AS staffFName, 
+                 STAFF.lName AS staffLName, 
+                 CUST.fName AS custFName, 
+                 CUST.lName AS custLName, 
+                 CUST.mobileNo, 
+                 RECALL.reason, 
+                 RES.startTime, 
+                 RES.date
+         FROM recallrequests AS RECALL
+         INNER JOIN reservations AS RES ON RES.reservationID = RECALL.reservationID
+         INNER JOIN staff AS STAFF ON STAFF.staffID = RES.staffID
+         INNER JOIN customers AS CUST  ON CUST.customerID = RES.customerID
+         INNER JOIN services AS SERV ON SERV.serviceID = RES.serviceID
+         WHERE RECALL.status = 0;";
+
+      $results = $this->customQuery($SQLstatement);
+      return $results;
+   }
+
+   public function markRecallResponded($reservationID)
+   {
+      $results = $this->update(
+         "recallrequests",
+         ["status" => 1],
+         ["reservationID" => $reservationID]
+      );
+      return $results;
+   }
+   // ************************************************** //
+   // ************************************************** //
+
+   public function updateCustomerNote($reservationID, $customerNote)
+   {
+      $reservationID = $reservationID;
+      $custNote = $customerNote;
+      $results = $this->customQuery(
+         "UPDATE customers SET customerNote=:custNote WHERE customerID=(SELECT customerID FROM reservations WHERE reservationID=:resID )",
+         [':custNote' => $custNote, ':resID' => $reservationID]
+      );
+   }
+
+   public function storeFeedback($reservationID, $rating, $comment)
+   {
+      $results = $this->insert(
+         "feedback",
+         [
+            "reservationID" => $reservationID,
+            "rating" => $rating,
+            "testimonial" => $comment
+         ]
+      );
+
       return $results;
    }
 
@@ -133,7 +456,6 @@ class ReservationModel extends Model
 
       return $results;
    }
-
    // END FOR MANAGER OVERVIEW
 
    // START FOR MANAGER UPDATE SERVICE
@@ -161,7 +483,7 @@ class ReservationModel extends Model
    }
    // END FOR MANAGER UPDATE SERVICE
 
-   // END FOR ANALYTICS
+   // START FOR ANALYTICS
    public function getResDetailsForServiceAnalytics($serviceID, $from, $to)
    {
       if ($serviceID != 0)
@@ -248,244 +570,4 @@ class ReservationModel extends Model
       return $results;
    }
    // END FOR ANALYTICS
-
-   //FOR SP overview
-   public function getReservationsByStaffID($staffID)
-   {
-      $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
-      FROM reservations 
-      INNER JOIN services ON services.serviceID = reservations.serviceID
-      INNER JOIN customers ON customers.customerID = reservations.customerID
-      WHERE staffID=:staffID ORDER BY date", [':staffID' => $staffID,]);
-      return $results;
-   }
-
-   public function getReservationsByStaffIDandDate($staffID, $date)
-   {
-      $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
-      FROM reservations 
-      INNER JOIN services ON services.serviceID = reservations.serviceID
-      INNER JOIN customers ON customers.customerID = reservations.customerID
-      WHERE staffID=:staffID AND date=:date ORDER BY date", [':staffID' => $staffID, ':date' => $date]);
-      return $results;
-   }
-
-   public function getReservationMoreInfoByID($reservationID)
-   {
-      $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName,customers.customerNote 
-      FROM reservations 
-      INNER JOIN services ON services.serviceID = reservations.serviceID
-      INNER JOIN customers ON customers.customerID = reservations.customerID
-      WHERE reservationID=:reservationID ", [':reservationID' => $reservationID,]);
-
-      return $results[0];
-   }
-   public function getReservationRecallDataByID($reservationID)
-   {
-      $results = $this->customQuery("SELECT recallrequests.reason AS recallReason,recallrequests.status As recallStatus
-      FROM recallrequests 
-      WHERE reservationID=:reservationID ", [':reservationID' => $reservationID,]);
-
-      return $results[0];
-   }
-
-   public function updateCustomerNote($reservationID, $customerNote)
-   {
-      $reservationID = $reservationID;
-      $custNote = $customerNote;
-      $results = $this->customQuery(
-         "UPDATE customers SET customerNote=:custNote WHERE customerID=(SELECT customerID FROM reservations WHERE reservationID=:resID )",
-         [':custNote' => $custNote, ':resID' => $reservationID]
-      );
-   }
-
-   public function updateReservationRecalledState($selectedreservation, $status)
-   {
-      foreach ($selectedreservation as $value)
-      {
-         $results = $this->update('reservations', ['status' => $status], ['reservationID' => $value]);
-      }
-   }
-
-   public function addReservationRecall($selectedreservation)
-   {
-      date_default_timezone_set("Asia/Colombo");
-      $today = date("Y-m-d H:i:s");
-      $recallReason = "For update the service";
-
-      foreach ($selectedreservation as $value)
-      {
-         $results =  $this->insert('recallrequests', ['reservationID' => $value, 'reason' => $recallReason, 'requestedDate' => $today, 'status' => 0]);
-      }
-   }
-
-   public function getRecallReasonByReservationID($selectedreservation)
-   {
-      $results = $this->getSingle('recallrequests', ['reason'], ['reservationID' => $selectedreservation]);
-      return $results->reason;
-   }
-   public function getReservationRecallDetailsByID($selectedreservation)
-   {
-      $results = $this->getSingle('recallrequests', ['status'], ['reservationID' => $selectedreservation]);
-      return $results->status;
-   }
-   public function deleteReservationRecallRequest($reservationID)
-   {
-      $results = $this->delete('recallrequests', ['reservationID' => $reservationID]);
-   }
-
-   public function getAllPendingRecallRequests()
-   {
-      // TODO: check with data in table
-      $SQLstatement =
-         "SELECT RECALL.reservationID,
-                 SERV.name AS serviceName, 
-                 STAFF.fName AS staffFName, 
-                 STAFF.lName AS staffLName, 
-                 CUST.fName AS custFName, 
-                 CUST.lName AS custLName, 
-                 CUST.mobileNo, 
-                 RECALL.reason, 
-                 RES.startTime, 
-                 RES.date
-         FROM recallrequests AS RECALL
-         INNER JOIN reservations AS RES ON RES.reservationID = RECALL.reservationID
-         INNER JOIN staff AS STAFF ON STAFF.staffID = RES.staffID
-         INNER JOIN customers AS CUST  ON CUST.customerID = RES.customerID
-         INNER JOIN services AS SERV ON SERV.serviceID = RES.serviceID
-         WHERE RECALL.status = 0;";
-
-      $results = $this->customQuery($SQLstatement);
-      return $results;
-   }
-
-   // Complex reservation process
-   ////////////////////////////////////////////////
-   // TODO: Create kinda similar methd for sProviders 
-   public function getAllocatedResourcesOfSlot($selectedDate, $givenStartTime, $givenEndTime)
-   {
-      $SQLstatement =
-         "SELECT RA.resourceID,
-                 SUM(RA.requiredQuantity) AS quantity
-               --   RES.reservationID,
-               --   RES.date AS resDate,
-               --   RES.serviceID,
-               --   TS.slotNo,
-               --   RES.startTime + TS.startingTime AS slotStartTime,
-               --   RES.startTime + TS.startingTime + TS.duration AS slotEndTime
-               --   RES.status AS resStatus
-                 
-         FROM reservations AS RES
-         INNER JOIN timeslots AS TS
-         ON TS.serviceID = RES.serviceID
-         INNER JOIN resourceallocation AS RA
-         ON RA.serviceID = RES.serviceID AND RA.slotNo = TS.slotNo
-         WHERE RES.date = :selectedDate AND RES.status IN(1,2) AND RES.startTime + TS.startingTime < :givenEndTime AND RES.startTime + TS.startingTime + TS.duration > :givenStartTime
-         GROUP BY RA.resourceID;";
-
-
-      $results = $this->customQuery(
-         $SQLstatement,
-         [
-            ':selectedDate' => $selectedDate,
-            ':givenStartTime' => $givenStartTime,
-            ':givenEndTime' => $givenEndTime
-         ]
-      );
-      return $results;
-   }
-
-   public function getOccupiedSProviders($selectedDate, $givenStartTime, $givenEndTime)
-   {
-      $SQLstatement =
-         "SELECT RES.staffID
-               --   RES.reservationID,
-               --   RES.serviceID,
-               --   RES.date AS resDate,
-               --   TS.slotNo,
-               --   RES.startTime + TS.startingTime AS slotStartTime,
-               --   RES.startTime + TS.startingTime + TS.duration AS slotEndTime,
-               --   RES.status AS resStatus
-         FROM reservations AS RES
-         INNER JOIN timeslots AS TS
-         ON TS.serviceID = RES.serviceID
-         WHERE RES.date = :selectedDate AND RES.status IN(1, 2) AND RES.startTime + TS.startingTime < :givenEndTime AND RES.startTime + TS.startingTime + TS.duration > :givenStartTime;";
-
-
-      $results = $this->customQuery(
-         $SQLstatement,
-         [
-            ':selectedDate' => $selectedDate,
-            ':givenStartTime' => $givenStartTime,
-            ':givenEndTime' => $givenEndTime
-         ]
-      );
-      return $results;
-   }
-
-   ////////////////////////////////////////////////
-
-   public function markRecallResponded($reservationID)
-   {
-      $results = $this->update(
-         "recallrequests",
-         ["status" => 1],
-         ["reservationID" => $reservationID]
-      );
-      return $results;
-   }
-
-   public function cancelReservation($reservationID)
-   {
-      $results = $this->update(
-         "reservations",
-         ["status" => 0],
-         ["reservationID" => $reservationID]
-      );
-      return $results;
-   }
-
-   public function markReservationConfirmed($reservationID)
-   {
-      $results = $this->update(
-         "reservations",
-         ["status" => 2],
-         ["reservationID" => $reservationID]
-      );
-      return $results;
-   }
-
-   public function markReservationNoShow($reservationID)
-   {
-      $results = $this->update(
-         "reservations",
-         ["status" => 3],
-         ["reservationID" => $reservationID]
-      );
-      return $results;
-   }
-
-   public function markReservationCompleted($reservationID)
-   {
-      $results = $this->update(
-         "reservations",
-         ["status" => 4],
-         ["reservationID" => $reservationID]
-      );
-      return $results;
-   }
-
-   public function storeFeedback($reservationID, $rating, $comment)
-   {
-      $results = $this->insert(
-         "feedback",
-         [
-            "reservationID" => $reservationID,
-            "rating" => $rating,
-            "testimonial" => $comment
-         ]
-      );
-
-      return $results;
-   }
 }
