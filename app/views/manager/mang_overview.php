@@ -117,7 +117,7 @@
             <div class="chart-head">
                <p>Annual Income</p>
             </div>
-            <canvas id="myChart1" width="290" height="200"></canvas>
+            <canvas id="mangChart1" width="290" height="200"></canvas>
          </div>
          <!--End od chart-container-->
 
@@ -126,7 +126,7 @@
             <div class="chart-head">
                <p>Annual Reservations</p>
             </div>
-            <canvas id="myChart2" width="290" height="200"></canvas>
+            <canvas id="mangChart2" width="290" height="200"></canvas>
          </div>
          <!--End od chart-container-->
       </div>

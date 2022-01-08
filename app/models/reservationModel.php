@@ -11,11 +11,12 @@ class ReservationModel extends Model
             "staffID" => $data['staffID'],
             "date" => $data['date'],
             "startTime" => $data['startTime'],
-            "endTime" => $data['endTime'],
             "remarks" => $data['remarks'],
             "status" => 1
          ]
       );
+
+      return $results;
    }
 
    public function getAllReservations()
@@ -153,6 +154,75 @@ class ReservationModel extends Model
    }
    // END FOR MANAGER UPDATE SERVICE
 
+   // END FOR ANALYTICS
+   public function getResDetailsForServiceAnalytics($serviceID,$from,$to)
+   {
+      if($serviceID!=0){
+         $results = $this->customQuery("SELECT reservations.reservationID AS reservationID, staff.fName AS sFName, staff.lName AS sLName, customers.fName AS cFName, customers.lName AS cLName, services.price AS price  
+                                       FROM reservations
+                                       INNER JOIN staff ON staff.staffID = reservations.staffID
+                                       INNER JOIN services ON services.serviceID = reservations.serviceID
+                                       -- INNER JOIN serviceproviders ON serviceproviders.serviceID = reservations.serviceID
+                                       INNER JOIN customers ON customers.customerID = reservations.customerID
+                                       WHERE reservations.status = :status AND ( reservations.date BETWEEN '$from' AND '$to' ) AND services.serviceID =$serviceID 
+                                       -- GROUP BY reservations.date 
+                                       ORDER BY reservations.date",
+                                       [':status' => 4]
+                                       );
+      }else{
+         $results = $this->customQuery("SELECT reservations.reservationID AS reservationID, staff.fName AS sFName, staff.lName AS sLName, customers.fName AS cFName, customers.lName AS cLName, services.price AS price  
+                                    FROM reservations
+                                    INNER JOIN staff ON staff.staffID = reservations.staffID
+                                    INNER JOIN services ON services.serviceID = reservations.serviceID
+                                    -- INNER JOIN serviceproviders ON serviceproviders.serviceID = reservations.serviceID
+                                    INNER JOIN customers ON customers.customerID = reservations.customerID
+                                    WHERE reservations.status = :status AND ( reservations.date BETWEEN '$from' AND '$to' ) 
+                                    -- GROUP BY reservations.date 
+                                    ORDER BY reservations.date",
+                                    [':status' => 4]
+                                    );
+      }
+      return $results;
+   }
+   public function getResDetailsForServiceProvAnalytics($staffID,$from,$to)
+   {
+      if($staffID!=0){
+         $results = $this->customQuery("SELECT reservations.reservationID AS reservationID, services.name AS sName, customers.fName AS cFName, customers.lName AS cLName, services.price AS price  
+                                       FROM reservations
+                                       INNER JOIN services ON services.serviceID = reservations.serviceID
+                                       -- INNER JOIN serviceproviders ON serviceproviders.serviceID = reservations.serviceID
+                                       INNER JOIN customers ON customers.customerID = reservations.customerID
+                                       WHERE reservations.status = :status AND ( reservations.date BETWEEN '$from' AND '$to' ) AND reservations.staffID =$staffID 
+                                       -- GROUP BY reservations.date 
+                                       ORDER BY reservations.date",
+                                       [':status' => 4]
+                                       );
+      }else{
+         $results = $this->customQuery("SELECT reservations.reservationID AS reservationID, services.name AS sName, customers.fName AS cFName, customers.lName AS cLName, services.price AS price  
+                                    FROM reservations
+                                    INNER JOIN services ON services.serviceID = reservations.serviceID
+                                    -- INNER JOIN serviceproviders ON serviceproviders.serviceID = reservations.serviceID
+                                    INNER JOIN customers ON customers.customerID = reservations.customerID
+                                    WHERE reservations.status = :status AND ( reservations.date BETWEEN '$from' AND '$to' ) 
+                                    -- GROUP BY reservations.date 
+                                    ORDER BY reservations.date",
+                                    [':status' => 4]
+                                    );
+      }
+      return $results;
+   }
+   public function getTotalResForOverallOverview()
+   {
+      $results = $this->customQuery("SELECT COUNT(reservations.reservationID) AS resCount, SUM(services.price) AS totalIncome
+                                    FROM reservations
+                                    INNER JOIN services ON services.serviceID = reservations.serviceID
+                                    WHERE reservations.status=:status",
+                                    [':status' => 4]
+                                    );
+      return $results;
+   }
+   // END FOR ANALYTICS
+
    //FOR SP overview
    public function getReservationsByStaffID($staffID)
    {
@@ -214,10 +284,11 @@ class ReservationModel extends Model
       }
    }
 
-   public function addReservationRecall($selectedreservation, $recallReason)
+   public function addReservationRecall($selectedreservation)
    {
       date_default_timezone_set("Asia/Colombo");
       $today = date("Y-m-d H:i:s");
+      $recallReason = "For update the service";
 
       foreach ($selectedreservation as $value)
       {
@@ -379,6 +450,20 @@ class ReservationModel extends Model
          ["status" => 4],
          ["reservationID" => $reservationID]
       );
+      return $results;
+   }
+
+   public function storeFeedback($reservationID, $rating, $comment)
+   {
+      $results = $this->insert(
+         "feedback",
+         [
+            "reservationID" => $reservationID,
+            "rating" => $rating,
+            "testimonial" => $comment
+         ]
+      );
+
       return $results;
    }
 }

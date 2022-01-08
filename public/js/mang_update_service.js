@@ -7,16 +7,17 @@ const recallbtnFromUpdate = document.querySelector(".recallModalRecallBtn");
 const cancelbtnFromUpdate = document.querySelector(".recallModalCancelBtn");
 
 for (var i = 0; i < sProveChecker.length; i++) {
-    // let myArray = JSON.parse(sProveChecker[i].value);
+    
     let sProvID = sProveChecker[i].value;
     let sID =sProveChecker[i].dataset.columns;
 
     checkedItem = sProveChecker[i];
-
-    sProveChecker[i].addEventListener('change',
+    eachsProveChecker(checkedItem,sProvID,sID);
+}
+function eachsProveChecker(checkedItem,sProvID,sID){
+    checkedItem.addEventListener('change',
         function () {
             if(!this.checked) {
-                // console.log('myArray');
                 checkForUpcomingReservations();
             }
             // if (this.checked) {
@@ -26,17 +27,12 @@ for (var i = 0; i < sProveChecker.length; i++) {
             //   }
         }
     )
-    var modalToToggle = null;
+ 
     function checkForUpcomingReservations()
     {
-        // console.log("Hello world! 5");
-
         fetch(`http://localhost:80/beauty-craft/Services/getReservationListOfCheckedSPRovList/${sProvID}/${sID}`)
             .then(response => response.json())
             .then(serProvDetails => {
-
-                // console.log(serProvDetails);
-                // console.log(serProvDetails[0]['reservationID']);
 
                 const ress = [];
                 const ressReson = 'For update the service';
@@ -44,29 +40,23 @@ for (var i = 0; i < sProveChecker.length; i++) {
                 for (var i = 0; i < serProvDetails.length; i++){
                     ress.push(serProvDetails[i]['reservationID']);
                 }
-                // console.log(ress);
-                // recallbtn.href = "http://localhost/beauty-craft/Services/updateService/"+myArray[1]+"/"+[ress]+"/"+ressReson;
+                console.log(sProvID);
 
                 if(serProvDetails.length !== 0){
-                    recallFromUpdateServiceBtn.forEach((btn) => {
-                            modalToToggle = recallFromUpdateServiceModal;
-                            toggleModal();
-                    });
+                    modalToToggleUS = recallFromUpdateServiceModal;
+                    toggleModalUS();
                 }
                 recallbtnFromUpdate.addEventListener('click',
                     function () {
-                        // console.log('recall1');
-
-                        recallReservations(ress, ressReson);
+                        recallReservations(sProvID, ress);
+                        closeModalUS()
                     }
                 )
                 cancelbtnFromUpdate.addEventListener('click',
                     function () {
-                        // console.log('awa cancel ekat');
-                        // console.log(checkedItem);
-
+                        console.log('awa cancel ekat');
+                        console.log(checkedItem);
                         checkedItem.checked=true;
-                        
                     }
                 )
         }).catch(err => {
@@ -74,15 +64,29 @@ for (var i = 0; i < sProveChecker.length; i++) {
             // console.log("Error Reading data :" + err);
           });
     }
- }
- function recallReservations(ress, ressReson) {
+}
+ function recallReservations(sProvID, ress, ressReson) {
     console.log('recall2');
-    fetch(`http://localhost:80/beauty-craft/Reservations/recallReservationsFromUpdateService/${ress}/${ressReson}`)
+    fetch(`http://localhost:80/beauty-craft/Services/recallReservationsFromUpdateService/${sProvID}/${ress}`)
         .then()
         .catch(err => {
             // console.log("Error Reading data :" + err);
         });
  }
+
+//  start model for recall request
+let modalToToggleUS = null;
+cancelbtnFromUpdate.addEventListener("click", function(){
+    closeModalUS();
+});
+
+function toggleModalUS() {
+    modalToToggleUS.classList.add("show");
+}
+function closeModalUS() {
+    modalToToggleUS.classList.remove("show");
+}
+//  end model for recall request
 
 // ...........................END UPDATE SERVICE...........................//
 

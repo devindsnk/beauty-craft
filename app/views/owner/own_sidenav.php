@@ -48,7 +48,7 @@
          <!--End Sidebar Item-->
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Resources") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/resources">
+            <a class="optionLink <?php if ($selectedMain == "Resources") echo " selected" ?>" href="<?php echo URLROOT ?>/Resources/viewAllResources">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-resources "></i>
                </div>
@@ -78,7 +78,7 @@
          <!--End Sidebar Item-->
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Salaries") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/salaries">
+            <a class="optionLink <?php if ($selectedMain == "Salaries") echo " selected" ?>" href="<?php echo URLROOT ?>/Salary/salaryTableView">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-salaries "></i>
                </div>
@@ -152,6 +152,6 @@
       <!--End Sidebar Menu-->
    </nav>
    <!--End Sidebar Navigation-->
-
+   
 </div>
 <!--End Sidebar-->

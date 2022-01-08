@@ -38,33 +38,39 @@
                <div class="column">
                   <div class="dropdown-group">
                      <label class="label" for="serviceName">Serice Provider</label>
-                     <select>
-                        <option value="" selected>Select</option>
-                        <option value="Service Provider 01">Service Provider 01</option>
-                        <option value="Service Provider 02">Service Provider 02</option>
+                     <select class="serviceProvSelectDropDown">
+                        
+                        <option value=0 selected >All Service Providers</option>
+                           <?php foreach ($data as $serviceProvs) : ?>
+
+                              <option value="<?php echo $serviceProvs->staffID; ?>">
+                                 <?php echo $serviceProvs->staffID; ?> - <?php echo $serviceProvs->fName; ?> <?php echo $serviceProvs->lName; ?>
+                              </option>
+
+                           <?php endforeach; ?>
                      </select>
                   </div>
-                  <span class="error"> <?php echo " "; ?></span>
+                  <span class="error serviceProvSelectError"> <?php echo " "; ?></span>
                </div>
                <div class="column">
                   <div class="text-group">
                      <label class="label" for="serviceProviderFromDate">From</label>
-                     <input type="date" name="" id="serviceProviderFromDate" placeholder="--select--">
+                     <input type="date" name="" id="serviceProviderFromDate" class="serviceProviderFromDate">
                   </div>
-                  <span class="error"></span>
+                  <span class="error serviceProvFromError"></span>
                </div>
 
                <div class="column">
                   <div class="text-group">
                      <label class="label" for="serviceProviderToDate">To</label>
-                     <input type="date" name="" id="serviceProviderToDate" placeholder="--select--">
+                     <input type="date" name="" id="serviceProviderToDate" class="serviceProviderToDate">
                   </div>
-                  <span class="error"></span>
+                  <span class="error serviceProvToError"></span>
                </div>
             </div>
          </div>
          <div class="right-section">
-            <a href="" class="btn btn-filled btn-black">Search</a>
+            <a href="#" class="btn btn-filled btn-black serviceProvSearchBtn">Search</a>
             <!-- <button class="btn btn-search">Search</button> -->
          </div>
       </div>
@@ -78,7 +84,7 @@
             <p>Total Reservation</p>
          </div>
          <div class="mang-sub-container-card-amount"> 
-            <p>400</p>
+            <p id="totResCount2"></p>
          </div>
       </div>
       <!--End of card1-->
@@ -89,7 +95,7 @@
             <p>Total Income</p>
          </div>
          <div class="mang-sub-container-card-amount"> 
-            <p>45,000.00 LKR</p>
+            <p id="totIncome2"></p>
          </div>
       </div>
       <!--End of card2-->
@@ -131,84 +137,23 @@
                <th class="">Reservation No</th>
                <th class="">Service</th>
                <th class="">Customer</th>
-               <th class="column-right-align">Price</th>
+               <th class="column-left-align">Price</th>
             </tr>
          </thead>
          <!--End of table head-->
 
          <!--Table body-->
-         <tbody>
+         <tbody id="rows2">
 
             <!--Table row-->
-            <tr>
+            <!-- <tr>
                <td data-lable="Reservation No">Res0001</td>
                <td data-lable="Service">Service 01</td>
                <td data-lable="Customer">Ruwanthi Munasinghe</td>
                <td data-lable="Price" class="column-right-align">250.00 LKR</td>
-            </tr>
+            </tr> -->
             <!--End of table row-->
 
-            <!--Table row-->
-            <tr>
-               <td data-lable="Reservation No">Res0002</td>
-               <td data-lable="Service">Service 01</td>
-               <td data-lable="Customer">Kamal Perera</td>
-               <td data-lable="Price" class="column-right-align">350.00 LKR</td>
-            </tr>
-            <!--End of table row-->
-
-            <!--Table row-->
-            <tr>
-               <td data-lable="Reservation No">Res0003</td>
-               <td data-lable="Service">Service 01</td>
-               <td data-lable="Customer">Sarith Karunarathne</td>
-               <td data-lable="Price" class="column-right-align">150.00 LKR</td>
-            </tr>
-            <!--End of table row-->
-
-            <!--Table row-->
-            <tr>
-               <td data-lable="Reservation No">Res0001</td>
-               <td data-lable="Service">Service 01</td>
-               <td data-lable="Customer">Ruwanthi Munasinghe</td>
-               <td data-lable="Price" class="column-right-align">250.00 LKR</td>
-            </tr>
-            <!--End of table row-->
-            <!--Table row-->
-            <tr>
-               <td data-lable="Reservation No">Res0001</td>
-               <td data-lable="Service">Service 01</td>
-               <td data-lable="Customer">Ruwanthi Munasinghe</td>
-               <td data-lable="Price" class="column-right-align">250.00 LKR</td>
-            </tr>
-            <!--End of table row-->
-
-            <!--Table row-->
-            <tr>
-               <td data-lable="Reservation No">Res0002</td>
-               <td data-lable="Service">Service 01</td>
-               <td data-lable="Customer">Kamal Perera</td>
-               <td data-lable="Price" class="column-right-align">350.00 LKR</td>
-            </tr>
-            <!--End of table row-->
-
-            <!--Table row-->
-            <tr>
-               <td data-lable="Reservation No">Res0003</td>
-               <td data-lable="Service">Service 01</td>
-               <td data-lable="Customer">Sarith Karunarathne</td>
-               <td data-lable="Price" class="column-right-align">150.00 LKR</td>
-            </tr>
-            <!--End of table row-->
-
-            <!--Table row-->
-            <tr>
-               <td data-lable="Reservation No">Res0001</td>
-               <td data-lable="Service">Service 01</td>
-               <td data-lable="Customer">Ruwanthi Munasinghe</td>
-               <td data-lable="Price" class="column-right-align">250.00 LKR</td>
-            </tr>
-            <!--End of table row-->
          </tbody>
          <!--End of table body-->
       </table>
@@ -222,51 +167,55 @@
 
 
    //mychart2
-   var ctx = document.getElementById('myChart7').getContext('2d');
-   var myChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-      labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
-      datasets: [{ 
-            data: [70,90,44,60,83,90,100,30,80.35,45,39],
-            label: "No of reservations",
-            borderColor: "#f08080",
-            backgroundColor: "#f8ad9d",
-            borderWidth:2
-         }
-      ]
-      },
-      options: {
-      scales: {
-         xAxes: [{ 
-            stacked: true    
-         }],
-         yAxes: [{
-            stacked:true
-         }],
-         }
-      },
-   });
+   // var ctx = document.getElementById('myChart7').getContext('2d');
+   // var myChart = new Chart(ctx, {
+   //    type: 'bar',
+   //    data: {
+   //    labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
+   //    datasets: [{ 
+   //          data: [70,90,44,60,83,90,100,30,80.35,45,39],
+   //          label: "No of reservations",
+   //          borderColor: "#f08080",
+   //          backgroundColor: "#f8ad9d",
+   //          borderWidth:2
+   //       }
+   //    ]
+   //    },
+   //    options: {
+   //    scales: {
+   //       xAxes: [{ 
+   //          stacked: true    
+   //       }],
+   //       yAxes: [{
+   //          stacked:true
+   //       }],
+   //       }
+   //    },
+   // });
    //mychart1
-   var ctx = document.getElementById('myChart8').getContext('2d');
-   var myChart = new Chart(ctx, {
-         type: 'line',
-         data: {
-         labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
-         datasets: [{ 
-               lineTension: 0,
-               data: [21200,19400,25000,30600,32000,15100,16300,23000,30000,23500,17500,12400],
-               label: "Income",
-               borderColor: "#b07d62",
-               backgroundColor: "#d69f7e",
-            }
-         ]
-         },
-      });
+   // var ctx = document.getElementById('myChart8').getContext('2d');
+   // var myChart = new Chart(ctx, {
+   //       type: 'line',
+   //       data: {
+   //       labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
+   //       datasets: [{ 
+   //             lineTension: 0,
+   //             data: [21200,19400,25000,30600,32000,15100,16300,23000,30000,23500,17500,12400],
+   //             label: "Income",
+   //             borderColor: "#b07d62",
+   //             backgroundColor: "#d69f7e",
+   //          }
+   //       ]
+   //       },
+   //    });
+
+      // let today = new Date().toISOString().substr(0, 10);
+      // document.querySelector("#serviceProviderToDate").value = today;
 
       let today = new Date().toISOString().substr(0, 10);
+      let yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000).toISOString().substr(0, 10);
       document.querySelector("#serviceProviderToDate").value = today;
-
+      document.querySelector("#serviceProviderFromDate").value = yesterday;
    </script>
 
 <?php require APPROOT . "/views/inc/footer.php" ?>

@@ -238,8 +238,8 @@ label.proflabel {
 
 .cust.my-reservations {
     width: 100%;
+    padding-right: 30%;
     height: calc(100vh - 200px);
-    padding-right: 300px;
     overflow-y: auto;
 
 }
@@ -249,21 +249,25 @@ label.proflabel {
     width: 170px;
     float: right;
     margin-left: auto;
-    /* justify-content: right; */
-    /* margin-left: 100%;
-    margin-right: 10%; */
+    margin-bottom: 20px;
+}
+
+.cust.my-reservations .top-container{
+    width: 80%;
+    max-width: 700px;
+    align-self: center;
 }
 
 .cust.my-reservations .sub-container {
     align-self: center;
-    padding: 30px;
+    margin: 12px;
+    height: min-content;
+    width: 80%;
     min-width: 500px;
     max-width: 700px;
-    width: 80%;
-    height: min-content;
+    padding: 30px;
     display: flex;
     flex-wrap: wrap;
-    margin: 12px 0;
 }
 
 .cust.my-reservations .sub-container .btn-container {
@@ -398,7 +402,7 @@ label.proflabel {
 }
 
 .cust.new-res .service-container .right-box {
-    min-width: 400px;
+    width: 400px;
     flex-basis: auto;
 }
 
@@ -487,4 +491,10 @@ label.proflabel {
     width: 100%;
     padding: 7px;
     margin-top: 20px;
+    float: right;
+    width: 200px;
+}
+
+.provide-feedback .modal-box .ratingBox{
+    width: 100px;
 }

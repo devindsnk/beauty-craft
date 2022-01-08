@@ -48,7 +48,7 @@
 
 								<!-- New customer category -->
 								<div class="labels"><label class="labels" for="serviceCusCategory">Customer Category</label></div>
-								<input type="text" name="" id="serviceCusCategory" placeholder="<?php echo $sDetails->customerCategory; ?>" disabled>
+								<input type="text" name="" id="serviceCusCategory" placeholder="<?php if($sDetails->customerCategory == 1):?>Gents<?php elseif($sDetails->customerCategory == 2):?>Ladies<?php else: ?>Both<?php endif; ?>" disabled>
 								<!-- end of customer category -->
 
 								<!-- New service type -->
@@ -100,14 +100,16 @@
 									<!-- duration -->
 									<div class="column">
 										<div class="labels"><label class="labels paddingBottom">Duration</label></div>
-										<?php $i = $data['sSlot1Duration']; ?>
+										<input type="text" name="" id="" placeholder="<?php echo DateTimeExtended::minsToDuration($data['sSlot1Duration']); ?>" disabled>
+
+										<!-- <?php $i = $data['sSlot1Duration']; ?>
 										<?php if ($i == 60 || $i == 120) : ?>
 											<input type="text" name="" id="" placeholder="<?php echo ($i / 60); ?> h" disabled>
 										<?php elseif ($i > 60 && $i < 120) : ?>
 											<input type="text" name="" id="" placeholder="<?php echo ($i / $i); ?> h <?php echo ($i %  60); ?> mins" disabled>
 										<?php else : ?>
 											<input type="text" name="" id="" placeholder="<?php echo $i; ?> mins" disabled>
-										<?php endif; ?>
+										<?php endif; ?> -->
 									</div>
 									<!-- end of duration -->
 
@@ -158,14 +160,16 @@
 										</div>
 										<div class='row4' id='slotDetails" + i + "'>
 											<label class='labels'>Slot Duration</label><br>
-											<?php $i = $data['sSlot2Duration']; ?>
+											<input type="text" name="" id="" placeholder="<?php echo DateTimeExtended::minsToDuration($data['sSlot2Duration']); ?>" disabled>
+											
+											<!-- <?php $i = $data['sSlot2Duration']; ?>
 											<?php if ($i == 60 || $i == 120) : ?>
 												<input type="text" name="" id="" placeholder="<?php echo ($i / 60); ?> h" disabled>
 											<?php elseif ($i > 60 && $i < 120) : ?>
 												<input type="text" name="" id="" placeholder="<?php echo ($i / $i); ?> h <?php echo ($i %  60); ?> mins" disabled>
 											<?php else : ?>
 												<input type="text" name="" id="" placeholder="<?php echo $i; ?> mins" disabled>
-											<?php endif; ?>
+											<?php endif; ?> -->
 										</div>
 									</div>
 									<!-- end of duration -->
@@ -216,14 +220,16 @@
 										</div>
 										<div class='row4' id='slotDetails" + i + "'>
 											<label class='labels'>Slot Duration</label><br>
-											<?php $i = $data['sSlot2Duration']; ?>
+											<input type="text" name="" id="" placeholder="<?php echo DateTimeExtended::minsToDuration($data['sSlot2Duration']); ?>" disabled>
+
+											<!-- <?php $i = $data['sSlot2Duration']; ?>
 											<?php if ($i == 60 || $i == 120) : ?>
 												<input type="text" name="" id="" placeholder="<?php echo ($i / 60); ?> h" disabled>
 											<?php elseif ($i > 60 && $i < 120) : ?>
 												<input type="text" name="" id="" placeholder="<?php echo ($i / $i); ?> h <?php echo ($i %  60); ?> mins" disabled>
 											<?php else : ?>
 												<input type="text" name="" id="" placeholder="<?php echo $i; ?> mins" disabled>
-											<?php endif; ?>
+											<?php endif; ?> -->
 										</div>
 									</div>
 									<!-- end of duration -->
@@ -270,14 +276,16 @@
 										</div>
 										<div class='row4' id='slotDetails" + i + "'>
 											<label class='labels'>Slot Duration</label><br>
-											<?php $i = $data['sSlot3Duration']; ?>
+											<input type="text" name="" id="" placeholder="<?php echo DateTimeExtended::minsToDuration($data['sSlot3Duration']); ?>" disabled>
+
+											<!-- <?php $i = $data['sSlot3Duration']; ?>
 											<?php if ($i == 60 || $i == 120) : ?>
 												<input type="text" name="" id="" placeholder="<?php echo ($i / 60); ?> h" disabled>
 											<?php elseif ($i > 60 && $i < 120) : ?>
 												<input type="text" name="" id="" placeholder="<?php echo ($i / $i); ?> h <?php echo ($i %  60); ?> mins" disabled>
 											<?php else : ?>
 												<input type="text" name="" id="" placeholder="<?php echo $i; ?> mins" disabled>
-											<?php endif; ?>
+											<?php endif; ?> -->
 										</div>
 									</div>
 									<!-- end of duration -->

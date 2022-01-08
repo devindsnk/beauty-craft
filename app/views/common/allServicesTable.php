@@ -103,12 +103,12 @@
 
                         <td data-lable="Type" class="column-left-align"><?php echo $sDetails->type; ?></td>
 
-                        <?php $i = $sDetails->totalDuration; ?>
+                        <!-- <?php $i = $sDetails->totalDuration; ?>
                         <?php $hours = $i / 60; ?>
-                        <?php $mins = $i % 60; ?>
+                        <?php $mins = $i % 60; ?> -->
 
                         <td data-lable="Total Duration" class="column-center-align">
-                           <?php if ((int)$hours <= 0) : ?>
+                           <!-- <?php if ((int)$hours <= 0) : ?>
                               <?php if ($mins > 0) : ?>
                                  <?php echo $mins; ?> mins
                               <?php endif; ?>
@@ -118,7 +118,8 @@
                               <?php else : ?>
                                  <?php echo (int)$hours; ?> h
                               <?php endif; ?>
-                           <?php endif; ?>
+                           <?php endif; ?> -->
+                           <?php echo DateTimeExtended::minsToDuration($sDetails->totalDuration); ?>
                         </td>
 
                         <td data-lable="Price" class="column-right-align"><?php echo number_format($sDetails->price, 2, '.', ' '); ?> LKR</td>
