@@ -7,18 +7,19 @@ class Staff extends Controller
       $this->staffModel = $this->model('StaffModel');
    }
 
-   public function viewAllStaffMembers(){ 
-      $staffDetails = $this->staffModel->getAllStaffDetails(); 
-      $GetStaffArray = ['staff' => $staffDetails]; 
-      $this->view('common/allStaffTable', $GetStaffArray); 
-   } 
-
+   public function viewAllStaffMembers()
+   {
+      $staffDetails = $this->staffModel->getAllStaffDetails();
+      $GetStaffArray = ['staff' => $staffDetails];
+      $this->view('common/allStaffTable', $GetStaffArray);
+   }
+   
 
    public function addStaff()
    {
       $staffD = $this->staffModel->getAllStaffDetails();
       $CurrentStaffCount = sizeof($staffD);
-      
+
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'FILES')
       {
@@ -131,11 +132,13 @@ class Staff extends Controller
             }
          }
 
-         for ($i = 0 ; $i< $CurrentStaffCount; $i++){
-            if($staffD[$i]->nic == $data['staffNIC']){
+         for ($i = 0; $i < $CurrentStaffCount; $i++)
+         {
+            if ($staffD[$i]->nic == $data['staffNIC'])
+            {
                $data['staffNIC_error'] = "The NIC number you entered is already exist.";
             }
-      }
+         }
 
          // Validating date of birth
          if (empty($data['staffDOB']))
@@ -163,10 +166,12 @@ class Staff extends Controller
             $data['staffMobileNo_error'] = "Invalid contact number format.";
          }
 
-         for ($i = 0 ; $i< $CurrentStaffCount; $i++){
-               if($staffD[$i]->mobileNo == $data['staffMobileNo']){
-                  $data['staffMobileNo_error'] = "The mobile number you entered is already exist.";
-               }
+         for ($i = 0; $i < $CurrentStaffCount; $i++)
+         {
+            if ($staffD[$i]->mobileNo == $data['staffMobileNo'])
+            {
+               $data['staffMobileNo_error'] = "The mobile number you entered is already exist.";
+            }
          }
 
          // Validating email
@@ -292,7 +297,7 @@ class Staff extends Controller
       $currentStatus =  $staffdetailsBystaffID[0]->status;
       $staffD = $this->staffModel->getAllStaffDetails();
       $CurrentStaffCount = sizeof($staffD);
-      
+
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'FILES')
       {
@@ -405,13 +410,16 @@ class Staff extends Controller
             }
          }
 
-         for ($i = 0 ; $i< $CurrentStaffCount; $i++){
-            if($staffD[$i]->nic == $data['nic']){
-               if($staffdetailsBystaffID[0]->nic != $data['nic']){
-               $data['nic_error'] = "The NIC number you entered is already exist.";
+         for ($i = 0; $i < $CurrentStaffCount; $i++)
+         {
+            if ($staffD[$i]->nic == $data['nic'])
+            {
+               if ($staffdetailsBystaffID[0]->nic != $data['nic'])
+               {
+                  $data['nic_error'] = "The NIC number you entered is already exist.";
                }
             }
-      }
+         }
 
          // Validating date of birth
          if (empty($data['dob']))
@@ -435,12 +443,15 @@ class Staff extends Controller
             $data['mobileNo_error'] = "Invalid contact number format.";
          }
 
-         for ($i = 0 ; $i< $CurrentStaffCount; $i++){
-               if($staffD[$i]->mobileNo == $data['mobileNo']){
-                  if($staffD[$i]->mobileNo == $data['nic']){            
-                      $data['mobileNo_error'] = "The mobile number you entered is already exist.";
-                  }
+         for ($i = 0; $i < $CurrentStaffCount; $i++)
+         {
+            if ($staffD[$i]->mobileNo == $data['mobileNo'])
+            {
+               if ($staffD[$i]->mobileNo == $data['nic'])
+               {
+                  $data['mobileNo_error'] = "The mobile number you entered is already exist.";
                }
+            }
          }
 
          // Validating email
@@ -499,26 +510,32 @@ class Staff extends Controller
             empty($data['accountNo_error']) && empty($data['holdersName_error']) && empty($data['bankName_error']) && empty($data['branchName_error'])
          )
          {
-               $newstatus = $data['status'];
-               if($currentStatus == 2){
-                  if($currentStatus != $newstatus ){
-                     $this->userModel->registerUser($data['staffMobileNo'], $data['staffNIC'], $data['staffType']);
-                     $this->staffModel->updateStaff($data, $staffID);
-                  }
-                  else {
-                     $this->staffModel->updateStaff($data, $staffID);
-                  }
+            $newstatus = $data['status'];
+            if ($currentStatus == 2)
+            {
+               if ($currentStatus != $newstatus)
+               {
+                  $this->userModel->registerUser($data['staffMobileNo'], $data['staffNIC'], $data['staffType']);
+                  $this->staffModel->updateStaff($data, $staffID);
                }
+               else
+               {
+                  $this->staffModel->updateStaff($data, $staffID);
+               }
+            }
 
-               elseif($currentStatus == 1){
-                     if($currentStatus != $newstatus){
-                        $this->userModel->removeUserAccount($data['staffMobileNo']);
-                        $this->staffModel->updateStaff($data, $staffID);
-                     }
-                     else{
-                        $this->staffModel->updateStaff($data, $staffID);
-                     }
-                  }
+            elseif ($currentStatus == 1)
+            {
+               if ($currentStatus != $newstatus)
+               {
+                  $this->userModel->removeUserAccount($data['staffMobileNo']);
+                  $this->staffModel->updateStaff($data, $staffID);
+               }
+               else
+               {
+                  $this->staffModel->updateStaff($data, $staffID);
+               }
+            }
             Toast::setToast(1, "Staff Member Successfully Updated!", "");
             header('location: ' . URLROOT . '/Staff/viewAllStaffMembers');
          }
@@ -574,8 +591,8 @@ class Staff extends Controller
    public function viewStaff($staffID)
    {
       $staffDetails = $this->staffModel->getStaffDetailsWithBankDetailsByStaffID($staffID);
-      $this->view('owner/own_staffView',$staffDetails[0]);
-   }  
+      $this->view('owner/own_staffView', $staffDetails[0]);
+   }
 
    public function RemStaffReservations() //details
    {
@@ -760,10 +777,10 @@ class Staff extends Controller
       }
    }
 
-   public function RemoveStaff($staffID,$staffMobileNo) //details
+   public function RemoveStaff($staffID, $staffMobileNo) //details
    {
       // die("RemoveStaffController");
-      $this->staffModel->removestaff($staffID,$staffMobileNo);
+      $this->staffModel->removestaff($staffID, $staffMobileNo);
       Toast::setToast(1, "Staff member removed successfully", "");
       redirect('Staff/viewAllStaffMembers');
    }
@@ -785,5 +802,4 @@ class Staff extends Controller
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($result));
    }
-   
 }

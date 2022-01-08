@@ -200,7 +200,7 @@ class Customer extends Controller
 
    public function cusDetailView($cusID)
    {
-      
+
       $customerDetails = $this->customerModel->getCustomerDetailsByCusID($cusID);
       // print_r($customerDetails);
       // die("controller error");

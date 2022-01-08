@@ -30,30 +30,30 @@ class CustomerModel extends Model
       return [$result->customerID, $result->fName . " " . $result->lName];
    }
 
-   public function removeCustomerDetails($cusID,$mobileNo,$rescount)
+   public function removeCustomerDetails($cusID, $mobileNo, $rescount)
    {
-      if($rescount>0){
-         $result = $this->update('reservations',['status' => 0 ], ['customerID' => $cusID]);
-         $this->update('customers', ['status' => 0 ], ["customerID" => $cusID]); 
-         $this->delete("users", ['mobileNo' => $mobileNo ]); 
+      if ($rescount > 0)
+      {
+         $result = $this->update('reservations', ['status' => 0], ['customerID' => $cusID]);
+         $this->update('customers', ['status' => 0], ["customerID" => $cusID]);
+         $this->delete("users", ['mobileNo' => $mobileNo]);
       }
-      else {
-      $this->update('customers', ['status' => 0 ], ["customerID" => $cusID]); 
-      $this->delete("users", ['mobileNo' => $mobileNo ]); 
+      else
+      {
+         $this->update('customers', ['status' => 0], ["customerID" => $cusID]);
+         $this->delete("users", ['mobileNo' => $mobileNo]);
       }
-
-    
    }
-// for customer table
+   // for customer table
    public function getAllCustomerDetails()
    {
       $result = $this->getResultSet('customers', '*', null);
       return ($result);
    }
-// for customer table end
+   // for customer table end
 
 
-// for customer view
+   // for customer view
    public function getCustomerDetailsByCusID($cusID)
    {
       $result = $this->getResultSet('customers', '*',  ["customerID" => $cusID]);
@@ -63,20 +63,20 @@ class CustomerModel extends Model
 
    public function getAllReservationCountByCusID($cusID)
    {
-      $result = $this->getRowCount('reservations', ['customerID' => $cusID, 'status' =>1]);
+      $result = $this->getRowCount('reservations', ['customerID' => $cusID, 'status' => 1]);
       return $result;
    }
 
    public function getAllCompletedReservationSalesByCusID($cusID)
    {
-      $result = $this->getResultSet('reservations', '*',["customerID" => $cusID, 'status'=> 4]);
+      $result = $this->getResultSet('reservations', '*', ["customerID" => $cusID, 'status' => 4]);
       return $result;
    }
 
    public function getCancelledReservationCountByCusID($cusID)
    {
       // die('sucess');
-      $result = $this->getRowCount('reservations', ['customerID' => $cusID, 'status'=> 0]);
+      $result = $this->getRowCount('reservations', ['customerID' => $cusID, 'status' => 0]);
       print_r($result);
       // die();
       return ($result);
@@ -94,15 +94,15 @@ class CustomerModel extends Model
    }
    // FOR MANAGER OVERVIEW
 
-   public function getUpcomingReservationCountByCusID($cusID){
+   public function getUpcomingReservationCountByCusID($cusID)
+   {
 
       // print_r($cusID);
-      $result1 = $this->getRowCount('reservations',['customerID'=> $cusID, 'status'=> 1]);       
-      $result2 = $this->getRowCount('reservations',['customerID'=> $cusID, 'status'=> 2]);  
-      $results = $result1 + $result2;                         
+      $result1 = $this->getRowCount('reservations', ['customerID' => $cusID, 'status' => 1]);
+      $result2 = $this->getRowCount('reservations', ['customerID' => $cusID, 'status' => 2]);
+      $results = $result1 + $result2;
       print_r($results);
       // die("success");
       return $results;
    }
-   
 }

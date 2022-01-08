@@ -35,7 +35,7 @@ class ClosedDatesModel extends Model
       var_dump($results);
    }
 
-   
+
    public function getCloseDatesReservationDetails($date)
    {
       // echo $data;
@@ -43,7 +43,7 @@ class ClosedDatesModel extends Model
       $SQLstatement = "SELECT * FROM reservations WHERE date = :date AND status IN (1,2);";
       $results = $this->customQuery($SQLstatement, [":date" => $date]);
       // ['date' => $date]
-      
+
       // var_dump($results);
       return $results;
    }
