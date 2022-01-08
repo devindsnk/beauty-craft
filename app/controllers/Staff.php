@@ -20,10 +20,8 @@ class Staff extends Controller
       $staffD = $this->staffModel->getAllStaffDetails();
       $CurrentStaffCount = sizeof($staffD);
 
-
       if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'FILES')
       {
-
          $img_name = " ";
          $new_img_name =  " ";
          $img_name = $_FILES['staffimage']['name'];
@@ -42,7 +40,6 @@ class Staff extends Controller
                move_uploaded_file($tmp_name, $img_upload_path);
             }
          }
-
 
          $data = [
             'staffimagePath' => $new_img_name,
@@ -221,25 +218,18 @@ class Staff extends Controller
             $data['staffAccBranch_error'] = "Please enter branch name";
          }
 
-
-
          if (
             empty($data['staffimagePath_error']) && empty($data['staffFname_error']) && empty($data['staffLname_error']) && empty($data['gender_error']) && empty($data['staffNIC_error']) && empty($data['staffDOB_error']) && empty($data['staffType_error']) && empty($data['staffHomeAdd_error']) && empty($data['staffMobileNo_error']) && empty($data['staffEmail_error']) &&
             empty($data['staffAccNum_error']) && empty($data['staffAccHold_error']) && empty($data['staffAccBank_error']) && empty($data['staffAccBranch_error'])
          )
          {
-
-            // print_r($data[]);
             $this->userModel->registerUser($data['staffMobileNo'], $data['staffNIC'], $data['staffType']);
             $this->staffModel->addStaffDetails($data);
             $this->staffModel->addBankDetails($data);
-
             //System log
             Systemlog::createAccount($data['staffMobileNo']);
-
             Toast::setToast(1, "Staff Member Successfully Registered!", "");
-
-
+            
             if (Session::getUser("type") == 2)
             {
                header('location: ' . URLROOT . '/Staff/viewAllStaffMembers');
@@ -250,15 +240,16 @@ class Staff extends Controller
                redirect('Staff/addStaff');
             }
          }
+
          else
          {
 
             $this->provideAddStaffReleventView($data);
          }
       }
+
       else
       {
-
          $data = [
             'staffimagePath' => '',
             'staffFname' => '',
@@ -309,17 +300,13 @@ class Staff extends Controller
       }
    }
 
-
    public function updateStaff($staffID)
    {
-
-
       $staffdetailsBystaffID = $this->staffModel->getStaffDetailsByStaffID($staffID);
       $bankdetailsBystaffID = $this->staffModel->getStaffBankDetailsByStaffID($staffID);
       $currentStatus =  $staffdetailsBystaffID[0]->status;
       $staffD = $this->staffModel->getAllStaffDetails();
       $CurrentStaffCount = sizeof($staffD);
-
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'FILES')
       {
@@ -374,10 +361,6 @@ class Staff extends Controller
             'bankdetails' => $bankdetailsBystaffID[0]
          ];
 
-         // print_r($data);
-         // die();
-         // $data['staffHomeAddTyped'] = $data['staffHomeAdd'];
-
          if (($data['staffimagePath'] == " "))
          {
             $data['staffimagePath_error'] = "Please insert a valid image";
@@ -412,18 +395,22 @@ class Staff extends Controller
          {
             $data['nic_error'] = "Please enter NIC number";
          }
+
          else if (preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $data['nic']))
          {
             $data['nic_error'] = "Only numeric values and letters are allowed";
          }
+
          elseif (!(strlen($data['nic']) == 10) && !(strlen($data['nic']) == 12))
          {
             $data['nic_error'] = "Invalid NIC format";
          }
+
          elseif (strlen($data['nic']) == 12 && !is_numeric($data['nic']))
          {
             $data['nic_error'] = "Invalid nic format";
          }
+
          elseif ((strlen($data['nic']) == 10))
          {
             if (!is_numeric(substr($data['nic'], 0, 9)) || (substr($data['nic'], 9, 10)) != "V")
@@ -525,8 +512,6 @@ class Staff extends Controller
          //    $data['staffAccBank_error']  = "Only letters are allowed";
          //  }
 
-
-
          if (
             empty($data['staffimagePath_error']) && empty($data['fName_error']) && empty($data['lName_error']) && empty($data['gender_error']) && empty($data['nic_error']) && empty($data['dob_error'])  && empty($data['address_error']) && empty($data['mobileNo_error']) && empty($data['email_error']) &&
             empty($data['accountNo_error']) && empty($data['holdersName_error']) && empty($data['bankName_error']) && empty($data['branchName_error'])
@@ -568,7 +553,6 @@ class Staff extends Controller
       }
       else
       {
-
          $data = [
             'staffimagePath' => $staffdetailsBystaffID[0]->imgPath,
             'fName' =>  $staffdetailsBystaffID[0]->fName,
@@ -576,7 +560,6 @@ class Staff extends Controller
             'gender' =>  $staffdetailsBystaffID[0]->gender,
             'nic' =>  $staffdetailsBystaffID[0]->nic,
             'dob' =>  $staffdetailsBystaffID[0]->dob,
-            // 'staffType' => '',
             'address' =>  $staffdetailsBystaffID[0]->address,
             'mobileNo' =>  $staffdetailsBystaffID[0]->mobileNo,
             'email' =>  $staffdetailsBystaffID[0]->email,
@@ -599,16 +582,10 @@ class Staff extends Controller
             'bankName_error' => '',
             'branchName_error' => '',
             'staffID' => $staffID,
-
          ];
          $this->view('owner/own_staffUpdate', $data);
       }
    }
-
-
-
-   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
    public function viewStaff($staffID)
    {
@@ -627,8 +604,7 @@ class Staff extends Controller
       $profileData = $this->staffModel->getStaffDetailsWithBankDetailsByStaffID(Session::getUser("id"));
       $serviceslist = $this->staffModel->getServiceslistByStaffID(Session::getUser("id"));
       $result = $this->userModel->getUser(Session::getUser("mobileNo"));
-
-
+      
       $hashedPassword = $result->password;
       $data = [
          'profileData' => $profileData,
@@ -667,8 +643,6 @@ class Staff extends Controller
             $data['newPassword_error'] = emptyCheck($data['newPassword1']);
             $data['confirmPassword_error'] = emptyCheck($data['newPassword2']);
             $data['changePasswordModelOpen'] = 1;
-            // print_r($data);
-            // die("Arrayyyyyyyyyy");
             if (!empty($data['currentPassword_error']) || !empty($data['newPassword_error']) || !empty($data['confirmPassword_error'])) //have errors
             {
 
@@ -687,9 +661,7 @@ class Staff extends Controller
                   }
                   if (empty($data['currentPassword_error']) && empty($data['newPassword_error']) && empty($data['confirmPassword_error']))
                   {
-
                      $this->userModel->updatePassword(Session::getUser("mobileNo"), $data['newPassword1']);
-
                      //System log
                      Systemlog::changePassword();
                      $data['changePasswordModelOpen'] = 0;
@@ -748,9 +720,6 @@ class Staff extends Controller
          $data['currentPassword_error'] = emptyCheck($data['currentPassword']);
          $data['newPassword_error'] = emptyCheck($data['newPassword1']);
          $data['confirmPassword_error'] = emptyCheck($data['newPassword2']);
-
-
-
          if (!empty($data['currentPassword_error']) || !empty($data['newPassword_error']) || !empty($data['confirmPassword_error'])) //have errors
          {
             $this->view('staff/staff_changepassword', $data);
@@ -758,7 +727,6 @@ class Staff extends Controller
 
          else //no errors
          {
-
             if (password_verify($data['currentPassword'], $hashedPassword))
             {
                if ($data['newPassword1'] != $data['newPassword2'])
@@ -769,7 +737,6 @@ class Staff extends Controller
                if (empty($data['currentPassword_error']) && empty($data['newPassword_error']) && empty($data['confirmPassword_error']))
                {
                   $this->userModel->updatePassword($data['mobileNo'], $data['newPassword1']);
-
                   //System log
                   Systemlog::changePassword();
                   $this->view('staff/staff_changepassword', $data);
@@ -801,7 +768,6 @@ class Staff extends Controller
 
    public function RemoveStaff($staffID, $staffMobileNo) //details
    {
-      // die("RemoveStaffController");
       $this->staffModel->removestaff($staffID, $staffMobileNo);
       Toast::setToast(1, "Staff member removed successfully", "");
       redirect('Staff/viewAllStaffMembers');
@@ -809,17 +775,12 @@ class Staff extends Controller
    public function GetRemovingStaffDetails($staffID) //details
    {
       $RemstaffDetails = $this->staffModel->getStaffDetailsByStaffID($staffID);
-      // die(); 
       print_r($RemstaffDetails);
-      // die();
-      // $this->staffModel->removestaff($staffID);
       $this->view('owner/own_staff', $RemstaffDetails);
-      // $this->view('owner/own_RemStaffViewReservations');
    }
 
    public function getAllReservtaionDetailsByStaffID($staffID) //details
    {
-      // die("success");
       $result = $this->staffModel->getReservtaionDetailsByStaffID($staffID);
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($result));

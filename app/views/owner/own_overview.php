@@ -30,7 +30,6 @@
             <!-- owner overview available managers card ends -->
 
 
-
             <!-- owner overview total income card starts -->
             <div class="ownOverviewContainerCard2">
                <div class="mang-sub-container-card-title">
@@ -41,8 +40,6 @@
                </div>
             </div>
             <!-- owner overview total income card ends -->
-
-
 
             <!-- <div class="ownOverviewContainerCard3">
                <div class="wrapper">

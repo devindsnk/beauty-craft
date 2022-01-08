@@ -8,21 +8,13 @@
          <h1 class="header-topic">Reservation List</h1>
       </div>
       <div class="header-right verticalCenter">
-
-
          <a href="<?php echo URLROOT ?>/OwnDashboard/closeSalon" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
-
       </div>
    </header>
    <div class="content contentNewRes own ViewCustomer">
-
-
 <div class="closeDateReservationDate">
    <h1> <?php echo $data[0]->date;?>  </h1>
 </div>
-   <!-- <?php echo $date;?> -->
-
-<!-- <?php print_r ($data[0]); ?> -->
 <br>
 <div class="table-container">
    <div class="table2 table2-responsive">

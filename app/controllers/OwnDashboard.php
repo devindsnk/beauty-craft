@@ -12,24 +12,19 @@ class OwnDashboard extends Controller
       $this->ratesModel = $this->model('RatesModel');
       $this->closedDatesModel = $this->model('ClosedDatesModel');
       $this->customerModel = $this->model('CustomerModel');
-
-      // $this->customerModel= $this->model('CustomerModel');
-
    }
+
    public function home()
    {
       redirect('OwnDashboard/overview');
       // $this->view('owner/own_overview', $getManagerCount);
    }
+
    public function closeSalon()
    {
       $closeDatesDetails = $this->closedDatesModel->getCloseDatesDetails();
       $CurrentCloseDateaCount = sizeof($closeDatesDetails);
       $date_now = date("Y-m-d");
-      // $closeDateResCount = $this->closedDatesModel->getCloseDatesReservationCount($date);
-      // printf('\n');
-      // print_r($closeDatesDetails);
-      // 'closeDates' => $closeDatesDetails
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
@@ -57,7 +52,6 @@ class OwnDashboard extends Controller
             {
                for ($x = 0; $x < $CurrentCloseDateaCount; $x++)
                {
-                  // echo ($closeDatesDetails[$x]->date) . "<br>";
                   if ($data['closeDate'] == $closeDatesDetails[$x]->date)
                   {
                      $data['closeDate_error'] = "Date already selected";
@@ -94,7 +88,6 @@ class OwnDashboard extends Controller
       }
       else
       {
-         // die('success');
          $data = [
             'closeDate' => '',
             'closeSalonReason' => '',
@@ -103,15 +96,13 @@ class OwnDashboard extends Controller
             'haveErrors' => 0,
             'closeDates' => $closeDatesDetails,
          ];
-         // print_r($data['closeDates']); 
          $this->view('owner/own_closeSalon', $data);
       }
    }
 
    public function customers()
    {
-      $CusDetails = $this->customerModel->getAllCustomerDetails();
-      // $this->view('owner/own_customers', $cusDetails);      
+      $CusDetails = $this->customerModel->getAllCustomerDetails();   
       $GetCustomerArray = ['customer' => $CusDetails];
       $this->view('owner/own_customers', $GetCustomerArray);
    }
@@ -120,28 +111,13 @@ class OwnDashboard extends Controller
    {
       $this->view('owner/own_overview');
    }
+
    public function rates()
    {
-      // die('success');
-      // $LeavelimitsDetails = $this->ratesModel->getLeaveLimitsDetails();
-      // $SalaryRateDetails = $this->ratesModel->getSalaryRateDetails();
-      // $CommsionRateDetails = $this->ratesModel->getCommissionRateDetails();
-      // $MinimumNumberOfManagers = $this->ratesModel->getMinimumNumberOfManagers();
-      // print_r($SalaryRateDetails); 
-      // print_r($CommsionRateDetails);  
-      // $GetLeaveLimitsArray = ['leavelimits' => $LeavelimitsDetails];
-      // print_r($LeavelimitsDetails);
-      // $this->view('owner/own_rates',  $LeavelimitsDetails);
-      // $this->view('owner/own_rates',  $LeavelimitsDetails[0]);
-      // $this->view('owner/own_rates',  $LeavelimitsDetails[0]);
-
-
       $result1 = $this->ratesModel->getLeaveLimitsDetails();
       $result2 = $this->ratesModel->getSalaryRateDetails();
       $result3 = $this->ratesModel->getCommissionRateDetails();
       $result4 = $this->ratesModel->getMinimumNumberOfManagers();
-      //   $GetRateArray = ['leaveLimits' => $result1,'salaryRate' => $result2,'commissionRate' => $result3,'minimumNumberOfManagers' => $result4 ]; 
-      //   $this->view('owner/own_rates', $GetRateArray); 
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
@@ -173,7 +149,7 @@ class OwnDashboard extends Controller
             'rate' =>  trim($_POST['rate']),
             'rate_error' => '',
 
-            //is this neeeded to dd here 
+            //is this neeeded to add here 
             'leaveLimits' => $result1[0],
             'salaryRates' => $result2[0],
             'commissionRates' => $result3[0],
@@ -181,12 +157,11 @@ class OwnDashboard extends Controller
          ];
          if ($_POST['action'] == "saveLeaveLimits")
          {
-            //    print_r($data);
-            // die("error");
             if (empty($data['generalLeave']))
             {
                $data['generalLeave_error'] = "Please insert a value";
             }
+
             // Validating fname
             if (empty($data['medicalLeave']))
             {
@@ -198,14 +173,17 @@ class OwnDashboard extends Controller
             {
                $data['managerGeneralLeave_error'] = "Please insert a value";
             }
+
             if (empty($data['managerGeneralLeave']))
             {
                $data['managerMedicalLeave_error'] = "Please insert a value";
             }
+
             if (empty($data['managerMedicalLeave']))
             {
                $data['managerDailyLeave_error'] = "Please insert a value";
             }
+
             if (empty($data['managerDailyLeave']))
             {
                $data['managerDailyLeave_error'] = "Please insert a value";
@@ -220,8 +198,6 @@ class OwnDashboard extends Controller
                empty($data['generalLeave_error']) && empty($data['medicalLeave_error']) && empty($data['managerGeneralLeave_error']) && empty($data['managerMedicalLeave_error']) && empty($data['managerDailyLeave_error']) && empty($data['evidenceLimit_error'])
             )
             {
-
-               // print_r($data);
                $this->ratesModel->updateLeaveLimitDeatils($data);
                $this->view('owner/own_rates', $data);
             }
@@ -233,7 +209,6 @@ class OwnDashboard extends Controller
 
          if ($_POST['action'] == "saveSalaryRates")
          {
-
             if (empty($data['managerSalaryRate']))
             {
                $data['managerSalaryRate_error'] =  "Please insert a value";
@@ -251,15 +226,11 @@ class OwnDashboard extends Controller
             }
             if (empty($data['managerSalaryRate_error']) && empty($data['serviceProviderSalaryRate_error']) && empty($data['receptionistSalaryRate_error']))
             {
-
-
                $this->ratesModel->updateSalaryRateDetails($data);
                $this->view('owner/own_rates', $data);
             }
             else
             {
-               // print_r($data);
-               // die("error");
                $this->view('owner/own_rates', $data);
             }
          }
@@ -276,8 +247,6 @@ class OwnDashboard extends Controller
             }
             if (empty($data['rate_error']))
             {
-
-               // print_r($data);
                $this->ratesModel->updateCommissionRateDetails($data);
                $this->view('owner/own_rates', $data);
             }
@@ -295,8 +264,6 @@ class OwnDashboard extends Controller
             }
             if (empty($data['minimumNumber_error']))
             {
-
-               // print_r($data);
                $this->ratesModel->updateMinimumNumberOfManagers($data);
                $this->view('owner/own_rates', $data);
             }
@@ -308,9 +275,7 @@ class OwnDashboard extends Controller
       }
       else
       {
-         // die('success');
          print_r($result1[0]->generalLeave);
-         // die('success');
          $data = [
             'generalLeave' => $result1[0]->generalLeave,
             'medicalLeave' => $result1[0]->medicalLeave,
@@ -325,7 +290,6 @@ class OwnDashboard extends Controller
             'managerDailyLeave_error' => '',
             'evidenceLimit_error' => '',
 
-
             'managerSalaryRate' => $result2[0]->managerSalaryRate,
             'serviceProviderSalaryRate' => $result2[0]->serviceProviderSalaryRate,
             'receptionistSalaryRate' => $result2[0]->receptionistSalaryRate,
@@ -338,18 +302,9 @@ class OwnDashboard extends Controller
 
             'minimumNumber' => $result4[0]->minimumNumber,
             'minimumNumber_error' => '',
-
-
-            // 'leaveLimits' => $result1[0],
-            // 'salaryRates' => $result2[0],
-            // 'commissionRates' => $result3[0],
-            // 'minimumNoOfManagers' => $result4[0],
          ];
-         // print_r($data);
          $this->view('owner/own_rates', $data);
       }
-      // $rateDetails = $this->rate->getResourceDetails();
-      // $this->view('owner/own_rates');
    }
 
    public function resources()
@@ -357,10 +312,12 @@ class OwnDashboard extends Controller
       $resourceDetails = $this->serviceModel->getResourceDetails();
       $this->view('owner/own_resources', $resourceDetails);
    }
+
    public function salaries()
    {
       $this->view('owner/own_salaries');
    }
+   
    public function services()
    {
       // $sDetails = $this->serviceModel->getServiceDetails();

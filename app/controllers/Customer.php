@@ -210,8 +210,10 @@ class Customer extends Controller
       $CancelledReservationCount = $this->customerModel->getCancelledReservationCountByCusID($cusID);
       // print_r($CancelledReservationCount);
       // die("controller error");
-      $ViewCustomerArray = ['cusDetails' => $customerDetails, 'allResCount' => $AllReservationCount, 'cancelledResCount' => $CancelledReservationCount];
-      print_r($ViewCustomerArray);
+      $CompletedReservationSales = $this->customerModel->getAllCompletedReservationSalesByCusID($cusID);
+
+      $ViewCustomerArray = ['cusDetails' => $customerDetails, 'allResCount' => $AllReservationCount, 'cancelledResCount' => $CancelledReservationCount,'sales' => $CompletedReservationSales];
+      // print_r($ViewCustomerArray);
       // die("");
 
       $this->view('common/customerView', $ViewCustomerArray);

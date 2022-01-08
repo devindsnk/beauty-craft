@@ -44,6 +44,7 @@ class CustomerModel extends Model
          $this->delete("users", ['mobileNo' => $mobileNo]);
       }
    }
+
    // for customer table
    public function getAllCustomerDetails()
    {
@@ -70,18 +71,25 @@ class CustomerModel extends Model
    public function getAllCompletedReservationSalesByCusID($cusID)
    {
       $result = $this->getResultSet('reservations', '*', ["customerID" => $cusID, 'status' => 4]);
-      return $result;
+      $CompletedReservationCount = sizeof($result);
+      $totalSales = 0;
+      for($i=0 ; $i<$CompletedReservationCount ; $i++){
+        $servId = $result[$i]->serviceID;
+      //   print_r($servId);
+        $servPrice = ($this->getSingle("services", ["price"], ["serviceID" => $servId]))->price;
+        $totalSales = $totalSales + (int)$servPrice;
+      }
+      echo "<br>";
+      // print_r($totalSales);
+      // die("sales");
+      return $totalSales;
    }
 
    public function getCancelledReservationCountByCusID($cusID)
    {
-      // die('sucess');
       $result = $this->getRowCount('reservations', ['customerID' => $cusID, 'status' => 0]);
-      print_r($result);
-      // die();
       return ($result);
    }
-
    // for customer view end
 
    // FOR MANAGER OVERVIEW
@@ -131,15 +139,12 @@ class CustomerModel extends Model
       return $results;
    }
    // FOR ANALYTICS
+
    public function getUpcomingReservationCountByCusID($cusID)
    {
-
-      // print_r($cusID);
       $result1 = $this->getRowCount('reservations', ['customerID' => $cusID, 'status' => 1]);
       $result2 = $this->getRowCount('reservations', ['customerID' => $cusID, 'status' => 2]);
       $results = $result1 + $result2;
-      print_r($results);
-      // die("success");
       return $results;
    }
 }
