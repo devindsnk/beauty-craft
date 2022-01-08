@@ -13,7 +13,7 @@
 		</div>
 	</header>
 
-	<div class="content contentNewRes">
+	<div class=" content contentNewRes">
 		<form class="form" action="<?php echo URLROOT; ?>/Services/updateService/<?php echo $data['serviceDetails']->serviceID; ?>" method="post">
 			<div class="newService-main newservice" id="newServiceMain">
 
