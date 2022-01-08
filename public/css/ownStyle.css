@@ -1484,7 +1484,7 @@ font-weight: 600;
     visibility: hidden;
 }
 
-.ownAddstaffContainer .ownAddstaffFormGroupImage .ownAddstaffBasicinfoFilesubBtn .ownAddstaffBasicinfoImagewrapper {
+ .ownAddstaffFormGroupImage .ownAddstaffBasicinfoFilesubBtn .ownAddstaffBasicinfoImagewrapper {
 
     display: inline-flex;
     justify-content: center;
@@ -1496,7 +1496,7 @@ font-weight: 600;
     transition: all 0.3s ease;
 }
 
-.ownAddstaffContainer .ownAddstaffFormGroupImage .ownAddstaffBasicinfoFilesubBtn .ownAddstaffBasicinfoImagetitle {
+.ownAddstaffFormGroupImage .ownAddstaffBasicinfoFilesubBtn .ownAddstaffBasicinfoImagetitle {
     font-weight: 600;
     font-size: 14px;
     color: white;
