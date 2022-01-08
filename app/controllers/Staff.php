@@ -7,18 +7,20 @@ class Staff extends Controller
       $this->staffModel = $this->model('StaffModel');
    }
 
-   public function viewAllStaffMembers(){ 
-      $staffDetails = $this->staffModel->getAllStaffDetails(); 
-      $GetStaffArray = ['staff' => $staffDetails]; 
-      $this->view('common/allStaffTable', $GetStaffArray); 
-   } 
+   public function viewAllStaffMembers()
+   {
+      $staffDetails = $this->staffModel->getAllStaffDetails();
+      $GetStaffArray = ['staff' => $staffDetails];
+      $this->view('common/allStaffTable', $GetStaffArray);
+   }
 
 
    public function addStaff()
    {
+      Session::validateSession([1, 2]);
       $staffD = $this->staffModel->getAllStaffDetails();
       $CurrentStaffCount = sizeof($staffD);
-      
+
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'FILES')
       {
@@ -131,11 +133,13 @@ class Staff extends Controller
             }
          }
 
-         for ($i = 0 ; $i< $CurrentStaffCount; $i++){
-            if($staffD[$i]->nic == $data['staffNIC']){
+         for ($i = 0; $i < $CurrentStaffCount; $i++)
+         {
+            if ($staffD[$i]->nic == $data['staffNIC'])
+            {
                $data['staffNIC_error'] = "The NIC number you entered is already exist.";
             }
-      }
+         }
 
          // Validating date of birth
          if (empty($data['staffDOB']))
@@ -163,10 +167,12 @@ class Staff extends Controller
             $data['staffMobileNo_error'] = "Invalid contact number format.";
          }
 
-         for ($i = 0 ; $i< $CurrentStaffCount; $i++){
-               if($staffD[$i]->mobileNo == $data['staffMobileNo']){
-                  $data['staffMobileNo_error'] = "The mobile number you entered is already exist.";
-               }
+         for ($i = 0; $i < $CurrentStaffCount; $i++)
+         {
+            if ($staffD[$i]->mobileNo == $data['staffMobileNo'])
+            {
+               $data['staffMobileNo_error'] = "The mobile number you entered is already exist.";
+            }
          }
 
          // Validating email
@@ -234,11 +240,21 @@ class Staff extends Controller
 
             Toast::setToast(1, "Staff Member Successfully Registered!", "");
 
-            header('location: ' . URLROOT . '/Staff/viewAllStaffMembers');
+
+            if (Session::getUser("type") == 2)
+            {
+               header('location: ' . URLROOT . '/Staff/viewAllStaffMembers');
+            }
+
+            else if (Session::getUser("type") == 1)
+            {
+               redirect('Staff/addStaff');
+            }
          }
          else
          {
-            $this->view('owner/own_staffAdd', $data);
+
+            $this->provideAddStaffReleventView($data);
          }
       }
       else
@@ -276,11 +292,23 @@ class Staff extends Controller
             'staffHomeAddTyped' => '',
 
          ];
-         $this->view('owner/own_staffAdd', $data);
+         $this->provideAddStaffReleventView($data);
       }
    }
 
+   public function provideAddStaffReleventView($data)
+   {
+      Session::validateSession([1, 2]);
+      if (Session::getUser("type") == 2)
+      {
+         $this->view('owner/own_staffAdd', $data);
+      }
 
+      else if (Session::getUser("type") == 1)
+      {
+         $this->view('systemAdmin/systemAdmin_staff', $data);
+      }
+   }
 
 
    public function updateStaff($staffID)
@@ -292,13 +320,13 @@ class Staff extends Controller
 
 
 
-   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
       $staffD = $this->staffModel->getAllStaffDetails();
       $CurrentStaffCount = sizeof($staffD);
-      
+
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'FILES')
       {
@@ -418,11 +446,13 @@ class Staff extends Controller
             }
          }
 
-         for ($i = 0 ; $i< $CurrentStaffCount; $i++){
-            if($staffD[$i]->nic == $data['nic']){
+         for ($i = 0; $i < $CurrentStaffCount; $i++)
+         {
+            if ($staffD[$i]->nic == $data['nic'])
+            {
                $data['nic_error'] = "The NIC number you entered is already exist.";
             }
-      }
+         }
 
          // $data['staffNIC_error'] = "Invalid NIC format";
 
@@ -452,10 +482,12 @@ class Staff extends Controller
             $data['mobileNo_error'] = "Invalid contact number format.";
          }
 
-         for ($i = 0 ; $i< $CurrentStaffCount; $i++){
-               if($staffD[$i]->mobileNo == $data['mobileNo']){
-                  $data['mobileNo_error'] = "The mobile number you entered is already exist.";
-               }
+         for ($i = 0; $i < $CurrentStaffCount; $i++)
+         {
+            if ($staffD[$i]->mobileNo == $data['mobileNo'])
+            {
+               $data['mobileNo_error'] = "The mobile number you entered is already exist.";
+            }
          }
 
          // Validating email
@@ -594,8 +626,8 @@ class Staff extends Controller
    public function viewStaff($staffID)
    {
       $staffDetails = $this->staffModel->getStaffDetailsWithBankDetailsByStaffID($staffID);
-      $this->view('owner/own_staffView',$staffDetails[0]);
-   }  
+      $this->view('owner/own_staffView', $staffDetails[0]);
+   }
 
    public function RemStaffReservations() //details
    {
@@ -780,10 +812,10 @@ class Staff extends Controller
       }
    }
 
-   public function RemoveStaff($staffID,$staffMobileNo) //details
+   public function RemoveStaff($staffID, $staffMobileNo) //details
    {
       // die("RemoveStaffController");
-      $this->staffModel->removestaff($staffID,$staffMobileNo);
+      $this->staffModel->removestaff($staffID, $staffMobileNo);
       Toast::setToast(1, "Staff member removed successfully", "");
       redirect('Staff/viewAllStaffMembers');
    }
@@ -805,5 +837,4 @@ class Staff extends Controller
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($result));
    }
-   
 }

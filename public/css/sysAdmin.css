@@ -7,25 +7,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: scroll;
+   
 }
 
 .formadmin {
     height: 800px;
-    width: 100%;
+    width: 650px;
     margin: auto;
-    overflow: scroll;
+    
     padding-top: 50px;
 
 }
 
-.content.admin .ownAddstaffBasicinfoFilesubBtn {
+/* .content.admin .ownAddstaffBasicinfoFilesubBtn {
     display: none;
 }
 
 .content.admin .ownAddstaffContainer .error {
     display: none;
-}
+} */
 
 .content.admin .ownAddstaffContainer.contentBox,
 .reg-container.form-container.contentBox {
@@ -66,8 +66,23 @@
 .content.admin .reg-container {
     width: 650px;
     padding-top: 55px;
+    height: 750px;
 }
-
+.sysadmin-custacc-gender{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    
+    
+}
+.sysadmin-custacc-gender .option{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.reg-container.form-container.contentBox.sysadmincustacc{
+    margin-top: 55px;
+}
 @media (max-width: 768px) {
     .reg-container {
         width: 80%;
@@ -255,9 +270,101 @@ label.ownAddstaffBasicinfoImagewrapper {
     margin-right: 20px;
 }
 
+.ownAddstaffBasicinfoRadiowrapper .option{
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    justify-content: space-between !important;
+    
+
+}
+.ownAddstaffBasicinfoRadiowrapper .option input.option1{
+    padding-left: 10px;
+}
+
+
 .btn.btn-filled.btn-theme-purple.addstaffadmin {
     width: 160px;
     padding-top: 7px;
     padding-bottom: 7px;
+
+}
+@media screen and (max-width: 880px) {
+
+
+    /*---- Grids placing and styles for responsive ----*/
+   .formadmin .ownAddstaffContainer .ownAddstaffMaingrid1 {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas:
+            'ownAddstaffFormGroupImage'
+            'ownAddstaffFormGroupFname'
+            'ownAddstaffFormGroupLname'
+            'ownAddstaffFormGroupRadio'
+            'ownAddstaffFormGroupNIC';
+    }
+
+   .formadmin .ownAddstaffContainer .maingrid2 {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas:
+            'ownAddstaffFormGroupStype'
+            'ownAddstaffFormGroupDOB';
+    }
+
+   .formadmin .ownAddstaffContainer .ownAddstaffMaingrid3 {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas:
+            'ownAddstaffFormGroupADD';
+    }
+
+   .formadmin .ownAddstaffContainer .ownAddstaffMaingrid4 {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas:
+            'ownAddstaffFormGroupTP'
+            'ownAddstaffFormGroupMAIL';
+    }
+
+   .formadmin .ownAddstaffContainer .ownAddstaffMaingrid5 {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas:
+            'ownAddstaffFormGroupACCNUM'
+            'ownAddstaffFormGroupACCNAME'
+            'ownAddstaffFormGroupBankNAME'
+            ' ownAddstaffFormGroupBranchNAME';
+    }
+    /*---- Add image style for responsive ----*/
+  .formadmin  .ownAddstaffFormGroupImage {
+        justify-content: center;
+        text-align: center;
+    }
+
+
+    /*---- Form wrapper styles for responsive -----*/
+   .formadmin form .ownAddstaffFormWrapper .ownAddstaffMaingrid1 input[type=text] {
+        width: 100%;
+    }
+
+  .formadmin  .dropdownselectbox {
+        width: 100%;
+    }
+
+    /* Form home address styles for responsive */
+  .formadmin  form .ownAddstaffFormWrapper .ownAddstaffMaingrid3 .ownAddstaffFormGroupADD .homeAdd {
+        width: 100%;
+    }
+
+  .formadmin  .ownAddstaffFormWrapper .ownAddstaffMaingrid4 input[type=text],
+  .formadmin  .ownAddstaffMormWrapper .ownAddstaffMaingrid5 input[type=text] {
+        width: 100%;
+    }
+
+    /*----Form button styles for responsive ---- */
+   .formadmin .ownAddstaffButton {
+        padding-right: 20px;
+    }
 
 }
