@@ -40,7 +40,7 @@ class MangDashboard extends Controller
          'activeCustomers' => $activeCustomers,
          'activeReceptionists' => $activeReceptionists,
          'activeManagers' => $activeManagers,
-         'pendingLeaveRequests' => $pendingLeaveRequests,
+         'pendingLeaveRequests' => count($pendingLeaveRequests),
          // 'totalIncomeForChart' => $totalIncomeForChart,
       ];
      

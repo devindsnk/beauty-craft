@@ -5,6 +5,7 @@ class Services extends Controller
    {
       $this->ServiceModel = $this->model('ServiceModel');
       $this->ReservationModel = $this->model('reservationModel');
+      $this->CustomerModel = $this->model('CustomerModel');
    }
 
    public function viewAllServices()
@@ -390,14 +391,14 @@ class Services extends Controller
             'serviceDetails' => $serviceDetails[0],
             'serProvDetails' => $serProvDetails,
             'noofSlots' => $noofSlots,
-            'slot1Details' => $slot1Details,
-            'slot2Details' => $slot2Details,
-            'slot3Details' => $slot3Details,
-            'interval1Details' => $interval1Details,
-            'interval2Details' => $interval2Details,
-            'resDetailsSlot1' => $resDetailsSlot1,
-            'resDetailsSlot2' => $resDetailsSlot2,
-            'resDetailsSlot3' => $resDetailsSlot3,
+            // 'slot1Details' => $slot1Details,
+            // 'slot2Details' => $slot2Details,
+            // 'slot3Details' => $slot3Details,
+            // 'interval1Details' => $interval1Details,
+            // 'interval2Details' => $interval2Details,
+            'resDetailsSlot1' => '',
+            'resDetailsSlot2' => '',
+            'resDetailsSlot3' => '',
 
             'sTypesArray' => [],
             'sProvArray' => [],
@@ -420,7 +421,8 @@ class Services extends Controller
             'sSelectedResCount3_error' => '',
 
          ];
-
+         // print_r($resDetailsSlot1);
+         // die('rrr');
          $data['sProvArray'] = $sProvGetArray;
          $data['sTypesArray'] = $sTypeGetArray;
          $data['sResArray'] = $sResGetArray;
@@ -499,13 +501,41 @@ class Services extends Controller
                {
                   $slotNo = 2;
                }
-               $this->ServiceModel->changeServiceStatus($serviceID, 0);
-               $this->ServiceModel->addService($data, $slotNo);
-               $this->ServiceModel->addServiceProvider($data);
-               // die('awa');
-               $this->ServiceModel->addTimeSlot($data, $slotNo);
-               $this->ServiceModel->addIntervalTimeSlot($data, $slotNo);
-               $this->ServiceModel->addResourcesToService($data, $slotNo);
+
+               if ($data['price'] != $serviceDetails[0]->price)
+               {
+
+                  $this->ServiceModel->changeServiceStatus($serviceID, 0);
+                  $this->ServiceModel->addService($data, $slotNo);
+                  $this->ServiceModel->addServiceProvider($data);
+                  $this->ServiceModel->addTimeSlot($data, $slotNo);
+                  $this->ServiceModel->addIntervalTimeSlot($data, $slotNo);
+                  $this->ServiceModel->addResourcesToService($data, $slotNo);
+
+                  // $this->ServiceModel->removeServiceProvider($data, $slotNo);
+                  // $this->ServiceModel->removeResourcesFromService($data, $slotNo);
+
+               }
+               else
+               {
+                  $this->ServiceModel->updateService($serviceID, $data, $slotNo);
+
+                  if (Session::get("recallResuestsFromUpdateService")["sProvID"])
+                  {
+                     $resSPRov = Session::get("recallResuestsFromUpdateService")["sProvID"];
+                     $resList = Session::get("recallResuestsFromUpdateService")["selectedreservationList"];
+                     // $reason = Session::get("recallResuestsFromUpdateService")["reason"];
+                     $resState = Session::get("recallResuestsFromUpdateService")["resState"];
+
+                     $this->ReservationModel->updateReservationRecalledState($resList, $resState);
+                     $this->ReservationModel->addReservationRecall($resList);
+                     // $this->destroyRecallDetails();
+                  }
+                  $this->ServiceModel->updateServiceProviders($serviceID, $data, $serProvDetails);
+                  $this->ServiceModel->updateAllocatedResources($serviceID, $data, $slotNo, $resDetailsSlot1, $resDetailsSlot2, $resDetailsSlot3);
+                  $this->ServiceModel->updateIntervals($serviceID, $data, $slotNo);
+                  $this->ServiceModel->updateTimeslots($serviceID, $data, $slotNo);
+               }
 
                redirect('Services/viewAllServices');
             }
@@ -521,7 +551,27 @@ class Services extends Controller
                      $data['sSelectedResCount1_error'] = "Please enter resource quantity again";
                   }
                }
-               $this->view('manager/mang_serviceAdd', $data);
+
+               $selectesResCount = count($data['sSelectedResCount2']);
+
+               for ($i = 0; $i < $selectesResCount; $i++)
+               {
+                  if ($data['sSelectedResCount2'][$i] != 0)
+                  {
+                     $data['sSelectedResCount2_error'] = "Please enter resource quantity again";
+                  }
+               }
+               $selectesResCount = count($data['sSelectedResCount3']);
+
+               for ($i = 0; $i < $selectesResCount; $i++)
+               {
+                  if ($data['sSelectedResCount3'][$i] != 0)
+                  {
+                     $data['sSelectedResCount3_error'] = "Please enter resource quantity again";
+                  }
+               }
+
+               $this->view('manager/mang_serviceUpdate', $data);
             }
          }
          else
@@ -533,18 +583,18 @@ class Services extends Controller
       {
 
          $data = [
-            'name' => '',
-            'customerCategory' => '',
-            'sSelectedType' => '',
+            'name' => $serviceDetails[0]->name,
+            'customerCategory' => $serviceDetails[0]->customerCategory,
+            'sSelectedType' => $serviceDetails[0]->type,
             'sNewType' => '',
-            'price' => '',
+            'price' => $serviceDetails[0]->price,
             'sSelectedProv' => [],
 
-            'slot1Duration' => '',
-            'slot2Duration' => '',
-            'slot3Duration' => '',
-            'interval1Duration' => '',
-            'interval2Duration' => '',
+            'slot1Duration' => $slot1Details,
+            'slot2Duration' => $slot2Details,
+            'slot3Duration' => $slot3Details,
+            'interval1Duration' => $interval1Details,
+            'interval2Duration' => $interval2Details,
 
             'sSelectedResourse' => '',
             'sSelectedResCount1' => '',
@@ -554,11 +604,11 @@ class Services extends Controller
             'serviceDetails' => $serviceDetails[0],
             'serProvDetails' => $serProvDetails,
             'noofSlots' => $noofSlots,
-            'slot1Details' => $slot1Details,
-            'slot2Details' => $slot2Details,
-            'slot3Details' => $slot3Details,
-            'interval1Details' => $interval1Details,
-            'interval2Details' => $interval2Details,
+            // 'slot1Details' => $slot1Details,
+            // 'slot2Details' => $slot2Details,
+            // 'slot3Details' => $slot3Details,
+            // 'interval1Details' => $interval1Details,
+            // 'interval2Details' => $interval2Details,
             'resDetailsSlot1' => $resDetailsSlot1,
             'resDetailsSlot2' => $resDetailsSlot2,
             'resDetailsSlot3' => $resDetailsSlot3,
@@ -590,6 +640,38 @@ class Services extends Controller
 
          $this->view('manager/mang_serviceUpdate', $data);
       }
+   }
+   public function recallReservationsFromUpdateService($sProvID, $reservationIDs)
+   {
+      $selectedreservationList = explode(",", $reservationIDs);
+
+      // $sProvIDAll = array();
+      // $reservationIDsDAll = array();
+      // $reasonDAll = array();
+
+      // array_push($sProvIDAll, $sProvID);
+      // array_push($reservationIDsDAll, $selectedreservationList);
+      // array_push($reasonDAll, $reason);
+
+      // $this->ReservationModel->updateReservationRecalledState($selectedreservationList, 5);
+      // $this->ReservationModel->addReservationRecall($selectedreservationList, $reason);
+
+
+      Session::setBundle(
+         'recallResuestsFromUpdateService',
+         [
+            "sProvID" => $sProvID,
+            "selectedreservationList" => $selectedreservationList,
+            // "reason" => $reason,
+            "resState" => 5,
+         ]
+      );
+   }
+   public function destroyRecallDetails()
+   {
+
+      Session::clear('recallResuestsFromUpdateService');
+      session_destroy();
    }
    public function deleteService($serviceID)
    {
@@ -666,14 +748,61 @@ class Services extends Controller
    public function analyticsOverall()
    {
       // Session::validateSession([3]);
-      $this->view('common/SubAnalyticsOverall');
+      $totalRes = $this->ReservationModel->getTotalResForOverallOverview();
+      $availableServices = $this->ServiceModel->getAvailableServiceCount();
+      $availableServiceProviders = $this->ServiceModel->getAvailableServiceProvidersCount();
+      $top5SProvs = $this->ServiceModel->getTop5ServiceProvs();
+      $top5Services = $this->ServiceModel->getTop5Services();
+      $customerPopulation = $this->CustomerModel->getCustomerPopulation();
+
+      $overallDetails = [
+         'totalRes' => $totalRes,
+         'availableServices' => $availableServices,
+         'availableServiceProviders' => $availableServiceProviders,
+         'top5SProvs' => $top5SProvs,
+         'top5Services' => $top5Services,
+         'customerPopulation' => $customerPopulation,
+
+      ];
+      // print_r($overallDetails['top5Services']);
+      // foreach($overallDetails['top5Services'] as $ts){
+      //    print_r($ts->totIncome);
+      // }
+      // die();
+      $this->view('common/SubAnalyticsOverall', $overallDetails);
+   }
+   public function overallAnalyticsChart1()
+   {
+      $getCustomerCount = $this->CustomerModel->getWalkInCustomerCount();
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($getCustomerCount));
+   }
+   public function overallAnalyticsChart2()
+   {
+      $customerDetails = $this->CustomerModel->getCustomerPopulation();
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($customerDetails));
+   }
+   public function overallAnalyticsChart3()
+   {
+      $totalIncomeForChart = $this->ReservationModel->getMonthlyIncomeAndTotalReservationsForMangOverviewCharts();
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($totalIncomeForChart));
+   }
+   public function overallAnalyticsChart4()
+   {
+      $totalReservationsForChart = $this->ReservationModel->getMonthlyIncomeAndTotalReservationsForMangOverviewCharts();
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($totalReservationsForChart));
    }
    public function analyticsService()
    {
       // Session::validateSession([3]);
       $serviceList = $this->ServiceModel->getServiceDetails();
       // $serviceChartDetails = $this->ServiceModel->getServiceAnalyticsDetails();
-      // print_r($serviceChartDetails);
+      // $serviceAnalyticResDetails = $this->ReservationModel->getResDetailsForServiceAnalytics(000006, '2021-10-01', '2021-12-01');
+      // print_r($serviceAnalyticResDetails);
       // die('dddd');
       $this->view('common/SubAnalyticsService', $serviceList);
    }
@@ -684,9 +813,32 @@ class Services extends Controller
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($serviceChartDetails));
    }
+   public function analyticsServiceResTable($serviceID, $from, $to)
+   {
+      // Session::validateSession([3]);
+      $serviceAnalyticResDetails = $this->ReservationModel->getResDetailsForServiceAnalytics($serviceID, $from, $to);
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($serviceAnalyticResDetails));
+   }
    public function analyticsSProvider()
    {
       // Session::validateSession([3]);
-      $this->view('common/SubAnalyticsSProvider');
+      $serviceProvList = $this->ServiceModel->getServiceProviderDetails();
+
+      $this->view('common/SubAnalyticsSProvider', $serviceProvList);
+   }
+   public function analyticsServiceProvChartJS($staffID, $from, $to)
+   {
+      // Session::validateSession([3]);
+      $serviceProvChartDetails = $this->ServiceModel->getServiceProvAnalyticsDetails($staffID, $from, $to);
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($serviceProvChartDetails));
+   }
+   public function analyticsServiceProvResTable($staffID, $from, $to)
+   {
+      // Session::validateSession([3]);
+      $serviceProvAnalyticResDetails = $this->ReservationModel->getResDetailsForServiceProvAnalytics($staffID, $from, $to);
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($serviceProvAnalyticResDetails));
    }
 }

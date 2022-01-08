@@ -5,6 +5,7 @@ class Leaves extends Controller
    {
 
       $this->LeaveModel = $this->model('LeaveModel');
+      $this->closedDatesModel = $this->model('ClosedDatesModel');
    }
 
    public function responceForLeaveRequest($staffID, $leaveDate)
@@ -337,19 +338,36 @@ class Leaves extends Controller
    public function checkIfDatePossibleForMangLeave($selectedDate)
    {
       $dateState = $this->LeaveModel->checkForDateState($selectedDate);
+      $allLeavesForDate = $this->LeaveModel->checkForAllLeavesForADate($selectedDate);
+      $closeDate = $this->closedDatesModel->checkIfClosed($selectedDate);
+      $mangDailyCount = $this->LeaveModel->getmangDailyLeaveLimit();
+
       $response = "";
 
       date_default_timezone_set("Asia/Colombo");
       $today = date('Y-m-d');
       $nextDates = date('Y-m-d', strtotime(' + 2 month'));
 
-      if ($selectedDate > $nextDates)
-         $dateState = 4;
 
       if ($selectedDate <= $today)
          $dateState = 3;
 
-      if ($dateState == 4)
+      if ($selectedDate > $nextDates)
+         $dateState = 4;
+
+      if ($closeDate == 1)
+         $dateState = 5;
+
+      if ($allLeavesForDate >= $mangDailyCount)
+         $dateState2 = 6;
+
+      if ($dateState == 6 && $dateState == 1)
+         $response = "The date You entered is already exit";
+      elseif ($dateState == 6)
+         $response = "Manager daily limit has exceeded";
+      elseif ($dateState == 5)
+         $response = "It's a close date";
+      elseif ($dateState == 4)
          $response = "Select a date between 2 months";
       elseif ($dateState == 3)
          $response = "Select a valid date";
