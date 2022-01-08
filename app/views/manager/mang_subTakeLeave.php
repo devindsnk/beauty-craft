@@ -54,7 +54,6 @@
             </div>
             <div class="right-section">
                <a href="" class="btn btn-filled btn-black">Search</a>
-               <!-- <button class="btn btn-search">Search</button> -->
             </div>
          </div>
       </form>
@@ -64,7 +63,6 @@
 
                <thead>
                   <tr>
-                     <!-- <th class="column-center-align col-1">Staff ID</th> -->
                      <th class="column-center-align col-1">Leave Date</th>
                      <th class="column-center-align col-2">Leave Type</th>
                      <th class="column-center-align col-3">Marked Date</th>

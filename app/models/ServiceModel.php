@@ -28,12 +28,8 @@ class ServiceModel extends Model
 
     public function addServiceProvider($data)
     {
-        // print_r($data['sSelectedProv'][0]);
-        // die('awa2');
         foreach ($data['sSelectedProv'] as $SelectedProv)
         {
-            // print_r($SelectedProv);
-            // die('awa2');
             $this->customQuery("INSERT INTO serviceproviders (serviceID, staffID) SELECT MAX(serviceID), '$SelectedProv' FROM services", []);
         }
     }
@@ -43,11 +39,6 @@ class ServiceModel extends Model
         $startingTime1 = 0;
         $startingTime2 = (int)$data['slot1Duration'] + (int)$data['interval1Duration'];
         $startingTime3 = $startingTime2 + (int)$data['slot2Duration'] + (int)$data['interval2Duration'];
-
-        // print_r($startingTime1);
-        // print_r($startingTime2);
-        // print_r($startingTime3);
-        // die('ffff');
 
         if ($slotNo == 0)
         {
@@ -74,10 +65,6 @@ class ServiceModel extends Model
             $this->customQuery("INSERT INTO timeslots (serviceID, slotNo, startingTime, duration) SELECT MAX(serviceID), '2', '$startingTime2','$slot2Duration'  FROM services", []);
             $this->customQuery("INSERT INTO timeslots (serviceID, slotNo, startingTime, duration) SELECT MAX(serviceID), '3', '$startingTime3','$slot3Duration'  FROM services", []);
         }
-
-        // $slot1Duration = $data['slot1Duration'];
-
-        // $this->customQuery("INSERT INTO timeslots (serviceID, slotNo, duration) SELECT MAX(serviceID), '$slotNo', '$slot1Duration'  FROM services", []);
     }
     public function addIntervalTimeSlot($data, $slotNo)
     {
@@ -100,10 +87,6 @@ class ServiceModel extends Model
 
     public function addResourcesToService($data, $slotNo)
     {
-        // print_r($data['sSelectedResCount1']);
-        // print_r($data['sSelectedResCount2']);
-        // print_r($data['sSelectedResCount3']);
-        // die('rrrr');
         $i = 0;
         foreach ($data['sResArray'] as $ResoursesArray)
         {
@@ -165,12 +148,7 @@ class ServiceModel extends Model
         {
             $noofTimeSlots = 3;
         }
-        // print_r($data['name']);
-        // print_r($data['customerCategory']);
-        // print_r($noofTimeSlots);
-        // print_r($serviceID);
 
-        // die('wawa');
         if ($data['sNewType'])
         {
             $this->customQuery(
@@ -197,19 +175,16 @@ class ServiceModel extends Model
         {
             if (!empty($serProvDetails) && !in_array($serProvDetails[$i]->staffID, $data['sSelectedProv']))
             {
-                // echo 'lo';
-                // print_r($serProvDetails[$i]->staffID);
-                // die('ddd');
                 $this->customQuery("DELETE from serviceproviders WHERE serviceID=:serviceID AND staffID=:staffID", ['serviceID' => $serviceID, 'staffID' => $serProvDetails[$i]->staffID]);
                 unset($serProvDetails[$i]);
             }
         }
         $serProvDetails = array_values($serProvDetails);
-        // print_r($serProvDetails);
 
         print_r($data['sSelectedProv']);
-        // die('www');
+
         $sProvId = array();
+
         if (!empty($serProvDetails))
         {
             for ($i = 0; $i < count($serProvDetails); $i++)
@@ -223,30 +198,14 @@ class ServiceModel extends Model
             {
                 if (!in_array($SelectedProv, $sProvId))
                 {
-                    // echo 'lo';
-                    // print_r($SelectedProv);
-                    // die('ddd');
                     $this->insert('serviceproviders', ['serviceID' => $serviceID, 'staffID' => $SelectedProv]);
                 }
             }
             else
             {
-                // die('ddddddddd');
-
                 $this->insert('serviceproviders', ['serviceID' => $serviceID, 'staffID' => $SelectedProv]);
             }
         }
-
-        // for($i=0; $i < count($serProvDetails); $i++)
-        // {
-        //     $this->customQuery("DELETE from serviceproviders WHERE serviceID=:serviceID AND staffID=:staffID", ['serviceID' => $serviceID, 'staffID' => $serProvDetails[$i]->staffID]);
-        // }
-
-        // foreach ($data['sSelectedProv'] as $SelectedProv)
-        // {
-        //     $this->insert('serviceproviders', ['serviceID' => $serviceID, 'staffID' => $SelectedProv]);
-
-        // }
     }
     public function updateAllocatedResources($serviceID, $data, $slotNo, $resDetailsSlot1, $resDetailsSlot2, $resDetailsSlot3)
     {
@@ -299,26 +258,6 @@ class ServiceModel extends Model
             }
             $i++;
         }
-        // $i = 0;
-        // // print_r($checkedResources);
-        // //     die('scsc');
-        // foreach ($data['sResArray'] as $ResoursesArray)
-        // {
-        //     if ($data['sSelectedResCount1'][$i] != 0)
-        //     {
-        //         $selCount = $data['sSelectedResCount1'][$i];
-        //         if(!in_array($ResoursesArray->resourceID, $checkedResources) &&  $selCount != 0){
-        //             $this->insert('resourceallocation', ['serviceID' => $serviceID,'slotNo' => 1, 'resourceID' => $ResoursesArray->resourceID,  'requiredQuantity' => $selCount]);
-        //         }
-        //     }
-        //     // print_r($checkedResources);
-        //     // die('scsc');
-        // }
-        // $i++;
-        // print_r($data['sResArray']);
-        // die('scsc');
-
-
 
         if ($slotNo == 1)
         {

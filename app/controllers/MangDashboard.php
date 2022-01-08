@@ -20,7 +20,7 @@ class MangDashboard extends Controller
    }
    public function overview()
    {
-      // Session::validateSession([3]);
+      Session::validateSession([3]);
 
       $totalIncome = $this->reservationModel->getTotalIncomeForMangOverview();
       $upcommingReservations = $this->reservationModel->getUpcommingReservationsNoForMangOverview();
@@ -78,17 +78,6 @@ class MangDashboard extends Controller
       $GetStaffArray = ['staff' => $staffDetails];
       $this->view('manager/mang_staffMembers', $GetStaffArray);
    }
-   public function services()
-   {
-      // Session::validateSession([3]);
-      // $sDetails = $this->serviceModel->getServiceDetails();
-
-      // $GetServicesArray = [
-      //    'services' => $sDetails
-      // ];
-
-      // $this->view('manager/mang_services',  $GetServicesArray);
-   }
    public function resources()
    {
       // Session::validateSession([3]);
@@ -101,24 +90,23 @@ class MangDashboard extends Controller
    }
    public function leaveRequests()
    {
-      // Session::validateSession([3]);
+      Session::validateSession([3]);
       $leaveDetails = $this->leaveModel->getAllLeaveRequests();
       $evidanceLimit = $this->leaveModel->getEvidenceLimit();
 
       date_default_timezone_set("Asia/Colombo");
       $today = date('Y-m-d');
-      // print_r(count($leaveDetails));
+
       foreach ($leaveDetails as $MLDetails)
       {
          if ($MLDetails->leaveType == 2 && $MLDetails->status == 2)
          {
-            // print_r($MLDetails->leaveDate);
+
             $date1 = date_create($today);
             $date2 = date_create($MLDetails->leaveDate);
             $diff = date_diff($date2, $date1);
             $diff2 = $diff->format("%R%a days");
             print_r($diff->days);
-            // die('hi');
 
             if ($MLDetails->leaveDate < $today && $diff->days >= $evidanceLimit)
             {
@@ -127,14 +115,13 @@ class MangDashboard extends Controller
             }
          }
       }
-      // die('hi');
 
       $this->view('manager/mang_subLeaveRequests',  $leaveDetails);
    }
    public function takeLeave()
    {
-      // die('ge');
-      // Session::validateSession([3]);
+      Session::validateSession([3]);
+
       $mangCasualLeaveLimit = $this->leaveModel->getmangCasualLeaveLimit();
       $mangMedicalLeaveLimit = $this->leaveModel->getmangMedicalLeaveLimit();
 
@@ -143,12 +130,6 @@ class MangDashboard extends Controller
 
       $remainingCasual = $mangCasualLeaveLimit - $mangCasualLeaveCount;
       $remainingMedical = $mangMedicalLeaveLimit - $mangMedicalLeaveCount;
-
-      // print_r($mangCasualLeaveLimit);
-      // print_r($mangMedicalLeaveLimit);
-      // print_r($mangCasualLeaveCount);
-      // print_r($mangMedicalLeaveCount);
-      // die('fff');
 
       $managerLeaveDetails = $this->leaveModel->getAllManagerLeaves();
 
@@ -160,7 +141,6 @@ class MangDashboard extends Controller
             'leavetype' => isset($_POST['mangLeaveType']) ? trim($_POST['mangLeaveType']) : '',
             'reason' => trim($_POST['mangLeaveReason']),
             'date_error' => '',
-            // 'date_error2' => $state,
             'type_error' => '',
             'reason_error' => '',
             'dateValidationError' => '',
@@ -176,26 +156,17 @@ class MangDashboard extends Controller
 
          if ($_POST['action'] == "addleave")
          {
-            // print_r($data['date_error2']);
-            // die('mangLeaves');
-
             $data['date_error'] = emptyCheck($data['date']);
             $data['reason_error'] = emptyCheck($data['reason']);
             $data['type_error'] = emptyCheck($data['leavetype']);
-            // print_r($data['reason_error']);
-            // die("dd1");
+
             if (empty($data['date_error']) && empty($data['reason_error']) && empty($data['type_error']))
             {
-               // die(" dd");
-
                $this->leaveModel->addMangLeave($data);
                redirect('MangDashboard/takeLeave');
             }
             else
             {
-               // print_r($data['date_error']);
-               // die("dd1");
-
                $data['haveErrors'] = 1;
                $this->view('manager/mang_subTakeLeave', $data);
             }
@@ -218,7 +189,6 @@ class MangDashboard extends Controller
             'leavetype' => '',
             'reason' => '',
             'date_error' => '',
-            // 'date_error2' => $state,
             'reason_error' => '',
             'type_error' => '',
             'dateValidationError' => '',
@@ -230,10 +200,7 @@ class MangDashboard extends Controller
             'remainingCasual' => $remainingCasual,
             'remainingMedical' => $remainingMedical,
          ];
-         // print_r($data['remainingCasual']);
-         // print_r($data['remainingMedical']);
 
-         // die('fff');
          $this->view('manager/mang_subTakeLeave', $data);
       }
    }
@@ -248,7 +215,7 @@ class MangDashboard extends Controller
    }
    public function updateTakenLeave($leaveID)
    {
-      // Session::validateSession([3]);
+      Session::validateSession([3]);
       $userID = Session::getUser("id");
       $mangCasualLeaveLimit = $this->leaveModel->getmangCasualLeaveLimit();
       $mangMedicalLeaveLimit = $this->leaveModel->getmangMedicalLeaveLimit();

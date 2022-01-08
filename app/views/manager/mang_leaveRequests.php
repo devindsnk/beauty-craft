@@ -14,9 +14,6 @@
         <form class="form" action="<?php echo URLROOT; ?>/leaves/responceForLeaveRequest/<?php echo $data['leaveDetails']->staffID; ?>/<?php echo $data['leaveDetails']->leaveDate; ?>" method="post">
 
             <div class="leave-requests-main leave-request">
-                <!-- <div class="leave-request-main-head">
-                    <h1>Leave Request</h1>
-                </div> -->
                 <div class="mang-sub-container1 leave-sub-container">
                     <!--card1-->
                     <div class="contentBox leave-sub-container-card">

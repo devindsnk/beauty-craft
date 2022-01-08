@@ -19,7 +19,7 @@ function putServiceProvReportTableData(month) {
   fetch(`http://localhost:80/beauty-craft/Services/serviceProviderReportJS/${month}`)
     .then(response => response.json())
     .then(reportDetails => {
-      //    console.log(reportDetails);
+
       for (var i = 1; i < reportDetails.length + 1; i++) {
         myTable2.rows[i].cells[0].innerHTML = reportDetails[i - 1][0]['staffID'];
         myTable2.rows[i].cells[1].innerHTML = reportDetails[i - 1][0]['fName'] + " " + reportDetails[i - 1][0]['lName'];
@@ -52,7 +52,7 @@ const serviceProvFromError = document.querySelector(".serviceProvFromError");
 const serviceProvToError = document.querySelector(".serviceToError");
 
 if (selectedServiceProv != null) {
-  // console.log(selectedServiceProv.value);
+
   sProvAnalyticsSelector();
   sProvResCardTableData();
   serviceProvSearchBtn.addEventListener('click',
@@ -78,7 +78,6 @@ function sProvAnalyticsSelector() {
         url: "http://localhost:80/beauty-craft/Services/analyticsServiceProvChartJS/" + selectedServiceProv.value + "/" + serviceProviderFromDate.value + "/" + serviceProviderToDate.value,
         method: "GET",
         success: function (data) {
-          //   console.log(data);
 
           var YearAndMonth = [];
           var weekNo = [];
@@ -127,7 +126,7 @@ function sProvAnalyticsSelector() {
           });
         },
         error: function (data) {
-          // console.log(data);
+
         }
       });
 
@@ -138,7 +137,6 @@ function sProvAnalyticsSelector() {
         url: "http://localhost:80/beauty-craft/Services/analyticsServiceProvChartJS/" + selectedServiceProv.value + "/" + serviceProviderFromDate.value + "/" + serviceProviderToDate.value,
         method: "GET",
         success: function (data) {
-          // console.log(data);
 
           var YearAndMonth = [];
           var weekNo = [];
@@ -172,7 +170,7 @@ function sProvAnalyticsSelector() {
           });
         },
         error: function (data) {
-          // console.log(data);
+
         }
       });
 

@@ -71,7 +71,6 @@
             </div>
             <div class="right-section">
                <a href="#" class="btn btn-filled btn-black serviceProvSearchBtn">Search</a>
-               <!-- <button class="btn btn-search">Search</button> -->
             </div>
          </div>
       </form>
@@ -145,15 +144,6 @@
                <!--Table body-->
                <tbody id="rows2">
 
-                  <!--Table row-->
-                  <!-- <tr>
-               <td data-lable="Reservation No">Res0001</td>
-               <td data-lable="Service">Service 01</td>
-               <td data-lable="Customer">Ruwanthi Munasinghe</td>
-               <td data-lable="Price" class="column-right-align">250.00 LKR</td>
-            </tr> -->
-                  <!--End of table row-->
-
                </tbody>
                <!--End of table body-->
             </table>
@@ -205,9 +195,6 @@
       //       ]
       //       },
       //    });
-
-      // let today = new Date().toISOString().substr(0, 10);
-      // document.querySelector("#serviceProviderToDate").value = today;
 
       let today = new Date().toISOString().substr(0, 10);
       let yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000).toISOString().substr(0, 10);

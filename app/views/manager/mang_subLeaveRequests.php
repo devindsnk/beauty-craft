@@ -57,7 +57,6 @@
             </div>
             <div class="right-section">
                <a href="" class="btn btn-filled btn-black">Search</a>
-               <!-- <button class="btn btn-search">Search</button> -->
             </div>
          </div>
       </form>
@@ -72,7 +71,6 @@
                      <th class="column-center-align col-3">Leave Type</th>
                      <th class="column-center-align col-4">Responded Staff ID</th>
                      <th class="column-center-align col-5">Requested Date</th>
-                     <!-- <th class="column-center-align col-6 column-center-align">Reason</th> -->
                      <th class="column-center-align col-7">Status</th>
                      <th class="col-8"></th>
                      <th class="col-9"></th>
@@ -100,7 +98,6 @@
                               <?php endif; ?>
                            </td>
                            <td data-lable="Requested Date" class="column-center-align"><?php echo $leaveDetails->requestedDate; ?></td>
-                           <!-- <td data-lable="Reason" class="column-center-align"><?php echo $leaveDetails->reason; ?></td> -->
                            <td data-lable="Status" class="column-center-align">
                               <?php if ($leaveDetails->status == 0) : ?>
                                  <button type="button" class="status-btn red text-uppercase">Rejected</button>

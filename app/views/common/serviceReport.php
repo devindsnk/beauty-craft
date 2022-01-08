@@ -51,18 +51,6 @@
 
 					<!--Table body-->
 					<tbody>
-						<!-- <?php foreach ($data as $sDetails) : ?> -->
-						<!--Table row-->
-						<!-- <tr>
-								<td data-lable="Service ID"><?php echo $sDetails[0]->serviceID ?></td>
-								<td data-lable="Service Name"><?php echo $sDetails[0]->name ?></td>
-								<td data-lable="No of service providers" class="column-center-align"><?php echo $sDetails[0]->NoOFStaff ?></td>
-								<td data-lable="No of reservations" class="column-center-align"><?php echo $sDetails[0]->NoOfRes ?></td>
-								<td data-lable="Income" class="column-right-align"><?php echo $sDetails[0]->TotalServicePrice ?></td>
-							</tr> -->
-						<!--End of table row-->
-						<!-- <?php endforeach; ?> -->
-
 						<!--Table row-->
 						<?php for ($i = 0; $i < $data; $i++) : ?>
 							<tr>

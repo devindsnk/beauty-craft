@@ -13,19 +13,12 @@ $(document).ready(function () {
       url: "http://localhost:80/beauty-craft/Services/overallAnalyticsChart1/",
       method: "GET",
       success: function (data) {
-        // console.log(data);
 
         var lables = [];
         var count = [];
 
         count[0] = data['results1'][0]['walkInCustCount']
         count[1] = data['results2'][0]['onlineCustCount']
-        // for(var i in data) {
-        //     custCount.push(data[i].custCount);
-        //     weekNo.push(cLable);
-        // }
-        // console.log(count);
-
 
         var chartdata = {
           labels: ["Online", "Walk-in"],
@@ -65,7 +58,7 @@ $(document).ready(function () {
         });
       },
       error: function (data) {
-        // console.log(data);
+
       }
     });
   }
@@ -74,7 +67,6 @@ $(document).ready(function () {
       url: "http://localhost:80/beauty-craft/Services/overallAnalyticsChart2/",
       method: "GET",
       success: function (data) {
-        // console.log(data);
 
         var custCount = [];
         var weekNo = [];
@@ -114,7 +106,7 @@ $(document).ready(function () {
         });
       },
       error: function (data) {
-        // console.log(data);
+
       }
     });
   }
@@ -123,7 +115,7 @@ $(document).ready(function () {
       url: "http://localhost:80/beauty-craft/Services/overallAnalyticsChart3",
       method: "GET",
       success: function (data) {
-        // console.log(data);
+
         var month = [];
         var income = [];
         var mL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -139,8 +131,6 @@ $(document).ready(function () {
             income.splice(i, 0, 0);
           }
         }
-        // console.log(month);
-        // console.log(income);
 
         var chartdata = {
           labels: month,
@@ -160,7 +150,7 @@ $(document).ready(function () {
         });
       },
       error: function (data) {
-        // console.log(data);
+
       }
     });
   }
@@ -169,7 +159,7 @@ $(document).ready(function () {
       url: "http://localhost:80/beauty-craft/Services/overallAnalyticsChart4",
       method: "GET",
       success: function (data) {
-        // console.log(data);
+
         var month = [];
         var totalReservations = [];
         var mL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -185,8 +175,6 @@ $(document).ready(function () {
             totalReservations.splice(i, 0, 0);
           }
         }
-        // console.log(month);
-        // console.log(totalReservations);
 
         var chartdata = {
           labels: month,
@@ -221,7 +209,7 @@ $(document).ready(function () {
         });
       },
       error: function (data) {
-        // console.log(data);
+
       }
     });
   }

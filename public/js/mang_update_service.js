@@ -20,11 +20,6 @@ function eachsProveChecker(checkedItem, sProvID, sID) {
             if (!this.checked) {
                 checkForUpcomingReservations();
             }
-            // if (this.checked) {
-            //     console.log("Checkbox is checked..");
-            //   } else {
-            //     console.log("Checkbox is not checked..");
-            //   }
         }
     )
 
@@ -39,7 +34,6 @@ function eachsProveChecker(checkedItem, sProvID, sID) {
                 for (var i = 0; i < serProvDetails.length; i++) {
                     ress.push(serProvDetails[i]['reservationID']);
                 }
-                console.log(sProvID);
 
                 if (serProvDetails.length !== 0) {
                     modalToToggleUS = recallFromUpdateServiceModal;
@@ -53,8 +47,6 @@ function eachsProveChecker(checkedItem, sProvID, sID) {
                 )
                 cancelbtnFromUpdate.addEventListener('click',
                     function () {
-                        console.log('awa cancel ekat');
-                        console.log(checkedItem);
                         checkedItem.checked = true;
                     }
                 )

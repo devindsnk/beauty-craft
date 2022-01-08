@@ -111,17 +111,7 @@
 																																																							}
 																																																							?>>
 
-										<!-- <?php foreach ($data['serProvDetails'] as $sProvDetails)
-												{
-													if ($sProvDetails->staffID == $sProv->staffID) echo 'checked';
-												}
-												?> -->
-										<!-- <?php foreach ($data['serProvDetails'] as $sProvDetails) : ?>
-														<?php if ($sProvDetails->staffID == $sProv->staffID) : ?>
-															checked
-															class="sProvCheckBoxes" value='["<?php echo $sProvDetails->staffID; ?>", "<?php echo $data['serviceDetails']->serviceID; ?>"]'
-														<?php endif; ?>
-												<?php endforeach; ?> -->
+
 										<lable class="lableInDiv">
 											<?php echo $sProv->staffID; ?> - <?php echo $sProv->fName; ?> <?php echo $sProv->lName; ?>
 										</lable>
@@ -265,7 +255,6 @@
 												<option value="<?php echo $i; ?>" <?php if ($data['interval1Duration'] == $i) echo 'selected'; ?>> <?php echo $i; ?> mins </option>
 											<?php endfor; ?>
 										</select>
-										<!-- <span class='error paddingLeft'></span> -->
 										<span class="error paddingLeft"><?php echo $data['interval1Duration_error']; ?></span>
 
 									</div>
@@ -365,7 +354,6 @@
 												<option value="<?php echo $i; ?>" <?php if ($data['interval1Duration'] == $i) echo 'selected'; ?>> <?php echo $i; ?> mins </option>
 											<?php endfor; ?>
 										</select>
-										<!-- <span class='error paddingLeft'></span> -->
 										<span class="error paddingLeft"><?php echo $data['interval1Duration_error']; ?></span>
 
 									</div>
@@ -544,21 +532,10 @@
 				</div>
 
 
-
 				<!-- add another slot -->
 				<div class="anotheSlot">
 					<p id="add"><a href="#addDiv" class="AddSlotToService">+ Add another slot</a></p>
 				</div>
-
-				<!-- <div class="newService-sub-head">
-						<h3>Editing Options</h3>
-					</div>
-					<div class="newService-sub">
-						<div class="hold-service-div">
-							<input type="checkbox" class="toglecheckbox">
-							<label class="lableInDiv2">Hold the Service</label> <br>
-						</div>
-					</div> -->
 
 				<!-- submit service button -->
 				<div class="button-Add-Div">
@@ -589,7 +566,6 @@
 		import {
 			A
 		} from 'http://localhost/beauty-craft/public/js/mang_service.js';
-		// console.log('helloht1');
 		var x = document.getElementById("fullSlotDetail1");
 		var y = document.getElementById("fullSlotDetail2");
 

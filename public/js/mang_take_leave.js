@@ -33,7 +33,6 @@ function checkDateStatus() {
 
                 mangTypeError.innerHTML = state;
                 if (state != '') {
-                    console.log('wwwww');
                     document.getElementById("takeLeaveProceed").disabled = true;
                 }
             });
@@ -66,7 +65,7 @@ function checkForMedicals() {
 
                 mangDateError.innerHTML = state;
                 if (state != '') {
-                    console.log('awooo');
+
                     document.getElementById("takeLeaveProceed").disabled = true;
                 }
             });
@@ -119,14 +118,12 @@ const mangTypeError2 = document.querySelector(".mangTypeError2");
 if (mangLeaveSelectedDate2 != null) {
     mangLeaveSelectedDate2.addEventListener('change', ////////////date disable kroth oni ne
         function () {
-            // checkDateStatus2();      
+
             let state = 'You cannot change the date';
             mangDateError2.innerHTML = state;
-            // if(existDate != mangLeaveSelectedDate2.value){
+
             document.getElementById("editLeaveProceed").disabled = true;
-            // }else{
-            //     document.getElementById("editLeaveProceed").disabled = false;
-            // }
+
         }
     )
 }

@@ -98,22 +98,6 @@
                            <td class="align-right"><?php echo $topSerProvs->totIncome; ?></td>
                         </tr>
                      <?php endforeach; ?>
-                     <!-- <tr>
-                        <td>Sanjana Rajapaksha</td>
-                        <td class="align-right">50,000.00 LKR</td>
-                     </tr>
-                     <tr>
-                        <td>Ruwanthi Munasinghe</td>
-                        <td class="align-right">75,000.00 LKR</td>
-                     </tr>
-                     <tr>
-                        <td>Devin Dissanayake</td>
-                        <td class="align-right">45,000.00 KR</td>
-                     </tr>
-                     <tr>
-                        <td>Ravindu Madhubhashana</td>
-                        <td class="align-right">78,000.00 KR</td>
-                     </tr> -->
                   </tbody>
                </table>
             </div>
@@ -137,22 +121,6 @@
                            <td class="align-right"><?php echo $topServices->totIncome; ?></td>
                         </tr>
                      <?php endforeach; ?>
-                     <!-- <tr>
-                        <td>Service 01</td>
-                        <td class="align-right">150,000.00 LKR</td>
-                     </tr>
-                     <tr>
-                        <td>Service 02</td>
-                        <td class="align-right">75,000.00 LKR</td>
-                     </tr>
-                     <tr>
-                        <td>Service 03</td>
-                        <td class="align-right">145,000.00 KR</td>
-                     </tr>
-                     <tr>
-                        <td>Service 04</td>
-                        <td class="align-right">78,000.00 KR</td>
-                     </tr> -->
                   </tbody>
                </table>
             </div>

@@ -391,11 +391,6 @@ class Services extends Controller
             'serviceDetails' => $serviceDetails[0],
             'serProvDetails' => $serProvDetails,
             'noofSlots' => $noofSlots,
-            // 'slot1Details' => $slot1Details,
-            // 'slot2Details' => $slot2Details,
-            // 'slot3Details' => $slot3Details,
-            // 'interval1Details' => $interval1Details,
-            // 'interval2Details' => $interval2Details,
             'resDetailsSlot1' => '',
             'resDetailsSlot2' => '',
             'resDetailsSlot3' => '',
@@ -421,8 +416,7 @@ class Services extends Controller
             'sSelectedResCount3_error' => '',
 
          ];
-         // print_r($resDetailsSlot1);
-         // die('rrr');
+
          $data['sProvArray'] = $sProvGetArray;
          $data['sTypesArray'] = $sTypeGetArray;
          $data['sResArray'] = $sResGetArray;
@@ -511,10 +505,6 @@ class Services extends Controller
                   $this->ServiceModel->addTimeSlot($data, $slotNo);
                   $this->ServiceModel->addIntervalTimeSlot($data, $slotNo);
                   $this->ServiceModel->addResourcesToService($data, $slotNo);
-
-                  // $this->ServiceModel->removeServiceProvider($data, $slotNo);
-                  // $this->ServiceModel->removeResourcesFromService($data, $slotNo);
-
                }
                else
                {
@@ -604,11 +594,6 @@ class Services extends Controller
             'serviceDetails' => $serviceDetails[0],
             'serProvDetails' => $serProvDetails,
             'noofSlots' => $noofSlots,
-            // 'slot1Details' => $slot1Details,
-            // 'slot2Details' => $slot2Details,
-            // 'slot3Details' => $slot3Details,
-            // 'interval1Details' => $interval1Details,
-            // 'interval2Details' => $interval2Details,
             'resDetailsSlot1' => $resDetailsSlot1,
             'resDetailsSlot2' => $resDetailsSlot2,
             'resDetailsSlot3' => $resDetailsSlot3,
@@ -764,11 +749,7 @@ class Services extends Controller
          'customerPopulation' => $customerPopulation,
 
       ];
-      // print_r($overallDetails['top5Services']);
-      // foreach($overallDetails['top5Services'] as $ts){
-      //    print_r($ts->totIncome);
-      // }
-      // die();
+
       $this->view('common/SubAnalyticsOverall', $overallDetails);
    }
    public function overallAnalyticsChart1()
@@ -800,10 +781,7 @@ class Services extends Controller
    {
       // Session::validateSession([3]);
       $serviceList = $this->ServiceModel->getServiceDetails();
-      // $serviceChartDetails = $this->ServiceModel->getServiceAnalyticsDetails();
-      // $serviceAnalyticResDetails = $this->ReservationModel->getResDetailsForServiceAnalytics(000006, '2021-10-01', '2021-12-01');
-      // print_r($serviceAnalyticResDetails);
-      // die('dddd');
+
       $this->view('common/SubAnalyticsService', $serviceList);
    }
    public function analyticsServiceChartJS($serviceID, $from, $to)
