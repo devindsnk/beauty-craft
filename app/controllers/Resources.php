@@ -177,7 +177,7 @@ class  Resources extends Controller
       }
       // $this->view('owner/own_resourceAdd');
    }
-   
+}
    public function updateResource($PurchaseID,$ResourceID){
 
       $resourceTypes = $this->resourceModel->getAllRsourceTypeDetails();
