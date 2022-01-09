@@ -1,5 +1,8 @@
 /****************** Scripts related to add new reservation *******************/
 
+
+
+
 const dateSelector = document.querySelector(".dateSelect");
 const dateError = document.querySelector(".date-error");
 const serviceSelector = document.querySelector(".serviceSelect");
@@ -18,11 +21,12 @@ let startTime = null;
 let selectedDate = null;
 let selectedService = null;
 
-// Initially variables are updated in page load
+// Initially variables are updated on page load
 selectedDate = (!selectedDate)? null : selectedDate.value;
-// selectedDate = 
 selectedService = (!serviceSelector)? null : serviceSelector.value;
 startTime = (!startTimeSelector)? null : startTimeSelector.value;
+
+updateStartTime();
 
 // performing checks on page load
 checkDate(); 
@@ -75,7 +79,6 @@ function performChecksAndUpdates(){
       updateServiceProvidersList();
    }
 }
-
 
 // trigger the below function in dateupdates and service updates accordingly
 function updateServiceProvidersList() {   
@@ -164,6 +167,16 @@ function checkResourcesAvailability(){
             serviceError.innerHTML = "Selected service can not be provided at the selected time."
          }
       });
+}
+
+function updateStartTime(){
+   
+   startTimeSelector.forEach(function(element){
+      console.log(element);
+   });
+   // startTimeSelector.op.forEach(element => {
+   //    console.log(element);
+   // });
 }
 
 // Check empty state and update error
