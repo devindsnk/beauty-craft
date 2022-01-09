@@ -30,7 +30,7 @@
          <a href="<?php echo URLROOT ?>/services/serviceReport" class="btn btn-filled btn-theme-purple btn-main">Generate Service Report</a>
       </div>
       <form class="form filter-options" action="">
-         <div class="options-container mang">
+         <div class="options-container">
             <div class="left-section">
                <div class="row">
                   <div class="column">
@@ -56,7 +56,7 @@
                   <div class="column">
                      <div class="text-group">
                         <label class="label" for="serviceFromDate">From</label>
-                        <input type="date" name="" id="serviceFromDate" class="serviceFromDate">
+                        <input type="month" name="fromVal" id="serviceFromDate" class="serviceFromDate" placeholder="select a month">
                      </div>
                      <span class="error serviceFromError"></span>
                   </div>
@@ -64,7 +64,7 @@
                   <div class="column">
                      <div class="text-group">
                         <label class="label" for="serviceToDate">To</label>
-                        <input type="date" name="" id="serviceToDate" class="serviceToDate">
+                        <input type="month" name="toVal" id="serviceToDate" class="serviceToDate">
                      </div>
                      <span class="error serviceToError"></span>
                   </div>
@@ -134,10 +134,10 @@
                <!--Table head-->
                <thead>
                   <tr>
-                     <th class="">Reservation No</th>
-                     <th class="">Service Provider</th>
-                     <th class="">Customer</th>
-                     <th class="column-right-align">Price</th>
+                     <th class="column-left-align">Reservation No</th>
+                     <th class="column-left-align">Service Provider</th>
+                     <th class="column-left-align">Customer</th>
+                     <th class="column-left-align">Price</th>
                   </tr>
                </thead>
                <!--End of table head-->
@@ -198,10 +198,10 @@
       //       },
       //    });
 
-      let today = new Date().toISOString().substr(0, 10);
-      let yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000).toISOString().substr(0, 10);
-      document.querySelector("#serviceToDate").value = today;
-      document.querySelector("#serviceFromDate").value = yesterday;
+      // let today = new Date().toISOString().substr(0, 10);
+      // let yesterday = new Date(new Date().getTime() - 12*24 * 60 * 60 * 1000).toISOString().substr(0, 10);
+      // document.querySelector("#serviceToDate").value = today;
+      // document.querySelector("#serviceFromDate").value = yesterday;
    </script>
 
    <?php require APPROOT . "/views/inc/footer.php" ?>
