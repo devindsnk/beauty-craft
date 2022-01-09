@@ -11,18 +11,34 @@
 
          <div class="contentBox service-container">
             <div class="top-container">
-               <div class="text-group date">
+               <div class="dropdown-group left-box service">
+                  <label class="label" for="lName">Service</label>
+                  <select name="serviceID" id="" class="serviceSelect">
+                     <option value="" selected disabled>Select</option>
+                     <?php foreach ($data['servicesList'] as $service) : ?>
+                        <option value="<?php echo $service->serviceID ?>"><?php echo $service->name ?></option>
+                     <?php endforeach; ?>
+                  </select>
+                  <span class="error service-error"></span>
+               </div>
+
+               <div class="dropdown-group right-box duration">
+                  <label class="label" for="fName">Duration</label>
+                  <input type="text" name="duration" id="fName" disabled class="durationBox">
+               </div>
+
+               <div class="text-group left-box date">
                   <label class="label" for="fName">Date</label>
                   <input type="date" id="date_picker" name="date" value="" class="dateSelect">
                   <span class="error date-error"></span>
                   <span class="info-line">*A reservation can be placed upto maximum of two months ahead. </span>
-
                </div>
-               <div class="dropdown-group left-box start-time">
-                  <label class="label" for="lName">Start Time</label>
+
+               <div class="dropdown-group right-box start-time">
+                  <label class="label" for="lName">Time</label>
                   <select name="startTime" class="startTimeSelect">
                      <option value="" selected disabled>Select</option>
-                     <?php for ($i = 9; $i <= 18; $i += 1) : ?>
+                     <?php for ($i = 9; $i <= 19; $i += 1) : ?>
                         <?php for ($j = 0; $j <= 50; $j += 10) : ?>
                            <option value="<?php echo $i * 60 + $j; ?>" class="font-numeric">
                               <?php
@@ -40,23 +56,7 @@
                   <span class="error sTime-error"></span>
                </div>
 
-               <div class="dropdown-group right-box service">
-                  <label class="label" for="lName">Service</label>
-                  <select name="serviceID" id="" class="serviceSelect">
-                     <option value="" selected disabled>Select</option>
-                     <?php foreach ($data['servicesList'] as $service) : ?>
-                        <option value="<?php echo $service->serviceID ?>"><?php echo $service->name ?></option>
-                     <?php endforeach; ?>
-                  </select>
-                  <span class="error service-error"></span>
-               </div>
-
-               <div class="text-group left-box duration">
-                  <label class="label" for="fName">Duration</label>
-                  <input type="text" name="duration" id="fName" disabled class="durationBox">
-               </div>
-
-               <div class="dropdown-group right-box ser-provider">
+               <div class="text-group ser-provider">
                   <label class="label" for="lName">Service Provider</label>
                   <select name="staffID" id="" class="serviceProviderSelect">
                      <option value="" selected disabled>Select service first</option>
@@ -92,6 +92,6 @@
    datePicker.setAttribute('format', 'yyyy-MM-dd')
 </script>
 
-<script src="<?php echo URLROOT ?>/public/js/fetchRequests/newReservation.js"></script>s=
+<script src="<?php echo URLROOT ?>/public/js/fetchRequests/newReservation.js"></script>
 
 <?php require APPROOT . "/views/customer/cust_footer.php" ?>
