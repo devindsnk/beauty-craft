@@ -92,7 +92,6 @@
    datePicker.setAttribute('format', 'yyyy-MM-dd')
 </script>
 
-<script src="<?php echo URLROOT ?>/public/js/fetchRequests/newReservation.js"></script>
-<script src="<?php echo URLROOT ?>/public/js/newReservationUI.js"></script>
+<script src="<?php echo URLROOT ?>/public/js/fetchRequests/newReservation.js"></script>s=
 
 <?php require APPROOT . "/views/customer/cust_footer.php" ?>

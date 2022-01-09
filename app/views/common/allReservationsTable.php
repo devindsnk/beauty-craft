@@ -33,25 +33,18 @@
             <a href="<?php echo URLROOT ?>/reservations/addNewResRecept" class="btn btn-filled btn-theme-purple btn-main">Add New</a>
          </div>
       <?php endif; ?>
-
+      <!-- <?php var_dump($data) ?> -->
       <form class="form filter-options" action="">
          <div class="options-container">
             <div class="left-section">
                <div class="row">
                   <div class="column">
-                     <div class="text-group">
-                        <label class="label" for="fName">Date</label>
-                        <input type="text" name="" id="fName" placeholder="Your first name here">
-                     </div>
-                     <span class="error"> <?php echo " "; ?></span>
-                  </div>
-                  <div class="column">
                      <div class="dropdown-group">
                         <label class="label" for="lName">Service Type</label>
-                        <select>
-                           <option value="" selected>All</option>
+                        <select id="sTypeSelector">
+                           <option value="all" selected>All</option>
                            <?php foreach ($data['serviceTypesList'] as $serviceType) : ?>
-                              <option value=""><?php echo $serviceType->type; ?></option>
+                              <option value="<?php echo $serviceType->type ?>" <?php echo ($data["selectedType"] ==  $serviceType->type) ? "selected" : "" ?>><?php echo $serviceType->type; ?></option>
                            <?php endforeach; ?>
                         </select>
                      </div>
@@ -61,10 +54,10 @@
                   <div class="column">
                      <div class="dropdown-group">
                         <label class="label" for="lName">Service Provider</label>
-                        <select>
-                           <option value="" selected>All</option>
-                           <?php foreach ($data['serviceProvidersList'] as $serviceProvider) : ?>
-                              <option value=""><?php echo $serviceProvider->fName . " " . $serviceProvider->lName; ?></option>
+                        <select id="staffSelector">
+                           <option value="all" selected>All</option>
+                           <?php foreach ($data['serviceProvidersList'] as $sProvider) : ?>
+                              <option value="<?php echo $sProvider->staffID; ?>" <?php echo ($data["selectedStaffID"] ==  $sProvider->staffID) ? "selected" : "" ?>><?php echo $sProvider->fName . " " . $sProvider->lName; ?></option>
                            <?php endforeach; ?>
                         </select>
                      </div>
@@ -74,22 +67,25 @@
                   <div class="column">
                      <div class="dropdown-group">
                         <label class="label" for="lName">Status</label>
-                        <select>
-                           <option value="" selected>All</option>
-                           <option value="">Pending</option>
-                           <option value="">Confirmed</option>
-                           <option value="">Completed</option>
-                           <option value="">Cancelled</option>
-                           <option value="">No Show</option>
+                        <select id="statusSelector">
+                           <option value="all" selected>All</option>
+                           <option value="1" <?php echo ($data["selectedStatus"] == '1') ? "selected" : "" ?>>Pending</option>
+                           <option value="2" <?php echo ($data["selectedStatus"] == '2') ? "selected" : "" ?>>Confirmed</option>
+                           <option value="4" <?php echo ($data["selectedStatus"] == '4') ? "selected" : "" ?>>Completed</option>
+                           <option value="0" <?php echo ($data["selectedStatus"] == '0') ? "selected" : "" ?>>Cancelled</option>
+                           <option value="3" <?php echo ($data["selectedStatus"] == '3') ? "selected" : "" ?>>No Show</option>
+                           <option value="5" <?php echo ($data["selectedStatus"] == '5') ? "selected" : "" ?>>Recalled</option>
                         </select>
                      </div>
-                     <span class="error"> <?php echo " "; ?></span>
+                     <span class="error"> <?php echo ""; ?></span>
                   </div>
+                  <!-- <div class="column">
+                     <button type="button" id="allResFilterBtn" class="btn btn-outlined btn-black">Clear</button>
+                  </div> -->
                </div>
             </div>
             <div class="right-section">
-               <a href="" class="btn btn-filled btn-black">Search</a>
-               <!-- <button class="btn btn-search">Search</button> -->
+               <button type="button" id="allResFilterBtn" class="btn btn-filled btn-black">Search</button>
             </div>
          </div>
 
@@ -124,7 +120,7 @@
 
                      <tr>
                         <td data-lable="Reservation ID" class="column-center-align font-numeric">R<?php echo $reservation->reservationID; ?></td>
-                        <td data-lable="Date" class="column-center-align"><?php echo $reservation->date; ?></td>
+                        <td data-lable="Date" class="column-center-align"><?php echo DateTimeExtended::dateToShortMonthFormat($reservation->date, "F"); ?></td>
                         <td data-lable="Time" class="column-center-align font-numeric"><?php echo DateTimeExtended::minsToTime($reservation->startTime); ?></td>
                         <td data-lable="Service" class="column-left-align"><?php echo $reservation->serviceName; ?></td>
                         <td data-lable="Service Provider" class="column-left-align"><?php echo $reservation->staffFName . " " . $reservation->staffLName; ?></td>
@@ -150,5 +146,5 @@
    </div>
    <!--End Content-->
 
-
+   <script src="<?php echo URLROOT ?>/public/js/filters.js"></script>
    <?php require APPROOT . "/views/inc/footer.php" ?>

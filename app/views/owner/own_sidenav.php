@@ -58,7 +58,7 @@
          <!--End Sidebar Item-->
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="<?php echo URLROOT ?>/Reservations/viewAllReservations">
+            <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="<?php echo URLROOT ?>/Reservations/viewAllReservations/all/all/all">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-tasks"></i>
                </div>
