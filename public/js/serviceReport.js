@@ -50,8 +50,8 @@ const selectedService = document.querySelector(".serviceSelectDropDown");
 // const selectedServiceFromDate = document.querySelector(".serviceFromDate");
 // const selectedServiceToDate = document.querySelector(".serviceToDate");
 
-const selectedServiceFromDate = document.querySelector('input[type="month"][name="fromVal"]');
-const selectedServiceToDate = document.querySelector('input[type="month"][name="toVal"]');
+const selectedServiceFromDate = document.querySelector('input[type="month"][name="serviceFromDate"]');
+const selectedServiceToDate = document.querySelector('input[type="month"][name="serviceToDate"]');
 
 const serviceSearchBtn = document.querySelector(".serviceSearchBtn");
 const serviceSelectError = document.querySelector(".serviceSelectError");
@@ -106,7 +106,7 @@ if (selectedService != null) {
   )
 }
 var barGraph1;
-var lineGraph2;
+var lineGraph1;
 
 function serviceAnalyticsSelector() {
 
@@ -200,8 +200,8 @@ function serviceAnalyticsSelector() {
     }
     function chart4() {
 
-      if (lineGraph2) {
-        lineGraph2.destroy();
+      if (lineGraph1) {
+        lineGraph1.destroy();
       }
 
       $.ajax({
@@ -229,7 +229,7 @@ function serviceAnalyticsSelector() {
             ]
           };
 
-          lineGraph2 = new Chart(ctx6, {
+          lineGraph1 = new Chart(ctx6, {
             type: 'line',
             data: chartdata,
           });

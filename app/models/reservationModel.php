@@ -199,7 +199,7 @@ class ReservationModel extends Model
                                        INNER JOIN services ON services.serviceID = reservations.serviceID
                                        -- INNER JOIN serviceproviders ON serviceproviders.serviceID = reservations.serviceID
                                        INNER JOIN customers ON customers.customerID = reservations.customerID
-                                       WHERE reservations.status = :status AND ( reservations.date BETWEEN '$from' AND '$to' ) AND reservations.staffID =$staffID 
+                                       WHERE reservations.status = :status AND ( DATE_FORMAT(reservations.date, '%Y-%m') BETWEEN '$from' AND '$to' ) AND reservations.staffID =$staffID 
                                        -- GROUP BY reservations.date 
                                        ORDER BY reservations.date",
             [':status' => 4]
@@ -213,7 +213,7 @@ class ReservationModel extends Model
                                     INNER JOIN services ON services.serviceID = reservations.serviceID
                                     -- INNER JOIN serviceproviders ON serviceproviders.serviceID = reservations.serviceID
                                     INNER JOIN customers ON customers.customerID = reservations.customerID
-                                    WHERE reservations.status = :status AND ( reservations.date BETWEEN '$from' AND '$to' ) 
+                                    WHERE reservations.status = :status AND ( DATE_FORMAT(reservations.date, '%Y-%m') BETWEEN '$from' AND '$to' ) 
                                     -- GROUP BY reservations.date 
                                     ORDER BY reservations.date",
             [':status' => 4]

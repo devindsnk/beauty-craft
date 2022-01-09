@@ -44,24 +44,67 @@ function putServiceProvReportTableData(month) {
 // ...........................START SERVICE PROVIDER ANALYTICS...........................//
 
 const selectedServiceProv = document.querySelector(".serviceProvSelectDropDown");
-const serviceProviderFromDate = document.querySelector(".serviceProviderFromDate");
-const serviceProviderToDate = document.querySelector(".serviceProviderToDate");
+// const serviceProviderFromDate = document.querySelector(".serviceProviderFromDate");
+// const serviceProviderToDate = document.querySelector(".serviceProviderToDate");
+
+const serviceProviderFromDate = document.querySelector('input[type="month"][name="serviceProviderFromDate"]');
+const serviceProviderToDate = document.querySelector('input[type="month"][name="serviceProviderToDate"]');
+
 const serviceProvSearchBtn = document.querySelector(".serviceProvSearchBtn");
 const serviceProvSelectError = document.querySelector(".serviceProvSelectError");
 const serviceProvFromError = document.querySelector(".serviceProvFromError");
-const serviceProvToError = document.querySelector(".serviceToError");
+const serviceProvToError = document.querySelector(".serviceProvToError");
+
+function convertToYYMM(str) {
+  var date = new Date(str),
+    mnth = ("0" + (date.getMonth() + 1)).slice(-2);
+  return [date.getFullYear(), mnth].join("-");
+}
+
 
 if (selectedServiceProv != null) {
+  const today = new Date()
+
+  serviceProviderFromDate.value = convertToYYMM(today);
+  serviceProviderToDate.value = convertToYYMM(today);
 
   sProvAnalyticsSelector();
   sProvResCardTableData();
   serviceProvSearchBtn.addEventListener('click',
     function () {
-      sProvAnalyticsSelector();
-      sProvResCardTableData();
+
+      var errorVal = 0;
+
+      if (serviceProviderFromDate.value == 0) {
+        serviceProvFromError.innerHTML = "please select a month";
+        errorVal = 1;
+      } else {
+        serviceProvFromError.innerHTML = "";
+      }
+      if (serviceProviderToDate.value == 0) {
+        serviceProvToError.innerHTML = "please select a month";
+        errorVal = 1;
+      } else {
+        serviceProvToError.innerHTML = "";
+      }
+      if (serviceProviderFromDate.value > serviceProviderToDate.value || serviceProviderFromDate.value > serviceProviderToDate.value) {
+        serviceProvFromError.innerHTML = "please select a valid range";
+        serviceProvToError.innerHTML = "please select a valid range";
+        errorVal = 1;
+      } else {
+        serviceProvFromError.innerHTML = "";
+        serviceProvToError.innerHTML = "";
+      }
+
+      if (serviceProviderFromDate.value != 0 && serviceProviderToDate.value != 0 && errorVal == 0) {
+        sProvAnalyticsSelector();
+        sProvResCardTableData();
+      }
     }
   )
 }
+var barGraph2;
+var lineGraph2;
 
 function sProvAnalyticsSelector() {
 
@@ -73,6 +116,9 @@ function sProvAnalyticsSelector() {
     chart7();
     chart8();
     function chart7() {
+      if (barGraph2) {
+        barGraph2.destroy();
+      }
 
       $.ajax({
         url: "http://localhost:80/beauty-craft/Services/analyticsServiceProvChartJS/" + selectedServiceProv.value + "/" + serviceProviderFromDate.value + "/" + serviceProviderToDate.value,
@@ -80,23 +126,20 @@ function sProvAnalyticsSelector() {
         success: function (data) {
 
           var YearAndMonth = [];
-          var weekNo = [];
+          var MonthNo = [];
           var TotalReservations = [];
           var TotalIncome = [];
-          var resultLableF = [];
 
           for (var i in data) {
             YearAndMonth.push(data[i].YearAndMonth);
-            weekNo.push(data[i].weekNo);
+            MonthNo.push(data[i].monthNo);
             TotalReservations.push(data[i].TotalReservations);
             TotalIncome.push(data[i].TotalIncome);
 
-            let resultLable = data[i].YearAndMonth + " | week " + data[i].weekNo;
-            resultLableF.push(resultLable);
           }
 
           var chartdata = {
-            labels: resultLableF,
+            labels: YearAndMonth,
             datasets: [
               {
                 label: 'No of Reservations',
@@ -107,7 +150,7 @@ function sProvAnalyticsSelector() {
             ]
           };
 
-          var barGraph1 = new Chart(ctx7, {
+          barGraph2 = new Chart(ctx7, {
             type: 'bar',
             data: chartdata,
             options: {
@@ -132,28 +175,24 @@ function sProvAnalyticsSelector() {
 
     }
     function chart8() {
-
+      if (lineGraph2) {
+        lineGraph2.destroy();
+      }
       $.ajax({
         url: "http://localhost:80/beauty-craft/Services/analyticsServiceProvChartJS/" + selectedServiceProv.value + "/" + serviceProviderFromDate.value + "/" + serviceProviderToDate.value,
         method: "GET",
         success: function (data) {
 
           var YearAndMonth = [];
-          var weekNo = [];
           var TotalIncome = [];
-          var resultLableF = [];
 
           for (var i in data) {
             YearAndMonth.push(data[i].YearAndMonth);
-            weekNo.push(data[i].weekNo);
             TotalIncome.push(data[i].TotalIncome);
-
-            let resultLable = data[i].YearAndMonth + " | week " + data[i].weekNo;
-            resultLableF.push(resultLable);
           }
 
           var chartdata = {
-            labels: resultLableF,
+            labels: YearAndMonth,
             datasets: [
               {
                 label: 'Total Income',
@@ -164,7 +203,7 @@ function sProvAnalyticsSelector() {
             ]
           };
 
-          var barGraph2 = new Chart(ctx8, {
+          lineGraph2 = new Chart(ctx8, {
             type: 'line',
             data: chartdata,
           });
@@ -179,13 +218,13 @@ function sProvAnalyticsSelector() {
 }
 
 function sProvResCardTableData() {
-  // console.log('resTableData');
+
   document.getElementById("rows2").innerHTML = '';
 
   fetch(`http://localhost:80/beauty-craft/Services/analyticsServiceProvResTable/${selectedServiceProv.value}/${serviceProviderFromDate.value}/${serviceProviderToDate.value}`)
     .then(response => response.json())
     .then(serviceProvAnalyticResDetails => {
-      // console.log(serviceProvAnalyticResDetails);
+
       let totIncome = 0;
       for (let i = 0; i < serviceProvAnalyticResDetails.length; i++) {
         var newRow = document.createElement("tr");
@@ -197,7 +236,7 @@ function sProvResCardTableData() {
         cell1.innerHTML = serviceProvAnalyticResDetails[i]['reservationID'];
         cell2.innerHTML = serviceProvAnalyticResDetails[i]['sName'];
         cell3.innerHTML = serviceProvAnalyticResDetails[i]['cFName'] + " " + serviceProvAnalyticResDetails[i]['cLName'];
-        cell4.innerHTML = serviceProvAnalyticResDetails[i]['price'];
+        cell4.innerHTML = serviceProvAnalyticResDetails[i]['price'] + ' LKR';
 
         totIncome = totIncome + parseInt(serviceProvAnalyticResDetails[i]['price']);
         newRow.append(cell1);

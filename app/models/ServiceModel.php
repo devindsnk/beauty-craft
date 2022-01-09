@@ -759,24 +759,24 @@ class ServiceModel extends Model
         if ($staffID != 0)
         {
             $results = $this->customQuery(
-                "SELECT DATE_FORMAT(reservations.date, '%Y-%m') AS YearAndMonth, FLOOR((DayOfMonth(reservations.date)-1)/7)+1 AS weekNo, SUM(services.price) AS TotalIncome, COUNT(*) AS TotalReservations
+                "SELECT DATE_FORMAT(reservations.date, '%M') AS YearAndMonth, MONTH(reservations.date) AS monthNo, SUM(services.price) AS TotalIncome, COUNT(*) AS TotalReservations
             FROM reservations
             INNER JOIN services ON reservations.serviceID = services.serviceID
-            WHERE reservations.status = :status AND (reservations.date BETWEEN '$from' AND '$to') AND reservations.staffID=$staffID
-            GROUP BY DATE_FORMAT(reservations.date, '%u-%Y')
-            ORDER BY reservations.date, DATE_FORMAT(reservations.date, '%u-%Y')",
+            WHERE reservations.status = :status AND (DATE_FORMAT(reservations.date, '%Y-%m') BETWEEN '$from' AND '$to') AND reservations.staffID=$staffID
+            GROUP BY DATE_FORMAT(reservations.date, '%Y-%m')
+            ORDER BY reservations.date, DATE_FORMAT(reservations.date, '%Y-%m')",
                 [':status' => 4]
             );
         }
         else
         {
             $results = $this->customQuery(
-                "SELECT DATE_FORMAT(reservations.date, '%Y-%m') AS YearAndMonth, FLOOR((DayOfMonth(reservations.date)-1)/7)+1 AS weekNo, SUM(services.price) AS TotalIncome, COUNT(*) AS TotalReservations
+                "SELECT DATE_FORMAT(reservations.date, '%M') AS YearAndMonth, MONTH(reservations.date) AS monthNo, SUM(services.price) AS TotalIncome, COUNT(*) AS TotalReservations
             FROM reservations
             INNER JOIN services ON reservations.serviceID = services.serviceID
-            WHERE reservations.status = :status AND (reservations.date BETWEEN '$from' AND '$to')
-            GROUP BY DATE_FORMAT(reservations.date, '%u-%Y')
-            ORDER BY reservations.date, DATE_FORMAT(reservations.date, '%u-%Y')",
+            WHERE reservations.status = :status AND (DATE_FORMAT(reservations.date, '%Y-%m') BETWEEN '$from' AND '$to')
+            GROUP BY DATE_FORMAT(reservations.date, '%Y-%m')
+            ORDER BY reservations.date, DATE_FORMAT(reservations.date, '%Y-%m')",
                 [':status' => 4]
             );
         }

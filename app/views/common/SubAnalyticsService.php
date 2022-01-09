@@ -56,7 +56,7 @@
                   <div class="column">
                      <div class="text-group">
                         <label class="label" for="serviceFromDate">From</label>
-                        <input type="month" name="fromVal" id="serviceFromDate" class="serviceFromDate" placeholder="select a month">
+                        <input type="month" name="serviceFromDate" id="serviceFromDate" class="serviceFromDate">
                      </div>
                      <span class="error serviceFromError"></span>
                   </div>
@@ -64,7 +64,7 @@
                   <div class="column">
                      <div class="text-group">
                         <label class="label" for="serviceToDate">To</label>
-                        <input type="month" name="toVal" id="serviceToDate" class="serviceToDate">
+                        <input type="month" name="serviceToDate" id="serviceToDate" class="serviceToDate">
                      </div>
                      <span class="error serviceToError"></span>
                   </div>

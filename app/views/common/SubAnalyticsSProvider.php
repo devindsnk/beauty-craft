@@ -32,7 +32,7 @@
       </div>
 
       <form class="form filter-options" action="">
-         <div class="options-container mang">
+         <div class="options-container">
             <div class="left-section">
                <div class="row">
                   <div class="column">
@@ -55,7 +55,7 @@
                   <div class="column">
                      <div class="text-group">
                         <label class="label" for="serviceProviderFromDate">From</label>
-                        <input type="date" name="" id="serviceProviderFromDate" class="serviceProviderFromDate">
+                        <input type="month" name="serviceProviderFromDate" id="serviceProviderFromDate" class="serviceProviderFromDate">
                      </div>
                      <span class="error serviceProvFromError"></span>
                   </div>
@@ -63,7 +63,7 @@
                   <div class="column">
                      <div class="text-group">
                         <label class="label" for="serviceProviderToDate">To</label>
-                        <input type="date" name="" id="serviceProviderToDate" class="serviceProviderToDate">
+                        <input type="month" name="serviceProviderToDate" id="serviceProviderToDate" class="serviceProviderToDate">
                      </div>
                      <span class="error serviceProvToError"></span>
                   </div>
@@ -133,9 +133,9 @@
                <!--Table head-->
                <thead>
                   <tr>
-                     <th class="">Reservation No</th>
-                     <th class="">Service</th>
-                     <th class="">Customer</th>
+                     <th class="column-left-align">Reservation No</th>
+                     <th class="column-left-align">Service</th>
+                     <th class="column-left-align">Customer</th>
                      <th class="column-left-align">Price</th>
                   </tr>
                </thead>
@@ -196,10 +196,10 @@
       //       },
       //    });
 
-      let today = new Date().toISOString().substr(0, 10);
-      let yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000).toISOString().substr(0, 10);
-      document.querySelector("#serviceProviderToDate").value = today;
-      document.querySelector("#serviceProviderFromDate").value = yesterday;
+      // let today = new Date().toISOString().substr(0, 10);
+      // let yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000).toISOString().substr(0, 10);
+      // document.querySelector("#serviceProviderToDate").value = today;
+      // document.querySelector("#serviceProviderFromDate").value = yesterday;
    </script>
 
    <?php require APPROOT . "/views/inc/footer.php" ?>
