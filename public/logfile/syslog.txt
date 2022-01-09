@@ -79,8 +79,19 @@ IP Address  Date & Time	        Mobile No	Name		            Activity
 ::1       	01/07/22 06:40PM	0762930963	Ruwanthi Amaya        	signin
 ::1       	01/08/22 12:19AM	0762930963	Ruwanthi Amaya        	signin
 ::1       	01/08/22 07:51AM	0762930963	Ruwanthi Amaya        	signin
-::1       	01/08/22 07:53AM	0762930963	Ruwanthi Amaya        	signout
-
+::1       	01/08/22 07:53AM	0762930963	Ruwanthi Amaya        	signou
 ::1       	01/08/22 08:13AM	0762930963	Ruwanthi Amaya        	signin
 ::1       	01/08/22 08:29AM	0762930963	Ruwanthi Amaya        	signout
 ::1       	01/08/22 08:29AM	0703807405	Ruwanthi Munasinghe   	signin
+::1       	01/08/22 08:47AM	0703807405	Ruwanthi Munasinghe   	signout
+::1       	01/08/22 06:52PM	0762930963	Ruwanthi Amaya        	signin
+::1       	01/08/22 07:42PM	0762930963	Ruwanthi Amaya        	create customer account
+127.0.0.1 	01/08/22 07:43PM	0703807505	Ruwanthi Munasinghe   	signin
+::1       	01/08/22 07:54PM	0762930963	Ruwanthi Amaya        	signout
+::1       	01/08/22 07:54PM	0703807405	Ruwanthi Munasinghe   	signin
+::1       	01/08/22 08:24PM	0703807405	Ruwanthi Munasinghe   	signout
+::1       	01/08/22 08:24PM	0762930963	Ruwanthi Amaya        	signin
+::1       	01/09/22 05:47AM	0762930963	Ruwanthi Amaya        	signout
+::1       	01/09/22 05:54AM	0703807405	Ruwanthi Munasinghe   	signin
+::1       	01/09/22 05:57AM	0703807405	Ruwanthi Munasinghe   	signout
+::1       	01/09/22 05:57AM	0703807405	Ruwanthi Munasinghe   	signin

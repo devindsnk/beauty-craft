@@ -29,7 +29,6 @@ class Leaves extends Controller
    public function oneleaveRequest($staffID, $leaveDate)
 
    {
-      // Session::validateSession([6]);
 
       $oneLeaveDetails = $this->LeaveModel->getOneLeaveDetail($staffID, $leaveDate);
       $casualCountOfRelevantMonth = $this->LeaveModel->getRelevantMonthsLeaveCount($staffID, $leaveDate, 1);
@@ -46,8 +45,7 @@ class Leaves extends Controller
          'remainingCasual' => $remainingCasual,
          'remainingMedical' => $remainingMedical
       ];
-      // print_r($oneLeaveDetails['leaveDetails']);
-      // die("hhh");
+
       $this->view('manager/mang_leaveRequests', $oneLeaveDetails);
    }
 
@@ -59,12 +57,9 @@ class Leaves extends Controller
 
       $leaveData = $this->LeaveModel->getLeaveRecordsBystaffID(Session::getUser("id"));
       $leaveLimit = $this->LeaveModel->getGeneralLeaveLimit();
-
-      // die ($leaveLimit);
       $leaveCount = $this->LeaveModel->getCurrentMonthLeaveCount(Session::getUser("id"));
       $remainingLeaveCount = $leaveLimit - $leaveCount;
-      // print_r($leaveData);
-      // die("hi");
+
       $data = [
          'date' => '',
          'reason' => '',
@@ -85,12 +80,6 @@ class Leaves extends Controller
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
-
-
-         // check exsisting dates
-         // $checkDate = $this->LeaveModel->checkExsistingDate($data['date']);
-         // $this->leaveRequestDateValidate($data);
-
 
          if ($_POST['action'] == "addleave")
          {
@@ -169,11 +158,7 @@ class Leaves extends Controller
                      }
                      else
                      {
-                        // $haveReservation = $this->LeaveModel->checkHaveReservationByDate($data['date'], Session::getUser("id"));
-                        // print_r($haveReservation);
-                        // die('hh');
                         $this->LeaveModel->requestleave($data);
-                        // redirect to this view
                         redirect('Leaves/leaves');
                      }
                   }
@@ -226,7 +211,6 @@ class Leaves extends Controller
 
          ];
          $this->provideLeaveRequestReleventView($data);
-         //  $this->view('serviceProvider/serProv_leaves', $data);
       }
    }
 
@@ -246,17 +230,11 @@ class Leaves extends Controller
 
    public function leaveRequestDateValidate($date)
    {
-
-      // die("ooooo");
-
       Session::validateSession([4, 5]);
-      // $date = file_get_contents('input://php');
-      // $date = json_decode($date, true);
 
       $alreadyRequestedDay = $this->LeaveModel->checkExsistingLeaveRequestDay($date);
       $haveReservation = $this->LeaveModel->checkHaveReservationByDate($date, Session::getUser("id"));
       $isSalonClosed = $this->LeaveModel->checkSalonClosedDates($date);
-      // $alreadyRequestedDay = 0;
       header('Content-Type: application/json; charset=utf-8');
 
       if ($isSalonClosed == 1)
@@ -385,10 +363,6 @@ class Leaves extends Controller
       $mangMedicalLeaveCount = $this->LeaveModel->getMangRelevantMonthLeaveCount(Session::getUser("id"), 2, $selectedDate);
       $remainingMedical = $mangMedicalLeaveLimit - $mangMedicalLeaveCount;
 
-      // if($st == 1 && $selectedType=2){
-      //    $remainingMedical=$remainingMedical+1;
-      //    $response = "";
-      // }
       if ($selectedType == 2 && $remainingMedical <= 0)
          $response = "You can't take anymore medical leaves for this month";
       else

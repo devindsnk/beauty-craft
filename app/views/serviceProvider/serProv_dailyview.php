@@ -276,8 +276,6 @@
                                                             } ?>" type="submit" name="action" id="<?php echo $reservationMoreInfo->reservationID; ?>" value="cancelRecall">Delete</button>
 
 
-
-
                                 </div>
                             </div>
 

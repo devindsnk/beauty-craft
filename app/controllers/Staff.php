@@ -20,7 +20,8 @@ class Staff extends Controller
       Session::validateSession([1, 2]);
       $staffD = $this->staffModel->getAllStaffDetails();
       $CurrentStaffCount = sizeof($staffD);
-
+      // print_r($staffD);
+      // die();
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'FILES')
       {
@@ -43,8 +44,8 @@ class Staff extends Controller
                move_uploaded_file($tmp_name, $img_upload_path);
             }
          }
-
-
+         // echo ($new_img_name);
+         // die($new_img_name);
          $data = [
             'staffimagePath' => $new_img_name,
             'staffFname' => trim($_POST['staffFname']),
@@ -76,7 +77,7 @@ class Staff extends Controller
             'staffAccBank_error' => '',
             'staffAccBranch_error' => '',
          ];
-
+         // die($data['staffimagePath']);
          $data['staffHomeAddTyped'] = $data['staffHomeAdd'];
 
          if (($data['staffimagePath'] == " "))
@@ -375,13 +376,17 @@ class Staff extends Controller
             'bankdetails' => $bankdetailsBystaffID[0]
          ];
 
-         // print_r($data);
-         // die();
+         print_r($data);
+         // die($data['staffimagePath']);
          // $data['staffHomeAddTyped'] = $data['staffHomeAdd'];
 
          if (($data['staffimagePath'] == " "))
          {
             $data['staffimagePath_error'] = "Please insert a valid image";
+         }
+         else
+         {
+            print_r($data);
          }
          // Validating fname
          if (empty($data['fName']))

@@ -16,8 +16,7 @@
 
    public function dailyview()
    {
-
-      // Session::validateSession([5]);
+      Session::validateSession([5]);
       $reservationData = $this->reservationModel->getReservationsByStaffID(Session::getUser("id"));
 
 
@@ -60,7 +59,6 @@
 
          if ($_POST['action'] == 'close')
          {
-            // die("hello");
             $data['moreInfoModelOpen'] = 0;
             redirect('SerProvDashboard/dailyview');
          }
@@ -95,7 +93,6 @@
 
             if ($data['recallReason_error'])
             {
-               // die($data['recallReason_error']);
                $this->view('serviceProvider/serProv_dailyview', $data);
             }
             else
@@ -111,7 +108,6 @@
          {
 
             $data['selectedReservation'] = trim($_POST['selectedReservation']);
-            // die($data['selectedReservation']);
             $data['recallModelOpen'] = 0;
 
 
@@ -287,8 +283,6 @@
 
    public function getReservationListByDate($date)
    {
-      // Session::getUser("id");
-      // $user = $_SESSION['userID'];
       $reservationData = $this->reservationModel->getReservationsByStaffIDandDate($_SESSION['userID'], $date);
       header('Content-Type: application/json; charset=utf-8');
       print_r($reservationData);
@@ -322,14 +316,9 @@
 
    public function updateCustNote($selectedReservation, $note)
    {
-      // $note = urldecode($note);
-      // var_dump($note);
       $reservationData = $this->reservationModel->updateCustomerNote($selectedReservation, $note);
       header('Content-Type: application/json; charset=utf-8');
-      // $select = $note;
-      // 
       echo (json_encode($reservationData));
-      // exit;
    }
 
    public function deleteRecallRequest($selectedReservation)
@@ -338,9 +327,6 @@
       $this->reservationModel->deleteReservationRecallRequest($selectedReservation);
 
       header('Content-Type: application/json; charset=utf-8');
-      // $select = $note;
-      // 
-      echo (json_encode($reservationData));
-      // exit;
+      echo (json_encode($selectedReservation));
    }
 }

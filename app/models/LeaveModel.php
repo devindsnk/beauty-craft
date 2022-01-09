@@ -8,21 +8,15 @@ class LeaveModel extends Model
       return $results;
    }
 
-
    public function getGeneralLeaveLimit()
    {
-
-      $results = $this->customQuery("SELECT generalLeave FROM leavelimits WHERE changedDate =(SELECT MAX(changedDate)FROM leavelimits)", []);  
-      //  print_r($results[0]->{'leaveLimit'});  
-      //  die("Leave limit");  
-      return $results[0]->{'generalLeave'}; 
+      $results = $this->customQuery("SELECT generalLeave FROM leavelimits WHERE changedDate =(SELECT MAX(changedDate)FROM leavelimits)", []);
+      return $results[0]->{'generalLeave'};
    }
+
    public function getMedicalLeaveLimit()
    {
-
       $results = $this->customQuery("SELECT medicalLeave FROM leavelimits WHERE changedDate =(SELECT MAX(changedDate)FROM leavelimits)", []);
-      //  print_r($results[0]->{'leaveLimit'}); 
-      //  die("Leave limit");  
       return $results[0]->{'medicalLeave'};
    }
 
@@ -31,7 +25,6 @@ class LeaveModel extends Model
       $results = $this->delete('generalleaves', ['leavedate' => $date, 'staffID' => $staffID]);
    }
 
-   //   leave Approved=1 pending=2 rejected=0 
    public function getCurrentMonthLeaveCount($staffID)
    {
 
@@ -39,7 +32,6 @@ class LeaveModel extends Model
          "SELECT COUNT(*)  FROM generalleaves WHERE (MONTH(leaveDate)=MONTH(now()) and YEAR(leaveDate)=YEAR(now())) AND (staffID=:staffID) AND (status=1 OR status=2)",
          [
             ':staffID' => $staffID,
-
          ]
       );
 
@@ -48,25 +40,15 @@ class LeaveModel extends Model
 
    public function requestleave($data)
    {
-
       date_default_timezone_set("Asia/Colombo");
       $today = date('Y-m-d');
       $results = $this->insert('generalleaves', ['staffID' => $data['staffID'], 'leaveDate' => $data['date'], 'requestedDate' => $today, 'reason' => $data['reason'], 'status' => 2, 'leaveType' => $data['leavetype']]);
    }
 
 
-
    public function checkExsistingLeaveRequestDay($date)
    {
-
-
-      // $this->db->query("SELECT * FROM generalleaves WHERE leavedate = :date");
-      // $this->db->bind(':date', $date);
-      // $result = $this->db->resultSet();
-
       $results = $this->getResultSet('generalleaves', '*', ['leavedate' => $date]);
-
-      //   print_r($result);
       if (empty($results))
       {
          return 0;
@@ -78,30 +60,18 @@ class LeaveModel extends Model
    }
 
 
-
-
    public function checkLeaveDate($data)
    {
-
       $this->db->query("SELECT COUNT(*)  FROM generalleaves WHERE (MONTH(leaveDate)=MONTH(:date) and YEAR(leaveDate)=YEAR(:date)) AND (staffID= :staffID) AND (status=1 OR status=2)");
       $this->db->bind(':date', $data['date']);
       $this->db->bind(':staffID', $data['staffID']);
       $result = $this->db->single();
-
-
       return $result->{'COUNT(*)'};
    }
 
 
-
-
-
-
-
    public function getLeaveCountOfSelectedMonth($month, $year, $staffID, $ltype)
    {
-
-
       $results = $this->customQuery(
 
          "SELECT COUNT(*) AS leaveCount FROM generalleaves WHERE (MONTH(leaveDate)=:month and YEAR(leaveDate)=:year) AND (staffID=:staffID) AND leaveType=:ltype AND (status=1 OR status=2 OR status=3)",
@@ -110,13 +80,11 @@ class LeaveModel extends Model
             ':year' => $year,
             ':staffID' => $staffID,
             ':ltype' => $ltype
-
-
          ]
       );
       return $results[0]->{'leaveCount'};
-      // return 2;
    }
+
 
    public function getSelectedLeaveDetails($date, $user)
    {
@@ -124,9 +92,9 @@ class LeaveModel extends Model
       return $results[0];
    }
 
+
    public function checkHaveReservationByDate($date, $user)
    {
-      // SELECT * FROM reservations WHERE staffID=00000018 AND (status=1 OR status=2) AND date='2022-01-14'
       $results = $this->customQuery("SELECT * FROM reservations WHERE date=:date AND staffID=:user AND(status=1 OR status=2)", [
          ':date' => $date,
          ':user' => $user,
@@ -137,6 +105,7 @@ class LeaveModel extends Model
          return 2;
    }
 
+
    public function checkSalonClosedDates($date)
    {
       $results = $this->getSingle('closeddates', '*', ['date' => $date]);
@@ -146,7 +115,7 @@ class LeaveModel extends Model
          return 2;
    }
 
-   //////////////////////////////////////////
+
    public function getEvidenceLimit()
    {
       $results = $this->customQuery(
@@ -155,18 +124,17 @@ class LeaveModel extends Model
                                     WHERE changedDate =(SELECT MAX(changedDate)FROM leavelimits)",
          []
       );
-      //  print_r($results[0]->{'leaveLimit'}); 
-      //  die("Leave limit");  
       return $results[0]->{'evidenceLimit'};
    }
+
 
    public function changeMedicalToCasual($staffID, $leaveDate)
    {
       $responce = 3;
       $leaveType = 1;
-      // die('hi');
       $results = $this->update('generalleaves', ['leaveType' => $leaveType, 'status' => $responce,], ['staffID' => $staffID, 'leaveDate' => $leaveDate]);
    }
+
 
    public function getAllLeaveRequests()
    {
@@ -177,8 +145,8 @@ class LeaveModel extends Model
                                     ORDER BY leaveDate", []);
 
       return $results;
-      // WHERE leaveDate >= now()
    }
+
 
    public function getOneLeaveDetail($staffID, $leaveDate)
    {
@@ -194,6 +162,8 @@ class LeaveModel extends Model
 
       return $results;
    }
+
+
    public function getRelevantMonthsLeaveCount($staffID, $leaveDate, $leaveType)
    {
 
@@ -205,6 +175,7 @@ class LeaveModel extends Model
       return $results[0]->{'leaveCount'};
    }
 
+
    public function getLeaveLimitsForManagerApproval()
    {
 
@@ -215,6 +186,8 @@ class LeaveModel extends Model
 
       return $results;
    }
+
+
    public function addLeaveResponce($responce, $staffID, $leaveDate)
    {
 
@@ -222,8 +195,8 @@ class LeaveModel extends Model
 
       $results = $this->update('generalleaves', ['respondedStaffID' => $ManagerID, 'status' => $responce,], ['staffID' => $staffID, 'leaveDate' => $leaveDate]);
    }
-   ///////////////////////////////////////////
 
+   ///////////////////////////////////////////
    public function getAllManagerLeaves()
    {
 
@@ -238,6 +211,8 @@ class LeaveModel extends Model
 
       return $results;
    }
+
+
    public function getOneManagerLeave($leaveID, $userID)
    {
       $results = $this->customQuery(
@@ -249,6 +224,8 @@ class LeaveModel extends Model
 
       return $results;
    }
+
+
    public function getmangCasualLeaveLimit()
    {
       $results = $this->customQuery("SELECT managerGeneralLeave 
@@ -257,6 +234,8 @@ class LeaveModel extends Model
 
       return $results[0]->{'managerGeneralLeave'};
    }
+
+
    public function getmangMedicalLeaveLimit()
    {
       $results = $this->customQuery("SELECT managerMedicalLeave 
@@ -265,6 +244,8 @@ class LeaveModel extends Model
 
       return $results[0]->{'managerMedicalLeave'};
    }
+
+
    public function getMangCurrentMonthLeaveCount($userID, $leaveType)
    {
       $results = $this->customQuery(
@@ -273,24 +254,22 @@ class LeaveModel extends Model
                                     WHERE (MONTH(leaveDate) = MONTH(now()) AND YEAR(leaveDate) = YEAR(now())) AND (staffID=:staffID) AND leaveType = :leaveType",
          [':staffID' => $userID, ':leaveType' => $leaveType]
       );
-      //  print_r($results[0]->{'COUNT(*)'});
-      //  die("hhh");
       return $results[0]->{'takenLeaveCount'};
    }
+
+
    public function getMangRelevantMonthLeaveCount($userID, $leaveType, $selectedDate)
    {
-      // print_r($selectedDate);
-      // die('fff');
       $results = $this->customQuery(
          "SELECT COUNT(*) AS takenLeaveCount
                                     FROM managerLeaves 
                                     WHERE (MONTH(leaveDate) = MONTH(:leaveDate) AND YEAR(leaveDate) = YEAR(:leaveDate)) AND (staffID=:staffID) AND leaveType = :leaveType",
          [':staffID' => $userID, ':leaveType' => $leaveType, ':leaveDate' => $selectedDate]
       );
-      //  print_r($results[0]->{'COUNT(*)'});
-      //  die("hhh");
       return $results[0]->{'takenLeaveCount'};
    }
+
+
    public function checkForDateState($date)
    {
       $ManagerID = Session::getUser("id");
@@ -301,12 +280,16 @@ class LeaveModel extends Model
       else
          return 2;
    }
+
+
    public function checkForAllLeavesForADate($date)
    {
       $results = $this->getResultSet('managerLeaves', '*', ['leaveDate' => $date]);
 
       return count($results);
    }
+
+
    public function getmangDailyLeaveLimit()
    {
       $results = $this->customQuery("SELECT managerDailyLeave 
@@ -315,12 +298,16 @@ class LeaveModel extends Model
 
       return $results[0]->{'managerDailyLeave'};
    }
+
+
    public function addMangLeave($data)
    {
       date_default_timezone_set("Asia/Colombo");
       $today = date('Y-m-d');
       $results = $this->insert('managerleaves', ['staffID' => $data['staffID'], 'leaveDate' => $data['date'], 'markedDate' => $today, 'reason' => $data['reason'], 'leaveType' => $data['leavetype']]);
    }
+
+
    public function updateMangLeave($data, $staffID, $leaveID)
    {
       date_default_timezone_set("Asia/Colombo");
@@ -328,45 +315,37 @@ class LeaveModel extends Model
 
       $results = $this->update('managerleaves', ['markedDate' => $today, 'reason' => $data['reason'], 'leaveType' => $data['leavetype']], ['staffID' => $staffID, 'leaveDate' => $leaveID]);
    }
+
+
    public function deleteMangLeave($leaveDate, $staffID)
    {
       $results = $this->delete('managerleaves', ['leaveDate' => $leaveDate, 'staffID' => $staffID]);
    }
-   // FOR MANAGER OVERVIEW
+
    public function getPendingLeaveRequestCount()
    {
-
-      // $results = $this->getRowCount('generalleaves', ['status' => 2, 'leaveType' => 1, 'leaveType' => 2]);
       $results = $this->customQuery("SELECT * 
                                     FROM generalleaves 
                                     WHERE status = 2 AND (leaveType = 1 OR leaveType = 2)", []);
-      
+
       return $results;
    }
-   // FOR MANAGER OVERVIEW
 
-   //for owner salaries
-   //to get casual leave count of a receptionist/servise provider for a relavant month 
-   public function casualLeaveByStaffID($staffID,$staffType)
+   public function casualLeaveByStaffID($staffID, $staffType)
    {
-      $time=strtotime($dateValue);
-      $month=date("F",$time);
-      $year=date("Y",$time);
+      $time = strtotime($dateValue);
+      $month = date("F", $time);
+      $year = date("Y", $time);
 
-      $results = $this->getResultSet('generalleaves','*', ['staffID' => $staffID ,'status'=> 4, 'leaveType' => 'casual']);
+      $results = $this->getResultSet('generalleaves', '*', ['staffID' => $staffID, 'status' => 4, 'leaveType' => 'casual']);
       print_r($results);
       return $results;
    }
 
-   public function managerCasualLeaveByStaffID($staffID,$staffType)
+   public function managerCasualLeaveByStaffID($staffID, $staffType)
    {
-      // $time=strtotime($dateValue);
-      // $month=date("F",$time);
-      // $year=date("Y",$time);
-
-      $results = $this->getResultSet('generalleaves','*', ['staffID' => $staffID ,'status'=> 4, 'leaveType' => 'casual']);
+      $results = $this->getResultSet('generalleaves', '*', ['staffID' => $staffID, 'status' => 4, 'leaveType' => 'casual']);
       print_r($results);
       return $results;
    }
-   //for owner salaries
 }

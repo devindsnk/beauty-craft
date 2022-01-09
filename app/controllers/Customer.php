@@ -258,16 +258,10 @@ class Customer extends Controller
                   $data['mobileNo_error'] = "Number is already registered";
                }
                else
-               { // If no issues
-                  //GET otp
-                  // die($data['mobileNo']);
+               {
                   $OTP = $this->OTPModel->requestOTP($data['mobileNo'], 1);
-                  // $OTP = 1111;
-                  // die("hellodd");
                   if ($OTP)
                   {
-                     // die("hellodd");
-                     // Send otp
                      $SMSResponse = SMS::sendMobileVerifySMS($data['mobileNo'], $OTP);
 
                      //If OTP sent successfull then store the OTP
@@ -309,15 +303,11 @@ class Customer extends Controller
             {
                $data['confirmPassword_error'] = "Passwords dont't match";
             }
-
             if (
                empty($data['fName_error']) && empty($data['lName_error']) && empty($data['gender_error']) && empty($data['mobileNo_error']) &&
                empty($data['OTP_error']) && empty($data['password_error']) && empty($data['confirmPassword_error'])
             )
             {
-               // $con = (new Database);
-               // $dbTemp = $con->getConnection();
-
                // OTP verification
                $isVerified = $this->OTPModel->verifyOTP($data['mobileNo'], $data['OTP'], 1);
 
@@ -338,14 +328,11 @@ class Customer extends Controller
                   //System log
                   Systemlog::createCustomerAccount();
 
-
                   SMS::sendCustomerRegSMS($data['mobileNo']);
                   $this->userModel->commit();
 
                   Toast::setToast(1, "Registration Successful!", "You can login to your account now.");
 
-                  // Provide success message here
-                  // header('location: ' . URLROOT . '/user/signin');
                   redirect('Customer/createCustomerAccount');
                }
             }

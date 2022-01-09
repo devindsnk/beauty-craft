@@ -12,11 +12,13 @@
          <button class="btn btn-filled btn-theme-purple btnleaveRequest">Add New</button>
       </div>
    </div>
+
    <span class="leavelimitmsg">
       <?php
       if ($data['remainingCount'] < 0) echo "Your Leave limit exceed";
       ?>
    </span>
+
    <form class="form filter-options" action="">
       <div class="options-container">
          <div class="left-section">
@@ -40,13 +42,11 @@
             <!-- <button class="btn btn-search">Search</button> -->
          </div>
       </div>
-
    </form>
 
    <div class="table-container">
       <div class="table2 table2-responsive">
          <table class="table2-hover" id="leaveReqTable">
-
             <thead>
                <tr>
                   <th class="column-center-align col-1">Leave Date</th>
@@ -55,14 +55,11 @@
                   <th class="column-center-align col-4">Type</th>
                   <th class="column-center-align col-4">Status</th>
                   <th class="column-center-align col-5">Options</th>
-
                </tr>
             </thead>
-
             <tbody>
                <?php foreach ($data['tableData'] as $leave) : ?>
                   <tr>
-
                      <td data-lable="Leave Date" class="column-center-align"><?php echo $leave->leaveDate; ?></td>
                      <td data-lable="Requested date" class="column-center-align"><?php echo $leave->requestedDate; ?></td>
                      <td data-lable="Responded Staff ID" class="column-center-align">
@@ -106,9 +103,7 @@
                            <?php endif; ?>
                         </span>
                      </td>
-
                   </tr>
-
                <?php endforeach; ?>
             </tbody>
          </table>
@@ -126,20 +121,15 @@
          </div>
          <form action="<?php echo URLROOT; ?>/Leaves/leaves" class="form" method="POST">
             <div class="leaverequest-form-content">
-
                <div class="reqleave-date-section">
-                  <!-- <p class="test-class">Bla bla</p> -->
                   <div class="leave-date-section">
                      <div class="text-group">
                         <label class="labels" for="serviceName">Date</label><br>
                         <input class="LeaveRequestDate" type="date" name="date" id="takeLeaveDate" placeholder="--Select a date--">
-
                      </div>
-
                      <span class="error dateEmpty">
                         <?php echo $data['date_error']; ?>
                      </span>
-                     <!-- <input class="dateValidationMsg"> -->
                   </div>
                   <div class="reqleave-type-section">
                      <label class="labels" for="serviceName">Type</label><br>
@@ -157,25 +147,17 @@
                            {
                               echo $data['type_error'];
                            } ?>
-
                         </span>
                      </div>
-
                   </div>
                </div>
-               <span class="error request-date-error1">
-
-               </span>
-
+               <span class="error request-date-error1"></span>
                <div class="reqleave-reason-section">
                   <div class="text-group">
                      <label class="labels" for="serviceName">Reason</label><br>
-
                      <textarea type="text" name="reason" id="takeLeaveReason" placeholder="-- Type in --" class="addItemsModalTextArea" value="<?php echo $data['reason']; ?>"><?php echo $data['reason']; ?></textarea>
                   </div>
                   <span class="error"> <?php echo $data['reason_error']; ?></span>
-
-
                </div>
                <div class="reqleave-button-section">
                   <div class="modalbutton">
@@ -198,9 +180,7 @@
          <div class="new-type-head">
             <h1>Edit Leave Request</h1>
          </div>
-         <!-- <form action="<?php echo URLROOT; ?>/Leaves/leaves" class="form" method="POST"> -->
          <div class="leaverequest-form-content">
-
             <div class="reqleave-date-section">
                <!-- <p class="test-class">Bla bla</p> -->
                <div class="leave-date-section">
@@ -217,28 +197,20 @@
                      }
                      else echo $data['dateValidationMsg']; ?>
                   </span>
-                  <!-- <input class="dateValidationMsg"> -->
                </div>
                <div class="reqleave-type-section">
                   <label class="labels" for="serviceName">Type</label><br>
                   <div class="dropdown-group">
-
                      <select name="leavetype" class="editleavetype" id="lstatus">
-                        <!-- <option value="All" selected></option> -->
                         <option class="unbold" value="0" option selected="true" disabled="disabled">Select</option>
                         <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>General</option>
                         <option value=2 <?php if ($data['leavetype'] == 2) echo 'selected'; ?>>Medical</option>
-
                      </select>
                   </div>
-
                </div>
             </div>
-
             <span class="error request-date-error">
-
             </span>
-
             <div class="reqleave-reason-section">
                <div class="text-group">
                   <label class="labels" for="serviceName">Reason</label><br>
@@ -246,8 +218,6 @@
                   <textarea type="text" name="reason" id="takeLeaveReason" placeholder="-- Type in --" class="editTextArea" value="<?php echo $data['reason']; ?>"><?php echo $data['reason']; ?></textarea>
                </div>
                <span class="error"> <?php echo $data['reason_error']; ?></span>
-
-
             </div>
             <div class="reqleave-button-section">
                <div class="modalbutton">
@@ -260,15 +230,9 @@
                </div>
             </div>
          </div>
-         <!-- </form> -->
-
       </div>
    </div>
-
-
-
    <!-- end edit leave model -->
-
    <!-- delete leave Request model -->
    <div class="modal-container delete-leave">
       <div class="modal-box leave_delete">
@@ -286,14 +250,10 @@
                </div>
             </div>
          </form>
-
       </div>
-
    </div>
-
    <!-- end delete leave request model -->
 </div>
-
 
 
 <script src="<?php echo URLROOT ?>/public/js/tableFilter.js"></script>
