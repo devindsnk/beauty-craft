@@ -74,20 +74,20 @@ function updateServiceProvidersList() {
 	fetch(`http://localhost:80/beauty-craft/Reservations/getUpdatedSProvidersList/${selectedService}/${selectedDate}/${startTime}`)
 		.then((response) => response.json())
 		.then((sProvidersList) => {
-				// Adding default option
-				sProviderSelector.innerHTML = "";
-				var option = document.createElement("option");
-				option.text = "Select";
-				option.disabled = true;
-				option.selected = true;
-				option.value = "";
-				sProviderSelector.appendChild(option);
+			// Adding default option
+			sProviderSelector.innerHTML = "";
+			var option = document.createElement("option");
+			option.text = "Select";
+			option.disabled = true;
+			option.selected = true;
+			option.value = "";
+			sProviderSelector.appendChild(option);
 
-				// Adding service providers
-				for (const staffID in sProvidersList) {
-					let sProvider = sProvidersList[staffID];
-					let option = document.createElement("option");
-					let errorText = (sProvider.leave || sProvider.occupied) ? "⚠ " : "");
+			// Adding service providers
+			for (const staffID in sProvidersList) {
+				let sProvider = sProvidersList[staffID];
+				let option = document.createElement("option");
+				let errorText = (sProvider.leave || sProvider.occupied) ? "⚠ " : "";
 				// if(sProvider.leave) console.log(staffID + " " + sProvider.name + " is on LEAVE");
 				// if(sProvider.occupied) console.log(staffID + " " + sProvider.name + " is OCCUPIED");
 				option.text = errorText + sProvider.name;
