@@ -101,7 +101,7 @@ class LeaveModel extends Model
    public function getLeaveCountOfSelectedMonth($month, $year, $staffID, $ltype)
    {
 
-
+    
       $results = $this->customQuery(
 
          "SELECT COUNT(*) AS leaveCount FROM generalleaves WHERE (MONTH(leaveDate)=:month and YEAR(leaveDate)=:year) AND (staffID=:staffID) AND leaveType=:ltype AND (status=1 OR status=2 OR status=3)",
@@ -347,23 +347,18 @@ class LeaveModel extends Model
 
    //for owner salaries
    //to get casual leave count of a receptionist/servise provider for a relavant month 
-   public function casualLeaveByStaffID($staffID,$staffType)
+   public function casualLeaveByStaffID($staffID)
    {
-      // $time=strtotime($dateValue);
-      // $month=date("F",$time);
-      // $year=date("Y",$time);
 
+      $month = 1;
       $results = $this->getResultSet('generalleaves','*', ['staffID' => $staffID ,'status'=> 4, 'leaveType' => 'casual']);
       print_r($results);
       return $results;
    }
 
-   public function managerCasualLeaveByStaffID($staffID,$staffType)
+   public function managerCasualLeaveByStaffID($staffID)
    {
-      // $time=strtotime($dateValue);
-      // $month=date("F",$time);
-      // $year=date("Y",$time);
-
+      $month = 1;
       $results = $this->getResultSet('generalleaves','*', ['staffID' => $staffID ,'status'=> 4, 'leaveType' => 'casual']);
       print_r($results);
       return $results;

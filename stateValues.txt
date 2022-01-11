@@ -32,7 +32,7 @@ Service
 
 Leave Requests
 0 - Rejected
-1 - Approved
+1 - Approved 
 2 - Pending
 3 - Rejected Medical
 
