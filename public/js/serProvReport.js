@@ -25,7 +25,7 @@ function putServiceProvReportTableData(month) {
         myTable2.rows[i].cells[1].innerHTML = reportDetails[i - 1][0]['fName'] + " " + reportDetails[i - 1][0]['lName'];
         myTable2.rows[i].cells[2].innerHTML = reportDetails[i - 1][0]['NoOFService'];
         myTable2.rows[i].cells[3].innerHTML = reportDetails[i - 1][0]['NoOfRes'];
-        myTable2.rows[i].cells[4].innerHTML = reportDetails[i - 1][0]['TotalServicePrice'];
+        myTable2.rows[i].cells[4].innerHTML = reportDetails[i - 1][0]['TotalServicePrice'] + ' LKR';
 
       }
       var totalRes = 0;
@@ -35,7 +35,7 @@ function putServiceProvReportTableData(month) {
         totalIncome = totalIncome + parseInt(reportDetails[i][0]['TotalServicePrice']);
       }
       myTable2.rows[reportDetails.length + 1].cells[3].innerHTML = totalRes;
-      myTable2.rows[reportDetails.length + 1].cells[4].innerHTML = totalIncome;
+      myTable2.rows[reportDetails.length + 1].cells[4].innerHTML = totalIncome + ' LKR';
     })
 }
 
@@ -55,13 +55,6 @@ const serviceProvSelectError = document.querySelector(".serviceProvSelectError")
 const serviceProvFromError = document.querySelector(".serviceProvFromError");
 const serviceProvToError = document.querySelector(".serviceProvToError");
 
-function convertToYYMM(str) {
-  var date = new Date(str),
-    mnth = ("0" + (date.getMonth() + 1)).slice(-2);
-  return [date.getFullYear(), mnth].join("-");
-}
-
-
 if (selectedServiceProv != null) {
   const today = new Date()
 
@@ -72,22 +65,21 @@ if (selectedServiceProv != null) {
   sProvResCardTableData();
   serviceProvSearchBtn.addEventListener('click',
     function () {
-
+      var diff = monthDifference(serviceProviderFromDate.value, serviceProviderToDate.value);
       var errorVal = 0;
 
-      if (serviceProviderFromDate.value == 0) {
+      if (diff > 12) {
+        console.log('sss');
+        serviceProvToError.innerHTML = "Select a month range within 12 months";
+        serviceProvFromError.innerHTML = "Select a month range within 12 months";
+        errorVal = 1;
+      } else if (serviceProviderFromDate.value == 0) {
         serviceProvFromError.innerHTML = "please select a month";
         errorVal = 1;
-      } else {
-        serviceProvFromError.innerHTML = "";
-      }
-      if (serviceProviderToDate.value == 0) {
+      } else if (serviceProviderToDate.value == 0) {
         serviceProvToError.innerHTML = "please select a month";
         errorVal = 1;
-      } else {
-        serviceProvToError.innerHTML = "";
-      }
-      if (serviceProviderFromDate.value > serviceProviderToDate.value || serviceProviderFromDate.value > serviceProviderToDate.value) {
+      } else if (serviceProviderFromDate.value > serviceProviderToDate.value || serviceProviderFromDate.value > serviceProviderToDate.value) {
         serviceProvFromError.innerHTML = "please select a valid range";
         serviceProvToError.innerHTML = "please select a valid range";
         errorVal = 1;

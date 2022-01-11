@@ -25,7 +25,7 @@ function putServiceReportTableData(month) {
         myTable1.rows[i].cells[1].innerHTML = reportDetails[i - 1][0]['name'];
         myTable1.rows[i].cells[2].innerHTML = reportDetails[i - 1][0]['NoOFStaff'];
         myTable1.rows[i].cells[3].innerHTML = reportDetails[i - 1][0]['NoOfRes'];
-        myTable1.rows[i].cells[4].innerHTML = reportDetails[i - 1][0]['TotalServicePrice'];
+        myTable1.rows[i].cells[4].innerHTML = reportDetails[i - 1][0]['TotalServicePrice'] + ' LKR';
 
       }
       var totalRes = 0;
@@ -35,7 +35,7 @@ function putServiceReportTableData(month) {
         totalIncome = totalIncome + parseInt(reportDetails[i][0]['TotalServicePrice']);
       }
       myTable1.rows[reportDetails.length + 1].cells[3].innerHTML = totalRes;
-      myTable1.rows[reportDetails.length + 1].cells[4].innerHTML = totalIncome;
+      myTable1.rows[reportDetails.length + 1].cells[4].innerHTML = totalIncome + ' LKR';
 
     })
 }
@@ -63,10 +63,19 @@ function convertToYYMM(str) {
     mnth = ("0" + (date.getMonth() + 1)).slice(-2);
   return [date.getFullYear(), mnth].join("-");
 }
+function monthDifference(date1, date2) {
+  startDate = new Date(date1);
+  endDate = new Date(date2);
+  var months;
+  months = (endDate.getFullYear() - startDate.getFullYear()) * 12;
+  months -= startDate.getMonth();
+  months += endDate.getMonth();
+  return months <= 0 ? 0 : months;
+}
 
 if (selectedService != null) {
   const today = new Date()
-
+  console.log(today);
   selectedServiceFromDate.value = convertToYYMM(today);
   selectedServiceToDate.value = convertToYYMM(today);
 
@@ -75,21 +84,22 @@ if (selectedService != null) {
   serviceSearchBtn.addEventListener('click',
     function () {
 
+      var diff = monthDifference(selectedServiceFromDate.value, selectedServiceToDate.value);
+      console.log(diff);
       var errorVal = 0;
 
-      if (selectedServiceFromDate.value == 0) {
+      if (diff > 12) {
+        console.log('sss');
+        serviceToError.innerHTML = "Select a month range within 12 months";
+        serviceFromError.innerHTML = "Select a month range within 12 months";
+        errorVal = 1;
+      } else if (selectedServiceFromDate.value == 0) {
         serviceFromError.innerHTML = "please select a month";
         errorVal = 1;
-      } else {
-        serviceFromError.innerHTML = "";
-      }
-      if (selectedServiceToDate.value == 0) {
+      } else if (selectedServiceToDate.value == 0) {
         serviceToError.innerHTML = "please select a month";
         errorVal = 1;
-      } else {
-        serviceToError.innerHTML = "";
-      }
-      if (selectedServiceFromDate.value > selectedServiceToDate.value || selectedServiceFromDate.value > selectedServiceToDate.value) {
+      } else if (selectedServiceFromDate.value > selectedServiceToDate.value || selectedServiceFromDate.value > selectedServiceToDate.value) {
         serviceFromError.innerHTML = "please select a valid range";
         serviceToError.innerHTML = "please select a valid range";
         errorVal = 1;
