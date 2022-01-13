@@ -20,9 +20,7 @@
 <?php $cusD = $data['cusDetails'];
       $cusCancelledResC =  $data['cancelledResCount'];
       $cusAllResC = $data['allResCount'];
-print_r($cusD[0]);
-print_r($cusCancelledResC);
-print_r($cusAllResC);
+      $cusSales = $data['sales'];
 ?>
       <div class="Cards">
          <!----------------------------------------------------- Profile details starts --------------------------------->
@@ -40,7 +38,6 @@ print_r($cusAllResC);
 
          <!--------------------------------- Basic Info Details Card starts ---------------------------------------------->
 
-
          <div class="Card2 contentBox ">
             <!-- Basic Info Details Head  -->
             <div class="CardHead">
@@ -49,10 +46,6 @@ print_r($cusAllResC);
             <!-- Basic Info Details  -->
 
             <!-- section break line starts -->
-            <!-- <div class="ownAddstaffLineContainer">
-                  <div class="ownAddstaffLines">
-                  </div>
-               </div> -->
             <hr id="sectionBreackLine">
             <!-- section break line endss -->
 
@@ -163,7 +156,7 @@ print_r($cusAllResC);
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                        25,350.00 LKR
+                     <?php echo $cusSales ?> LKR
                      </span>
                   </div>
                </div>

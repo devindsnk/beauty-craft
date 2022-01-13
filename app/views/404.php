@@ -19,12 +19,7 @@
          <h3>404 - PAGE NOT FOUND!</h3>
          <button class="btn btn-filled btn-theme-purple" onclick="history.back()">Go Back</button>
       </div>
-
    </div>
-
-
 </body>
-
-
 
 </html>

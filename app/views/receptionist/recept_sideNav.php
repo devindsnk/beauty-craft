@@ -19,7 +19,7 @@
 
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "DailyView") echo " selected" ?>" href="<?php echo URLROOT ?>/ReceptDashboard/dailyView">
+            <a class="optionLink <?php if ($selectedMain == "DailyView") echo " selected" ?>" href="<?php echo URLROOT ?>/ReceptDashboard/dailyView/<?php echo DateTimeExtended::getCurrentDate(); ?>">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-calendar"></i>
                </div>
@@ -30,7 +30,7 @@
 
          <!--Sidebar Item-->
          <li class="mainOption menuOption">
-            <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="<?php echo URLROOT ?>/Reservations/viewAllReservations">
+            <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="<?php echo URLROOT ?>/Reservations/viewAllReservations/all/all/all">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-tasks"></i>
                </div>

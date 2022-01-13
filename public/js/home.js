@@ -3,7 +3,9 @@
 /* ----------------- JS ADDED BY DEVIN -------------------*/
 /* ------------------------------------------------------ */
 
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () {
+   scrollFunction()
+};
 
 // menuBtn event listener
 const menuBtn = document.querySelector(".menuBtn");
@@ -73,7 +75,7 @@ function scrollFunction() {
          li.style.paddingTop = "20px";
       });
    }
- } 
+}
 
 
 

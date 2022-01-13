@@ -11,32 +11,42 @@ class ReceptDashboard extends Controller
    }
    public function home()
    {
-      redirect('ReceptDashboard/dailyView');
+      $curDate =  DateTimeExtended::getCurrentDate();
+      redirect('ReceptDashboard/dailyView/' . $curDate);
    }
-   public function dailyView()
+   public function dailyView($date, $sProvider = null)
    {
+      if (is_null($sProvider))
+      {
+         $reservations = $this->reservationModel->getUpcomingReservationsByDate($date);
+      }
+      else
+      {
+         $reservations = $this->reservationModel->getUpcomingReservationsByDateAndStaff($date, $sProvider);
+      }
+
       $serviceProviders = $this->serviceModel->getServiceProviderDetails();
+
       $data = [
-         'serviceProvidersList' => $serviceProviders
+         'selectedDate' => $date,
+         'selectedStaffID' => $sProvider,
+         'serviceProvidersList' => $serviceProviders,
+         'reservations' => $reservations
       ];
 
       $this->view('receptionist/recept_dailyView', $data);
    }
    public function newReservation()
    {
-      // Session::validateSession([4]);
       $this->view('receptionist/recept_newReservation');
    }
    public function recallRequests()
    {
-      // Session::validateSession([4]);
       $results = $this->reservationModel->getAllPendingRecallRequests();
       $this->view('receptionist/recept_recallRequests', $results);
    }
    public function sales()
    {
-      // Session::validateSession([4]);
-
       // TODO : sort invoices by date 
       $invoices = $this->salesModel->getAllInvoices();
       $this->view('receptionist/recept_sales', $invoices);
@@ -53,18 +63,16 @@ class ReceptDashboard extends Controller
          $data = $this->salesModel->getRefInvoice_ReservationData($invoiceNo);
       }
       $data->type = $type;
-      // var_dump($data);
+
       $this->view('receptionist/recept_invoiceView', $data);
    }
 
    public function customers()
    {
-      // Session::validateSession([4]);
       $this->view('receptionist/recept_customers');
    }
    public function staffMembers()
    {
-      // Session::validateSession([4]);
       $staffDetails = $this->staffModel->getStaffDetails();
 
       $GetStaffArray = ['staff' => $staffDetails];
@@ -73,7 +81,6 @@ class ReceptDashboard extends Controller
 
    public function reservationMoreInfo()
    {
-      // Session::validateSession([4]);
       $this->view('common/reservationMoreInfo');
    }
 }

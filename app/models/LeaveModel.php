@@ -349,9 +349,9 @@ class LeaveModel extends Model
    //to get casual leave count of a receptionist/servise provider for a relavant month 
    public function casualLeaveByStaffID($staffID, $staffType)
    {
-      $time = strtotime($dateValue);
-      $month = date("F", $time);
-      $year = date("Y", $time);
+      // $time=strtotime($dateValue);
+      // $month=date("F",$time);
+      // $year=date("Y",$time);
 
       $results = $this->getResultSet('generalleaves', '*', ['staffID' => $staffID, 'status' => 4, 'leaveType' => 'casual']);
       print_r($results);

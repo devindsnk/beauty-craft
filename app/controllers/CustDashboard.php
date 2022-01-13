@@ -22,7 +22,6 @@ class CustDashboard extends Controller
    }
    public function profileSettings()
    {
-      // Session::validateSession([6]);
       $this->view('customer/cust_profileSettings');
    }
 }
