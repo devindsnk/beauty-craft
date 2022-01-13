@@ -21,7 +21,7 @@ $(document).ready(function () {
         count[1] = data['results2'][0]['onlineCustCount']
 
         var chartdata = {
-          labels: ["Online", "Walk-in"],
+          labels: ["Walk-in", "Online"],
           datasets: [
             {
               label: 'No of customers',
