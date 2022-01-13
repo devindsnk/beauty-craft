@@ -25,17 +25,17 @@
                   <div class="column">
                      <div class="text-group">
                         <label class="label" for="fName">Date</label>
-                        <input type="text" name="" id="fName" placeholder="Your first name here">
+                        <input type="date" name="" id="datePicker" value="<?php echo $data["selectedDate"] ?>">
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
                   </div>
                   <div class="column">
                      <div class="dropdown-group">
                         <label class="label" for="lName">Service Provider</label>
-                        <select>
+                        <select id="staffSelector">
                            <option value="" selected>All</option>
-                           <?php foreach ($data['serviceProvidersList'] as $serviceProvider) : ?>
-                              <option value=""><?php echo $serviceProvider->fName . " " . $serviceProvider->lName; ?></option>
+                           <?php foreach ($data['serviceProvidersList'] as $sProvider) : ?>
+                              <option value="<?php echo $sProvider->staffID ?>" <?php echo ($data["selectedStaffID"] ==  $sProvider->staffID) ? "selected" : ""; ?>><?php echo $sProvider->fName . " " . $sProvider->lName; ?></option>
                            <?php endforeach; ?>
                         </select>
                      </div>
@@ -44,63 +44,32 @@
                </div>
             </div>
             <div class="right-section">
-               <a href="" class="btn btn-filled btn-black">Search</a>
-               <!-- <button class="btn btn-search">Search</button> -->
+               <button type="button" id="filterDailyViewBtn" class="btn btn-filled btn-black">Search</button>
             </div>
          </div>
-
       </form>
 
 
       <div class="res-card-container">
-         <!-- <div class="titleBox">
-            <div class="service-column">Service</div>
-            <div class="service-prov-column">Service Provider</div>
-            <div class="customer-column">Customer</div>
-            <div class="contact-column">Contact No</div>
-         </div> -->
-         <div class="contentBox res-card">
-            <div class="time-box column">09:30 am</div>
-            <div class="service-name-box column">Hair Cuts - Ladies</div>
-            <div class="service-prov-box column">Service Provider Name</div>
-            <div class="customer-box column">Customer Name</div>
-            <div class="contact-box column">0717679714</div>
-            <div class="status-box column">
-               <span class="status-tag status-success-green">Cancelled</span>
+         <?php foreach ($data["reservations"] as $reservation) : ?>
+            <div class="contentBox res-card">
+               <div class="time-box column"><?php echo DateTimeExtended::minsToTime($reservation->startTime); ?></div>
+               <div class="service-name-box column"><?php echo $reservation->serviceName; ?></div>
+               <div class="service-prov-box column"><?php echo $reservation->staffFName . " " . $reservation->staffLName; ?></div>
+               <div class="customer-box column"><?php echo $reservation->custFName . " " . $reservation->custLName ?></div>
+               <div class="contact-box column"><?php echo $reservation->custMobileNo; ?></div>
+               <div class="status-box column">
+                  <span class="status-tag status-success-green">Cancelled</span>
+               </div>
+               <div class="opt-box">
+                  <a href="#"><i class="ci-view-more table-icon img-gap"></i></a>
+               </div>
             </div>
-            <div class="opt-box">
-               <a href="#"><i class="ci-view-more table-icon img-gap"></i></a>
-            </div>
-         </div>
-         <div class="contentBox res-card">
-            <div class="time-box column">09:30 am</div>
-            <div class="service-name-box column">Hair Cuts - Ladies</div>
-            <div class="service-prov-box column">Service Provider Name</div>
-            <div class="customer-box column">Customer Name</div>
-            <div class="contact-box column">0717679714</div>
-            <div class="status-box column">
-               <span class="status-tag status-success-green">Cancelled</span>
-            </div>
-            <div class="opt-box">
-               <a href="#"><i class="ci-view-more table-icon img-gap"></i></a>
-            </div>
-         </div>
-         <div class="contentBox res-card">
-            <div class="time-box column">09:30 am</div>
-            <div class="service-name-box column">Hair Cuts - Ladies</div>
-            <div class="service-prov-box column">Service Provider Name</div>
-            <div class="customer-box column">Customer Name</div>
-            <div class="contact-box column">0717679714</div>
-            <div class="status-box column">
-               <span class="status-tag status-success-green">Cancelled</span>
-            </div>
-            <div class="opt-box">
-               <a href="#"><i class="ci-view-more table-icon img-gap"></i></a>
-            </div>
-         </div>
+         <?php endforeach; ?>
 
       </div>
    </div>
    <!--End Content-->
+   <script src="<?php echo URLROOT ?>/public/js/filters.js"></script>
 
    <?php require APPROOT . "/views/inc/footer.php" ?>

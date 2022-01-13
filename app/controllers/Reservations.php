@@ -12,14 +12,18 @@ class Reservations extends Controller
       $this->salesModel = $this->model('SalesModel');
    }
 
-   public function viewAllReservations()
+   public function viewAllReservations($sType = "all", $sProvider = "all", $status = "all")
    {
       Session::validateSession([2, 3, 4]);
+
       $serviceProviders = $this->serviceModel->getServiceProviderDetails();
       $serviceTypes = $this->serviceModel->getServiceTypeDetails();
-      $reservations = $this->reservationModel->getAllReservations();
+      $reservations = $this->reservationModel->getAllReservationsWithFilters($sType, $sProvider, $status);
 
       $data = [
+         'selectedType' => $sType,
+         'selectedStaffID' => $sProvider,
+         'selectedStatus' => $status,
          'serviceProvidersList' => $serviceProviders,
          'serviceTypesList' => $serviceTypes,
          'reservationsList' => $reservations
@@ -37,8 +41,7 @@ class Reservations extends Controller
 
    public function newReservationCust()
    {
-      $servicesList = $this->serviceModel->getAllAvailableServices();
-
+      // TODO: remove the commented section after checking
       //    if ($_SERVER['REQUEST_METHOD'] == 'POST')
       //    {
       //       $data = [
@@ -77,6 +80,9 @@ class Reservations extends Controller
       //    }
       //    else
       //    {
+
+      $servicesList = $this->serviceModel->getAllAvailableServices();
+
       $data = [
          'customerID' => '',
          'serviceID' => '',
@@ -85,7 +91,6 @@ class Reservations extends Controller
          'startTime' => '',
          'endTime' => 0,
          'remarks' => '',
-         // 'status' => trim($_POST['mobileNo']),
 
          'serviceID_error' => '',
          'staffID_error' => '',
@@ -97,7 +102,6 @@ class Reservations extends Controller
       ];
 
       $this->view('customer/cust_addNewReservation', $data);
-      //    }
    }
 
    public function placeReservation($serviceID, $staffID, $date, $startTime, $remarks = null)
@@ -129,7 +133,6 @@ class Reservations extends Controller
             'startTime' => trim($_POST['startTime']),
             'endTime' => trim($_POST['endTime']),
             'remarks' => trim($_POST['remarks']),
-            // 'status' => trim($_POST['mobileNo']),
 
             'serviceID_error' => trim($_POST['serviceID']),
             'staffID_error' => trim($_POST['staffID']),
@@ -271,7 +274,6 @@ class Reservations extends Controller
 
          if ($availQuantity - $allocQuantity < $reqQuantity)
          {
-            // echo $resourceID . "NOT ENOUGH\n";
             return false;
          }
       }
@@ -309,11 +311,6 @@ class Reservations extends Controller
          }
          $NewSlotsSummary[$i]["resources"] +=
             [$slot->resourceID => $slot->requiredQuantity];
-
-         // array_push(
-         //    $NewSlotsSummary[$i]["resources"],
-         //    [$slotResource->resourceID => $slotResource->requiredQuantity]
-         // );
       }
       return $NewSlotsSummary;
    }
@@ -350,7 +347,7 @@ class Reservations extends Controller
    {
       $this->reservationModel->beginTransaction();
       $result1 = $this->reservationModel->markRecallResponded($reservationID);
-      $result2 = $this->reservationModel->cancelReservation($reservationID);
+      $result2 = $this->reservationModel->markReservationCancelled($reservationID);
       $this->reservationModel->commit();
 
       if ($result1 && $result2)
@@ -377,7 +374,7 @@ class Reservations extends Controller
 
    public function cancelReservation($reservationID)
    {
-      $results = $this->reservationModel->cancelReservation($reservationID);
+      $results = $this->reservationModel->markReservationCancelled($reservationID);
 
       if ($results)
          Toast::setToast(1, "Reservation cancelled successfully", "");
@@ -404,11 +401,6 @@ class Reservations extends Controller
       print_r(json_encode($result1 && $result2));
    }
 
-   public function notFound()
-   {
-      $this->view('404');
-   }
-
    public function provideFeedback($reservationID, $rating, $comment)
    {
       $results = $this->reservationModel->storeFeedback($reservationID, $rating, $comment);
@@ -420,5 +412,10 @@ class Reservations extends Controller
 
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($results));
+   }
+
+   public function notFound()
+   {
+      $this->view('404');
    }
 }

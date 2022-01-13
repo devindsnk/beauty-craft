@@ -41,7 +41,7 @@ class Sales extends Controller
     public function voidRefundInvoice($refInvoiceNo)
     {
         $results = $this->salesModel->voidRefundInvoice($refInvoiceNo);
-
+        
         if ($results)
             Toast::setToast(1, "Refund cancelled successfuly", "");
         else
