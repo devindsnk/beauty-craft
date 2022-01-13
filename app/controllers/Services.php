@@ -107,6 +107,10 @@ class Services extends Controller
             {
                $data['sPrice_error'] = "Please enter a numeric value for price";
             }
+            elseif ($data['price'] < 0)
+            {
+               $data['sPrice_error'] = "Please enter a valid price";
+            }
             if (empty($data['slot1Duration']))
             {
                $data['sSlot1Duration_error'] = "Please enter slot duration";
@@ -451,6 +455,10 @@ class Services extends Controller
             {
                $data['sPrice_error'] = "Please enter a numeric value for price";
             }
+            elseif ($data['price'] < 0)
+            {
+               $data['sPrice_error'] = "Please enter a valid price";
+            }
             if (empty($data['slot1Duration']))
             {
                $data['sSlot1Duration_error'] = "Please enter slot duration";
@@ -509,6 +517,9 @@ class Services extends Controller
                else
                {
                   $this->ServiceModel->updateService($serviceID, $data, $slotNo);
+
+                  // print_r($_SESSION['recallResuestsFromUpdateService']);
+                  // die('wdwdw');
 
                   if (Session::get("recallResuestsFromUpdateService")["sProvID"])
                   {
@@ -626,9 +637,25 @@ class Services extends Controller
          $this->view('manager/mang_serviceUpdate', $data);
       }
    }
+   public function createSessionArray()
+   {
+      $_SESSION['recallResuestsFromUpdateService'] = array();
+   }
    public function recallReservationsFromUpdateService($sProvID, $reservationIDs)
    {
+      // if (!isset($_SESSION['recallResuestsFromUpdateService']))
+      // {
+      //    $_SESSION['recallResuestsFromUpdateService'] = array();
+      // }
+
       $selectedreservationList = explode(",", $reservationIDs);
+
+      // $resDetailsArray = [
+      //    'resIDs' => $selectedreservationList,
+      //    'sProvs' => $sProvID,
+      // ];
+
+      // array_push($_SESSION['recallResuestsFromUpdateService'], $resDetailsArray);
 
       // $sProvIDAll = array();
       // $reservationIDsDAll = array();

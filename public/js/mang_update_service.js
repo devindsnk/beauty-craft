@@ -6,6 +6,7 @@ const recallFromUpdateServiceBtn = document.querySelectorAll(".sProvCheckBoxes")
 const recallbtnFromUpdate = document.querySelector(".recallModalRecallBtn");
 const cancelbtnFromUpdate = document.querySelector(".recallModalCancelBtn");
 
+var spar = 0;
 for (var i = 0; i < sProveChecker.length; i++) {
 
     let sProvID = sProveChecker[i].value;
@@ -41,6 +42,10 @@ function eachsProveChecker(checkedItem, sProvID, sID) {
                 }
                 recallbtnFromUpdate.addEventListener('click',
                     function () {
+                        // if (spar == 0) {
+                        //     createSessionArray();
+                        //     spar++;
+                        // }
                         recallReservations(sProvID, ress);
                         closeModalUS()
                     }
@@ -56,8 +61,16 @@ function eachsProveChecker(checkedItem, sProvID, sID) {
             });
     }
 }
-function recallReservations(sProvID, ress, ressReson) {
-    console.log('recall2');
+function createSessionArray() {
+    console.log('qqqq');
+    fetch(`http://localhost:80/beauty-craft/Services/createSessionArray`)
+        .then()
+        .catch(err => {
+            // console.log("Error Reading data :" + err);
+        });
+}
+function recallReservations(sProvID, ress) {
+    console.log(sProvID);
     fetch(`http://localhost:80/beauty-craft/Services/recallReservationsFromUpdateService/${sProvID}/${ress}`)
         .then()
         .catch(err => {
@@ -67,9 +80,11 @@ function recallReservations(sProvID, ress, ressReson) {
 
 //  start model for recall request
 let modalToToggleUS = null;
-cancelbtnFromUpdate.addEventListener("click", function () {
-    closeModalUS();
-});
+if (cancelbtnFromUpdate) {
+    cancelbtnFromUpdate.addEventListener("click", function () {
+        closeModalUS();
+    });
+}
 
 function toggleModalUS() {
     modalToToggleUS.classList.add("show");
