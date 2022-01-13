@@ -235,13 +235,25 @@ class ReservationModel extends Model
    // END FOR ANALYTICS
 
    //FOR SP overview
-   public function getReservationsByStaffID($staffID)
+   public function getReservationsByStaffIDForSpRes($staffID, $rType)
    {
-      $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
+      if ($rType == 'all')
+      {
+         $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
       FROM reservations 
       INNER JOIN services ON services.serviceID = reservations.serviceID
       INNER JOIN customers ON customers.customerID = reservations.customerID
       WHERE staffID=:staffID ORDER BY date", [':staffID' => $staffID,]);
+      }
+      else
+      {
+         $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
+      FROM reservations 
+      INNER JOIN services ON services.serviceID = reservations.serviceID
+      INNER JOIN customers ON customers.customerID = reservations.customerID
+      WHERE staffID=:staffID AND reservations.status=:rType  ORDER BY date", [':staffID' => $staffID, ':rType' => $rType]);
+      }
+
       return $results;
    }
 
@@ -259,11 +271,12 @@ class ReservationModel extends Model
 
    public function getReservationMoreInfoByID($reservationID)
    {
-      $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName,customers.customerNote 
+      $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName,customers.customerNote,recallrequests.reason AS recallReason,recallrequests.status As recallStatus 
       FROM reservations 
       INNER JOIN services ON services.serviceID = reservations.serviceID
       INNER JOIN customers ON customers.customerID = reservations.customerID
-      WHERE reservationID=:reservationID ", [':reservationID' => $reservationID,]);
+      LEFT JOIN recallrequests ON recallrequests.reservationID=reservations.reservationID
+      WHERE reservations.reservationID=:reservationID", [':reservationID' => $reservationID,]);
 
       return $results[0];
    }

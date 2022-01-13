@@ -57,15 +57,8 @@
             <!--sub-container2-card-->
             <div class="reservationlist">
                 <div class="scroll-area">
-
                     <?php foreach ($data['reservationData'] as $reservation) : ?>
-
-
-
-
-
                         <div class="sub-container2-card">
-
                             <!--sub-container2-card-timetype-->
                             <div class="sub-container2-card-ts">
                                 <span class="sub-container2-card-time"><?php echo $reservation->startTime . " - " . $reservation->endTime; ?></span>
@@ -94,31 +87,16 @@
                                         <span>Recalled</span>
                                     </div>
                                 <?php endif; ?>
-
                             </div>
-
-
                             <div class="sub-container2-card-link">
                                 <button class="btnOpen btnResMoreInfo" data-id="<?php echo $reservation->reservationID; ?>">More
                                     Info
                                 </button>
-
                             </div>
-
                         </div>
-
-
-
                     <?php endforeach; ?>
-
-
                     <!-- end web view -->
                 </div>
-                <!-- <div class="mobview">
-
-                        End mobile sub-container2-card
-                    </div> -->
-                <!--End scroll area-->
             </div>
         </div>
 
@@ -138,7 +116,7 @@
                         </div>
                         <div class="modaldetails-status green">
 
-                            <div class="moredetails-confirm-status">
+                            <div class="moredetails-confirm-status" id="resStatus">
                                 <span class="spn-moredetails-confirm-status"></span>
                             </div>
 
@@ -210,7 +188,7 @@
                     </div>
                     <div class="recall-modaldetails-status">
 
-                        <div class="recall-moredetails-confirm-status">
+                        <div class="recall-moredetails-confirm-status" id="recallResStatus">
                             <span class="recall-spn-moredetails-confirm-status"></span>
                         </div>
 
@@ -253,7 +231,7 @@
                             <!-- <button class="btn  backBtn btnResMoreInfo" ">Back</button> -->
                             <button class="btn btnBack normal" value="close">Back</button>
 
-                            <button class="btnOpen recall  proceedBtn btn btn-filled " value="sendRecall" onclick="proceedRecall(this);"></button>
+                            <button class="btnOpen recall  proceedBtn btn btn-filled " value="sendRecall" onclick="proceedRecall(this);">Delete</button>
 
 
 

@@ -11,15 +11,32 @@
    }
    public function overview()
    {
-      $this->view('serviceProvider/serProv_overview');
+      $view = 'overview';
+      // $this->view('serviceProvider/serProv_' . $view);
+      Session::validateSession([5]);
+      $reservationData = $this->reservationModel->getReservationsByStaffID(Session::getUser("id"));
+
+      $this->provideReservationView($reservationData, $view);
    }
 
    public function dailyview()
    {
+      $view = 'dailyview';
       Session::validateSession([5]);
       $reservationData = $this->reservationModel->getReservationsByStaffID(Session::getUser("id"));
+      $this->provideReservationView($reservationData, $view);
+   }
 
+   public function reservations($rType = "all")
+   {
+      $view = 'reservations';
+      Session::validateSession([5]);
+      $reservationData = $this->reservationModel->getReservationsByStaffIDForSpRes(Session::getUser("id"), $rType);
+      $this->provideReservationView($reservationData, $view);
+   }
 
+   public function provideReservationView($reservationData, $view)
+   {
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
          $data = [
@@ -31,9 +48,6 @@
             'customerNote' => '',
             'recallReason' => '',
             'recallReason_error' => '',
-
-
-
          ];
 
          if ($_POST['action'] == 'moreInfo')
@@ -42,7 +56,7 @@
             $data['reservationMoreInfo'] = $this->reservationModel->getReservationMoreInfoByID(trim($_POST['selectedReservation']));
             $data['moreInfoModelOpen'] = 1;
 
-            $this->view('serviceProvider/serProv_dailyview', $data);
+            $this->view('serviceProvider/serProv_' . $view, $data);
          }
 
 
@@ -54,13 +68,13 @@
             $data['moreInfoModelOpen'] = 1;
 
             $this->reservationModel->updateCustomerNote($data);
-            redirect('SerProvDashboard/dailyview');
+            redirect('SerProvDashboard/' . $view);
          }
 
          if ($_POST['action'] == 'close')
          {
             $data['moreInfoModelOpen'] = 0;
-            redirect('SerProvDashboard/dailyview');
+            redirect('SerProvDashboard/' . $view);
          }
 
 
@@ -77,7 +91,7 @@
                $data['recallReason'] = $this->reservationModel->getRecallReasonByReservationID(trim($_POST['selectedReservation']));
             }
 
-            $this->view('serviceProvider/serProv_dailyview', $data);
+            $this->view('serviceProvider/serProv_' . $view, $data);
          }
 
 
@@ -93,7 +107,7 @@
 
             if ($data['recallReason_error'])
             {
-               $this->view('serviceProvider/serProv_dailyview', $data);
+               $this->view('serviceProvider/serProv_' . $view, $data);
             }
             else
             {
@@ -101,7 +115,7 @@
                $this->reservationModel->updateReservationRecalledState($data['selectedReservation'], 5);
                $this->reservationModel->addReservationRecall($data['selectedReservation'], $data['recallReason']);
 
-               redirect('SerProvDashboard/dailyview');
+               redirect('SerProvDashboard/' . $view);
             }
          }
          if ($_POST['action'] == 'cancelRecall')
@@ -110,20 +124,11 @@
             $data['selectedReservation'] = trim($_POST['selectedReservation']);
             $data['recallModelOpen'] = 0;
 
-
-            // if ($data['recallReason_error'])
-            // {
-            //    // die($data['recallReason_error']);
-            //    $this->view('serviceProvider/serProv_reservation', $data);
-            // }
-            // else
-            // {
             $this->reservationModel->beginTransaction();
             $this->reservationModel->updateReservationRecalledState($data['selectedReservation'], 1);
             $this->reservationModel->deleteReservationRecallRequest($data['selectedReservation']);
             $this->reservationModel->commit();
-            redirect('SerProvDashboard/dailyview');
-            // }
+            redirect('SerProvDashboard/' . $view);
          }
       }
 
@@ -140,145 +145,8 @@
             'recallReason_error' => ''
 
          ];
-         $this->view('serviceProvider/serProv_dailyview', $data);
+         $this->view('serviceProvider/serProv_' . $view, $data);
       }
-   }
-
-
-   public function reservations()
-   {
-
-      $reservationData = $this->reservationModel->getReservationsByStaffID(Session::getUser("id"));
-
-
-      // if ($_SERVER['REQUEST_METHOD'] == 'POST')
-      // {
-      //    $data = [
-      //       'reservationData' => $reservationData,
-      //       'reservationMoreInfo' => '',
-      //       'moreInfoModelOpen' => 0,
-      //       'recallModelOpen' => 0,
-      //       'selectedReservation' => '',
-      //       'customerNote' => '',
-      //       'recallReason' => '',
-      //       'recallReason_error' => '',
-
-
-
-      //    ];
-
-      //    // if ($_POST['action'] == 'moreInfo')
-      //    // {
-      //    //    // $data['selectedReservation'] = trim($_POST['selectedReservation']);
-      //    //    // $data['reservationMoreInfo'] = $this->reservationModel->getReservationMoreInfoByID(trim($_POST['selectedReservation']));
-      //    //    $data['moreInfoModelOpen'] = 1;
-
-      //    //    // $this->view('serviceProvider/serProv_reservations', $data);
-      //    // }
-
-
-      //    if ($_POST['action'] == 'saveChanges')
-      //    {
-      //       $data['selectedReservation'] = trim($_POST['selectedReservation']);
-      //       $data['reservationMoreInfo'] = $this->reservationModel->getReservationMoreInfoByID(trim($_POST['selectedReservation']));
-      //       $data['customerNote'] = trim($_POST['customerNote']);
-      //       $data['moreInfoModelOpen'] = 1;
-
-      //       $this->reservationModel->updateCustomerNote($data);
-      //       redirect('SerProvDashboard/reservations');
-      //    }
-
-      //    if ($_POST['action'] == 'close')
-      //    {
-      //       // die("hello");
-      //       $data['moreInfoModelOpen'] = 0;
-      //       redirect('SerProvDashboard/reservations');
-      //    }
-
-
-      //    if ($_POST['action'] == 'recall')
-      //    {
-
-      //       $data['selectedReservation'] = trim($_POST['selectedReservation']);
-      //       $data['reservationMoreInfo'] = $this->reservationModel->getReservationMoreInfoByID(trim($_POST['selectedReservation']));
-      //       $data['moreInfoModelOpen'] = 0;
-      //       $data['recallReason'] = trim($_POST['recallReason']);
-      //       $data['recallReason_error'] = emptyCheck(trim($_POST['recallReason']));
-      //       $data['recallModelOpen'] = 1;
-
-      //       if ($data['reservationMoreInfo'][0]->status == 5)
-      //       {
-      //          $data['recallReason'] = $this->reservationModel->getRecallReasonByReservationID(trim($_POST['selectedReservation']));
-      //       }
-
-      //       $this->view('serviceProvider/serProv_reservations', $data);
-      //    }
-
-      //    // $this->reservationModel->updateReservationRecalledState($data['selectedReservation'], 5);
-      //    // $this->reservationModel->addReservationRecall($data['selectedReservation'], $data['recallReason']);
-
-      //    if ($_POST['action'] == 'sendRecall')
-      //    {
-
-      //       $data['selectedReservation'] = trim($_POST['selectedReservation']);
-      //       $data['reservationMoreInfo'] = $this->reservationModel->getReservationMoreInfoByID(trim($_POST['selectedReservation']));
-      //       $data['recallReason'] = trim($_POST['recallReason']);
-      //       $data['recallReason_error'] = emptyCheck(trim($_POST['recallReason']));
-      //       $data['recallModelOpen'] = 1;
-
-
-      //       if ($data['recallReason_error'])
-      //       {
-      //          // die($data['recallReason_error']);
-      //          $this->view('serviceProvider/serProv_reservations', $data);
-      //       }
-      //       else
-      //       {
-
-      //          $this->reservationModel->updateReservationRecalledState($data['selectedReservation'], 5);
-      //          $this->reservationModel->addReservationRecall($data['selectedReservation'], $data['recallReason']);
-
-      //          redirect('SerProvDashboard/reservations');
-      //       }
-      //    }
-      //    if ($_POST['action'] == 'cancelRecall')
-      //    {
-
-      //       $data['selectedReservation'] = trim($_POST['selectedReservation']);
-      //       // die($data['selectedReservation']);
-      //       $data['recallModelOpen'] = 0;
-
-
-      //        if ($data['recallReason_error'])
-      //        {
-      //            die($data['recallReason_error']);
-      //           $this->view('serviceProvider/serProv_reservation', $data);
-      //        }
-      //        else
-      //        {
-      //       $this->reservationModel->beginTransaction();
-      //       $this->reservationModel->updateReservationRecalledState($data['selectedReservation'], 1);
-      //       $this->reservationModel->deleteReservationRecallRequest($data['selectedReservation']);
-      //       $this->reservationModel->commit();
-      //       redirect('SerProvDashboard/reservations');
-      //    }
-      // }
-
-      // else
-      // {
-      $data = [
-         'reservationData' => $reservationData,
-         'reservationMoreInfo' => '',
-         'moreInfoModelOpen' => 0,
-         'recallModelOpen' => 0,
-         'selectedReservation' => '',
-         'customerNote' => '',
-         'recallReason' => '',
-         'recallReason_error' => ''
-
-      ];
-      $this->view('serviceProvider/serProv_reservations', $data);
-      // }
    }
 
    public function getReservationListByDate($date)
@@ -293,14 +161,6 @@
    public function getReservationDetailsByID($selectedReservation)
    {
       $reservationData = $this->reservationModel->getReservationMoreInfoByID($selectedReservation);
-      // $recallData
-      //    = $this->reservationModel->getReservationRecallDataByID($selectedReservation);
-      // $reservationData['recallReason'] = $recallData['recallReason'];
-      // $data = [
-      //    'reservationData' => $reservationData,
-      //    'recallData' => '',
-
-      // ];
 
       header('Content-Type: application/json; charset=utf-8');
       echo (json_encode($reservationData));
@@ -317,8 +177,7 @@
    public function updateCustNote($selectedReservation, $note)
    {
       $reservationData = $this->reservationModel->updateCustomerNote($selectedReservation, $note);
-      header('Content-Type: application/json; charset=utf-8');
-      echo (json_encode($reservationData));
+      Toast::setToast(1, "Customer note changed.", "");
    }
 
    public function deleteRecallRequest($selectedReservation)

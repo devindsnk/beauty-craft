@@ -159,6 +159,7 @@ class Leaves extends Controller
                      else
                      {
                         $this->LeaveModel->requestleave($data);
+                        Toast::setToast(1, "Leave request sent successfully.", "");
                         redirect('Leaves/leaves');
                      }
                   }
@@ -305,6 +306,7 @@ class Leaves extends Controller
    {
       Session::validateSession([4, 5]);
       $this->LeaveModel->cancelLeaveRequest($date, Session::getUser("id"));
+      Toast::setToast(1, "Leave request deleted successfully.", "");
    }
    public function getSelectedLeaveDetails($date)
    {

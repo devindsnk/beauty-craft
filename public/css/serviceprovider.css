@@ -24,6 +24,11 @@
     margin-bottom: 20px;
 }
 
+.serprov .container1-card.card{
+margin-bottom: 68px;
+margin-top: 10px;
+}
+
 .serprov .sub-container1-card-content {
     display: flex;
     justify-content: center;
@@ -67,6 +72,7 @@
 .serprov .sub-content-container2 h2 {
     font-size: 27px;
     font-weight: 500;
+    
 }
 
 .reservationlist {
@@ -139,8 +145,23 @@ input.selectedReservation{
     width: 2px;
     visibility: hidden;
 }
+
+.content .filter-options .options-container.left {
+   
+    padding: 15px 50px 10px;
+}
 .content.serprov .modal-box{
     border-radius: 6px;
+}
+.content.serprov .filter-options .options-container {
+  display: flex;
+  /* padding: 0px 50px 0px; */
+  width: 100%;
+  min-width: 330px;
+ 
+}
+.sub-container1-card-content.res{
+    margin-left: 0px;
 }
 .serprov .sub-container2-card button {
     background: transparent;
@@ -364,10 +385,11 @@ input#takeLeaveDate.addItemsModalDate{
     display: flex;
     flex-direction: row;
     align-items: flex-end;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     height: 70px;
 }
+
 
 .serprov .modalbutton input:focus,
 .serprov .modalbutton textarea:focus {
@@ -566,6 +588,7 @@ textarea.customerNoteSection:focus,.recall-reason:focus {
 
 .serprov.leave .table2.table2-responsive {
     height: 600px;
+    
 }
 
 button.editicon {
@@ -616,7 +639,7 @@ button.editicon {
 }
 
 .leaverequesttable {
-    width: 70%;
+    width: 90%;
     margin: 0 auto 0 auto;
 }
 
@@ -639,11 +662,11 @@ span.leavelimitmsg{
     font-size: 13px;
     margin-left: 70px;
 }
-span.error{
+/* span.error{
     color:var(--theme-red);
     font-size: 15px;
     
-}
+} */
 .leavecountcard {
     display: flex;
     align-items: center;
@@ -739,6 +762,7 @@ input#date_input.selecteddate  {
 }
 .sub-container1-card-content.res{
     padding: 8px 10px;
+    margin-bottom: 63px;
     width: fit-content;
 }
 .sub-container1-card-content .mainsection{
