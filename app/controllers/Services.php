@@ -518,20 +518,19 @@ class Services extends Controller
                {
                   $this->ServiceModel->updateService($serviceID, $data, $slotNo);
 
-                  // print_r($_SESSION['recallResuestsFromUpdateService']);
-                  // die('wdwdw');
-
-                  if (Session::get("recallResuestsFromUpdateService")["sProvID"])
+                  $resState = 5;
+                  foreach ($_SESSION['recallRequestsFromUpdateService'] as $key => $value)
                   {
-                     $resSPRov = Session::get("recallResuestsFromUpdateService")["sProvID"];
-                     $resList = Session::get("recallResuestsFromUpdateService")["selectedreservationList"];
-                     // $reason = Session::get("recallResuestsFromUpdateService")["reason"];
-                     $resState = Session::get("recallResuestsFromUpdateService")["resState"];
 
-                     $this->ReservationModel->updateReservationRecalledState($resList, $resState);
-                     $this->ReservationModel->addReservationRecall($resList);
-                     // $this->destroyRecallDetails();
+                     if ($value == 1)
+                     {
+                        print_r($key);
+                        $this->ReservationModel->updateReservationRecalledState($key, $resState);
+                        $this->ReservationModel->addReservationRecall($key);
+                     }
                   }
+                  $this->destroyRecallDetails();
+
                   $this->ServiceModel->updateServiceProviders($serviceID, $data, $serProvDetails);
                   $this->ServiceModel->updateAllocatedResources($serviceID, $data, $slotNo, $resDetailsSlot1, $resDetailsSlot2, $resDetailsSlot3);
                   $this->ServiceModel->updateIntervals($serviceID, $data, $slotNo);
@@ -637,53 +636,23 @@ class Services extends Controller
          $this->view('manager/mang_serviceUpdate', $data);
       }
    }
-   public function createSessionArray()
+
+   public function addToRecallQueue($reservationID)
    {
-      $_SESSION['recallResuestsFromUpdateService'] = array();
+      if (!isset($_SESSION['recallRequestsFromUpdateService']))
+      {
+         $_SESSION['recallRequestsFromUpdateService'] = array();
+      }
+
+      $_SESSION['recallRequestsFromUpdateService'][$reservationID] = 1;
    }
-   public function recallReservationsFromUpdateService($sProvID, $reservationIDs)
+   public function removeFromRecallQueue($reservationID)
    {
-      // if (!isset($_SESSION['recallResuestsFromUpdateService']))
-      // {
-      //    $_SESSION['recallResuestsFromUpdateService'] = array();
-      // }
-
-      $selectedreservationList = explode(",", $reservationIDs);
-
-      // $resDetailsArray = [
-      //    'resIDs' => $selectedreservationList,
-      //    'sProvs' => $sProvID,
-      // ];
-
-      // array_push($_SESSION['recallResuestsFromUpdateService'], $resDetailsArray);
-
-      // $sProvIDAll = array();
-      // $reservationIDsDAll = array();
-      // $reasonDAll = array();
-
-      // array_push($sProvIDAll, $sProvID);
-      // array_push($reservationIDsDAll, $selectedreservationList);
-      // array_push($reasonDAll, $reason);
-
-      // $this->ReservationModel->updateReservationRecalledState($selectedreservationList, 5);
-      // $this->ReservationModel->addReservationRecall($selectedreservationList, $reason);
-
-
-      Session::setBundle(
-         'recallResuestsFromUpdateService',
-         [
-            "sProvID" => $sProvID,
-            "selectedreservationList" => $selectedreservationList,
-            // "reason" => $reason,
-            "resState" => 5,
-         ]
-      );
+      $_SESSION['recallRequestsFromUpdateService'][$reservationID] = 0;
    }
    public function destroyRecallDetails()
    {
-
-      Session::clear('recallResuestsFromUpdateService');
-      session_destroy();
+      Session::clear('recallRequestsFromUpdateService');
    }
    public function deleteService($serviceID)
    {

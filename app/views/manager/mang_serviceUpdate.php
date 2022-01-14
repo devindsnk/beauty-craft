@@ -555,7 +555,7 @@
 			<label class="labels paddingBottom" for="serviceNewType">Cannot proceed. He/She has upcoming reservations for this service</label>
 			<div class="new-type-head">
 				<button class="btn  normal ModalCancelButton ModalButton recallModalCancelBtn">Close</button>
-				<a href="#"><button class="btn ModalBlueButton ModalButton  btnCloseRes recallModalRecallBtn">Recall</button><a>
+				<button class="btn ModalBlueButton ModalButton  btnCloseRes recallModalRecallBtn" onclick="addToRecallQueue()">Recall</button>
 			</div>
 		</div>
 	</div>

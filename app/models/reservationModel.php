@@ -307,16 +307,16 @@ class ReservationModel extends Model
    // ************************************************** //
    // ******* Functions related recall requests ******** //
 
-   public function addReservationRecall($selectedreservation)
+   public function addReservationRecall($resID)
    {
       date_default_timezone_set("Asia/Colombo");
       $today = date("Y-m-d H:i:s");
       $recallReason = "For update the service";
 
-      foreach ($selectedreservation as $value)
-      {
-         $results =  $this->insert('recallrequests', ['reservationID' => $value, 'reason' => $recallReason, 'requestedDate' => $today, 'status' => 0]);
-      }
+      // foreach ($selectedreservation as $value)
+      // {
+      $results =  $this->insert('recallrequests', ['reservationID' => $resID, 'reason' => $recallReason, 'requestedDate' => $today, 'status' => 0]);
+      // }
    }
 
    public function getRecallReasonByReservationID($selectedreservation)
@@ -347,10 +347,10 @@ class ReservationModel extends Model
 
    public function updateReservationRecalledState($selectedreservation, $status)
    {
-      foreach ($selectedreservation as $value)
-      {
-         $results = $this->update('reservations', ['status' => $status], ['reservationID' => $value]);
-      }
+      // foreach ($selectedreservation as $value)
+      // {
+      $results = $this->update('reservations', ['status' => $status], ['reservationID' => $selectedreservation]);
+      // }
    }
 
    public function getAllPendingRecallRequests()
@@ -474,7 +474,7 @@ class ReservationModel extends Model
    public function getUpcommingReservationsForSerProv($staffID, $serviceID)
    {
       $results = $this->customQuery(
-         "SELECT * 
+         "SELECT reservationID 
          FROM reservations
          WHERE (status=:status1 OR status=:status2) AND serviceID=:sID AND staffID=:sProvID AND date >= now() ",
          [':status1' => 1, ':status2' => 2, ':sID' => $serviceID, ':sProvID' => $staffID]

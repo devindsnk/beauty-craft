@@ -13,11 +13,11 @@ for (var i = 0; i < trashServiceBtn.length; i++) {
 
             document.getElementById("deleteServiceHead").innerHTML = "Delete Service - " + sID;
 
-            checkForUpcomingReservations(sID);
+            checkForUpcomingReservationsForDeleteService(sID);
         }
     )
 }
-function checkForUpcomingReservations(sID) {
+function checkForUpcomingReservationsForDeleteService(sID) {
 
     fetch(`http://localhost:80/beauty-craft/Services/getReservationListOfSelectedService/${sID}`)
         .then(response => response.json())
