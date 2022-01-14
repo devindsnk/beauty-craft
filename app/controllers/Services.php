@@ -107,6 +107,10 @@ class Services extends Controller
             {
                $data['sPrice_error'] = "Please enter a numeric value for price";
             }
+            elseif ($data['price'] < 0)
+            {
+               $data['sPrice_error'] = "Please enter a valid price";
+            }
             if (empty($data['slot1Duration']))
             {
                $data['sSlot1Duration_error'] = "Please enter slot duration";
@@ -391,11 +395,6 @@ class Services extends Controller
             'serviceDetails' => $serviceDetails[0],
             'serProvDetails' => $serProvDetails,
             'noofSlots' => $noofSlots,
-            // 'slot1Details' => $slot1Details,
-            // 'slot2Details' => $slot2Details,
-            // 'slot3Details' => $slot3Details,
-            // 'interval1Details' => $interval1Details,
-            // 'interval2Details' => $interval2Details,
             'resDetailsSlot1' => '',
             'resDetailsSlot2' => '',
             'resDetailsSlot3' => '',
@@ -421,8 +420,7 @@ class Services extends Controller
             'sSelectedResCount3_error' => '',
 
          ];
-         // print_r($resDetailsSlot1);
-         // die('rrr');
+
          $data['sProvArray'] = $sProvGetArray;
          $data['sTypesArray'] = $sTypeGetArray;
          $data['sResArray'] = $sResGetArray;
@@ -456,6 +454,10 @@ class Services extends Controller
             elseif (!is_numeric($data['price']))
             {
                $data['sPrice_error'] = "Please enter a numeric value for price";
+            }
+            elseif ($data['price'] < 0)
+            {
+               $data['sPrice_error'] = "Please enter a valid price";
             }
             if (empty($data['slot1Duration']))
             {
@@ -511,26 +513,24 @@ class Services extends Controller
                   $this->ServiceModel->addTimeSlot($data, $slotNo);
                   $this->ServiceModel->addIntervalTimeSlot($data, $slotNo);
                   $this->ServiceModel->addResourcesToService($data, $slotNo);
-
-                  // $this->ServiceModel->removeServiceProvider($data, $slotNo);
-                  // $this->ServiceModel->removeResourcesFromService($data, $slotNo);
-
                }
                else
                {
                   $this->ServiceModel->updateService($serviceID, $data, $slotNo);
 
-                  if (Session::get("recallResuestsFromUpdateService")["sProvID"])
+                  $resState = 5;
+                  foreach ($_SESSION['recallRequestsFromUpdateService'] as $key => $value)
                   {
-                     $resSPRov = Session::get("recallResuestsFromUpdateService")["sProvID"];
-                     $resList = Session::get("recallResuestsFromUpdateService")["selectedreservationList"];
-                     // $reason = Session::get("recallResuestsFromUpdateService")["reason"];
-                     $resState = Session::get("recallResuestsFromUpdateService")["resState"];
 
-                     $this->ReservationModel->updateReservationRecalledState($resList, $resState);
-                     $this->ReservationModel->addReservationRecall($resList);
-                     // $this->destroyRecallDetails();
+                     if ($value == 1)
+                     {
+                        print_r($key);
+                        $this->ReservationModel->updateReservationRecalledState($key, $resState);
+                        $this->ReservationModel->addReservationRecall($key);
+                     }
                   }
+                  $this->destroyRecallDetails();
+
                   $this->ServiceModel->updateServiceProviders($serviceID, $data, $serProvDetails);
                   $this->ServiceModel->updateAllocatedResources($serviceID, $data, $slotNo, $resDetailsSlot1, $resDetailsSlot2, $resDetailsSlot3);
                   $this->ServiceModel->updateIntervals($serviceID, $data, $slotNo);
@@ -604,11 +604,6 @@ class Services extends Controller
             'serviceDetails' => $serviceDetails[0],
             'serProvDetails' => $serProvDetails,
             'noofSlots' => $noofSlots,
-            // 'slot1Details' => $slot1Details,
-            // 'slot2Details' => $slot2Details,
-            // 'slot3Details' => $slot3Details,
-            // 'interval1Details' => $interval1Details,
-            // 'interval2Details' => $interval2Details,
             'resDetailsSlot1' => $resDetailsSlot1,
             'resDetailsSlot2' => $resDetailsSlot2,
             'resDetailsSlot3' => $resDetailsSlot3,
@@ -641,37 +636,23 @@ class Services extends Controller
          $this->view('manager/mang_serviceUpdate', $data);
       }
    }
-   public function recallReservationsFromUpdateService($sProvID, $reservationIDs)
+
+   public function addToRecallQueue($reservationID)
    {
-      $selectedreservationList = explode(",", $reservationIDs);
+      if (!isset($_SESSION['recallRequestsFromUpdateService']))
+      {
+         $_SESSION['recallRequestsFromUpdateService'] = array();
+      }
 
-      // $sProvIDAll = array();
-      // $reservationIDsDAll = array();
-      // $reasonDAll = array();
-
-      // array_push($sProvIDAll, $sProvID);
-      // array_push($reservationIDsDAll, $selectedreservationList);
-      // array_push($reasonDAll, $reason);
-
-      // $this->ReservationModel->updateReservationRecalledState($selectedreservationList, 5);
-      // $this->ReservationModel->addReservationRecall($selectedreservationList, $reason);
-
-
-      Session::setBundle(
-         'recallResuestsFromUpdateService',
-         [
-            "sProvID" => $sProvID,
-            "selectedreservationList" => $selectedreservationList,
-            // "reason" => $reason,
-            "resState" => 5,
-         ]
-      );
+      $_SESSION['recallRequestsFromUpdateService'][$reservationID] = 1;
+   }
+   public function removeFromRecallQueue($reservationID)
+   {
+      $_SESSION['recallRequestsFromUpdateService'][$reservationID] = 0;
    }
    public function destroyRecallDetails()
    {
-
-      Session::clear('recallResuestsFromUpdateService');
-      session_destroy();
+      Session::clear('recallRequestsFromUpdateService');
    }
    public function deleteService($serviceID)
    {
@@ -764,11 +745,7 @@ class Services extends Controller
          'customerPopulation' => $customerPopulation,
 
       ];
-      // print_r($overallDetails['top5Services']);
-      // foreach($overallDetails['top5Services'] as $ts){
-      //    print_r($ts->totIncome);
-      // }
-      // die();
+
       $this->view('common/SubAnalyticsOverall', $overallDetails);
    }
    public function overallAnalyticsChart1()
@@ -800,10 +777,7 @@ class Services extends Controller
    {
       // Session::validateSession([3]);
       $serviceList = $this->ServiceModel->getServiceDetails();
-      // $serviceChartDetails = $this->ServiceModel->getServiceAnalyticsDetails();
-      // $serviceAnalyticResDetails = $this->ReservationModel->getResDetailsForServiceAnalytics(000006, '2021-10-01', '2021-12-01');
-      // print_r($serviceAnalyticResDetails);
-      // die('dddd');
+
       $this->view('common/SubAnalyticsService', $serviceList);
    }
    public function analyticsServiceChartJS($serviceID, $from, $to)
