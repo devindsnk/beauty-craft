@@ -22,7 +22,7 @@
 							<div class="column">
 								<div class="text-group">
 									<label class="label" for="">Month</label>
-									<input type="month" name="" class="serviceProvSelectedMonth" id="" placeholder="Date" value="<?=date('Y-m')?>">
+									<input type="month" name="" class="serviceProvSelectedMonth" id="" placeholder="Date" value="<?= date('Y-m') ?>">
 								</div>
 								<span class="error"> <?php echo " "; ?></span>
 							</div>
@@ -51,18 +51,18 @@
 
 					<!--Table body-->
 					<tbody>
-					<?php for ($i=0; $i < $data; $i++):?>
-						<!--Table row-->
-						<tr>
-							<td data-lable="Service ID"></td>
-							<td data-lable="Service Name"></td>
-							<td data-lable="No of services" class="column-center-align"></td>
-							<td data-lable="No of reservations" class="column-center-align"></td>
-							<td data-lable="Income" class="column-right-align"></td>
-						</tr>
-						<!--End of table row-->
-					<?php endfor;?>
-						
+						<?php for ($i = 0; $i < $data; $i++) : ?>
+							<!--Table row-->
+							<tr>
+								<td data-lable="Service ID"></td>
+								<td data-lable="Service Name"></td>
+								<td data-lable="No of services" class="column-center-align"></td>
+								<td data-lable="No of reservations" class="column-center-align"></td>
+								<td data-lable="Income" class="column-right-align"></td>
+							</tr>
+							<!--End of table row-->
+						<?php endfor; ?>
+
 						<!--Table row-->
 						<tr>
 							<td class="text-special">Total</td>

@@ -42,7 +42,7 @@ class ReservationModel extends Model
          $dataToBind[":$colName"] = $value;
       }
 
-      $consditionsString = implode(" AND ", $preparedConditions);
+      $consditionsString = implode(" AND ", $preparedConditions); // Joining conditions with AND
 
       $SQLstatement =
          "SELECT reservations.reservationID, customers.fName AS custFName, customers.lName AS custLName, staff.fName AS staffFName, staff.lName AS staffLName, reservations.remarks, reservations.status, reservations.date, reservations.startTime, services.name AS serviceName
@@ -327,16 +327,16 @@ class ReservationModel extends Model
    // ************************************************** //
    // ******* Functions related recall requests ******** //
 
-   public function addReservationRecall($selectedreservation)
+   public function addReservationRecall($resID)
    {
       date_default_timezone_set("Asia/Colombo");
       $today = date("Y-m-d H:i:s");
       $recallReason = "For update the service";
 
-      foreach ($selectedreservation as $value)
-      {
-         $results =  $this->insert('recallrequests', ['reservationID' => $value, 'reason' => $recallReason, 'requestedDate' => $today, 'status' => 0]);
-      }
+      // foreach ($selectedreservation as $value)
+      // {
+      $results =  $this->insert('recallrequests', ['reservationID' => $resID, 'reason' => $recallReason, 'requestedDate' => $today, 'status' => 0]);
+      // }
    }
 
    public function getRecallReasonByReservationID($selectedreservation)
@@ -367,10 +367,10 @@ class ReservationModel extends Model
 
    public function updateReservationRecalledState($selectedreservation, $status)
    {
-      foreach ($selectedreservation as $value)
-      {
-         $results = $this->update('reservations', ['status' => $status], ['reservationID' => $value]);
-      }
+      // foreach ($selectedreservation as $value)
+      // {
+      $results = $this->update('reservations', ['status' => $status], ['reservationID' => $selectedreservation]);
+      // }
    }
 
    public function getAllPendingRecallRequests()
@@ -494,7 +494,7 @@ class ReservationModel extends Model
    public function getUpcommingReservationsForSerProv($staffID, $serviceID)
    {
       $results = $this->customQuery(
-         "SELECT * 
+         "SELECT reservationID 
          FROM reservations
          WHERE (status=:status1 OR status=:status2) AND serviceID=:sID AND staffID=:sProvID AND date >= now() ",
          [':status1' => 1, ':status2' => 2, ':sID' => $serviceID, ':sProvID' => $staffID]
@@ -519,8 +519,8 @@ class ReservationModel extends Model
             INNER JOIN staff ON staff.staffID = reservations.staffID
             INNER JOIN services ON services.serviceID = reservations.serviceID
             INNER JOIN customers ON customers.customerID = reservations.customerID
-            WHERE reservations.status = :status AND ( reservations.date BETWEEN '$from' AND '$to' ) AND services.serviceID =$serviceID 
-            ORDER BY reservations.date",
+            WHERE reservations.status = :status AND ( DATE_FORMAT(reservations.date, '%Y-%m') BETWEEN '$from' AND '$to' ) AND services.serviceID =$serviceID 
+            ORDER BY DATE_FORMAT(reservations.date, '%Y-%m')",
             [':status' => 4]
          );
       }
@@ -537,8 +537,8 @@ class ReservationModel extends Model
             INNER JOIN staff ON staff.staffID = reservations.staffID
             INNER JOIN services ON services.serviceID = reservations.serviceID
             INNER JOIN customers ON customers.customerID = reservations.customerID
-            WHERE reservations.status = :status AND ( reservations.date BETWEEN '$from' AND '$to' ) 
-            ORDER BY reservations.date",
+            WHERE reservations.status = :status AND ( DATE_FORMAT(reservations.date, '%Y-%m') BETWEEN '$from' AND '$to' ) 
+            ORDER BY DATE_FORMAT(reservations.date, '%Y-%m')",
             [':status' => 4]
          );
       }
@@ -558,8 +558,8 @@ class ReservationModel extends Model
             FROM reservations
             INNER JOIN services ON services.serviceID = reservations.serviceID
             INNER JOIN customers ON customers.customerID = reservations.customerID
-            WHERE reservations.status = :status AND ( reservations.date BETWEEN '$from' AND '$to' ) AND reservations.staffID =$staffID 
-            ORDER BY reservations.date",
+            WHERE reservations.status = :status AND ( DATE_FORMAT(reservations.date, '%Y-%m') BETWEEN '$from' AND '$to' ) AND reservations.staffID =$staffID 
+            ORDER BY DATE_FORMAT(reservations.date, '%Y-%m')",
             [':status' => 4]
          );
       }
@@ -570,8 +570,8 @@ class ReservationModel extends Model
             FROM reservations
             INNER JOIN services ON services.serviceID = reservations.serviceID
             INNER JOIN customers ON customers.customerID = reservations.customerID
-            WHERE reservations.status = :status AND ( reservations.date BETWEEN '$from' AND '$to' ) 
-            ORDER BY reservations.date",
+            WHERE reservations.status = :status AND ( DATE_FORMAT(reservations.date, '%Y-%m') BETWEEN '$from' AND '$to' ) 
+            ORDER BY DATE_FORMAT(reservations.date, '%Y-%m')",
             [':status' => 4]
          );
       }

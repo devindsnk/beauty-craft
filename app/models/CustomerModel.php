@@ -102,16 +102,16 @@ class CustomerModel extends Model
       $cusID = 000001;
 
       $results1 = $this->customQuery(
-         "SELECT COUNT(DISTINCT customers.customerID) AS walkInCustCount
-                                    FROM customers 
-                                    INNER JOIN reservations ON reservations.customerID = customers.customerID 
+         "SELECT COUNT(*) AS walkInCustCount
+                                    FROM reservations
+                                    INNER JOIN customers ON customers.customerID = reservations.customerID 
                                     WHERE customers.customerID = :custID AND( MONTH(reservations.date) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH ) AND YEAR(reservations.date) = YEAR( CURRENT_DATE - INTERVAL 1 MONTH ))",
          [':custID' => $cusID]
       );
       $results2 = $this->customQuery(
-         "SELECT COUNT(DISTINCT customers.customerID) AS onlineCustCount
-                                    FROM customers 
-                                    INNER JOIN reservations ON reservations.customerID = customers.customerID 
+         "SELECT COUNT(*) AS onlineCustCount
+                                    FROM reservations
+                                    INNER JOIN customers ON customers.customerID = reservations.customerID 
                                     WHERE customers.customerID <> 000001 AND ( MONTH(reservations.date) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH ) AND YEAR(reservations.date) = YEAR( CURRENT_DATE - INTERVAL 1 MONTH ))",
          []
       );
