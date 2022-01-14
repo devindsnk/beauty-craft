@@ -44,8 +44,13 @@ class Salary extends Controller
 
       //Last day of current month.
       $lastDayThisMonth = date("Y-m-t");
+      //  echo ($lastDayThisMonth - 5);
+       $lastWeek = date("Y-m-d", strtotime("-5 days",$lastDayThisMonth));
+       echo ($lastWeek);
+       die("reduce 5 days");
       //current date
       $currentDate = date('Y-m-d');
+
       //current month
       $currentDateStrTime = strtotime($currentDate);
       $currentDateMonth = date("F", $currentDateStrTime);
