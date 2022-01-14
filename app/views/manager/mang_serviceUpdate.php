@@ -549,12 +549,14 @@
 
 	<div class="modal-container recall-reservation-from-update-service">
 		<div class="modal-box">
-			<div class="new-type-head">
+			<div class="confirm-model-head">
 				<h1>Recall Reservations</h1>
 			</div>
-			<label class="labels paddingBottom" for="serviceNewType">Cannot proceed. He/She has upcoming reservations for this service</label>
-			<div class="new-type-head">
-				<button class="btn  normal ModalCancelButton ModalButton recallModalCancelBtn">Close</button>
+			<div class="confirm-model-head">
+				<p>Cannot proceed. He/She has upcoming reservations for this service. <br>Just unassign from service or recall reservations</p>
+			</div>
+			<div class="confirm-model-head">
+				<button class="btn  normal ModalCancelButton ModalButton recallModalCancelBtn">Unassign</button>
 				<button class="btn ModalBlueButton ModalButton  btnCloseRes recallModalRecallBtn" onclick="addToRecallQueue()">Recall</button>
 			</div>
 		</div>
