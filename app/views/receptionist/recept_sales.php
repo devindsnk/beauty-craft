@@ -22,7 +22,7 @@
                   <div class="column">
                      <div class="dropdown-group">
                         <label class="label" for="lName">Invoice Type</label>
-                        <select>
+                        <select id="iTypeSelector">
                            <option value="" selected>All</option>
                            <option value="">Payment</option>
                            <option value="">Refund</option>
@@ -33,7 +33,7 @@
                   <div class="column">
                      <div class="dropdown-group">
                         <label class="label" for="lName">Status</label>
-                        <select>
+                        <select id="statusSelector">
                            <option value="" selected>All</option>
                            <option value="">Pending</option>
                            <option value="">Completed</option>
@@ -45,8 +45,7 @@
                </div>
             </div>
             <div class="right-section">
-               <a href="" class="btn btn-filled btn-black">Search</a>
-               <!-- <button class="btn btn-search">Search</button> -->
+               <button type="button" id="salesFilterBtn" class="btn btn-filled btn-black">Search</button>
             </div>
          </div>
 
@@ -79,7 +78,7 @@
                            <td data-lable="Invoice No" class="column-center-align font-numeric">Pay_<?php echo $invoice->paymentInvoiceNo ?></td>
                            <td data-lable="Amount" class="column-right-align font-numeric"><?php echo $invoice->amount ?> LKR</td>
                            <td data-lable="Type" class="column-center-align">Payment</td>
-                           <td data-lable="Date" class="column-center-align"><?php echo $invoice->datetime ?></td>
+                           <td data-lable="Date" class="column-center-align"><?php echo DateTimeExtended::dateToShortMonthFormat($invoice->datetime, "F") ?></td>
                            <td data-lable="Status" class="column-center-align">
                               <button type="button" class="status-btn green text-uppercase <?php echo $statusClass ?>"><?php echo $statusValue ?></button>
                            </td>
