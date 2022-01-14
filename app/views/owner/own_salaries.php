@@ -61,7 +61,7 @@
          </div>
       </form>
 
-      <!-- <?php print_r($data); ?> -->
+      <?php print_r($data); ?>
 
       <!--Content-->
       <div class="table-container">
@@ -85,8 +85,8 @@
                <tbody>
 
                   <!--Table row-->
-                 
-                  <?php foreach ($data['StaffAndSalaryPaymentD'] as $staffD) : ?>
+                
+                  <?php foreach ($data as $staffD) : ?>
                      <tr>
                         <td data-lable="" class="column-center-align">
                            <input type="checkbox" class="" name="chk" />
@@ -110,7 +110,7 @@
                         </td>
                         <td data-lable="Salary" class="column-right-align">Rs.25195.00</td>
                         <td data-lable="Paid Status" class="column-center-align">
-                        <?php if($staffD->status)
+                        <?php if($staffD->status==1)
                               {
                                  echo '<button type="button" class="status-btn green text-uppercase">Paid</button>';
                               }
@@ -119,11 +119,10 @@
                                  echo '<button type="button" class="status-btn red text-uppercase">Not Paid</button>';
                               }
                               ?>
-                           
                         </td>
                         <td data-lable="Action" class="column-center-align">
                            <span>
-                              <a href="" class="salaryReportViewAncorTag"><i class="img-view-edit-update ci-view-more table-icon salaryReportViewIcon" data-staffid="<?php echo $staffD->staffID ?>"></i></a>
+                              <a href="<?php echo URLROOT ?>/salary/salaryReport/<?php echo $staffD->staffID ?>/<?php echo $staffD->staffType ?>" class="salaryReportViewAncorTag"><i class="img-view-edit-update ci-view-more table-icon salaryReportViewIcon" data-staffid="<?php echo $staffD->staffID ?>"></i></a>
                            </span>
                            <!-- <?php echo URLROOT ?>/salary/salaryReport/<?php echo $staffD->staffID ?>/<?php echo $staffD->staffType ?> -->
                         </td>
@@ -144,8 +143,6 @@
          </div>
       </div>
       <!--End Content-->
-
-
 
 
    </div>

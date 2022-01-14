@@ -23,10 +23,9 @@ class SalaryModel extends Model
    
    public function getAllStaffAndSalaryPaymentDetails($mostRecentDateMonth,$mostRecentDateYear)
    {
-
+      // echo $mostRecentDateMonth . $mostRecentDateYear;
       $result = $this->customQuery(
-         "SELECT staff.staffID,staff.fName,staff.lName,staff.staffType,salarypayments.status,salarypayments.amount FROM staff LEFT JOIN salarypayments ON staff.staffID = salarypayments.staffID"
-      );
+         "SELECT * FROM staff INNER JOIN salarypayments ON staff.staffID = salarypayments.staffID WHERE MONTH(paidDate)=$mostRecentDateMonth AND YEAR(paidDate)= $mostRecentDateYear");
       return $result;
    }
 

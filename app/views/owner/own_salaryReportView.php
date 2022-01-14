@@ -120,49 +120,24 @@
                             </div>
                         </div>
                         <label class="ownSalaryReportSalaryDetailsContentData">Addtional Leave Count</label>
-                        <label class="ownSalaryReportSalaryDetailsContentValue">
-                            <?php if ($staffD->staffType == 3)
-                            {
-                                if ($staffD->staffType == 3)
-                                {
-                                    echo $salaryRateD->receptionistSalaryRate;
-                                }
-                            }
-                            elseif ($staffD->staffType == 4)
-                            {
-                                echo $salaryRateD->receptionistSalaryRate;
-                            }
-                            elseif ($staffD->staffType == 5)
-                            {
-                                echo $salaryRateD->serviceProviderSalaryRate;
-                            } ?>
-                        </label>
+                        <label class="ownSalaryReportSalaryDetailsContentValue"><?php echo $StaffSalaryPaymentD->additionalLeaveCount; ?>  </label>
                         <br> <br>
                         <label class="ownSalaryReportDeductionsDetailsContentData">Leave Deduction</label>
-                        <label class="ownSalaryReportDeductionsDetailsContentValue">-2500.00 LKR</label>
+                        <label class="ownSalaryReportDeductionsDetailsContentValue">-<?php echo $StaffSalaryPaymentD->additionalLeaveCount*500; ?> LKR</label>
                         <br> <br>
                         <div class="ownAddstaffLineContainer">
                             <div class="ownAddstaffLines">
                             </div>
                         </div>
                         <label class="ownSalaryReportTotalSalaryContentData">Total Salary</label>
-                        <label class="ownSalaryReportTotalSalaryContentValue">47500.00 LKR</label>
+                        <label class="ownSalaryReportTotalSalaryContentValue"><?php echo $StaffSalaryPaymentD->amount; ?> LKR</label>
                         <br> <br>
                         <div class="ownSalaryReportTotalSalaryStatus">
-                            <label class="ownSalaryReportTotalSalaryStatusLabel">
-                                <?php if (empty($StaffSalaryPaymentD->status) == 1)
-                                {
-                                    echo 'Paid';
-                                }
-                                elseif ($StaffSalaryPaymentD->status != 1)
-                                {
-                                    echo 'Not paid';
-                                } ?>
-                            </label>
+                             
                         </div>
                         <br> <br>
                         <label class="ownSalaryReportSalaryDetailsContentData">Paid Date</label>
-                        <label class="ownSalaryReportSalaryDetailsContentValue">28/08/2021</label>
+                        <label class="ownSalaryReportSalaryDetailsContentValue"><?php echo $StaffSalaryPaymentD->paidDate; ?> </label>
                     </div>
                 </div>
                 <!---- Earning details starts  ---->

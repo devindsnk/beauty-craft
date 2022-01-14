@@ -10,7 +10,7 @@ class Salary extends Controller
 
    public function salaryReport($staffID, $staffType)
    {
-      die("salaryReport");
+      // die("salaryReport");
       print_r($staffType);
       
       $staffdetailsBystaffID = $this->staffModel->getStaffDetailsByStaffID($staffID);
@@ -36,10 +36,6 @@ class Salary extends Controller
 
    public function salaryTableView()
    {
-      // code testing area
-
-      // end code testing area
-
       // mase awasana dwsd ndd -checked
       // mase awasana dwsa neweinm awasaneta calculate krpu eka pennanna one salary payment table eken aran
       // mase awasana dws nm check krnna one klin calcultae krld ndd
@@ -74,7 +70,7 @@ class Salary extends Controller
       $mostRecentDate = strtotime($result[0]->month);
       $mostRecentDateMonth = date("F", $mostRecentDate);
       $mostRecentDateYear = date("Y", $mostRecentDate);
-
+      $RecentmonthInNumber = date("m",strtotime($mostRecentDate));
       // $result = $this->salaryModel->calculateAndInsertSalaryPaymentDetails($fiveDaysBeforInPrevMonth,$fiveDaysBeforeInThisMonth);
       // die("error");
 
@@ -87,7 +83,7 @@ class Salary extends Controller
          if ($currentDateMonth == $mostRecentDateMonth && $mostRecentDateYear == $currentDateYear)
          {
             // get all the salary payment details related to the most recent month
-            $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails();
+            $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails($RecentmonthInNumber,$mostRecentDateYear);
             $this->view('owner/own_salaries', $StaffAndSalaryPaymentDetails);
          }
             // if the most recent month is not equal to the current month then the payment has'nt completed
@@ -95,7 +91,7 @@ class Salary extends Controller
          {
             // calculate the salary for this month and store in salary table with status not paid
             $result = $this->salaryModel->calculateAndInsertSalaryPaymentDetails($fiveDaysBeforInPrevMonth,$fiveDaysBeforeInThisMonth);
-            $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails();
+            $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails($RecentmonthInNumber,$mostRecentDateYear);
             $this->view('owner/own_salaries', $StaffAndSalaryPaymentDetails);
          }
       }
@@ -103,18 +99,9 @@ class Salary extends Controller
       if ($currentDate != $lastDayThisMonth)
       {
          // get data according to most recent month
-           $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails($mostRecentDateMonth,$mostRecentDateYear);
+           $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails($RecentmonthInNumber,$mostRecentDateYear);
            $this->view('owner/own_salaries', $StaffAndSalaryPaymentDetails);
       }
 
-      // die("date succcess");
-      // $staffDetails = $this->staffModel->getAllStaffDetails();
-      // $salaryRateDetails = $this->salaryModel->getAllSalaryRateDetails();
-      // $leaveRateDetails = $this->salaryModel->getAllLeaveRateDetails();
-      // $commisionRateDetails = $this->salaryModel->getAllCommisionRateDetails();
-      // $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails();
-      // $AllSalaryDetails = ['staffD' => $staffDetails, 'salaryRateD' => $salaryRateDetails, 'leaveRateD' => $leaveRateDetails, 'commisionRateD' => $commisionRateDetails, 'StaffAndSalaryPaymentD' => $StaffAndSalaryPaymentDetails];
-      // print_r($AllSalaryDetails);
-      // $this->view('owner/own_salaries', $AllSalaryDetails);
    }
 }
