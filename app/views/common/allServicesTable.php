@@ -72,7 +72,6 @@
             </div>
             <div class="right-section">
                <a href="" class="btn btn-filled btn-black">Search</a>
-               <!-- <button class="btn btn-search">Search</button> -->
             </div>
          </div>
 
@@ -103,22 +102,7 @@
 
                         <td data-lable="Type" class="column-left-align"><?php echo $sDetails->type; ?></td>
 
-                        <!-- <?php $i = $sDetails->totalDuration; ?>
-                        <?php $hours = $i / 60; ?>
-                        <?php $mins = $i % 60; ?> -->
-
                         <td data-lable="Total Duration" class="column-center-align">
-                           <!-- <?php if ((int)$hours <= 0) : ?>
-                              <?php if ($mins > 0) : ?>
-                                 <?php echo $mins; ?> mins
-                              <?php endif; ?>
-                           <?php else : ?>
-                              <?php if ($mins > 0) : ?>
-                                 <?php echo (int)$hours; ?> h <?php echo $mins; ?> mins
-                              <?php else : ?>
-                                 <?php echo (int)$hours; ?> h
-                              <?php endif; ?>
-                           <?php endif; ?> -->
                            <?php echo DateTimeExtended::minsToDuration($sDetails->totalDuration); ?>
                         </td>
 
