@@ -42,7 +42,7 @@ class ReservationModel extends Model
          $dataToBind[":$colName"] = $value;
       }
 
-      $consditionsString = implode(" AND ", $preparedConditions);
+      $consditionsString = implode(" AND ", $preparedConditions); // Joining conditions with AND
 
       $SQLstatement =
          "SELECT reservations.reservationID, customers.fName AS custFName, customers.lName AS custLName, staff.fName AS staffFName, staff.lName AS staffLName, reservations.remarks, reservations.status, reservations.date, reservations.startTime, services.name AS serviceName
