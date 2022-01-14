@@ -42,7 +42,7 @@ class SalaryModel extends Model
    }
    public function calculateAndInsertSalaryPaymentDetails($fiveDaysBeforInPrevMonth,$fiveDaysBeforeInThisMonth)
    {
-
+      $currentDate = date('Y-m-d');
       $totalIncome = 0;
       // $staffDetails = $this->getResultSet('staff', '*', null);
       $staffDetails = $this->customQuery("SELECT * FROM staff WHERE staffType IN (3,4,5)");
@@ -59,15 +59,14 @@ class SalaryModel extends Model
           $generalLeaveLimit = $leaveLimitDetails[0]->generalLeave;
           // get manager leave limit
           $mangGeneralLeaveLimit =  $leaveLimitDetails[0]->managerGeneralLeave;
+           // get commisssion rate for services
+           $serCommissionRate = $this->customQuery("SELECT commissionrates.rate FROM commissionrates ORDER BY changedDate DESC LIMIT 1");
           
          if ($staffDetails[$i]->staffType == 5)
          {
             // get service provider basic salary rate
             $servProSalaryRate = $this->customQuery("SELECT salaryrates.serviceProviderSalaryRate FROM salaryrates ORDER BY changedDate DESC LIMIT 1");
    
-            // get genaral leave limit
-            $serRate = $this->customQuery("SELECT leavelimits.generalLeave FROM leavelimits ORDER BY changedDate DESC LIMIT 1");
-            
             // get all completed service provider's reservation details by staff id
             $resDetails = $this->getResultSet('reservations', '*', ['staffID' => $staffDetails[$i]->staffID, 'status' => 4]);
            
@@ -86,10 +85,12 @@ class SalaryModel extends Model
                print_r($servDetails[$j]->price);
 
                $totalIncomeFromRes = $totalIncomeFromRes + $servDetails[$j]->price;
+               
                // print_r(type($servDetails->price)); 
                }
             }
 
+            $commissionAmount = $totalIncomeFromRes*($serCommissionRate/100);
             for ($j = 0; $j < $AllLeaveCount; $j++)
             {
                // condition to check the data is added in between previous month 5 days before and this month five days before
@@ -103,10 +104,13 @@ class SalaryModel extends Model
             if($generalLeaveLimit<$ServProLeaveCount){
               $exceededCount = $ServProLeaveCount - $generalLeaveLimit;
               $reducingAmount  = $exceededCount*250;
+              $totalSalary = $servProSalaryRate + $commissionAmount - $reducingAmount;
+              $results =  $this->insert('salarypayments', ['staffID ' => $staffID,'month '=>$currentDate , 'amount' => $mangTotalSalary, 'status' => 0,'additionalLeaveCount' => $exceededCount,'servProCommission' => $commissionAmount]);
             }
-            
-            $totalSalary = $servProSalaryRate + $totalIncomeFromRes - $reducingAmount;
-            
+            else{
+            $totalSalary = $servProSalaryRate + $commissionAmount ;
+            $results =  $this->insert('salarypayments', ['staffID ' => $staffID,'month '=>$currentDate , 'amount' => $mangTotalSalary, 'status' => 0,'servProCommission' => $commissionAmount]);
+            }
          }
          elseif ($staffDetails[$i]->staffType == 4)
          {
@@ -129,12 +133,15 @@ class SalaryModel extends Model
              if($generalLeaveLimit<$recepLeaveCount){
                $exceededCount = $recepLeaveCount - $generalLeaveLimit;
                $reducingAmount  = $exceededCount*250;
+               $totalSalary = $recepSalaryRate - $reducingAmount;
+               $results =  $this->insert('salarypayments', ['staffID ' => $staffID,'month '=>$currentDate , 'amount' => $mangTotalSalary, 'status' => 0,'additionalLeaveCount' => $exceededCount]);
              }
-             
+             else{
              // Calculate the salary amount
-             $totalSalary = $recepSalaryRate - $reducingAmount;
-             
-         }
+             $totalSalary = $recepSalaryRate;
+             $results =  $this->insert('salarypayments', ['staffID ' => $staffID,'month '=>$currentDate , 'amount' => $mangTotalSalary, 'status' => 0]);
+             }
+            }
 
          elseif ($staffDetails[$i]->staffType == 3)
          {
@@ -159,11 +166,16 @@ class SalaryModel extends Model
             if($generalLeaveLimit<$recepLeaveCount){
               $exceededCount = $mangLeaveCount - $mangGeneralLeaveLimit;
               $reducingAmount  = $exceededCount*250;
+              // Calculate the salary amount with extra leaves
+              $mangTotalSalary = $mangSalaryRate - $reducingAmount;  
+              $results =  $this->insert('salarypayments', ['staffID ' => $staffID,'month '=>$currentDate , 'amount' => $mangTotalSalary, 'status' => 0,'additionalLeaveCount' => $exceededCount]);
             }
-
+            else{
             // Calculate the salary amount
-            $mangTotalSalary = $mangSalaryRate - $reducingAmount;                  
-           }
+            $mangTotalSalary = $mangSalaryRate;  
+            $results =  $this->insert('salarypayments', ['staffID ' => $staffID,'month '=>$currentDate , 'amount' => $mangTotalSalary, 'status' => 0,]);                
+            }  
+         }
       }
       die("servDetails awa");
    }

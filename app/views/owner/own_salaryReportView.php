@@ -14,10 +14,6 @@
     </header>
     <div class="content contentNewRes">
 
-
-
-
-
         <div class="content own salaries">
             <div class="ownSalaryReportHeadings">
                 <h1 class="ownSalaryReportHead2">Staff Member Salary Report</h1>

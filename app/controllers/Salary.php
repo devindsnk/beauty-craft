@@ -9,10 +9,7 @@ class Salary extends Controller
    }
 
    public function salaryReport($staffID, $staffType)
-   {
-      // die("salaryReport");
-      print_r($staffType);
-      
+   {      
       $staffdetailsBystaffID = $this->staffModel->getStaffDetailsByStaffID($staffID);
       $bankdetailsBystaffID = $this->staffModel->getStaffBankDetailsByStaffID($staffID);
       if ($staffType == 3)
