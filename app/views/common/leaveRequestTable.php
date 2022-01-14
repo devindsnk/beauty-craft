@@ -1,13 +1,33 @@
 <div class="leaverequesttable">
    <div class="cardandbutton">
-      <div class="leavecountcard">
-         <div class="leavecountcardleft">Remaining Leaves</div>
+
+      <div class="leavecountcard general">
+         <div class="left-container-leave"></div>
+         <div class="leavecountcardleft">Remaining General Leaves</div>
          <div class="leavecountcardright">
             <?php
-            echo $data['remainingCount'];
+            if ($data['remainingGCount'] < 0)
+            {
+               echo 0;
+            }
+            else
+            {
+               echo $data['remainingGCount'];
+            }
+
 
             ?></div>
       </div>
+      <div class="leavecountcard medical">
+         <div class="left-container-leave"></div>
+         <div class="leavecountcardleft">Remaining Medical Leaves</div>
+         <div class="leavecountcardright">
+            <?php
+            echo $data['remainingMCount'];
+
+            ?></div>
+      </div>
+
       <div class="page-top-main-container">
          <button class="btn btn-filled btn-theme-purple btnleaveRequest">Add New</button>
       </div>
@@ -15,9 +35,10 @@
 
    <span class="leavelimitmsg">
       <?php
-      if ($data['remainingCount'] < 0) echo "Your Leave limit exceed";
+      if ($data['remainingGCount'] < 0) echo "Your Leave limit exceed";
       ?>
    </span>
+
 
    <form class="form filter-options" action="">
       <div class="options-container">
@@ -25,20 +46,35 @@
             <div class="row statusopt">
                <div class="column">
                   <div class="dropdown-group">
-                     <label class="label" for="lName">Status</label>
-                     <select name="lstatus" id="lstatus">
+                     <label class="label" for="lName">Leave Type</label>
+                     <select name="lstatus" id="lTypeLeaveData">
                         <option value="All" selected>All</option>
-                        <option value="Approved">Approved</option>
-                        <option value="Pending">Pending</option>
-                        <option value="Rejected">Rejected</option>
+                        <option value="1">General</option>
+                        <option value="2">Medical</option>
+
+                     </select>
+                  </div>
+                  <span class="error"> <?php echo " "; ?></span>
+               </div>
+
+               <div class="column">
+                  <div class="dropdown-group">
+                     <label class="label" for="lName">Status</label>
+                     <select name="lstatus" id="lStatusLeaveData">
+                        <option value="All" selected>All</option>
+                        <option value="1" <?php echo ($data["lStatus"] == '1') ? "selected" : "" ?>>Approved</option>
+                        <option value="2" <?php echo ($data["lStatus"] == '2') ? "selected" : "" ?>>Pending</option>
+                        <option value="0" <?php echo ($data["lStatus"] == '0') ? "selected" : "" ?>>Rejected</option>
+                        <option value="3" <?php echo ($data["lStatus"] == '3') ? "selected" : "" ?>>Rejected Medical</option>
                      </select>
                   </div>
                   <span class="error"> <?php echo " "; ?></span>
                </div>
             </div>
+
          </div>
          <div class="right-section">
-            <a href="" class="btn btn-filled btn-black">Search</a>
+            <a class="btn btn-filled btn-black" onclick="filterLeavesSpAndRecep(this);">Search</a>
             <!-- <button class="btn btn-search">Search</button> -->
          </div>
       </div>
@@ -187,7 +223,7 @@
                   <div class="text-group">
                      <label class="labels" for="serviceName">Date</label><br>
                      <form>
-                        <input class="editLeaveRequestDate" type="text" name="date" id="date_picker" disabled>
+                        <input class="editLeaveRequestDate" type="date" name="date" id="date_picker" disabled>
                      </form>
                   </div>
                   <span class="error date-error">
@@ -255,6 +291,24 @@
    <!-- end delete leave request model -->
 </div>
 
+<!-- <script>
+   var textWrapper = document.querySelector('.error .request-date-error');
+
+
+   anime.timeline({
+         loop: true
+      })
+      .add({
+         targets: '.ml6 .letter',
+         translateZ: 0,
+         duration: 2000,
+         delay: 10000
+      }).add({
+         targets: '.ml6',
+         opacity: 0,
+         delay: 0
+      });
+</script> -->
 
 <script src="<?php echo URLROOT ?>/public/js/tableFilter.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/fetchRequests/leaveRequest.js"></script>

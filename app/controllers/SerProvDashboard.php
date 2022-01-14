@@ -11,20 +11,22 @@
    }
    public function overview()
    {
+      $rType = "all";
       $view = 'overview';
       // $this->view('serviceProvider/serProv_' . $view);
       Session::validateSession([5]);
-      $reservationData = $this->reservationModel->getReservationsByStaffID(Session::getUser("id"));
+      $reservationData = $this->reservationModel->getReservationsByStaffIDForSpRes(Session::getUser("id"), $rType = null);
 
-      $this->provideReservationView($reservationData, $view);
+      $this->provideReservationView($reservationData, $view, $rType);
    }
 
    public function dailyview()
    {
+      $rType = "all";
       $view = 'dailyview';
       Session::validateSession([5]);
-      $reservationData = $this->reservationModel->getReservationsByStaffID(Session::getUser("id"));
-      $this->provideReservationView($reservationData, $view);
+      $reservationData = $this->reservationModel->getReservationsByStaffIDForSpRes(Session::getUser("id"), $rType = null);
+      $this->provideReservationView($reservationData, $view, $rType);
    }
 
    public function reservations($rType = "all")
@@ -32,10 +34,12 @@
       $view = 'reservations';
       Session::validateSession([5]);
       $reservationData = $this->reservationModel->getReservationsByStaffIDForSpRes(Session::getUser("id"), $rType);
-      $this->provideReservationView($reservationData, $view);
+      $this->provideReservationView($reservationData, $view, $rType);
    }
 
-   public function provideReservationView($reservationData, $view)
+
+
+   public function provideReservationView($reservationData, $view, $rType)
    {
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
@@ -48,6 +52,7 @@
             'customerNote' => '',
             'recallReason' => '',
             'recallReason_error' => '',
+            'rType' => $rType,
          ];
 
          if ($_POST['action'] == 'moreInfo')
@@ -142,7 +147,9 @@
             'selectedReservation' => '',
             'customerNote' => '',
             'recallReason' => '',
-            'recallReason_error' => ''
+            'recallReason_error' => '',
+            'rType' => $rType,
+
 
          ];
          $this->view('serviceProvider/serProv_' . $view, $data);

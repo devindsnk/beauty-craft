@@ -51,14 +51,17 @@ class Leaves extends Controller
 
 
    //Service provider and receptionist leaves view
-   public function leaves()
+   public function leaves($lType = 'All', $lStatus = 'All')
    {
       Session::validateSession([4, 5]);
 
-      $leaveData = $this->LeaveModel->getLeaveRecordsBystaffID(Session::getUser("id"));
-      $leaveLimit = $this->LeaveModel->getGeneralLeaveLimit();
-      $leaveCount = $this->LeaveModel->getCurrentMonthLeaveCount(Session::getUser("id"));
-      $remainingLeaveCount = $leaveLimit - $leaveCount;
+      $leaveData = $this->LeaveModel->getLeaveRecordsBystaffID(Session::getUser("id"), $lType, $lStatus);
+      $gLeaveLimit = $this->LeaveModel->getGeneralLeaveLimit();
+      $mLeaveLimit = $this->LeaveModel->getMedicalLeaveLimit();
+      $gleaveCount = $this->LeaveModel->getCurrentMonthLeaveCount(Session::getUser("id"), 1);
+      $remainingGLeaveCount = $gLeaveLimit - $gleaveCount;
+      $mleaveCount = $this->LeaveModel->getCurrentMonthLeaveCount(Session::getUser("id"), 2);
+      $remainingMLeaveCount = $mLeaveLimit - $mleaveCount;
 
       $data = [
          'date' => '',
@@ -72,33 +75,40 @@ class Leaves extends Controller
          'tableData' => $leaveData,
          'haveErrors' => 0,
          'reasonentered' => '',
-         'remainingCount' => $remainingLeaveCount,
+         'remainingGCount' => $remainingGLeaveCount,
+         'remainingMCount' => $remainingMLeaveCount,
          'leaveexceed' => '',
-         'dateValidationMsg' => ''
+         'dateValidationMsg' => '',
+         'lType' => $lType,
+         'lStatus' => $lStatus,
 
       ];
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
 
+         $data = [
+            'date' => isset($_POST['leavetype']) ? trim($_POST['date']) : '',
+            'reason' => isset($_POST['leavetype']) ? trim($_POST['reason']) : '',
+            'leavetype' => isset($_POST['leavetype']) ? trim($_POST['leavetype']) : '',
+            'date_error' => '',
+            'reason_error' => '',
+            'type_error' => '',
+            'dateValidationError' => '',
+            'staffID' => Session::getUser("id"),
+            'tableData' => $leaveData,
+            'haveErrors' => 0,
+            'remainingGCount' => $remainingGLeaveCount,
+            'remainingMCount' => $remainingMLeaveCount,
+            'leaveexceed' => 0,
+            'dateValidationMsg' => '',
+            'lType' => $lType,
+            'lStatus' => $lStatus,
+         ];
          if ($_POST['action'] == "addleave")
          {
 
-            $data = [
-               'date' => isset($_POST['leavetype']) ? trim($_POST['date']) : '',
-               'reason' => isset($_POST['leavetype']) ? trim($_POST['reason']) : '',
-               'leavetype' => isset($_POST['leavetype']) ? trim($_POST['leavetype']) : '',
-               'date_error' => '',
-               'reason_error' => '',
-               'type_error' => '',
-               'dateValidationError' => '',
-               'staffID' => Session::getUser("id"),
-               'tableData' => $leaveData,
-               'haveErrors' => 0,
-               'remainingCount' => $remainingLeaveCount,
-               'leaveexceed' => 0,
-               'dateValidationMsg' => ''
-            ];
+
 
 
             $today = date('Y-m-d');
@@ -186,10 +196,6 @@ class Leaves extends Controller
             $data['haveErrors'] = 0;
             redirect('Leaves/leaves');
          }
-         else
-         {
-            redirect('Leaves/leaves');
-         }
       }
 
       else
@@ -206,9 +212,12 @@ class Leaves extends Controller
             'tableData' => $leaveData,
             'haveErrors' => 0,
             'reasonentered' => '',
-            'remainingCount' => $remainingLeaveCount,
+            'remainingGCount' => $remainingGLeaveCount,
+            'remainingMCount' => $remainingMLeaveCount,
             'leaveexceed' => '',
-            'dateValidationMsg' => ''
+            'dateValidationMsg' => '',
+            'lType' => $lType,
+            'lStatus' => $lStatus,
 
          ];
          $this->provideLeaveRequestReleventView($data);

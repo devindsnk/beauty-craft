@@ -15,3 +15,18 @@ border:none;
 span.error.request-date-error,span.error.request-date-error1{
     height: 20px;
 }
+.leavecountcard.general{
+    margin-left: 0px;
+}
+.leavecountcard.medical{
+    margin-left: 70px;
+}
+
+.row.statusopt{
+    display: flex;
+    flex-direction: row;
+}
+
+.row.statusopt .column{
+    width: 270px;
+}

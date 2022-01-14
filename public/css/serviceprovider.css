@@ -644,7 +644,7 @@ button.editicon {
 }
 
 .content.serprov.leave .row.statusopt {
-    width: 12%;
+    width: 120%;
 }
 
 .content.serprov.leave .filter-options .options-container {
@@ -671,10 +671,10 @@ span.leavelimitmsg{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 0 20px;
+    padding: 10px 20px 10px 15px;
     background-color: var(--white);
     height: 50px;
-    width: 400px;
+    width: 500px !important;
     border-radius: 6px;
 }
 
@@ -688,7 +688,7 @@ span.leavelimitmsg{
 
 .leavecountcardleft {
     font-weight: 500;
-    font-size: 18px;
+    font-size: 15px;
     padding-right: 10px;
     color: var(--theme-grey);
 }
@@ -726,11 +726,12 @@ span.leavelimitmsg{
 } */
 /* reservation page calendar */
 input#date_input.selecteddate  {
-    width: 180px;
+    width: 150px;
     height: 40px;
     border: none;
-    padding: 0 10px;
+    padding: 0 0 0 5px;
     font-size: 15px;
+    margin-right: 2px;
 }
 .sub-container1-card-content .mainsection form{
     display: flex;

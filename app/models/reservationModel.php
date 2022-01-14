@@ -161,6 +161,26 @@ class ReservationModel extends Model
 
       return $results[0];
    }
+   public function getReservationsByStaffIDForSpRes($staffID, $rType)
+   {
+      if ($rType == 'all' || $rType == 0)
+      {
+         $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
+      FROM reservations 
+      INNER JOIN services ON services.serviceID = reservations.serviceID
+      INNER JOIN customers ON customers.customerID = reservations.customerID
+      WHERE staffID=:staffID AND reservations.status IN(1,2,4,5) ORDER BY date", [':staffID' => $staffID,]);
+      }
+      else
+      {
+         $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
+      FROM reservations 
+      INNER JOIN services ON services.serviceID = reservations.serviceID
+      INNER JOIN customers ON customers.customerID = reservations.customerID
+      WHERE staffID=:staffID AND reservations.status=:rType  ORDER BY date", [':staffID' => $staffID, ':rType' => $rType]);
+      }
+      return $results;
+   }
 
    public function getReservationDetailsByID($reservationID)
    {
@@ -258,26 +278,7 @@ class ReservationModel extends Model
    // ************************************************* //
    // ************************************************* //
    //FOR SP overview
-   public function getReservationsByStaffIDForSpRes($staffID, $rType)
-   {
-      if ($rType == 'all')
-      {
-         $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
-      FROM reservations 
-      INNER JOIN services ON services.serviceID = reservations.serviceID
-      INNER JOIN customers ON customers.customerID = reservations.customerID
-      WHERE staffID=:staffID ORDER BY date", [':staffID' => $staffID,]);
-      }
-      else
-      {
-         $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
-      FROM reservations 
-      INNER JOIN services ON services.serviceID = reservations.serviceID
-      INNER JOIN customers ON customers.customerID = reservations.customerID
-      WHERE staffID=:staffID AND reservations.status=:rType  ORDER BY date", [':staffID' => $staffID, ':rType' => $rType]);
-      }
-      return $results;
-   }
+
    // ************************************************** //
    // *Functions related state changes of reservations * //
 

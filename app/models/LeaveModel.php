@@ -2,9 +2,32 @@
 class LeaveModel extends Model
 {
 
-   public function getLeaveRecordsBystaffID($staffID)
+   public function getLeaveRecordsBystaffID($staffID, $Type, $Status)
    {
-      $results = $this->customQuery("SELECT * FROM generalleaves WHERE staffID =:staffID ORDER BY leaveDate", [':staffID' => $staffID,]);
+      if ($Type == 'All')
+      {
+         if ($Status == 'All')
+         {
+            $results = $this->customQuery("SELECT * FROM generalleaves WHERE staffID =:staffID ORDER BY leaveDate", [':staffID' => $staffID,]);
+         }
+         else
+         {
+            $results = $this->customQuery("SELECT * FROM generalleaves WHERE ( staffID =:staffID )AND (status =:lType) ORDER BY leaveDate", [':staffID' => $staffID, ':lType' => $Status]);
+         }
+      }
+      else
+      {
+         if ($Status == 'All')
+         {
+            $results = $this->customQuery("SELECT * FROM generalleaves WHERE staffID =:staffID AND leaveType=:lType ORDER BY leaveDate", [':staffID' => $staffID, ':lType' => $Type,]);
+         }
+         else
+         {
+            $results = $this->customQuery("SELECT * FROM generalleaves WHERE ( staffID =:staffID )AND (status =:lStatus) AND leaveType=:lType ORDER BY leaveDate", [':staffID' => $staffID, ':lStatus' => $Status, ':lType' => $Type,]);
+         }
+      }
+
+
       return $results;
    }
 
@@ -25,15 +48,30 @@ class LeaveModel extends Model
       $results = $this->delete('generalleaves', ['leavedate' => $date, 'staffID' => $staffID]);
    }
 
-   public function getCurrentMonthLeaveCount($staffID)
+   public function getCurrentMonthLeaveCount($staffID, $type)
    {
+      if ($type == 1)
+      {
+         $results = $this->customQuery(
+            "SELECT COUNT(*)  FROM generalleaves WHERE (MONTH(leaveDate)=MONTH(now()) and YEAR(leaveDate)=YEAR(now())) AND (staffID=:staffID) AND leaveType=1 AND generalleaves.status IN(1,2,3)",
+            [
+               ':staffID' => $staffID,
+            ]
+         );
+      }
+      if ($type == 2)
+      {
+         $results = $this->customQuery(
+            "SELECT COUNT(*)  FROM generalleaves WHERE (MONTH(leaveDate)=MONTH(now()) and YEAR(leaveDate)=YEAR(now())) AND (staffID=:staffID) AND leaveType=2  AND status IN(1,2)",
+            [
+               ':staffID' => $staffID,
+            ]
+         );
+      }
 
-      $results = $this->customQuery(
-         "SELECT COUNT(*)  FROM generalleaves WHERE (MONTH(leaveDate)=MONTH(now()) and YEAR(leaveDate)=YEAR(now())) AND (staffID=:staffID) AND (status=1 OR status=2)",
-         [
-            ':staffID' => $staffID,
-         ]
-      );
+
+
+
 
       return $results[0]->{'COUNT(*)'};
    }
