@@ -36,7 +36,7 @@
                         <div class="sub-container2-card">
                             <!--sub-container2-card-timetype-->
                             <div class="sub-container2-card-ts">
-                                <span class="sub-container2-card-time"><?php echo $reservation->startTime . " - " . $reservation->endTime; ?></span>
+                                <span class="sub-container2-card-time"><?php echo DateTimeExtended::minsToTime($reservation->startTime) . " - " . DateTimeExtended::minsToTime($reservation->endTime); ?></span>
                                 <span class="sub-container2-card-service"><?php echo $reservation->name; ?></span>
                             </div>
                             <!--sub-container2-card-timetype-->
