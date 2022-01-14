@@ -21,8 +21,9 @@ class SalaryModel extends Model
       return $result;
    }
    
-   public function getAllStaffAndSalaryPaymentDetails()
+   public function getAllStaffAndSalaryPaymentDetails($mostRecentDateMonth,$mostRecentDateYear)
    {
+
       $result = $this->customQuery(
          "SELECT staff.staffID,staff.fName,staff.lName,staff.staffType,salarypayments.status,salarypayments.amount FROM staff LEFT JOIN salarypayments ON staff.staffID = salarypayments.staffID"
       );
@@ -40,8 +41,9 @@ class SalaryModel extends Model
       $result = $this->customQuery("SELECT salarypayments.month FROM salarypayments ORDER BY month DESC LIMIT 1");
       return $result;
    }
-   public function calculateAndInsertSalaryPaymentDetails()
+   public function calculateAndInsertSalaryPaymentDetails($fiveDaysBeforInPrevMonth,$fiveDaysBeforeInThisMonth)
    {
+
       $totalIncome = 0;
       // $staffDetails = $this->getResultSet('staff', '*', null);
       $staffDetails = $this->customQuery("SELECT * FROM staff WHERE staffType IN (3,4,5)");
@@ -66,7 +68,6 @@ class SalaryModel extends Model
    
             // get genaral leave limit
             $serRate = $this->customQuery("SELECT leavelimits.generalLeave FROM leavelimits ORDER BY changedDate DESC LIMIT 1");
-
             
             // get all completed service provider's reservation details by staff id
             $resDetails = $this->getResultSet('reservations', '*', ['staffID' => $staffDetails[$i]->staffID, 'status' => 4]);
@@ -74,59 +75,96 @@ class SalaryModel extends Model
             // get all approved and rejected medical leave details of service provider by staff id
             $leaveType = "casual";
             $leaveDetails = $this->customQuery("SELECT * FROM generalleaves WHERE staffID = '$staffID' AND leaveType = '$leaveType' AND status IN (1,3)");
-         
-            $leaveCount = sizeof($leaveDetails);
-            
+            $AllLeaveCount = sizeof($leaveDetails);
             $resCount = sizeof($resDetails);
+
             for ($j = 0; $j < $resCount; $j++)
             {
+               $totalIncomeFromRes = 0;
                // condition to check the data is added in between previous month 5 days before and this month five days before
-               //  if(){
+               if($fiveDaysBeforInPrevMonth>$resDetails[$j]->date && $fiveDaysBeforeInThisMonth<$resDetails[$j]->date ){
                $servDetails[$j] = $this->getSingle('services', ['price'], ['serviceID' => $resDetails[$j]->serviceID, 'status' => 1]);
                print_r($servDetails[$j]->price);
-               // print_r(type($servDetails->price)); 
-               // }
-            }
-         }
 
+               $totalIncomeFromRes = $totalIncomeFromRes + $servDetails[$j]->price;
+               // print_r(type($servDetails->price)); 
+               }
+            }
+
+            for ($j = 0; $j < $AllLeaveCount; $j++)
+            {
+               // condition to check the data is added in between previous month 5 days before and this month five days before
+                if($fiveDaysBeforInPrevMonth>$leaveDetails [$j]->leaveDate  && $fiveDaysBeforeInThisMonth<$leaveDetails[$j]->leaveDate  ){
+                  $ServProLeaveCount = $ServProLeaveCount + 1;
+               }
+            }
+
+            //check whether the limit has exceeded or not 
+            $reducingAmount =0;
+            if($generalLeaveLimit<$ServProLeaveCount){
+              $exceededCount = $ServProLeaveCount - $generalLeaveLimit;
+              $reducingAmount  = $exceededCount*250;
+            }
+            
+            $totalSalary = $servProSalaryRate + $totalIncomeFromRes - $reducingAmount;
+            
+         }
          elseif ($staffDetails[$i]->staffType == 4)
          {
             // print_r($staffDetails[$i]->staffID);
             $recepSalaryRate = $this->customQuery("SELECT salaryrates.receptionistSalaryRate FROM salaryrates ORDER BY changedDate DESC LIMIT 1");
 
             $recepLeaveDetails = $this->customQuery("SELECT * FROM generalleaves WHERE staffID = '$staffID'  AND status IN (1,3)");
+            $AllLeaveCount = sizeof($recepLeaveDetails);
              // condition to check the data is added in between previous month 5 days before and this month five days before
-            //  if(){
-            // $leaveCount = sizeof($leaveDetails);
-            // }
+             for ($j = 0; $j < $AllLeaveCount; $j++)
+             {
+                // condition to check the data is added in between previous month 5 days before and this month five days before
+                 if($fiveDaysBeforInPrevMonth>$leaveDetails [$j]->leaveDate  && $fiveDaysBeforeInThisMonth<$leaveDetails[$j]->leaveDate  ){
+                   $recepLeaveCount = $recepLeaveCount + 1;
+                }
+             }
+
+             //check whether the limit has exceeded or not 
+             $reducingAmount =0;
+             if($generalLeaveLimit<$recepLeaveCount){
+               $exceededCount = $recepLeaveCount - $generalLeaveLimit;
+               $reducingAmount  = $exceededCount*250;
+             }
+             
+             // Calculate the salary amount
+             $totalSalary = $recepSalaryRate - $reducingAmount;
+             
          }
 
          elseif ($staffDetails[$i]->staffType == 3)
          {
             $managerSalary = 0;
-            // print_r($staffDetails[$i]->staffID);
             // get mng basuc salary 
             $mangSalaryRate = $this->customQuery("SELECT salaryrates.managerSalaryRate FROM salaryrates ORDER BY changedDate DESC LIMIT 1");
+
             // get mng leave details
             $mangLeaveDetails = $this->customQuery("SELECT * FROM managerleaves WHERE staffID = '$staffID'  AND status IN (1,3)");
-             // condition to check the data is added in between previous month 5 days before and this month five days before
-            //  if(){
-            $mangLeaveCount = sizeof($mangLeaveDetails);
-                  if($mangLeaveCount>$mangGeneralLeaveLimit){
-                     //calculate extra leaves that manager have taken
-                     $extraLeaves = $mangLeaveCount - $mangGeneralLeaveLimit;
-                     // calculating reducing amount
-                     $reduceAmount = $extraLeaves*250;
-                     $managerSalary = $mangSalaryRate-$reduceAmount;
-                  }
-                  else {
-                     $managerSalary = $mangSalaryRate;
+            $AllLeaveCount = sizeof($mangLeaveDetails);
+            // condition to check the data is added in between previous month 5 days before and this month five days before
+            for ($j = 0; $j < $AllLeaveCount; $j++)
+            {
+               // condition to check the data is added in between previous month 5 days before and this month five days before
+                if($fiveDaysBeforInPrevMonth>$leaveDetails [$j]->leaveDate  && $fiveDaysBeforeInThisMonth<$leaveDetails[$j]->leaveDate  ){
+                  $mangLeaveCount = $mangLeaveCount + 1;
+               }
+            }
 
-                     // insert  to insert data to payment details table
+            //check whether the limit has exceeded or not 
+            $reducingAmount =0;
+            if($generalLeaveLimit<$recepLeaveCount){
+              $exceededCount = $mangLeaveCount - $mangGeneralLeaveLimit;
+              $reducingAmount  = $exceededCount*250;
+            }
 
-                  }
-            // }
-         }
+            // Calculate the salary amount
+            $mangTotalSalary = $mangSalaryRate - $reducingAmount;                  
+           }
       }
       die("servDetails awa");
    }

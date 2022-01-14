@@ -10,9 +10,9 @@ class Salary extends Controller
 
    public function salaryReport($staffID, $staffType)
    {
-      die("success");
+      die("salaryReport");
       print_r($staffType);
-      // die("success");
+      
       $staffdetailsBystaffID = $this->staffModel->getStaffDetailsByStaffID($staffID);
       $bankdetailsBystaffID = $this->staffModel->getStaffBankDetailsByStaffID($staffID);
       if ($staffType == 3)
@@ -36,70 +36,85 @@ class Salary extends Controller
 
    public function salaryTableView()
    {
-      //mase awasana dwsd ndd -checked
-      //mase awasana dwsa neweinm awasaneta calculate krpu eka pennanna one salary payment table eken aran
+      // code testing area
+
+      // end code testing area
+
+      // mase awasana dwsd ndd -checked
+      // mase awasana dwsa neweinm awasaneta calculate krpu eka pennanna one salary payment table eken aran
       // mase awasana dws nm check krnna one klin calcultae krld ndd
       // calculate krlnm e calculate krpu eka pennna one
       // calculate krl naththm eka calculate wenna one
 
-      //Last day of current month.
+      // Last day of current month.
       $lastDayThisMonth = date("Y-m-t");
-      //  echo ($lastDayThisMonth - 5);
-       $lastWeek = date("Y-m-d", strtotime("-5 days",$lastDayThisMonth));
-       echo ($lastWeek);
-       die("reduce 5 days");
-      //current date
+
+      // current date
       $currentDate = date('Y-m-d');
 
-      //current month
+      // date before five days from last date of previous month
+      $date = new DateTime();
+      $date->modify("last day of previous month");
+      $lastDateOfPrevMonth=$date->format("Y-m-d");
+      $time = strtotime( $lastDateOfPrevMonth .'-5 days');
+      $fiveDaysBeforInPrevMonth = $date = date("Y-m-d", $time);
+
+      // date before five days from last date of this month
+      $time = strtotime( $currentDate .'-5 days');
+      $fiveDaysBeforeInThisMonth = $date = date("Y-m-d", $time);
+
+      // current month & year
       $currentDateStrTime = strtotime($currentDate);
       $currentDateMonth = date("F", $currentDateStrTime);
       $currentDateYear = date("Y", $currentDateStrTime);
 
-      //last inputed month into database
+      // last inputed month into database
       $result = $this->salaryModel->lastInputedMonth();
       print_r($result[0]->month);
       $mostRecentDate = strtotime($result[0]->month);
       $mostRecentDateMonth = date("F", $mostRecentDate);
       $mostRecentDateYear = date("Y", $mostRecentDate);
-      $result = $this->salaryModel->calculateAndInsertSalaryPaymentDetails();
-      die("error");
+
+      // $result = $this->salaryModel->calculateAndInsertSalaryPaymentDetails($fiveDaysBeforInPrevMonth,$fiveDaysBeforeInThisMonth);
+      // die("error");
+
       // check whetather the today is the last date of this month
       if ($currentDate == $lastDayThisMonth)
       {
-
          // to check whether the payment has done or not in this month
-         //if the most recent month is equal to the current month then the calculation has done i this month
+         // if the most recent month is equal to the current month then the calculation has done i this month
 
          if ($currentDateMonth == $mostRecentDateMonth && $mostRecentDateYear == $currentDateYear)
          {
-
             // get all the salary payment details related to the most recent month
             $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails();
+            $this->view('owner/own_salaries', $StaffAndSalaryPaymentDetails);
          }
-         // if the most recent month is not equal to the current month then the payment has'nt completed
+            // if the most recent month is not equal to the current month then the payment has'nt completed
          else
          {
-            //calculate the salary for this month and store in salary table with status not paid
-            $result = $this->salaryModel->calculateAndInsertSalaryPaymentDetails();
+            // calculate the salary for this month and store in salary table with status not paid
+            $result = $this->salaryModel->calculateAndInsertSalaryPaymentDetails($fiveDaysBeforInPrevMonth,$fiveDaysBeforeInThisMonth);
+            $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails();
+            $this->view('owner/own_salaries', $StaffAndSalaryPaymentDetails);
          }
       }
 
       if ($currentDate != $lastDayThisMonth)
       {
-
-         //get data according to most recent month
-         $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails();
+         // get data according to most recent month
+           $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails($mostRecentDateMonth,$mostRecentDateYear);
+           $this->view('owner/own_salaries', $StaffAndSalaryPaymentDetails);
       }
 
-      die("date succcess");
-      $staffDetails = $this->staffModel->getAllStaffDetails();
-      $salaryRateDetails = $this->salaryModel->getAllSalaryRateDetails();
-      $leaveRateDetails = $this->salaryModel->getAllLeaveRateDetails();
-      $commisionRateDetails = $this->salaryModel->getAllCommisionRateDetails();
-      $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails();
-      $AllSalaryDetails = ['staffD' => $staffDetails, 'salaryRateD' => $salaryRateDetails, 'leaveRateD' => $leaveRateDetails, 'commisionRateD' => $commisionRateDetails, 'StaffAndSalaryPaymentD' => $StaffAndSalaryPaymentDetails];
-      print_r($AllSalaryDetails);
-      $this->view('owner/own_salaries', $AllSalaryDetails);
+      // die("date succcess");
+      // $staffDetails = $this->staffModel->getAllStaffDetails();
+      // $salaryRateDetails = $this->salaryModel->getAllSalaryRateDetails();
+      // $leaveRateDetails = $this->salaryModel->getAllLeaveRateDetails();
+      // $commisionRateDetails = $this->salaryModel->getAllCommisionRateDetails();
+      // $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails();
+      // $AllSalaryDetails = ['staffD' => $staffDetails, 'salaryRateD' => $salaryRateDetails, 'leaveRateD' => $leaveRateDetails, 'commisionRateD' => $commisionRateDetails, 'StaffAndSalaryPaymentD' => $StaffAndSalaryPaymentDetails];
+      // print_r($AllSalaryDetails);
+      // $this->view('owner/own_salaries', $AllSalaryDetails);
    }
 }
