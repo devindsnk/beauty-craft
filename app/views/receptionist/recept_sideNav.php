@@ -52,7 +52,7 @@
 
          <!--Sidebar Item-->
          <li class="mainOption menuOption">
-            <a class="optionLink <?php if ($selectedMain == "Sales") echo " selected" ?>" href="<?php echo URLROOT ?>/ReceptDashboard/sales">
+            <a class="optionLink <?php if ($selectedMain == "Sales") echo " selected" ?>" href="<?php echo URLROOT ?>/ReceptDashboard/sales/all">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-receipt"></i>
                </div>
