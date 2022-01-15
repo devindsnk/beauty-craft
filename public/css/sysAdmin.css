@@ -174,12 +174,12 @@
 .form .radio-group span {
     font-size: 14px;
 }
-
+/* 
 .form .error {
     display: block;
     font-size: 13px;
     color: var(--theme-red);
-}
+} */
 
 .content.admin hr {
     margin-bottom: 10px;

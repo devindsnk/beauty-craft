@@ -10,14 +10,14 @@
 
     <?php
     $title = "Overview";
-    
+
     require APPROOT . "/views/inc/headerBar.php"
     ?>
 
     <!--Content-->
     <div class="content serprov">
         <!--sub-container1-card 1-->
-        <div class="container1-card">
+        <div class="container1-card card">
             <div class="sub-container1-card-content">
                 <div class="sub-container1-card-title">Completed</div>
                 <div class="sub-container1-card-count">5</div>
@@ -32,270 +32,131 @@
             <!--sub-container2-card-->
             <div class="reservationlist">
                 <div class="scroll-area">
-
-                    <div class="sub-container2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-ts">
-                            <span class="sub-container2-card-time"> 8.30 - 9.00 </span>
-                            <span class="sub-container2-card-service">Makeup</span>
-                        </div>
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-name">
-                            <span class="sub-container2-card-cstname">Customer</span>
-                            <span class="name">Sanjana Rajapaksha</span>
-                        </div>
-                        <div class="confbtn">
-                            <div class="confirm-status green">
-                                <span>Confirmed</span>
+                    <?php foreach ($data['reservationData'] as $reservation) : ?>
+                        <div class="sub-container2-card">
+                            <!--sub-container2-card-timetype-->
+                            <div class="sub-container2-card-ts">
+                                <span class="sub-container2-card-time"><?php echo DateTimeExtended::minsToTime($reservation->startTime) . " - " . DateTimeExtended::minsToTime($reservation->endTime); ?></span>
+                                <span class="sub-container2-card-service"><?php echo $reservation->name; ?></span>
+                            </div>
+                            <!--sub-container2-card-timetype-->
+                            <div class="sub-container2-card-name">
+                                <span class="sub-container2-card-cstname">Customer</span>
+                                <span class="name"><?php echo $reservation->fName . " " . $reservation->lName; ?></span>
+                            </div>
+                            <div class="confbtn">
+                                <?php if ($reservation->status == 1) : ?>
+                                    <div class="confirm-status yellow">
+                                        <span>Not Confirmed</span>
+                                    </div>
+                                <?php elseif ($reservation->status == 2) : ?>
+                                    <div class="confirm-status blue">
+                                        <span>Confirmed</span>
+                                    </div>
+                                <?php elseif ($reservation->status == 4) : ?>
+                                    <div class="confirm-status green">
+                                        <span>Completed</span>
+                                    </div>
+                                <?php elseif ($reservation->status == 5) : ?>
+                                    <div class="confirm-status gray">
+                                        <span>Recalled</span>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                            <div class="sub-container2-card-link">
+                                <button class="btnOpen btnResMoreInfo" data-id="<?php echo $reservation->reservationID; ?>">More
+                                    Info
+                                </button>
                             </div>
                         </div>
-                        <div class="sub-container2-card-link">
-                            <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
-                        </div>
-                    </div>
-                    <div class="sub-container2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-ts">
-                            <span class="sub-container2-card-time"> 10.30 - 11.00 </span>
-                            <span class="sub-container2-card-service">Hair rebonding</span>
-                        </div>
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-name">
-                            <span class="sub-container2-card-cstname">Customer</span>
-                            <span class="name">Hashini Gamage</span>
-                        </div>
-                        <div class="confbtn">
-                            <div class="confirm-status blue">
-                                <span>Not Confirmed</span>
-                            </div>
-                        </div>
-                        <div class="sub-container2-card-link">
-                            <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
-                        </div>
-                    </div>
-                    <div class="sub-container2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-ts">
-                            <span class="sub-container2-card-time"> 11.30 - 12.00 </span>
-                            <span class="sub-container2-card-service">Ladies hair cut</span>
-                        </div>
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-name">
-                            <span class="sub-container2-card-cstname">Hair color</span>
-                            <span class="name">Nuwani Perera</span>
-                        </div>
-                        <div class="confbtn green">
-                            <div class="confirm-status green">
-                                <span>Confirmed</span>
-                            </div>
-                        </div>
-                        <div class="sub-container2-card-link">
-                            <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
-                        </div>
-                    </div>
-                    <div class="sub-container2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-ts">
-                            <span class="sub-container2-card-time"> 12.30 - 1.00 </span>
-                            <span class="sub-container2-card-service">Hair extension</span>
-                        </div>
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-name">
-                            <span class="sub-container2-card-cstname">Customer</span>
-                            <span class="name">Sarani Chethana</span>
-                        </div>
-                        <div class="confbtn">
-                            <div class="confirm-status green">
-                                <span>Confirmed</span>
-                            </div>
-                        </div>
-                        <div class="sub-container2-card-link">
-                            <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
-                        </div>
-                    </div>
-                    <div class="sub-container2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-ts">
-                            <span class="sub-container2-card-time"> 1.15 - 1.45 </span>
-                            <span class="sub-container2-card-service">Ladies hair cut</span>
-                        </div>
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-name">
-                            <span class="sub-container2-card-cstname">Customer</span>
-                            <span class="name">Neluni Apsara</span>
-                        </div>
-                        <div class="confbtn">
-                            <div class="confirm-status blue">
-                                <span>Not Confirmed</span>
-                            </div>
-                        </div>
-                        <div class="sub-container2-card-link">
-                            <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
-                        </div>
-                    </div>
-                    <div class="sub-container2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-ts">
-                            <span class="sub-container2-card-time"> 2.30 - 3.00 </span>
-                            <span class="sub-container2-card-service">Ladies hair cut</span>
-                        </div>
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-name">
-                            <span class="sub-container2-card-cstname">Customer</span>
-                            <span class="name">Ruwanthi Munasinghe</span>
-                        </div>
-                        <div class="confbtn">
-                            <div class="confirm-status green">
-                                <span>Confirmed</span>
-                            </div>
-                        </div>
-                        <div class="sub-container2-card-link">
-                            <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
-                        </div>
-                    </div>
-                    <div class="sub-container2-card">
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-ts">
-                            <span class="sub-container2-card-time"> 10.30 - 11.00 </span>
-                            <span class="sub-container2-card-service">Ladies hair cut</span>
-                        </div>
-                        <!--sub-container2-card-timetype-->
-                        <div class="sub-container2-card-name">
-                            <span class="sub-container2-card-cstname">Customer</span>
-                            <span class="name">Ruwanthi Munasinghe</span>
-                        </div>
-                        <div class="confbtn">
-                            <div class="confirm-status green">
-                                <span>Confirmed</span>
-                            </div>
-                        </div>
-                        <div class="sub-container2-card-link">
-                            <button class="btnOpen btnResMoreInfo" type="button">More Info</button>
-                        </div>
-                    </div>
-
-
-                    <!-- end web view -->
+                    <?php endforeach; ?>
                 </div>
-                <!-- <div class="mobview">
 
-                        End mobile sub-container2-card
-                    </div> -->
-                <!--End scroll area-->
             </div>
         </div>
 
         <!-- modal -->
         <div class="modal-container reservation-more-info">
             <div class="modal-box">
-                <h1>Reservation details</h1>
-                <div class="modelcontent">
+                <form>
 
-                    <div class="modaldetails">
-                        <div class="modaldetails-name">
-                            <span class="service">Makeup</span><br>
-                            <span class="name">Sanjana Rajapaksha</span>
+                    <h1 class="header">Reservation details</h1>
+                    <div class="modelcontent">
+
+                        <div class="modaldetails">
+                            <div class="modaldetails-name">
+
+                                <span class="service"></span><br>
+                                <span class="name cust"></span>
+                            </div>
+                            <div class="modaldetails-status green">
+
+                                <div class="moredetails-confirm-status" id="resStatus">
+                                    <span class="spn-moredetails-confirm-status"></span>
+                                </div>
+
+                            </div>
+
                         </div>
-                        <div class="modaldetails-status">
-                            <div class="confirm-status green">
-                                <span>Confirmed</span>
+                        <div class="modaldatetime">
+                            <div class="modaldatetime-time">
+                                <span class="serviceTime"></span><br>
+                                <span class="duration"></span>
+                            </div>
+                            <div class="modaldatetime-date">
+
+                                <span class="month-day"></span><br>
+                                <span class="year"></span>
+                            </div>
+                        </div>
+
+                        <div class="Reservationnote-cust">
+                            <div class="Reservationnote-name">
+                                <span>Reservation Note</span>
+                            </div>
+                            <div class="Reservationnote-note">
+                                <span class="Reservationnote"></span>
+
+                            </div>
+                        </div>
+                        <div class="Reservationnote">
+                            <div class="Reservationnote-name">
+                                <span>Customer Note</span>
+                            </div>
+                            <div class="Reservationnote-note editable" contenteditable="true">
+                                <textarea class="customerNoteSection" name="customerNote" value=""></textarea>
+                            </div>
+
+                        </div>
+                        <div class="savechange">
+                            <button class="proceedBtn" value="saveChanges" onclick="editCustNote(this);">Save Changes</button>
+
+                        </div>
+
+                        <div class="modalbutton-more">
+                            <div class="more-details-modalbtnsection">
+                                <button class="btn modelbtnClose normal">Close</button>
+
+
+
+
                             </div>
                         </div>
                     </div>
-                    <div class="modaldatetime">
-                        <div class="modaldatetime-time">
-                            <span>8.30 - 9.00</span><br>
-                            <span class="duration">25 mins</span>
-                        </div>
-                        <div class="modaldatetime-date">
-                            <span>OCTOBER 21</span><br>
-                            <span>2021</span>
-                        </div>
-                    </div>
+                </form>
 
-                    <div class="Reservationnote-cust">
-                        <div class="Reservationnote-name">
-                            <span>Reservation Note</span>
-                        </div>
-                        <div class="Reservationnote-note">
-                            <span>simple makeup for birthday party.</span>
 
-                        </div>
-                    </div>
-                    <div class="Reservationnote">
-                        <div class="Reservationnote-name">
-                            <span>Customer Note</span>
-                        </div>
-                        <div class="Reservationnote-note editable" contenteditable="true">
-                            <span>Cosmetic product No. s12II can provoke allergies.</span>
-                        </div>
-
-                    </div>
-                    <div class="savechange">
-                        <button>Save Changes</button>
-                    </div>
-                    <div class="modalbutton-more">
-                        <div class="more-details-modalbtnsection">
-                            <button class="btn btnClose normal">Close</button>
-
-                            <button class="btnOpen btnResRecall <?php if ($title == "Overview") echo "hide" ?>" type="button">Recall</button>
-
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <!-- end modal -->
 
-        <div class="modal-container reservation-recall">
-            <div class="modal-box addItems">
-                <h1>Recall request</h1>
-                <div class="modaldetails">
-                    <div class="modaldetails-name">
-                        <span class="service">Hair Color-short</span><br>
-                        <span class="name">Ruwanthi Munasinghe</span>
-                    </div>
 
-                </div>
-                <div class="modelcontent">
-                    <div class="modaldatetime">
-                        <div class="modaldatetime-time">
-                            <span>10.45 - 11.00</span><br>
-
-                        </div>
-                        <div class="modaldatetime-date">
-                            <span>JUNE 10</span><br>
-                            <span>2020</span>
-                        </div>
-                    </div>
-
-                    <div class="Reservationnote">
-                        <div class="Reservationnote-name">
-                            <span>Reason</span>
-                        </div>
-                        <div class="Reservationnote-note editable" contenteditable="true">
-                            <span></span>
-                        </div>
-
-                    </div>
-                    <div class="savechange">
-
-                    </div>
+        <!-- end modal -->
 
 
-                    <div class="modalbutton-more">
-                        <div class="more-details-modalbtnsection">
-                            <button class="btn btnClose new">Cancel</button>
-
-                            <button class="btnOpen new" type="button">Proceed</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     </div>
 
     <!--End Content-->
-
+    <script src="<?php echo URLROOT ?>/public/js/fetchRequests/reservationMoreview.js"></script>
     <?php require APPROOT . "/views/inc/footer.php" ?>

@@ -17,10 +17,8 @@
     <!--Content-->
     <div class="content serprov">
         <!--sub-container1-card 1-->
-
+        <!-- <?php print_r($data); ?> -->
         <div class="container1-card">
-
-
             <form class="form filter-options" action="">
                 <div class="options-container">
                     <div class="left-section">
@@ -28,11 +26,12 @@
                             <div class="column">
                                 <div class="dropdown-group reservation">
                                     <label class="label" for="lName">Status</label>
-                                    <select name="lstatus" id="lstatus">
+                                    <select name="lstatus" class="rTypeSelectorSP" id="rTypeSelectorSP">
                                         <option value="All" selected>All</option>
-                                        <option value="Approved">Approved</option>
-                                        <option value="Pending">Pending</option>
-                                        <option value="Rejected">Rejected</option>
+                                        <option value='1' <?php echo ($data["rType"] == '1') ? "selected" : "" ?>>Not Confirmed</option>
+                                        <option value='2' <?php echo ($data["rType"] == '2') ? "selected" : "" ?>>Confirmed</option>
+                                        <option value='4' <?php echo ($data["rType"] == '4') ? "selected" : "" ?>>Completed</option>
+                                        <option value='5' <?php echo ($data["rType"] == '5') ? "selected" : "" ?>>Recalled</option>
                                     </select>
                                 </div>
                                 <span class="error"> <?php echo " "; ?></span>
@@ -40,13 +39,10 @@
                         </div>
                     </div>
                     <div class="right-section">
-                        <a href="" class="btn btn-filled btn-black">Search</a>
-                        <!-- <button class="btn btn-search">Search</button> -->
+                        <a class="btn btn-filled btn-black" onclick="filterReservationsSpReservation(this);">Search</a>
                     </div>
                 </div>
-
             </form>
-
         </div>
         <!--End sub-container1-card  1-->
         <!--sub-container2-->
@@ -57,15 +53,8 @@
             <!--sub-container2-card-->
             <div class="reservationlist">
                 <div class="scroll-area">
-
                     <?php foreach ($data['reservationData'] as $reservation) : ?>
-
-
-
-
-
                         <div class="sub-container2-card">
-
                             <!--sub-container2-card-timetype-->
                             <div class="sub-container2-card-ts">
                                 <span class="sub-container2-card-time"><?php echo $reservation->startTime . " - " . $reservation->endTime; ?></span>
@@ -94,56 +83,33 @@
                                         <span>Recalled</span>
                                     </div>
                                 <?php endif; ?>
-
                             </div>
-
-
                             <div class="sub-container2-card-link">
                                 <button class="btnOpen btnResMoreInfo" data-id="<?php echo $reservation->reservationID; ?>">More
                                     Info
                                 </button>
-
                             </div>
-
                         </div>
-
-
-
                     <?php endforeach; ?>
-
-
                     <!-- end web view -->
                 </div>
-                <!-- <div class="mobview">
-
-                        End mobile sub-container2-card
-                    </div> -->
-                <!--End scroll area-->
             </div>
         </div>
-
         <!-- modal -->
         <div class="modal-container reservation-more-info">
             <div class="modal-box">
-
-
                 <h1 class="header">Reservation details</h1>
                 <div class="modelcontent">
-
                     <div class="modaldetails">
                         <div class="modaldetails-name">
-
                             <span class="service"></span><br>
                             <span class="name cust"></span>
                         </div>
                         <div class="modaldetails-status green">
-
-                            <div class="moredetails-confirm-status">
+                            <div class="moredetails-confirm-status" id="resStatus">
                                 <span class="spn-moredetails-confirm-status"></span>
                             </div>
-
                         </div>
-
                     </div>
                     <div class="modaldatetime">
                         <div class="modaldatetime-time">
@@ -156,14 +122,12 @@
                             <span class="year"></span>
                         </div>
                     </div>
-
                     <div class="Reservationnote-cust">
                         <div class="Reservationnote-name">
                             <span>Reservation Note</span>
                         </div>
                         <div class="Reservationnote-note">
                             <span class="Reservationnote"></span>
-
                         </div>
                     </div>
                     <div class="Reservationnote">
@@ -173,52 +137,36 @@
                         <div class="Reservationnote-note editable" contenteditable="true">
                             <textarea class="customerNoteSection" name="customerNote" value=""></textarea>
                         </div>
-
                     </div>
                     <div class="savechange">
                         <button value="saveChanges" onclick="editCustNote(this);">Save Changes</button>
-
                     </div>
-
                     <div class="modalbutton-more">
                         <div class="more-details-modalbtnsection">
                             <button class="btn modelbtnClose normal">Close</button>
-
-
                             <button class="btnOpen btnResRecall button proceedBtn" value="recall" onclick="recallResrvation(this);">Recall</button>
-
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
         <!-- end modal -->
 
         <div class="modal-container reservation-recall">
-
             <div class="modal-box addItems">
-
-
                 <h1 class="recall-data-header"></h1>
-
                 <div class="modaldetails">
                     <div class="modaldetails-name">
                         <span class="recall-service"></span><br>
                         <span class="recall-name"></span>
                     </div>
                     <div class="recall-modaldetails-status">
-
-                        <div class="recall-moredetails-confirm-status">
+                        <div class="recall-moredetails-confirm-status" id="recallResStatus">
                             <span class="recall-spn-moredetails-confirm-status"></span>
                         </div>
-
                     </div>
-
                 </div>
                 <div class="modelcontent">
-
                     <div class="modaldatetime">
                         <div class="modaldatetime-time">
                             <span class="recall-serviceTime"></span><br>
@@ -230,7 +178,6 @@
                             <span class="recall-year"></span>
                         </div>
                     </div>
-
                     <div class="Reservationnote">
                         <div class="Reservationnote-name">
                             <span></span>
@@ -240,24 +187,15 @@
                             <textarea class="recall-reason" name="recallReason" value=""></textarea>
                         </div>
                         <span class="recall error"> </span>
-
                     </div>
                     <div class="savechange">
                         <input type="text" name="selectedReservation" class="selectedReservation">
-
                     </div>
-
-
                     <div class="modalbutton-more">
                         <div class="more-details-modalbtnsection">
                             <!-- <button class="btn  backBtn btnResMoreInfo" ">Back</button> -->
                             <button class="btn btnBack normal" value="close">Back</button>
-
-                            <button class="btnOpen recall  proceedBtn btn btn-filled " value="sendRecall" onclick="proceedRecall(this);"></button>
-
-
-
-
+                            <button class="btnOpen recall  proceedBtn btn btn-filled " value="sendRecall" onclick="proceedRecall(this);">Delete</button>
                         </div>
                     </div>
 
