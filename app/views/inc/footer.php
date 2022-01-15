@@ -27,8 +27,6 @@
 <script src="<?php echo URLROOT ?>/public/js/serProvReport.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/filters.js"></script>
 
-<!-- <script src="<?php echo URLROOT ?>/public/js/fetchRequests.js"></script> -->
-
 </body>
 
 </html>

@@ -12,14 +12,15 @@ const remarksInput = document.querySelector(".remarks");
 const remarksError = document.querySelector(".remarks-error");
 const serviceDurationBox = document.querySelector(".durationBox");
 
-const addResBtn = document.querySelector(".addResBtn");
+const addResBtnCust = document.querySelector(".addResBtnCust");
+const addResBtnRecept = document.querySelector(".addResBtnRecept");
 
 let startTime = null;
 let selectedDate = null;
 let selectedService = null;
 
 // Initially variables are updated on page load
-selectedDate = (!dateSelector) ? null : dateSelector.value;
+selectedDate = (!dateSelector.value) ? null : dateSelector.value;
 selectedService = (!serviceSelector) ? null : serviceSelector.value;
 startTime = (!startTimeSelector) ? null : startTimeSelector.value;
 
@@ -203,22 +204,52 @@ function checkEmpty(element) {
 		return false;
 }
 
-addResBtn.addEventListener("click", () => {
+
+// For cust place reservation
+if (addResBtnCust) {
+	addResBtnCust.addEventListener("click",
+		async function () {
+			let custID = null;
+			await placeReservation(custID);
+
+			window.location.replace("http://localhost:80/beauty-craft/custDashboard/myReservations");
+
+		});
+}
+
+
+// For recept place reservation
+if (addResBtnRecept) {
+	addResBtnRecept.addEventListener("click",
+		async function () {
+			//TODO: add empty cust check here
+			let custID = 000001;
+			await placeReservation(custID);
+
+			window.location.replace("http://localhost:80/beauty-craft/Reservations/viewAllReservations/all/all/all");
+
+		});
+}
+
+
+async function placeReservation(custID) {
 	checkSelected(dateSelector, dateError);
 	checkSelected(serviceSelector, serviceError);
 	checkSelected(startTimeSelector, sTimeError);
 	checkSelected(sProviderSelector, sProvError);
+
 	// checkDate();
 	updateSProviderAvailability();
 	// console.log(checkEmpty(startTimeError));
 	if (checkEmpty(sTimeError) && checkEmpty(dateError) && checkEmpty(serviceError) && checkEmpty(sProvError)) {
 		console.log("All empty");
-		fetch(`http://localhost:80/beauty-craft/reservations/placeReservation/${selectedService}/${sProviderSelector.value}/${selectedDate}/${startTime}/${remarksInput.value}`)
+		await fetch(`http://localhost:80/beauty-craft/reservations/placeReservation/${selectedService}/${sProviderSelector.value}/${selectedDate}/${startTime}/${custID}/${remarksInput.value}`)
 			.then((response) => response.json())
 			.then((state) => {
-				window.location.replace("http://localhost:80/beauty-craft/custDashboard/myReservations");
+				if (state) return;
 			});
+
 	} else {
 		console.log("bad");
 	}
-});
+}

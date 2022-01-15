@@ -407,7 +407,6 @@ label.proflabel {
 }
 
 .cust.new-res .service-container .right-box {
-
     flex-basis: 110px;
 }
 
@@ -451,17 +450,7 @@ label.proflabel {
     }
 }
 
-.another-service {
-    margin: 15px 0;
-    color: var(--theme-blue);
-    display: block;
-    width: 100%;
-    text-align: center;
-    /* margin-left: 40px; */
-    /* margin-right: auto; */
-}
-
-.summary-container {
+/* .summary-container {
     padding: 15px;
     width: 50%;
     margin: 30px 0 20px auto;
@@ -486,9 +475,9 @@ label.proflabel {
 .summary-container span {
     font-weight: 400;
     font-size: 14px;
-}
+} */
 
-.addResBtn {
+.addResBtnCust {
     width: 100%;
     padding: 7px;
     margin-top: 20px;

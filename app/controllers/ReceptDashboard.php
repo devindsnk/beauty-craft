@@ -36,10 +36,6 @@ class ReceptDashboard extends Controller
 
       $this->view('receptionist/recept_dailyView', $data);
    }
-   public function newReservation()
-   {
-      $this->view('receptionist/recept_newReservation');
-   }
    public function recallRequests()
    {
       $results = $this->reservationModel->getAllPendingRecallRequests();
