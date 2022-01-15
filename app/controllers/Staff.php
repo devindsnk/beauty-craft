@@ -40,7 +40,6 @@ class Staff extends Controller
                move_uploaded_file($tmp_name, $img_upload_path);
             }
          }
-
          $data = [
             'staffimagePath' => $new_img_name,
             'staffFname' => trim($_POST['staffFname']),
@@ -72,7 +71,7 @@ class Staff extends Controller
             'staffAccBank_error' => '',
             'staffAccBranch_error' => '',
          ];
-
+         // die($data['staffimagePath']);
          $data['staffHomeAddTyped'] = $data['staffHomeAdd'];
 
          if (($data['staffimagePath'] == " "))
@@ -229,7 +228,7 @@ class Staff extends Controller
             //System log
             Systemlog::createAccount($data['staffMobileNo']);
             Toast::setToast(1, "Staff Member Successfully Registered!", "");
-            
+
             if (Session::getUser("type") == 2)
             {
                header('location: ' . URLROOT . '/Staff/viewAllStaffMembers');
@@ -364,6 +363,10 @@ class Staff extends Controller
          if (($data['staffimagePath'] == " "))
          {
             $data['staffimagePath_error'] = "Please insert a valid image";
+         }
+         else
+         {
+            print_r($data);
          }
          // Validating fname
          if (empty($data['fName']))
@@ -604,7 +607,7 @@ class Staff extends Controller
       $profileData = $this->staffModel->getStaffDetailsWithBankDetailsByStaffID(Session::getUser("id"));
       $serviceslist = $this->staffModel->getServiceslistByStaffID(Session::getUser("id"));
       $result = $this->userModel->getUser(Session::getUser("mobileNo"));
-      
+
       $hashedPassword = $result->password;
       $data = [
          'profileData' => $profileData,

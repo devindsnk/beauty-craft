@@ -35,6 +35,30 @@ if (allResFilterBtn) {
 
 //**************************************************************//
 
+//************ Filters of SProvider Reservations ***************//
+
+function filterReservationsSpReservation() {
+    console.log("filter function called");
+    const rTypeSelectorSP = document.getElementById("rTypeSelectorSP");
+    console.log(rTypeSelectorSP.value);
+
+    window.location.replace(`http://localhost/beauty-craft/SerProvDashboard/reservations/${rTypeSelectorSP.value}`);
+}
+
+function filterLeavesSpAndRecep() {
+    console.log("filter  leave function called");
+    const lTypeSelectorSP = document.getElementById("lTypeLeaveData");
+    console.log(lTypeSelectorSP.value);
+    const lStatusSelectorSP = document.getElementById("lStatusLeaveData");
+    console.log(lStatusSelectorSP.value);
+
+    window.location.replace(`http://localhost/beauty-craft/Leaves/leaves/${lTypeSelectorSP.value}/${lStatusSelectorSP.value}`);
+
+
+}
+
+//**************************************************************//
+
 //*************** Filters of Receptionist Sales ****************//
 
 const salesFilterBtn = document.getElementById("salesFilterBtn");

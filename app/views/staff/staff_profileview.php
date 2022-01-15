@@ -6,13 +6,23 @@
             <h1 class="header-topic">Profile Details</h1>
         </div>
 
+        <!-- <div class="header-right verticalCenter"> -->
+
         <div class="header-right verticalCenter">
-
-            <input type="button" class="top-right-closeBtn" onclick="history.back()">
-
+            <span class="top-right-closeBtnSpecial">
+                <button class="top-right-closeBtn profile" onclick="history.back()">
+                    <i class=" fal fa-times fa-2x "></i>
+                </button>
+            </span>
         </div>
+
+
+        <!-- <input type=" button" class="top-right-closeBtn" onclick="history.back()">
+
+        </div> -->
     </header>
     <div class="profview">
+        <?php print_r($data); ?>
         <div class="profileview">
             <!-- <h1 class="profileviewh1">View Profile</h1> -->
             <div class="profilecontent">
@@ -23,7 +33,10 @@
                     </div>
                     <div class="item2">
                         <span class="item2name"><?php echo $data['profileData'][0]->fName . " " . $data['profileData'][0]->lName; ?></span>
-                        <span class="item2type">Service Provider</span>
+                        <span class="item2type"><?php
+                                                $user = ['1' => 'System Admin', '2' => 'Owner', '3' => 'Manager', '4' => 'Receptionist', '5' => 'Service Provider'];
+                                                echo $user[$userTypeNo];
+                                                ?></span>
                     </div>
                     <div class="item3 <?php if ($userTypeNo != 5)
                                         {
@@ -37,22 +50,26 @@
                         <span class="fa fa-star"></span>
                     </div>
                     <div class="item4">
-                        <div class="item4status">Active</div>
+                        <?php if ($data['profileData'][0]->status == 1) : ?>
+                            <div class="item4status btn btn-filled btn-success-green">Active</div>
+                        <?php elseif ($data['profileData'][0]->status == 2) : ?>
+                            <div class="item4status btn btn-filled btn-success-gray">Disabled</div>
+                        <?php endif; ?>
                     </div>
                     <div class="item5">
                         <span class="item5staffid">Staff ID</span>
-                        <span class="item5id"><?php echo $data['profileData'][0]->staffID; ?></span>
+                        <span class="item5id">S<?php echo $data['profileData'][0]->staffID; ?></span>
                     </div>
                     <div class="item6">
                         <span class="item6empdate">Employement Date</span>
                         <span class="item6date"><?php echo $data['profileData'][0]->joinedDate; ?></span>
                     </div>
-                    <form action="<?php echo URLROOT; ?>/Staff/profile" method="post" class="form">
 
-                        <div class="item7">
-                            <button class="btnOpen normal changepw" name="action" type="submit" value="changePassword">Change Password</button>
-                        </div>
-                    </form>
+
+                    <div class="item7">
+                        <button class="btnOpen normal changepw" name="action" type="submit" value="changePassword">Change Password</button>
+                    </div>
+
 
                 </div>
                 <div class="contactinfo">
@@ -87,7 +104,7 @@
                             <div class="listitemright"><?php echo $data['profileData'][0]->email; ?></div>
                         </div>
                         <div class="listitem6">
-                            <div class="listitemleft add">Address<br></div>
+                            <div class="listitemleft">Address<br></div>
                             <div class="listitemright"><?php echo $data['profileData'][0]->address; ?></div>
                         </div>
                     </div>
@@ -168,4 +185,5 @@
         </div>
 
     </div>
+    <script src="<?php echo URLROOT ?>/public/js/updateCloseBtn.js"></script>
     <?php require APPROOT . "/views/inc/footer.php" ?>

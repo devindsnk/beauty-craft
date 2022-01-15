@@ -25,6 +25,7 @@
 <script src="<?php echo URLROOT ?>/public/js/overallAnalytics.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/serviceReport.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/serProvReport.js"></script>
+<script src="<?php echo URLROOT ?>/public/js/filters.js"></script>
 
 <!-- <script src="<?php echo URLROOT ?>/public/js/fetchRequests.js"></script> -->
 
