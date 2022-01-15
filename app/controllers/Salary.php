@@ -50,13 +50,13 @@ class Salary extends Controller
       $date->modify("last day of previous month");
       $lastDateOfPrevMonth=$date->format("Y-m-d");
       $time = strtotime( $lastDateOfPrevMonth .'-5 days');
-      $fiveDaysBeforInPrevMonth = $date = date("Y-m-d", $time);
+      $fiveDaysBeforInPrevMonth = date("Y-m-d", $time);
 
       // date before five days from last date of this month
       $time = strtotime( $currentDate .'-5 days');
-      $fiveDaysBeforeInThisMonth = $date = date("Y-m-d", $time);
+      $fiveDaysBeforeInThisMonth = date("Y-m-d", $time);
 
-      // current month & year
+      // current month & year (?)
       $currentDateStrTime = strtotime($currentDate);
       $currentDateMonth = date("F", $currentDateStrTime);
       $currentDateYear = date("Y", $currentDateStrTime);
@@ -93,7 +93,7 @@ class Salary extends Controller
          }
       }
 
-      if ($currentDate != $lastDayThisMonth)
+      elseif ($currentDate != $lastDayThisMonth)
       {
          // get data according to most recent month
            $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails($RecentmonthInNumber,$mostRecentDateYear);

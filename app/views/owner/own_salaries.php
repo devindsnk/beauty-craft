@@ -61,7 +61,7 @@
          </div>
       </form>
 
-      <?php print_r($data); ?>
+      <!-- <?php print_r($data); ?> -->
 
       <!--Content-->
       <div class="table-container">

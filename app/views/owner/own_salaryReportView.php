@@ -25,7 +25,7 @@
             <?php $leaveRateD = $data['leaveRateD'][0]; ?>
             <?php $commisionRateD = $data['commisionRateD'][0]; ?>
             <?php $StaffSalaryPaymentD = $data['StaffSalaryPaymentD']; ?>
-            <?php print_r($StaffSalaryPaymentD); ?>
+            <!-- <?php print_r($StaffSalaryPaymentD); ?> -->
             <!-- Staff member details starts  -->
             <div class="SalaryReportContainer">
                 <div class="ownSalaryReportStaffMemberDetails">

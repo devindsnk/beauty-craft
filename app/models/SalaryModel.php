@@ -1,7 +1,5 @@
 <?php
 
-use function PHPSTORM_META\type;
-
 class SalaryModel extends Model
 {
    public function getAllSalaryRateDetails()
@@ -20,12 +18,13 @@ class SalaryModel extends Model
       $result = $this->getResultSet('commissionrates', '*', null);
       return $result;
    }
-   
-   public function getAllStaffAndSalaryPaymentDetails($mostRecentDateMonth,$mostRecentDateYear)
+
+   public function getAllStaffAndSalaryPaymentDetails($mostRecentDateMonth, $mostRecentDateYear)
    {
       // echo $mostRecentDateMonth . $mostRecentDateYear;
       $result = $this->customQuery(
-         "SELECT * FROM staff INNER JOIN salarypayments ON staff.staffID = salarypayments.staffID WHERE MONTH(paidDate)=$mostRecentDateMonth AND YEAR(paidDate)= $mostRecentDateYear");
+         "SELECT * FROM staff INNER JOIN salarypayments ON staff.staffID = salarypayments.staffID WHERE MONTH(paidDate)=$mostRecentDateMonth AND YEAR(paidDate)= $mostRecentDateYear"
+      );
       return $result;
    }
 
@@ -40,147 +39,119 @@ class SalaryModel extends Model
       $result = $this->customQuery("SELECT salarypayments.month FROM salarypayments ORDER BY month DESC LIMIT 1");
       return $result;
    }
-   public function calculateAndInsertSalaryPaymentDetails($fiveDaysBeforInPrevMonth,$fiveDaysBeforeInThisMonth)
+
+
+
+   public function calculateAndInsertSalaryPaymentDetails($fiveDaysBeforInPrevMonth, $fiveDaysBeforeInThisMonth)
    {
       $currentDate = date('Y-m-d');
-      $totalIncome = 0;
+
+      // get leave limits details
+      $leaveLimitDetails = $this->customQuery("SELECT * FROM leavelimits ORDER BY changedDate DESC LIMIT 1");
+      $nonMangCasualLimit = $leaveLimitDetails[0]->generalLeave;
+      $mangCasualLimit = $leaveLimitDetails[0]->managerGeneralLeave;
+
+      $deductionRatePerDay = 250; //TODO: Confirm this
+
+      // get commisssion rate for services
+      $commissionRate = $this->customQuery("SELECT commissionrates.rate FROM commissionrates ORDER BY changedDate DESC LIMIT 1");
+
       // $staffDetails = $this->getResultSet('staff', '*', null);
       $staffDetails = $this->customQuery("SELECT * FROM staff WHERE staffType IN (3,4,5)");
-
       $staffCount = sizeof($staffDetails);
-      // print_r($staffCount);
-      
+
       for ($i = 0; $i < $staffCount; $i++)
       {
-          $staffID = $staffDetails[$i]->staffID;
-          // get leave limits details
-          $leaveLimitDetails = $this->customQuery("SELECT * FROM leavelimits ORDER BY changedDate DESC LIMIT 1");
-          // get general leave limit
-          $generalLeaveLimit = $leaveLimitDetails[0]->generalLeave;
-          // get manager leave limit
-          $mangGeneralLeaveLimit =  $leaveLimitDetails[0]->managerGeneralLeave;
-           // get commisssion rate for services
-           $serCommissionRate = $this->customQuery("SELECT commissionrates.rate FROM commissionrates ORDER BY changedDate DESC LIMIT 1");
-          
+         $staffID = $staffDetails[$i]->staffID;
+
+         $totalSalary = 0;
+         $basicSalary = 0;
+         $additionalLeaveCount = 0;
+         $deductionAmount =  0;
+         $commisionAmount = 0;
+
          if ($staffDetails[$i]->staffType == 5)
          {
-            // get service provider basic salary rate
-            $servProSalaryRate = $this->customQuery("SELECT salaryrates.serviceProviderSalaryRate FROM salaryrates ORDER BY changedDate DESC LIMIT 1");
-   
-            // get all completed service provider's reservation details by staff id
-            $resDetails = $this->getResultSet('reservations', '*', ['staffID' => $staffDetails[$i]->staffID, 'status' => 4]);
-           
-            // get all approved and rejected medical leave details of service provider by staff id
-            $leaveType = "casual";
-            $leaveDetails = $this->customQuery("SELECT * FROM generalleaves WHERE staffID = '$staffID' AND leaveType = '$leaveType' AND status IN (1,3)");
-            $AllLeaveCount = sizeof($leaveDetails);
-            $resCount = sizeof($resDetails);
+            $basicSalary = $this->customQuery("SELECT salaryrates.serviceProviderSalaryRate FROM salaryrates ORDER BY changedDate DESC LIMIT 1");
 
-            for ($j = 0; $j < $resCount; $j++)
-            {
-               $totalIncomeFromRes = 0;
-               // condition to check the data is added in between previous month 5 days before and this month five days before
-               if($fiveDaysBeforInPrevMonth>$resDetails[$j]->date && $fiveDaysBeforeInThisMonth<$resDetails[$j]->date ){
-               $servDetails[$j] = $this->getSingle('services', ['price'], ['serviceID' => $resDetails[$j]->serviceID, 'status' => 1]);
-               print_r($servDetails[$j]->price);
+            $SQLstatement1 =
+               "SELECT COUNT(*) 
+               FROM generalleaves 
+               WHERE staffID = '$staffID' AND 
+                  leaveDate >= '$fiveDaysBeforInPrevMonth' AND 
+                  leaveDate < '$fiveDaysBeforeInThisMonth' AND
+                  status IN (1,3)";
 
-               $totalIncomeFromRes = $totalIncomeFromRes + $servDetails[$j]->price;
-               
-               // print_r(type($servDetails->price)); 
-               }
-            }
+            $results = $this->customQuery($SQLstatement1, []);
+            $leaveCount = $results[0];
+            $additionalLeaveCount = $leaveCount - $nonMangCasualLimit;
+            $deductionAmount =  $additionalLeaveCount *  $deductionRatePerDay;
 
-            $commissionAmount = $totalIncomeFromRes*($serCommissionRate/100);
-            for ($j = 0; $j < $AllLeaveCount; $j++)
-            {
-               // condition to check the data is added in between previous month 5 days before and this month five days before
-                if($fiveDaysBeforInPrevMonth>$leaveDetails [$j]->leaveDate  && $fiveDaysBeforeInThisMonth<$leaveDetails[$j]->leaveDate  ){
-                  $ServProLeaveCount = $ServProLeaveCount + 1;
-               }
-            }
+            $SQLstatement2 =
+               "SELECT SUM(services.price) 
+               FROM reservations
+               INNER JOIN services ON reservations.serviceID = services.serviceID
+               WHERE staffID = '$staffID' AND 
+                     reservationDate >= '$fiveDaysBeforInPrevMonth' AND 
+                     reservationDate < '$fiveDaysBeforeInThisMonth' AND
+                     reservations.status IN (4)";
 
-            //check whether the limit has exceeded or not 
-            $reducingAmount =0;
-            if($generalLeaveLimit<$ServProLeaveCount){
-              $exceededCount = $ServProLeaveCount - $generalLeaveLimit;
-              $reducingAmount  = $exceededCount*250;
-              $totalSalary = $servProSalaryRate + $commissionAmount - $reducingAmount;
-              $results =  $this->insert('salarypayments', ['staffID ' => $staffID,'month '=>$currentDate , 'amount' => $mangTotalSalary, 'status' => 0,'additionalLeaveCount' => $exceededCount,'servProCommission' => $commissionAmount]);
-            }
-            else{
-            $totalSalary = $servProSalaryRate + $commissionAmount ;
-            $results =  $this->insert('salarypayments', ['staffID ' => $staffID,'month '=>$currentDate , 'amount' => $mangTotalSalary, 'status' => 0,'servProCommission' => $commissionAmount]);
-            }
+            $results = $this->customQuery($SQLstatement2, []);
+            $totalResAmount = $results[0];
+
+            $commisionAmount = $commissionRate * $totalResAmount / 100;
          }
          elseif ($staffDetails[$i]->staffType == 4)
          {
-            // print_r($staffDetails[$i]->staffID);
-            $recepSalaryRate = $this->customQuery("SELECT salaryrates.receptionistSalaryRate FROM salaryrates ORDER BY changedDate DESC LIMIT 1");
+            $basicSalary = $this->customQuery("SELECT salaryrates.receptionistSalaryRate FROM salaryrates ORDER BY changedDate DESC LIMIT 1");
 
-            $recepLeaveDetails = $this->customQuery("SELECT * FROM generalleaves WHERE staffID = '$staffID'  AND status IN (1,3)");
-            $AllLeaveCount = sizeof($recepLeaveDetails);
-             // condition to check the data is added in between previous month 5 days before and this month five days before
-             for ($j = 0; $j < $AllLeaveCount; $j++)
-             {
-                // condition to check the data is added in between previous month 5 days before and this month five days before
-                 if($fiveDaysBeforInPrevMonth>$leaveDetails [$j]->leaveDate  && $fiveDaysBeforeInThisMonth<$leaveDetails[$j]->leaveDate  ){
-                   $recepLeaveCount = $recepLeaveCount + 1;
-                }
-             }
+            $SQLstatement1 =
+               "SELECT COUNT(*) 
+               FROM generalleaves 
+               WHERE staffID = '$staffID' AND 
+                  leaveDate >= '$fiveDaysBeforInPrevMonth' AND 
+                  leaveDate < '$fiveDaysBeforeInThisMonth' AND
+                  status IN (1,3)";
 
-             //check whether the limit has exceeded or not 
-             $reducingAmount =0;
-             if($generalLeaveLimit<$recepLeaveCount){
-               $exceededCount = $recepLeaveCount - $generalLeaveLimit;
-               $reducingAmount  = $exceededCount*250;
-               $totalSalary = $recepSalaryRate - $reducingAmount;
-               $results =  $this->insert('salarypayments', ['staffID ' => $staffID,'month '=>$currentDate , 'amount' => $mangTotalSalary, 'status' => 0,'additionalLeaveCount' => $exceededCount]);
-             }
-             else{
-             // Calculate the salary amount
-             $totalSalary = $recepSalaryRate;
-             $results =  $this->insert('salarypayments', ['staffID ' => $staffID,'month '=>$currentDate , 'amount' => $mangTotalSalary, 'status' => 0]);
-             }
-            }
+            $results = $this->customQuery($SQLstatement1, []);
+            $leaveCount = $results[0];
+            $additionalLeaveCount = $leaveCount - $nonMangCasualLimit;
+            $deductionAmount =  $additionalLeaveCount *  $deductionRatePerDay;
+         }
 
          elseif ($staffDetails[$i]->staffType == 3)
          {
-            $managerSalary = 0;
-            // get mng basuc salary 
-            $mangSalaryRate = $this->customQuery("SELECT salaryrates.managerSalaryRate FROM salaryrates ORDER BY changedDate DESC LIMIT 1");
+            $basicSalary = $this->customQuery("SELECT salaryrates.managerSalaryRate FROM salaryrates ORDER BY changedDate DESC LIMIT 1");
 
-            // get mng leave details
-            $mangLeaveDetails = $this->customQuery("SELECT * FROM managerleaves WHERE staffID = '$staffID'  AND status IN (1,3)");
-            $AllLeaveCount = sizeof($mangLeaveDetails);
-            // condition to check the data is added in between previous month 5 days before and this month five days before
-            for ($j = 0; $j < $AllLeaveCount; $j++)
-            {
-               // condition to check the data is added in between previous month 5 days before and this month five days before
-                if($fiveDaysBeforInPrevMonth>$leaveDetails [$j]->leaveDate  && $fiveDaysBeforeInThisMonth<$leaveDetails[$j]->leaveDate  ){
-                  $mangLeaveCount = $mangLeaveCount + 1;
-               }
-            }
+            $SQLstatement1 =
+               "SELECT COUNT(*) 
+               FROM managerleaves 
+               WHERE staffID = '$staffID' AND 
+                     leaveDate >= '$fiveDaysBeforInPrevMonth' AND 
+                     leaveDate < '$fiveDaysBeforeInThisMonth' AND
+                     status IN (1,3)";
 
-            //check whether the limit has exceeded or not 
-            $reducingAmount =0;
-            if($generalLeaveLimit<$recepLeaveCount){
-              $exceededCount = $mangLeaveCount - $mangGeneralLeaveLimit;
-              $reducingAmount  = $exceededCount*250;
-              // Calculate the salary amount with extra leaves
-              $mangTotalSalary = $mangSalaryRate - $reducingAmount;  
-              $results =  $this->insert('salarypayments', ['staffID ' => $staffID,'month '=>$currentDate , 'amount' => $mangTotalSalary, 'status' => 0,'additionalLeaveCount' => $exceededCount]);
-            }
-            else{
-            // Calculate the salary amount
-            $mangTotalSalary = $mangSalaryRate;  
-            $results =  $this->insert('salarypayments', ['staffID ' => $staffID,'month '=>$currentDate , 'amount' => $mangTotalSalary, 'status' => 0,]);                
-            }  
+            $results = $this->customQuery($SQLstatement1, []);
+            $leaveCount = $results[0];
+            $additionalLeaveCount = $leaveCount - $mangCasualLimit;
+            $deductionAmount =  $additionalLeaveCount *  $deductionRatePerDay;
          }
+
+         $additionalLeaveCount = ($additionalLeaveCount < 0) ? 0 : $additionalLeaveCount;
+         $totalSalary = $basicSalary + $commisionAmount - $deductionAmount;
+
+         $results = $this->insert(
+            'salarypayments',
+            [
+               'staffID' => $staffID,
+               'month' =>  $currentDate,
+               'amount' => $totalSalary,
+               'status' => 0,
+               'additionalLeaveCount' => $additionalLeaveCount,
+               'serProvCommision' => $commisionAmount
+            ]
+         );
       }
       die("servDetails awa");
    }
-
-
-
-
 }
