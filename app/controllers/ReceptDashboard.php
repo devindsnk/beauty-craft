@@ -11,13 +11,27 @@ class ReceptDashboard extends Controller
    }
    public function home()
    {
-      redirect('ReceptDashboard/dailyView');
+      $curDate =  DateTimeExtended::getCurrentDate();
+      redirect('ReceptDashboard/dailyView/' . $curDate);
    }
-   public function dailyView()
+   public function dailyView($date, $sProvider = null)
    {
+      if (is_null($sProvider))
+      {
+         $reservations = $this->reservationModel->getUpcomingReservationsByDate($date);
+      }
+      else
+      {
+         $reservations = $this->reservationModel->getUpcomingReservationsByDateAndStaff($date, $sProvider);
+      }
+
       $serviceProviders = $this->serviceModel->getServiceProviderDetails();
+
       $data = [
-         'serviceProvidersList' => $serviceProviders
+         'selectedDate' => $date,
+         'selectedStaffID' => $sProvider,
+         'serviceProvidersList' => $serviceProviders,
+         'reservations' => $reservations
       ];
 
       $this->view('receptionist/recept_dailyView', $data);
@@ -31,11 +45,25 @@ class ReceptDashboard extends Controller
       $results = $this->reservationModel->getAllPendingRecallRequests();
       $this->view('receptionist/recept_recallRequests', $results);
    }
-   public function sales()
+   public function sales($iType = "all", $status = null)
    {
+      if ($iType == "all")
+      {
+         $invoices = $this->salesModel->getAllInvoices();
+      }
+      else
+      {
+         $invoices = $this->salesModel->getInvoicesWithFilters($iType, $status);
+      }
+
+      $data = [
+         'selectedType' => $iType,
+         'selectedState' => $status,
+         'invoices' => $invoices
+      ];
       // TODO : sort invoices by date 
-      $invoices = $this->salesModel->getAllInvoices();
-      $this->view('receptionist/recept_sales', $invoices);
+
+      $this->view('receptionist/recept_sales',  $data);
    }
 
    public function invoiceView($invoiceNo, $type)

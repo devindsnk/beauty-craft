@@ -114,6 +114,7 @@
 
 .report-month-selector input[type="month"]{
     padding: 5px 10px;
+    width: 100%;
     border-radius: 6px;
     border: 1.2px solid #c4cae0;
     margin-top: 5px;

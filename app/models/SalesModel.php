@@ -106,6 +106,34 @@ class SalesModel extends Model
         return $inv;
     }
 
+    public function getInvoicesWithFilters($iType, $status)
+    {
+        if ($iType == "0")
+        {
+            if ($status == "all")
+                $invoices = $this->getAllRefundInvoices();
+            else
+                $invoices = $this->getResultSet("refundinvoices", "*", ['status' => $status - 3]);
+            foreach ($invoices as $key => $invoice)
+            {
+                $invoices[$key]->type = 0;
+            }
+        }
+        else
+        {
+            if ($status == "all")
+                $invoices = $this->getAllPaymentInvoices();
+            else
+                $invoices = $this->getResultSet("paymentinvoices", "*", ['status' => $status]);
+
+            foreach ($invoices as $key => $invoice)
+            {
+                $invoices[$key]->type = 1;
+            }
+        }
+        return $invoices;
+    }
+
     public function getAllPaymentInvoices()
     {
         $results = $this->getResultSet("paymentinvoices", "*");

@@ -34,7 +34,7 @@
          <div class="options-container">
             <div class="left-section mang">
                <div class="row">
-                  
+
                   <div class="column">
                      <div class="text-group">
                         <label class="label" for="leaveDate">Leave Date</label>
@@ -54,7 +54,6 @@
             </div>
             <div class="right-section">
                <a href="" class="btn btn-filled btn-black">Search</a>
-               <!-- <button class="btn btn-search">Search</button> -->
             </div>
          </div>
       </form>
@@ -64,7 +63,6 @@
 
                <thead>
                   <tr>
-                     <!-- <th class="column-center-align col-1">Staff ID</th> -->
                      <th class="column-center-align col-1">Leave Date</th>
                      <th class="column-center-align col-2">Leave Type</th>
                      <th class="column-center-align col-3">Marked Date</th>
@@ -79,9 +77,9 @@
                      <tr>
                         <td data-lable="Leave Date" class="column-center-align"><?php echo $managerLeaveDetails->leaveDate; ?></td>
                         <td data-lable="Leave Type" class="column-center-align">
-                           <?php if ( $managerLeaveDetails->leaveType == 1): ?>
+                           <?php if ($managerLeaveDetails->leaveType == 1) : ?>
                               Casual
-                           <?php elseif ( $managerLeaveDetails->leaveType == 2): ?>
+                           <?php elseif ($managerLeaveDetails->leaveType == 2) : ?>
                               Medical
                            <?php endif; ?>
                         </td>
@@ -89,16 +87,16 @@
                         <td data-lable="Reason" class="column-center-align"><?php echo $managerLeaveDetails->reason; ?></td>
                         <td class="column-center-align">
                            <span>
-                              <?php 
-                                 date_default_timezone_set("Asia/Colombo");
-                                 $today = date('Y-m-d');
+                              <?php
+                              date_default_timezone_set("Asia/Colombo");
+                              $today = date('Y-m-d');
                               ?>
-                              <?php if ( $managerLeaveDetails->leaveDate > $today): ?>
-                                 <a href="#"><i data-columns1="<?php echo $managerLeaveDetails->leaveDate; ?>"  class="ci-edit btnEditTakenLeave table-icon img-gap editMangLeave"></i></a>
+                              <?php if ($managerLeaveDetails->leaveDate > $today) : ?>
+                                 <a href="#"><i data-columns1="<?php echo $managerLeaveDetails->leaveDate; ?>" class="ci-edit btnEditTakenLeave table-icon img-gap editMangLeave"></i></a>
                                  <a href="#"><i data-columns3="<?php echo $managerLeaveDetails->leaveDate; ?>" class="ci-trash btnDeleteTakenLeave table-icon img-gap deleteMangLeave"></i></a>
-                              <?php else: ?>
-                                 <i class="ci-edit  table-icon img-gap"></i>
-                                 <i class="ci-trash  table-icon img-gap"></i>
+                              <?php else : ?>
+                                 <i class="ci-edit-disable  table-icon img-gap"></i>
+                                 <i class="ci-trash-disable  table-icon img-gap"></i>
                               <?php endif; ?>
                            </span>
                         </td>
@@ -111,7 +109,7 @@
       </div>
 
       <!-- Take leave model -->
-      <div class="modal-container take-leave <?php if ($data['haveErrors']) echo "show" ?>" >
+      <div class="modal-container take-leave <?php if ($data['haveErrors']) echo "show" ?>">
          <div class="modal-box addItems">
             <h1 class="addItemsModalHead">Take Leave</h1>
             <form action="<?php echo URLROOT; ?>/MangDashboard/takeLeave" class="form" method="POST">
@@ -122,28 +120,28 @@
                         <label class="addItemsModalLable">Date</label><br>
                         <input type="date" name="mangDate" class="addItemsModalDate mangSelectedDate" value="<?php echo $data['date']; ?>"><br>
                         <span class="error paddingBottom mangDateError">
-                           <?php 
+                           <?php
                            if ($data['date_error'])
                            {
                               echo $data['date_error'];
                            }
-                           else echo $data['dateValidationMsg']; 
+                           else echo $data['dateValidationMsg'];
                            ?>
                         </span>
                      </div>
                      <div class="column">
                         <label class="addItemsModalLable">Leave Type</label><br>
-                        <select name="mangLeaveType" id="" class="mangSelecedLeaveType" >
+                        <select name="mangLeaveType" id="" class="mangSelecedLeaveType">
                            <option class="unbold" value=0 option selected="true" disabled="disabled">Select</option>
                            <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>Casual</option>
                            <option value=2 <?php if ($data['leavetype'] == 2) echo 'selected'; ?>>Medical</option>
                         </select>
                         <span class="error paddingBottom mangTypeError">
-                           <?php 
+                           <?php
                            if ($data['type_error'])
                            {
                               echo $data['type_error'];
-                           } 
+                           }
                            ?>
                         </span>
                      </div>
@@ -158,10 +156,10 @@
                <!-- main grid 3 starts -->
                <div class="addItemsModalGrid3">
                   <div class="addItemsModalbtn1">
-                     <button type="submit" name="action" value="cancel"  class="btn btnClose ModalCancelButton ModalButton">Cancel</button>
+                     <button type="submit" name="action" value="cancel" class="btn btnClose ModalCancelButton ModalButton">Cancel</button>
                   </div>
                   <div class="addItemsModalbtn2">
-                     <button type="submit" name="action" id="takeLeaveProceed" value="addleave"  class="btn  ModalGreenButton ModalButton">Proceed</button>
+                     <button type="submit" name="action" id="takeLeaveProceed" value="addleave" class="btn  ModalGreenButton ModalButton">Proceed</button>
                   </div>
                </div>
                <!-- main grid 3 ends -->
@@ -182,28 +180,28 @@
                         <label class="addItemsModalLable">Date</label><br>
                         <input type="date" name="mangDate" id="mangLeaveDate" class="addItemsModalDate mangSelectedDate2" value="<?php echo $data['date']; ?>"><br>
                         <span class="error paddingBottom mangDateError2">
-                           <?php 
+                           <?php
                            if ($data['date_error'])
                            {
                               echo $data['date_error'];
                            }
-                           else echo $data['dateValidationMsg']; 
+                           else echo $data['dateValidationMsg'];
                            ?>
                         </span>
                      </div>
                      <div class="column">
                         <label class="addItemsModalLable">Leave Type</label><br>
-                        <select name="mangLeaveType2" id="mangLeaveType" class="mangSelecedLeaveType2" >
+                        <select name="mangLeaveType2" id="mangLeaveType" class="mangSelecedLeaveType2">
                            <option class="unbold" value=0 option selected="true" disabled="disabled">Select</option>
                            <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>Casual</option>
                            <option value=2 <?php if ($data['leavetype'] == 2) echo 'selected'; ?>>Medical</option>
                         </select>
                         <span class="error paddingBottom mangTypeError2">
-                           <?php 
+                           <?php
                            if ($data['type_error'])
                            {
                               echo $data['type_error'];
-                           } 
+                           }
                            ?>
                         </span>
                      </div>

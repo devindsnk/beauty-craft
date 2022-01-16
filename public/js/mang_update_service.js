@@ -6,79 +6,77 @@ const recallFromUpdateServiceBtn = document.querySelectorAll(".sProvCheckBoxes")
 const recallbtnFromUpdate = document.querySelector(".recallModalRecallBtn");
 const cancelbtnFromUpdate = document.querySelector(".recallModalCancelBtn");
 
+let recallResList = null;
 for (var i = 0; i < sProveChecker.length; i++) {
-    
+
     let sProvID = sProveChecker[i].value;
-    let sID =sProveChecker[i].dataset.columns;
+    let sID = sProveChecker[i].dataset.columns;
 
-    checkedItem = sProveChecker[i];
-    eachsProveChecker(checkedItem,sProvID,sID);
-}
-function eachsProveChecker(checkedItem,sProvID,sID){
-    checkedItem.addEventListener('change',
-        function () {
-            if(!this.checked) {
-                checkForUpcomingReservations();
-            }
-            // if (this.checked) {
-            //     console.log("Checkbox is checked..");
-            //   } else {
-            //     console.log("Checkbox is not checked..");
-            //   }
-        }
-    )
- 
-    function checkForUpcomingReservations()
-    {
-        fetch(`http://localhost:80/beauty-craft/Services/getReservationListOfCheckedSPRovList/${sProvID}/${sID}`)
-            .then(response => response.json())
-            .then(serProvDetails => {
+    sProveChecker[i].addEventListener('change',
+        async function () {
+            if (!this.checked) {
+                await checkForUpcomingReservations(sProvID, sID);
 
-                const ress = [];
-                const ressReson = 'For update the service';
-
-                for (var i = 0; i < serProvDetails.length; i++){
-                    ress.push(serProvDetails[i]['reservationID']);
-                }
-                console.log(sProvID);
-
-                if(serProvDetails.length !== 0){
+                console.log(recallResList);
+                if (recallResList.length !== 0) {
                     modalToToggleUS = recallFromUpdateServiceModal;
                     toggleModalUS();
                 }
-                recallbtnFromUpdate.addEventListener('click',
-                    function () {
-                        recallReservations(sProvID, ress);
-                        closeModalUS()
-                    }
-                )
-                cancelbtnFromUpdate.addEventListener('click',
-                    function () {
-                        console.log('awa cancel ekat');
-                        console.log(checkedItem);
-                        checkedItem.checked=true;
-                    }
-                )
-        }).catch(err => {
-            // Do something for an error here
-            // console.log("Error Reading data :" + err);
-          });
-    }
+            }
+            else {
+                await checkForUpcomingReservations(sProvID, sID);
+                removeFromRecallQueue();
+            }
+        }
+    )
 }
- function recallReservations(sProvID, ress, ressReson) {
-    console.log('recall2');
-    fetch(`http://localhost:80/beauty-craft/Services/recallReservationsFromUpdateService/${sProvID}/${ress}`)
-        .then()
-        .catch(err => {
-            // console.log("Error Reading data :" + err);
-        });
- }
+
+// recallbtnFromUpdate.addEventListener('click',
+//     function () {
+//         console.log('ssa');
+//         recallReservations();
+//     }
+// )
+
+async function checkForUpcomingReservations(sProvID, sID) {
+
+    await fetch(`http://localhost:80/beauty-craft/Services/getReservationListOfCheckedSPRovList/${sProvID}/${sID}`)
+        .then(response => response.json())
+        .then(resDetails => {
+
+            let resList = [];
+            for (var i = 0; i < resDetails.length; i++) {
+                resList.push(resDetails[i]['reservationID']);
+            }
+            console.log(resList);
+            recallResList = resList;
+        }
+        );
+}
+
+function addToRecallQueue() {
+    recallResList.forEach(resID => {
+        console.log(resID);
+        fetch(`http://localhost:80/beauty-craft/Services/addToRecallQueue/${resID}`);
+    });
+    recallResList = null;
+    closeModalUS();
+}
+
+function removeFromRecallQueue() {
+    recallResList.forEach(resID => {
+        fetch(`http://localhost:80/beauty-craft/Services/removeFromRecallQueue/${resID}`);
+    });
+    recallResList = null;
+}
 
 //  start model for recall request
 let modalToToggleUS = null;
-cancelbtnFromUpdate.addEventListener("click", function(){
-    closeModalUS();
-});
+if (cancelbtnFromUpdate) {
+    cancelbtnFromUpdate.addEventListener("click", function () {
+        closeModalUS();
+    });
+}
 
 function toggleModalUS() {
     modalToToggleUS.classList.add("show");
@@ -88,5 +86,5 @@ function closeModalUS() {
 }
 //  end model for recall request
 
-// ...........................END UPDATE SERVICE...........................//
+// // ...........................END UPDATE SERVICE...........................//
 

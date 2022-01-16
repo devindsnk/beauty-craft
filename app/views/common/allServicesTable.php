@@ -72,7 +72,6 @@
             </div>
             <div class="right-section">
                <a href="" class="btn btn-filled btn-black">Search</a>
-               <!-- <button class="btn btn-search">Search</button> -->
             </div>
          </div>
 
@@ -97,28 +96,13 @@
                <tbody>
                   <?php foreach ($data['services'] as $sDetails) : ?>
                      <tr>
-                        <td data-lable="Servie ID" data-lable="" class="column-center-align"><?php echo $sDetails->serviceID; ?></td>
+                        <td data-lable="Servie ID" data-lable="" class="column-center-align">S<?php echo $sDetails->serviceID; ?></td>
 
                         <td data-lable="Service" class="column-left-align"><?php echo $sDetails->name; ?></td>
 
                         <td data-lable="Type" class="column-left-align"><?php echo $sDetails->type; ?></td>
 
-                        <!-- <?php $i = $sDetails->totalDuration; ?>
-                        <?php $hours = $i / 60; ?>
-                        <?php $mins = $i % 60; ?> -->
-
                         <td data-lable="Total Duration" class="column-center-align">
-                           <!-- <?php if ((int)$hours <= 0) : ?>
-                              <?php if ($mins > 0) : ?>
-                                 <?php echo $mins; ?> mins
-                              <?php endif; ?>
-                           <?php else : ?>
-                              <?php if ($mins > 0) : ?>
-                                 <?php echo (int)$hours; ?> h <?php echo $mins; ?> mins
-                              <?php else : ?>
-                                 <?php echo (int)$hours; ?> h
-                              <?php endif; ?>
-                           <?php endif; ?> -->
                            <?php echo DateTimeExtended::minsToDuration($sDetails->totalDuration); ?>
                         </td>
 
@@ -149,8 +133,8 @@
                                     <a href="#"><i data-columns="<?php echo $sDetails->serviceID; ?>" class="ci-trash table-icon btnRemoveService serviceRemove deletehref img-gap"></i></a>
                                  <?php endif; ?>
                               <?php else : ?>
-                                 <i class="ci-edit table-icon img-gap"></i>
-                                 <i data-columns="" class="ci-trash table-icon img-gap"></i>
+                                 <i class="ci-edit-disable table-icon img-gap"></i>
+                                 <i data-columns="" class="ci-trash-disable table-icon img-gap"></i>
                               <?php endif; ?>
                            </span>
                         </td>

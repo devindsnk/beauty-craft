@@ -3,7 +3,7 @@
 }
 
 @media (max-width: 860px) {
-    .customerPages .sidebar{
+    .customerPages .sidebar {
         display: none;
     }
 }
@@ -252,7 +252,7 @@ label.proflabel {
     margin-bottom: 20px;
 }
 
-.cust.my-reservations .top-container{
+.cust.my-reservations .top-container {
     width: 80%;
     max-width: 700px;
     align-self: center;
@@ -387,23 +387,28 @@ label.proflabel {
     column-gap: 5%;
 }
 
-.cust.new-res .service-container .start-time,
-.cust.new-res .service-container .service {
+.cust.new-res .service-container .service,
+.cust.new-res .service-container .duration {
     order: 1;
 }
 
-.cust.new-res .service-container .duration,
-.cust.new-res .service-container .ser-provider {
+.cust.new-res .service-container .date,
+.cust.new-res .service-container .start-time {
     order: 2;
 }
 
+.cust.new-res .service-container .ser-provider {
+    order: 3;
+}
+
 .cust.new-res .service-container .left-box {
-    flex-basis: 110px;
+    width: 400px;
+    flex-basis: auto;
 }
 
 .cust.new-res .service-container .right-box {
-    width: 400px;
-    flex-basis: auto;
+
+    flex-basis: 110px;
 }
 
 .text-group,
@@ -420,10 +425,6 @@ label.proflabel {
 }
 
 @media (max-width: 620px) {
-    .cust.new-res .service-container .date {
-        padding: 0 30px 20px;
-    }
-
     .cust.new-res .service-container {
         padding: 20px;
     }
@@ -442,11 +443,11 @@ label.proflabel {
     }
 
     .cust.new-res .service-container .left-box {
-        min-width: 47.5%;
+        min-width: 100%;
     }
 
     .cust.new-res .service-container .right-box {
-        min-width: 100%;
+        min-width: 47.5%;
     }
 }
 
@@ -495,6 +496,6 @@ label.proflabel {
     width: 200px;
 }
 
-.provide-feedback .modal-box .ratingBox{
+.provide-feedback .modal-box .ratingBox {
     width: 100px;
 }
