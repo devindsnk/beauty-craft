@@ -152,7 +152,7 @@ class Leaves extends Controller
                   if ($data['leavetype'] == 1) //general
                   {
                      $this->LeaveModel->requestleave($data);
-                     // redirect to this view
+                     Toast::setToast(1, "Leave request sent successfully.", "");
                      redirect('Leaves/leaves');
                   }
                   else if ($data['leavetype'] == 2) //medical

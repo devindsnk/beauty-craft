@@ -127,7 +127,11 @@
    background-repeat: no-repeat;
    background-size: contain;
 }
-
+.ci-edit-disable {
+   background: url(../../public/svg/edit-disable.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
 .ci-view-more {
    background: url(../../public/svg/view-more.svg);
    background-repeat: no-repeat;

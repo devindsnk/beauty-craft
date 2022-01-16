@@ -31,12 +31,12 @@
                $path = "/Staff/profile";
                $label = "Profile Settings";
             }
-            else
+            else if ($userTypeNo == 1 || $userTypeNo == 2)
             {
                $path = "/Staff/changePassword";
-               $label = "Password";
+               $label = "ProfileSettings";
             } ?>
-            <a href='<?php echo URLROOT ?><?php echo $path; ?>'>
+            <a href='<?php echo URLROOT ?><?php echo $path; ?>' onclick="sessionStorage.setItem('returnReferer',window.location.href);">
                <?php echo $label; ?>
             </a>
 

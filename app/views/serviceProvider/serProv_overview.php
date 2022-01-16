@@ -16,8 +16,29 @@
 
     <!--Content-->
     <div class="content serprov">
+
         <!--sub-container1-card 1-->
         <div class="container1-card card">
+            <div class="options-container left">
+                <div class="sub-container1-card-content res">
+                    <div class="mainsection">
+
+                        <form>
+
+                            <a href="#" class="previous round">&#8249;</a>
+
+                            <input class="selecteddate" type="date" id="date_input" value="" />
+                            <a href="#" class="next round">&#8250;</a>
+                            <!-- <input type="button" value="Get Weekday" onclick="day_of_week()" /> -->
+                        </form>
+                        <div class="day" id="output"><?php echo date("l"); ?></div>
+                        <span class="date-error-test">
+
+
+                        </span>
+                    </div>
+                </div>
+            </div>
             <div class="sub-container1-card-content">
                 <div class="sub-container1-card-title">Completed</div>
                 <div class="sub-container1-card-count">5</div>
@@ -44,24 +65,18 @@
                                 <span class="sub-container2-card-cstname">Customer</span>
                                 <span class="name"><?php echo $reservation->fName . " " . $reservation->lName; ?></span>
                             </div>
+                            <?php
+                            $statusClassList = ["red", "blue", "green", "grey", "grey", "yellow"];
+                            $statusValueList  = ["Cancelled", "Pending", "Confirmed", "No Show", "Completed", "Recalled"];
+                            $statusClass = $statusClassList[$reservation->status];
+                            $statusValue = $statusValueList[$reservation->status];
+                            ?>
                             <div class="confbtn">
-                                <?php if ($reservation->status == 1) : ?>
-                                    <div class="confirm-status yellow">
-                                        <span>Not Confirmed</span>
-                                    </div>
-                                <?php elseif ($reservation->status == 2) : ?>
-                                    <div class="confirm-status blue">
-                                        <span>Confirmed</span>
-                                    </div>
-                                <?php elseif ($reservation->status == 4) : ?>
-                                    <div class="confirm-status green">
-                                        <span>Completed</span>
-                                    </div>
-                                <?php elseif ($reservation->status == 5) : ?>
-                                    <div class="confirm-status gray">
-                                        <span>Recalled</span>
-                                    </div>
-                                <?php endif; ?>
+
+                                <div class="confirm-status status-btn btn text-uppercase <?php echo $statusClass; ?>">
+                                    <span><?php echo $statusValue ?></span>
+                                </div>
+
                             </div>
                             <div class="sub-container2-card-link">
                                 <button class="btnOpen btnResMoreInfo" data-id="<?php echo $reservation->reservationID; ?>">More
@@ -89,7 +104,7 @@
                                 <span class="service"></span><br>
                                 <span class="name cust"></span>
                             </div>
-                            <div class="modaldetails-status green">
+                            <div class="modaldetails-status">
 
                                 <div class="moredetails-confirm-status" id="resStatus">
                                     <span class="spn-moredetails-confirm-status"></span>

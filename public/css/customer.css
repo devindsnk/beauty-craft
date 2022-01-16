@@ -44,13 +44,24 @@
     height: 20%;
     display: flex;
     flex-direction: row;
+    margin-top: 8px;
 }
+
+.imgUploadSection{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 
 .item2,
 .item7 {
     height: 18%;
     display: flex;
     flex-direction: row;
+}
+.item7 {
+    margin-bottom: 40px;
 }
 
 .item3 {
@@ -59,6 +70,12 @@
 
 .item4 {
     height: 18%;
+    margin-bottom: 40px;
+}
+.item.item10 {
+    margin-bottom: 60px;
+    margin-top: 5px;
+    
 }
 
 .item6 {
@@ -67,6 +84,13 @@
 }
 
 .item5 {
+    height: 18%;
+    display: flex;
+    align-items: flex-end;
+    /* padding-right: 5%; */
+    /* flex-direction: flex-end; */
+}
+.item11 {
     height: 18%;
     display: flex;
     align-items: flex-end;
@@ -87,32 +111,50 @@
     width: 100px;
 }
 
+
 .profbutton {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding-right: 20px;
 }
-
-.profbutton button {
-    padding: 4px 20px;
+#custimage {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    visibility: hidden;
 }
 
-button.upload {
+
+.custImgUploadBtn {
     background-color: #252631;
     font-size: 18px;
     font-weight: 500;
     border-radius: 6px;
     border: #252631;
     color: white;
+    padding: 4px 20px;
 }
-
-button.remove {
+.removebtn {
     background-color: transparent;
     border: none;
     font-size: 15px;
     font-weight: 400;
+    /* margin-left: 120px; */
+    /* position: absolute; */
+    
+}
+.removebtncontainer{
+  position: absolute;  
+   margin-left: 120px;
+   width: 216px;
+   display: flex;
+   justify-content: center;
+   margin-top: -15px;
+   cursor: default;
 }
 
 .profname {
@@ -227,6 +269,13 @@ label.proflabel {
 .sidenavbtn.selected {
     background-color: #dddddd;
     font-weight: 600;
+}
+.row.custProfileSettings{
+margin-top: 20px;
+}
+
+.item.item4{
+    margin-top: 25px;
 }
 
 /******************** Styles of My reservations **********************/
@@ -407,7 +456,6 @@ label.proflabel {
 }
 
 .cust.new-res .service-container .right-box {
-
     flex-basis: 110px;
 }
 
@@ -451,17 +499,7 @@ label.proflabel {
     }
 }
 
-.another-service {
-    margin: 15px 0;
-    color: var(--theme-blue);
-    display: block;
-    width: 100%;
-    text-align: center;
-    /* margin-left: 40px; */
-    /* margin-right: auto; */
-}
-
-.summary-container {
+/* .summary-container {
     padding: 15px;
     width: 50%;
     margin: 30px 0 20px auto;
@@ -486,9 +524,9 @@ label.proflabel {
 .summary-container span {
     font-weight: 400;
     font-size: 14px;
-}
+} */
 
-.addResBtn {
+.addResBtnCust {
     width: 100%;
     padding: 7px;
     margin-top: 20px;

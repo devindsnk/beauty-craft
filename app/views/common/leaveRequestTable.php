@@ -3,7 +3,7 @@
 
       <div class="leavecountcard general">
          <div class="left-container-leave"></div>
-         <div class="leavecountcardleft">Remaining General Leaves</div>
+         <div class="leavecountcardleft">Remaining Casual Leaves</div>
          <div class="leavecountcardright">
             <?php
             if ($data['remainingGCount'] < 0)
@@ -35,7 +35,8 @@
 
    <span class="leavelimitmsg">
       <?php
-      if ($data['remainingGCount'] < 0) echo "Your Leave limit exceed";
+      if ($data['remainingGCount'] < -1) echo "You have already taken " . $data['remainingGCount'] * (-1) . " leaves more than the general leave limit.";
+      if ($data['remainingGCount'] == -1) echo "You have already taken " . $data['remainingGCount'] * (-1) . " leave more than the general leave limit.";
       ?>
    </span>
 
@@ -49,7 +50,7 @@
                      <label class="label" for="lName">Leave Type</label>
                      <select name="lstatus" id="lTypeLeaveData">
                         <option value="All" selected>All</option>
-                        <option value="1">General</option>
+                        <option value="1">Casual</option>
                         <option value="2">Medical</option>
 
                      </select>
@@ -96,8 +97,8 @@
             <tbody>
                <?php foreach ($data['tableData'] as $leave) : ?>
                   <tr>
-                     <td data-lable="Leave Date" class="column-center-align"><?php echo $leave->leaveDate; ?></td>
-                     <td data-lable="Requested date" class="column-center-align"><?php echo $leave->requestedDate; ?></td>
+                     <td data-lable="Leave Date" class="column-center-align"><?php echo DateTimeExtended::dateToShortMonthFormat($leave->leaveDate, "F"); ?></td>
+                     <td data-lable="Requested date" class="column-center-align"><?php echo DateTimeExtended::dateToShortMonthFormat($leave->requestedDate, "F"); ?></td>
                      <td data-lable="Responded Staff ID" class="column-center-align">
                         <?php echo $leave->respondedStaffID; ?><?php if (!($leave->respondedStaffID)) echo 'Not yet Responded' ?>
                      </td>
@@ -105,7 +106,7 @@
                      <td data-lable="Type" class="column-center-align">
                         <?php if ($leave->leaveType == 1)
                         {
-                           echo "General";
+                           echo "Casual";
                         }
                         elseif ($leave->leaveType == 2)
                         {
@@ -131,7 +132,14 @@
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <button class="editicon btnEditLeave" data-id="<?php echo $leave->leaveDate; ?>" onclick="editLeaveRequest(this);"><a href="#" data-id="<?php echo $leave->leaveDate; ?>"><i class="ci-edit table-icon" data-id="<?php echo $leave->leaveDate; ?>"></i></a></button>
+                           <button class="editicon btnViewLeave" data-id="<?php echo $leave->leaveDate; ?>"><a href="#" data-id="<?php echo $leave->leaveDate; ?>"><i class="ci-view-more table-icon" data-id="<?php echo $leave->leaveDate; ?>"></i></a></button>
+
+                           <?php if ($leave->status == 2) : ?>
+                              <button class="editicon btnEditLeave" data-id="<?php echo $leave->leaveDate; ?>" onclick="editLeaveRequest(this);"><a href="#" data-id="<?php echo $leave->leaveDate; ?>"><i class="ci-edit table-icon" data-id="<?php echo $leave->leaveDate; ?>"></i></a></button>
+                           <?php else : ?>
+                              <button class="editicon btnEditLeave" data-id="<?php echo $leave->leaveDate; ?>" disabled><a data-id="<?php echo $leave->leaveDate; ?>"><i class="ci-edit-disable table-icon" data-id="<?php echo $leave->leaveDate; ?>"></i></a></button>
+                           <?php endif; ?>
+
                            <?php if ($leave->status == 2) : ?>
                               <button class="editicon btnDeleteLeave" data-id="<?php echo $leave->leaveDate; ?>"><a data-id="<?php echo $leave->leaveDate; ?>"><i class=" ci-trash table-icon" data-id="<?php echo $leave->leaveDate; ?>"></i></a></button>
                            <?php else : ?>
@@ -174,7 +182,7 @@
                         <select name="leavetype" id="lstatus" class="dropdowntype">
                            <!-- <option value="All" selected></option> -->
                            <option class="unbold" value="0" option selected="true" disabled="disabled">Select</option>
-                           <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>General</option>
+                           <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>Casual</option>
                            <option value=2 <?php if ($data['leavetype'] == 2) echo 'selected'; ?>>Medical</option>
 
                         </select>
@@ -239,7 +247,7 @@
                   <div class="dropdown-group">
                      <select name="leavetype" class="editleavetype" id="lstatus">
                         <option class="unbold" value="0" option selected="true" disabled="disabled">Select</option>
-                        <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>General</option>
+                        <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>Casual</option>
                         <option value=2 <?php if ($data['leavetype'] == 2) echo 'selected'; ?>>Medical</option>
                      </select>
                   </div>
@@ -289,6 +297,65 @@
       </div>
    </div>
    <!-- end delete leave request model -->
+   <!-- view leave Request -->
+   <div class=" modal-container view-leave request">
+      <div class="modal-box addItems leave_request ">
+         <div class="new-type-head">
+            <h1>Edit Leave Request</h1>
+         </div>
+         <div class="leaverequest-form-content">
+            <div class="reqleave-date-section">
+               <!-- <p class="test-class">Bla bla</p> -->
+               <div class="leave-date-section">
+                  <div class="text-group">
+                     <label class="labels" for="serviceName">Date</label><br>
+                     <form>
+                        <input class="editLeaveRequestDate" type="date" name="date" id="date_picker" disabled>
+                     </form>
+                  </div>
+                  <span class="error date-error">
+                     <?php if ($data['date_error'])
+                     {
+                        echo $data['date_error'];
+                     }
+                     else echo $data['dateValidationMsg']; ?>
+                  </span>
+               </div>
+               <div class="reqleave-type-section">
+                  <label class="labels" for="serviceName">Type</label><br>
+                  <div class="dropdown-group">
+                     <select name="leavetype" class="editleaveDropdownType" id="lstatus">
+                        <option class="unbold" value="0" option selected="true" disabled="disabled">Select</option>
+                        <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>Casual</option>
+                        <option value=2 <?php if ($data['leavetype'] == 2) echo 'selected'; ?>>Medical</option>
+                     </select>
+                  </div>
+               </div>
+            </div>
+            <span class="error request-date-error">
+            </span>
+            <div class="reqleave-reason-section">
+               <div class="text-group">
+                  <label class="labels" for="serviceName">Reason</label><br>
+
+                  <textarea type="text" name="reason" id="takeLeaveReason" placeholder="-- Type in --" class="editTextArea" value="<?php echo $data['reason']; ?>"><?php echo $data['reason']; ?></textarea>
+               </div>
+               <span class="error"> <?php echo $data['reason_error']; ?></span>
+            </div>
+            <div class="reqleave-button-section">
+               <div class="modalbutton">
+                  <div class="btn1">
+                     <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
+                  </div>
+                  <div class="btn2">
+                     <button type="submit" name="action" value="edit" class="confirm-service-btn editleavebtn proceedBtn" onclick="leaveRequestSaveChanges(this);">Save Changes</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- end view leave Request -->
 </div>
 
 <!-- <script>

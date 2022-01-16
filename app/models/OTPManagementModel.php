@@ -50,8 +50,8 @@ class OTPManagementModel extends Model
       $timestamp = DateTimeExtended::getCurrentTimeStamp();
 
       // Updates the OTp if key already exists
-      $SQLquery = "
-      INSERT INTO otpverification (mobileNo, OTP, timestamp, type) 
+      $SQLquery =
+         "INSERT INTO otpverification (mobileNo, OTP, timestamp, type) 
       VALUES(:mobileNo, :OTP, :timestamp, :type) ON DUPLICATE KEY UPDATE 
       mobileNo =  :mobileNo, OTP = :OTP, timestamp = :timestamp, type = :type;";
       $this->customQuery(

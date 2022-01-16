@@ -260,8 +260,9 @@ class Services extends Controller
 
    public function getServiceDuration($serviceID)
    {
-      Session::validateSession([6]);
+      Session::validateSession([4, 6]);
       $serviceDuration = $this->ServiceModel->getServiceDuration($serviceID);
+      $serviceDuration = DateTimeExtended::minsToDuration($serviceDuration);
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($serviceDuration));
 

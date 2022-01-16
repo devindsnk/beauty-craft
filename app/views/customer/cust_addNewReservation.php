@@ -72,7 +72,7 @@
             <span class="error remarks-error"></span>
          </div>
 
-         <button class="btn btn-filled btn-theme-red addResBtn">Add Reservation</button>
+         <button class="btn btn-filled btn-theme-red addResBtnCust">Place Reservation</button>
 
       </div>
    </div>

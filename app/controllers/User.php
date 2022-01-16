@@ -317,4 +317,39 @@ class User extends Controller
       session_destroy();
       redirect('home');
    }
+
+   public function getUserHeaderImg()
+   {
+      if (Session::getUser("type") == 6)
+      {
+         $result = $this->customerModel->getCustomerByMobileNo(Session::getUser("mobileNo"))->imgPath;
+         if ($result)
+         {
+            $path = 'http://localhost/beauty-craft/public/imgs/customerImgs/' . $result;
+         }
+         else
+         {
+            $path = 'http://localhost/beauty-craft/public/imgs/customerImgs/customerbarimg.png';
+         }
+      }
+      else
+      {
+         $result = Session::getUser("img");
+         // $this->staffModel->getStaffUserData(Session::getUser("mobileNo"));
+         // $result = 'hhhh';
+         if ($result)
+         {
+            $path = 'http://localhost/beauty-craft/public/imgs/staffImgs/' . $result;
+         }
+         else
+         {
+            $path = 'http://localhost/beauty-craft/public/imgs/customerImgs/customerbarimg.png';
+         }
+      }
+
+
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($path));
+   }
 }

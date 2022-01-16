@@ -31,6 +31,7 @@ class DateTimeExtended
       return $date;
    }
 
+
    public static function dateToShortMonthFormat($datetime, $flag)
    {
       $timestamp = strtotime($datetime);
@@ -43,7 +44,7 @@ class DateTimeExtended
          case "Y":
             return date('o',  $timestamp);
          case "F":
-            return date('M j, o',  $timestamp);
+            return date('M j, o',  $timestamp); // Format Example: Dec 31, 2021
       }
    }
 

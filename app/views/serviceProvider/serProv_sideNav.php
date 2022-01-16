@@ -27,14 +27,7 @@
          <!--End Sidebar Item--
 
          <!--Sidebar Item-->
-         <li class="mainOption menuOption">
-            <a class="optionLink <?php if ($selectedMain == "Daily View") echo " selected" ?>" href="<?php echo URLROOT ?>/SerProvDashboard/dailyview">
-               <div class="optionIcon">
-                  <i class="sidenav-icon ci-calendar"></i>
-               </div>
-               <div class="optionTitle">Daily View</div>
-            </a>
-         </li>
+
          <!--End Sidebar Item-->
 
          <!--Sidebar Item-->

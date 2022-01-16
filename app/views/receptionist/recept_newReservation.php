@@ -13,29 +13,41 @@
 
    <div class="recept content newRes">
 
-
-      <form action="<?php echo URLROOT; ?>/reservations/newReservationCust" method="post" class="form">
-
+      <div class="form">
          <div class="inner-container">
 
             <h3>Customer Details</h3>
             <div class="contentBox cust-container">
+               <div class="left-box cust-data">
+                  <div class="text-group">
+                     <label class="label">Customer Name / Contact No</label>
+                     <div class="wrapper">
+                        <input type="text" class="custSelector">
+                        <div class="cust-suggest-box"></div>
+                     </div>
+                  </div>
+                  <span class="error cust-error"></span>
+                  <div class="profile-info">
+                     <div class="img-container">
+                        <img class="header-profilepic" src="<?php echo URLROOT ?>/public/imgs/person1.jpg"></img>
+                     </div>
+                     <div class="text-container">
+                        <label class="cust-name"></label>
+                        <label class="contact-no"></label>
+                     </div>
+                     <i class="fal fa-times profile-remove" onclick="removeCustomer()"></i>
+                  </div>
 
-               <div class="text-group">
-                  <label class="label" for="fName">Customer Name / Contact No</label>
-                  <input type="text" name="" id="fName" placeholder="Search">
                </div>
 
-               <div class="profile-info">
-                  <div class="img-container">
-                     <img class="header-profilepic" src="<?php echo URLROOT ?>/public/imgs/person1.jpg"></img>
+               <div class="right-box walkin-status">
+                  <div class="text-group">
+                     <label class="label">Walk-In Customer</label>
+                     <input type="checkbox" class="togglecheckbox-dd purple" onclick="walkinToggleSwitch(this)">
                   </div>
-                  <div class="text-container">
-                     <label for="" class="cust-name">Ravindu Madhubhashana</label>
-                     <label for="" class="contact-no">0717679714</label>
-                  </div>
-                  <i class="fal fa-times profile-remove"></i>
                </div>
+
+
             </div>
 
 
@@ -44,22 +56,36 @@
 
             <div class="contentBox service-container">
                <div class="top-container">
-                  <div class="text-group date">
+                  <div class="dropdown-group left-box service">
+                     <label class="label" for="lName">Service</label>
+                     <select name="serviceID" id="" class="serviceSelect">
+                        <option value="" selected disabled>Select</option>
+                        <?php foreach ($data['servicesList'] as $service) : ?>
+                           <option value="<?php echo $service->serviceID ?>"><?php echo $service->name ?></option>
+                        <?php endforeach; ?>
+                     </select>
+                     <span class="error service-error"></span>
+                  </div>
+
+                  <div class="dropdown-group right-box duration">
+                     <label class="label" for="fName">Duration</label>
+                     <input type="text" name="duration" id="fName" disabled class="durationBox">
+                  </div>
+
+                  <div class="text-group left-box date">
                      <label class="label" for="fName">Date</label>
-                     <input type="date" id="date_picker" name="date" value="<?php /* echo $data['date']; */ ?>" class="dateSelect">
-                     <span class="error date-error">
-                        <!-- <?php echo $data['date_error']; ?> -->
-                     </span>
+                     <input type="date" id="date_picker" name="date" value="" class="dateSelect">
+                     <span class="error date-error"></span>
                      <span class="info-line">*A reservation can be placed upto maximum of two months ahead. </span>
                   </div>
 
-                  <div class="dropdown-group left-box start-time">
-                     <label class="label" for="lName">Start Time</label>
+                  <div class="dropdown-group right-box start-time">
+                     <label class="label" for="lName">Time</label>
                      <select name="startTime" class="startTimeSelect">
                         <option value="" selected disabled>Select</option>
-                        <?php for ($i = 9; $i <= 18; $i += 1) : ?>
+                        <?php for ($i = 9; $i <= 19; $i += 1) : ?>
                            <?php for ($j = 0; $j <= 50; $j += 10) : ?>
-                              <option value="<?php echo $i * 60 + $j; ?>" class="font-numeric" <?php if ($data['startTime'] == $i * 60 + $j) echo " selected"; ?>>
+                              <option value="<?php echo $i * 60 + $j; ?>" class="font-numeric">
                                  <?php
                                  if ($i < 12)
                                     echo str_pad($i, 2, "0", STR_PAD_LEFT) . ' : ' . str_pad($j, 2, "0", STR_PAD_LEFT) . " AM";
@@ -72,54 +98,45 @@
                            <?php endfor; ?>
                         <?php endfor; ?>
                      </select>
-                     <span class="error"><?php /* echo $data['startTime_error']; */ ?></span>
+                     <span class="error sTime-error"></span>
                   </div>
 
-                  <div class="dropdown-group right-box service">
-                     <label class="label" for="lName">Service</label>
-                     <select name="serviceID" id="" class="serviceSelect">
-                        <option value="" selected disabled>Select</option>
-                        <?php /* foreach ($data['servicesList'] as $service) : ?>
-                     <option value="<?php echo $service->serviceID ?>"><?php echo $service->name ?></option>
-                  <?php endforeach;*/ ?>
-                     </select>
-                     <span class="error"><?php /*echo $data['serviceID_error'];*/ ?></span>
-                  </div>
-
-                  <div class="text-group left-box duration">
-                     <label class="label" for="fName">Duration</label>
-                     <input type="text" name="duration" id="fName" disabled class="durationBox">
-                  </div>
-
-                  <div class="dropdown-group right-box ser-provider">
+                  <div class="text-group ser-provider">
                      <label class="label" for="lName">Service Provider</label>
                      <select name="staffID" id="" class="serviceProviderSelect">
                         <option value="" selected disabled>Select service first</option>
                      </select>
-                     <span class="error"><?php /*echo $data['staffID_error'];*/ ?></span>
+                     <span class="error sProv-error"></span>
                   </div>
-
                </div>
-
 
                <div class="text-group last-group">
                   <label class="label" for="fName">Remarks</label>
                   <textarea name="remarks" id="" maxlength="200" class="remarks"></textarea>
                </div>
-               <span class="error"><?php /* echo $data['remarks_error']; */ ?></span>
-
+               <span class="error remarks-error"></span>
             </div>
 
+            <button class="btn btn-filled btn-theme-purple addResBtnRecept">Place Reservation</button>
          </div>
-         <div class="btn-container">
-            <a href="" class="btn btn-filled btn-theme-purple btn-main">Place Reservation</a>
-         </div>
+      </div>
 
-      </form>
-      <!-- ///////////////////////////////////////////////////////////////////////////// -->
+      <script language="javascript">
+         const datePicker = document.getElementById("date_picker");
+
+         let today = new Date().toISOString().split('T')[0];
+         let maxDate = new Date();
+         month = new Date().getMonth();
+         maxDate.setMonth(maxDate.getMonth() + 2);
+         maxDate = maxDate.toISOString().split('T')[0];
+
+         datePicker.setAttribute('min', today);
+         datePicker.setAttribute('max', maxDate);
+         datePicker.setAttribute('format', 'yyyy-MM-dd')
+      </script>
+
+      <script src="<?php echo URLROOT ?>/public/js/fetchRequests/newReservation.js"></script>
+      <script src="<?php echo URLROOT ?>/public/js/customerSuggest.js"></script>
 
    </div>
-
-   <script src="<?php echo URLROOT ?>/public/js/fetchRequests/newReservation.js"></script>
-
    <?php require APPROOT . "/views/inc/footer.php" ?>
