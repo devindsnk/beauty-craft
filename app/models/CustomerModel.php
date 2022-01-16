@@ -144,6 +144,17 @@ class CustomerModel extends Model
       $results = $result1 + $result2;
       return $results;
    }
+
+   public function getAllActiveCustomers()
+   {
+      $SQLstatement =
+         "SELECT customerID, fName, lName, mobileNo 
+         FROM customers 
+         WHERE status = 1 AND customerID <> '000001'";
+      $results = $this->customQuery($SQLstatement);
+      return $results;
+   }
+
    //for Customer profile settings
    public function removeCustImg($custID)
    {
@@ -157,9 +168,5 @@ class CustomerModel extends Model
    public function updateUserTableMobileNo($newNo, $oldNo)
    {
       $results = $this->update('users', ['mobileNo' => $newNo], ['mobileNo' => $oldNo]);
-   }
-   public function deleteOtpRecords($mobileNo)
-   {
-      $results = $this->delete('otpverification', ['mobileNo' => $mobileNo]);
    }
 }

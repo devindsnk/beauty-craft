@@ -418,4 +418,12 @@ class Customer extends Controller
          $this->view('systemAdmin/systemadmin_customer', $data);
       }
    }
+
+   public function getAllActiveCustomers()
+   {
+      $result = $this->customerModel->getAllActiveCustomers();
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($result));
+   }
 }

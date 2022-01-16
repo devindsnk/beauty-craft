@@ -127,36 +127,57 @@
 
 /********************* Styles of new reservation page ***********************/
 
-.recept.newRes .inner-container{
+.recept.newRes .inner-container {
    max-width: 600px;
-   margin: 20px auto 10px;
+   margin: 15px auto;
 }
 
-.profile-info {
+.recept.newRes .cust-container {
+   display: flex;
+   gap: 20px;
+   padding: 30px;
+   margin: 5px 0 30px;
+}
+
+.cust-container .left-box {
+   width: 400px;
+   flex-basis: auto;
+}
+
+.cust-container .right-box {
+   flex-basis: 150px;
+}
+
+.cust-container .text-group {
+   margin-bottom: 0 !important;
+}
+
+.cust-container .profile-info {
    display: flex;
    padding: 0 0 0 10px;
    margin: 15px 0 0;
    border-radius: 6px;
    height: 70px;
    background-color: var(--theme-lightgrey);
+   display: none;
 }
 
-.profile-info div {
+.cust-container .profile-info div {
    display: inline-block;
 }
 
-.profile-info .img-container {
+.cust-container .profile-info .img-container {
    display: flex;
    align-content: center;
    margin-right: 15px;
 }
 
-.profile-info .img-container img {
+.cust-container .profile-info .img-container img {
    margin-top: auto;
    margin-bottom: auto;
 }
 
-.profile-info .text-container {
+.cust-container .profile-info .text-container {
    height: 100%;
    width: 100%;
    display: flex;
@@ -164,36 +185,35 @@
    flex-direction: column;
 }
 
-.profile-info .text-container .cust-name{
+.cust-container .profile-info .text-container .cust-name {
    font-size: 14px;
 }
 
-.profile-info div label {
+.cust-container .profile-info div label {
    margin-top: auto;
    display: block;
 }
 
-.profile-info .text-container .contact-no {
+.cust-container .profile-info .text-container .contact-no {
    color: var(--theme-grey);
    margin-top: 0;
    margin-bottom: auto;
    font-size: 14px;
 }
 
-.profile-remove {
+.cust-container .profile-remove {
    margin: 7px 7px 0 0;
    position: relative;
    right: 0;
 }
 
-.recept.newRes .cust-container{
-   padding: 20px;
-   margin: 10px 0 30px;
+.walkin-status .togglecheckbox-dd {
+   margin-top: 10px !important;
 }
 
-.recept.newRes .service-container{
+.recept.newRes .service-container {
    padding: 30px;
-   margin: 10px 0 15px;
+   margin-top: 6px;
 }
 
 .recept.newRes .service-container .top-container {
@@ -202,34 +222,35 @@
    column-gap: 5%;
 }
 
-.recept.newRes .service-container .start-time,
-.recept.newRes .service-container .service {
-    order: 1;
+.recept.newRes .service-container .service,
+.recept.newRes .service-container .duration {
+   order: 1;
 }
 
-.recept.newRes .service-container .duration,
+.recept.newRes .service-container .date,
+.recept.newRes .service-container .start-time {
+   order: 2;
+}
+
 .recept.newRes .service-container .ser-provider {
-    order: 2;
+   order: 3;
 }
 
 .recept.newRes .service-container .left-box {
-    flex-basis: 110px;
+   width: 400px;
+   flex-basis: auto;
 }
 
 .recept.newRes .service-container .right-box {
-    min-width: 400px;
-    flex-basis: auto;
+   flex-basis: 110px;
 }
 
-.recept.newRes .text-group, .dropdown-group{
+.recept.newRes .text-group,
+.recept.newRes .dropdown-group {
    margin-bottom: 20px;
 }
 
-.recept.newRes .last-group {
-   margin-bottom: 0 !important;
-}
-
-.recept.newRes .btn-container{
+.recept.newRes .btn-container {
    max-width: 600px;
    margin: 10px auto 10px;
 }
@@ -239,6 +260,22 @@
    padding: 6px;
    width: 200px;
    float: right;
+}
+
+.recept.newRes .remarks {
+   height: 60px;
+}
+
+.recept.newRes .last-group {
+   margin-bottom: 0 !important;
+}
+
+.recept.newRes .addResBtnRecept {
+   width: 100%;
+   padding: 7px;
+   margin-top: 20px;
+   float: right;
+   width: 200px;
 }
 
 
@@ -439,7 +476,7 @@
    grid-template-columns: 3fr 3fr 2fr;
 }
 
-.recept.invoiceView .invoiceDetails .invoice-status{
+.recept.invoiceView .invoiceDetails .invoice-status {
    margin-left: auto;
 }
 
@@ -462,12 +499,12 @@
    font-weight: 600;
 }
 
-.recept.invoiceView .summary{
+.recept.invoiceView .summary {
    font-size: 13px;
    color: var(--theme-grey);
 }
 
-.recept.invoiceView .summary .highlighted{
+.recept.invoiceView .summary .highlighted {
    font-size: 12px;
    font-weight: 600;
    color: var(--theme-black);
@@ -493,7 +530,46 @@
    padding: 4px;
    width: 120px;
 }
+
 /****************** End of Styles of invoice View ************************/
+
+
+/* customer suggest styles  */
+
+.recept.newRes .wrapper {
+   max-width: 540px;
+   position: relative;
+}
+
+
+.recept.newRes .cust-suggest-box {
+   position: absolute;
+   width: 100%;
+   max-height: 280px;
+   overflow-y: auto;
+   background: var(--theme-lightgrey);
+   border-radius: 6px;
+   z-index: 5;
+   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+   border: 1.2px solid #c4cae0;
+   display: none;
+}
+
+.recept.newRes .cust-suggest-box li {
+   font-size: 14px;
+   font-weight: 400;
+   list-style: none;
+   padding: 8px 12px;
+   width: 100%;
+   border: none;
+   cursor: default;
+}
+
+.recept.newRes .cust-suggest-box li:hover {
+   color: white;
+   background: var(--theme-bggrey);
+}
+
 
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/

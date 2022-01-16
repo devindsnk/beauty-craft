@@ -4,6 +4,7 @@ class Reservations extends Controller
 {
    public function __construct()
    {
+      $this->customerModel = $this->model('CustomerModel');
       $this->staffModel = $this->model('StaffModel');
       $this->serviceModel = $this->model('ServiceModel');
       $this->reservationModel = $this->model('ReservationModel');
@@ -104,10 +105,39 @@ class Reservations extends Controller
       $this->view('customer/cust_addNewReservation', $data);
    }
 
-   public function placeReservation($serviceID, $staffID, $date, $startTime, $remarks = null)
+   public function newReservationRecept()
    {
+      $customers = $this->customerModel->getAllActiveCustomers();
+      $servicesList = $this->serviceModel->getAllAvailableServices();
+
       $data = [
-         'customerID' => Session::getUser("id"),
+         'customerID' => '',
+         'serviceID' => '',
+         'staffID' => '',
+         'date' => '',
+         'startTime' => '',
+         'endTime' => 0,
+         'remarks' => '',
+
+         'serviceID_error' => '',
+         'staffID_error' => '',
+         'date_error' => '',
+         'startTime_error' => '',
+         'remarks_error' => '',
+
+         'customersList' => $customers,
+         'servicesList' => $servicesList
+      ];
+
+      $this->view('receptionist/recept_newReservation', $data);
+   }
+
+   public function placeReservation($serviceID, $staffID, $date, $startTime, $custID = null, $remarks = null)
+   {
+      $custID = ($custID == "null") ? Session::getUser("id") : $custID;
+
+      $data = [
+         'customerID' => $custID,
          'serviceID' => $serviceID,
          'staffID' => $staffID,
          'date' => $date,
@@ -119,38 +149,6 @@ class Reservations extends Controller
 
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($results));
-   }
-
-   public function addNewResRecept()
-   {
-      if ($_SERVER['REQUEST_METHOD'] == 'POST')
-      {
-         $data = [
-            'customerID' => trim($_POST['customerID']),
-            'serviceID' => trim($_POST['serviceID']),
-            'staffID' => trim($_POST['staffID']),
-            'date' => trim($_POST['date']),
-            'startTime' => trim($_POST['startTime']),
-            'endTime' => trim($_POST['endTime']),
-            'remarks' => trim($_POST['remarks']),
-
-            'serviceID_error' => trim($_POST['serviceID']),
-            'staffID_error' => trim($_POST['staffID']),
-            'date_error' => trim($_POST['date']),
-            'startTime_error' => trim($_POST['startTime']),
-            'remarks_error' => trim($_POST['remarks'])
-         ];
-      }
-      else
-      {
-         $data = [
-            'mobileNo' => '',
-            'password' => '',
-            'mobileNo_error' => '',
-            'password_error' => ''
-         ];
-         $this->view('receptionist/recept_newReservation', $data);
-      }
    }
 
    public function getAllServiceProviders()

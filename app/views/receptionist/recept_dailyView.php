@@ -14,7 +14,7 @@
    <!--Content-->
    <div class="content recept daily-view">
       <div class="page-top-main-container">
-         <a href="<?php echo URLROOT ?>/reservations/addNew" class="btn btn-filled btn-theme-purple btn-main">Add
+         <a href="<?php echo URLROOT ?>/reservations/newReservationRecept" class="btn btn-filled btn-theme-purple btn-main">Add
             New</a>
       </div>
 
