@@ -163,6 +163,7 @@ class MangDashboard extends Controller
             if (empty($data['date_error']) && empty($data['reason_error']) && empty($data['type_error']))
             {
                $this->leaveModel->addMangLeave($data);
+               Toast::setToast(1, "Leave Added Successfully!!!", "");
                redirect('MangDashboard/takeLeave');
             }
             else
@@ -256,6 +257,7 @@ class MangDashboard extends Controller
             if (empty($data['date_error']) && empty($data['reason_error']) && empty($data['type_error']))
             {
                $this->leaveModel->updateMangLeave($data, $userID, $leaveID);
+               Toast::setToast(1, "Leave Updated Successfully!!!", "");
                redirect('MangDashboard/takeLeave');
             }
             else
@@ -300,6 +302,7 @@ class MangDashboard extends Controller
    {
       $staffID = Session::getUser("id");
       $this->leaveModel->deleteMangLeave($leaveDate, $staffID);
+      Toast::setToast(1, "Leave Deleted Successfully!!!", "");
       redirect('MangDashboard/takeLeave');
    }
 }
