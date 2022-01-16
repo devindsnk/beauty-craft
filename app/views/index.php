@@ -106,8 +106,8 @@
 
    <div id="services" class="testimonials sub-section">
       <span class="title">WHAT THEY SAY</span>
-      <div class="comment-container">
-         <img src="<?php echo URLROOT ?>/public/imgs/stylist-1.jpg" alt="">
+      <div class="comment-container profileIcon">
+         <img src="" alt="">
          <span class="description">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum inventore ab tenetur possimus quisquam odit recusandae similique iusto ipsa in! Alias aperiam quo, ea fugiat unde tempore officia nostrum vel?
          </span>
@@ -209,5 +209,6 @@
 
 <script src="<?php echo URLROOT ?>/public/js/jquery-3.6.0.min.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/home.js"></script>
+<script src="<?php echo URLROOT ?>/public/js/fetchRequests/customerFetch.js"></script>
 
 </html>

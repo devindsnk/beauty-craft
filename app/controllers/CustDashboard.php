@@ -101,36 +101,20 @@ class CustDashboard extends Controller
             if (!$data['imgPath'])
             {
                $data['imgPath'] = $profileData->imgPath;
-               // die('empty img path');
             }
 
-            // print_r($data);
-            // die($data['imgPath']);
+
             $this->customerModel->beginTransaction();
             $this->customerModel->updateCustomerInfo($data, Session::getUser("id"));
             $this->customerModel->updateUserTableMobileNo($data['mobileNo'], Session::getUser("mobileNo"));
             if ($data['mobileNo'] != Session::getUser("mobileNo"))
             {
                $this->customerModel->deleteOtpRecords(Session::getUser("mobileNo"));
-               // Session::getUser("mobileNo")=> $data['mobileNo'];
-               // $user = $this->userModel->getUser($data['mobileNo']);
-               // Session::setBundle(
-               //    'user',
-               //    [
-               //       "mobileNo" => $user->mobileNo,
-               //       "type" => $user->userType,
-               //       "id" => $this->getUserData($user)[0],
-               //       "name" =>  $this->getUserData($user)[1],
-               //       "img" => $this->getUserData($user)[2]
-               //    ]
-               // );
             }
-
             $this->customerModel->commit();
 
+
             Toast::setToast(1, "Profile details successfully updated.", "");
-            // die();
-            // redirect('CustDashboard/profileSettings');
          }
          else
          {

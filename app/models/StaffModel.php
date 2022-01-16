@@ -87,6 +87,12 @@ class StaffModel extends Model
 
       return [$results->staffID, $results->fName . " " . $results->lName, $results->imgPath];
    }
+   public function getStaffUserImgPath($mobileNo)
+   {
+      $results = $this->getSingle("staff", ['imgPath'], ['mobileNo' => $mobileNo]);
+
+      return $results;
+   }
 
    public function getReservtaionDetailsByStaffID($staffID)
    {
