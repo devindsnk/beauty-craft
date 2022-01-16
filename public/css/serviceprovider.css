@@ -118,12 +118,16 @@ justify-content: space-between;
     align-items: center;
     display: block;
 }
+/* .confirm-status{
+    height: 40px;
+    width: 100px;
+} */
 
 .serprov .sub-container2-card-time {
     height: 40%;
     font-weight: 400;
     display: block;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .serprov .sub-container2-card-service {
@@ -629,7 +633,7 @@ button.editicon {
     height: 470px;
     width: 500px;
 }
-.edit-leave .modal-box {
+.edit-leave .modal-box,.view-leave .modal-box {
     height: 450px;
     width: 500px;
 }

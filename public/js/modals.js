@@ -235,6 +235,19 @@ if (editLeaveBtnList) {
     });
 }
 
+// view Leave Request Modal Section
+const viewLeaveModal = document.querySelector(".view-leave.request");
+const viewLeaveBtnList = document.querySelectorAll(".btnViewLeave");
+if (viewLeaveBtnList) {
+    viewLeaveBtnList.forEach((btn) => {
+        btn.addEventListener("click", function () {
+            modalToToggle = viewLeaveModal;
+            console.log(btn);
+            toggleModal(btn);
+        });
+    });
+}
+
 // Delete Leave Request Modal Section
 const deleteLeaveModal = document.querySelector(".delete-leave");
 const deleteLeaveBtnList = document.querySelectorAll(".btnDeleteLeave");

@@ -73,7 +73,7 @@
                             ?>
                             <div class="confbtn">
 
-                                <div class="confirm-status status-btn text-uppercase <?php echo $statusClass; ?>">
+                                <div class="confirm-status status-btn btn text-uppercase <?php echo $statusClass; ?>">
                                     <span><?php echo $statusValue ?></span>
                                 </div>
 

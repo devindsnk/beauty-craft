@@ -83,10 +83,30 @@
             </li>
             <li>
                <i class="far fa-cog"></i>
-               <a href="<?php echo URLROOT ?>/custDashboard/profileSettings">Profile Settings</a>
+               <?php if (Session::getUser("type") == 3 || Session::getUser("type") == 4 || Session::getUser("type") == 5)
+               {
+                  $path = "/Staff/profile";
+                  $label = "Profile Settings";
+               }
+               else if (Session::getUser("type") == 1 || Session::getUser("type") == 2)
+               {
+                  $path = "/Staff/changePassword";
+                  $label = "Profile Settings";
+               }
+               else if (Session::getUser("type") == 6)
+               {
+                  $path = "/custDashboard/profileSettings";
+                  $label = "Profile Settings";
+               }
+               ?>
+               <a href='<?php echo URLROOT ?><?php echo $path; ?>' onclick="sessionStorage.setItem('returnReferer',window.location.href);">
+                  <?php echo $label; ?>
+               </a>
+               <!-- <a href="<?php echo URLROOT ?>/custDashboard/profileSettings">Profile Settings</a> -->
             </li>
             <li>
                <i class="far fa-sign-out"></i>
+
                <a href="<?php echo URLROOT ?>/user/signout">Sign Out</a>
             </li>
          </ul>
