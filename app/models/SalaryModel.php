@@ -25,7 +25,7 @@ class SalaryModel extends Model
       $result = $this->customQuery(
          "SELECT * FROM staff INNER JOIN salarypayments ON staff.staffID = salarypayments.staffID "
       );
-      print_r($result);
+      // print_r($result);
       // die("salarymodel");
       return $result;
    }
