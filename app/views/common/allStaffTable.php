@@ -107,7 +107,7 @@
 
                   <?php foreach ($data['staff'] as $staffD) : ?>
                   <tr>
-                     <td data-lable="Staff ID" class="column-center-align"><?php echo $staffD->staffID; ?></td>
+                     <td data-lable="Staff ID" class="column-center-align">SM<?php echo $staffD->staffID; ?></td>
                      <td data-lable="Name" class="column-left-align"><?php echo $staffD->fName; ?>
                         <?php echo $staffD->lName; ?></td>
                      <td data-lable="Staff Type" class="column-center-align">
@@ -135,7 +135,7 @@
                         echo 'Female';
                      } ?>
                      </td>
-                     <td data-lable="Joined Date" class="column-center-align"><?php echo $staffD->joinedDate; ?></td>
+                     <td data-lable="Joined Date" class="column-center-align"><?php echo DateTimeExtended::dateToShortMonthFormat($staffD->joinedDate, "F"); ?></td>
                      <td data-lable="Status" class="column-center-align">
                         <!-- Staff memeber states >> Removed = 0 Active =1 Disabled =2 -->
                         <?php if ($staffD->status == 0) : ?>
@@ -151,7 +151,7 @@
                            <a href="<?php echo URLROOT ?>/staff/viewStaff/<?php echo $staffD->staffID ?>"><i
                                  class="ci ci-view-more table-icon img-gap"></i></a>
                            <?php if (Session::getUser('typeText') == "Owner" && $staffD->status != 0 ) : ?>
-                           <a href="<?php echo URLROOT ?>/staff/updateStaff/<?php echo $staffD->staffID ?>"><i
+                           <a href="<?php echo URLROOT ?>/staff/updateStaff/<?php echo $staffD->staffID ?>" onclick="sessionStorage.setItem('returnReferer',window.location.href);"><i
                                  class="ci ci-edit table-icon img-gap"></i></a>
                            <a href="#" class="removeStaffAnchor"><i
                                  data-staffmobileno="<?php echo $staffD->mobileNo; ?>"
@@ -169,9 +169,8 @@
                            elseif ($staffD->staffType == 5)
                              {
                               echo 'Service Provider';
-                             } ?> ">
+                             } ?> "></i></a>
 
-                      
                            <?php endif; ?>
                         </span>
                      </td>

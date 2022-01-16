@@ -369,20 +369,21 @@ class LeaveModel extends Model
       return $results;
    }
 
-   public function casualLeaveByStaffID($staffID, $staffType)
+   //for owner salaries
+   //to get casual leave count of a receptionist/servise provider for a relavant month 
+   public function casualLeaveByStaffID($staffID)
    {
-      // $time=strtotime($dateValue);
-      // $month=date("F",$time);
-      // $year=date("Y",$time);
 
-      $results = $this->getResultSet('generalleaves', '*', ['staffID' => $staffID, 'status' => 4, 'leaveType' => 'casual']);
+      $month = 1;
+      $results = $this->getResultSet('generalleaves','*', ['staffID' => $staffID ,'status'=> 4, 'leaveType' => 'casual']);
       print_r($results);
       return $results;
    }
 
-   public function managerCasualLeaveByStaffID($staffID, $staffType)
+   public function managerCasualLeaveByStaffID($staffID)
    {
-      $results = $this->getResultSet('generalleaves', '*', ['staffID' => $staffID, 'status' => 4, 'leaveType' => 'casual']);
+      $month = 1;
+      $results = $this->getResultSet('generalleaves','*', ['staffID' => $staffID ,'status'=> 4, 'leaveType' => 'casual']);
       print_r($results);
       return $results;
    }

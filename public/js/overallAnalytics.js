@@ -1,13 +1,23 @@
-var resOverview = document.getElementById('myChart1').getContext('2d');
-var cusPopulationChart = document.getElementById('myChart2').getContext('2d');
-var totalIncomeChart = document.getElementById('myChart3').getContext('2d');
-var noOfResChart = document.getElementById('myChart4').getContext('2d');
 
 $(document).ready(function () {
-  chart1();
-  chart2();
-  chart3();
-  chart4();
+
+  if (document.getElementById('myChart1')) {
+    var resOverview = document.getElementById('myChart1').getContext('2d');
+    chart1();
+  }
+  if (document.getElementById('myChart2')) {
+    var cusPopulationChart = document.getElementById('myChart2').getContext('2d');
+    chart2();
+  }
+  if (document.getElementById('myChart3')) {
+    var totalIncomeChart = document.getElementById('myChart3').getContext('2d');
+    chart3();
+  }
+  if (document.getElementById('myChart4')) {
+    var noOfResChart = document.getElementById('myChart4').getContext('2d');
+    chart4();
+  }
+
   function chart1() {
     $.ajax({
       url: "http://localhost:80/beauty-craft/Services/overallAnalyticsChart1/",

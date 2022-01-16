@@ -60,7 +60,7 @@
                <tbody>
                   <?php foreach ($data['closeDates'] as $closeSalonD) : ?>
                      <tr>
-                        <td class="column-center-align"><?php echo $closeSalonD->date; ?></td>
+                        <td class="column-center-align"><?php echo DateTimeExtended::dateToShortMonthFormat($closeSalonD->date, "F"); ?></td>
                         <td class="column-left-align"><?php echo $closeSalonD->note; ?></td>
                         <td data-lable="Action" class="column-center-align">
                            <span>

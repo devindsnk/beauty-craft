@@ -134,44 +134,6 @@
    </div>
    <!--End Content-->
 
-   <script>
-      // var ctx = document.getElementById('myChart1').getContext('2d');
-      // var myChart = new Chart(ctx, {
-      //    type: 'line',
-      //    data: {
-      //       labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
-      //       datasets: [{
-      //          data: [35000, 11400, 50600, 30600, 40700, 11100, 13300, 45000, 42000.23500, 17500, 12400],
-      //          label: "Total Income",
-      //          borderColor: "rgb(62,149,205)",
-      //          backgroundColor: "rgb(62,149,205,0.1)",
-      //       }]
-      //    },
-      // });
+   <script src="<?php echo URLROOT ?>/public/js/mang_charts.js"></script>
 
-      // var ctx = document.getElementById('myChart2').getContext('2d');
-      // var myChart = new Chart(ctx, {
-      //    type: 'bar',
-      //    data: {
-      //       labels: ["January", "February", "March", "April", "May", "June", "August", "September", "October", "November", "December"],
-      //       datasets: [{
-      //          data: [70, 90, 44, 60, 83, 90, 100, 30, 80.35, 45, 39],
-      //          label: "No of Reservations",
-      //          borderColor: "#3cba9f",
-      //          backgroundColor: "#71d1bd",
-      //          borderWidth: 2
-      //       }]
-      //    },
-      //    options: {
-      //       scales: {
-      //          xAxes: [{
-      //             stacked: true
-      //          }],
-      //          yAxes: [{
-      //             stacked: true
-      //          }],
-      //       }
-      //    },
-      // });
-   </script>
    <?php require APPROOT . "/views/inc/footer.php" ?>
