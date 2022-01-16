@@ -1553,7 +1553,12 @@ font-weight: 600;
 
 
 /* --------------------------- Form template styles --------------------------------------------------------------*/
-
+img.ownAddstaffBasicinfoIcon{
+    margin: 0;
+    height: 160px;
+    width: 160px;
+    border-radius: 100%;
+}
 .ownAddstaffContainer form input[type="text"] {
     width: 100%;
     font-weight: 400;

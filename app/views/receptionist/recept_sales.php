@@ -22,22 +22,27 @@
                   <div class="column">
                      <div class="dropdown-group">
                         <label class="label" for="lName">Invoice Type</label>
-                        <select>
-                           <option value="" selected>All</option>
-                           <option value="">Payment</option>
-                           <option value="">Refund</option>
+                        <select id="iTypeSelector" onchange="initializeInvoiceStatusSelector()">
+                           <option value="all" selected>All</option>
+                           <option value="1" <?php echo ($data['selectedType'] == "1") ? "selected" : "" ?>>Payment</option>
+                           <option value="0" <?php echo ($data['selectedType'] == "0") ? "selected" : "" ?>>Refund</option>
                         </select>
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
                   </div>
+
                   <div class="column">
                      <div class="dropdown-group">
                         <label class="label" for="lName">Status</label>
-                        <select>
-                           <option value="" selected>All</option>
-                           <option value="">Pending</option>
-                           <option value="">Completed</option>
-                           <option value="">Voided</option>
+                        <select id="statusSelector" disabled>
+                           <option value="" selected>Select a specific Invoice Type</option>
+                           <option value="all" selected>All</option>
+                           <option value="0" <?php echo ($data['selectedState'] == "0") ? "selected" : "" ?>>Voided</option>
+                           <option value="1" <?php echo ($data['selectedState'] == "1") ? "selected" : "" ?>>Unpaid</option>
+                           <option value="2" <?php echo ($data['selectedState'] == "2") ? "selected" : "" ?>>Paid</option>
+                           <option value="3" <?php echo ($data['selectedState'] == "3") ? "selected" : "" ?>>Voided</option>
+                           <option value="4" <?php echo ($data['selectedState'] == "4") ? "selected" : "" ?>>Refunded</option>
+
                         </select>
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
@@ -45,8 +50,7 @@
                </div>
             </div>
             <div class="right-section">
-               <a href="" class="btn btn-filled btn-black">Search</a>
-               <!-- <button class="btn btn-search">Search</button> -->
+               <button type="button" id="salesFilterBtn" class="btn btn-filled btn-black">Search</button>
             </div>
          </div>
 
@@ -68,7 +72,7 @@
 
                <tbody>
 
-                  <?php foreach ($data as $invoice) : ?>
+                  <?php foreach ($data['invoices'] as $invoice) : ?>
                      <!-- invoice type payment  -->
                      <?php if ($invoice->type == 1) :
                         $statusClassList = ["red", "yellow", "green"];
@@ -79,7 +83,7 @@
                            <td data-lable="Invoice No" class="column-center-align font-numeric">Pay_<?php echo $invoice->paymentInvoiceNo ?></td>
                            <td data-lable="Amount" class="column-right-align font-numeric"><?php echo $invoice->amount ?> LKR</td>
                            <td data-lable="Type" class="column-center-align">Payment</td>
-                           <td data-lable="Date" class="column-center-align"><?php echo $invoice->datetime ?></td>
+                           <td data-lable="Date" class="column-center-align"><?php echo DateTimeExtended::dateToShortMonthFormat($invoice->datetime, "F") ?></td>
                            <td data-lable="Status" class="column-center-align">
                               <button type="button" class="status-btn green text-uppercase <?php echo $statusClass ?>"><?php echo $statusValue ?></button>
                            </td>
@@ -98,7 +102,8 @@
                            <td data-lable="Invoice No" class="column-center-align font-numeric">Ref_<?php echo $invoice->refundInvoiceNo ?></td>
                            <td data-lable="Amount" class="column-right-align font-numeric"><?php echo $invoice->amount ?> LKR</td>
                            <td data-lable="Type" class="column-center-align">Refund</td>
-                           <td data-lable="Date" class="column-center-align"><?php echo $invoice->datetime ?></td>
+                           <td data-lable="Date" class="column-center-align">
+                              <?php echo DateTimeExtended::dateToShortMonthFormat($invoice->datetime, "F") ?></td>
                            <td data-lable="Status" class="column-center-align">
                               <button type="button" class="status-btn green text-uppercase <?php echo $statusClass ?>"><?php echo $statusValue ?></button>
                            </td>
@@ -116,5 +121,6 @@
       </div>
    </div>
    <!--End Content-->
+   <script src="<?php echo URLROOT ?>/public/js/filters.js"></script>
 
    <?php require APPROOT . "/views/inc/footer.php" ?>

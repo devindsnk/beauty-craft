@@ -42,7 +42,7 @@ class ReservationModel extends Model
          $dataToBind[":$colName"] = $value;
       }
 
-      $consditionsString = implode(" AND ", $preparedConditions);
+      $consditionsString = implode(" AND ", $preparedConditions); // Joining conditions with AND
 
       $SQLstatement =
          "SELECT reservations.reservationID, customers.fName AS custFName, customers.lName AS custLName, staff.fName AS staffFName, staff.lName AS staffLName, reservations.remarks, reservations.status, reservations.date, reservations.startTime, services.name AS serviceName
@@ -161,6 +161,26 @@ class ReservationModel extends Model
 
       return $results[0];
    }
+   public function getReservationsByStaffIDForSpRes($staffID, $rType)
+   {
+      if ($rType == 'all' || $rType == 0)
+      {
+         $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
+      FROM reservations 
+      INNER JOIN services ON services.serviceID = reservations.serviceID
+      INNER JOIN customers ON customers.customerID = reservations.customerID
+      WHERE staffID=:staffID AND reservations.status IN(1,2,4,5) ORDER BY date", [':staffID' => $staffID,]);
+      }
+      else
+      {
+         $results = $this->customQuery("SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
+      FROM reservations 
+      INNER JOIN services ON services.serviceID = reservations.serviceID
+      INNER JOIN customers ON customers.customerID = reservations.customerID
+      WHERE staffID=:staffID AND reservations.status=:rType  ORDER BY date", [':staffID' => $staffID, ':rType' => $rType]);
+      }
+      return $results;
+   }
 
    public function getReservationDetailsByID($reservationID)
    {
@@ -257,7 +277,7 @@ class ReservationModel extends Model
    }
    // ************************************************* //
    // ************************************************* //
-
+   //FOR SP overview
 
    // ************************************************** //
    // *Functions related state changes of reservations * //

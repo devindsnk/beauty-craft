@@ -12,9 +12,6 @@ class Systemlog
         {
             $mobileNo = Session::getUser("mobileNo");
         }
-
-
-        // $name = 'Ravindu Madhubhashana';
         $length = strlen($name);
 
         if ($length < 22)

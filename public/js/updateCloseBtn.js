@@ -2,10 +2,10 @@
 
 // Steps : add onclick session storage update line for the button that leads to a full screen view
 //         make sure this file is connected properly to the full screen view 
-
+console.log('backBtn');
 let returnReferer = sessionStorage.getItem("returnReferer");
 const backBtn = document.querySelector(".top-right-closeBtnSpecial");
-
+console.log(backBtn);
 if(backBtn){
     backBtn.onclick = function() {
         window.location.replace(returnReferer);
