@@ -30,7 +30,7 @@
 
 <?php if (Session::getUser("typeText") == "Owner") : ?>
    <div class="page-top-main-container">
-      <a href="<?php echo URLROOT ?>/resources/addResource" class="btn btn-filled btn-theme-purple btn-main btnAddResourceBtn">Add New</a>
+      <a href="<?php echo URLROOT ?>/resources/addResource" class="btn btn-filled btn-theme-purple btn-main btnAddResourceBtn" onclick="sessionStorage.setItem('returnReferer',window.location.href);">Add New</a>
    </div>
 <?php endif; ?>
 

@@ -99,7 +99,7 @@ class StaffModel extends Model
    {
       $results = $this->customQuery(
          "SELECT services.type,services.name
-         FROM services
+         FROM services 
          INNER JOIN serviceproviders 
          ON serviceproviders.serviceID =services.serviceID
          WHERE serviceproviders.staffID =:staffID",

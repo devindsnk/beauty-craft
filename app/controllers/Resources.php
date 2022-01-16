@@ -23,7 +23,7 @@ class  Resources extends Controller
    {
       $resourceTypes = $this->resourceModel->getAllRsourceTypeDetails();
       $CurrentResourceTypeCount =  sizeof($resourceTypes);
-      
+
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
          $date_now = date("Y-m-d");
@@ -65,7 +65,7 @@ class  Resources extends Controller
                   $data['name_error'] = "Type already exists.";
                }
             }
-           
+
             if (empty($data['name_error']))
             {
                $this->resourceModel->addResourceType($data);
@@ -80,7 +80,7 @@ class  Resources extends Controller
                $this->view('owner/own_resourceAdd', $data);
             }
          }
-         
+
          else if ($_POST['action'] == "cancel")
          {
             $data['haveErrors'] = 0;
@@ -140,37 +140,35 @@ class  Resources extends Controller
                $this->view('owner/own_resourceAdd', $data);
             }
          }
+      }
+      else
+      {
 
-         else
-         {
-
-            $data = [
-               'manufacturer' => '',
-               'modelNo' => '',
-               'name' => '',
-               'nameSelected' => '',
-               'warrantyExpDate' => '',
-               'price' => '',
-               'quantity' => '',
-               'purchaseDate' => '',
-               'manufacturer_error' => '',
-               'modelNo_error' => '',
-               'name_error' => '',
-               'nameSelected_error' => '',
-               'warrantyExpDate_error' => '',
-               'price_error' => '',
-               'quantity_error' => '',
-               'purchaseDate_error' => '',
-               'haveErrors' => 0,
-               'resourceTypes' => $resourceTypes,
-            ];
-            $this->view('owner/own_resourceAdd', $data);
-         }
+         $data = [
+            'manufacturer' => '',
+            'modelNo' => '',
+            'name' => '',
+            'nameSelected' => '',
+            'warrantyExpDate' => '',
+            'price' => '',
+            'quantity' => '',
+            'purchaseDate' => '',
+            'manufacturer_error' => '',
+            'modelNo_error' => '',
+            'name_error' => '',
+            'nameSelected_error' => '',
+            'warrantyExpDate_error' => '',
+            'price_error' => '',
+            'quantity_error' => '',
+            'purchaseDate_error' => '',
+            'haveErrors' => 0,
+            'resourceTypes' => $resourceTypes,
+         ];
+         $this->view('owner/own_resourceAdd', $data);
       }
    }
    public function updateResource($PurchaseID, $ResourceID)
    {
-
       $resourceTypes = $this->resourceModel->getAllRsourceTypeDetails();
       $CurrentResourceTypeCount =  sizeof($resourceTypes);
       $resourcePurchaseDetails = $this->resourceModel->getRsourcePurchaseDetailsByPurchaseID($PurchaseID);
@@ -207,7 +205,7 @@ class  Resources extends Controller
             }
 
             for ($i = 0; $i < $CurrentResourceTypeCount; $i++)
-            { 
+            {
                $CurrentResType =  strtolower($resourceTypes[$i]->name);
                $data1 = preg_replace('/\s+/', '', $CurrentResType);
                $NewResType = strtolower($data['name']);
@@ -281,7 +279,7 @@ class  Resources extends Controller
                Toast::setToast(1, "Resource updated successfully", "");
                $this->viewResources($ResourceID);
             }
-            
+
             else
             {
                $this->view('owner/own_resourceUpdate', $data);

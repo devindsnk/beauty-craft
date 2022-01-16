@@ -48,7 +48,7 @@
                   <div class="column">
                      <div class="text-group ownTableFormDate">
                         <label class="label" for="fName">Month</label>
-                        <input type="month" name="" id="fName" placeholder="Your first name here">
+                        <input type="month" name="" id="fName" placeholder="Month here" class="salaryMonth">
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
                   </div>
@@ -70,11 +70,9 @@
                <!--Table head-->
                <thead>
                   <tr>
-                     <!-- <th class="column-center-align"></th> -->
-                     <!--<th></th>-->
-                     <th colspan="2">Staff Member Name</th>
+                     <th colspan="2" >Staff Member Name</th>
                      <th>Staff ID</th>
-                     <th>Staff Type</th>
+                     <th class="column-left-align">Staff Type</th>
                      <th class="column-right-align">Salary</th>
                      <th class="column-center-align">Paid Status</th>
                      <th class="col-7"></th>
@@ -82,21 +80,21 @@
                   </tr>
                </thead>
                <!--End of table head-->
-               <?php $StaffSalaryPaymentD = $data['StaffSalaryPaymentD']; ?>
-
+               
                <!--Table body-->
                <tbody>
 
                   <!--Table row-->
-                  <?php foreach ($data['staffD'] as $staffD) : ?>
+                <!-- <?php print_r($data); ?> -->
+                  <?php foreach ($data as $staffD) : ?>
                      <tr>
                         <td data-lable="" class="column-center-align">
                            <input type="checkbox" class="" name="chk" />
                         </td>
                         <!-- <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person2.jpg" /></td> -->
                         <td data-lable="Staff Member Name"><?php echo $staffD->fName ?> <?php echo $staffD->lName ?></td>
-                        <td data-lable="Staff ID"><?php echo $staffD->staffID ?></td>
-                        <td data-lable="Staff Type">
+                        <td data-lable="Staff ID" class="column-center-align" >SN<?php echo $staffD->staffID ?></td>
+                        <td data-lable="Staff Type" class="column-left-align">
                            <?php if ($staffD->staffType == 3)
                            {
                               echo 'Manager';
@@ -110,24 +108,23 @@
                               echo 'Service Provider';
                            } ?>
                         </td>
-                        <td data-lable="Salary" class="column-right-align">Rs.25195.00</td>
+                        <td data-lable="Salary" class="column-right-align"><?php echo $staffD->amount ?></td>
                         <td data-lable="Paid Status" class="column-center-align">
-                           <button type="button" class="status-btn green text-uppercase">
-                              <?php if ($StaffSalaryPaymentD->status == 1)
+                        <?php if($staffD->status==1)
                               {
-                                 echo 'Paid';
+                                 echo '<button type="button" class="status-btn green text-uppercase">Paid</button>';
                               }
-                              elseif ($StaffSalaryPaymentD->status == 0)
+                              else
                               {
-                                 echo 'Not paid';
+                                 echo '<button type="button" class="status-btn red text-uppercase">Not Paid</button>';
                               }
                               ?>
-                           </button>
                         </td>
                         <td data-lable="Action" class="column-center-align">
                            <span>
-                              <a href="<?php echo URLROOT ?>/salary/salaryReport/<?php echo $staffD->staffID ?>/<?php echo $staffD->staffType ?>"><i class="img-view-edit-update ci-view-more table-icon"></i></a>
+                              <a href="<?php echo URLROOT ?>/salary/salaryReport/<?php echo $staffD->staffID ?>/<?php echo $staffD->staffType ?>" class="salaryReportViewAncorTag"><i class="img-view-edit-update ci-view-more table-icon salaryReportViewIcon" data-staffid="<?php echo $staffD->staffID ?>"></i></a>
                            </span>
+                           <!-- <?php echo URLROOT ?>/salary/salaryReport/<?php echo $staffD->staffID ?>/<?php echo $staffD->staffType ?> -->
                         </td>
                         <td data-lable="More" class="column-center-align">
                            <a class="btnSalaryPayment" class="">
@@ -146,8 +143,6 @@
          </div>
       </div>
       <!--End Content-->
-
-
 
 
    </div>
@@ -187,6 +182,5 @@
       </div>
    </div>
    <!-- End of Remove close date model -->
-
-
+   <script src="<?php echo URLROOT ?>/public/js/fetchRequests/salaryGetMonth.js"></script>
    <?php require APPROOT . "/views/inc/footer.php" ?>
