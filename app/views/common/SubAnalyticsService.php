@@ -53,7 +53,7 @@
                      </div>
                      <span class="error serviceSelectError"> <?php echo " "; ?></span>
                   </div>
-                  <div class="column">
+                  <div class="column report-month-selector">
                      <div class="text-group">
                         <label class="label" for="serviceFromDate">From</label>
                         <input type="month" name="serviceFromDate" id="serviceFromDate" class="serviceFromDate">
@@ -61,7 +61,7 @@
                      <span class="error serviceFromError"></span>
                   </div>
 
-                  <div class="column">
+                  <div class="column report-month-selector">
                      <div class="text-group">
                         <label class="label" for="serviceToDate">To</label>
                         <input type="month" name="serviceToDate" id="serviceToDate" class="serviceToDate">
