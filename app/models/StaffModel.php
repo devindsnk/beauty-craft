@@ -88,6 +88,7 @@ class StaffModel extends Model
       return [$results->staffID, $results->fName . " " . $results->lName, $results->imgPath];
    }
 
+
    public function getReservtaionDetailsByStaffID($staffID)
    {
       $SQLstatement = "SELECT * FROM reservations WHERE staffID = :staffID AND status IN (1,2);";

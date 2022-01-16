@@ -12,8 +12,10 @@ const editLeaveDate = document.querySelector(".editLeaveRequestDate");
 const editLeaveType = document.querySelector(".editleavetype");
 const editLeaveError = document.querySelector(".edit-type-error");
 const editLeaveReason = document.querySelector(".editTextArea");
+const editdropdown = document.querySelector(".editleaveDropdownType");
 
-// console.log(editLeaveError);
+
+// console.log(editdropdown);
 dropdown.disabled=true;
 
 leaveRequestSelectedDate.addEventListener('change',
@@ -71,9 +73,21 @@ dropdown.addEventListener('change',
    }
 )
 
+editdropdown.addEventListener('change',
+   function () {
+
+   console.log(editdropdown.value);
+
+   console.log('edit dropdown');
+   const editLeaveDateBtn = document.querySelector(".editleavebtn");
+     console.log( editLeaveDateBtn.getAttribute("data-id")); 
+   }
+   
+   
+)
 
 
-
+editleavebtn
 
 function cancelLeaveRequest(btn){
 leaveDate=btn.getAttribute("data-id");

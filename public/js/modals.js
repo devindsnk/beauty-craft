@@ -1,5 +1,4 @@
 // Script Files related all modals
-
 // Contains the modal to toggle
 let modalToToggle = null;
 // let recordID = null;
@@ -236,6 +235,19 @@ if (editLeaveBtnList) {
     });
 }
 
+// view Leave Request Modal Section
+const viewLeaveModal = document.querySelector(".view-leave.request");
+const viewLeaveBtnList = document.querySelectorAll(".btnViewLeave");
+if (viewLeaveBtnList) {
+    viewLeaveBtnList.forEach((btn) => {
+        btn.addEventListener("click", function () {
+            modalToToggle = viewLeaveModal;
+            console.log(btn);
+            toggleModal(btn);
+        });
+    });
+}
+
 // Delete Leave Request Modal Section
 const deleteLeaveModal = document.querySelector(".delete-leave");
 const deleteLeaveBtnList = document.querySelectorAll(".btnDeleteLeave");
@@ -341,6 +353,19 @@ voidRefInvBtnModal.forEach((btn) => {
         toggleModal(btn);
     });
 });
+
+/* ------------------------------------------------------------------- */
+/* ------------------------ customer profile picture --------------------------- */
+
+// remove picture
+const imgRemovePayModal = document.querySelector(".img-remove");
+const imgRemoveBtn = document.querySelector(".removebtn");
+if (imgRemoveBtn) {
+    imgRemoveBtn.addEventListener("click", function () {
+        modalToToggle = imgRemovePayModal;
+        toggleModal();
+    });
+}
 
 
 /* ------------------------------------------------------------------- */
