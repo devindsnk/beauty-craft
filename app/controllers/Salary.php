@@ -33,11 +33,6 @@ class Salary extends Controller
 
    public function salaryTableView()
    {
-      // mase awasana dwsd ndd -checked
-      // mase awasana dwsa neweinm awasaneta calculate krpu eka pennanna one salary payment table eken aran
-      // mase awasana dws nm check krnna one klin calcultae krld ndd
-      // calculate krlnm e calculate krpu eka pennna one
-      // calculate krl naththm eka calculate wenna one
 
       // Last day of current month.
       $lastDayThisMonth = date("Y-m-t");
@@ -53,8 +48,10 @@ class Salary extends Controller
       $fiveDaysBeforInPrevMonth = date("Y-m-d", $time);
 
       // date before five days from last date of this month
-      $time = strtotime( $currentDate .'-5 days');
+      $time = strtotime( $lastDayThisMonth .'-5 days');
       $fiveDaysBeforeInThisMonth = date("Y-m-d", $time);
+
+      // $result = $this->salaryModel->calculateAndInsertSalaryPaymentDetails($fiveDaysBeforInPrevMonth,$fiveDaysBeforeInThisMonth);
 
       // current month & year (?)
       $currentDateStrTime = strtotime($currentDate);
@@ -63,7 +60,7 @@ class Salary extends Controller
 
       // last inputed month into database
       $result = $this->salaryModel->lastInputedMonth();
-      print_r($result[0]->month);
+      // print_r($result[0]->month);
       $mostRecentDate = strtotime($result[0]->month);
       $mostRecentDateMonth = date("F", $mostRecentDate);
       $mostRecentDateYear = date("Y", $mostRecentDate);
@@ -95,8 +92,11 @@ class Salary extends Controller
 
       elseif ($currentDate != $lastDayThisMonth)
       {
+         
          // get data according to most recent month
            $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails($RecentmonthInNumber,$mostRecentDateYear);
+           print_r($StaffAndSalaryPaymentDetails);
+         //   die("salary controller");
            $this->view('owner/own_salaries', $StaffAndSalaryPaymentDetails);
       }
 

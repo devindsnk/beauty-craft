@@ -64,7 +64,9 @@ class Model
                break;
          }
       }
-      $this->PDOstatement->bindValue($param, $value, $type);
+
+      $result = $this->PDOstatement->bindValue($param, $value, $type);
+      
    }
 
    public function bindValues()

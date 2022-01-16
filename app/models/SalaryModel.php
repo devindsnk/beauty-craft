@@ -23,8 +23,10 @@ class SalaryModel extends Model
    {
       // echo $mostRecentDateMonth . $mostRecentDateYear;
       $result = $this->customQuery(
-         "SELECT * FROM staff INNER JOIN salarypayments ON staff.staffID = salarypayments.staffID WHERE MONTH(paidDate)=$mostRecentDateMonth AND YEAR(paidDate)= $mostRecentDateYear"
+         "SELECT * FROM staff INNER JOIN salarypayments ON staff.staffID = salarypayments.staffID "
       );
+      print_r($result);
+      // die("salarymodel");
       return $result;
    }
 
@@ -50,7 +52,6 @@ class SalaryModel extends Model
       $leaveLimitDetails = $this->customQuery("SELECT * FROM leavelimits ORDER BY changedDate DESC LIMIT 1");
       $nonMangCasualLimit = $leaveLimitDetails[0]->generalLeave;
       $mangCasualLimit = $leaveLimitDetails[0]->managerGeneralLeave;
-
       $deductionRatePerDay = 250; //TODO: Confirm this
 
       // get commisssion rate for services
@@ -59,11 +60,11 @@ class SalaryModel extends Model
       // $staffDetails = $this->getResultSet('staff', '*', null);
       $staffDetails = $this->customQuery("SELECT * FROM staff WHERE staffType IN (3,4,5)");
       $staffCount = sizeof($staffDetails);
+      
 
       for ($i = 0; $i < $staffCount; $i++)
       {
          $staffID = $staffDetails[$i]->staffID;
-
          $totalSalary = 0;
          $basicSalary = 0;
          $additionalLeaveCount = 0;
@@ -72,74 +73,80 @@ class SalaryModel extends Model
 
          if ($staffDetails[$i]->staffType == 5)
          {
-            $basicSalary = $this->customQuery("SELECT salaryrates.serviceProviderSalaryRate FROM salaryrates ORDER BY changedDate DESC LIMIT 1");
-
+            $result = $this->customQuery("SELECT salaryrates.serviceProviderSalaryRate FROM salaryrates ORDER BY changedDate DESC LIMIT 1");
+            $basicSalary = $result[0]->serviceProviderSalaryRate;
+            // die("salary rate serv pro");
             $SQLstatement1 =
-               "SELECT COUNT(*) 
+               "SELECT COUNT(*) as totalCount
                FROM generalleaves 
-               WHERE staffID = '$staffID' AND 
-                  leaveDate >= '$fiveDaysBeforInPrevMonth' AND 
-                  leaveDate < '$fiveDaysBeforeInThisMonth' AND
+               WHERE staffID = :staffID AND 
+                  leaveDate >= :fiveDaysBeforInPrevMonth AND 
+                  leaveDate < :fiveDaysBeforeInThisMonth AND
                   status IN (1,3)";
 
-            $results = $this->customQuery($SQLstatement1, []);
-            $leaveCount = $results[0];
+            $results = $this->customQuery($SQLstatement1, [':staffID' => $staffID, ':fiveDaysBeforInPrevMonth' => $fiveDaysBeforInPrevMonth, ':fiveDaysBeforeInThisMonth' => $fiveDaysBeforeInThisMonth]);
+
+            $leaveCount = $results[0]->totalCount;
             $additionalLeaveCount = $leaveCount - $nonMangCasualLimit;
+            $additionalLeaveCount = ($additionalLeaveCount < 0) ? 0 : $additionalLeaveCount;
             $deductionAmount =  $additionalLeaveCount *  $deductionRatePerDay;
 
             $SQLstatement2 =
-               "SELECT SUM(services.price) 
+               "SELECT SUM(services.price) as totalAmount
                FROM reservations
                INNER JOIN services ON reservations.serviceID = services.serviceID
-               WHERE staffID = '$staffID' AND 
-                     reservationDate >= '$fiveDaysBeforInPrevMonth' AND 
-                     reservationDate < '$fiveDaysBeforeInThisMonth' AND
+               WHERE staffID = :staffID AND 
+                  date >= :fiveDaysBeforInPrevMonth AND 
+                  date < :fiveDaysBeforeInThisMonth AND
                      reservations.status IN (4)";
 
-            $results = $this->customQuery($SQLstatement2, []);
-            $totalResAmount = $results[0];
-
-            $commisionAmount = $commissionRate * $totalResAmount / 100;
+            $results = $this->customQuery($SQLstatement2, [':staffID' => $staffID, ':fiveDaysBeforInPrevMonth' => $fiveDaysBeforInPrevMonth, ':fiveDaysBeforeInThisMonth' => $fiveDaysBeforeInThisMonth]);
+            $totalResAmount = $results[0]->totalAmount;
+            $commisionAmount = $commissionRate[0]->rate * ($totalResAmount / 100);
          }
          elseif ($staffDetails[$i]->staffType == 4)
          {
-            $basicSalary = $this->customQuery("SELECT salaryrates.receptionistSalaryRate FROM salaryrates ORDER BY changedDate DESC LIMIT 1");
-
+            $result = $this->customQuery("SELECT salaryrates.receptionistSalaryRate FROM salaryrates ORDER BY changedDate DESC LIMIT 1");
+            $basicSalary = $result[0]->receptionistSalaryRate;
             $SQLstatement1 =
-               "SELECT COUNT(*) 
+               "SELECT COUNT(*) as totalCount
                FROM generalleaves 
-               WHERE staffID = '$staffID' AND 
-                  leaveDate >= '$fiveDaysBeforInPrevMonth' AND 
-                  leaveDate < '$fiveDaysBeforeInThisMonth' AND
+               WHERE staffID = :staffID AND 
+                  leaveDate >= :fiveDaysBeforInPrevMonth AND 
+                  leaveDate < :fiveDaysBeforeInThisMonth AND
                   status IN (1,3)";
 
-            $results = $this->customQuery($SQLstatement1, []);
-            $leaveCount = $results[0];
+            $results = $this->customQuery($SQLstatement1, [':staffID' => $staffID, ':fiveDaysBeforInPrevMonth' => $fiveDaysBeforInPrevMonth, ':fiveDaysBeforeInThisMonth' => $fiveDaysBeforeInThisMonth]);
+            $leaveCount = $results[0]->totalCount;
             $additionalLeaveCount = $leaveCount - $nonMangCasualLimit;
+            $additionalLeaveCount = ($additionalLeaveCount < 0) ? 0 : $additionalLeaveCount;
             $deductionAmount =  $additionalLeaveCount *  $deductionRatePerDay;
          }
 
          elseif ($staffDetails[$i]->staffType == 3)
          {
-            $basicSalary = $this->customQuery("SELECT salaryrates.managerSalaryRate FROM salaryrates ORDER BY changedDate DESC LIMIT 1");
 
+            $result = $this->customQuery("SELECT salaryrates.managerSalaryRate FROM salaryrates ORDER BY changedDate DESC LIMIT 1");
+            $basicSalary= $result[0]->managerSalaryRate;
             $SQLstatement1 =
-               "SELECT COUNT(*) 
+               "SELECT COUNT(*) as totalCount
                FROM managerleaves 
-               WHERE staffID = '$staffID' AND 
-                     leaveDate >= '$fiveDaysBeforInPrevMonth' AND 
-                     leaveDate < '$fiveDaysBeforeInThisMonth' AND
-                     status IN (1,3)";
+               WHERE staffID = :staffID AND 
+                  leaveDate >= :fiveDaysBeforInPrevMonth AND 
+                  leaveDate < :fiveDaysBeforeInThisMonth AND
+                   leaveType = 'casual'";
 
-            $results = $this->customQuery($SQLstatement1, []);
-            $leaveCount = $results[0];
+            $results = $this->customQuery($SQLstatement1, [':staffID' => $staffID, ':fiveDaysBeforInPrevMonth' => $fiveDaysBeforInPrevMonth, ':fiveDaysBeforeInThisMonth' => $fiveDaysBeforeInThisMonth]);
+            $leaveCount = $results[0]->totalCount;
+            // print_r($leaveCount);
+            // die("mang leaves");
             $additionalLeaveCount = $leaveCount - $mangCasualLimit;
+            $additionalLeaveCount = ($additionalLeaveCount < 0) ? 0 : $additionalLeaveCount;
             $deductionAmount =  $additionalLeaveCount *  $deductionRatePerDay;
+            
          }
 
-         $additionalLeaveCount = ($additionalLeaveCount < 0) ? 0 : $additionalLeaveCount;
-         $totalSalary = $basicSalary + $commisionAmount - $deductionAmount;
-
+         $totalSalary = (int)$basicSalary + $commisionAmount - $deductionAmount;
          $results = $this->insert(
             'salarypayments',
             [
@@ -148,10 +155,9 @@ class SalaryModel extends Model
                'amount' => $totalSalary,
                'status' => 0,
                'additionalLeaveCount' => $additionalLeaveCount,
-               'serProvCommision' => $commisionAmount
+               'servProCommission' => $commisionAmount
             ]
          );
       }
-      die("servDetails awa");
    }
 }

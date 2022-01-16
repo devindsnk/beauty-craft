@@ -109,7 +109,7 @@
                         </label>
                         <br> <br>
                         <label class="ownSalaryReportSalaryDetailsContentData">Service Commision</label>
-                        <label class="ownSalaryReportSalaryDetailsContentValue">20000.00 LKR</label>
+                        <label class="ownSalaryReportSalaryDetailsContentValue"><?php echo $StaffSalaryPaymentD->servProCommission; ?></label>
                         <br>
                         <div class="ownAddstaffLineContainer">
                             <div class="ownAddstaffLines">
@@ -119,7 +119,7 @@
                         <label class="ownSalaryReportSalaryDetailsContentValue"><?php echo $StaffSalaryPaymentD->additionalLeaveCount; ?>  </label>
                         <br> <br>
                         <label class="ownSalaryReportDeductionsDetailsContentData">Leave Deduction</label>
-                        <label class="ownSalaryReportDeductionsDetailsContentValue">-<?php echo $StaffSalaryPaymentD->additionalLeaveCount*500; ?> LKR</label>
+                        <label class="ownSalaryReportDeductionsDetailsContentValue">-<?php echo $StaffSalaryPaymentD->additionalLeaveCount*250; ?> LKR</label>
                         <br> <br>
                         <div class="ownAddstaffLineContainer">
                             <div class="ownAddstaffLines">

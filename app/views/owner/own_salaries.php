@@ -85,7 +85,7 @@
                <tbody>
 
                   <!--Table row-->
-                
+                <?php print_r($data); ?>
                   <?php foreach ($data as $staffD) : ?>
                      <tr>
                         <td data-lable="" class="column-center-align">
@@ -108,7 +108,7 @@
                               echo 'Service Provider';
                            } ?>
                         </td>
-                        <td data-lable="Salary" class="column-right-align">Rs.25195.00</td>
+                        <td data-lable="Salary" class="column-right-align"><?php echo $staffD->amount ?></td>
                         <td data-lable="Paid Status" class="column-center-align">
                         <?php if($staffD->status==1)
                               {
