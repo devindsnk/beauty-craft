@@ -36,7 +36,7 @@
                $path = "/Staff/changePassword";
                $label = "Password";
             } ?>
-            <a href='<?php echo URLROOT ?><?php echo $path; ?>'>
+            <a href='<?php echo URLROOT ?><?php echo $path; ?>' onclick="sessionStorage.setItem('returnReferer',window.location.href);">
                <?php echo $label; ?>
             </a>
 

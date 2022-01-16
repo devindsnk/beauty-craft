@@ -7,50 +7,42 @@ require APPROOT . "/views/customer/cust_headerBar.php";
     require APPROOT . "/views/customer/cust_sideNav.php"
     ?>
     <div class="container">
-        <div class="item item10">
-            <div class="profname">
-                <label class="proflabel">Current Password </label> <br />
-                <div class="passwordinputlabel">
-                    <input type="password" name="password" class="passwordinput pwd2" placeholder="Current Password" />
+
+        <form action="<?php echo URLROOT; ?>/Customer/changePassword" method="post" class="form">
+            <div class="item item10">
+                <div class="profname">
+                    <label class="proflabel">Current Password </label> <br />
+                    <div class="passwordinputlabel">
+                        <input type="password" name="currentPassword" class="passwordinput pwd2" placeholder="Current Password" />
+                    </div>
+
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="column">
-                <div class="text-group">
-                    <label class="label" for="pwd">New Password</label>
-                    <input type="text" name="fName" value="" maxlength="35" />
-                    <span class="error"></span>
-                </div>
-            </div>
-            <div class="column spec">
-                <div class="text-group">
-                    <label class="label" for="fName">Verify New Password</label>
-                    <input type="text" name="lName" value="" maxlength="35">
-                    <span class="error"></span>
-                </div>
-            </div>
-        </div>
-        <div class="item item7">
-            <div class="profname">
-                <br />
-                <div class="passwordinput">
-                    <input type="password" name="password" class="passwordinput1" placeholder="Password" />
-                </div>
-            </div>
-            <div class="profname">
-                <label class="proflabel">Verify New Password </label> <br />
-                <div class="passwordinput">
-                    <input type="password" name="password" class="passwordinput1" placeholder="Verify Password" />
-                </div>
+                <span class="error"><?php echo $data['currentPassword_error'];  ?></span>
             </div>
 
-        </div>
-        <div class="item item5">
-            <div class="savebutton">
-                <button class="btn btn-filled btn-theme-red btnSave">Save</button>
+            <div class="item item7">
+                <div class="profname">
+                    <label class="proflabel">New Password </label> <br />
+                    <div class="passwordinput">
+                        <input type="password" name="password1" class="passwordinput1" placeholder="Password" />
+                    </div>
+                    <span class="error"><?php echo $data['newPassword_error']; ?></span>
+                </div>
+                <div class="profname">
+                    <label class="proflabel">Verify New Password </label> <br />
+                    <div class="passwordinput">
+                        <input type="password" name="password2" class="passwordinput1" placeholder="Verify Password" />
+                    </div>
+                    <span class="error"><?php echo $data['confirmPassword_error']; ?></span>
+                </div>
+
             </div>
-        </div>
+            <div class="item item11">
+                <div class="savebutton">
+                    <button class="btn btn-filled btn-theme-red btnSave">Save</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 

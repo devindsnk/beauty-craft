@@ -131,7 +131,14 @@
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <button class="editicon btnEditLeave" data-id="<?php echo $leave->leaveDate; ?>" onclick="editLeaveRequest(this);"><a href="#" data-id="<?php echo $leave->leaveDate; ?>"><i class="ci-edit table-icon" data-id="<?php echo $leave->leaveDate; ?>"></i></a></button>
+                           <button class="editicon btnEditLeave" data-id="<?php echo $leave->leaveDate; ?>" onclick="editLeaveRequest(this);"><a href="#" data-id="<?php echo $leave->leaveDate; ?>"><i class="ci-view-more table-icon" data-id="<?php echo $leave->leaveDate; ?>"></i></a></button>
+
+                           <?php if ($leave->status == 2) : ?>
+                              <button class="editicon btnEditLeave" data-id="<?php echo $leave->leaveDate; ?>" onclick="editLeaveRequest(this);"><a href="#" data-id="<?php echo $leave->leaveDate; ?>"><i class="ci-edit table-icon" data-id="<?php echo $leave->leaveDate; ?>"></i></a></button>
+                           <?php else : ?>
+                              <button class="editicon btnEditLeave" data-id="<?php echo $leave->leaveDate; ?>" disabled><a data-id="<?php echo $leave->leaveDate; ?>"><i class="ci-edit-disable table-icon" data-id="<?php echo $leave->leaveDate; ?>"></i></a></button>
+                           <?php endif; ?>
+
                            <?php if ($leave->status == 2) : ?>
                               <button class="editicon btnDeleteLeave" data-id="<?php echo $leave->leaveDate; ?>"><a data-id="<?php echo $leave->leaveDate; ?>"><i class=" ci-trash table-icon" data-id="<?php echo $leave->leaveDate; ?>"></i></a></button>
                            <?php else : ?>

@@ -14,28 +14,7 @@ class ReceptDashboard extends Controller
       $curDate =  DateTimeExtended::getCurrentDate();
       redirect('ReceptDashboard/dailyView/' . $curDate);
    }
-   public function dailyView($date, $sProvider = null)
-   {
-      if (is_null($sProvider))
-      {
-         $reservations = $this->reservationModel->getUpcomingReservationsByDate($date);
-      }
-      else
-      {
-         $reservations = $this->reservationModel->getUpcomingReservationsByDateAndStaff($date, $sProvider);
-      }
 
-      $serviceProviders = $this->serviceModel->getServiceProviderDetails();
-
-      $data = [
-         'selectedDate' => $date,
-         'selectedStaffID' => $sProvider,
-         'serviceProvidersList' => $serviceProviders,
-         'reservations' => $reservations
-      ];
-
-      $this->view('receptionist/recept_dailyView', $data);
-   }
    public function newReservation()
    {
       $this->view('receptionist/recept_newReservation');

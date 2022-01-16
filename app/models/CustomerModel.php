@@ -144,4 +144,22 @@ class CustomerModel extends Model
       $results = $result1 + $result2;
       return $results;
    }
+   //for Customer profile settings
+   public function removeCustImg($custID)
+   {
+      $results = $this->update('customers', ['imgPath' => ''], ['customerID' => $custID]);
+      return true;
+   }
+   public function updateCustomerInfo($data, $custID)
+   {
+      $results = $this->update('customers', ['imgPath' => $data['imgPath'], 'fName' => $data['fName'], 'lName' => $data['lName'], 'gender' => $data['gender'], 'mobileNo' => $data['mobileNo']], ['customerID' => $custID]);
+   }
+   public function updateUserTableMobileNo($newNo, $oldNo)
+   {
+      $results = $this->update('users', ['mobileNo' => $newNo], ['mobileNo' => $oldNo]);
+   }
+   public function deleteOtpRecords($mobileNo)
+   {
+      $results = $this->delete('otpverification', ['mobileNo' => $mobileNo]);
+   }
 }

@@ -1,5 +1,4 @@
 // Script Files related all modals
-
 // Contains the modal to toggle
 let modalToToggle = null;
 // let recordID = null;
@@ -341,6 +340,19 @@ voidRefInvBtnModal.forEach((btn) => {
         toggleModal(btn);
     });
 });
+
+/* ------------------------------------------------------------------- */
+/* ------------------------ customer profile picture --------------------------- */
+
+// remove picture
+const imgRemovePayModal = document.querySelector(".img-remove");
+const imgRemoveBtn = document.querySelector(".removebtn");
+if (imgRemoveBtn) {
+    imgRemoveBtn.addEventListener("click", function () {
+        modalToToggle = imgRemovePayModal;
+        toggleModal();
+    });
+}
 
 
 /* ------------------------------------------------------------------- */
