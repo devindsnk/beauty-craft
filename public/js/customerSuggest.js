@@ -73,7 +73,8 @@ async function getCustomersList() {
         .then(response => response.json())
         .then(customers => {
             customers.forEach(customer => {
-                suggestions.push(`${customer['fName']} ${customer['lName']} ${customer['mobileNo']}`);
+                let tempArray = [`${customer['fName']} ${customer['lName']}`, `${customer['mobileNo']}`]
+                suggestions.push(tempArray);
             });
         });
 }
@@ -87,7 +88,9 @@ function walkinToggle(toggle) {
     if (toggle.checked) {
         inputBox.value = "";
         inputBox.disabled = true;
+        custDetailsBox.style.display = "none";
     } else {
         inputBox.disabled = false;
+
     }
 }
