@@ -104,7 +104,7 @@ class ServiceModel extends Model
             $i = 0;
             foreach ($data['sResArray'] as $ResoursesArray)
             {
-                if ($data['sSelectedResCount2'][$i] != NULL)
+                if ($data['sSelectedResCount2'][$i] != NULL && $data['sSelectedResCount2'][$i] != 0)
                 {
                     $selCount = $data['sSelectedResCount2'][$i];
 
@@ -118,13 +118,13 @@ class ServiceModel extends Model
             $i = 0;
             foreach ($data['sResArray'] as $ResoursesArray)
             {
-                if ($data['sSelectedResCount2'][$i] != NULL)
+                if ($data['sSelectedResCount2'][$i] != NULL && $data['sSelectedResCount2'][$i] != 0)
                 {
                     $selCount = $data['sSelectedResCount2'][$i];
 
                     $this->customQuery("INSERT INTO resourceallocation (serviceID, slotNo, resourceID, requiredQuantity) SELECT MAX(serviceID), '2', '$ResoursesArray->resourceID','$selCount' FROM services", []);
                 }
-                if ($data['sSelectedResCount3'][$i] != NULL)
+                if ($data['sSelectedResCount3'][$i] != NULL && $data['sSelectedResCount3'][$i] != 0)
                 {
                     $selCount = $data['sSelectedResCount3'][$i];
 

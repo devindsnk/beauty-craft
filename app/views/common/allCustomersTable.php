@@ -83,28 +83,24 @@
                <tbody>
 
                   <?php foreach ($data['customer'] as $customerD) : ?>
-                  <tr>
-                     <td data-lable="Customer ID" class="column-center-align"><?php echo $customerD->customerID; ?></td>
-                     <td data-lable="Customer Name" class="column-left-align"><?php echo $customerD->fName; ?>
-                        <?php echo $customerD->lName; ?></td>
-                     <td data-lable="Contact No" class="column-center-align"><?php echo $customerD->mobileNo; ?></td>
-                     <td data-lable="Gender" class="column-center-align">M</td>
-                     <td data-lable="Registered Date" class="column-center-align">
-                        <?php echo $customerD->registeredDate; ?></td>
-                     <td data-lable="Status" class="column-center-align">
-                        <button type="button" class="status-btn green text-uppercase">Active</button>
-                     </td>
-                     <td class="column-center-align">
-                        <a href="<?php echo URLROOT ?>/customer/cusDetailView/<?php echo $customerD->customerID ?>"><i
-                              class="ci-view-more table-icon img-gap"></i></a>
-                        <?php if (Session::getUser("typeText") == "Owner") : ?>
-                        <a href="#"><i data-cusid="<?php echo $customerD->customerID; ?>"
-                              data-cusmobileno= "<?php echo $customerD->mobileNo; ?>" data-cusname="<?php echo $customerD->fName; ?> <?php echo $customerD->lName; ?>"
-                              class="ci-trash table-icon btnRemoveCustomer removeCustomerAnchor img-gap"></i></a>
-                        <?php endif; ?>
-                        </span>
-                     </td>
-                  </tr>
+                     <tr>
+                        <td data-lable="Customer ID" class="column-center-align">C<?php echo $customerD->customerID; ?></td>
+                        <td data-lable="Customer Name" class="column-left-align"><?php echo $customerD->fName; ?>
+                           <?php echo $customerD->lName; ?></td>
+                        <td data-lable="Contact No" class="column-center-align"><?php echo $customerD->mobileNo; ?></td>
+                        <td data-lable="Gender" class="column-center-align">M</td>
+                        <td data-lable="Registered Date" class="column-center-align"> <?php echo DateTimeExtended::dateToShortMonthFormat($customerD->registeredDate, "F"); ?></td>
+                        <td data-lable="Status" class="column-center-align">
+                           <button type="button" class="status-btn green text-uppercase">Active</button>
+                        </td>
+                        <td class="column-center-align">
+                           <a href="<?php echo URLROOT ?>/customer/cusDetailView/<?php echo $customerD->customerID ?>"><i class="ci-view-more table-icon img-gap"></i></a>
+                           <?php if (Session::getUser("typeText") == "Owner") : ?>
+                              <a href="#"><i data-cusid="<?php echo $customerD->customerID; ?>" data-cusmobileno="<?php echo $customerD->mobileNo; ?>" data-cusname="<?php echo $customerD->fName; ?> <?php echo $customerD->lName; ?>" class="ci-trash table-icon btnRemoveCustomer removeCustomerAnchor img-gap"></i></a>
+                           <?php endif; ?>
+                           </span>
+                        </td>
+                     </tr>
                   <?php endforeach; ?>
                </tbody>
             </table>
@@ -140,8 +136,7 @@
                <button class="btn btnClose normal ModalCancelButton ModalButton ">Cancel</button>
             </div>
             <div class="ownRemCusbtn2">
-               <a href="" class="removeCustomer"><button
-                     class="btn ModalBlueButton ModalButton removeCustomerBtn">Proceed</button></a>
+               <a href="" class="removeCustomer"><button class="btn ModalBlueButton ModalButton removeCustomerBtn">Proceed</button></a>
             </div>
          </div>
          <!-- main grid 3 ends -->

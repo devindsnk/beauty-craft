@@ -2,8 +2,10 @@
 <script src="<?php echo URLROOT ?>/public/js/home.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/modals.js"></script>
 
-<script src="<?php echo URLROOT ?>/public/js/fetchRequests/reservationOperations.js"></script>
 
+
+<script src="<?php echo URLROOT ?>/public/js/fetchRequests/reservationOperations.js"></script>
+<script src="<?php echo URLROOT ?>/public/js/fetchRequests/customerFetch.js"></script>
 </body>
 
 </html>

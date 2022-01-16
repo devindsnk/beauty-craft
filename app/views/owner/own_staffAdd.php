@@ -32,9 +32,14 @@
                                 <div class="ownAddstaffFormGroupImage">
                                     <div class="ownAddstaffBasicinfoFilesubBtn">
                                         <label for="ownAddstaffBasicinfoImagesub" class="ownAddstaffBasicinfoImagewrapper">
-                                            <input type="file" name="staffimage" id="ownAddstaffBasicinfoImagesub">
-                                            <img src="<?php echo URLROOT ?>/public/icons/add_graph_report_64px.png" class="ownAddstaffBasicinfoIcon"> <br>
-                                            <span class="ownAddstaffBasicinfoImagetitle">Add Image</span>
+                                            <input type="file" accept="image/*" name="staffimage" id="ownAddstaffBasicinfoImagesub" onchange="loadFile(event)" />
+                                            <?php if ($data['staffimagePath'] == '' || $data['staffimagePath_error']) : ?>
+                                                <img src="<?php echo URLROOT ?>/public/icons/AddImg.png" class="ownAddstaffBasicinfoIcon" id='profileImg' height="160px" width="160px" borderRadious='50%'> <br>
+
+                                            <?php elseif ($data['staffimagePath']) : ?>
+                                                <img src="<?php echo URLROOT ?>/public/imgs/staffImgs/<?php echo $data['staffimagePath']; ?> " class="ownAddstaffBasicinfoIcon" id='profileImg' height="160px" width="160px" borderRadious='50%'> <br>
+                                            <?php endif; ?>
+
                                         </label>
                                     </div>
                                     <span class="error"><?php echo $data['staffimagePath_error']; ?></span>
@@ -176,6 +181,14 @@
 
         </div>
 
-
+        <script>
+            console.log(ownAddstaffBasicinfoImagesub);
+            ownAddstaffBasicinfoImagesub.onchange = evt => {
+                const [file] = ownAddstaffBasicinfoImagesub.files
+                if (file) {
+                    profileImg.src = URL.createObjectURL(file)
+                }
+            }
+        </script>
 
         <?php require APPROOT . "/views/inc/footer.php" ?>

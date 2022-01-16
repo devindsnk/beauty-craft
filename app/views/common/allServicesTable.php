@@ -96,7 +96,7 @@
                <tbody>
                   <?php foreach ($data['services'] as $sDetails) : ?>
                      <tr>
-                        <td data-lable="Servie ID" data-lable="" class="column-center-align"><?php echo $sDetails->serviceID; ?></td>
+                        <td data-lable="Servie ID" data-lable="" class="column-center-align">S<?php echo $sDetails->serviceID; ?></td>
 
                         <td data-lable="Service" class="column-left-align"><?php echo $sDetails->name; ?></td>
 
@@ -133,8 +133,8 @@
                                     <a href="#"><i data-columns="<?php echo $sDetails->serviceID; ?>" class="ci-trash table-icon btnRemoveService serviceRemove deletehref img-gap"></i></a>
                                  <?php endif; ?>
                               <?php else : ?>
-                                 <i class="ci-edit table-icon img-gap"></i>
-                                 <i data-columns="" class="ci-trash table-icon img-gap"></i>
+                                 <i class="ci-edit-disable table-icon img-gap"></i>
+                                 <i data-columns="" class="ci-trash-disable table-icon img-gap"></i>
                               <?php endif; ?>
                            </span>
                         </td>

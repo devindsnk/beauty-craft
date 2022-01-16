@@ -32,7 +32,7 @@ Service
 
 Leave Requests
 0 - Rejected
-1 - Approved
+1 - Approved 
 2 - Pending
 3 - Rejected Medical
 
@@ -87,7 +87,18 @@ Refund Invoices (type 0)
 ---------------------------------------
 
 Leave Types
-1 - General leave--0,1,2,3
-2 - Medical Leave--2,1
+1 - General leave
+    0-Rejected
+    1-Approved
+    2-Pending
+    3-Rejected Medical
+2 - Medical Leave
+    2-Pending
+    1-Responded
+
+---------------------------------------
+Salary 
+1 - Paid 
+0 - Not paid
 
 ---------------------------------------

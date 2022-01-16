@@ -9,10 +9,10 @@
         <!-- <div class="header-right verticalCenter"> -->
 
         <div class="header-right verticalCenter">
-            <span class="top-right-closeBtnSpecial">
-                <button class="top-right-closeBtn profile" onclick="history.back()">
-                    <i class=" fal fa-times fa-2x "></i>
-                </button>
+            <span class="top-right-closeBtnSpecial profile">
+
+                <i class=" fal fa-times fa-2x "></i>
+
             </span>
         </div>
 
@@ -22,7 +22,7 @@
         </div> -->
     </header>
     <div class="profview">
-        <?php print_r($data); ?>
+
         <div class="profileview">
             <!-- <h1 class="profileviewh1">View Profile</h1> -->
             <div class="profilecontent">

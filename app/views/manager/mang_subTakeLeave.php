@@ -95,8 +95,8 @@
                                  <a href="#"><i data-columns1="<?php echo $managerLeaveDetails->leaveDate; ?>" class="ci-edit btnEditTakenLeave table-icon img-gap editMangLeave"></i></a>
                                  <a href="#"><i data-columns3="<?php echo $managerLeaveDetails->leaveDate; ?>" class="ci-trash btnDeleteTakenLeave table-icon img-gap deleteMangLeave"></i></a>
                               <?php else : ?>
-                                 <i class="ci-edit  table-icon img-gap"></i>
-                                 <i class="ci-trash  table-icon img-gap"></i>
+                                 <i class="ci-edit-disable  table-icon img-gap"></i>
+                                 <i class="ci-trash-disable  table-icon img-gap"></i>
                               <?php endif; ?>
                            </span>
                         </td>

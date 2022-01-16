@@ -81,7 +81,7 @@
                   <?php foreach ($data as $leaveDetails) : ?>
                      <form class="form" action="<?php echo URLROOT; ?>/leaves/responceForLeaveRequest/<?php echo $leaveDetails->staffID; ?>/<?php echo $leaveDetails->leaveDate; ?>" method="post">
                         <tr>
-                           <td data-lable="Staff ID" class="column-center-align"><?php echo $leaveDetails->staffID; ?></td>
+                           <td data-lable="Staff ID" class="column-center-align">SM<?php echo $leaveDetails->staffID; ?></td>
                            <td data-lable="Leave Date" class="column-center-align"><?php echo $leaveDetails->leaveDate; ?></td>
                            <td data-lable="Leave Type" class="column-center-align">
                               <?php if ($leaveDetails->leaveType == 1) : ?>
