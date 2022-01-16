@@ -24,11 +24,25 @@ class ReceptDashboard extends Controller
       $results = $this->reservationModel->getAllPendingRecallRequests();
       $this->view('receptionist/recept_recallRequests', $results);
    }
-   public function sales()
+   public function sales($iType = "all", $status = null)
    {
+      if ($iType == "all")
+      {
+         $invoices = $this->salesModel->getAllInvoices();
+      }
+      else
+      {
+         $invoices = $this->salesModel->getInvoicesWithFilters($iType, $status);
+      }
+
+      $data = [
+         'selectedType' => $iType,
+         'selectedState' => $status,
+         'invoices' => $invoices
+      ];
       // TODO : sort invoices by date 
-      $invoices = $this->salesModel->getAllInvoices();
-      $this->view('receptionist/recept_sales', $invoices);
+
+      $this->view('receptionist/recept_sales',  $data);
    }
 
    public function invoiceView($invoiceNo, $type)
