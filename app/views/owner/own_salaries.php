@@ -85,7 +85,7 @@
                <tbody>
 
                   <!--Table row-->
-                <?php print_r($data); ?>
+                <!-- <?php print_r($data); ?> -->
                   <?php foreach ($data as $staffD) : ?>
                      <tr>
                         <td data-lable="" class="column-center-align">
@@ -93,7 +93,7 @@
                         </td>
                         <!-- <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person2.jpg" /></td> -->
                         <td data-lable="Staff Member Name"><?php echo $staffD->fName ?> <?php echo $staffD->lName ?></td>
-                        <td data-lable="Staff ID" class="column-center-align" ><?php echo $staffD->staffID ?></td>
+                        <td data-lable="Staff ID" class="column-center-align" >SN<?php echo $staffD->staffID ?></td>
                         <td data-lable="Staff Type" class="column-left-align">
                            <?php if ($staffD->staffType == 3)
                            {

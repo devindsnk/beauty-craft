@@ -42,6 +42,8 @@ class DateTimeExtended
             return date('M',  $timestamp);
          case "Y":
             return date('o',  $timestamp);
+         case "F":
+            return date('M j, o',  $timestamp); // Format Example: Dec 31, 2021
       }
    }
 
