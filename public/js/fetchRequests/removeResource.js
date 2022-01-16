@@ -16,5 +16,5 @@ let PurchID = ResourceViewMoreTableTrashBtn[i].dataset.purchaseid;
 
 function createRemoveResourceUrl(ResID,PurchID){
     console.log("rem resource");
-    RemoveResourceBtnAnchorTag.href = "http://localhost/beauty-craft/Resources/removePurchaseRecord/" + ResID + "/" +PurchID ;
+    RemoveResourceBtnAnchorTag.href = "http://localhost:80/beauty-craft/Resources/removePurchaseRecord/" + ResID + "/" +PurchID ;
 }
