@@ -1,10 +1,15 @@
 
-var mangChart1 = document.getElementById('mangChart1').getContext('2d');
-var mangChart2 = document.getElementById('mangChart2').getContext('2d');
-
 $(document).ready(function () {
-  chart1();
-  chart2();
+
+  if (document.getElementById('mangChart1')) {
+    var mangChart1 = document.getElementById('mangChart1').getContext('2d');
+    chart1();
+  }
+  if (document.getElementById('mangChart2')) {
+    var mangChart2 = document.getElementById('mangChart2').getContext('2d');
+    chart2();
+  }
+
   function chart1() {
     $.ajax({
       url: "http://localhost:80/beauty-craft/MangDashboard/overviewChart1",

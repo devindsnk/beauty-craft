@@ -156,11 +156,15 @@ class Services extends Controller
                   $slotNo = 2;
                }
 
+               $this->ServiceModel->beginTransaction();
                $this->ServiceModel->addService($data, $slotNo);
                $this->ServiceModel->addServiceProvider($data);
                $this->ServiceModel->addTimeSlot($data, $slotNo);
                $this->ServiceModel->addIntervalTimeSlot($data, $slotNo);
                $this->ServiceModel->addResourcesToService($data, $slotNo);
+               $this->ServiceModel->commit();
+
+               Toast::setToast(1, "Service Added Successfully!!!", "");
 
                redirect('Services/viewAllServices');
             }
@@ -506,16 +510,18 @@ class Services extends Controller
 
                if ($data['price'] != $serviceDetails[0]->price)
                {
-
+                  $this->ServiceModel->beginTransaction();
                   $this->ServiceModel->changeServiceStatus($serviceID, 0);
                   $this->ServiceModel->addService($data, $slotNo);
                   $this->ServiceModel->addServiceProvider($data);
                   $this->ServiceModel->addTimeSlot($data, $slotNo);
                   $this->ServiceModel->addIntervalTimeSlot($data, $slotNo);
                   $this->ServiceModel->addResourcesToService($data, $slotNo);
+                  $this->ServiceModel->commit();
                }
                else
                {
+                  $this->ServiceModel->beginTransaction();
                   $this->ServiceModel->updateService($serviceID, $data, $slotNo);
 
                   $resState = 5;
@@ -524,7 +530,7 @@ class Services extends Controller
 
                      if ($value == 1)
                      {
-                        print_r($key);
+                        // print_r($key);
                         $this->ReservationModel->updateReservationRecalledState($key, $resState);
                         $this->ReservationModel->addReservationRecall($key);
                      }
@@ -535,8 +541,9 @@ class Services extends Controller
                   $this->ServiceModel->updateAllocatedResources($serviceID, $data, $slotNo, $resDetailsSlot1, $resDetailsSlot2, $resDetailsSlot3);
                   $this->ServiceModel->updateIntervals($serviceID, $data, $slotNo);
                   $this->ServiceModel->updateTimeslots($serviceID, $data, $slotNo);
+                  $this->ServiceModel->commit();
                }
-
+               Toast::setToast(1, "Service Updated Successfully!!!", "");
                redirect('Services/viewAllServices');
             }
             else
@@ -658,6 +665,7 @@ class Services extends Controller
    {
       $state = 0;
       $this->ServiceModel->changeServiceStatus($serviceID, $state);
+      Toast::setToast(1, "Service Deleted Successfully!!!", "");
       redirect('Services/viewAllServices');
    }
    public function holdService($serviceID)
