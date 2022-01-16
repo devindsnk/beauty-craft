@@ -196,7 +196,7 @@ class Customer extends Controller
       // die("controller error");
       $CompletedReservationSales = $this->customerModel->getAllCompletedReservationSalesByCusID($cusID);
 
-      $ViewCustomerArray = ['cusDetails' => $customerDetails, 'allResCount' => $AllReservationCount, 'cancelledResCount' => $CancelledReservationCount,'sales' => $CompletedReservationSales];
+      $ViewCustomerArray = ['cusDetails' => $customerDetails, 'allResCount' => $AllReservationCount, 'cancelledResCount' => $CancelledReservationCount, 'sales' => $CompletedReservationSales];
       // print_r($ViewCustomerArray);
       // die("");
 
@@ -355,5 +355,13 @@ class Customer extends Controller
          ];
          $this->view('systemAdmin/systemadmin_customer', $data);
       }
+   }
+
+   public function getAllActiveCustomers()
+   {
+      $result = $this->customerModel->getAllActiveCustomers();
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($result));
    }
 }

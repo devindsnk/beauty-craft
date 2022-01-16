@@ -136,15 +136,16 @@
     padding: 3px 2px;
     border-radius: 6px;
     transition-duration: 0.4s;
-    font-weight: 500;
+    font-weight: 510;
 }
 
-.table1 .status-btn, .table2 .status-btn{
+.table1 .status-btn,
+.table2 .status-btn {
     border: none;
     padding: 3px 2px;
     width: 90px;
     border-radius: 6px;
-    font-weight: 500;
+    font-weight: 510;
 }
 
 .table1 .green.status-btn,

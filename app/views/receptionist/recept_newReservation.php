@@ -18,22 +18,34 @@
 
             <h3>Customer Details</h3>
             <div class="contentBox cust-container">
-
-               <div class="text-group">
-                  <label class="label">Customer Name / Contact No</label>
-                  <input type="text" name="" id="fName" placeholder="Search">
+               <div class="left-box cust-data">
+                  <div class="text-group">
+                     <label class="label">Customer Name / Contact No</label>
+                     <div class="wrapper">
+                        <input type="text" class="custSelector">
+                        <div class="cust-suggest-box"></div>
+                     </div>
+                  </div>
+                  <div class="profile-info">
+                     <div class="img-container">
+                        <img class="header-profilepic" src="<?php echo URLROOT ?>/public/imgs/person1.jpg"></img>
+                     </div>
+                     <div class="text-container">
+                        <label class="cust-name">Ravindu Madhubhashana</label>
+                        <label class="contact-no">0717679714</label>
+                     </div>
+                     <i class="fal fa-times profile-remove" onclick="removeProfile()"></i>
+                  </div>
                </div>
 
-               <div class="profile-info">
-                  <div class="img-container">
-                     <img class="header-profilepic" src="<?php echo URLROOT ?>/public/imgs/person1.jpg"></img>
+               <div class="right-box walkin-status">
+                  <div class="text-group">
+                     <label class="label">Walk-In Customer</label>
+                     <input type="checkbox" class="togglecheckbox-dd purple" onclick="walkinToggle(this)">
                   </div>
-                  <div class="text-container">
-                     <label class="cust-name">Ravindu Madhubhashana</label>
-                     <label class="contact-no">0717679714</label>
-                  </div>
-                  <i class="fal fa-times profile-remove"></i>
                </div>
+
+
             </div>
 
 
@@ -108,5 +120,7 @@
       </div>
 
       <script src="<?php echo URLROOT ?>/public/js/fetchRequests/newReservation.js"></script>
+      <script src="<?php echo URLROOT ?>/public/js/customerSuggest.js"></script>
 
-      <?php require APPROOT . "/views/inc/footer.php" ?>
+   </div>
+   <?php require APPROOT . "/views/inc/footer.php" ?>

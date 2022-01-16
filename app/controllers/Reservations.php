@@ -4,6 +4,7 @@ class Reservations extends Controller
 {
    public function __construct()
    {
+      $this->customerModel = $this->model('CustomerModel');
       $this->staffModel = $this->model('StaffModel');
       $this->serviceModel = $this->model('ServiceModel');
       $this->reservationModel = $this->model('ReservationModel');
@@ -106,6 +107,7 @@ class Reservations extends Controller
 
    public function newReservationRecept()
    {
+      $customers = $this->customerModel->getAllActiveCustomers();
       $servicesList = $this->serviceModel->getAllAvailableServices();
 
       $data = [
@@ -123,6 +125,7 @@ class Reservations extends Controller
          'startTime_error' => '',
          'remarks_error' => '',
 
+         'customersList' => $customers,
          'servicesList' => $servicesList
       ];
 

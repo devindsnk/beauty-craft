@@ -133,8 +133,23 @@
 }
 
 .recept.newRes .cust-container {
+   display: flex;
+   gap: 20px;
    padding: 30px;
    margin: 5px 0 30px;
+}
+
+.cust-container .left-box {
+   width: 400px;
+   flex-basis: auto;
+}
+
+.cust-container .right-box {
+   flex-basis: 150px;
+}
+
+.cust-container .text-group {
+   margin-bottom: 0 !important;
 }
 
 .cust-container .profile-info {
@@ -144,6 +159,7 @@
    border-radius: 6px;
    height: 70px;
    background-color: var(--theme-lightgrey);
+   display: none;
 }
 
 .cust-container .profile-info div {
@@ -189,6 +205,10 @@
    margin: 7px 7px 0 0;
    position: relative;
    right: 0;
+}
+
+.walkin-status .togglecheckbox-dd {
+   margin-top: 10px !important;
 }
 
 .recept.newRes .service-container {
@@ -512,6 +532,44 @@
 }
 
 /****************** End of Styles of invoice View ************************/
+
+
+/* customer suggest styles  */
+
+.recept.newRes .wrapper {
+   max-width: 540px;
+   position: relative;
+}
+
+
+.recept.newRes .cust-suggest-box {
+   position: absolute;
+   width: 100%;
+   max-height: 280px;
+   overflow-y: auto;
+   background: var(--theme-lightgrey);
+   border-radius: 6px;
+   z-index: 5;
+   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+   border: 1.2px solid #c4cae0;
+   display: none;
+}
+
+.recept.newRes .cust-suggest-box li {
+   font-size: 14px;
+   font-weight: 400;
+   list-style: none;
+   padding: 8px 12px;
+   width: 100%;
+   border: none;
+   cursor: default;
+}
+
+.recept.newRes .cust-suggest-box li:hover {
+   color: white;
+   background: var(--theme-bggrey);
+}
+
 
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/

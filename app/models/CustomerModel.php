@@ -144,4 +144,10 @@ class CustomerModel extends Model
       $results = $result1 + $result2;
       return $results;
    }
+
+   public function getAllActiveCustomers()
+   {
+      $results = $this->getResultSet('customers', ['fName', 'lName', 'mobileNo'], ['status' => 1]);
+      return $results;
+   }
 }
