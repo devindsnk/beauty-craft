@@ -147,7 +147,11 @@ class CustomerModel extends Model
 
    public function getAllActiveCustomers()
    {
-      $results = $this->getResultSet('customers', ['fName', 'lName', 'mobileNo'], ['status' => 1]);
+      $SQLstatement =
+         "SELECT customerID, fName, lName, mobileNo 
+         FROM customers 
+         WHERE status = 1 AND customerID <> '000001'";
+      $results = $this->customQuery($SQLstatement);
       return $results;
    }
 }

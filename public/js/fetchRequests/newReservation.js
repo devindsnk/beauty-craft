@@ -1,5 +1,7 @@
 /****************** Scripts related to add new reservation *******************/
 
+const custError = document.querySelector(".cust-error");
+const walkinToggle = document.querySelector(".walkin-status .togglecheckbox-dd");
 const dateSelector = document.querySelector(".dateSelect");
 const dateError = document.querySelector(".date-error");
 const serviceSelector = document.querySelector(".serviceSelect");
@@ -222,12 +224,18 @@ if (addResBtnCust) {
 if (addResBtnRecept) {
 	addResBtnRecept.addEventListener("click",
 		async function () {
-			//TODO: add empty cust check here
-			let custID = 000001;
-			await placeReservation(custID);
-
-			window.location.replace("http://localhost:80/beauty-craft/Reservations/viewAllReservations/all/all/all");
-
+			//TODO: add empty cust check here  - Done but check again
+			const custNameBox = document.querySelector(".profile-info .cust-name");
+			let custID = (walkinToggle.checked) ? "000001" : custNameBox.getAttribute("data-custid");
+			if (!custID) {
+				custError.innerHTML = "Select customer";
+			} else {
+				let response = await placeReservation(custID);
+				console.log("response of placeResFunction" + response);
+				if (response) {
+					window.location.replace("http://localhost:80/beauty-craft/Reservations/viewAllReservations/all/all/all");
+				}
+			}
 		});
 }
 
@@ -246,10 +254,15 @@ async function placeReservation(custID) {
 		await fetch(`http://localhost:80/beauty-craft/reservations/placeReservation/${selectedService}/${sProviderSelector.value}/${selectedDate}/${startTime}/${custID}/${remarksInput.value}`)
 			.then((response) => response.json())
 			.then((state) => {
-				if (state) return;
+				console.log("response of fetch" + state);
+				if (state) {
+					console.log("Um in");
+					return 1;
+				}
 			});
 
 	} else {
 		console.log("bad");
+		return 0;
 	}
 }

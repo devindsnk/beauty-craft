@@ -10,11 +10,11 @@ const custRemoveBtn = document.querySelector(".profile-remove");
 getCustomersList();
 
 let suggestions = [
-    ["Devin Dissanayake", "0717679714"],
-    ["Kasun Mendis", "0767679714"],
-    ["KBaFsun Mendis", "0717679714"],
-    ["Kasuinisfs Mendis", "0767679714"],
-    ["Ashan Hansaka", "0787679714"]
+    // ["Devin Dissanayake", "0717679714", "000064"],
+    // ["Kasun Mendis", "0767679714", "000064"],
+    // ["KBaFsun Mendis", "0717679714", "000064"],
+    // ["Kasuinisfs Mendis", "0767679714", "000064"],
+    // ["Ashan Hansaka", "0787679714", "000064"]
 ];
 
 inputBox.onkeyup = (e) => {
@@ -33,7 +33,7 @@ inputBox.onkeyup = (e) => {
 
         // map each suggestion to an element
         filteredCustList = filteredCustList.map((customer) => {
-            customer = `<li data-name = "${customer[0]}" data-mobno= "${customer[1]}" onclick="addThis(this)">${customer[0]} ${customer[1]}</li>`
+            customer = `<li data-name = "${customer[0]}" data-mobno= "${customer[1]}" data-custid = "${customer[2]}" onclick="addCustomer(this)">${customer[0]} ${customer[1]}</li>`
             return customer;
         })
 
@@ -57,14 +57,18 @@ function showSuggestions(filteredCustList) {
     suggestionsBox.innerHTML = listData;
 }
 
-function addThis(option) {
+function addCustomer(option) {
+
+    let custID = option.getAttribute("data-custid");
 
     custDetailsBox.style.display = "flex";
-    console.log(option);
     custNameBox.innerHTML = option.getAttribute("data-name");
+    custNameBox.setAttribute("data-custid", custID);
     custMobNo.innerHTML = option.getAttribute("data-mobno");
     inputBox.value = "";
     suggestionsBox.style.display = "none";
+
+    custError.innerHTML = "";
 }
 
 
@@ -73,22 +77,25 @@ async function getCustomersList() {
         .then(response => response.json())
         .then(customers => {
             customers.forEach(customer => {
-                let tempArray = [`${customer['fName']} ${customer['lName']}`, `${customer['mobileNo']}`]
+                let tempArray = [`${customer['fName']} ${customer['lName']}`, `${customer['mobileNo']}`, `${customer['customerID']}`]
                 suggestions.push(tempArray);
             });
         });
 }
 
-function removeProfile() {
+function removeCustomer() {
     custDetailsBox.style.display = "none";
+    custNameBox.setAttribute("data-custid", "");
+    custNameBox.innerHTML = "";
+    custMobNo.innerHTML = "";
 }
 
-function walkinToggle(toggle) {
-    console.log(toggle);
+function walkinToggleSwitch(toggle) {
     if (toggle.checked) {
         inputBox.value = "";
         inputBox.disabled = true;
         custDetailsBox.style.display = "none";
+        custError.innerHTML = "";
     } else {
         inputBox.disabled = false;
 

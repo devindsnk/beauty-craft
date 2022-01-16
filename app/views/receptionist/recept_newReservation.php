@@ -26,22 +26,24 @@
                         <div class="cust-suggest-box"></div>
                      </div>
                   </div>
+                  <span class="error cust-error"></span>
                   <div class="profile-info">
                      <div class="img-container">
                         <img class="header-profilepic" src="<?php echo URLROOT ?>/public/imgs/person1.jpg"></img>
                      </div>
                      <div class="text-container">
-                        <label class="cust-name">Ravindu Madhubhashana</label>
-                        <label class="contact-no">0717679714</label>
+                        <label class="cust-name"></label>
+                        <label class="contact-no"></label>
                      </div>
-                     <i class="fal fa-times profile-remove" onclick="removeProfile()"></i>
+                     <i class="fal fa-times profile-remove" onclick="removeCustomer()"></i>
                   </div>
+
                </div>
 
                <div class="right-box walkin-status">
                   <div class="text-group">
                      <label class="label">Walk-In Customer</label>
-                     <input type="checkbox" class="togglecheckbox-dd purple" onclick="walkinToggle(this)">
+                     <input type="checkbox" class="togglecheckbox-dd purple" onclick="walkinToggleSwitch(this)">
                   </div>
                </div>
 
@@ -118,6 +120,20 @@
             <button class="btn btn-filled btn-theme-purple addResBtnRecept">Place Reservation</button>
          </div>
       </div>
+
+      <script language="javascript">
+         const datePicker = document.getElementById("date_picker");
+
+         let today = new Date().toISOString().split('T')[0];
+         let maxDate = new Date();
+         month = new Date().getMonth();
+         maxDate.setMonth(maxDate.getMonth() + 2);
+         maxDate = maxDate.toISOString().split('T')[0];
+
+         datePicker.setAttribute('min', today);
+         datePicker.setAttribute('max', maxDate);
+         datePicker.setAttribute('format', 'yyyy-MM-dd')
+      </script>
 
       <script src="<?php echo URLROOT ?>/public/js/fetchRequests/newReservation.js"></script>
       <script src="<?php echo URLROOT ?>/public/js/customerSuggest.js"></script>
