@@ -174,4 +174,21 @@ class CustDashboard extends Controller
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($result));
    }
+   public function getCustomerHeaderImg()
+   {
+
+      $result = $this->customerModel->getCustomerByMobileNo(Session::getUser("mobileNo"))->imgPath;
+
+      if ($result)
+      {
+         $path = 'http://localhost/beauty-craft/public/imgs/customerImgs/' . $result;
+      }
+      else
+      {
+         $path = 'http://localhost/beauty-craft/public/imgs/customerImgs/customerbarimg.png';
+      }
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($path));
+   }
 }
