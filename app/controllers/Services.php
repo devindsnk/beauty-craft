@@ -8,14 +8,21 @@ class Services extends Controller
       $this->CustomerModel = $this->model('CustomerModel');
    }
 
-   public function viewAllServices()
+   public function viewAllServices($sID = "all", $sType = "all", $sStatus = "all")
    {
       Session::validateSession([2, 3, 4]);
 
-      $sDetails = $this->ServiceModel->getServiceDetails();
+      $serviceNames = $this->ServiceModel->getServiceDetails();
+      $serviceTypes = $this->ServiceModel->getServiceTypeDetails();
+      $sDetails = $this->ServiceModel->getServiceDetailsWithFilters($sID, $sType, $sStatus);
 
       $GetServicesArray = [
-         'services' => $sDetails
+         'services' => $sDetails,
+         'selectedSID' => $sID,
+         'selectedType' => $sType,
+         'selectedStatus' => $sStatus,
+         'sNameList' => $serviceNames,
+         'sTypeList' => $serviceTypes,
       ];
 
       $this->view('common/allServicesTable',  $GetServicesArray);

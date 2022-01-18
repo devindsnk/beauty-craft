@@ -17,12 +17,12 @@
 		<form class="form filter-options" action="">
 			<div class="options-container">
 				<div class="left-section">
-					<div class="report-month-selector">
+					<div class="analytics-report-month-selector">
 						<div class="row">
 							<div class="column">
 								<div class="text-group">
 									<label class="label" for="">Month</label>
-									<input type="month" name="" class="serviceSelectedMonth" id="" placeholder="Date" value="<?= date('Y-m') ?>">
+									<input type="month" name="" class="serviceSelectedMonth report-month-selector" id="" placeholder="Date" value="<?= date('Y-m') ?>">
 								</div>
 								<span class="error"> <?php echo " "; ?></span>
 							</div>

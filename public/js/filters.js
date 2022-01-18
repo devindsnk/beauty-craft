@@ -121,3 +121,24 @@ if (salesFilterBtn) {
 }
 
 //**************************************************************//
+
+//*************** Filters of Common Services ****************//
+
+const allServiceFilterBtn = document.getElementById("allServiceFilterBtn");
+
+if (allServiceFilterBtn) {
+    console.log('sssss');
+    allServiceFilterBtn.addEventListener("click", () => {
+        const serviceNameSelector = document.getElementById("serviceNameSelector");
+        const serviceTypeSelector = document.getElementById("serviceTypeSelector");
+        const serviceStatusSelector = document.getElementById("serviceStatusSelector");
+
+        let serviceNameSelected = serviceNameSelector.value;
+        let serviceTypeSelected = serviceTypeSelector.value;
+        let serviceStatusSelected = serviceStatusSelector.value;
+
+        window.location.replace(`http://localhost:80/beauty-craft/Services/viewAllServices/${serviceNameSelected}/${serviceTypeSelected}/${serviceStatusSelected}`);
+    });
+}
+
+//**************************************************************//

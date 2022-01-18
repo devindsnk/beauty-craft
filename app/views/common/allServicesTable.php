@@ -40,30 +40,56 @@
                <div class="row">
                   <div class="column">
                      <div class="text-group">
-                        <label class="label" for="fName">Service Name</label>
-                        <input type="text" name="" id="fName" placeholder="Your first name here">
-                     </div>
-                     <span class="error"> <?php echo " "; ?></span>
-                  </div>
-                  <div class="column">
-                     <div class="dropdown-group">
-                        <label class="label" for="lName">Category</label>
-                        <select name="cars" id="cars">
-                           <option value="" selected>All</option>
-                           <option value="volvo">Hair Cuts</option>
-                           <option value="saab">Skin Treatments</option>
-                           <option value="mercedes">Nail Treatments</option>
+                        <label class="label" for="">Service Name</label>
+                        <!-- <input type="text" name="sName" id="sName" placeholder="Service name here"> -->
+                        <select name="serviceNameSelector" id="serviceNameSelector">
+                           <option value="all" selected>All</option>
+                           <?php foreach ($data['sNameList'] as $services) : ?>
+
+                              <option value="<?php echo $services->serviceID; ?>" <?php echo ($data["selectedSID"] ==  $services->serviceID) ? "selected" : "" ?>>
+                                 <?php if ($services->status == 0) : ?>
+                                    <?php echo $services->serviceID; ?> - <?php echo $services->name;  ?> (REMOVED)
+                                 <?php else : ?>
+                                    <?php echo $services->serviceID; ?> - <?php echo $services->name; ?>
+                                 <?php endif; ?>
+                              </option>
+
+                           <?php endforeach; ?>
                         </select>
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
                   </div>
                   <div class="column">
                      <div class="dropdown-group">
-                        <label class="label" for="lName">Status</label>
-                        <select name="cars" id="cars">
-                           <option value="" selected>Any</option>
+                        <label class="label" for="">Service Type</label>
+                        <select name="serviceTypeSelector" id="serviceTypeSelector">
+                           <!-- <option value="" selected>All</option>
+                           <option value="volvo">Hair Cuts</option>
+                           <option value="saab">Skin Treatments</option>
+                           <option value="mercedes">Nail Treatments</option> -->
+
+                           <option value="all" selected>All</option>
+                           <?php foreach ($data['sTypeList'] as $serviceType) : ?>
+                              <option value="<?php echo $serviceType->type ?>" <?php echo ($data["selectedType"] ==  $serviceType->type) ? "selected" : "" ?>><?php echo $serviceType->type; ?></option>
+                           <?php endforeach; ?>
+
+                        </select>
+                     </div>
+                     <span class="error"> <?php echo " "; ?></span>
+                  </div>
+                  <div class="column">
+                     <div class="dropdown-group">
+                        <label class="label" for="">Status</label>
+                        <select name="serviceStatusSelector" id="serviceStatusSelector">
+                           <!-- <option value="" selected>Any</option>
                            <option value="volvo">Active</option>
-                           <option value="saab">Inactive</option>
+                           <option value="saab">Inactive</option> -->
+
+                           <option value="all" selected>All</option>
+                           <option value="1" <?php echo ($data["selectedStatus"] == '1') ? "selected" : "" ?>>Available</option>
+                           <option value="0" <?php echo ($data["selectedStatus"] == '0') ? "selected" : "" ?>>Removed</option>
+                           <option value="2" <?php echo ($data["selectedStatus"] == '2') ? "selected" : "" ?>>Disabled</option>
+
                         </select>
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
@@ -71,7 +97,8 @@
                </div>
             </div>
             <div class="right-section">
-               <a href="" class="btn btn-filled btn-black">Search</a>
+               <!-- <a href="" class="btn btn-filled btn-black">Search</a> -->
+               <button type="button" id="allServiceFilterBtn" class="btn btn-filled btn-black">Search</button>
             </div>
          </div>
 
@@ -194,7 +221,7 @@
    <!--End Content-->
 
    <script type="text/javascript" src="<?php echo URLROOT ?>/public/js/modals.js"></script>
-
+   <script src="<?php echo URLROOT ?>/public/js/filters.js"></script>
    <?php require APPROOT . "/views/inc/footer.php" ?>
    <!-- End of Service hold model -->
 

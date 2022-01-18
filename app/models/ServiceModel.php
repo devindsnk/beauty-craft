@@ -471,12 +471,47 @@ class ServiceModel extends Model
             );
         }
     }
-
-
     public function getServiceDetails()
     {
         $results = $this->getResultSet("services", "*", []);
 
+        return $results;
+    }
+
+    public function getServiceDetailsWithFilters($sID, $sType, $sStatus)
+    {
+        // $results = $this->getResultSet("services", "*", []);
+
+        // return $results;
+
+        $conditions = array();
+
+        // Extract specially defined conditions to a separate array
+        // Note that both tableName and columnName are used as the keys
+        if ($sID != "all") $conditions["services.serviceID"] = $sID;
+        if ($sType != "all") $conditions["services.type"] = $sType;
+        if ($sStatus != "all") $conditions["services.status"] = $sStatus;
+
+        $preparedConditions = array();
+        $dataToBind = array();
+
+        foreach ($conditions as $column => $value)
+        {
+            $colName = explode(".", $column, 2)[1]; // Only taking the column name for binding (discards tableName)
+            array_push($preparedConditions, "$column = :$colName");
+            $dataToBind[":$colName"] = $value;
+        }
+
+        $consditionsString = implode(" AND ", $preparedConditions);
+
+        $SQLstatement =
+            "SELECT *
+        FROM services";
+
+        // Appending conditions string
+        if (!empty($conditions)) $SQLstatement .= " WHERE $consditionsString";
+
+        $results = $this->customQuery($SQLstatement,  $dataToBind);
         return $results;
     }
 
