@@ -36,11 +36,12 @@
                   </div>
                   <div class="column">
                      <div class="dropdown-group">
-                        <label class="label" for="lName">Staff Type</label>
-                        <select>
-                           <option value="" selected>Receptionist</option>
-                           <option value="volvo">Manager</option>
-                           <option value="saab">Service Provider</option>
+                        <label class="label" for="sType">Staff Type</label>
+                        <select id="sTypeSelector">
+                           <option value="all" selected>All</option>
+                           <option value="3" <?php echo ($data["selectedType"] == '3') ? "selected" : "" ?>>Managaer</option>
+                           <option value="4" <?php echo ($data["selectedType"] == '4') ? "selected" : "" ?>>Receptionist</option>
+                           <option value="5" <?php echo ($data["selectedType"] == '5') ? "selected" : "" ?>>Service Provider</option>
                         </select>
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
@@ -48,14 +49,14 @@
                   <div class="column">
                      <div class="text-group ownTableFormDate">
                         <label class="label" for="fName">Month</label>
-                        <input type="month" name="" id="fName" placeholder="Month here" class="salaryMonth">
+                        <input type="month" name="" id="sMonthSelector" placeholder="Month here" class="salaryMonth">
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
                   </div>
                </div>
             </div>
             <div class="right-section">
-               <a href="" class="btn btn-filled btn-black">Search</a>
+               <a href="" class="btn btn-filled btn-black" id="allSalaryFilterBtn">Search</a>
                <a href="#" class="btn btn-filled btn-theme-purple btnSalaryPay"></i> Mark As Paid</a>
             </div>
          </div>
@@ -183,4 +184,5 @@
    </div>
    <!-- End of Remove close date model -->
    <script src="<?php echo URLROOT ?>/public/js/fetchRequests/salaryGetMonth.js"></script>
+   <script src="<?php echo URLROOT ?>/public/js/filters.js"></script>
    <?php require APPROOT . "/views/inc/footer.php" ?>

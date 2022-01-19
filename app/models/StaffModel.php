@@ -33,6 +33,43 @@ class StaffModel extends Model
       return $result;
    }
 
+
+   public function getAllStaffWithFilters($sType,$status)
+   { 
+      // die("model called");
+      $conditions = array(); 
+ 
+      // Extract specially defined conditions to a separate array 
+      // Note that both tableName and columnName are used as the keys 
+      if ($sType != "all") $conditions["staff.staffType"] = $sType; 
+      // if ($sName != "all") $conditions["staff.staffname"] = $sName; 
+      if ($status != "all") $conditions["staff.status"] = $status;
+
+      $preparedConditions = array();
+      $dataToBind = array();
+
+      foreach ($conditions as $column => $value)
+      {
+         $colName = explode(".", $column, 2)[1]; // Only taking the column name for binding (discards tableName)
+         array_push($preparedConditions, "$column = :$colName");
+         $dataToBind[":$colName"] = $value;
+      }
+
+      $consditionsString = implode(" AND ", $preparedConditions); // Joining conditions with AND
+
+      $SQLstatement =
+         "SELECT * FROM staff
+         INNER JOIN bankdetails ON staff.staffID = bankdetails.staffID";
+
+      // Appending conditions string
+      if (!empty($conditions)) $SQLstatement .= " WHERE $consditionsString";
+
+      $results = $this->customQuery($SQLstatement,  $dataToBind);
+      print_r($results);
+      return $results;
+   }
+
+
    // get one staff details to the view 
    public function getStaffDetailsWithBankDetailsByStaffID($staffID)
    {
