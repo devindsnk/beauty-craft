@@ -522,7 +522,12 @@ class ServiceModel extends Model
 
         return $results;
     }
+    public function getAllManagersDetails()
+    {
+        $results = $this->getResultSet('staff', ['staffID', 'fName', 'lName'], ['staffType' => 3, 'status' => 1]);
 
+        return $results;
+    }
     // Suggestion to rename this to getAllServiceTypes
     public function getServiceTypeDetails()
     {

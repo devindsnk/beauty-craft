@@ -22,33 +22,51 @@
                   <div class="column">
                      <div class="text-group">
                         <label class="label" for="staffID">Staff ID</label>
-                        <input type="text" name="" id="staffID" placeholder="StaffID here">
+                        <!-- <input type="text" name="" id="staffID" placeholder="StaffID here"> -->
+
+                        <select name="sProvSelector" id="sProvSelector">
+                           <option value="all" selected>All</option>
+                           <?php foreach ($data['serProvsDetails'] as $serProvs) : ?>
+                              <option value="<?php echo $serProvs->staffID ?>" <?php echo ($data["selectedsProvID"] ==  $serProvs->staffID) ? "selected" : "" ?>><?php echo $serProvs->staffID; ?> - <?php echo $serProvs->fName; ?> <?php echo $serProvs->lName; ?></option>
+                           <?php endforeach; ?>
+
+                        </select>
                      </div>
                      <!-- <span class="error"> <?php echo " "; ?></span> -->
                   </div>
                   <div class="column">
                      <div class="text-group">
                         <label class="label" for="leaaveDate">Leave Date</label>
-                        <input type="date" name="" id="leaaveDate" placeholder="--select--">
+                        <input type="date" name="" id="leaveDateSelector" placeholder="--select--" <?php if ($data["selectedleaveDate"]) : ?> value="<?php echo $data["selectedleaveDate"] ?>" <?php else : ?> value="all" <?php endif; ?>>
                      </div>
                      <!-- <span class="error"></span> -->
                   </div>
                   <div class="column">
                      <div class="text-group">
                         <label class="label" for="respStaffID">Responded Staff ID</label>
-                        <input type="text" name="" id="respStaffID" placeholder="Responded StaffID here">
+                        <!-- <input type="text" name="" id="respStaffID" placeholder="Responded StaffID here"> -->
+
+                        <select name="managerSelector" id="managerSelector">
+                           <option value="all" selected>All</option>
+                           <?php foreach ($data['managersDetails'] as $mangs) : ?>
+                              <option value="<?php echo $mangs->staffID ?>" <?php echo ($data["selectedresSProvID"] ==  $mangs->staffID) ? "selected" : "" ?>><?php echo $mangs->staffID; ?> - <?php echo $mangs->fName; ?> <?php echo $mangs->lName; ?></option>
+                           <?php endforeach; ?>
+
+                        </select>
                      </div>
                      <!-- <span class="error"> <?php echo " "; ?></span> -->
                   </div>
 
                   <div class="column">
                      <div class="dropdown-group">
-                        <label class="label" for="lName">Status</label>
-                        <select>
-                           <option value="" selected>Any</option>
-                           <option value="">Approved</option>
-                           <option value="">Pending</option>
-                           <option value="">Rejected</option>
+                        <label class="label" for="">Status</label>
+                        <select name="leaveStatusSelector" id="leaveStatusSelector">
+
+                           <option value="all" selected>All</option>
+                           <option value="1" <?php echo ($data["selectedlStatus"] == '1') ? "selected" : "" ?>>Approved</option>
+                           <option value="0" <?php echo ($data["selectedlStatus"] == '0') ? "selected" : "" ?>>Rejected</option>
+                           <option value="2" <?php echo ($data["selectedlStatus"] == '2') ? "selected" : "" ?>>Pending</option>
+                           <option value="3" <?php echo ($data["selectedlStatus"] == '3') ? "selected" : "" ?>>Rejected Medical</option>
                         </select>
                      </div>
                      <!-- <span class="error"> <?php echo " "; ?></span> -->
@@ -56,7 +74,8 @@
                </div>
             </div>
             <div class="right-section">
-               <a href="" class="btn btn-filled btn-black">Search</a>
+               <!-- <a href="" class="btn btn-filled btn-black">Search</a> -->
+               <button type="button" id="allLRequestsFilterBtn" class="btn btn-filled btn-black">Search</button>
             </div>
          </div>
       </form>
@@ -78,7 +97,7 @@
                </thead>
 
                <tbody>
-                  <?php foreach ($data as $leaveDetails) : ?>
+                  <?php foreach ($data['leaveDetails'] as $leaveDetails) : ?>
                      <form class="form" action="<?php echo URLROOT; ?>/leaves/responceForLeaveRequest/<?php echo $leaveDetails->staffID; ?>/<?php echo $leaveDetails->leaveDate; ?>" method="post">
                         <tr>
                            <td data-lable="Staff ID" class="column-center-align">SM<?php echo $leaveDetails->staffID; ?></td>
@@ -135,5 +154,5 @@
    </div>
    <!--End Content-->
 
-
+   <script src="<?php echo URLROOT ?>/public/js/filters.js"></script>
    <?php require APPROOT . "/views/inc/footer.php" ?>

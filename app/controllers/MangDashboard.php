@@ -88,11 +88,24 @@ class MangDashboard extends Controller
       ];
       $this->view('manager/mang_resources', $data);
    }
-   public function leaveRequests()
+   public function leaveRequests($sProvID = "all", $leaveDate = "all", $resSProvID = "all", $lStatus = "all")
    {
       Session::validateSession([3]);
-      $leaveDetails = $this->leaveModel->getAllLeaveRequests();
+      $leaveDetails = $this->leaveModel->getAllLeaveRequests($sProvID, $leaveDate, $resSProvID, $lStatus);
       $evidanceLimit = $this->leaveModel->getEvidenceLimit();
+      $serProvsDetails = $this->serviceModel->getServiceProviderDetails();
+      $managersDetails = $this->serviceModel->getAllManagersDetails();
+
+
+      $allLeaveTableDetails = [
+         'leaveDetails' => $leaveDetails,
+         'selectedsProvID' => $sProvID,
+         'selectedleaveDate' => $leaveDate,
+         'selectedresSProvID' => $resSProvID,
+         'selectedlStatus' => $lStatus,
+         'serProvsDetails' => $serProvsDetails,
+         'managersDetails' => $managersDetails
+      ];
 
       date_default_timezone_set("Asia/Colombo");
       $today = date('Y-m-d');
@@ -116,7 +129,7 @@ class MangDashboard extends Controller
          }
       }
 
-      $this->view('manager/mang_subLeaveRequests',  $leaveDetails);
+      $this->view('manager/mang_subLeaveRequests',  $allLeaveTableDetails);
    }
    public function takeLeave()
    {

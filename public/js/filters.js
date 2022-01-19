@@ -127,7 +127,6 @@ if (salesFilterBtn) {
 const allServiceFilterBtn = document.getElementById("allServiceFilterBtn");
 
 if (allServiceFilterBtn) {
-    console.log('sssss');
     allServiceFilterBtn.addEventListener("click", () => {
         const serviceNameSelector = document.getElementById("serviceNameSelector");
         const serviceTypeSelector = document.getElementById("serviceTypeSelector");
@@ -138,6 +137,33 @@ if (allServiceFilterBtn) {
         let serviceStatusSelected = serviceStatusSelector.value;
 
         window.location.replace(`http://localhost:80/beauty-craft/Services/viewAllServices/${serviceNameSelected}/${serviceTypeSelected}/${serviceStatusSelected}`);
+    });
+}
+
+//**************************************************************//
+
+//*************** Filters of Manager Leave Requests Handling ****************//
+
+const allLRequestsFilterBtn = document.getElementById("allLRequestsFilterBtn");
+
+if (allLRequestsFilterBtn) {
+    allLRequestsFilterBtn.addEventListener("click", () => {
+        console.log('fdffdf');
+        const sProvSelector = document.getElementById("sProvSelector");
+        const leaveDateSelector = document.getElementById("leaveDateSelector");
+        const managerSelector = document.getElementById("managerSelector");
+        const leaveStatusSelector = document.getElementById("leaveStatusSelector");
+
+        let sProvSelected = sProvSelector.value;
+        let leaveDateSelected = leaveDateSelector.value;
+        let managerSelected = managerSelector.value;
+        let leaveStatusSelected = leaveStatusSelector.value;
+
+        if (!leaveDateSelected) {
+            leaveDateSelected = 'all';
+        }
+
+        window.location.replace(`http://localhost:80/beauty-craft/MangDashboard/leaveRequests/${sProvSelected}/${leaveDateSelected}/${managerSelected}/${leaveStatusSelected}`);
     });
 }
 

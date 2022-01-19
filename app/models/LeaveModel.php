@@ -174,14 +174,40 @@ class LeaveModel extends Model
    }
 
 
-   public function getAllLeaveRequests()
+   public function getAllLeaveRequests($sProvID, $leaveDate, $resSProvID, $lStatus)
    {
+      $conditions = array();
 
-      $results = $this->customQuery("SELECT * 
+      // Extract specially defined conditions to a separate array
+      // Note that both tableName and columnName are used as the keys
+      if ($sProvID != "all") $conditions["generalleaves.staffID"] = $sProvID;
+      if ($leaveDate != "all") $conditions["generalleaves.leaveDate"] = $leaveDate;
+      if ($resSProvID != "all") $conditions["generalleaves.respondedStaffID"] = $resSProvID;
+      if ($lStatus != "all") $conditions["generalleaves.status"] = $lStatus;
+
+      $preparedConditions = array();
+      $dataToBind = array();
+
+      foreach ($conditions as $column => $value)
+      {
+         $colName = explode(".", $column, 2)[1]; // Only taking the column name for binding (discards tableName)
+         array_push($preparedConditions, "$column = :$colName");
+         $dataToBind[":$colName"] = $value;
+      }
+
+      $consditionsString = implode(" AND ", $preparedConditions);
+
+      $SQLstatement = "SELECT * 
                                     FROM generalleaves
                                      
-                                    ORDER BY leaveDate", []);
+                                    ";
 
+      // Appending conditions string
+      if (!empty($conditions)) $SQLstatement .= " WHERE $consditionsString";
+
+      // $SQLstatement .= " ORDER BY $leaveDate";
+
+      $results = $this->customQuery($SQLstatement,  $dataToBind);
       return $results;
    }
 
@@ -375,7 +401,7 @@ class LeaveModel extends Model
    {
 
       $month = 1;
-      $results = $this->getResultSet('generalleaves','*', ['staffID' => $staffID ,'status'=> 4, 'leaveType' => 'casual']);
+      $results = $this->getResultSet('generalleaves', '*', ['staffID' => $staffID, 'status' => 4, 'leaveType' => 'casual']);
       print_r($results);
       return $results;
    }
@@ -383,7 +409,7 @@ class LeaveModel extends Model
    public function managerCasualLeaveByStaffID($staffID)
    {
       $month = 1;
-      $results = $this->getResultSet('generalleaves','*', ['staffID' => $staffID ,'status'=> 4, 'leaveType' => 'casual']);
+      $results = $this->getResultSet('generalleaves', '*', ['staffID' => $staffID, 'status' => 4, 'leaveType' => 'casual']);
       print_r($results);
       return $results;
    }
