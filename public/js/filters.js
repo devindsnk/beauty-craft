@@ -152,18 +152,20 @@ if (allLRequestsFilterBtn) {
         const sProvSelector = document.getElementById("sProvSelector");
         const leaveDateSelector = document.getElementById("leaveDateSelector");
         const managerSelector = document.getElementById("managerSelector");
+        const leaveTypeSelector = document.getElementById("leaveTypeSelector");
         const leaveStatusSelector = document.getElementById("leaveStatusSelector");
 
         let sProvSelected = sProvSelector.value;
         let leaveDateSelected = leaveDateSelector.value;
         let managerSelected = managerSelector.value;
+        let leaveTypeSelected = leaveTypeSelector.value;
         let leaveStatusSelected = leaveStatusSelector.value;
 
         if (!leaveDateSelected) {
             leaveDateSelected = 'all';
         }
 
-        window.location.replace(`http://localhost:80/beauty-craft/MangDashboard/leaveRequests/${sProvSelected}/${leaveDateSelected}/${managerSelected}/${leaveStatusSelected}`);
+        window.location.replace(`http://localhost:80/beauty-craft/MangDashboard/leaveRequests/${sProvSelected}/${leaveDateSelected}/${managerSelected}/${leaveTypeSelected}/${leaveStatusSelected}`);
     });
 }
 

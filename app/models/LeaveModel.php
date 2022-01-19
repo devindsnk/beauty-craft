@@ -174,7 +174,7 @@ class LeaveModel extends Model
    }
 
 
-   public function getAllLeaveRequests($sProvID, $leaveDate, $resSProvID, $lStatus)
+   public function getAllLeaveRequests($sProvID, $leaveDate, $resSProvID, $leaveType, $lStatus)
    {
       $conditions = array();
 
@@ -183,6 +183,7 @@ class LeaveModel extends Model
       if ($sProvID != "all") $conditions["generalleaves.staffID"] = $sProvID;
       if ($leaveDate != "all") $conditions["generalleaves.leaveDate"] = $leaveDate;
       if ($resSProvID != "all") $conditions["generalleaves.respondedStaffID"] = $resSProvID;
+      if ($leaveType != "all") $conditions["generalleaves.leaveType"] = $leaveType;
       if ($lStatus != "all") $conditions["generalleaves.status"] = $lStatus;
 
       $preparedConditions = array();

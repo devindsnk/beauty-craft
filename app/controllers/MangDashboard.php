@@ -88,10 +88,10 @@ class MangDashboard extends Controller
       ];
       $this->view('manager/mang_resources', $data);
    }
-   public function leaveRequests($sProvID = "all", $leaveDate = "all", $resSProvID = "all", $lStatus = "all")
+   public function leaveRequests($sProvID = "all", $leaveDate = "all", $resSProvID = "all", $leaveType = "all", $lStatus = "all")
    {
       Session::validateSession([3]);
-      $leaveDetails = $this->leaveModel->getAllLeaveRequests($sProvID, $leaveDate, $resSProvID, $lStatus);
+      $leaveDetails = $this->leaveModel->getAllLeaveRequests($sProvID, $leaveDate, $resSProvID, $leaveType, $lStatus);
       $evidanceLimit = $this->leaveModel->getEvidenceLimit();
       $serProvsDetails = $this->serviceModel->getServiceProviderDetails();
       $managersDetails = $this->serviceModel->getAllManagersDetails();
@@ -102,6 +102,7 @@ class MangDashboard extends Controller
          'selectedsProvID' => $sProvID,
          'selectedleaveDate' => $leaveDate,
          'selectedresSProvID' => $resSProvID,
+         'selectedleaveType' => $leaveType,
          'selectedlStatus' => $lStatus,
          'serProvsDetails' => $serProvsDetails,
          'managersDetails' => $managersDetails
