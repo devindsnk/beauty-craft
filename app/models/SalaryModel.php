@@ -19,15 +19,57 @@ class SalaryModel extends Model
       return $result;
    }
 
-   public function getAllStaffAndSalaryPaymentDetails($mostRecentDateMonth, $mostRecentDateYear)
+   public function getAllStaffAndSalaryPaymentDetails($sType,$sMonthSelected)
    {
-      // echo $mostRecentDateMonth . $mostRecentDateYear;
-      $result = $this->customQuery(
-         "SELECT * FROM staff INNER JOIN salarypayments ON staff.staffID = salarypayments.staffID "
-      );
-      // print_r($result);
-      // die("salarymodel");
-      return $result;
+      print_r($sType);
+      print_r($sMonthSelected);
+      // // die("salarymodel");
+      // // echo $mostRecentDateMonth . $mostRecentDateYear;
+      // $result = $this->customQuery(
+      //    "SELECT * FROM staff INNER JOIN salarypayments ON staff.staffID = salarypayments.staffID "
+      // );
+      // // print_r($result);
+      // // die("salarymodel");
+      // return $result;
+
+
+
+      //////////////////////////////////////////////////////////////
+
+  // die("model called");
+  $conditions = array(); 
+ 
+  // Extract specially defined conditions to a separate array 
+  // Note that both tableName and columnName are used as the keys 
+  if ($sType != "all") $conditions["staff.staffType"] = $sType; 
+  // if ($sName != "all") $conditions["staff.staffname"] = $sName; 
+  if ($sMonthSelected != "all") $conditions["salarypayments.month"] = $sMonthSelected;
+
+  $preparedConditions = array();
+  $dataToBind = array();
+
+  foreach ($conditions as $column => $value)
+  {
+     $colName = explode(".", $column, 2)[1]; // Only taking the column name for binding (discards tableName)
+     array_push($preparedConditions, "$column = :$colName");
+     $dataToBind[":$colName"] = $value;
+  }
+
+  $consditionsString = implode(" AND ", $preparedConditions); // Joining conditions with AND
+
+  $SQLstatement =
+     "SELECT * FROM staff
+     INNER JOIN salarypayments ON staff.staffID = salarypayments.staffID";
+
+  // Appending conditions string
+  if (!empty($conditions)) $SQLstatement .= " WHERE $consditionsString";
+
+  $results = $this->customQuery($SQLstatement,  $dataToBind);
+  print_r($results);
+  return $results;
+
+
+      //////////////////////////////////////////////////////////////
    }
 
    public function getAllStaffSalaryPaymentDetailsByStaffID($staffID)
@@ -40,6 +82,16 @@ class SalaryModel extends Model
    {
       $result = $this->customQuery("SELECT salarypayments.month FROM salarypayments ORDER BY month DESC LIMIT 1");
       return $result;
+   }
+
+   public function payNowSalaryWithStaffID($staffID,$month)
+   {
+      print_r($staffID);
+      print_r($month);
+      die("pay now called");
+
+      $paidDate = date('Y-m-d');
+      $this->update('salarypayments', ['status' => 1 , 'paidDate' => $paidDate], ['staffID' => $staffID, 'month' => $month]);
    }
 
 

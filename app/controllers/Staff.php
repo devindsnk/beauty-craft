@@ -8,19 +8,8 @@ class Staff extends Controller
    } 
  
    public function viewAllStaffMembers($sType="all", $status="all") 
-   { 
-      print_r($sType);
-      print_r($status);
-      // die("controller called");
-      // die("controller called");
-      // $staffDetails = $this->staffModel->getAllStaffDetails(); 
-      // $GetStaffArray = ['staff' => $staffDetails]; 
-      // $this->view('common/allStaffTable', $GetStaffArray); 
- 
+   {  
       Session::validateSession([2, 3, 4]); 
-
-      // $staffMembers = $this->staffModel->getAllStaffDetails(); 
-      // $staffTypes = $this->staffModel->getStaffTypeDetails(); 
       $AllStaffDetails = $this->staffModel->getAllStaffWithFilters($sType,$status); 
 
       $data = [ 

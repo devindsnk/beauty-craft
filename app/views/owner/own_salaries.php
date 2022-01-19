@@ -87,7 +87,7 @@
 
                   <!--Table row-->
                 <!-- <?php print_r($data); ?> -->
-                  <?php foreach ($data as $staffD) : ?>
+                  <?php foreach ($data['allStaffSalaryDetailsList'] as $staffD) : ?>
                      <tr>
                         <td data-lable="" class="column-center-align">
                            <input type="checkbox" class="" name="chk" />
@@ -125,11 +125,10 @@
                            <span>
                               <a href="<?php echo URLROOT ?>/salary/salaryReport/<?php echo $staffD->staffID ?>/<?php echo $staffD->staffType ?>" class="salaryReportViewAncorTag"><i class="img-view-edit-update ci-view-more table-icon salaryReportViewIcon" data-staffid="<?php echo $staffD->staffID ?>"></i></a>
                            </span>
-                           <!-- <?php echo URLROOT ?>/salary/salaryReport/<?php echo $staffD->staffID ?>/<?php echo $staffD->staffType ?> -->
                         </td>
                         <td data-lable="More" class="column-center-align">
                            <a class="btnSalaryPayment" class="">
-                              <button type="button" class="table-btn black-action-btn text-uppercase btnSalaryPay">Pay Now</button>
+                              <button data-staffid = "<?php echo $staffD->staffID; ?>" data-month = "<?php echo $staffD->month; ?>" type="button" class="table-btn black-action-btn text-uppercase btnSalaryPay">Pay Now</button>
                            </a>
                         </td>
                      </tr>
@@ -137,7 +136,6 @@
                   <?php endforeach; ?>
                </tbody>
                <!--End of table body-->
-
             </table>
             <input type="button" class="table-btn check-btn btn-position" onclick='selects()' value="CheckAll" />
             <input type="button" class="table-btn uncheck-btn btn-position" onclick='deSelect()' value="UncheckAll" />
@@ -167,7 +165,7 @@
    </div>
    <!-- End of Validate the salary payment model -->
 
-   <!-- Remove close date model -->
+   <!-- Salary pay modal -->
    <div class="modal-container salary-payment">>
       <div class="modal-box">
          <div class="confirm-model-head">
@@ -178,11 +176,11 @@
          </div>
          <div class="confirm-model-head">
             <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
-            <button class="btn normal ModalButton ModalBlueButton">proceed</button>
+            <a href=" " class="salaryPayAnchorTag"><button class="btn normal ModalButton ModalBlueButton ">proceed</button></a>
          </div>
       </div>
    </div>
    <!-- End of Remove close date model -->
-   <script src="<?php echo URLROOT ?>/public/js/fetchRequests/salaryGetMonth.js"></script>
+   <script src="<?php echo URLROOT ?>/public/js/fetchRequests/salary.js"></script>
    <script src="<?php echo URLROOT ?>/public/js/filters.js"></script>
    <?php require APPROOT . "/views/inc/footer.php" ?>
