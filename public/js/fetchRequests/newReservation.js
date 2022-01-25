@@ -227,14 +227,18 @@ if (addResBtnRecept) {
 			//TODO: add empty cust check here  - Done but check again
 			const custNameBox = document.querySelector(".profile-info .cust-name");
 			let custID = (walkinToggle.checked) ? "000001" : custNameBox.getAttribute("data-custid");
+			// console.log(custID);
 			if (!custID) {
 				custError.innerHTML = "Select customer";
 			} else {
 				let response = await placeReservation(custID);
-				console.log("response of placeResFunction" + response);
+
 				if (response) {
 					window.location.replace("http://localhost:80/beauty-craft/Reservations/viewAllReservations/all/all/all");
 				}
+				// else {
+				// 	window.location.reload();
+				// }
 			}
 		});
 }
@@ -251,18 +255,17 @@ async function placeReservation(custID) {
 	// console.log(checkEmpty(startTimeError));
 	if (checkEmpty(sTimeError) && checkEmpty(dateError) && checkEmpty(serviceError) && checkEmpty(sProvError)) {
 		console.log("All empty");
-		await fetch(`http://localhost:80/beauty-craft/reservations/placeReservation/${selectedService}/${sProviderSelector.value}/${selectedDate}/${startTime}/${custID}/${remarksInput.value}`)
-			.then((response) => response.json())
-			.then((state) => {
-				console.log("response of fetch" + state);
-				if (state) {
-					console.log("Um in");
-					return 1;
-				}
-			});
+
+		let response = await fetch(`http://localhost:80/beauty-craft/reservations/placeReservation/${selectedService}/${sProviderSelector.value}/${selectedDate}/${startTime}/${custID}/${remarksInput.value}`);
+
+		if (response) {
+			return 1;
+		} else {
+			return 0;
+		}
 
 	} else {
 		console.log("bad");
-		return 0;
+		// return 0;
 	}
 }
