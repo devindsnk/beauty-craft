@@ -92,12 +92,12 @@ function removeCustomer() {
 
 function walkinToggleSwitch(toggle) {
     if (toggle.checked) {
-        inputBox.value = "";
+        inputBox.value = "Walk-In";
         inputBox.disabled = true;
-        custDetailsBox.style.display = "none";
+        removeCustomer();
         custError.innerHTML = "";
     } else {
         inputBox.disabled = false;
-
+        inputBox.value = "";
     }
 }
