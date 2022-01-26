@@ -7,10 +7,10 @@ require_once 'config/config.php';
 require_once 'helpers/url_helper.php';
 require_once 'helpers/Session_helper.php';
 require_once 'helpers/data_validation_helper.php';
-require_once 'helpers/SMS_helper.php';
-require_once 'helpers/DateTimeExtended_helper.php';
-require_once 'helpers/Toast_helper.php';
-require_once 'helpers/system_log_helper.php';
+require_once 'helpers/sms_helper.php';
+require_once 'helpers/dateTimeExtended_helper.php';
+require_once 'helpers/toast_helper.php';
+require_once 'helpers/systemLog_helper.php';
 
 spl_autoload_register(function ($className)
 {

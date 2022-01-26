@@ -6,6 +6,10 @@
  * TODO: convert to a class
  */
 
+// class DataValidation
+// {
+// }
+
 function emptyCheck($value)
 {
    if ($value == "") return "Please fill out this field.";
