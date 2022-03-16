@@ -34,18 +34,31 @@
          <div class="options-container">
             <div class="left-section mang">
                <div class="row">
+                  <div class="column">
+                     <div class="dropdown-group">
+                        <label class="label" for="">Leave Type</label>
+                        <select name="leaveTypeSelector" id="leaveTypeSelector">
+                           <option value="all" selected>All</option>
+                           <option value="1" <?php echo ($data["selectedLeaveType"] == '1') ? "selected" : "" ?>>Casual</option>
+                           <option value="2" <?php echo ($data["selectedLeaveType"] == '2') ? "selected" : "" ?>>Medical</option>
+                        </select>
+                     </div>
+                     <!-- <span class="error"> <?php echo " "; ?></span> -->
+                  </div>
 
                   <div class="column">
                      <div class="text-group">
                         <label class="label" for="leaveDate">Leave Date</label>
-                        <input type="date" name="" id="leaveDate" placeholder="--select--">
+                        <!-- <input type="date" name="" id="leaveDate" placeholder="--select--"> -->
+                        <input type="date" name="" id="leaveDateSelector" placeholder="--select--" <?php if ($data["selectedLeaveDate"]) : ?> value="<?php echo $data["selectedLeaveDate"] ?>" <?php else : ?> value="all" <?php endif; ?>>
                      </div>
                      <!-- <span class="error"></span> -->
                   </div>
                   <div class="column">
                      <div class="text-group">
                         <label class="label" for="markedDate">Marked Date</label>
-                        <input type="date" name="" id="markedDate" placeholder="--select--">
+                        <!-- <input type="date" name="" id="markedDate" placeholder="--select--"> -->
+                        <input type="date" name="" id="markedDateSelector" placeholder="--select--" <?php if ($data["selectedmarkedDate"]) : ?> value="<?php echo $data["selectedmarkedDate"] ?>" <?php else : ?> value="all" <?php endif; ?>>
                      </div>
                      <!-- <span class="error"></span> -->
                   </div>
@@ -53,7 +66,8 @@
                </div>
             </div>
             <div class="right-section">
-               <a href="" class="btn btn-filled btn-black">Search</a>
+               <!-- <a href="" class="btn btn-filled btn-black">Search</a> -->
+               <button type="button" id="allTakenLeavesFilterBtn" class="btn btn-filled btn-black">Search</button>
             </div>
          </div>
       </form>
@@ -248,5 +262,5 @@
    </div>
    <!--End Content-->
 
-
+   <script src="<?php echo URLROOT ?>/public/js/filters.js"></script>
    <?php require APPROOT . "/views/inc/footer.php" ?>

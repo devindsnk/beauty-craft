@@ -58,7 +58,7 @@
 							<!-- New service type -->
 							<label class="labels" for="serviceType">Service Type</label>
 							<select class="dropdownSelectBox" name="serviceType">
-								<option class="unbold" value="" option selected="true">Select One
+								<option class="unbold" value="0" option selected="true">Select One
 								</option>
 
 								<?php foreach ($data['sTypesArray'] as $sType) : ?>
@@ -75,7 +75,7 @@
 								<label class="labels2" for="servicePrice">OR</label>
 								<input type="text" name="sNewType" id="sNewType" placeholder="--Type In--" value="<?php  ?>">
 
-								<span class="error paddingLeft"><?php ?></span>
+								<span class="error paddingLeft"><?php echo $data['sSelectedAllType_error']; ?></span>
 
 							</div>
 							<!-- End of service type button -->
