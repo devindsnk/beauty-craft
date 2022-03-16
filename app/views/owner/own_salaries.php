@@ -57,7 +57,7 @@
             </div>
             <div class="right-section">
                <a href="" class="btn btn-filled btn-black" id="allSalaryFilterBtn">Search</a>
-               <a href="#" class="btn btn-filled btn-theme-purple btnSalaryPay"></i> Mark As Paid</a>
+               <a href="#" class="btn btn-filled btn-theme-purple btnSalaryPayMultiple"></i> Mark As Paid</a>
             </div>
          </div>
       </form>
@@ -90,7 +90,7 @@
                   <?php foreach ($data['allStaffSalaryDetailsList'] as $staffD) : ?>
                      <tr>
                         <td data-lable="" class="column-center-align">
-                           <input type="checkbox" class="" name="chk" />
+                           <input type="checkbox" name="chk" class = "payNowCheckbox" data-staffid = "<?php echo $staffD->staffID; ?>" data-month = "<?php echo $staffD->month; ?>"/>
                         </td>
                         <!-- <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person2.jpg" /></td> -->
                         <td data-lable="Staff Member Name"><?php echo $staffD->fName ?> <?php echo $staffD->lName ?></td>
@@ -149,7 +149,7 @@
    <!--End Content-->
 
    <!-- Validate the salary payment model -->
-   <div class="modal-container ">
+   <div class="modal-container salary-payment-multiple">
       <div class="modal-box">
          <div class="confirm-model-head">
             <h1>Salary Payment</h1>
@@ -159,7 +159,7 @@
          </div>
          <div class="confirm-model-head">
             <button class="btn btnClose normal ModalButton ModalCancelButton">Cancel</button>
-            <button class="btn normal ModalButton ModalBlueButton">Proceed</button>
+            <a href="" class="salaryPayMultipleAnchorTag"><button class="btn normal ModalButton ModalBlueButton">Proceed</button></a>
          </div>
       </div>
    </div>
@@ -182,5 +182,7 @@
    </div>
    <!-- End of Remove close date model -->
    <script src="<?php echo URLROOT ?>/public/js/fetchRequests/salary.js"></script>
+   <script src="<?php echo URLROOT ?>/public/js/fetchRequests/salaryPayMultipleStaffMembers.js"></script>
    <script src="<?php echo URLROOT ?>/public/js/filters.js"></script>
+   
    <?php require APPROOT . "/views/inc/footer.php" ?>

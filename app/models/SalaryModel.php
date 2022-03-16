@@ -88,7 +88,7 @@ class SalaryModel extends Model
    {
       print_r($staffID);
       print_r($month);
-      die("pay now called");
+      // die("pay now called");
 
       $paidDate = date('Y-m-d');
       $this->update('salarypayments', ['status' => 1 , 'paidDate' => $paidDate], ['staffID' => $staffID, 'month' => $month]);
@@ -114,28 +114,28 @@ class SalaryModel extends Model
       $staffCount = sizeof($staffDetails);
       
 
-      for ($i = 0; $i < $staffCount; $i++)
-      {
-         $staffID = $staffDetails[$i]->staffID;
-         $totalSalary = 0;
-         $basicSalary = 0;
-         $additionalLeaveCount = 0;
-         $deductionAmount =  0;
-         $commisionAmount = 0;
-
-         if ($staffDetails[$i]->staffType == 5)
-         {
-            $result = $this->customQuery("SELECT salaryrates.serviceProviderSalaryRate FROM salaryrates ORDER BY changedDate DESC LIMIT 1");
-            $basicSalary = $result[0]->serviceProviderSalaryRate;
-            // die("salary rate serv pro");
-            $SQLstatement1 =
-               "SELECT COUNT(*) as totalCount
+      for ($i = 0; $i < $staffCount; $i++) 
+      { 
+         $staffID = $staffDetails[$i]->staffID; 
+         $totalSalary = 0; 
+         $basicSalary = 0; 
+         $additionalLeaveCount = 0; 
+         $deductionAmount =  0; 
+         $commisionAmount = 0; 
+ 
+         if ($staffDetails[$i]->staffType == 5) 
+         { 
+            $result = $this->customQuery("SELECT salaryrates.serviceProviderSalaryRate FROM salaryrates ORDER BY changedDate DESC LIMIT 1"); 
+            $basicSalary = $result[0]->serviceProviderSalaryRate; 
+            // die("salary rate serv pro"); 
+            $SQLstatement1 = 
+               "SELECT COUNT(*) as totalCount 
                FROM generalleaves 
                WHERE staffID = :staffID AND 
                   leaveDate >= :fiveDaysBeforInPrevMonth AND 
-                  leaveDate < :fiveDaysBeforeInThisMonth AND
-                  status IN (1,3)";
-
+                  leaveDate < :fiveDaysBeforeInThisMonth AND 
+                  status IN (1,3)"; 
+ 
             $results = $this->customQuery($SQLstatement1, [':staffID' => $staffID, ':fiveDaysBeforInPrevMonth' => $fiveDaysBeforInPrevMonth, ':fiveDaysBeforeInThisMonth' => $fiveDaysBeforeInThisMonth]);
 
             $leaveCount = $results[0]->totalCount;

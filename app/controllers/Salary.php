@@ -35,6 +35,8 @@ class Salary extends Controller
    {  
       // die("salaryPayWithStaffID");    
       $this->salaryModel->payNowSalaryWithStaffID($staffID,$month);
+      header('location: ' . URLROOT . '/Salary/salaryTableView');
+      // $this->view('owner/own_salaries');
    }
 
    public function salaryTableView($sType="all", $sMonth="all")
