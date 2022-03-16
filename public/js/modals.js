@@ -23,15 +23,7 @@ holdServiceBtnList.forEach((btn) => {
     });
 });
 
-// Add Resource Modal Section
-// const addResourceModal = document.querySelector(".add-resource");
-// const addResourceBtnList = document.querySelectorAll(".btnAddResource");
-// addResourceBtnList.forEach((btn) => {
-//     btn.addEventListener("click", function () {
-//         modalToToggle = addResourceModal;
-//         toggleModal();
-//     });
-// });
+
 
 // Remove Resource Modal Section
 const removeResourceModal = document.querySelector(".remove-resource");
@@ -43,18 +35,9 @@ removeResourceBtnList.forEach((btn) => {
     });
 });
 
-// Update Resource Modal Section
-// const updateResourceModal = document.querySelector(".update-resource");
-// const updateResourceBtnList = document.querySelectorAll(".btnUpdateResource");
-// updateResourceBtnList.forEach((btn) => {
-//     btn.addEventListener("click", function () {
-//         modalToToggle = updateResourceModal;
-//         toggleModal();
-//     });
-// });
 
 
-// Add Resource Modal Section
+// Add Resource Type Modal Section
 const addResourceTypeModal = document.querySelector(".add-resource-type");
 const addResourceTypeBtnList = document.querySelectorAll(".btnAddResourceType");
 addResourceTypeBtnList.forEach((btn) => {
@@ -75,6 +58,15 @@ salaryPayBtnList.forEach((btn) => {
     });
 });
 
+
+const salaryPayMultipleModal = document.querySelector(".salary-payment-multiple");
+const salaryPayBtnMultipleBtn = document.querySelectorAll(".btnSalaryPayMultiple");
+salaryPayBtnMultipleBtn.forEach((btn) => {
+btn.addEventListener("click", function () {
+        modalToToggle = salaryPayMultipleModal;
+        toggleModal(btn);
+    });
+});
 
 // Add Close Date Modal Section
 const addCloseDateModal = document.querySelector(".add-closeDate");

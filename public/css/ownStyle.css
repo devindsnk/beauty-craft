@@ -959,13 +959,31 @@ font-weight: 600;
     font-weight: 700;
 }
 
-.ownSalaryReportTotalSalaryStatusLabel {
+.ownSalaryReportTotalSalaryStatusLabelGreen {
     color: #38A36D;
     font-weight: 500;
 }
 
-.ownSalaryReportTotalSalaryStatus {
-    background-color: #C0F0D1;
+.ownSalaryReportTotalSalaryStatusLabelRed {
+    color:  #DA2346;
+    font-weight: 500;
+}
+
+.ownSalaryReportTotalSalaryStatusGreen {
+    background-color:var(--bg-success-green);
+    width: 100px;
+    height: 35px;
+    float: right;
+    border-radius: 6px;
+    /* border-style: solid;
+    border-color: #38A36D;
+    border-width: 2px; */
+    text-align: center;
+    padding-top: 5px;
+}
+
+.ownSalaryReportTotalSalaryStatusRed {
+    background-color: var(--bg-error-red);
     width: 100px;
     height: 35px;
     float: right;

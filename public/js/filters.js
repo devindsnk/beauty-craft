@@ -197,3 +197,44 @@ if (allTakenLeavesFilterBtn) {
 }
 
 //**************************************************************//
+
+
+//************ Filters of Staff members table ***************//
+
+const allStaffFilterBtn = document.getElementById("allStaffFilterBtn");
+// console.log("hi staff filters");
+if (allStaffFilterBtn) {
+    allStaffFilterBtn.addEventListener("click", () => {
+        const sTypeSelector = document.getElementById("sTypeSelector");
+        // const staffSelector = document.getElementById("staffSelector");
+        const statusSelector = document.getElementById("statusSelector");
+
+        let sTypeSelected = sTypeSelector.value;
+        let staffNameSelected = staffNameSelector.value;
+        let statusSelected = statusSelector.value;
+
+        window.location.replace(`http://localhost:80/beauty-craft/Staff/viewAllStaffMembers/${sTypeSelected}/${statusSelected}`);
+    });
+}
+
+
+
+//************ Filters of Staff members salary table ***************//
+
+const allSalaryFilterBtn = document.getElementById("allSalaryFilterBtn");
+// console.log("hi salary filters");
+if (allSalaryFilterBtn) {
+    allSalaryFilterBtn.addEventListener("click", () => {
+        // console.log("salaries");
+        const sTypeSelector = document.getElementById("sMonthSelector");
+        const staffSelector = document.getElementById("sTypeSelector");
+        // const statusSelector = document.getElementById("statusSelector");
+
+        let sTypeSelected = sTypeSelector.value;
+        // let staffNameSelected = staffNameSelector.value;
+        let sMonthSelected = sMonthSelector.value;
+        // console.log("salaries");
+        // console.log(sMonthSelected);
+        window.location.replace(`http://localhost:80/beauty-craft/Salary/salaryTableView/${sTypeSelected}/${sMonthSelected}`);
+    });
+}

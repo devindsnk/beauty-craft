@@ -24,8 +24,7 @@
             <?php $salaryRateD = $data['salaryRateD'][0]; ?>
             <?php $leaveRateD = $data['leaveRateD'][0]; ?>
             <?php $commisionRateD = $data['commisionRateD'][0]; ?>
-            <?php $StaffSalaryPaymentD = $data['StaffSalaryPaymentD']; ?>
-            <!-- <?php print_r($StaffSalaryPaymentD); ?> -->
+            <?php $StaffSalaryPaymentD = $data['StaffSalaryPaymentD']; print_r($StaffSalaryPaymentD) ?>
             <!-- Staff member details starts  -->
             <div class="SalaryReportContainer">
                 <div class="ownSalaryReportStaffMemberDetails">
@@ -128,9 +127,15 @@
                         <label class="ownSalaryReportTotalSalaryContentData">Total Salary</label>
                         <label class="ownSalaryReportTotalSalaryContentValue"><?php echo $StaffSalaryPaymentD->amount; ?> LKR</label>
                         <br> <br>
-                        <div class="ownSalaryReportTotalSalaryStatus">
-                             
+                        <?php if ($StaffSalaryPaymentD->status == 1): ?>
+                        <div class="ownSalaryReportTotalSalaryStatusGreen">
+                             <label for="" class="ownSalaryReportTotalSalaryStatusLabelGreen">Paid</label>
                         </div>
+                        <?php elseif ($StaffSalaryPaymentD->status == 0): ?>
+                        <div class="ownSalaryReportTotalSalaryStatusRed">
+                             <label for="" class="ownSalaryReportTotalSalaryStatusLabelRed">Not Paid</label>
+                        </div>
+                        <?php endif ?>
                         <br> <br>
                         <label class="ownSalaryReportSalaryDetailsContentData">Paid Date</label>
                         <label class="ownSalaryReportSalaryDetailsContentValue"><?php echo $StaffSalaryPaymentD->paidDate; ?> </label>
