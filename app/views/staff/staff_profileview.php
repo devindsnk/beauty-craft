@@ -38,17 +38,17 @@
                                                 echo $user[$userTypeNo];
                                                 ?></span>
                     </div>
-                    <div class="item3 <?php if ($userTypeNo != 5)
-                                        {
-                                            echo " hide";
-                                        } ?>">
-                        <span class="rate">4.5</span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </div>
+                    <?php if ($userTypeNo == 5) : ?>
+                        <div class="item3">
+                            <span class=" rate">4.5</span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+
+                    <?php endif; ?>
                     <div class="item4">
                         <?php if ($data['profileData'][0]->status == 1) : ?>
                             <div class="item4status btn btn-filled btn-success-green">Active</div>
@@ -62,7 +62,7 @@
                     </div>
                     <div class="item6">
                         <span class="item6empdate">Employement Date</span>
-                        <span class="item6date"><?php echo $data['profileData'][0]->joinedDate; ?></span>
+                        <span class="item6date"><?php echo DateTimeExtended::dateToShortMonthFormat($data['profileData'][0]->joinedDate, "F"); ?></span>
                     </div>
 
 
@@ -130,17 +130,16 @@
                 </div>
 
             </div>
-            <div class="profilecontent<?php if ($userTypeNo != 5)
-                                        {
-                                            echo " hide";
-                                        } ?>">
-                <div class="profview-services-list">
-                    <span class="assignservices">Assigned Services</span>
-                    <?php foreach ($data['serviceslist'] as $service) : ?>
-                        <span class="servicelist"><?php echo $service->name . " (" . $service->type . ")"; ?></span>
-                    <?php endforeach; ?>
+            <?php if ($userTypeNo == 5) : ?>
+                <div class="profilecontent">
+                    <div class="profview-services-list">
+                        <span class="assignservices">Assigned Services</span>
+                        <?php foreach ($data['serviceslist'] as $service) : ?>
+                            <span class="servicelist"><?php echo $service->name . " (" . $service->type . ")"; ?></span>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?>
 
             <div class="modal-container normal change-password<?php if ($data['changePasswordModelOpen'] == 1) echo " show" ?>">
                 <div class="modal-box addItems">
