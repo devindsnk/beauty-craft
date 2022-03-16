@@ -147,6 +147,11 @@ class Reservations extends Controller
 
       $results = $this->reservationModel->addReservation($data);
 
+      if ($results)
+         Toast::setToast(1, "Reservation placed successfully.", "");
+      else
+         Toast::setToast(0, "Something went wrong.", "Try again!");
+
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($results));
    }
