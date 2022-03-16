@@ -36,11 +36,12 @@
                   </div>
                   <div class="column">
                      <div class="dropdown-group">
-                        <label class="label" for="lName">Staff Type</label>
-                        <select>
-                           <option value="" selected>Receptionist</option>
-                           <option value="volvo">Manager</option>
-                           <option value="saab">Service Provider</option>
+                        <label class="label" for="sType">Staff Type</label>
+                        <select id="sTypeSelector">
+                           <option value="all" selected>All</option>
+                           <option value="3" <?php echo ($data["selectedType"] == '3') ? "selected" : "" ?>>Managaer</option>
+                           <option value="4" <?php echo ($data["selectedType"] == '4') ? "selected" : "" ?>>Receptionist</option>
+                           <option value="5" <?php echo ($data["selectedType"] == '5') ? "selected" : "" ?>>Service Provider</option>
                         </select>
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
@@ -48,15 +49,15 @@
                   <div class="column">
                      <div class="text-group ownTableFormDate">
                         <label class="label" for="fName">Month</label>
-                        <input type="month" name="" id="fName" placeholder="Month here" class="salaryMonth">
+                        <input type="month" name="" id="sMonthSelector" placeholder="Month here" class="salaryMonth">
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
                   </div>
                </div>
             </div>
             <div class="right-section">
-               <a href="" class="btn btn-filled btn-black">Search</a>
-               <a href="#" class="btn btn-filled btn-theme-purple btnSalaryPay"></i> Mark As Paid</a>
+               <a href="" class="btn btn-filled btn-black" id="allSalaryFilterBtn">Search</a>
+               <a href="#" class="btn btn-filled btn-theme-purple btnSalaryPayMultiple"></i> Mark As Paid</a>
             </div>
          </div>
       </form>
@@ -86,10 +87,10 @@
 
                   <!--Table row-->
                 <!-- <?php print_r($data); ?> -->
-                  <?php foreach ($data as $staffD) : ?>
+                  <?php foreach ($data['allStaffSalaryDetailsList'] as $staffD) : ?>
                      <tr>
                         <td data-lable="" class="column-center-align">
-                           <input type="checkbox" class="" name="chk" />
+                           <input type="checkbox" name="chk" class = "payNowCheckbox" data-staffid = "<?php echo $staffD->staffID; ?>" data-month = "<?php echo $staffD->month; ?>"/>
                         </td>
                         <!-- <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person2.jpg" /></td> -->
                         <td data-lable="Staff Member Name"><?php echo $staffD->fName ?> <?php echo $staffD->lName ?></td>
@@ -124,11 +125,10 @@
                            <span>
                               <a href="<?php echo URLROOT ?>/salary/salaryReport/<?php echo $staffD->staffID ?>/<?php echo $staffD->staffType ?>" class="salaryReportViewAncorTag"><i class="img-view-edit-update ci-view-more table-icon salaryReportViewIcon" data-staffid="<?php echo $staffD->staffID ?>"></i></a>
                            </span>
-                           <!-- <?php echo URLROOT ?>/salary/salaryReport/<?php echo $staffD->staffID ?>/<?php echo $staffD->staffType ?> -->
                         </td>
                         <td data-lable="More" class="column-center-align">
                            <a class="btnSalaryPayment" class="">
-                              <button type="button" class="table-btn black-action-btn text-uppercase btnSalaryPay">Pay Now</button>
+                              <button data-staffid = "<?php echo $staffD->staffID; ?>" data-month = "<?php echo $staffD->month; ?>" type="button" class="table-btn black-action-btn text-uppercase btnSalaryPay">Pay Now</button>
                            </a>
                         </td>
                      </tr>
@@ -136,7 +136,6 @@
                   <?php endforeach; ?>
                </tbody>
                <!--End of table body-->
-
             </table>
             <input type="button" class="table-btn check-btn btn-position" onclick='selects()' value="CheckAll" />
             <input type="button" class="table-btn uncheck-btn btn-position" onclick='deSelect()' value="UncheckAll" />
@@ -150,7 +149,7 @@
    <!--End Content-->
 
    <!-- Validate the salary payment model -->
-   <div class="modal-container ">
+   <div class="modal-container salary-payment-multiple">
       <div class="modal-box">
          <div class="confirm-model-head">
             <h1>Salary Payment</h1>
@@ -160,13 +159,13 @@
          </div>
          <div class="confirm-model-head">
             <button class="btn btnClose normal ModalButton ModalCancelButton">Cancel</button>
-            <button class="btn normal ModalButton ModalBlueButton">Proceed</button>
+            <a href="" class="salaryPayMultipleAnchorTag"><button class="btn normal ModalButton ModalBlueButton">Proceed</button></a>
          </div>
       </div>
    </div>
    <!-- End of Validate the salary payment model -->
 
-   <!-- Remove close date model -->
+   <!-- Salary pay modal -->
    <div class="modal-container salary-payment">>
       <div class="modal-box">
          <div class="confirm-model-head">
@@ -177,10 +176,13 @@
          </div>
          <div class="confirm-model-head">
             <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
-            <button class="btn normal ModalButton ModalBlueButton">proceed</button>
+            <a href=" " class="salaryPayAnchorTag"><button class="btn normal ModalButton ModalBlueButton ">proceed</button></a>
          </div>
       </div>
    </div>
    <!-- End of Remove close date model -->
-   <script src="<?php echo URLROOT ?>/public/js/fetchRequests/salaryGetMonth.js"></script>
+   <script src="<?php echo URLROOT ?>/public/js/fetchRequests/salary.js"></script>
+   <script src="<?php echo URLROOT ?>/public/js/fetchRequests/salaryPayMultipleStaffMembers.js"></script>
+   <script src="<?php echo URLROOT ?>/public/js/filters.js"></script>
+   
    <?php require APPROOT . "/views/inc/footer.php" ?>

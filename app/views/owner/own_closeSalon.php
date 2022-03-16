@@ -107,7 +107,7 @@
 
                   <div class="addItemsModalDetail1">
                      <label class="addItemsModalLable">Date</label> <br>
-                     <input type="date" class="addItemsModalDate closeDate" name="closeDate" value="<?php echo $data['closeDate']; ?>" min=""> <br>
+                     <input type="date" class="addItemsModalDate closeDate" name="closeDate" value="<?php echo $data['closeDate']; ?>" min="<?= date('Y-m-d'); ?>"> <br>
                      <span class="error"><?php echo $data['closeDate_error']; ?></span>
                   </div>
                   <div class="addItemsModalDetail2">
