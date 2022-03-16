@@ -170,3 +170,30 @@ if (allLRequestsFilterBtn) {
 }
 
 //**************************************************************//
+
+//*************** Filters of Common Manager Take Leave ****************//
+
+const allTakenLeavesFilterBtn = document.getElementById("allTakenLeavesFilterBtn");
+
+if (allTakenLeavesFilterBtn) {
+    allTakenLeavesFilterBtn.addEventListener("click", () => {
+        const leaveTypeMSelector = document.getElementById("leaveTypeSelector");
+        const leaveDateMSelector = document.getElementById("leaveDateSelector");
+        const markedDateMSelector = document.getElementById("markedDateSelector");
+
+        let leaveTypeMSelected = leaveTypeMSelector.value;
+        let leaveDateMSelected = leaveDateMSelector.value;
+        let markedDateMSelected = markedDateMSelector.value;
+
+        if (!leaveDateMSelected) {
+            leaveDateMSelected = 'all';
+        }
+        if (!markedDateMSelected) {
+            markedDateMSelected = 'all';
+        }
+
+        window.location.replace(`http://localhost:80/beauty-craft/MangDashboard/takeLeave/${leaveTypeMSelected}/${leaveDateMSelected}/${markedDateMSelected}`);
+    });
+}
+
+//**************************************************************//

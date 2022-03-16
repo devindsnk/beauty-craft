@@ -262,19 +262,58 @@ class LeaveModel extends Model
    }
 
    ///////////////////////////////////////////
-   public function getAllManagerLeaves()
+   public function getAllManagerLeaves($leaveType, $leaveDate, $markedDate)
    {
 
       $ManagerID = Session::getUser("id");
-      $results = $this->customQuery(
-         "SELECT * 
-                                    FROM managerLeaves 
-                                    WHERE staffID = :staffID AND (leaveDate >= now() OR MONTH(leaveDate) >= MONTH(now()))
-                                    ORDER BY leaveDate",
-         [':staffID' => $ManagerID]
-      );
 
+      $conditions = array();
+
+      // Extract specially defined conditions to a separate array
+      // Note that both tableName and columnName are used as the keys
+      if ($leaveType != "all") $conditions["managerLeaves.leaveType"] = $leaveType;
+      if ($leaveDate != "all") $conditions["managerLeaves.leaveDate"] = $leaveDate;
+      if ($markedDate != "all") $conditions["managerLeaves.markedDate"] = $markedDate;
+
+      $preparedConditions = array();
+      $dataToBind = array();
+
+      foreach ($conditions as $column => $value)
+      {
+         $colName = explode(".", $column, 2)[1]; // Only taking the column name for binding (discards tableName)
+         array_push($preparedConditions, "$column = :$colName");
+         $dataToBind[":$colName"] = $value;
+      }
+
+      $consditionsString = implode(" AND ", $preparedConditions);
+
+      $SQLstatement =
+         "SELECT *
+        FROM managerLeaves";
+
+      // Appending conditions string
+      if (!empty($conditions))
+      {
+         $SQLstatement .= " WHERE $consditionsString AND staffID = $ManagerID AND (leaveDate >= now() OR MONTH(leaveDate) >= MONTH(now())) ORDER BY leaveDate";
+      }
+      else
+      {
+         $SQLstatement .= " WHERE staffID = $ManagerID AND (leaveDate >= now() OR MONTH(leaveDate) >= MONTH(now())) ORDER BY leaveDate";
+      }
+
+      $results = $this->customQuery($SQLstatement,  $dataToBind);
       return $results;
+
+
+      // $results = $this->customQuery(
+      //    "SELECT * 
+      //                               FROM managerLeaves 
+      //                               WHERE staffID = :staffID AND (leaveDate >= now() OR MONTH(leaveDate) >= MONTH(now()))
+      //                               ORDER BY leaveDate",
+      //    [':staffID' => $ManagerID]
+      // );
+
+      // return $results;
    }
 
 

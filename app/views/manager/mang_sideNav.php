@@ -93,7 +93,7 @@
                <!--End Sidebar Sub Item-->
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
-                  <a class="optionLink <?php if ($selectedSub == "TakeLeave") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/takeLeave">
+                  <a class="optionLink <?php if ($selectedSub == "TakeLeave") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/takeLeave/all/all/all">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Take Leave</div>
                   </a>

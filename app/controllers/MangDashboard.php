@@ -132,7 +132,7 @@ class MangDashboard extends Controller
 
       $this->view('manager/mang_subLeaveRequests',  $allLeaveTableDetails);
    }
-   public function takeLeave()
+   public function takeLeave($leaveType = "all", $leaveDate = "all", $markedDate = "all")
    {
       Session::validateSession([3]);
 
@@ -145,7 +145,7 @@ class MangDashboard extends Controller
       $remainingCasual = $mangCasualLeaveLimit - $mangCasualLeaveCount;
       $remainingMedical = $mangMedicalLeaveLimit - $mangMedicalLeaveCount;
 
-      $managerLeaveDetails = $this->leaveModel->getAllManagerLeaves();
+      $managerLeaveDetails = $this->leaveModel->getAllManagerLeaves($leaveType, $leaveDate, $markedDate);
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
@@ -165,6 +165,9 @@ class MangDashboard extends Controller
             'remainingCasual' => $remainingCasual,
             'remainingMedical' => $remainingMedical,
 
+            'selectedLeaveType' => $leaveType,
+            'selectedLeaveDate' => $leaveDate,
+            'selectedmarkedDate' => $markedDate,
          ];
 
 
@@ -214,6 +217,11 @@ class MangDashboard extends Controller
             'typeValidationMsg' => '',
             'remainingCasual' => $remainingCasual,
             'remainingMedical' => $remainingMedical,
+
+
+            'selectedLeaveType' => $leaveType,
+            'selectedLeaveDate' => $leaveDate,
+            'selectedmarkedDate' => $markedDate,
          ];
 
          $this->view('manager/mang_subTakeLeave', $data);
@@ -241,7 +249,7 @@ class MangDashboard extends Controller
       $remainingCasual = $mangCasualLeaveLimit - $mangCasualLeaveCount;
       $remainingMedical = $mangMedicalLeaveLimit - $mangMedicalLeaveCount;
 
-      $managerLeaveDetails = $this->leaveModel->getAllManagerLeaves();
+      $managerLeaveDetails = $this->leaveModel->getAllManagerLeaves($a = null, $b = null, $c = null,);
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
