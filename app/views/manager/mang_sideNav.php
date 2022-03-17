@@ -28,7 +28,7 @@
 
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Services") echo " selected" ?>" href="<?php echo URLROOT ?>/Services/viewAllServices">
+            <a class="optionLink <?php if ($selectedMain == "Services") echo " selected" ?>" href="<?php echo URLROOT ?>/Services/viewAllServices/all/all/all">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-elements "></i>
                </div>
@@ -85,7 +85,7 @@
             <ul class="subMenu <?php if ($selectedMain == "Leaves") echo " expanded" ?>">
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
-                  <a class="optionLink <?php if ($selectedSub == "LeaveRequests") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/leaveRequests">
+                  <a class="optionLink <?php if ($selectedSub == "LeaveRequests") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/leaveRequests/all/all/all/all/all">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Leave Requests</div>
                   </a>
@@ -93,7 +93,7 @@
                <!--End Sidebar Sub Item-->
                <!--Sidebar Sub Item-->
                <li class="menuOption subOption">
-                  <a class="optionLink <?php if ($selectedSub == "TakeLeave") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/takeLeave">
+                  <a class="optionLink <?php if ($selectedSub == "TakeLeave") echo " selected" ?>" href="<?php echo URLROOT ?>/MangDashboard/takeLeave/all/all/all">
                      <!-- <div class="sidebar-menu_item-icon"></div> -->
                      <div class="optionTitle">Take Leave</div>
                   </a>

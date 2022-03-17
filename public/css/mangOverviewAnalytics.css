@@ -112,15 +112,17 @@
     width: 290px;
 }
 
-.report-month-selector input[type="month"]{
+.analytics-report-month-selector input[type="month"]{
     padding: 5px 10px;
-    width: 100%;
     border-radius: 6px;
     border: 1.2px solid #c4cae0;
     margin-top: 5px;
 }
-.report-month-width{
+.analytics-month-selector{
     width: 100%;
+}
+.report-month-selector{
+    width: 250px;
 }
 .text-special{
     font-size: 16px;
