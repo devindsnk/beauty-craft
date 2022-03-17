@@ -44,7 +44,7 @@
 									<option class="unbold" value="val1" option selected="true" disabled="disabled">Select One</option>
 									<option value=1 <?php if ($data['customerCategory'] == 1) echo 'selected'; ?>>Gents</option>
 									<option value=2 <?php if ($data['customerCategory'] == 2) echo 'selected'; ?>>Ladies</option>
-									<option value=3 <?php if ($data['customerCategory'] == 3) echo 'selected'; ?>>Both</option>
+									<option value=3 <?php if ($data['customerCategory'] == 3) echo 'selected'; ?>>Ladies & Gents</option>
 								</select>
 							</div>
 							<span class="error"><?php echo $data['sSelectedCusCategory_error']; ?></span>
@@ -82,7 +82,7 @@
 
 							<!-- Service price -->
 							<div class="row3">
-								<label class="labels" for="servicePrice">Price</label>
+								<label class="labels" for="servicePrice">Price (LKR)</label>
 								<input type="text" name="sPrice" placeholder="--Type In--" value="<?php echo $data['price']; ?>">
 								<span class="error paddingLeft"> <?php echo $data['sPrice_error']; ?></span>
 							</div>

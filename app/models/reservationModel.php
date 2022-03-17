@@ -329,16 +329,22 @@ class ReservationModel extends Model
    // ************************************************** //
    // ******* Functions related recall requests ******** //
 
-   public function addReservationRecall($resID)
+   public function addReservationRecall($resID, $recallReason)
    {
       date_default_timezone_set("Asia/Colombo");
       $today = date("Y-m-d H:i:s");
-      $recallReason = "For update the service";
 
-      // foreach ($selectedreservation as $value)
-      // {
-      $results =  $this->insert('recallrequests', ['reservationID' => $resID, 'reason' => $recallReason, 'requestedDate' => $today, 'status' => 0]);
-      // }
+      if (is_array($resID))
+      {
+         foreach ($resID as $value)
+         {
+            $results =  $this->insert('recallrequests', ['reservationID' => $value, 'reason' => $recallReason, 'requestedDate' => $today, 'status' => 0]);
+         }
+      }
+      else
+      {
+         $results =  $this->insert('recallrequests', ['reservationID' => $resID, 'reason' => $recallReason, 'requestedDate' => $today, 'status' => 0]);
+      }
    }
 
    public function getRecallReasonByReservationID($selectedreservation)
@@ -369,10 +375,17 @@ class ReservationModel extends Model
 
    public function updateReservationRecalledState($selectedreservation, $status)
    {
-      // foreach ($selectedreservation as $value)
-      // {
-      $results = $this->update('reservations', ['status' => $status], ['reservationID' => $selectedreservation]);
-      // }
+      if (is_array($selectedreservation))
+      {
+         foreach ($selectedreservation as $value)
+         {
+            $results = $this->update('reservations', ['status' => $status], ['reservationID' => $value]);
+         }
+      }
+      else
+      {
+         $results = $this->update('reservations', ['status' => $status], ['reservationID' => $selectedreservation]);
+      }
    }
 
    public function getAllPendingRecallRequests()

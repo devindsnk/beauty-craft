@@ -533,18 +533,22 @@ class Services extends Controller
                   $this->ServiceModel->updateService($serviceID, $data, $slotNo);
 
                   $resState = 5;
-                  foreach ($_SESSION['recallRequestsFromUpdateService'] as $key => $value)
+                  $recallReason = "For update the service";
+
+                  if (isset($_SESSION['recallRequestsFromUpdateService']))
                   {
-
-                     if ($value == 1)
+                     foreach ($_SESSION['recallRequestsFromUpdateService'] as $key => $value)
                      {
-                        // print_r($key);
-                        $this->ReservationModel->updateReservationRecalledState($key, $resState);
-                        $this->ReservationModel->addReservationRecall($key);
-                     }
-                  }
-                  $this->destroyRecallDetails();
 
+                        if ($value == 1)
+                        {
+                           // print_r($key);
+                           $this->ReservationModel->updateReservationRecalledState($key, $resState);
+                           $this->ReservationModel->addReservationRecall($key, $recallReason);
+                        }
+                     }
+                     $this->destroyRecallDetails();
+                  }
                   $this->ServiceModel->updateServiceProviders($serviceID, $data, $serProvDetails);
                   $this->ServiceModel->updateAllocatedResources($serviceID, $data, $slotNo, $resDetailsSlot1, $resDetailsSlot2, $resDetailsSlot3);
                   $this->ServiceModel->updateIntervals($serviceID, $data, $slotNo);
