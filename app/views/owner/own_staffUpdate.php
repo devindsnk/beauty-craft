@@ -33,7 +33,7 @@
                             <!------------------ maingrid1 start --------------------------------------------------------->
                             <div class="ownAddstaffMaingrid1">
 
-                                <div class="ownAddstaffFormGroupImage">
+                                <!-- <div class="ownAddstaffFormGroupImage">
                                     <div class="ownAddstaffBasicinfoFilesubBtn">
                                         <label for="ownAddstaffBasicinfoImagesub"
                                             class="ownAddstaffBasicinfoImagewrapper">
@@ -41,6 +41,21 @@
                                             <img src="<?php echo URLROOT ?>/public/icons/add_graph_report_64px.png"
                                                 class="ownAddstaffBasicinfoIcon"> <br>
                                             <span class="ownAddstaffBasicinfoImagetitle">Add Image</span>
+                                        </label>
+                                    </div>
+                                    <span class="error"><?php echo $data['staffimagePath_error']; ?></span>
+                                </div> -->
+                                <div class="ownAddstaffFormGroupImage">
+                                    <div class="ownAddstaffBasicinfoFilesubBtn">
+                                        <label for="ownAddstaffBasicinfoImagesub" class="ownAddstaffBasicinfoImagewrapper">
+                                            <input type="file" accept="image/*" name="imgPath" id="ownAddstaffBasicinfoImagesub" onchange="loadFile(event)" />
+                                            <?php if ($data['imgPath'] == '' || $data['staffimagePath_error']) : ?>
+                                                <img src="<?php echo URLROOT ?>/public/icons/AddImg.png" class="ownAddstaffBasicinfoIcon" id='profileImg' height="160px" width="160px" borderRadious='50%'> <br>
+
+                                            <?php elseif ($data['imgPath']) : ?>
+                                                <img src="<?php echo URLROOT ?>/public/imgs/staffImgs/<?php echo $data['imgPath']; ?> " class="ownAddstaffBasicinfoIcon" id='profileImg' height="160px" width="160px" borderRadious='50%'> <br>
+                                            <?php endif; ?>
+
                                         </label>
                                     </div>
                                     <span class="error"><?php echo $data['staffimagePath_error']; ?></span>
@@ -95,13 +110,13 @@
                                         <option class="unbold" value="0" option selected="true" disabled="disabled">
                                             Select</option>
                                         <option value=5
-                                            <?php if ($data['staffdetails']->staffType == 5) echo 'selected'; ?>>Service
+                                            <?php if ($data['sType'] == 5) echo 'selected'; ?>>Service
                                             Provider</option>
                                         <option value=4
-                                            <?php if ($data['staffdetails']->staffType == 4) echo 'selected'; ?>>
+                                            <?php if ($data['sType'] == 4) echo 'selected'; ?>>
                                             Receptionist</option>
                                         <option value=3
-                                            <?php if ($data['staffdetails']->staffType == 3) echo 'selected'; ?>>Manager
+                                            <?php if ($data['sType'] == 3) echo 'selected'; ?>>Manager
                                         </option>
                                     </select>
                                 </div>

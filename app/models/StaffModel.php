@@ -107,8 +107,11 @@ class StaffModel extends Model
 
    public function updateStaff($data, $staffID)
    {
-      $this->update('staff', ['image' =>  $data['staffimage'], 'fName' => $data['staffFname'], 'lName' => $data['staffLname'], 'staffType' => $data['staffType'], 'mobileNo' => $data['staffMobileNo'], 'gender' => $data['gender'], 'address' => $data['staffHomeAdd'], 'email' => $data['staffEmail'], 'dob' => $data['staffDOB']], ['staffID' => '$staffID']);
-      $this->update('bankdetails', ['staffID' => $staffID, 'accountNo' => $data['staffAccNum'], 'bankName' => $data['staffAccBank'], 'holdersName' => $data['staffAccHold'], 'branchName' => $data['staffAccBranch']], ['staffID' => '$staffID']);
+      print_r($data);
+      print_r($staffID);
+      // die("success");
+      $this->update('staff', ['imgPath' =>  $data['imgPath'], 'fName' => $data['fName'], 'lName' => $data['lName'], 'mobileNo' => $data['mobileNo'], 'gender' => $data['gender'], 'address' => $data['address'], 'email' => $data['email'], 'dob' => $data['dob']], ['staffID' => '$staffID']);
+      $this->update('bankdetails', ['staffID' => $staffID, 'accountNo' => $data['accountNo'], 'bankName' => $data['bankName'], 'holdersName' => $data['holdersName'], 'branchName' => $data['branchName']], ['staffID' => '$staffID']);
    }
 
    public function removeStaff($staffID, $staffMobileNo)

@@ -179,6 +179,7 @@ class Model
    // update('customers', ['fName' => 'Binuka', 'lName' => 'Karunarathne'], ['mobileNo' => '0712334567', 'gender' => 'M']);
    public function update($tableName, $values, $conditions)
    {
+      print_r($values);
       $preparedValues = implode(", ", $this->prepareColumnsNValues($values, 0));
       $preparedConditions = implode(" AND ", $this->prepareColumnsNValues($conditions, 0));
       $SQLstatement = "UPDATE $tableName SET $preparedValues WHERE $preparedConditions";
