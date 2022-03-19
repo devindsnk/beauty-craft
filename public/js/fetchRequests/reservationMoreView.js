@@ -24,7 +24,20 @@ moreInfoBtn.forEach((btn) => {
     });
 });
 
+function filterReservationsForSPOverview(){
+   console.log("Function called-test");
+
+   const datepicker=document.getElementById("datePickerSPRes");
+   const servicepicker=document.getElementById("serviceSelectorSPRes");
+   const statuspicker=document.getElementById("staffSelectorSPRes");
+   let dVal = (!datepicker.value )? "all" : datepicker.value;
+
+   window.location.replace(`http://localhost/beauty-craft/SerProvDashboard/reservations/${dVal}/${servicepicker.value}/${statuspicker.value}`);
+
+}
+
 function getReservationMoreData (selectedReservation){
+   // console.log("Function called-test");
    fetch(`http://localhost:80/beauty-craft/SerProvDashboard/getReservationDetailsByID/${selectedReservation}`)
       .then(response => response.json())
       .then(reservationData => {
@@ -35,23 +48,28 @@ function getReservationMoreData (selectedReservation){
         custName.innerHTML= reservationData['fName']+" "+reservationData['lName'];
         serviceTime.innerHTML= reservationData['startTime']+" - "+reservationData['endTime'];
         duration.innerHTML = reservationData['totalDuration'] +" mins";
-         document.getElementById("resStatus").className = "moredetails-confirm-status";
+         // document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase";
          if(reservationData['status']==5){
             statusdivText.innerHTML="Recalled";
-            statusdiv.classList.add('gray');
+            document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase grey";
+            // statusdiv.classList.add('grey');
             
          
          }else if(reservationData['status']==1){
             statusdivText.innerHTML="Not Confirmed";
-            statusdiv.classList.add('yellow');
+            // statusdiv.classList.add('yellow');
+            document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase blue";
             
          }else if(reservationData['status']==2){
             statusdivText.innerHTML="Confirmed";
-            statusdiv.classList.add('blue');
+            // statusdiv.classList.add('blue');
+            document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase green";
             
          }else if(reservationData['status']==4){
             statusdivText.innerHTML="Completed";
-            statusdiv.classList.add('green');
+            // statusdiv.classList.add('green');
+                        document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase grey";
+
             
          }
         
@@ -165,25 +183,25 @@ function recallResrvation(btn){
       fetch(`http://localhost:80/beauty-craft/SerProvDashboard/getReservationDetailsByID/${reservationID}`)
        .then(response => response.json())
        .then(reservationData  => {
-               //  console.log(reservationData);
+                console.log(reservationData);
                recallService.innerHTML = reservationData['name'];
                recallCustName.innerHTML= reservationData['fName']+" "+reservationData['lName'];
-               document.getElementById("recallResStatus").className = "recall-moredetails-confirm-status";
+               document.getElementById("recallResStatus").className = "recall-moredetails-confirm-status confirm-status green";
                if(reservationData['status']==5){
                   recallStatusText.innerHTML="Recalled";
-                  recallStatusDiv.classList.add('gray');
+                  recallStatusDiv.classList.add('yellow');
                
                }else if(reservationData['status']==1){
                   recallStatusText.innerHTML="Not Confirmed";
-                  recallStatusDiv.classList.add('yellow');
+                  recallStatusDiv.classList.add('blue');
                   
                }else if(reservationData['status']==2){
                   recallStatusText.innerHTML="Confirmed";
-                  recallStatusDiv.classList.add('blue');
+                  recallStatusDiv.classList.add('green');
                   
                }else if(reservationData['status']==4){
                   recallStatusText.innerHTML="Completed";
-                  recallStatusDiv.classList.add('green');
+                  recallStatusDiv.classList.add('grey');
                   
                }
 
@@ -268,20 +286,24 @@ function recallResrvation(btn){
 function proceedRecall(){
    
    // const proceedRecallBtn = ;
-   // console.log(proceedRecallBtn);
-rStatusID=document.querySelector(".recall-reason").getAttribute("data-id");
+   console.log('recall funtion called ');
+var rReason=document.querySelector(".recall-reason-section").value;
 selectedReservation=document.querySelector(".proceedBtn").getAttribute("data-id");
 
-// console.log(selectedReservation);
-if(rStatusID==0){
-   fetch(`http://localhost:80/beauty-craft/SerProvDashboard/deleteRecallRequest/${selectedReservation}`)
-       .then(response => response.json())
-       .then(state => {
-          dateError.innerHTML = state;
-    })
+console.log(selectedReservation);
+console.log(rReason);
+if(rReason){
+   fetch(`http://localhost:80/beauty-craft/SerProvDashboard/sendRecallRequest/${selectedReservation}/${rReason}`)
+   //     .then(response => response.json())
+   //     .then(state => {
+   //       //  dateError.innerHTML = state;
+   //       console.log(state);
+   //  })
 
-
+console.log("KK");
 }
+
+
 }
 
 
