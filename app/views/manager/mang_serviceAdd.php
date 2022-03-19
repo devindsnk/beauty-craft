@@ -95,21 +95,23 @@
 							<div class="checkbox-div">
 
 								<?php foreach ($data['sProvArray'] as $sProv) : ?>
-									<div class="divIndiv">
-										<input type="checkbox" name="serProvCheckbox[]" value="<?php echo $sProv->staffID; ?>" <?php
-																																if (!empty($data['sSelectedProv']))
-																																{
-																																	foreach ($data['sSelectedProv'] as $selectedSP)
+									<?php if ($sProv->status == 1) : ?>
+										<div class="divIndiv">
+											<input type="checkbox" name="serProvCheckbox[]" value="<?php echo $sProv->staffID; ?>" <?php
+																																	if (!empty($data['sSelectedProv']))
 																																	{
-																																		if ($selectedSP == $sProv->staffID) echo 'checked';
+																																		foreach ($data['sSelectedProv'] as $selectedSP)
+																																		{
+																																			if ($selectedSP == $sProv->staffID) echo 'checked';
+																																		}
 																																	}
-																																}
-																																?>>
-										<lable class="lableInDiv">
-											<?php echo $sProv->staffID; ?> - <?php echo $sProv->fName; ?> <?php echo $sProv->lName; ?>
-										</lable>
-									</div>
-									<hr class="resHr">
+																																	?>>
+											<lable class="lableInDiv">
+												<?php echo $sProv->staffID; ?> - <?php echo $sProv->fName; ?> <?php echo $sProv->lName; ?>
+											</lable>
+										</div>
+										<hr class="resHr">
+									<?php endif; ?>
 								<?php endforeach; ?>
 
 							</div>

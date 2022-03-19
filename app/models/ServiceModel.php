@@ -607,7 +607,7 @@ class ServiceModel extends Model
     // Suggestion to rename this to getAllServiceProvidersData
     public function getServiceProviderDetails()
     {
-        $results = $this->getResultSet('staff', ['staffID', 'fName', 'lName'], ['staffType' => 5, 'status' => 1]);
+        $results = $this->getResultSet('staff', ['staffID', 'fName', 'lName', 'status'], ['staffType' => 5]);
 
         return $results;
     }
@@ -828,7 +828,7 @@ class ServiceModel extends Model
     public function getDetailsForServiceReportJS($serviceID, $year, $month)
     {
         $results = $this->customQuery(
-            "SELECT S.serviceID, S.name, COUNT(DISTINCT SP.staffID) AS NoOFStaff, COUNT(DISTINCT RES.reservationID) AS NoOfRes, COUNT(DISTINCT RES.reservationID)*S.price AS TotalServicePrice
+            "SELECT S.serviceID, S.name, S.status, COUNT(DISTINCT SP.staffID) AS NoOFStaff, COUNT(DISTINCT RES.reservationID) AS NoOfRes, COUNT(DISTINCT RES.reservationID)*S.price AS TotalServicePrice
                                         FROM services AS S
                                         INNER JOIN serviceproviders AS SP
                                         ON S.serviceID = SP.serviceID
@@ -844,7 +844,7 @@ class ServiceModel extends Model
     public function getDetailsForServiceProvReportJS($staffID, $year, $month)
     {
         $results = $this->customQuery(
-            "SELECT S.staffID,S.fName,S.lName,COUNT(SP.serviceID) AS NoOFService,COUNT(DISTINCT RES.reservationID) AS NoOfRes,COUNT(DISTINCT RES.reservationID) * SV.price AS TotalServicePrice
+            "SELECT S.staffID, S.fName, S.lName, S.status, COUNT(SP.serviceID) AS NoOFService, COUNT(DISTINCT RES.reservationID) AS NoOfRes,COUNT(DISTINCT RES.reservationID) * SV.price AS TotalServicePrice
                                     FROM staff AS S
                                     INNER JOIN serviceproviders AS SP
                                     ON S.staffID = SP.staffID AND SP.staffID = :staffID

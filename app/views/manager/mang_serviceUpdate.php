@@ -94,29 +94,35 @@
 							<label class="labels" for="serviceEmp">Employee</label>
 							<div class="checkbox-div">
 								<?php foreach ($data['sProvArray'] as $sProv) : ?>
-									<div class="divIndiv">
-										<input type="checkbox" name="serProvCheckbox[]" data-columns="<?php echo $data['serviceDetails']->serviceID; ?>" class="sProvCheckBoxes" value='<?php echo $sProv->staffID; ?>' <?php if (!empty($data['sSelectedProv']))
-																																																						{
-																																																							foreach ($data['sSelectedProv'] as $selectedSP)
+									<?php if ($sProv->status == 1) : ?>
+										<div class="divIndiv">
+
+
+
+											<input type="checkbox" name="serProvCheckbox[]" data-columns="<?php echo $data['serviceDetails']->serviceID; ?>" class="sProvCheckBoxes" value='<?php echo $sProv->staffID; ?>' <?php if (!empty($data['sSelectedProv']))
 																																																							{
-																																																								if ($selectedSP == $sProv->staffID) echo 'checked';
-																																																							}
-																																																						}
-																																																						?> <?php if ($_SERVER['REQUEST_METHOD'] != 'POST')
-																																																							{
-																																																								foreach ($data['serProvDetails'] as $sProvDetails)
+																																																								foreach ($data['sSelectedProv'] as $selectedSP)
 																																																								{
-																																																									if ($sProvDetails->staffID == $sProv->staffID) echo 'checked';
+																																																									if ($selectedSP == $sProv->staffID) echo 'checked';
 																																																								}
 																																																							}
-																																																							?>>
+																																																							?> <?php if ($_SERVER['REQUEST_METHOD'] != 'POST')
+																																																								{
+																																																									foreach ($data['serProvDetails'] as $sProvDetails)
+																																																									{
+																																																										if ($sProvDetails->staffID == $sProv->staffID) echo 'checked';
+																																																									}
+																																																								}
+																																																								?>>
 
 
-										<lable class="lableInDiv">
-											<?php echo $sProv->staffID; ?> - <?php echo $sProv->fName; ?> <?php echo $sProv->lName; ?>
-										</lable>
-									</div>
-									<hr class="resHr">
+											<lable class="lableInDiv">
+												<?php echo $sProv->staffID; ?> - <?php echo $sProv->fName; ?> <?php echo $sProv->lName; ?>
+											</lable>
+
+										</div>
+										<hr class="resHr">
+									<?php endif; ?>
 								<?php endforeach; ?>
 
 							</div>
