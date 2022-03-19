@@ -336,7 +336,7 @@ footer p {
   color: var(--theme-blue);
 }
 
-.status-grey,.confirm-status.gray {
+.status-grey,.confirm-status.grey {
   background-color: var(--theme-lightgrey);
   color: var(--theme-grey);
 }

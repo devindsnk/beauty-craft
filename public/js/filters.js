@@ -39,10 +39,10 @@ if (allResFilterBtn) {
 
 function filterReservationsSpReservation() {
     console.log("filter function called");
-    const rTypeSelectorSP = document.getElementById("rTypeSelectorSP");
-    console.log(rTypeSelectorSP.value);
+    // const rTypeSelectorSP = document.getElementById("rTypeSelectorSP");
+    // console.log(rTypeSelectorSP.value);
 
-    window.location.replace(`http://localhost/beauty-craft/SerProvDashboard/reservations/${rTypeSelectorSP.value}`);
+    // window.location.replace(`http://localhost/beauty-craft/SerProvDashboard/reservations/${rTypeSelectorSP.value}`);
 }
 
 function filterLeavesSpAndRecep() {
@@ -55,6 +55,9 @@ function filterLeavesSpAndRecep() {
     window.location.replace(`http://localhost/beauty-craft/Leaves/leaves/${lTypeSelectorSP.value}/${lStatusSelectorSP.value}`);
 
 
+}
+function filterReservation(){
+    console.log("filter reservatuion");
 }
 
 //**************************************************************//
