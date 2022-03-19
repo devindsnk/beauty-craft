@@ -52,18 +52,18 @@
                      </div>
                      <span class="error serviceProvSelectError"> <?php echo " "; ?></span>
                   </div>
-                  <div class="column">
+                  <div class="column analytics-report-month-selector">
                      <div class="text-group">
                         <label class="label" for="serviceProviderFromDate">From</label>
-                        <input type="month" name="serviceProviderFromDate" id="serviceProviderFromDate" class="serviceProviderFromDate">
+                        <input type="month" name="serviceProviderFromDate" id="serviceProviderFromDate" class="serviceProviderFromDate analytics-month-selector">
                      </div>
                      <span class="error serviceProvFromError"></span>
                   </div>
 
-                  <div class="column">
+                  <div class="column analytics-report-month-selector">
                      <div class="text-group">
                         <label class="label" for="serviceProviderToDate">To</label>
-                        <input type="month" name="serviceProviderToDate" id="serviceProviderToDate" class="serviceProviderToDate">
+                        <input type="month" name="serviceProviderToDate" id="serviceProviderToDate" class="serviceProviderToDate analytics-month-selector">
                      </div>
                      <span class="error serviceProvToError"></span>
                   </div>

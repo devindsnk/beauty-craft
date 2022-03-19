@@ -61,9 +61,9 @@
                                     <label class="ownAddstaffLabels">Gender</label>
                                     <div class="ownAddstaffBasicinfoRadiowrapper">
 
-                                        <input type="radio" name="gender" id="option-1" value="M" <?php if ($data['gender'] == 'M') echo 'checked'; ?>>
+                                        <input type="radio" name="gender" id="option-1" class="genderMale" value="M" <?php if ($data['gender'] == 'M') echo 'checked'; ?>>
                                         <label for="option1"> Male</label> <br>
-                                        <input type="radio" name="gender" id="option-2" value="F" <?php if ($data['gender'] == 'F') echo 'checked'; ?>>
+                                        <input type="radio" name="gender" id="option-2" class="genderFemale" value="F" <?php if ($data['gender'] == 'F') echo 'checked'; ?>>
                                         <label for="option2">Female</label>
                                         <br>
                                         <span class="error"><?php echo $data['gender_error']; ?></span>
@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="ownAddstaffFormGroupNIC">
                                     <label class="ownAddstaffLabels">NIC</label>
-                                    <input type="text" name="staffNIC" id="NIC" placeholder="Your NIC here" value="<?php echo $data['staffNIC']; ?>">
+                                    <input type="text" name="staffNIC" id="NIC" class="staffNIC" placeholder="Your NIC here" value="<?php echo $data['staffNIC']; ?>">
                                     <span class="error"><?php echo $data['staffNIC_error']; ?></span>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
                             <div class="ownAddstaffMaingrid2">
                                 <div class="ownAddstaffFormGroupDOB">
                                     <label class="ownAddstaffLabels"> Date Of Birth</label>
-                                    <input type="date" name="staffDOB" class="Date" value="<?php echo $data['staffDOB']; ?>">
+                                    <input type="date" name="staffDOB" class="Date" id="dateOfBirth" value="<?php echo $data['staffDOB']; ?>">
                                     <span class="error"><?php echo $data['staffDOB_error']; ?></span>
                                 </div>
                                 <div class="ownAddstaffFormGroupStype">
@@ -190,5 +190,5 @@
                 }
             }
         </script>
-
-        <?php require APPROOT . "/views/inc/footer.php" ?>
+<script src="<?php echo URLROOT ?>/public/js/ownAutoFillDOB.js"></script>
+<?php require APPROOT . "/views/inc/footer.php" ?>

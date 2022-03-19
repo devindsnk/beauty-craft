@@ -384,13 +384,13 @@ class ReservationModel extends Model
    // ************************************************** //
    // ******* Functions related recall requests ******** //
 
-   public function addReservationRecallRequestSP($resID, $reason)
-   {
-      date_default_timezone_set("Asia/Colombo");
-      $today = date("Y-m-d H:i:s");
-      $results =  $this->insert('recallrequests', ['reservationID' => $resID, 'reason' => $reason, 'requestedDate' => $today, 'status' => 0]);
-      return 1;
-   }
+   // public function addReservationRecallRequestSP($resID, $reason)
+   // {
+   //    date_default_timezone_set("Asia/Colombo");
+   //    $today = date("Y-m-d H:i:s");
+   //    $results =  $this->insert('recallrequests', ['reservationID' => $resID, 'reason' => $reason, 'requestedDate' => $today, 'status' => 0]);
+   //    return 1;
+   // }
    //    date_default_timezone_set("Asia/Colombo");
    //    $today = date("Y-m-d H:i:s");
    //    $recallReason = "For update the service";
@@ -446,14 +446,6 @@ class ReservationModel extends Model
       WHERE reservationID=:reservationID ", [':reservationID' => $reservationID,]);
 
       return $results[0];
-   }
-
-   public function updateReservationRecalledState($selectedreservation, $status)
-   {
-      // foreach ($selectedreservation as $value)
-      // {
-      $results = $this->update('reservations', ['status' => $status], ['reservationID' => $selectedreservation]);
-      // }
    }
 
    public function getAllPendingRecallRequests()
@@ -673,4 +665,23 @@ class ReservationModel extends Model
       return $results;
    }
    // END FOR ANALYTICS
+
+
+   // Function related to recall requests
+
+
+   public function updateReservationRecalledState($selectedreservation, $status)
+   {
+      if (is_array($selectedreservation))
+      {
+         foreach ($selectedreservation as $value)
+         {
+            $results = $this->update('reservations', ['status' => $status], ['reservationID' => $value]);
+         }
+      }
+      else
+      {
+         $results = $this->update('reservations', ['status' => $status], ['reservationID' => $selectedreservation]);
+      }
+   }
 }

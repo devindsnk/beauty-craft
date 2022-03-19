@@ -23,7 +23,7 @@
          <div class="row">
             <div class="column">
                <div class="text-group">
-                  <label class="label" for="fName">Manifacturer</label>
+                  <label class="label" for="fName">Manufacturer</label>
                   <input type="text" name="" id="fName" placeholder="Resource name here">
                </div>
             </div>
@@ -63,10 +63,10 @@
                   <td data-lable="Action" class="column-center-align">
                      <span>
                      
-                        <?php if (Session::getUser('typeText') && $purchaseD->status != 0 ) : ?>
-                           <a href="<?php echo URLROOT ?>/resources/updateResource/<?php echo $purchaseD->purchaseID; ?>/<?php echo $purchaseD->resourceID; ?>"><i class="ci-edit table-icon btnUpdateResource img-gap"></i></a>
+                        <?php if (Session::getUser('typeText') == "Owner" && $purchaseD->status != 0 ) : ?>
+                           <a href="<?php echo URLROOT ?>/resources/updateResource/<?php echo $purchaseD->purchaseID; ?>/<?php echo $purchaseD->resourceID; ?>" onclick="sessionStorage.setItem('returnReferer',window.location.href);"><i class="ci-edit table-icon btnUpdateResource img-gap"></i></a>
                            <a href="#"><i data-purchaseid = "<?php echo $purchaseD->purchaseID; ?>" data-resourceid = "<?php echo $purchaseD->resourceID; ?>" class="ci-trash table-icon btnRemoveResource img-gap resourceViewMoreTableTrash"></i></a> 
-                           <?php elseif (Session::getUser('typeText') && $purchaseD->status == 0 ) : ?>
+                           <?php elseif (Session::getUser('typeText') == "Owner" && $purchaseD->status == 0 ) : ?>
                               <button type="button" class="status-btn text-uppercase red"> Removed </button>
                         <?php endif; ?>
                      </span>
