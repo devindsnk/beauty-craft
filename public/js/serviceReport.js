@@ -21,8 +21,17 @@ function putServiceReportTableData(month) {
     .then(reportDetails => {
 
       for (var i = 1; i < reportDetails.length + 1; i++) {
-        myTable1.rows[i].cells[0].innerHTML = reportDetails[i - 1][0]['serviceID'];
-        myTable1.rows[i].cells[1].innerHTML = reportDetails[i - 1][0]['name'];
+
+        myTable1.rows[i].cells[0].innerHTML = 'S' + reportDetails[i - 1][0]['serviceID'];
+
+        if (reportDetails[i - 1][0]['status'] == '0') {
+          myTable1.rows[i].cells[1].innerHTML = reportDetails[i - 1][0]['name'] + ' (REMOVED)';
+        } else if (reportDetails[i - 1][0]['status'] == '2') {
+          myTable1.rows[i].cells[1].innerHTML = reportDetails[i - 1][0]['name'] + ' (HOLD)';
+        } else {
+          myTable1.rows[i].cells[1].innerHTML = reportDetails[i - 1][0]['name'];
+        }
+        ;
         myTable1.rows[i].cells[2].innerHTML = reportDetails[i - 1][0]['NoOFStaff'];
         myTable1.rows[i].cells[3].innerHTML = reportDetails[i - 1][0]['NoOfRes'];
         myTable1.rows[i].cells[4].innerHTML = reportDetails[i - 1][0]['TotalServicePrice'] + ' LKR';

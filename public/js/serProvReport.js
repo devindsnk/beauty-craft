@@ -19,10 +19,19 @@ function putServiceProvReportTableData(month) {
   fetch(`http://localhost:80/beauty-craft/Services/serviceProviderReportJS/${month}`)
     .then(response => response.json())
     .then(reportDetails => {
-
+      console.log(reportDetails);
       for (var i = 1; i < reportDetails.length + 1; i++) {
-        myTable2.rows[i].cells[0].innerHTML = reportDetails[i - 1][0]['staffID'];
-        myTable2.rows[i].cells[1].innerHTML = reportDetails[i - 1][0]['fName'] + " " + reportDetails[i - 1][0]['lName'];
+
+        myTable2.rows[i].cells[0].innerHTML = 'SM' + reportDetails[i - 1][0]['staffID'];
+
+        if (reportDetails[i - 1][0]['status'] == '0') {
+          myTable2.rows[i].cells[1].innerHTML = reportDetails[i - 1][0]['fName'] + " " + reportDetails[i - 1][0]['lName'] + ' (REMOVED)';
+        } else if (reportDetails[i - 1][0]['status'] == '2') {
+          myTable2.rows[i].cells[1].innerHTML = reportDetails[i - 1][0]['fName'] + " " + reportDetails[i - 1][0]['lName'] + ' (DISABLED)';
+        } else {
+          myTable2.rows[i].cells[1].innerHTML = reportDetails[i - 1][0]['fName'] + " " + reportDetails[i - 1][0]['lName'];
+        }
+
         myTable2.rows[i].cells[2].innerHTML = reportDetails[i - 1][0]['NoOFService'];
         myTable2.rows[i].cells[3].innerHTML = reportDetails[i - 1][0]['NoOfRes'];
         myTable2.rows[i].cells[4].innerHTML = reportDetails[i - 1][0]['TotalServicePrice'] + ' LKR';

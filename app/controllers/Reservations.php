@@ -15,23 +15,23 @@ class Reservations extends Controller
 
    public function viewAllReservations($sType = "all", $sProvider = "all", $status = "all")
    {
-      Session::validateSession([2, 3, 4]); 
+      Session::validateSession([2, 3, 4]);
 
       $serviceProviders = $this->serviceModel->getServiceProviderDetails();
       $serviceTypes = $this->serviceModel->getServiceTypeDetails();
       $reservations = $this->reservationModel->getAllReservationsWithFilters($sType, $sProvider, $status);
 
       $data = [
-         'selectedType' => $sType, 
-         'selectedStaffID' => $sProvider, 
-         'selectedStatus' => $status, 
-         'serviceProvidersList' => $serviceProviders, 
-         'serviceTypesList' => $serviceTypes, 
-         'reservationsList' => $reservations 
-      ]; 
-      
-      $this->view('common/allReservationsTable', $data);  
-   } 
+         'selectedType' => $sType,
+         'selectedStaffID' => $sProvider,
+         'selectedStatus' => $status,
+         'serviceProvidersList' => $serviceProviders,
+         'serviceTypesList' => $serviceTypes,
+         'reservationsList' => $reservations
+      ];
+
+      $this->view('common/allReservationsTable', $data);
+   }
 
    public function reservationMoreInfo($reservationID)
    {
@@ -422,10 +422,9 @@ class Reservations extends Controller
       $this->view('404');
    }
 
-
+   /// imhi
    public function recallReservationsFromUpdateServiceStaff($reservationIDs, $reason)
    {
-      // die ("recall called controller");
       $selectedreservationList = explode(",", $reservationIDs);
 
       $this->reservationModel->updateReservationRecalledState($selectedreservationList, 5);

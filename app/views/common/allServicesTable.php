@@ -148,8 +148,10 @@
                                     <a href="#"><i data-columns="<?php echo $sDetails->serviceID; ?>" class="ci-trash table-icon btnRemoveService serviceRemove deletehref img-gap"></i></a>
                                  <?php endif; ?>
                               <?php else : ?>
-                                 <i class="ci-edit-disable table-icon img-gap"></i>
-                                 <i data-columns="" class="ci-trash-disable table-icon img-gap"></i>
+                                 <?php if (Session::getUser("typeText") == "Owner" || Session::getUser("typeText") == "Manager") : ?>
+                                    <i class="ci-edit-disable table-icon img-gap"></i>
+                                    <i data-columns="" class="ci-trash-disable table-icon img-gap"></i>
+                                 <?php endif; ?>
                               <?php endif; ?>
                            </span>
                         </td>
@@ -183,7 +185,7 @@
             </div>
             <div class="confirm-model-head">
                <button class="btn btnClose ModalButton ModalCancelButton">Close</button>
-               <a href="#" class="deleteConfirmHref"><button class="btn ModalButton ModalBlueButton recallFromDelete">Confirm</button></a>
+               <a href="#" class="deleteConfirmHref"><button class="btn ModalButton ModalRedButton recallFromDelete">Confirm</button></a>
             </div>
          </div>
       </div>
