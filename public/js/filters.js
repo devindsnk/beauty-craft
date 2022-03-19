@@ -218,6 +218,25 @@ if (allStaffFilterBtn) {
     });
 }
 
+//************ Filters of Resources table ***************//
+
+const allResourcesFilterBtn = document.getElementById("allResourcesFilterBtn");
+// console.log("hi staff filters");
+if (allResourcesFilterBtn) {
+    allResourcesFilterBtn.addEventListener("click", () => {
+        const resourceNameInput = document.getElementById("sTypeSelector");
+        const resourceIDInput = document.getElementById("staffNameSelector");
+        // const statusSelector = document.getElementById("statusSelector");
+     
+        let resourceNameInputTyped = resourceNameInput.value;
+        let resourceIDInputTyped = resourceIDInput.value;
+        console.log(resourceNameInputTyped);
+        console.log(resourceIDInputTyped);
+        // let statusSelected = statusSelector.value;
+
+        window.location.replace(`http://localhost:80/beauty-craft/Resources/viewAllResources/${resourceNameInputTyped}/${resourceIDInputTyped}`);
+    });
+}
 
 
 //************ Filters of Staff members salary table ***************//

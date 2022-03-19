@@ -7,8 +7,11 @@ class  Resources extends Controller
       $this->serviceModel = $this->model('ServiceModel');
    }
 
-   public function viewAllResources()
+   public function viewAllResources($resourceID = "all",$resourceName = "all")
    {
+      print_r($resourceID);
+      print_r($resourceName);
+      die("controller called");
       $resourceDetails = $this->serviceModel->getResourceDetails();
       $this->view('common/allResourcesTable', $resourceDetails);
    }

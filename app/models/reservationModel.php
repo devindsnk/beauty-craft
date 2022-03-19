@@ -326,21 +326,6 @@ class ReservationModel extends Model
    // ************************************************** //
    // ************************************************** //
 
-   // ************************************************** //
-   // ******* Functions related recall requests ******** //
-
-   // public function addReservationRecall($resID)
-   // {
-   //    date_default_timezone_set("Asia/Colombo");
-   //    $today = date("Y-m-d H:i:s");
-   //    $recallReason = "For update the service";
-
-   //    // foreach ($selectedreservation as $value)
-   //    // {
-   //    $results =  $this->insert('recallrequests', ['reservationID' => $resID, 'reason' => $recallReason, 'requestedDate' => $today, 'status' => 0]);
-   //    // }
-   // }
-
    public function getRecallReasonByReservationID($selectedreservation)
    {
       $results = $this->getSingle('recallrequests', ['reason'], ['reservationID' => $selectedreservation]);
@@ -366,14 +351,6 @@ class ReservationModel extends Model
 
       return $results[0];
    }
-
-   // public function updateReservationRecalledState($selectedreservation, $status)
-   // {
-   //    // foreach ($selectedreservation as $value)
-   //    // {
-   //    $results = $this->update('reservations', ['status' => $status], ['reservationID' => $selectedreservation]);
-   //    // }
-   // }
 
    public function getAllPendingRecallRequests()
    {
@@ -594,34 +571,8 @@ class ReservationModel extends Model
    // END FOR ANALYTICS
 
 
-
-   // FOR STAFF REMOVAL / CLOSE DATES 
-
-   // public function updateMultipleReservationRecalledState($selectedreservation, $status)
-   // {
-   //    // die("updateMultipleReservationRecalledState called");
-   //    foreach ($selectedreservation as $value)
-   //    {
-   //       $results = $this->update('reservations', ['status' => $status], ['reservationID' => $value]);
-   //    }
-   // }
-
-   // public function addMultipleReservationRecall($selectedreservation, $recallReason)
-   // {
-   //    // die("addMultipleReservationRecall called");
-   //    date_default_timezone_set("Asia/Colombo");
-   //    $today = date("Y-m-d H:i:s");
-
-   //    foreach ($selectedreservation as $value)
-   //    {
-   //       $results =  $this->insert('recallrequests', ['reservationID' => $value, 'reason' => $recallReason, 'requestedDate' => $today, 'status' => 0]);
-   //    }
-   // }
-
+   // Function related to recall requests
    
-   // End for staff removal / close date
-
-   // newly added
    public function addReservationRecall($resID, $recallReason)
    {
       date_default_timezone_set("Asia/Colombo");
