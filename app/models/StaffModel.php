@@ -34,16 +34,18 @@ class StaffModel extends Model
    }
 
 
-   public function getAllStaffWithFilters($sType,$sName,$status)
+   public function getAllStaffWithFilters($sType,$status,$sName)
    { 
-      // die("model called");
       $conditions = array(); 
  
       // Extract specially defined conditions to a separate array 
       // Note that both tableName and columnName are used as the keys 
-      if ($sType != "all") $conditions["staff.staffType"] = $sType; 
-      if ($sName != "all") $conditions["staff.fName"] = $sName; 
+      if ($sType != "all") $conditions["staff.staffType"] = $sType;
       if ($status != "all") $conditions["staff.status"] = $status;
+
+      // *********************
+      // seperate array to store the staff mmber name
+      if ($sName != "all") $name["staff.fName"] = $sName; 
 
       $preparedConditions = array();
       $dataToBind = array();
@@ -61,13 +63,15 @@ class StaffModel extends Model
          "SELECT * FROM staff
          INNER JOIN bankdetails ON staff.staffID = bankdetails.staffID";
 
+      // Remove spaces, otherwise sql query doesnt work
+      $string = "'$sName%'";
+      $string= str_replace(' ', '', $string);
+
       // Appending conditions string
       if (!empty($conditions)) $SQLstatement .= " WHERE $consditionsString";
-      var_dump($SQLstatement);
-      var_dump($dataToBind);
-      // die();
+      // *********************
+      if (!empty($name)) $SQLstatement .= " AND staff.fName LIKE $string OR staff.lName LIKE $string ";
       $results = $this->customQuery($SQLstatement,  $dataToBind);
-      print_r($results);
       return $results;
    }
 
@@ -109,6 +113,13 @@ class StaffModel extends Model
 
    public function updateStaff($data, $staffID)
    {
+      $currentMobileNo=$data['staffdetails']->mobileNo;
+
+      if ($data['mobileNo'] != $data['staffdetails']->mobileNo)
+      {
+         $SQLstatement = "UPDATE users SET mobileNo = :newMobileNo  WHERE mobileNo = :currentMobileNo;";
+         $results = $this->customQuery($SQLstatement, [":newMobileNo" => $data['mobileNo'],":currentMobileNo" => $currentMobileNo ]);
+      }
       $this->update('staff', ['imgPath' =>  $data['imgPath'], 'fName' => $data['fName'], 'lName' => $data['lName'], 'mobileNo' => $data['mobileNo'], 'gender' => $data['gender'], 'address' => $data['address'], 'email' => $data['email'], 'dob' => $data['dob'], 'status'=>$data['status']], ['staffID' => $staffID]);
       $this->update('bankdetails', ['staffID' => $staffID, 'accountNo' => $data['accountNo'], 'bankName' => $data['bankName'], 'holdersName' => $data['holdersName'], 'branchName' => $data['branchName']], ['staffID' => $staffID]);
    
@@ -116,7 +127,6 @@ class StaffModel extends Model
 
    public function removeStaff($staffID, $staffMobileNo)
    {
-      die("remove staff model called");
       $status = 0;
       $this->update("staff", ["status" => $status], ['staffID' => $staffID]);
       $this->delete("users", ['mobileNo' => $staffMobileNo]);

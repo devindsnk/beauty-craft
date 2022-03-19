@@ -61,7 +61,7 @@
                   <div class="column">
                      <div class="dropdown-group">
                         <label class="label" for="fName">Staff Member</label>
-                        <input type="text" name="staffName" value="" id="staffNameSelector" placeholder="Your first name here">
+                        <input type="text" name="staffName" value="<?php echo ($data["selectedStaffName"])?>" id="staffNameSelector" placeholder="Your first name here">
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
                   </div>
@@ -75,7 +75,7 @@
                            </option>
                            <option value="2" <?php echo ($data["selectedStatus"] == '2') ? "selected" : "" ?>>Disabled
                            </option>
-                           <option value="4" <?php echo ($data["selectedStatus"] == '4') ? "selected" : "" ?>>Removed
+                           <option value="0" <?php echo ($data["selectedStatus"] == '0') ? "selected" : "" ?>>Removed
                            </option>
                         </select>
                      </div>

@@ -106,7 +106,7 @@ class  Resources extends Controller
 
             if (empty($data['warrantyExpDate']))
             {
-               $data['warrantyExpDate_error'] = "Please select warrantyExpDate";
+               $data['warrantyExpDate'] = "N/A";
             }
             else if ($date_now > $data['warrantyExpDate'])
             {
@@ -259,7 +259,7 @@ class  Resources extends Controller
 
             if (empty($data['warrantyExpDate']))
             {
-               $data['warrantyExpDate_error'] = "Please select warrantyExpDate";
+               $data['warrantyExpDate'] = "N/A";
             }
 
             if (empty($data['price']))
@@ -277,7 +277,7 @@ class  Resources extends Controller
                $data['purchaseDate_error'] = "Please select purchaseDate";
             }
 
-            if (empty($data['manufacturer_error']) && empty($data['modelNo_error']) && empty($data['staffLname_error']) && empty($data['nameSelected_error']) && empty($data['warrantyExpDate_error']) && empty($data['price_error']) && empty($data['purchaseDate_error']))
+            if (empty($data['manufacturer_error']) && empty($data['modelNo_error']) && empty($data['staffLname_error']) && empty($data['nameSelected_error']) && empty($data['price_error']) && empty($data['purchaseDate_error']))
             {
                $this->resourceModel->updatePurchaseDetails($data);
                Toast::setToast(1, "Resource updated successfully", "");

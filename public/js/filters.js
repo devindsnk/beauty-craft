@@ -214,7 +214,7 @@ if (allStaffFilterBtn) {
         console.log(staffNameSelected);
         let statusSelected = statusSelector.value;
 
-        window.location.replace(`http://localhost:80/beauty-craft/Staff/viewAllStaffMembers/${sTypeSelected}/${staffNameSelected}/${statusSelected}`);
+        window.location.replace(`http://localhost:80/beauty-craft/Staff/viewAllStaffMembers/${sTypeSelected}/${statusSelected}/${staffNameSelected}`);
     });
 }
 

@@ -48,7 +48,8 @@ class CustomerModel extends Model
    // for customer table
    public function getAllCustomerDetails()
    {
-      $result = $this->getResultSet('customers', '*', null);
+      // $result = $this->getResultSet('customers', '*', null);
+      $result = $this->customQuery("SELECT * FROM customers WHERE customerID != 000001", null);
       return ($result);
    }
    // for customer table end

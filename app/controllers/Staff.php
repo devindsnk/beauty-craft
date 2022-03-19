@@ -7,10 +7,10 @@ class Staff extends Controller
       $this->staffModel = $this->model('StaffModel'); 
    } 
  
-   public function viewAllStaffMembers($sType="all",$sName="all", $status="all") 
+   public function viewAllStaffMembers($sType="all", $status="all",$sName="all") 
    {  
       Session::validateSession([2, 3, 4]); 
-      $AllStaffDetails = $this->staffModel->getAllStaffWithFilters($sType,$sName,$status); 
+      $AllStaffDetails = $this->staffModel->getAllStaffWithFilters($sType,$status,$sName); 
 
       $data = [ 
          'selectedType' => $sType, 
@@ -171,14 +171,19 @@ class Staff extends Controller
          {
             $data['staffMobileNo_error'] = "Invalid contact number format.";
          }
+         $isUserExists = $this->userModel->checkAlreadyRegistered($data['staffMobileNo']);
 
-         for ($i = 0; $i < $CurrentStaffCount; $i++)
+         if ($isUserExists)
          {
-            if ($staffD[$i]->mobileNo == $data['staffMobileNo'])
-            {
-               $data['staffMobileNo_error'] = "The mobile number you entered is already exist.";
-            }
+            $data['staffMobileNo_error'] = "Number is already registered";
          }
+         // for ($i = 0; $i < $CurrentStaffCount; $i++)
+         // {
+         //    if ($staffD[$i]->mobileNo == $data['staffMobileNo'])
+         //    {
+         //       $data['staffMobileNo_error'] = "The mobile number you entered is already exist.";
+         //    }
+         // }
 
          // Validating email
          if (empty($data['staffEmail']))
@@ -478,14 +483,17 @@ class Staff extends Controller
          {
             $data['mobileNo_error'] = "Invalid contact number format.";
          }
-
-         for ($i = 0; $i < $CurrentStaffCount; $i++)
-         {
-               if (($staffD[$i]->mobileNo == $data['mobileNo']) && ($staffdetailsBystaffID[0]->mobileNo != $data['mobileNo']))
+        
+         else if ($staffdetailsBystaffID[0]->mobileNo != $data['mobileNo'])
                {
-                  $data['mobileNo_error'] = "The mobile number you entered is already exist.";
+                  $isUserExists = $this->userModel->checkAlreadyRegistered($data['mobileNo']);
+
+                  if ($isUserExists)
+                  {
+                     $data['mobileNo_error'] = "Number is already registered";
+                  }
                }
-         }
+         
 
          // Validating email
          if (empty($data['email']))
