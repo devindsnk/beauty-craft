@@ -299,10 +299,10 @@ class Services extends Controller
    {
       $_SESSION = $sResGetArray;
       $sizeOfSession = sizeof($_SESSION);
-      print_r($_SESSION);
+      // print_r($_SESSION);
 
       // print_r($_SESSION[0]->quantity);
-      print_r($sizeOfSession);
+      // print_r($sizeOfSession);
 
       die("hi");
    }
@@ -407,9 +407,9 @@ class Services extends Controller
             'serviceDetails' => $serviceDetails[0],
             'serProvDetails' => $serProvDetails,
             'noofSlots' => $noofSlots,
-            'resDetailsSlot1' => '',
-            'resDetailsSlot2' => '',
-            'resDetailsSlot3' => '',
+            'resDetailsSlot1' => $resDetailsSlot1,
+            'resDetailsSlot2' => $resDetailsSlot2,
+            'resDetailsSlot3' => $resDetailsSlot3,
 
             'sTypesArray' => [],
             'sProvArray' => [],
@@ -432,7 +432,8 @@ class Services extends Controller
             'sSelectedResCount3_error' => '',
 
          ];
-
+         // print_r($data['sSelectedResCount1']);
+         // die('ddda');
          $data['sProvArray'] = $sProvGetArray;
          $data['sTypesArray'] = $sTypeGetArray;
          $data['sResArray'] = $sResGetArray;
@@ -507,6 +508,8 @@ class Services extends Controller
 
             if (empty($data['sName_error']) && empty($data['sSelectedCusCategory_error']) && empty($data['sPrice_error']) && empty($data['sSelectedAllType_error']) && empty($data['sSelectedSProve_error']) && empty($data['sSlot1Duration_error']) && empty($data['sSlot2Duration_error']) && empty($data['sSlot3Duration_error']) && empty($data['interval1Duration_error']) && empty($data['interval2Duration_error']))
             {
+               $slotNo = 0;
+
                if ($data['slot2Duration'] != NULL && $data['slot3Duration'] == NULL)
                {
                   $slotNo = 1;
@@ -515,7 +518,6 @@ class Services extends Controller
                {
                   $slotNo = 2;
                }
-
                if ($data['price'] != $serviceDetails[0]->price)
                {
                   $this->ServiceModel->beginTransaction();
@@ -550,7 +552,9 @@ class Services extends Controller
                      $this->destroyRecallDetails();
                   }
                   $this->ServiceModel->updateServiceProviders($serviceID, $data, $serProvDetails);
+                  $this->ServiceModel->addNewSlotsFromUpdate($serviceID, $data, $slotNo);
                   $this->ServiceModel->updateAllocatedResources($serviceID, $data, $slotNo, $resDetailsSlot1, $resDetailsSlot2, $resDetailsSlot3);
+                  // print_r($slotNo);
                   $this->ServiceModel->updateIntervals($serviceID, $data, $slotNo);
                   $this->ServiceModel->updateTimeslots($serviceID, $data, $slotNo);
                   $this->ServiceModel->commit();
@@ -561,35 +565,36 @@ class Services extends Controller
             else
             {
 
-               $selectesResCount = count($data['sSelectedResCount1']);
+               // $selectesResCount = count($data['sSelectedResCount1']);
 
-               for ($i = 0; $i < $selectesResCount; $i++)
-               {
-                  if ($data['sSelectedResCount1'][$i] != 0)
-                  {
-                     $data['sSelectedResCount1_error'] = "Please enter resource quantity again";
-                  }
-               }
+               // for ($i = 0; $i < $selectesResCount; $i++)
+               // {
+               //    if ($data['sSelectedResCount1'][$i] != 0)
+               //    {
+               //       $data['sSelectedResCount1_error'] = "Please enter resource quantity again";
+               //    }
+               // }
 
-               $selectesResCount = count($data['sSelectedResCount2']);
+               // $selectesResCount = count($data['sSelectedResCount2']);
 
-               for ($i = 0; $i < $selectesResCount; $i++)
-               {
-                  if ($data['sSelectedResCount2'][$i] != 0)
-                  {
-                     $data['sSelectedResCount2_error'] = "Please enter resource quantity again";
-                  }
-               }
-               $selectesResCount = count($data['sSelectedResCount3']);
+               // for ($i = 0; $i < $selectesResCount; $i++)
+               // {
+               //    if ($data['sSelectedResCount2'][$i] != 0)
+               //    {
+               //       $data['sSelectedResCount2_error'] = "Please enter resource quantity again";
+               //    }
+               // }
+               // $selectesResCount = count($data['sSelectedResCount3']);
 
-               for ($i = 0; $i < $selectesResCount; $i++)
-               {
-                  if ($data['sSelectedResCount3'][$i] != 0)
-                  {
-                     $data['sSelectedResCount3_error'] = "Please enter resource quantity again";
-                  }
-               }
-
+               // for ($i = 0; $i < $selectesResCount; $i++)
+               // {
+               //    if ($data['sSelectedResCount3'][$i] != 0)
+               //    {
+               //       $data['sSelectedResCount3_error'] = "Please enter resource quantity again";
+               //    }
+               // }
+               // print_r($data['sSelectedResCount1'][2]);
+               // die('sww');
                $this->view('manager/mang_serviceUpdate', $data);
             }
          }
@@ -600,7 +605,9 @@ class Services extends Controller
       }
       else
       {
-
+         // print_r();
+         // print_r($serviceDetails);
+         // die('frrf');
          $data = [
             'name' => $serviceDetails[0]->name,
             'customerCategory' => $serviceDetails[0]->customerCategory,
