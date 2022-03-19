@@ -206,14 +206,15 @@ const allStaffFilterBtn = document.getElementById("allStaffFilterBtn");
 if (allStaffFilterBtn) {
     allStaffFilterBtn.addEventListener("click", () => {
         const sTypeSelector = document.getElementById("sTypeSelector");
-        // const staffSelector = document.getElementById("staffSelector");
+        const staffNameSelector = document.getElementById("staffNameSelector");
         const statusSelector = document.getElementById("statusSelector");
-
+     
         let sTypeSelected = sTypeSelector.value;
         let staffNameSelected = staffNameSelector.value;
+        console.log(staffNameSelected);
         let statusSelected = statusSelector.value;
 
-        window.location.replace(`http://localhost:80/beauty-craft/Staff/viewAllStaffMembers/${sTypeSelected}/${statusSelected}`);
+        window.location.replace(`http://localhost:80/beauty-craft/Staff/viewAllStaffMembers/${sTypeSelected}/${staffNameSelected}/${statusSelected}`);
     });
 }
 

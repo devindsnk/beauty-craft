@@ -7,14 +7,14 @@ class Staff extends Controller
       $this->staffModel = $this->model('StaffModel'); 
    } 
  
-   public function viewAllStaffMembers($sType="all", $status="all") 
+   public function viewAllStaffMembers($sType="all",$sName="all", $status="all") 
    {  
       Session::validateSession([2, 3, 4]); 
-      $AllStaffDetails = $this->staffModel->getAllStaffWithFilters($sType,$status); 
+      $AllStaffDetails = $this->staffModel->getAllStaffWithFilters($sType,$sName,$status); 
 
       $data = [ 
          'selectedType' => $sType, 
-         // 'selectedStaffName' => $sName, 
+         'selectedStaffName' => $sName, 
          'selectedStatus' => $status, 
          'allStaffDetailsList' => $AllStaffDetails 
       ]; 
@@ -354,6 +354,7 @@ class Staff extends Controller
             'lName' => trim($_POST['lName']),
             'gender' => isset($_POST['gender']) ? trim($_POST['gender']) : '',
             'nic' => trim($_POST['nic']),
+            'sType'=>$staffdetailsBystaffID[0]->staffType,
             'dob' => trim($_POST['dob']),
             'address' => trim($_POST['address']),
             'mobileNo' => trim($_POST['mobileNo']),
@@ -480,13 +481,10 @@ class Staff extends Controller
 
          for ($i = 0; $i < $CurrentStaffCount; $i++)
          {
-            if ($staffD[$i]->mobileNo == $data['mobileNo'])
-            {
-               if ($staffD[$i]->mobileNo == $data['nic'])
+               if (($staffD[$i]->mobileNo == $data['mobileNo']) && ($staffdetailsBystaffID[0]->mobileNo != $data['mobileNo']))
                {
                   $data['mobileNo_error'] = "The mobile number you entered is already exist.";
                }
-            }
          }
 
          // Validating email
@@ -549,7 +547,7 @@ class Staff extends Controller
                if ($currentStatus != $newstatus)
                {
                   
-                  $this->userModel->registerUser($data['staffMobileNo'], $data['staffNIC'], $data['staffType']);
+                  $this->userModel->registerUser($data['mobileNo'], $data['nic'], $data['sType']);
                   $this->staffModel->updateStaff($data, $staffID);
                }
                else
@@ -564,13 +562,15 @@ class Staff extends Controller
             {
                if ($currentStatus != $newstatus)
                {
-                  $this->userModel->removeUserAccount($data['staffMobileNo']);
+                  $this->userModel->removeUserAccount($data['mobileNo']);
                   $this->staffModel->updateStaff($data, $staffID);
                }
                else
                {
                   // print_r($data);
                   // die("error");
+                  // echo ("hi");
+                  // die();
                   $this->staffModel->updateStaff($data, $staffID);
                }
             }
@@ -800,7 +800,8 @@ class Staff extends Controller
 
    public function RemoveStaff($staffID, $staffMobileNo) //details
    {
-      $this->staffModel->removestaff($staffID, $staffMobileNo);
+      // die("remove staff called");
+      // $this->staffModel->removestaff($staffID, $staffMobileNo);
       Toast::setToast(1, "Staff member removed successfully", "");
       redirect('Staff/viewAllStaffMembers');
    }

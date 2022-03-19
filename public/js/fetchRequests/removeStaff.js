@@ -84,10 +84,10 @@ function checkforUpcomingReservations(staffID,staffMobileNo){
 
 
 function SendResRecallByResIDs(ress,ressReason){
-  console.log('recall2');
+  console.log(ress);
   RemoveStaffProceedBtn.addEventListener('click',
   function () {
-    fetch(`http://localhost:80/beauty-craft/Reservations/recallReservationsFromUpdateService/${ress}/${ressReason}`)
+    fetch(`http://localhost:80/beauty-craft/Reservations/recallReservationsFromUpdateServiceStaff/${ress}/${ressReason}`)
     .then()
   }
   )

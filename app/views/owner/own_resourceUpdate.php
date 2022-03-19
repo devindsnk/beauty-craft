@@ -9,15 +9,15 @@
             <h1 class="header-topic">Update Resource</h1>
         </div>
         <div class="header-right verticalCenter">
-            <a href="<?php echo URLROOT ?>/resources/viewResources/<?php echo $data['purchaseDetails']->resourceID; ?>" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
+            <a href="<?php echo URLROOT ?>/resources/viewResources/<?php echo $data['purchaseDetails']->resourceID; ?>" class="top-right-closeBtnSpecial"><i class="fal fa-times fa-2x "></i></a>
         </div>
     </header>
     <div class="content contentNewRes">
-
+<!-- <?php print_r($data) ?> -->
         <div class="ownStaff_allignmentbox own staff resources">
-            <?php print_r($data['purchaseDetails']->resourceID); ?>
+            
             <div class="ownAddstaffContainer contentBox">
-                <form action="<?php echo URLROOT; ?>/resources/updateResource/<?php echo $data['purchaseDetails']->purchaseID; ?>/<?php echo $data['purchaseDetails']->resourceID; ?>" method="post">
+                <form action="<?php echo URLROOT; ?>/resources/updateResource/<?php echo $data['purchaseID']; ?>/<?php echo $data['currentResourceID']; ?>" method="post">
                     <div class="ownAddstaff_formWrapper">
                         <!------------------------------ Basic Info Starts------------------------------------------------------------------------------->
 
@@ -27,12 +27,12 @@
                             <div class="Maingrid1">
                                 <div class="manufacturer">
                                     <label class="ownAddstaffLabels">Manufacturer</label>
-                                    <input type="text" name="manufacturer" id="contactnum" placeholder="Resource manufacturer here" value="<?php echo $data['manufacturer']; ?> <?php echo $data['purchaseDetails']->manufacturer; ?>">
+                                    <input type="text" name="manufacturer" id="contactnum" placeholder="Resource manufacturer here" value="<?php echo $data['manufacturer']; ?>">
                                     <span class="error"><?php echo $data['manufacturer_error']; ?></span>
                                 </div>
                                 <div class="modelNumber">
                                     <label class="ownAddstaffLabels">Model Number</label>
-                                    <input type="text" name="modelNo" id="email" placeholder="Resource model number here" value="<?php echo $data['modelNo']; ?>  <?php echo $data['purchaseDetails']->modelNo; ?>">
+                                    <input type="text" name="modelNo" id="email" placeholder="Resource model number here" value="<?php echo $data['modelNo']; ?>">
                                     <span class="error"><?php echo $data['modelNo_error']; ?></span>
                                 </div>
                             </div>
@@ -40,7 +40,7 @@
                             <div class="Maingrid2">
                                 <div class="warrantyExpDate">
                                     <label class="ownAddstaffLabels">Warranty Expiration Date</label>
-                                    <input type="date" name="warrantyExpDate" class="Date" value="<?php echo $data['warrantyExpDate']; ?>  <?php echo $data['purchaseDetails']->warrantyExpDate; ?>">
+                                    <input type="date" name="warrantyExpDate" class="Date" value="<?php echo $data['warrantyExpDate']; ?>">
                                     <span class="error"><?php echo $data['warrantyExpDate_error']; ?></span>
                                 </div>
                                 <div class="addType">
@@ -49,7 +49,7 @@
                                         <select name="nameSelected" class="dropdownselectbox resourceTypes">
                                             <option class="unbold" value="0" option selected="true" disabled="disabled">Select</option>
                                             <?php foreach ($data['resourceTypes'] as $resourceTypeD) : ?>
-                                                <option value="<?php echo $resourceTypeD->resourceID; ?>  "><?php echo $resourceTypeD->name; ?></option>
+                                                <option value="<?php echo $resourceTypeD->resourceID; ?>  " <?php if ($data['currentResourceID'] == $resourceTypeD->resourceID) echo ' selected'; ?>><?php echo $resourceTypeD->name; ?></option>
                                             <?php endforeach; ?>
 
                                         </select>
@@ -77,12 +77,12 @@
                             <div class="Maingrid4Update">
                                 <div class="price">
                                     <label class="ownAddstaffLabels">Price</label>
-                                    <input type="text" name="price" id="contactnum" placeholder="Resource price here" value="<?php echo $data['price']; ?> <?php echo $data['purchaseDetails']->price; ?>">
+                                    <input type="text" name="price" id="contactnum" placeholder="Resource price here" value="<?php echo $data['price']; ?>">
                                     <span class="error"><?php echo $data['price_error']; ?></span>
                                 </div>
                                 <div class="purchaseDateUpdate">
                                     <label class="ownAddstaffLabels">Purchase Date</label>
-                                    <input type="date" name="purchaseDate" class="Date" value="<?php echo $data['purchaseDate']; ?>  <?php echo $data['purchaseDetails']->purchaseDate; ?>">
+                                    <input type="date" name="purchaseDate" class="Date" value="<?php echo $data['purchaseDate']; ?>">
                                     <span class="error"><?php echo $data['purchaseDate_error']; ?></span>
                                 </div>
                             </div>

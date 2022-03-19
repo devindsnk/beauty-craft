@@ -172,6 +172,9 @@ class  Resources extends Controller
       $resourceTypes = $this->resourceModel->getAllRsourceTypeDetails();
       $CurrentResourceTypeCount =  sizeof($resourceTypes);
       $resourcePurchaseDetails = $this->resourceModel->getRsourcePurchaseDetailsByPurchaseID($PurchaseID);
+      $currentResourceType = $this->resourceModel->getRsourceTypeByResourceID($ResourceID);
+      // print_r($resourcePurchaseDetails);
+      // die();
       $CurrentResId = $resourcePurchaseDetails->resourceID;
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -193,7 +196,7 @@ class  Resources extends Controller
             'purchaseDate_error' => '',
             'haveErrors' => 0,
             'resourceTypes' => $resourceTypes,
-            'purchaseDetails' => $resourcePurchaseDetails,
+            // 'purchaseDetails' => $resourcePurchaseDetails,
             'currentResourceID' => $CurrentResId,
             'purchaseID' => $PurchaseID
          ];
@@ -217,8 +220,9 @@ class  Resources extends Controller
             }
 
             if (empty($data['name_error']))
-            {
+            { 
                $this->resourceModel->addResourceType($data);
+               die("add type called");
                $data['resourceTypes'] =  $this->resourceModel->getAllRsourceTypeDetails();
                Toast::setToast(1, "Resource type added successfully", "");
                $this->view('owner/own_resourceUpdate', $data);
@@ -291,13 +295,13 @@ class  Resources extends Controller
       {
 
          $data = [
-            'manufacturer' => '',
-            'modelNo' => '',
-            'name' => '',
+            'manufacturer' => $resourcePurchaseDetails->manufacturer,
+            'modelNo' => $resourcePurchaseDetails->modelNo,
+            'name' =>  $currentResourceType->name,
             'nameSelected' => '',
-            'warrantyExpDate' => '',
-            'price' => '',
-            'purchaseDate' => '',
+            'warrantyExpDate' =>  $resourcePurchaseDetails->warrantyExpDate,
+            'price' => $resourcePurchaseDetails->price,
+            'purchaseDate' => $resourcePurchaseDetails->purchaseDate,
             'manufacturer_error' => '',
             'modelNo_error' => '',
             'name_error' => '',
@@ -307,7 +311,7 @@ class  Resources extends Controller
             'purchaseDate_error' => '',
             'haveErrors' => 0,
             'resourceTypes' => $resourceTypes,
-            'purchaseDetails' => $resourcePurchaseDetails,
+            // 'purchaseDetails' => $resourcePurchaseDetails,
             'currentResourceID' => $CurrentResId,
             'purchaseID' => $PurchaseID
          ];

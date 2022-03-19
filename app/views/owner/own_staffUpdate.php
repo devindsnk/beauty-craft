@@ -32,19 +32,6 @@
                             <h3 clas s="ownAddstaffBasicinfoSubHead">Basic Info</h3> <br>
                             <!------------------ maingrid1 start --------------------------------------------------------->
                             <div class="ownAddstaffMaingrid1">
-
-                                <!-- <div class="ownAddstaffFormGroupImage">
-                                    <div class="ownAddstaffBasicinfoFilesubBtn">
-                                        <label for="ownAddstaffBasicinfoImagesub"
-                                            class="ownAddstaffBasicinfoImagewrapper">
-                                            <input type="file" name="staffimage" id="ownAddstaffBasicinfoImagesub">
-                                            <img src="<?php echo URLROOT ?>/public/icons/add_graph_report_64px.png"
-                                                class="ownAddstaffBasicinfoIcon"> <br>
-                                            <span class="ownAddstaffBasicinfoImagetitle">Add Image</span>
-                                        </label>
-                                    </div>
-                                    <span class="error"><?php echo $data['staffimagePath_error']; ?></span>
-                                </div> -->
                                 <div class="ownAddstaffFormGroupImage">
                                     <div class="ownAddstaffBasicinfoFilesubBtn">
                                         <label for="ownAddstaffBasicinfoImagesub" class="ownAddstaffBasicinfoImagewrapper">
@@ -105,8 +92,16 @@
                                     <span class="error"><?php echo $data['dob_error']; ?></span>
                                 </div>
                                 <div class="ownAddstaffFormGroupStype">
-                                    <label class="ownAddstaffLabels">Staff Type</label>
-                                    <select name="staffType" class="dropdownselectbox" disabled>
+                                    <label class="ownAddstaffLabels UpdateStaffStypeLabel">Staff Type</label>
+                                    <span class="UpdateStaffStaffType">  
+                                        <?php if ($data['sType'] == 5) echo "Service Provider"; ?> 
+                                             
+                                        <?php if ($data['sType'] == 4) echo "Receptionist"; ?> 
+                                             
+                                        <?php if ($data['sType'] == 3) echo "Manager"; ?> 
+                                             
+                                    </span>
+                                    <!-- <select name="staffType" class="dropdownselectbox" disabled>
                                         <option class="unbold" value="0" option selected="true" disabled="disabled">
                                             Select</option>
                                         <option value=5
@@ -118,7 +113,7 @@
                                         <option value=3
                                             <?php if ($data['sType'] == 3) echo 'selected'; ?>>Manager
                                         </option>
-                                    </select>
+                                    </select> -->
                                 </div>
                             </div>
                         </div>
