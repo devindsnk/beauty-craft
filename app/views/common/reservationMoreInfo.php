@@ -22,7 +22,7 @@
 
             <div class="date-status">
                <span class="date">
-                  <?php echo DateTimeExtended::convertToFullFormatDate($data["date"]); ?>
+                  <?php echo DateTimeExtended::dateToShortMonthFormat($data["date"], "X"); ?>
                </span>
                <?php
                $statusClassList = ["status-error-red", "status-blue", "status-success-green", "status-grey", "status-grey", "status-warning-yellow"];

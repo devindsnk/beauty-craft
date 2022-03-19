@@ -117,11 +117,11 @@ class OwnDashboard extends Controller
       $result1 = $this->ratesModel->getLeaveLimitsDetails();
       $result2 = $this->ratesModel->getSalaryRateDetails();
       $result3 = $this->ratesModel->getCommissionRateDetails();
-      $result4 = $this->ratesModel->getMinimumNumberOfManagers();
+      // $result4 = $this->ratesModel->getMinimumNumberOfManagers();
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
-
+// die("rates called");
          $data = [
             'generalLeave' => trim($_POST['generalLeave']),
             'medicalLeave' => trim($_POST['medicalLeave']),
@@ -143,17 +143,17 @@ class OwnDashboard extends Controller
             'serviceProviderSalaryRate_error' => '',
             'receptionistSalaryRate_error' => '',
 
-            'minimumNumber' =>  trim($_POST['minimumNumber']),
-            'minimumNumber_error' => '',
+            // 'minimumNumber' =>  trim($_POST['minimumNumber']),
+            // 'minimumNumber_error' => '',
 
             'rate' =>  trim($_POST['rate']),
             'rate_error' => '',
 
             //is this neeeded to add here 
-            'leaveLimits' => $result1[0],
-            'salaryRates' => $result2[0],
-            'commissionRates' => $result3[0],
-            'minimumNoOfManagers' => $result4[0],
+            // 'leaveLimits' => $result1[0],
+            // 'salaryRates' => $result2[0],
+            // 'commissionRates' => $result3[0],
+            // 'minimumNoOfManagers' => $result4[0],
          ];
          if ($_POST['action'] == "saveLeaveLimits")
          {
@@ -199,6 +199,7 @@ class OwnDashboard extends Controller
             )
             {
                $this->ratesModel->updateLeaveLimitDeatils($data);
+               Toast::setToast(1, "Leave Limit Successfully Updated!", "");
                $this->view('owner/own_rates', $data);
             }
             else
@@ -226,7 +227,9 @@ class OwnDashboard extends Controller
             }
             if (empty($data['managerSalaryRate_error']) && empty($data['serviceProviderSalaryRate_error']) && empty($data['receptionistSalaryRate_error']))
             {
+               
                $this->ratesModel->updateSalaryRateDetails($data);
+               Toast::setToast(1, "Salary Rate Successfully Updated!", "");
                $this->view('owner/own_rates', $data);
             }
             else
@@ -237,41 +240,45 @@ class OwnDashboard extends Controller
 
          if ($_POST['action'] == "saveCommissionRate")
          {
-            $data = [
-               'rate' => trim($_POST['rate']),
-               'rate_error' => '',
-            ];
+            // $data = [
+            //    'rate' => trim($_POST['rate']),
+            //    'rate_error' => '',
+            // ];
             if (empty($data['rate']))
             {
                $data['rate_error'] = "Please insert a image";
             }
             if (empty($data['rate_error']))
             {
+               print_r($data);
+               // die("if called");
                $this->ratesModel->updateCommissionRateDetails($data);
+               Toast::setToast(1, "Commision Rate Successfully Updated!", "");
                $this->view('owner/own_rates', $data);
             }
             else
             {
+               // die("else called");
                $this->view('owner/own_rates', $data);
             }
          }
 
-         if ($_POST['action'] == "saveMinimumNumberOfManagers")
-         {
-            if (empty($data['minimumNumber']))
-            {
-               $data['minimumNumber_error'] = "Please insert a image";
-            }
-            if (empty($data['minimumNumber_error']))
-            {
-               $this->ratesModel->updateMinimumNumberOfManagers($data);
-               $this->view('owner/own_rates', $data);
-            }
-            else
-            {
-               $this->view('owner/own_rates', $data);
-            }
-         }
+         // if ($_POST['action'] == "saveMinimumNumberOfManagers")
+         // {
+         //    if (empty($data['minimumNumber']))
+         //    {
+         //       $data['minimumNumber_error'] = "Please insert a image";
+         //    }
+         //    if (empty($data['minimumNumber_error']))
+         //    {
+         //       $this->ratesModel->updateMinimumNumberOfManagers($data);
+         //       $this->view('owner/own_rates', $data);
+         //    }
+         //    else
+         //    {
+         //       $this->view('owner/own_rates', $data);
+         //    }
+         // }
       }
       else
       {
@@ -300,8 +307,8 @@ class OwnDashboard extends Controller
             'rate' => $result3[0]->rate,
             'rate_error' => '',
 
-            'minimumNumber' => $result4[0]->minimumNumber,
-            'minimumNumber_error' => '',
+            // 'minimumNumber' => $result4[0]->minimumNumber,
+            // 'minimumNumber_error' => '',
          ];
          $this->view('owner/own_rates', $data);
       }

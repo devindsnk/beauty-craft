@@ -32,7 +32,7 @@
 
          <!--Sidebar Item-->
          <li class="mainOption menuOption">
-            <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="<?php echo URLROOT ?>/SerProvDashboard/reservations">
+            <a class="optionLink <?php if ($selectedMain == "Reservations") echo " selected" ?>" href="<?php echo URLROOT ?>/SerProvDashboard/reservations/all/all/all">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-tasks"></i>
                </div>

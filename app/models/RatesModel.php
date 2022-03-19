@@ -23,24 +23,27 @@ class RatesModel extends Model
 
    public function getLeaveLimitsDetails()
    {
-      $result = $this->getResultSet('leavelimits', '*', null);
+      // $result = $this->getResultSet('leavelimits', '*', null);
+      $result = $this->customQuery("SELECT * FROM leavelimits ORDER BY changedDate DESC LIMIT 1");
       return $result;
    }
    public function getSalaryRateDetails()
    {
-      $result = $this->getResultSet('salaryrates', '*', null);
+      // $result = $this->getResultSet('salaryrates', '*', null);
+      $result = $this->customQuery("SELECT * FROM salaryrates ORDER BY changedDate DESC LIMIT 1");
       return $result;
    }
 
    public function getCommissionRateDetails()
    {
-      $result = $this->getResultSet('commissionrates', '*', null);
+      // $result = $this->getResultSet('commissionrates', '*', null);
+      $result = $this->customQuery("SELECT * FROM commissionrates ORDER BY changedDate DESC LIMIT 1");
       return $result;
    }
 
-   public function getMinimumNumberOfManagers()
-   {
-      $result = $this->getResultSet('minimumnumberofmanagers', '*', null);
-      return $result;
-   }
+   // public function getMinimumNumberOfManagers()
+   // {
+   //    $result = $this->getResultSet('minimumnumberofmanagers', '*', null);
+   //    return $result;
+   // }
 }

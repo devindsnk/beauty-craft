@@ -93,4 +93,23 @@ class ReceptDashboard extends Controller
    {
       $this->view('common/reservationMoreInfo');
    }
+   public function test()
+   {
+      $curDate =  "2022-01-10"; //DateTimeExtended::getCurrentDate();
+      $toDate = date('Y-m-d', strtotime($curDate . ' + 3 days'));;
+
+      var_dump($curDate);
+      var_dump($toDate);
+
+      $sProviders = $this->staffModel->getSProvidersWithLeaveStatusByDate($curDate);
+
+      $pendingReservations = $this->reservationModel->getPendingReservationsByDate($curDate, $toDate);
+
+      $data = [
+         'sProviders' => $sProviders,
+         'pendingReservations' => $pendingReservations
+      ];
+
+      $this->view("receptionist/recept_test", $data);
+   }
 }
