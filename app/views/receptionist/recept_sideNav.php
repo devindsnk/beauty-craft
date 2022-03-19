@@ -105,6 +105,17 @@
          </li>
          <!--End Sidebar Item-->
 
+         <!--Sidebar Item-->
+         <li class="mainOption menuOption">
+            <a class="optionLink <?php if ($selectedMain == "Test") echo " selected" ?>" href="<?php echo URLROOT ?>/ReceptDashboard/test">
+               <div class="optionIcon">
+                  <i class="sidenav-icon ci-save-remove "></i>
+               </div>
+               <div class="optionTitle">Test</div>
+            </a>
+         </li>
+         <!--End Sidebar Item-->
+
       </ul>
       <!--End Sidebar Menu-->
    </nav>

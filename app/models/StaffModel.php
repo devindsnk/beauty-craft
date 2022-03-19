@@ -34,14 +34,14 @@ class StaffModel extends Model
    }
 
 
-   public function getAllStaffWithFilters($sType,$status)
-   { 
+   public function getAllStaffWithFilters($sType, $status)
+   {
       // die("model called");
-      $conditions = array(); 
- 
+      $conditions = array();
+
       // Extract specially defined conditions to a separate array 
       // Note that both tableName and columnName are used as the keys 
-      if ($sType != "all") $conditions["staff.staffType"] = $sType; 
+      if ($sType != "all") $conditions["staff.staffType"] = $sType;
       // if ($sName != "all") $conditions["staff.staffname"] = $sName; 
       if ($status != "all") $conditions["staff.status"] = $status;
 
@@ -168,6 +168,24 @@ class StaffModel extends Model
    // FOR MANAGER OVERVIEW
 
    ///// Methods added by devin ////
+   public function getSProvidersWithLeaveStatusByDate($selectedDate)
+   {
+      $SQLstatement =
+         "SELECT STAFF.staffID, STAFF.fName, STAFF.lName, STAFF.mobileNo, STAFF.imgPath, GLEAVES.status AS leaveStatus
+         FROM staff AS STAFF 
+         LEFT JOIN generalleaves AS GLEAVES 
+         ON GLEAVES.staffID = STAFF.staffID AND GLEAVES.leaveDate = :selectedDate AND GLEAVES.status IN (1,2)
+         WHERE STAFF.status = 1 ;";
+
+      $results = $this->customQuery(
+         $SQLstatement,
+         [
+            ":selectedDate" => $selectedDate
+         ]
+      );
+      return $results;
+   }
+
    // Returns the data of service providers of a given service with their availability on the give date.
    public function getSProvidersByServiceWithLeaveStatus($serviceID, $selectedDate)
    {
