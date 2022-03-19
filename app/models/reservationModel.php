@@ -41,8 +41,7 @@ class ReservationModel extends Model
          array_push($preparedConditions, "$column = :$colName");
          $dataToBind[":$colName"] = $value;
       }
-
-      $consditionsString = implode(" AND ", $preparedConditions); // Joining conditions with AND
+      $conditionsString = implode(" AND ", $preparedConditions); // Joining conditions with AND
 
       $SQLstatement =
          "SELECT reservations.reservationID, customers.fName AS custFName, customers.lName AS custLName, staff.fName AS staffFName, staff.lName AS staffLName, reservations.remarks, reservations.status, reservations.date, reservations.startTime, services.name AS serviceName
@@ -52,9 +51,9 @@ class ReservationModel extends Model
          INNER JOIN services ON services.serviceID = reservations.serviceID";
 
       // Appending conditions string
-      if (!empty($conditions)) $SQLstatement .= " WHERE $consditionsString";
+      if (!empty($conditions)) $SQLstatement .= " WHERE $conditionsString";
 
-      $SQLstatement .= " ORDER BY reservations.date, reservations.startTime, reservations.reservationID  ASC";
+      $SQLstatement .= " ORDER BY reservations.date DESC, reservations.startTime ASC, reservations.reservationID ASC";
 
       $results = $this->customQuery($SQLstatement,  $dataToBind);
       return $results;
@@ -666,10 +665,35 @@ class ReservationModel extends Model
    }
    // END FOR ANALYTICS
 
+   public function getPendingReservationsByDate($fromDate, $toDate)
+   {
+      $SQLquery =
+         "SELECT reservations.reservationID, 
+              customers.fName AS custFName, 
+              customers.lName AS custLName, 
+              customers.mobileNo AS custMobileNo,
+              staff.fName AS staffFName, 
+              staff.lName AS staffLName,
+              reservations.date, 
+              reservations.startTime, 
+              services.name AS serviceName
+      FROM reservations
+      INNER JOIN customers ON customers.customerID = reservations.customerID
+      INNER JOIN staff ON staff.staffID = reservations.staffID
+      INNER JOIN services ON services.serviceID = reservations.serviceID
+      WHERE reservations.date > :fromDate AND reservations.date <=  :toDate AND reservations.status = 1 ;";
+
+      $results = $this->customQuery(
+         $SQLquery,
+         [
+            ':fromDate' => $fromDate,
+            ':toDate' => $toDate
+         ]
+      );
+      return $results;
+   }
 
    // Function related to recall requests
-
-
    public function updateReservationRecalledState($selectedreservation, $status)
    {
       if (is_array($selectedreservation))

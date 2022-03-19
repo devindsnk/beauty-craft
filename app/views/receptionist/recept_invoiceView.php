@@ -36,7 +36,7 @@
                         </div>
                         <div class="column">
                             <div class="text-group">
-                                <label for="">Amount</label>
+                                <label for="">Amount (LKR)</label>
                                 <p><?php echo $data->amount ?></p>
                             </div>
                         </div>
@@ -61,15 +61,15 @@
                         <!-- displaying refund basic data  -->
                         <span>Refund Created by</span>
                         <span class="highlighted"> <?php echo $data->refRecept ?></span><br>
-                        <span>on </span> <span class="highlighted">24th Aug 2021 <?php echo $data->refDateTime ?> </span>
-                        <span>at </span> <span class="highlighted">11:23 AM <?php echo $data->refDateTime ?></span><br>
+                        <span>on </span> <span class="highlighted"><?php echo DateTimeExtended::dateToShortMonthFormat($data->refDateTime, "F") ?></span>
+                        <span>at </span> <span class="highlighted"><?php echo DateTimeExtended::dateToShortMonthFormat($data->refDateTime, "T") ?></span><br>
                         <span>for the payment invoice </span> <span class="highlighted">Pay_<?php echo $data->paymentInvoiceNo ?></span>
                     <?php else : ?>
                         <!-- displaying payment basic data  -->
                         <span>Payment received by</span>
                         <span class="highlighted"> <?php echo $data->refRecept ?></span><br>
-                        <span>on </span> <span class="highlighted">24th Aug 2021 <?php echo $data->payDateTime ?> </span>
-                        <span>at </span> <span class="highlighted">11:23 AM <?php echo $data->payDateTime ?></span>
+                        <span>on </span> <span class="highlighted"><?php echo DateTimeExtended::dateToShortMonthFormat($data->payDateTime, "F") ?> </span>
+                        <span>at </span> <span class="highlighted"><?php echo DateTimeExtended::dateToShortMonthFormat($data->payDateTime, "T") ?></span>
                     <?php endif; ?>
                 </div>
 
@@ -80,8 +80,8 @@
                     <div class="summary">
                         <span>Refund Created by</span>
                         <span class="highlighted"> <?php echo $data->refRecept ?></span><br>
-                        <span>on </span> <span class="highlighted">24th Aug 2021 <?php echo $data->refDateTime ?> </span>
-                        <span>at </span> <span class="highlighted">11:23 AM <?php echo $data->refDateTime ?></span><br>
+                        <span>on </span> <span class="highlighted"><?php echo DateTimeExtended::dateToShortMonthFormat($data->refDateTime, "F") ?></span>
+                        <span>at </span> <span class="highlighted"><?php echo DateTimeExtended::dateToShortMonthFormat($data->refDateTime, "T") ?></span><br>
                     </div>
                 <?php endif; ?>
 
@@ -94,15 +94,15 @@
                         <?php if ($data->type == 0) : ?>
                             <span>Refund Cancelled by</span>
                             <span class="highlighted"> Store name and get it here</span><br>
-                            <span>on </span> <span class="highlighted">(Date) <?php echo $data->voidDateTime ?> </span>
-                            <span>at </span> <span class="highlighted">(Time) <?php echo $data->voidDateTime ?></span>
+                            <span>on </span> <span class="highlighted"> <?php echo DateTimeExtended::dateToShortMonthFormat($data->voidDateTime, "F") ?> </span>
+                            <span>at </span> <span class="highlighted"><?php echo DateTimeExtended::dateToShortMonthFormat($data->voidDateTime, "T") ?></span>
 
                             <!-- its a payment invoice  -->
                         <?php else : ?>
                             <span>Payment Cancelled by</span>
                             <span class="highlighted"> Store name and get it here</span><br>
-                            <span>on </span> <span class="highlighted">(Date) <?php echo $data->voidDateTime ?> </span>
-                            <span>at </span> <span class="highlighted">(Time) <?php echo $data->voidDateTime ?></span>
+                            <span>on </span> <span class="highlighted"><?php echo DateTimeExtended::dateToShortMonthFormat($data->voidDateTime, "F") ?> </span>
+                            <span>at </span> <span class="highlighted"><?php echo DateTimeExtended::dateToShortMonthFormat($data->voidDateTime, "T") ?></span>
                         <?php endif; ?>
                     </div>
 
@@ -123,7 +123,7 @@
                         <div class="column">
                             <div class="text-group">
                                 <label for="">Date & TIme</label>
-                                <p><?php echo $data->resDate . " " . $data->resTime; ?></p>
+                                <p><?php echo DateTimeExtended::dateToShortMonthFormat($data->resDate, "X") . " - " . DateTimeExtended::minsToTime($data->resTime); ?></p>
                             </div>
                         </div>
                     </div>

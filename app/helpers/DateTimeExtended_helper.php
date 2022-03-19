@@ -23,13 +23,13 @@ class DateTimeExtended
       return date('H:i:s', time());
    }
 
-   public static function convertToFullFormatDate($datetime)
-   {
-      $timestamp = strtotime($datetime);
-      $date =  date('l, jS F o',  $timestamp);
+   // public static function convertToFullFormatDate($datetime)
+   // {
+   //    $timestamp = strtotime($datetime);
+   //    $date =  date('l, jS F o',  $timestamp);
 
-      return $date;
-   }
+   //    return $date;
+   // }
 
 
    public static function dateToShortMonthFormat($datetime, $flag)
@@ -43,8 +43,12 @@ class DateTimeExtended
             return date('M',  $timestamp);
          case "Y":
             return date('o',  $timestamp);
+         case "T":
+            return date('h:i A',  $timestamp);     // Format : 11:30 AM
          case "F":
-            return date('M j, o',  $timestamp); // Format Example: Dec 31, 2021
+            return date('M j, o',  $timestamp);    // Format : Dec 31, 2021
+         case "X":
+            return date('l, jS F o',  $timestamp); // Format : Wednesday, 12th January 2022
       }
    }
 
@@ -56,8 +60,6 @@ class DateTimeExtended
       $minsDiff = round((strtotime($toTime) - strtotime($fromTime)) / 60, 0);
       $secDiff = (strtotime($toTime) - strtotime($fromTime)) % 60;
 
-      // echo $toTime;
-      // echo $fromTime;
       return [$minsDiff, $secDiff];
    }
 
