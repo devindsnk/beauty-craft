@@ -36,7 +36,7 @@ function(){
 
 function checkforUpcomingReservations(staffID,staffMobileNo){
     fetch(`http://localhost:80/beauty-craft/Staff/getAllReservtaionDetailsByStaffID/${staffID}`)
-     .then(response => response.json())
+     .then(response => response.json()) 
      .then( reservations => {
         console.log("checkforUpcomingReservations");
         reservationD = reservations;
@@ -65,18 +65,18 @@ function checkforUpcomingReservations(staffID,staffMobileNo){
             if (this.checked) {
         // Link creation to remove staff member with recall request (after tick the checked box) reservation count greater than zero
               SendResRecallByResIDs(ress,ressReason);
-            } else {
+            } else { 
         // Link creation to remove staff member without recall request (after untick the checked box) reservation count greater than zero
              RemoveStaffBtnAnchorTag.href = "http://localhost:80/beauty-craft/Staff/RemoveStaff/" + staffID + "/" + staffMobileNo;
-            }
-          });
+            } 
+          }); 
       } 
       else 
       { 
           console.log("Url to remove the staff member without recall requests");
           RemoveStaffReservationDiv.style.display = "none";
         RemoveStaffBtnAnchorTag.href = "http://localhost:80/beauty-craft/Staff/RemoveStaff/" + staffID + "/" + staffMobileNo;
-      }
+      } 
     
      });
 }
@@ -84,10 +84,10 @@ function checkforUpcomingReservations(staffID,staffMobileNo){
 
 
 function SendResRecallByResIDs(ress,ressReason){
-  console.log('recall2');
+  console.log(ress);
   RemoveStaffProceedBtn.addEventListener('click',
   function () {
-    fetch(`http://localhost:80/beauty-craft/Reservations/recallReservationsFromUpdateService/${ress}/${ressReason}`)
+    fetch(`http://localhost:80/beauty-craft/Reservations/recallReservationsFromUpdateServiceStaff/${ress}/${ressReason}`)
     .then()
   }
   )

@@ -42,21 +42,21 @@
             <div class="column">
                <div class="text-group">
                   <label class="label" for="fName">Resource Type</label>
-                  <input type="text" name="" id="fName" placeholder="Resource name here">
+                  <input type="text" name="" id="resourceNameInput" placeholder="Resource name here">
                </div>
                <span class="error"> <?php echo " "; ?></span>
             </div>
             <div class="column">
                <div class="text-group">
                   <label class="label" for="fName">Resource ID</label>
-                  <input type="text" name="" id="fName" placeholder="Resource ID here">
+                  <input type="text" name="" id="resourceIDInput" placeholder="Resource ID here">
                </div>
                <span class="error"> <?php echo " "; ?></span>
             </div>
          </div>
       </div>
       <div class="right-section">
-         <a href="" class="btn btn-filled btn-black">Search</a>
+         <a href="" class="btn btn-filled btn-black" id="allResourcesFilterBtn">Search</a>
          <!-- <button class="btn btn-search">Search</button> -->
       </div>
    </div>
@@ -108,7 +108,7 @@
     <!--End Content-->
 
 <script src="<?php echo URLROOT ?>/public/js/fetchRequests/resources.js"></script>
-
+<script src="<?php echo URLROOT ?>/public/js/filters.js"></script>
 
 <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 

@@ -44,7 +44,16 @@
                             <span class="ownViewStaffProfileDetailsName"><?php echo $data->fName ?>
                                 <?php echo $data->lName; ?></span> <br>
                             <span class="ownViewStaffProfileDetailsStaffId">Staff ID :
-                                <?php echo $data->staffID; ?></span>
+                                <?php echo $data->staffID; ?></span> <br> 
+                            <span class="ownViewStaffProfileStatus .table1">
+                                <?php if ($data->status == 0) : ?>
+                              <button type="button" class="status-btn text-uppercase red"> Removed </button>
+                           <?php elseif ($data->status == 1) : ?>
+                              <button type="button" class="status-btn text-uppercase green"> Active </button>
+                           <?php elseif ($data->status == 2) : ?>
+                              <button type="button" class="status-btn text-uppercase yellow"> Disabled </button>
+                           <?php endif; ?>
+                        </span>
                         </div>
                     </div>
                 </div>

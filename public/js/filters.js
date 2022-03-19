@@ -206,17 +206,37 @@ const allStaffFilterBtn = document.getElementById("allStaffFilterBtn");
 if (allStaffFilterBtn) {
     allStaffFilterBtn.addEventListener("click", () => {
         const sTypeSelector = document.getElementById("sTypeSelector");
-        // const staffSelector = document.getElementById("staffSelector");
+        const staffNameSelector = document.getElementById("staffNameSelector");
         const statusSelector = document.getElementById("statusSelector");
-
+     
         let sTypeSelected = sTypeSelector.value;
         let staffNameSelected = staffNameSelector.value;
+        console.log(staffNameSelected);
         let statusSelected = statusSelector.value;
 
-        window.location.replace(`http://localhost:80/beauty-craft/Staff/viewAllStaffMembers/${sTypeSelected}/${statusSelected}`);
+        window.location.replace(`http://localhost:80/beauty-craft/Staff/viewAllStaffMembers/${sTypeSelected}/${statusSelected}/${staffNameSelected}`);
     });
 }
 
+//************ Filters of Resources table ***************//
+
+const allResourcesFilterBtn = document.getElementById("allResourcesFilterBtn");
+// console.log("hi staff filters");
+if (allResourcesFilterBtn) {
+    allResourcesFilterBtn.addEventListener("click", () => {
+        const resourceNameInput = document.getElementById("sTypeSelector");
+        const resourceIDInput = document.getElementById("staffNameSelector");
+        // const statusSelector = document.getElementById("statusSelector");
+     
+        let resourceNameInputTyped = resourceNameInput.value;
+        let resourceIDInputTyped = resourceIDInput.value;
+        console.log(resourceNameInputTyped);
+        console.log(resourceIDInputTyped);
+        // let statusSelected = statusSelector.value;
+
+        window.location.replace(`http://localhost:80/beauty-craft/Resources/viewAllResources/${resourceNameInputTyped}/${resourceIDInputTyped}`);
+    });
+}
 
 
 //************ Filters of Staff members salary table ***************//

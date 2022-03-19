@@ -3,8 +3,8 @@ class ResourceModel extends Model
 {
    public function addResourceType($data)
    {
+      // die("resource type add model called");
       $this->insert('resources', ['name' => $data['name']]);
-      $this->update('resources', ['status' => 0], ['name' => $data['name']]);
    }
 
    public function getCountsOfAllResources()
@@ -100,4 +100,10 @@ class ResourceModel extends Model
       $results = $this->getSingle('purchaserecords', '*',  ['purchaseID' => $purchaseID]);
       return $results;
    }
+   public function getRsourceTypeByResourceID($resourceID)
+   {
+      $results = $this->getSingle('resources', '*',  ['resourceID' => $resourceID]);
+      return $results;
+   }
+
 }

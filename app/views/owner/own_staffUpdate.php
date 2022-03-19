@@ -32,15 +32,17 @@
                             <h3 clas s="ownAddstaffBasicinfoSubHead">Basic Info</h3> <br>
                             <!------------------ maingrid1 start --------------------------------------------------------->
                             <div class="ownAddstaffMaingrid1">
-
                                 <div class="ownAddstaffFormGroupImage">
                                     <div class="ownAddstaffBasicinfoFilesubBtn">
-                                        <label for="ownAddstaffBasicinfoImagesub"
-                                            class="ownAddstaffBasicinfoImagewrapper">
-                                            <input type="file" name="staffimage" id="ownAddstaffBasicinfoImagesub">
-                                            <img src="<?php echo URLROOT ?>/public/icons/add_graph_report_64px.png"
-                                                class="ownAddstaffBasicinfoIcon"> <br>
-                                            <span class="ownAddstaffBasicinfoImagetitle">Add Image</span>
+                                        <label for="ownAddstaffBasicinfoImagesub" class="ownAddstaffBasicinfoImagewrapper">
+                                            <input type="file" accept="image/*" name="imgPath" id="ownAddstaffBasicinfoImagesub" onchange="loadFile(event)" />
+                                            <?php if ($data['imgPath'] == '' || $data['staffimagePath_error']) : ?>
+                                                <img src="<?php echo URLROOT ?>/public/icons/AddImg.png" class="ownAddstaffBasicinfoIcon" id='profileImg' height="160px" width="160px" borderRadious='50%'> <br>
+
+                                            <?php elseif ($data['imgPath']) : ?>
+                                                <img src="<?php echo URLROOT ?>/public/imgs/staffImgs/<?php echo $data['imgPath']; ?> " class="ownAddstaffBasicinfoIcon" id='profileImg' height="160px" width="160px" borderRadious='50%'> <br>
+                                            <?php endif; ?>
+
                                         </label>
                                     </div>
                                     <span class="error"><?php echo $data['staffimagePath_error']; ?></span>
@@ -64,10 +66,10 @@
                                     <label class="ownAddstaffLabels">Gender</label>
                                     <div class="ownAddstaffBasicinfoRadiowrapper">
 
-                                        <input type="radio" name="gender" id="option-1" value="M"
+                                        <input type="radio" name="gender" class="genderMale" id="option-1" value="M"
                                             <?php if ($data['gender'] == 'M') echo 'checked'; ?>>
                                         <label for="option1"> Male</label> <br>
-                                        <input type="radio" name="gender" id="option-2" value="F"
+                                        <input type="radio" name="gender" class="genderFemale" id="option-2" value="F"
                                             <?php if ($data['gender'] == 'F') echo 'checked'; ?>>
                                         <label for="option2">Female</label>
                                         <br>
@@ -77,7 +79,7 @@
                                 </div>
                                 <div class="ownAddstaffFormGroupNIC">
                                     <label class="ownAddstaffLabels">NIC</label>
-                                    <input type="text" name="nic" id="NIC" value="<?php echo $data['nic']; ?>">
+                                    <input type="text" name="nic" id="NIC"class="staffNIC" value="<?php echo $data['nic']; ?>">
                                     <span class="error"><?php echo $data['nic_error']; ?></span>
                                 </div>
                             </div>
@@ -90,20 +92,28 @@
                                     <span class="error"><?php echo $data['dob_error']; ?></span>
                                 </div>
                                 <div class="ownAddstaffFormGroupStype">
-                                    <label class="ownAddstaffLabels">Staff Type</label>
-                                    <select name="staffType" class="dropdownselectbox" disabled>
+                                    <label class="ownAddstaffLabels UpdateStaffStypeLabel">Staff Type</label>
+                                    <span class="UpdateStaffStaffType">  
+                                        <?php if ($data['sType'] == 5) echo "Service Provider"; ?> 
+                                             
+                                        <?php if ($data['sType'] == 4) echo "Receptionist"; ?> 
+                                             
+                                        <?php if ($data['sType'] == 3) echo "Manager"; ?> 
+                                             
+                                    </span>
+                                    <!-- <select name="staffType" class="dropdownselectbox" disabled>
                                         <option class="unbold" value="0" option selected="true" disabled="disabled">
                                             Select</option>
                                         <option value=5
-                                            <?php if ($data['staffdetails']->staffType == 5) echo 'selected'; ?>>Service
+                                            <?php if ($data['sType'] == 5) echo 'selected'; ?>>Service
                                             Provider</option>
                                         <option value=4
-                                            <?php if ($data['staffdetails']->staffType == 4) echo 'selected'; ?>>
+                                            <?php if ($data['sType'] == 4) echo 'selected'; ?>>
                                             Receptionist</option>
                                         <option value=3
-                                            <?php if ($data['staffdetails']->staffType == 3) echo 'selected'; ?>>Manager
+                                            <?php if ($data['sType'] == 3) echo 'selected'; ?>>Manager
                                         </option>
-                                    </select>
+                                    </select> -->
                                 </div>
                             </div>
                         </div>
@@ -210,5 +220,5 @@
         </div>
 
     </div>
-
+    <script src="<?php echo URLROOT ?>/public/js/ownAutoFillDOB.js"></script>
     <?php require APPROOT . "/views/inc/footer.php" ?>
