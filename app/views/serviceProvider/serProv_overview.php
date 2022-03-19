@@ -19,7 +19,7 @@
 
         <!--sub-container1-card 1-->
         <div class="container1-card card">
-            <div class="options-container left">
+            <!-- <div class="options-container left">
                 <div class="sub-container1-card-content res">
                     <div class="mainsection">
 
@@ -29,7 +29,7 @@
 
                             <input class="selecteddate" type="date" id="date_input" value="" />
                             <a href="#" class="next round">&#8250;</a>
-                            <!-- <input type="button" value="Get Weekday" onclick="day_of_week()" /> -->
+                            
                         </form>
                         <div class="day" id="output"><?php echo date("l"); ?></div>
                         <span class="date-error-test">
@@ -38,11 +38,12 @@
                         </span>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="sub-container1-card-content">
-                <div class="sub-container1-card-title">Completed</div>
-                <div class="sub-container1-card-count">5</div>
+                <div class="sub-container1-card-title">Completed </div>
+                <div class="sub-container1-card-count"><?php print_r($data['reservationData']['comCount']); ?></div>
             </div>
+
         </div>
         <!--End sub-container1-card  1-->
         <!--sub-container2-->
@@ -53,37 +54,42 @@
             <!--sub-container2-card-->
             <div class="reservationlist">
                 <div class="scroll-area">
-                    <?php foreach ($data['reservationData'] as $reservation) : ?>
-                        <div class="sub-container2-card">
-                            <!--sub-container2-card-timetype-->
-                            <div class="sub-container2-card-ts">
-                                <span class="sub-container2-card-time"><?php echo DateTimeExtended::minsToTime($reservation->startTime) . " - " . DateTimeExtended::minsToTime($reservation->endTime); ?></span>
-                                <span class="sub-container2-card-service"><?php echo $reservation->name; ?></span>
-                            </div>
-                            <!--sub-container2-card-timetype-->
-                            <div class="sub-container2-card-name">
-                                <span class="sub-container2-card-cstname">Customer</span>
-                                <span class="name"><?php echo $reservation->fName . " " . $reservation->lName; ?></span>
-                            </div>
-                            <?php
-                            $statusClassList = ["red", "blue", "green", "grey", "grey", "yellow"];
-                            $statusValueList  = ["Cancelled", "Pending", "Confirmed", "No Show", "Completed", "Recalled"];
-                            $statusClass = $statusClassList[$reservation->status];
-                            $statusValue = $statusValueList[$reservation->status];
-                            ?>
-                            <div class="confbtn">
+                    <?php foreach ($data['reservationData']['resList'] as $reservation) : ?>
 
-                                <div class="confirm-status status-btn btn text-uppercase <?php echo $statusClass; ?>">
-                                    <span><?php echo $statusValue ?></span>
+                        <?php if ($reservation) : ?>
+                            <div class="sub-container2-card">
+                                <!--sub-container2-card-timetype-->
+                                <div class="sub-container2-card-ts">
+                                    <span class="sub-container2-card-time"><?php echo DateTimeExtended::minsToTime($reservation->startTime) . " - " . DateTimeExtended::minsToTime($reservation->endTime); ?></span>
+                                    <span class="sub-container2-card-service"><?php echo $reservation->name; ?></span>
                                 </div>
+                                <!--sub-container2-card-timetype-->
+                                <div class="sub-container2-card-name">
+                                    <span class="sub-container2-card-cstname">Customer</span>
+                                    <span class="name"><?php echo $reservation->fName . " " . $reservation->lName; ?></span>
+                                </div>
+                                <?php
+                                $statusClassList = ["red", "blue", "green", "grey", "grey", "yellow"];
+                                $statusValueList  = ["Cancelled", "Not confirmed", "Confirmed", "No Show", "Completed", "Recalled"];
+                                $statusClass = $statusClassList[$reservation->status];
+                                $statusValue = $statusValueList[$reservation->status];
+                                ?>
+                                <div class="confbtn ResType">
 
+                                    <div class="confirm-status status-btn btn text-uppercase <?php echo $statusClass; ?>">
+                                        <span><?php echo $statusValue ?></span>
+                                    </div>
+
+                                </div>
+                                <div class="sub-container2-card-link">
+                                    <button class="btnOpen btnResMoreInfo" data-id="<?php echo $reservation->reservationID; ?>">More
+                                        Info
+                                    </button>
+                                </div>
                             </div>
-                            <div class="sub-container2-card-link">
-                                <button class="btnOpen btnResMoreInfo" data-id="<?php echo $reservation->reservationID; ?>">More
-                                    Info
-                                </button>
-                            </div>
-                        </div>
+                        <?php endif ?>
+
+
                     <?php endforeach; ?>
                 </div>
 
@@ -106,7 +112,7 @@
                             </div>
                             <div class="modaldetails-status">
 
-                                <div class="moredetails-confirm-status" id="resStatus">
+                                <div class="confirm-status status-btn btn text-uppercase" id="resStatus">
                                     <span class="spn-moredetails-confirm-status"></span>
                                 </div>
 

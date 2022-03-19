@@ -11,35 +11,41 @@
    }
    public function overview()
    {
-      $rType = "all";
+      $typesOfServices = '';
+      $rDate = '';
+      $rService = '';
+      $rType = 'all';
       $view = 'overview';
-      // $this->view('serviceProvider/serProv_' . $view);
       Session::validateSession([5]);
-      $reservationData = $this->reservationModel->getReservationsByStaffIDForSpRes(Session::getUser("id"), $rType = null);
-
-      $this->provideReservationView($reservationData, $view, $rType);
+      $reservationData['resList'] = $this->reservationModel->getTodayReservationDetailsByID(Session::getUser("id"));
+      $reservationData['comCount'] = $this->reservationModel->getReservationCompleteCountByID(Session::getUser("id"));;
+      $this->provideReservationView($reservationData, $view, $rDate, $rService, $rType, $typesOfServices);
    }
 
-   public function dailyview()
-   {
-      $rType = "all";
-      $view = 'dailyview';
-      Session::validateSession([5]);
-      $reservationData = $this->reservationModel->getReservationsByStaffIDForSpRes(Session::getUser("id"), $rType = null);
-      $this->provideReservationView($reservationData, $view, $rType);
-   }
+   // public function dailyview()
+   // {
+   //    $rType = "all";
+   //    $view = 'dailyview';
+   //    Session::validateSession([5]);
+   //    $reservationData = $this->reservationModel->getReservationsByStaffIDForSpRes(Session::getUser("id"), $rType = null);
 
-   public function reservations($rType = "all")
+   //    $this->provideReservationView($reservationData, $view, $rType);
+   // }
+
+   public function reservations($rDate = "all", $rService = "all", $rType = "all")
    {
+
       $view = 'reservations';
       Session::validateSession([5]);
-      $reservationData = $this->reservationModel->getReservationsByStaffIDForSpRes(Session::getUser("id"), $rType);
-      $this->provideReservationView($reservationData, $view, $rType);
+      $typesOfServices = $this->reservationModel->getReservationNamesByStaffID(Session::getUser("id"));
+      $reservationData = $this->reservationModel->getReservationsByStaffIDForSpRes(Session::getUser("id"), $rDate, $rService, $rType);
+      $data = [];
+      $this->provideReservationView($reservationData, $view, $rDate, $rService, $rType, $typesOfServices);
    }
 
 
 
-   public function provideReservationView($reservationData, $view, $rType)
+   public function provideReservationView($reservationData, $view, $rDate, $rService, $rType, $typesOfServices)
    {
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
@@ -53,6 +59,9 @@
             'recallReason' => '',
             'recallReason_error' => '',
             'rType' => $rType,
+            'rDate' => $rDate,
+            'rService' => $rService,
+            'rServiceList' => $typesOfServices,
          ];
 
          if ($_POST['action'] == 'moreInfo')
@@ -149,9 +158,14 @@
             'recallReason' => '',
             'recallReason_error' => '',
             'rType' => $rType,
+            'rDate' => $rDate,
+            'rService' => $rService,
+            'rServiceList' => $typesOfServices,
 
 
          ];
+         // print_r($data);
+         // die();
          $this->view('serviceProvider/serProv_' . $view, $data);
       }
    }
@@ -168,9 +182,21 @@
    public function getReservationDetailsByID($selectedReservation)
    {
       $reservationData = $this->reservationModel->getReservationMoreInfoByID($selectedReservation);
+      // $int_val = (int)$reservationData['startTime'];
+      // $abc = DateTimeExtended::minsToTime($int_val);
+      // $eTime = DateTimeExtended::minsToTime(850);
+      // $reservationMoreViewData = [
+      //    'reservationData' => $reservationData,
+      //    'sTime' => $sTime,
+      //    'eTime' => $eTime,
+
+      // ];
+
 
       header('Content-Type: application/json; charset=utf-8');
+      // echo (json_encode($reservationMoreViewData));
       echo (json_encode($reservationData));
+
       exit;
    }
 
@@ -194,5 +220,25 @@
 
       header('Content-Type: application/json; charset=utf-8');
       echo (json_encode($selectedReservation));
+   }
+
+   public function recallReservation($selectedReservation)
+   {
+      $recallData = $this->reservationModel->getReservationRecallDataByID($selectedReservation);
+      header('Content-Type: application/json; charset=utf-8');
+      echo (json_encode($recallData));
+   }
+
+   public function sendRecallRequest($selectedReservation, $reason)
+   {
+      // header('Content-Type: application/json; charset=utf-8');
+      // echo (json_encode($selectedReservation));
+      // $recallData = $this->reservationModel->addReservationRecallRequestSP($selectedReservation, $reason);
+
+
+      $this->reservationModel->updateReservationRecalledState($selectedReservation, 5);
+      $this->reservationModel->addReservationRecall($selectedReservation, $reason);
+
+      redirect('SerProvDashboard/reservations');
    }
 }

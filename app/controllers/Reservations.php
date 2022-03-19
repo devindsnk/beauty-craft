@@ -421,4 +421,17 @@ class Reservations extends Controller
    {
       $this->view('404');
    }
+
+
+   public function recallReservationsFromUpdateServiceStaff($reservationIDs, $reason)
+   {
+      // die ("recall called controller");
+      $selectedreservationList = explode(",", $reservationIDs);
+
+      $this->reservationModel->updateReservationRecalledState($selectedreservationList, 5);
+      $this->reservationModel->addReservationRecall($selectedreservationList, $reason);
+      // print_r($serviceID);
+      // die('fk');
+      //  $this->view('manager/mang_serviceUpdate', $data);
+   }
 }

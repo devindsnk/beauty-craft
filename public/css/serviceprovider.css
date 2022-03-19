@@ -37,7 +37,7 @@ justify-content: space-between;
     justify-content: center;
     align-items: center;
     background-color: white;
-    margin: 10px 50px;
+    margin: 10px 50px 10px 20px;
     padding: 8px 50px;
     width: 350px;
     height: 61px;
@@ -61,6 +61,7 @@ justify-content: space-between;
     font-size: 30px;
     text-align: center;
     display: flex;
+    margin-left: 10px;
 }
 
 .serprov .sub-content-container2 {
@@ -70,8 +71,8 @@ justify-content: space-between;
 }
 
 .serprov .topic {
-    margin-bottom: 10px;
-    /* margin-left: 50px; */
+    margin-bottom: 20px;
+    margin-top: 50px;
 }
 
 .serprov .sub-content-container2 h2 {
@@ -193,6 +194,15 @@ input.selectedReservation{
 .dropdown-group.reservation{
     width: 150px;
 }
+
+.ResType{
+    width: 150px;
+    padding: 5px 3px;
+}
+
+.resContainerTable .table2 .status-btn {
+width: 120px;
+}
 /* 
 .serprov .confirm-status.blue,.moredetails-confirm-status.blue,.recall-moredetails-confirm-status.blue {
     padding: 5px 0;
@@ -266,7 +276,7 @@ input.selectedReservation{
 @media Screen and (max-width: 1020px) {
     .sub-container2-card{
         height: 120px !important;
-        margin-left: 50px;
+        /* margin-left: 50px; */
         display: grid !important;
         grid-template-columns: 2fr 1fr;
         grid-template-rows: 3fr 1fr;
