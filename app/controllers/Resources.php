@@ -222,7 +222,6 @@ class  Resources extends Controller
             if (empty($data['name_error']))
             { 
                $this->resourceModel->addResourceType($data);
-               die("add type called");
                $data['resourceTypes'] =  $this->resourceModel->getAllRsourceTypeDetails();
                Toast::setToast(1, "Resource type added successfully", "");
                $this->view('owner/own_resourceUpdate', $data);

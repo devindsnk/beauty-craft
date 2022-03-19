@@ -66,10 +66,10 @@
                                     <label class="ownAddstaffLabels">Gender</label>
                                     <div class="ownAddstaffBasicinfoRadiowrapper">
 
-                                        <input type="radio" name="gender" id="option-1" value="M"
+                                        <input type="radio" name="gender" class="genderMale" id="option-1" value="M"
                                             <?php if ($data['gender'] == 'M') echo 'checked'; ?>>
                                         <label for="option1"> Male</label> <br>
-                                        <input type="radio" name="gender" id="option-2" value="F"
+                                        <input type="radio" name="gender" class="genderFemale" id="option-2" value="F"
                                             <?php if ($data['gender'] == 'F') echo 'checked'; ?>>
                                         <label for="option2">Female</label>
                                         <br>
@@ -79,7 +79,7 @@
                                 </div>
                                 <div class="ownAddstaffFormGroupNIC">
                                     <label class="ownAddstaffLabels">NIC</label>
-                                    <input type="text" name="nic" id="NIC" value="<?php echo $data['nic']; ?>">
+                                    <input type="text" name="nic" id="NIC"class="staffNIC" value="<?php echo $data['nic']; ?>">
                                     <span class="error"><?php echo $data['nic_error']; ?></span>
                                 </div>
                             </div>
@@ -220,5 +220,5 @@
         </div>
 
     </div>
-
+    <script src="<?php echo URLROOT ?>/public/js/ownAutoFillDOB.js"></script>
     <?php require APPROOT . "/views/inc/footer.php" ?>
