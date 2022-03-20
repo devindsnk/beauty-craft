@@ -733,6 +733,25 @@ class Services extends Controller
       $this->view('common/serviceProviderReport', count($serviceProviderList));
    }
 
+   // public function serviceProviderReportJS($smonth)
+   // {
+   //    $sProvList = $this->ServiceModel->getServiceProviderDetails();
+
+   //    $sProvReportDetails = array();
+   //    $dateOld = date_create($smonth);
+
+   //    $year = date_format($dateOld, "Y");
+   //    $month = date_format($dateOld, "m");
+
+   //    foreach ($sProvList as $sProv)
+   //    {
+   //       $sProvDetails = $this->ServiceModel->getDetailsForServiceProvReportJS($sProv->staffID, $year, $month);
+   //       array_push($sProvReportDetails, $sProvDetails);
+   //    }
+
+   //    header('Content-Type: application/json; charset=utf-8');
+   //    print_r(json_encode($sProvReportDetails));
+   // }
    public function serviceProviderReportJS($smonth)
    {
       $sProvList = $this->ServiceModel->getServiceProviderDetails();

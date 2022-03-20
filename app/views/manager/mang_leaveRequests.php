@@ -75,9 +75,10 @@
                         </div>
                     </div>
                 </div>
-
+                <?php date_default_timezone_set("Asia/Colombo");
+                $today = date("Y-m-d H:i:s"); ?>
                 <div class="leave-requests-button-div">
-                    <?php if ($data['leaveDetails']->status != 3) : ?>
+                    <?php if ($data['leaveDetails']->status != 3 && $data['leaveDetails']->leaveDate > $today) : ?>
                         <div class="">
                             <button type="submit" class="buttonLeaveRequest btn btn-filled btn-success-green" name="action" value="approve">Approve</button>
                         </div>

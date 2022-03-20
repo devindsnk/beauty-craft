@@ -143,12 +143,14 @@
                                  <a href="<?php echo URLROOT ?>/leaves/oneleaveRequest/<?php echo $leaveDetails->staffID; ?>/<?php echo $leaveDetails->leaveDate; ?>"><i class="ci-view-more table-icon img-gap"></i></a>
                               </span>
                            </td>
+                           <?php date_default_timezone_set("Asia/Colombo");
+                           $today = date("Y-m-d H:i:s"); ?>
                            <td class="column-center-align">
                               <?php if ($leaveDetails->status == 1) : ?>
                                  <a href="#"><button type="button" class="table-btn gray-action-btn">Approve</button></a>
-                              <?php elseif ($leaveDetails->status == 0 || $leaveDetails->status == 2) : ?>
+                              <?php elseif (($leaveDetails->status == 0 && $leaveDetails->leaveDate > $today) || $leaveDetails->status == 2) : ?>
                                  <a href="#"><button type="submit" class="table-btn black-action-btn" name="action" value="approve">Approve</button></a>
-                              <?php elseif ($leaveDetails->status == 3) : ?>
+                              <?php elseif ($leaveDetails->status == 3 || $leaveDetails->leaveDate < $today) : ?>
                                  <a href="#"><button type="submit" class="table-btn gray-action-btn">Approve</button></a>
                               <?php endif; ?>
                            </td>
