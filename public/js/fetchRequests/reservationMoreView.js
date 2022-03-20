@@ -37,7 +37,6 @@ function filterReservationsForSPOverview(){
 }
 
 function getReservationMoreData (selectedReservation){
-   // console.log("Function called-test");
    fetch(`http://localhost:80/beauty-craft/SerProvDashboard/getReservationDetailsByID/${selectedReservation}`)
       .then(response => response.json())
       .then(reservationData => {
@@ -51,7 +50,7 @@ function getReservationMoreData (selectedReservation){
          // document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase";
          if(reservationData['status']==5){
             statusdivText.innerHTML="Recalled";
-            document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase grey";
+            document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase yellow";
             // statusdiv.classList.add('grey');
             
          
@@ -64,11 +63,22 @@ function getReservationMoreData (selectedReservation){
             statusdivText.innerHTML="Confirmed";
             // statusdiv.classList.add('blue');
             document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase green";
+           }else if(reservationData['status']==3){
+            statusdivText.innerHTML="No Show";
+            // statusdiv.classList.add('blue');
+            document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase grey";
             
          }else if(reservationData['status']==4){
             statusdivText.innerHTML="Completed";
             // statusdiv.classList.add('green');
                         document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase grey";
+
+            
+         }
+         else if(reservationData['status']==0){
+            statusdivText.innerHTML="Cancelled";
+            // statusdiv.classList.add('green');
+                        document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase red";
 
             
          }
@@ -186,7 +196,7 @@ function recallResrvation(btn){
                 console.log(reservationData);
                recallService.innerHTML = reservationData['name'];
                recallCustName.innerHTML= reservationData['fName']+" "+reservationData['lName'];
-               document.getElementById("recallResStatus").className = "recall-moredetails-confirm-status confirm-status green";
+               document.getElementById("recallResStatus").className = "recall-moredetails-confirm-status confirm-status ";
                if(reservationData['status']==5){
                   recallStatusText.innerHTML="Recalled";
                   recallStatusDiv.classList.add('yellow');
@@ -198,6 +208,14 @@ function recallResrvation(btn){
                }else if(reservationData['status']==2){
                   recallStatusText.innerHTML="Confirmed";
                   recallStatusDiv.classList.add('green');
+
+                     }else if(reservationData['status']==3){
+                     recallStatusText.innerHTML="No Show";
+                     recallStatusDiv.classList.add('grey');
+
+                     }else if(reservationData['status']==0){
+                     recallStatusText.innerHTML="Cancelled";
+                     recallStatusDiv.classList.add('red');
                   
                }else if(reservationData['status']==4){
                   recallStatusText.innerHTML="Completed";
@@ -214,7 +232,7 @@ function recallResrvation(btn){
                const y=new Date(reservationData['date']).toLocaleString('en-us',{ year:'numeric'});
                recallYear.innerHTML = y;
 
-               if(reservationData['status']==2){
+               if(reservationData['status']!=1){
                   recallModelBtn.classList.add('btn-error-red');
                   const errormsg = document.querySelector(".recall.error");
                   errormsg.innerHTML="Already Responded,can not delete the recall request."

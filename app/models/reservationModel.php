@@ -197,6 +197,8 @@ class ReservationModel extends Model
 
       // Appending conditions string
       if (!empty($conditions)) $SQLstatement .= " WHERE $consditionsString";
+      $SQLstatement .= " ORDER BY reservations.date DESC, reservations.startTime ASC, reservations.reservationID  ASC";
+
       $results = $this->customQuery($SQLstatement,  $dataToBind);
 
       return $results;

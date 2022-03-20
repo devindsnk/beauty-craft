@@ -108,6 +108,10 @@
                                         <div class="status-btn green text-uppercase">
                                             <span>Confirmed</span>
                                         </div>
+                                    <?php elseif ($reservation->status == 3) : ?>
+                                        <div class="status-btn grey text-uppercase">
+                                            <span>No Show</span>
+                                        </div>
                                     <?php elseif ($reservation->status == 4) : ?>
                                         <div class="status-btn grey text-uppercase">
                                             <span>Completed</span>
@@ -116,6 +120,11 @@
                                         <div class="status-btn yellow text-uppercase">
                                             <span>Recalled</span>
                                         </div>
+                                    <?php elseif ($reservation->status == 0) : ?>
+                                        <div class="status-btn red text-uppercase">
+                                            <span>Cancelled</span>
+                                        </div>
+
                                     <?php endif; ?>
                                 </td>
                                 <td data-lable="Action" class="column-center-align">
@@ -219,7 +228,7 @@
                         </div>
                         <div class="Reservationnote">
                             <div class="Reservationnote-name">
-                                <span></span>
+                                <span>Recall reason</span>
                             </div>
                             <div class="Reservationnote-note editable" contenteditable="true">
 
@@ -228,7 +237,7 @@
                             <span class="recall error"> </span>
                         </div>
                         <div class="savechange">
-                            <input type="text" name="selectedReservation" class="selectedReservation">
+                            <!-- <input type="text" name="selectedReservation" class="selectedReservation"> -->
                         </div>
                         <div class="modalbutton-more">
                             <div class="more-details-modalbtnsection">
