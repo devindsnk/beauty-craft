@@ -188,15 +188,15 @@ class Services extends Controller
                //       }
                //    }
                // }
-               $selectesResCount = count($data['sSelectedResCount1']);
+               // $selectesResCount = count($data['sSelectedResCount1']);
 
-               for ($i = 0; $i < $selectesResCount; $i++)
-               {
-                  if ($data['sSelectedResCount1'][$i] != 0)
-                  {
-                     $data['sSelectedResCount1_error'] = "Please enter resource quantity again";
-                  }
-               }
+               // for ($i = 0; $i < $selectesResCount; $i++)
+               // {
+               //    if ($data['sSelectedResCount1'][$i] != 0)
+               //    {
+               //       $data['sSelectedResCount1_error'] = "Please enter resource quantity again";
+               //    }
+               // }
                $this->view('manager/mang_serviceAdd', $data);
             }
          }
