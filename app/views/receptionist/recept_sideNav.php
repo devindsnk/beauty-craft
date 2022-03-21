@@ -111,7 +111,7 @@
                <div class="optionIcon">
                   <i class="sidenav-icon ci-save-remove "></i>
                </div>
-               <div class="optionTitle">Test</div>
+               <div class="optionTitle">Daily Update</div>
             </a>
          </li>
          <!--End Sidebar Item-->

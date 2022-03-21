@@ -95,11 +95,8 @@ class ReceptDashboard extends Controller
    }
    public function test()
    {
-      $curDate =  "2022-01-10"; //DateTimeExtended::getCurrentDate();
+      $curDate =  DateTimeExtended::getCurrentDate(); //"2022-03-15"; 
       $toDate = date('Y-m-d', strtotime($curDate . ' + 3 days'));;
-
-      var_dump($curDate);
-      var_dump($toDate);
 
       $sProviders = $this->staffModel->getSProvidersWithLeaveStatusByDate($curDate);
 

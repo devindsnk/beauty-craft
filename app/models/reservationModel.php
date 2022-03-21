@@ -690,4 +690,28 @@ class ReservationModel extends Model
          $results = $this->update('reservations', ['status' => $status], ['reservationID' => $selectedreservation]);
       }
    }
+
+   public function getReservationsByDateForDailyView($givenDate)
+   {
+      $SQLquery =
+         "SELECT reservations.reservationID,
+              -- staff.fName AS staffFName, 
+              -- staff.lName AS staffLName, 
+              reservations.startTime, 
+              services.duration,
+              services.name AS serviceName
+
+      FROM reservations
+      INNER JOIN staff ON staff.staffID = reservations.staffID
+      INNER JOIN services ON services.serviceID = reservations.serviceID
+      WHERE reservations.date = :givenDate AND reservations.status IN (1,2,3,4,5) ;";
+
+      $results = $this->customQuery(
+         $SQLquery,
+         [
+            ':givenDate' => $givenDate
+         ]
+      );
+      return $results;
+   }
 }

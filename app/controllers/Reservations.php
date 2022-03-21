@@ -13,6 +13,7 @@ class Reservations extends Controller
       $this->salesModel = $this->model('SalesModel');
    }
 
+   // Get res data with filters
    public function viewAllReservations($sType = "all", $sProvider = "all", $status = "all")
    {
       Session::validateSession([2, 3, 4]);
@@ -383,6 +384,19 @@ class Reservations extends Controller
          Toast::setToast(1, "Reservation cancelled successfully", "");
       else
          Toast::setToast(0, "Reservation cancellation failed", "");
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($results));
+   }
+
+   public function confirmReservation($reservationID)
+   {
+      $results = $this->reservationModel->markReservationConfirmed($reservationID);
+
+      if ($results)
+         Toast::setToast(1, "Reservation confirmed successfully", "");
+      else
+         Toast::setToast(0, "Reservation confirmed failed", "");
 
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($results));

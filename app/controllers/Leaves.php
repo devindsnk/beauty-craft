@@ -3,7 +3,6 @@ class Leaves extends Controller
 {
    public function __construct()
    {
-
       $this->LeaveModel = $this->model('LeaveModel');
       $this->closedDatesModel = $this->model('ClosedDatesModel');
    }
@@ -27,9 +26,7 @@ class Leaves extends Controller
    }
 
    public function oneleaveRequest($staffID, $leaveDate)
-
    {
-
       $oneLeaveDetails = $this->LeaveModel->getOneLeaveDetail($staffID, $leaveDate);
       $casualCountOfRelevantMonth = $this->LeaveModel->getRelevantMonthsLeaveCount($staffID, $leaveDate, 1);
       $medicalCountOfRelevantMonth = $this->LeaveModel->getRelevantMonthsLeaveCount($staffID, $leaveDate, 2);
@@ -381,5 +378,19 @@ class Leaves extends Controller
 
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($response));
+   }
+
+   public function sProvUninformedLeaveOnDate($staffID)
+   {
+      $date =  DateTimeExtended::getCurrentDate();
+      $results = $this->LeaveModel->sProvUninformedLeave($staffID, $date);
+
+      if ($results)
+         Toast::setToast(1, "Uninformed leave marked successfully", "");
+      else
+         Toast::setToast(0, "Uninformed leave marking failed", "");
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($results));
    }
 }

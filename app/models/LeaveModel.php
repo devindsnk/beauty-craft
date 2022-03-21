@@ -453,4 +453,22 @@ class LeaveModel extends Model
       print_r($results);
       return $results;
    }
+
+   public function sProvUninformedLeave($staffID, $date)
+   {
+      $results = $this->insert(
+         'generalleaves',
+         [
+            'staffID' => $staffID,
+            'leaveDate' => $date,
+            'respondedStaffID' => "N/A",
+            'requestedDate' => "N/A",
+            'reason' => "Uninformed Leave",
+            'status' => 1,
+            'leaveType' => 1
+         ]
+      );
+
+      return $results;
+   }
 }
