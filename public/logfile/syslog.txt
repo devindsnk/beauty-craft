@@ -150,3 +150,16 @@ IP Address  Date & Time	        Mobile No	Name		            Activity
 ::1       	03/20/22 08:16AM	0703807405	Ruwanthi Munasinghe   	signout
 ::1       	03/20/22 08:17AM	0781234567	Amaya Shalani	        create customer account
 ::1       	03/20/22 08:22AM	0771234567	Jeewanthi Gamage      	create customer account
+::1       	03/20/22 08:27AM	0703807405	Ruwanthi Munasinghe   	signin
+::1       	03/20/22 10:13AM	0703807405	Ruwanthi Munasinghe   	signout
+::1       	03/20/22 10:13AM	0717679714	Naveen Dissanayake    	signin
+::1       	03/20/22 10:15AM	0717679714	Naveen Dissanayake    	signout
+::1       	03/20/22 10:17AM	0703807402	Chathuri Priyangika   	signin
+::1       	03/20/22 10:25AM	0703807402	Chathuri Priyangika   	signout
+::1       	03/20/22 10:25AM	0703807405	Ruwanthi Munasinghe   	signin
+::1       	03/20/22 06:21PM	0703807405	Ruwanthi Munasinghe   	signout
+::1       	03/20/22 06:21PM	0703807402	Chathuri Priyangika   	signin
+::1       	03/20/22 06:22PM	0703807402	Chathuri Priyangika   	signout
+::1       	03/20/22 06:22PM	0703807405	Ruwanthi Munasinghe   	signin
+::1       	03/21/22 04:00AM	0703807405	Ruwanthi Munasinghe   	signin
+::1       	03/21/22 05:19PM	0703807405	Ruwanthi Munasinghe   	signin

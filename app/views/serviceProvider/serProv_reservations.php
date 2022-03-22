@@ -89,7 +89,7 @@
                     <tbody>
                         <?php foreach ($data['reservationData'] as $reservation) : ?>
                             <tr>
-                                <td data-lable="Reservation Date" class="column-center-align"><?php echo $reservation->date; ?></td>
+                                <td data-lable="Reservation Date" class="column-center-align"><?php echo DateTimeExtended::dateToShortMonthFormat($reservation->date, "F"); ?></td>
                                 <td data-lable="Time" class="column-center-align"><?php echo DateTimeExtended::minsToTime($reservation->startTime) . " - " . DateTimeExtended::minsToTime($reservation->endTime); ?></td>
                                 <td data-lable="Service" class="column-center-align">
                                     <?php echo $reservation->name; ?>
@@ -144,7 +144,7 @@
         <!-- modal -->
         <div class="modal-container reservation-more-info">
             <div class="modal-box">
-                <h1 class="header">Reservation details</h1>
+                <h1 class="header">Reservation Details</h1>
                 <div class="modelcontent">
                     <div class="modaldetails">
                         <div class="modaldetails-name">
@@ -190,7 +190,7 @@
                     <div class="modalbutton-more">
                         <div class="more-details-modalbtnsection">
                             <button class="btn modelbtnClose normal">Close</button>
-                            <button class="btnOpen btnResRecall button proceedBtn" value="recall" onclick="recallResrvation(this);">Recall</button>
+                            <button class="btnOpen btnResRecall button proceedBtn " id="recallModelOpenBtn" value="recall" onclick="recallResrvation(this);">Recall</button>
                         </div>
                     </div>
                 </div>
@@ -243,7 +243,7 @@
                             <div class="more-details-modalbtnsection">
                                 <!-- <button class="btn  backBtn btnResMoreInfo" ">Back</button> -->
                                 <button class="btn btnBack normal" value="close">Back</button>
-                                <button class="btnOpen recall  proceedBtn btn btn-filled " value="sendRecall" onclick="proceedRecall(this);">Delete</button>
+                                <button class="btnOpen recall  proceedBtn btn btn-filled " id="recallRequestDeleteBtn" value="sendRecall" onclick="proceedRecall(this);">Delete</button>
                             </div>
                         </div>
 
@@ -269,4 +269,7 @@
 
     <!--End Content-->
     <script src="<?php echo URLROOT ?>/public/js/fetchRequests/reservationMoreview.js"></script>
+
+
+    <?php require APPROOT . "/views/inc/footer.php" ?>
     <?php require APPROOT . "/views/inc/footer.php" ?>

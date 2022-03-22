@@ -1,3 +1,7 @@
+<?php
+print_r($data);
+
+?>
 <div class="leaverequesttable">
    <div class="cardandbutton">
 
@@ -50,8 +54,8 @@
                      <label class="label" for="lName">Leave Type</label>
                      <select name="lstatus" id="lTypeLeaveData">
                         <option value="All" selected>All</option>
-                        <option value="1">Casual</option>
-                        <option value="2">Medical</option>
+                        <option value="1" <?php echo ($data["lType"] ==  1) ? "selected" : ""; ?>>Casual</option>
+                        <option value="2" <?php echo ($data["lType"] ==  2) ? "selected" : ""; ?>>Medical</option>
 
                      </select>
                   </div>
@@ -358,24 +362,20 @@
    <!-- end view leave Request -->
 </div>
 
-<!-- <script>
-   var textWrapper = document.querySelector('.error .request-date-error');
+<script language="javascript">
+   const datePicker = document.getElementById("takeLeaveDate");
 
+   let today = new Date().toISOString().split('T')[0];
+   let maxDate = new Date();
+   month = new Date().getMonth();
+   maxDate.setMonth(maxDate.getMonth() + 2);
+   maxDate = maxDate.toISOString().split('T')[0];
 
-   anime.timeline({
-         loop: true
-      })
-      .add({
-         targets: '.ml6 .letter',
-         translateZ: 0,
-         duration: 2000,
-         delay: 10000
-      }).add({
-         targets: '.ml6',
-         opacity: 0,
-         delay: 0
-      });
-</script> -->
+   datePicker.setAttribute('min', today);
+   datePicker.setAttribute('max', maxDate);
+   datePicker.setAttribute('format', 'yyyy-MM-dd')
+</script>
 
+<script src="<?php echo URLROOT ?>/public/js/filters.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/tableFilter.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/fetchRequests/leaveRequest.js"></script>

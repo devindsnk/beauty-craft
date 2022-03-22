@@ -1,5 +1,5 @@
 //************* Filters of Receptionis Daily View **************//
-
+console.log('file connected');
 const dailyViewFilterBtn = document.getElementById("filterDailyViewBtn");
 
 if (dailyViewFilterBtn) {
@@ -44,13 +44,21 @@ function filterReservationsSpReservation() {
 
     // window.location.replace(`http://localhost/beauty-craft/SerProvDashboard/reservations/${rTypeSelectorSP.value}`);
 }
+//************ Filters of SProvider Leaves ***************//
 
 function filterLeavesSpAndRecep() {
+     const lTypeSelectorSP = document.getElementById("lTypeLeaveData");
+ console.log(lTypeSelectorSP.value);
     console.log("filter  leave function called");
-    const lTypeSelectorSP = document.getElementById("lTypeLeaveData");
-    console.log(lTypeSelectorSP.value);
     const lStatusSelectorSP = document.getElementById("lStatusLeaveData");
     console.log(lStatusSelectorSP.value);
+    if(lTypeSelectorSP.value==2){
+
+        if (opt.value == "StackOverflow") {
+        opt.disabled = true;
+
+    }
+    
 
     window.location.replace(`http://localhost/beauty-craft/Leaves/leaves/${lTypeSelectorSP.value}/${lStatusSelectorSP.value}`);
 

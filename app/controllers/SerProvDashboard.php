@@ -217,7 +217,7 @@
    {
       $this->reservationModel->updateReservationRecalledState($selectedReservation, 1);
       $this->reservationModel->deleteReservationRecallRequest($selectedReservation);
-
+      Toast::setToast(1, "Successfully remove recall request.", "");
       header('Content-Type: application/json; charset=utf-8');
       echo (json_encode($selectedReservation));
    }

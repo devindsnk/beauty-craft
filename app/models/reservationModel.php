@@ -220,15 +220,17 @@ class ReservationModel extends Model
    }
    public function getReservationCompleteCountByID($staffID)
    {
+      date_default_timezone_set("Asia/Colombo");
+      $today = date("Y-m-d");
       $results = $this->customQuery(
          "SELECT COUNT(*) AS completeCount
          FROM reservations
-         WHERE staffID=:staffID AND status=:status",
-         [':staffID' => $staffID, ':status' => 4]
+         WHERE staffID=:staffID AND status=:status AND date=:date",
+         [':staffID' => $staffID, ':status' => 4, ':date' => $today]
       );
       // print_r($results[0]->completeCount);
       // die("HI");
-      return $results[0]->completeCount - 1;
+      return $results[0]->completeCount;
    }
 
 

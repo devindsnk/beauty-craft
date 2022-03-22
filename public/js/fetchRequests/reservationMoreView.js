@@ -26,7 +26,6 @@ moreInfoBtn.forEach((btn) => {
 
 function filterReservationsForSPOverview(){
    console.log("Function called-test");
-
    const datepicker=document.getElementById("datePickerSPRes");
    const servicepicker=document.getElementById("serviceSelectorSPRes");
    const statuspicker=document.getElementById("staffSelectorSPRes");
@@ -40,45 +39,59 @@ function getReservationMoreData (selectedReservation){
    fetch(`http://localhost:80/beauty-craft/SerProvDashboard/getReservationDetailsByID/${selectedReservation}`)
       .then(response => response.json())
       .then(reservationData => {
-         console.log(reservationData);
-         serviceName.innerHTML = reservationData['name'];
-        
-        
+        console.log(reservationData);
+        serviceName.innerHTML = reservationData['name'];
         custName.innerHTML= reservationData['fName']+" "+reservationData['lName'];
         serviceTime.innerHTML= reservationData['startTime']+" - "+reservationData['endTime'];
         duration.innerHTML = reservationData['totalDuration'] +" mins";
          // document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase";
+
+          const recallmodelbutton=document.getElementById("recallModelOpenBtn");
+          console.log(recallmodelbutton);
+
+         //  if(reservationData['status']==3||reservationData['status']==4||reservationData['status']==0){
+            
+            
+         //  }
+
          if(reservationData['status']==5){
             statusdivText.innerHTML="Recalled";
             document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase yellow";
+                        recallmodelbutton.classList.remove("hide");
+
             // statusdiv.classList.add('grey');
             
          
          }else if(reservationData['status']==1){
             statusdivText.innerHTML="Not Confirmed";
+                        recallmodelbutton.classList.remove("hide");
+
             // statusdiv.classList.add('yellow');
             document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase blue";
             
          }else if(reservationData['status']==2){
             statusdivText.innerHTML="Confirmed";
+                        recallmodelbutton.classList.remove("hide");
+
             // statusdiv.classList.add('blue');
             document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase green";
            }else if(reservationData['status']==3){
             statusdivText.innerHTML="No Show";
             // statusdiv.classList.add('blue');
             document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase grey";
+            recallmodelbutton.classList.add("hide");
             
          }else if(reservationData['status']==4){
             statusdivText.innerHTML="Completed";
             // statusdiv.classList.add('green');
-                        document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase grey";
-
-            
+                        document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase grey";   
+                        recallmodelbutton.classList.add("hide");
          }
          else if(reservationData['status']==0){
             statusdivText.innerHTML="Cancelled";
             // statusdiv.classList.add('green');
                         document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase red";
+                        recallmodelbutton.classList.add("hide");
 
             
          }
@@ -90,7 +103,20 @@ function getReservationMoreData (selectedReservation){
         year.innerHTML = y;
 
         reservationnote.innerHTML = reservationData['remarks'];
-        custnote.innerHTML = reservationData['customerNote'];
+
+         if(reservationData['remarks']){
+            reservationnote.innerHTML = reservationData['remarks'];
+        }else{
+            reservationnote.innerHTML = 'None';
+        }
+
+
+        if(reservationData['customerNote']){
+            custnote.innerHTML = reservationData['customerNote'];
+        }else{
+            custnote.innerHTML = 'None';
+        }
+        
 
 
                const options = { 
@@ -129,14 +155,13 @@ function getReservationMoreData (selectedReservation){
             const recallModelHeader = document.querySelector(".recall-data-header");
             if(Difference_In_Days>=2 && reservationData['status']==1)
             {
-               recallModelHeader.innerHTML="Reservation Recall";
-                        
+               recallModelHeader.innerHTML="Reservation Recall";             
                      
             }else{
 
                
                const recallModelHeader = document.querySelector(".recall-data-header");
-               recallModelHeader.innerHTML="Recalle Details";
+               recallModelHeader.innerHTML="Recall Details";
 
                
 
@@ -222,6 +247,8 @@ function recallResrvation(btn){
                   recallStatusDiv.classList.add('grey');
                   
                }
+// console.log("TT");
+               const errormsg = document.querySelector(".recall.error");
 
                recallTime.innerHTML= reservationData['startTime']+" - "+reservationData['endTime'];
                recallDuration.innerHTML = reservationData['totalDuration'] +" mins";
@@ -234,9 +261,9 @@ function recallResrvation(btn){
 
                if(reservationData['status']!=1){
                   recallModelBtn.classList.add('btn-error-red');
-                  const errormsg = document.querySelector(".recall.error");
+                  
                   errormsg.innerHTML="Already Responded,can not delete the recall request."
-                  recallModelBtn.innerHTML="Close";
+                  recallModelBtn.classList.add('hide');
                   recallModelBtn.setAttribute('data-Rstatus', recallStatus); 
 
                }
@@ -261,7 +288,11 @@ function recallResrvation(btn){
         
 
             recallStatus=recallReason.getAttribute("data-id");
-            console.log(recallStatus);
+           
+
+            if(recallData['recallStatus']){
+
+            }
             
             if(recallStatus==1){
                   recallModelBtn.classList.add('btn-error-red');
@@ -281,6 +312,7 @@ function recallResrvation(btn){
                   recallModelBtn.setAttribute('data-Rstatus', recallStatus);
                   const errormsg = document.querySelector(".recall.error");
                   errormsg.innerHTML=""
+                  recallModelBtn.classList.remove('hide');
                   recallModelBtn.innerHTML="Delete";
 
 
@@ -296,7 +328,7 @@ function recallResrvation(btn){
 
       }
       
-
+ recallModelBtn.setAttribute('data-Rid', recallStatus); 
    
 
 }
@@ -320,9 +352,23 @@ if(rReason){
 
 console.log("KK");
 }
-
-
 }
+
+
+console.log('recall delete funtion called ');
+const deletaRecallRequest=document.getElementById("recallRequestDeleteBtn");
+   console.log(deletaRecallRequest);
+   console.log(deletaRecallRequest.getAttribute("data-id"));
+   // selectedReservation
+
+    
+    deletaRecallRequest.addEventListener("click", function () {
+      selectedReservation=deletaRecallRequest.dataset.id;
+      fetch(`http://localhost:80/beauty-craft/SerProvDashboard/deleteRecallRequest/${deletaRecallRequest.value}`)
+     
+
+    });
+
 
 
 
