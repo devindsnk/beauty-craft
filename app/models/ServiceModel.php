@@ -217,28 +217,29 @@ class ServiceModel extends Model
         $interval1Duration = $data['interval1Duration'];
         $interval2Duration = $data['interval2Duration'];
 
+
         if ($data['noofSlots'] == 1)
         {
             if ($slotNo == 1)
             {
-                $this->insert('timeslots', ['serviceID' => $serviceID, 'slotNo' => 2, 'startingTime' => $startingTime2, 'duration' => $slot2Duration]);
                 $this->insert('intervals', ['serviceID' => $serviceID, 'slotNo' => 2, 'duration' => $interval1Duration]);
+                $this->insert('timeslots', ['serviceID' => $serviceID, 'slotNo' => 2, 'startingTime' => $startingTime2, 'duration' => $slot2Duration]);
             }
             elseif ($slotNo == 2)
             {
-                $this->insert('timeslots', ['serviceID' => $serviceID, 'slotNo' => 2, 'startingTime' => $startingTime2, 'duration' => $slot2Duration]);
                 $this->insert('intervals', ['serviceID' => $serviceID, 'slotNo' => 2, 'duration' => $interval1Duration]);
+                $this->insert('timeslots', ['serviceID' => $serviceID, 'slotNo' => 2, 'startingTime' => $startingTime2, 'duration' => $slot2Duration]);
 
-                $this->insert('timeslots', ['serviceID' => $serviceID, 'slotNo' => 3, 'startingTime' => $startingTime3, 'duration' => $slot3Duration]);
                 $this->insert('intervals', ['serviceID' => $serviceID, 'slotNo' => 3, 'duration' => $interval2Duration]);
+                $this->insert('timeslots', ['serviceID' => $serviceID, 'slotNo' => 3, 'startingTime' => $startingTime3, 'duration' => $slot3Duration]);
             }
         }
         elseif ($data['noofSlots'] == 2)
         {
             if ($slotNo == 2)
             {
-                $this->insert('timeslots', ['serviceID' => $serviceID, 'slotNo' => 3, 'startingTime' => $startingTime3, 'duration' => $slot3Duration]);
                 $this->insert('intervals', ['serviceID' => $serviceID, 'slotNo' => 3, 'duration' => $interval2Duration]);
+                $this->insert('timeslots', ['serviceID' => $serviceID, 'slotNo' => 3, 'startingTime' => $startingTime3, 'duration' => $slot3Duration]);
             }
         }
     }
@@ -262,21 +263,12 @@ class ServiceModel extends Model
             array_push($checkedResources3, $resDetailsSlot3[$j]->resourceID);
         }
 
-        // $startingTime2 = (int)$data['slot1Duration'] + (int)$data['interval1Duration'];
-        // $startingTime3 = $startingTime2 + (int)$data['slot2Duration'] + (int)$data['interval2Duration'];
-        // $slot2Duration = $data['slot2Duration'];
-        // $slot3Duration = $data['slot3Duration'];
-        // print_r($serviceID . " " . $data['noofSlots']);
-        // print_r($slotNo);
-
         if (($slotNo == 0) && ($data['noofSlots'] == 2 || $data['noofSlots'] == 3))
         {
-            // die('awa');
-
             $this->customQuery("DELETE from resourceallocation 
                                     WHERE serviceID=:serviceID AND slotNo=:slotNo", ['serviceID' => $serviceID, 'slotNo' => 2]);
         }
-        if (($slotNo == 1) && ($data['noofSlots'] == 3))
+        if (($slotNo == 1 || $slotNo == 0) && ($data['noofSlots'] == 3))
         {
             $this->customQuery("DELETE from resourceallocation 
                                     WHERE serviceID=:serviceID AND slotNo=:slotNo", ['serviceID' => $serviceID, 'slotNo' => 3]);
@@ -311,7 +303,7 @@ class ServiceModel extends Model
             }
 
 
-            if (!in_array($ResoursesArray->resourceID, $checkedResources1) &&  $selCount != 0)
+            if (!in_array($ResoursesArray->resourceID, $checkedResources1) &&  ($selCount != 0 && $selCount != NULL))
             {
                 $this->insert('resourceallocation', ['serviceID' => $serviceID, 'slotNo' => 1, 'resourceID' => $ResoursesArray->resourceID,  'requiredQuantity' => $selCount]);
             }
@@ -320,11 +312,6 @@ class ServiceModel extends Model
 
         if ($slotNo == 1)
         {
-            if ($data['noofSlots'] == 3)
-            {
-                $this->customQuery("DELETE from resourceallocation 
-                                        WHERE serviceID=:serviceID AND slotNo=:slotNo", ['serviceID' => $serviceID, 'slotNo' => 2]);
-            }
             $i = 0;
             foreach ($data['sResArray'] as $ResoursesArray)
             {
@@ -335,8 +322,6 @@ class ServiceModel extends Model
 
                     if ($ResoursesArray->resourceID == $resDetailsSlot2[$j]->resourceID && $selCount != $resDetailsSlot2[$j]->requiredQuantity)
                     {
-                        // print_r($data['sSelectedResCount2']);
-                        // die('sasas');
                         if ($selCount == 0)
                         {
                             $this->customQuery("DELETE from resourceallocation 
@@ -353,8 +338,9 @@ class ServiceModel extends Model
                         }
                     }
                 }
-                if (!in_array($ResoursesArray->resourceID, $checkedResources2) &&  $selCount != 0)
+                if (!in_array($ResoursesArray->resourceID, $checkedResources2) &&   ($selCount != 0 && $selCount != NULL))
                 {
+                    // die('xdsd');
                     $this->insert('resourceallocation', ['serviceID' => $serviceID, 'slotNo' => 2, 'resourceID' => $ResoursesArray->resourceID,  'requiredQuantity' => $selCount]);
                 }
                 $i++;
@@ -389,7 +375,7 @@ class ServiceModel extends Model
                         }
                     }
                 }
-                if (!in_array($ResoursesArray->resourceID, $checkedResources2) &&  $selCount != 0)
+                if (!in_array($ResoursesArray->resourceID, $checkedResources2) &&  ($selCount != 0 && $selCount != NULL))
                 {
                     $this->insert('resourceallocation', ['serviceID' => $serviceID, 'slotNo' => 2, 'resourceID' => $ResoursesArray->resourceID,  'requiredQuantity' => $selCount]);
                 }
@@ -418,7 +404,7 @@ class ServiceModel extends Model
                         }
                     }
                 }
-                if (!in_array($ResoursesArray->resourceID, $checkedResources3) &&  $selCount != 0)
+                if (!in_array($ResoursesArray->resourceID, $checkedResources3) &&   ($selCount != 0 && $selCount != NULL))
                 {
                     $this->insert('resourceallocation', ['serviceID' => $serviceID, 'slotNo' => 3, 'resourceID' => $ResoursesArray->resourceID,  'requiredQuantity' => $selCount]);
                 }
@@ -554,7 +540,7 @@ class ServiceModel extends Model
                 "UPDATE timeslots 
                             SET startingTime=:startingTime, duration=:duration
                             WHERE  serviceID=:serviceID AND slotNo=:slotNo",
-                ['serviceID' => $serviceID, 'slotNo' => 2, 'startingTime' => $startingTime3, 'duration' => $slot3Duration]
+                ['serviceID' => $serviceID, 'slotNo' => 3, 'startingTime' => $startingTime3, 'duration' => $slot3Duration]
             );
         }
     }

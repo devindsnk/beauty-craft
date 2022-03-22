@@ -177,26 +177,6 @@ class Services extends Controller
             }
             else
             {
-               // for ($k = 1; $k < 4; $k++){
-               //    $selectesResCount = count($data['sSelectedResCount'.($k)]);
-
-               //    for ($i = 0; $i < $selectesResCount; $i++)
-               //    {
-               //       if ($data['sSelectedResCount'.($k)][$i] != 0)
-               //       {
-               //          $data['sSelectedResCount'.($k).'_error'] = "Please enter resource quantity again";
-               //       }
-               //    }
-               // }
-               // $selectesResCount = count($data['sSelectedResCount1']);
-
-               // for ($i = 0; $i < $selectesResCount; $i++)
-               // {
-               //    if ($data['sSelectedResCount1'][$i] != 0)
-               //    {
-               //       $data['sSelectedResCount1_error'] = "Please enter resource quantity again";
-               //    }
-               // }
                $this->view('manager/mang_serviceAdd', $data);
             }
          }
@@ -299,10 +279,6 @@ class Services extends Controller
    {
       $_SESSION = $sResGetArray;
       $sizeOfSession = sizeof($_SESSION);
-      // print_r($_SESSION);
-
-      // print_r($_SESSION[0]->quantity);
-      // print_r($sizeOfSession);
 
       die("hi");
    }
@@ -432,8 +408,7 @@ class Services extends Controller
             'sSelectedResCount3_error' => '',
 
          ];
-         // print_r($data['sSelectedResCount1']);
-         // die('ddda');
+
          $data['sProvArray'] = $sProvGetArray;
          $data['sTypesArray'] = $sTypeGetArray;
          $data['sResArray'] = $sResGetArray;
@@ -533,68 +508,34 @@ class Services extends Controller
                {
                   $this->ServiceModel->beginTransaction();
                   $this->ServiceModel->updateService($serviceID, $data, $slotNo);
-
-                  $resState = 5;
-                  $recallReason = "For update the service";
-
-                  if (isset($_SESSION['recallRequestsFromUpdateService']))
-                  {
-                     foreach ($_SESSION['recallRequestsFromUpdateService'] as $key => $value)
-                     {
-
-                        if ($value == 1)
-                        {
-                           // print_r($key);
-                           $this->ReservationModel->updateReservationRecalledState($key, $resState);
-                           $this->ReservationModel->addReservationRecall($key, $recallReason);
-                        }
-                     }
-                     $this->destroyRecallDetails();
-                  }
                   $this->ServiceModel->updateServiceProviders($serviceID, $data, $serProvDetails);
                   $this->ServiceModel->addNewSlotsFromUpdate($serviceID, $data, $slotNo);
                   $this->ServiceModel->updateAllocatedResources($serviceID, $data, $slotNo, $resDetailsSlot1, $resDetailsSlot2, $resDetailsSlot3);
-                  // print_r($slotNo);
                   $this->ServiceModel->updateIntervals($serviceID, $data, $slotNo);
                   $this->ServiceModel->updateTimeslots($serviceID, $data, $slotNo);
                   $this->ServiceModel->commit();
+               }
+               $resState = 5;
+               $recallReason = "For update the service";
+
+               if (isset($_SESSION['recallRequestsFromUpdateService']))
+               {
+                  foreach ($_SESSION['recallRequestsFromUpdateService'] as $key => $value)
+                  {
+
+                     if ($value == 1)
+                     {
+                        $this->ReservationModel->updateReservationRecalledState($key, $resState);
+                        $this->ReservationModel->addReservationRecall($key, $recallReason);
+                     }
+                  }
+                  $this->destroyRecallDetails();
                }
                Toast::setToast(1, "Service Updated Successfully!!!", "");
                redirect('Services/viewAllServices');
             }
             else
             {
-
-               // $selectesResCount = count($data['sSelectedResCount1']);
-
-               // for ($i = 0; $i < $selectesResCount; $i++)
-               // {
-               //    if ($data['sSelectedResCount1'][$i] != 0)
-               //    {
-               //       $data['sSelectedResCount1_error'] = "Please enter resource quantity again";
-               //    }
-               // }
-
-               // $selectesResCount = count($data['sSelectedResCount2']);
-
-               // for ($i = 0; $i < $selectesResCount; $i++)
-               // {
-               //    if ($data['sSelectedResCount2'][$i] != 0)
-               //    {
-               //       $data['sSelectedResCount2_error'] = "Please enter resource quantity again";
-               //    }
-               // }
-               // $selectesResCount = count($data['sSelectedResCount3']);
-
-               // for ($i = 0; $i < $selectesResCount; $i++)
-               // {
-               //    if ($data['sSelectedResCount3'][$i] != 0)
-               //    {
-               //       $data['sSelectedResCount3_error'] = "Please enter resource quantity again";
-               //    }
-               // }
-               // print_r($data['sSelectedResCount1'][2]);
-               // die('sww');
                $this->view('manager/mang_serviceUpdate', $data);
             }
          }
@@ -605,9 +546,6 @@ class Services extends Controller
       }
       else
       {
-         // print_r();
-         // print_r($serviceDetails);
-         // die('frrf');
          $data = [
             'name' => $serviceDetails[0]->name,
             'customerCategory' => $serviceDetails[0]->customerCategory,
@@ -733,25 +671,6 @@ class Services extends Controller
       $this->view('common/serviceProviderReport', count($serviceProviderList));
    }
 
-   // public function serviceProviderReportJS($smonth)
-   // {
-   //    $sProvList = $this->ServiceModel->getServiceProviderDetails();
-
-   //    $sProvReportDetails = array();
-   //    $dateOld = date_create($smonth);
-
-   //    $year = date_format($dateOld, "Y");
-   //    $month = date_format($dateOld, "m");
-
-   //    foreach ($sProvList as $sProv)
-   //    {
-   //       $sProvDetails = $this->ServiceModel->getDetailsForServiceProvReportJS($sProv->staffID, $year, $month);
-   //       array_push($sProvReportDetails, $sProvDetails);
-   //    }
-
-   //    header('Content-Type: application/json; charset=utf-8');
-   //    print_r(json_encode($sProvReportDetails));
-   // }
    public function serviceProviderReportJS($smonth)
    {
       $sProvList = $this->ServiceModel->getServiceProviderDetails();
