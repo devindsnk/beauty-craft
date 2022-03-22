@@ -33,20 +33,34 @@ class Salary extends Controller
 
    public function salaryPayWithStaffID($staffID, $month)
    {  
+      print($staffID);
       // die("salaryPayWithStaffID");    
       $this->salaryModel->payNowSalaryWithStaffID($staffID,$month);
       header('location: ' . URLROOT . '/Salary/salaryTableView');
       // $this->view('owner/own_salaries');
    }
+   public function salaryPayMultipleStaffID($staffIDs, $months)
+   {  
+      print_r($staffIDs);
+      
+      $noOfStaffMembers = sizeof($staffIDs);
+      print($noOfStaffMembers);
+      die("salaryPayWithStaffID");
+      for($i=0;$i<$noOfStaffMembers;$i++){    
+      $this->salaryModel->payNowSalaryWithStaffID($staffIDs[$i],$months[$i]);
+      }
+      header('location: ' . URLROOT . '/Salary/salaryTableView');
+      // $this->view('owner/own_salaries');
+   }
 
-   public function salaryTableView($sType="all", $sMonth="all")
+   public function salaryTableView($staffName="all", $staffID="all",$paidType="all",$month="all")
    {
-
       // Last day of current month.
       $lastDayThisMonth = date("Y-m-t");
-
+      
       // current date
-      $currentDate = date('Y-m-d');
+      // $currentDate = date('Y-m-d');
+      $currentDate =  $lastDayThisMonth;
 
       // date before five days from last date of previous month
       $date = new DateTime();
@@ -84,14 +98,16 @@ class Salary extends Controller
 
          if ($currentDateMonth == $mostRecentDateMonth && $mostRecentDateYear == $currentDateYear)
          {
+            // die("payments has done condition called in last day of the month");
             // get all the salary payment details related to the most recent month
-            $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails($sType,$sMonth);
+            $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails($staffName,$staffID,$paidType,$month);
             $data = [ 
-               'selectedType' => $sType, 
-               // 'selectedStaffName' => $sName, 
-               'selectedMonth' => $sMonth, 
+               'nameTyped' => $staffName, 
+               'staffIDSelected' => $staffID, 
+               'paidTypeSelected' => $paidType, 
+               'selectedMonth' => $month,
                'allStaffSalaryDetailsList' => $StaffAndSalaryPaymentDetails 
-            ]; 
+            ];  
       
             // print_r($data); 
             // die("error");  
@@ -100,13 +116,15 @@ class Salary extends Controller
             // if the most recent month is not equal to the current month then the payment has'nt completed
          else
          {
+            // die("payments has to be done condition called in last day of the month");
             // calculate the salary for this month and store in salary table with status not paid
             $result = $this->salaryModel->calculateAndInsertSalaryPaymentDetails($fiveDaysBeforInPrevMonth,$fiveDaysBeforeInThisMonth);
-            $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails($sType,$sMonth);
+            $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails($staffName,$staffID,$paidType,$month);
             $data = [ 
-               'selectedType' => $sType, 
-               // 'selectedStaffName' => $sName, 
-               'selectedMonth' => $sMonth, 
+               'nameTyped' => $staffName, 
+               'staffIDSelected' => $staffID, 
+               'paidTypeSelected' => $paidType, 
+               'selectedMonth' => $month,
                'allStaffSalaryDetailsList' => $StaffAndSalaryPaymentDetails 
             ]; 
       
@@ -118,14 +136,15 @@ class Salary extends Controller
 
       elseif ($currentDate != $lastDayThisMonth)
       {
-         
-         $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails($sType,$sMonth);
-         $data = [ 
-            'selectedType' => $sType, 
-            // 'selectedStaffName' => $sName, 
-            'selectedMonth' => $sMonth, 
-            'allStaffSalaryDetailsList' => $StaffAndSalaryPaymentDetails 
-         ]; 
+         // die("payments has done condition called not in last day of the month");
+         $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails($staffName,$staffID,$paidType,$month);
+            $data = [ 
+               'nameTyped' => $staffName, 
+               'staffIDSelected' => $staffID, 
+               'paidTypeSelected' => $paidType, 
+               'selectedMonth' => $month,
+               'allStaffSalaryDetailsList' => $StaffAndSalaryPaymentDetails 
+            ]; 
    
          print_r($data); 
          // die("error");  

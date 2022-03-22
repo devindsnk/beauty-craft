@@ -178,6 +178,13 @@
     padding-right: 50px;
     font-weight: 600;
 }
+.addItemsInputError
+{
+    display: block;
+   font-size: 12px;
+   font-weight: 500;
+   color: #DC3545;
+}
 
 .addItemsModalMessage {
     font-size: 14px;

@@ -9,7 +9,17 @@ class StaffModel extends Model
    // add staff details to the db
    public function addStaffDetails($data)
    {
+       if (($data['staffimagePath'] == " " ) && ($data['gender'] == "M"))
+         {
+            $data['staffimagePath'] = "male.jpg";
+         }
+
+      if (($data['staffimagePath'] == " " ) && ($data['gender'] == "F"))
+         {
+            $data['staffimagePath'] = "female.jpg";
+         }
       $results =  $this->insert('staff', ['fName' => $data['staffFname'], 'lName' => $data['staffLname'], 'staffType' => $data['staffType'], 'mobileNo' => $data['staffMobileNo'], 'gender' => $data['gender'], 'nic' => $data['staffNIC'], 'address' => $data['staffHomeAdd'], 'email' => $data['staffEmail'], 'dob' => $data['staffDOB'], 'imgPath' =>  $data['staffimagePath']]);
+      
       var_dump($results);
    }
 
@@ -61,14 +71,14 @@ class StaffModel extends Model
       // $consditionsString  = "staff.staffType = :staffType AND staff.fName LIKE :sName% OR staff.lName LIKE :sName% AND staff.status = :status";// Joining conditions with AND and LIKE
       $SQLstatement =
          "SELECT * FROM staff
-         INNER JOIN bankdetails ON staff.staffID = bankdetails.staffID";
+         INNER JOIN bankdetails ON staff.staffID = bankdetails.staffID WHERE staffType IN (3,4,5)";
 
       // Remove spaces, otherwise sql query doesnt work
       $string = "'$sName%'";
       $string= str_replace(' ', '', $string);
 
       // Appending conditions string
-      if (!empty($conditions)) $SQLstatement .= " WHERE $consditionsString";
+      if (!empty($conditions)) $SQLstatement .= " AND $consditionsString";
       // *********************
       if (!empty($name)) $SQLstatement .= " AND staff.fName LIKE $string OR staff.lName LIKE $string ";
       $results = $this->customQuery($SQLstatement,  $dataToBind);
@@ -204,4 +214,24 @@ class StaffModel extends Model
       return $results;
    }
    /////////////////////////////////
+
+   ///////////////////////////////////
+
+   // For owner overview 
+   public function getAvailableManagerCount()
+   {
+      $date = date("Y/m/d"); 
+      // $today = date("Y/m/d", strtotime($date));
+      print_r($date);
+      $SQLstatement =
+         "SELECT COUNT(*) AS mangCount
+         FROM staff AS S
+         INNER JOIN generalleaves AS L 
+         ON S.staffID = L.staffID AND S.status = 1 AND S.staffType = 3
+         AND L.leaveDate = :date AND L.status IN (0,2) ";
+        $results = $this->customQuery($SQLstatement,[":date" => $date]);
+
+      return $results;
+   }
+   /////////////////////
 }

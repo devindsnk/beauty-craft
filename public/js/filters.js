@@ -210,7 +210,9 @@ if (allStaffFilterBtn) {
         const statusSelector = document.getElementById("statusSelector");
      
         let sTypeSelected = sTypeSelector.value;
-        let staffNameSelected = staffNameSelector.value;
+        
+        let x = staffNameSelector.value;
+        let staffNameSelected = (x =="")? "all" : x;
         console.log(staffNameSelected);
         let statusSelected = statusSelector.value;
 
@@ -224,17 +226,62 @@ const allResourcesFilterBtn = document.getElementById("allResourcesFilterBtn");
 // console.log("hi staff filters");
 if (allResourcesFilterBtn) {
     allResourcesFilterBtn.addEventListener("click", () => {
-        const resourceNameInput = document.getElementById("sTypeSelector");
-        const resourceIDInput = document.getElementById("staffNameSelector");
+        console.log("resource filters");
+        const resourceNameInput = document.getElementById("resourceNameInput");
+        const resourceIDInput = document.getElementById("resourceIDInput");
         // const statusSelector = document.getElementById("statusSelector");
-     
-        let resourceNameInputTyped = resourceNameInput.value;
-        let resourceIDInputTyped = resourceIDInput.value;
-        console.log(resourceNameInputTyped);
-        console.log(resourceIDInputTyped);
+        let x = resourceNameInput.value;
+        let y = resourceIDInput.value;
+        let resourceNameInputTyped = (x == "")? "all":x;
+        let resourceIDInputTyped = (y == "")? "all":y;
+        // console.log(x);
+        // console.log( resourceNameInputTyped);
+        // console.log(y);
         // let statusSelected = statusSelector.value;
 
         window.location.replace(`http://localhost:80/beauty-craft/Resources/viewAllResources/${resourceNameInputTyped}/${resourceIDInputTyped}`);
+    });
+}
+
+//************ Filters of Staff members salary table ***************//
+
+const allPurchaseRecordsFilterBtn = document.getElementById("allPurchaseRecordsFilterBtn");
+if (allPurchaseRecordsFilterBtn) {
+    allPurchaseRecordsFilterBtn.addEventListener("click", () => {
+        const manufacturerNameInput = document.getElementById("manufacturerNameInput");
+        // console.log(allPurchaseRecordsFilterBtn.dataset.resourceid);
+        let resourceID = allPurchaseRecordsFilterBtn.dataset.resourceid;
+        let a = manufacturerNameInput.value;        
+        let manufacturerNameInputTyped = (a == "")? "all" : a;
+          
+        console.log(manufacturerNameInputTyped);
+        console.log(resourceID);
+        window.location.replace(`http://localhost:80/beauty-craft/Resources/viewResources/${resourceID}/${manufacturerNameInputTyped}`);
+    });
+}
+
+
+//************ Filters of Customers table ***************//
+
+const allCustomersFilterBtn = document.getElementById("allCustomersFilterBtn");
+// console.log("hi customer filters");
+if (allCustomersFilterBtn) {
+    allCustomersFilterBtn.addEventListener("click", () => {
+        console.log("customers filters");
+        const cusNameInput = document.getElementById("cusNameInput");
+        const cusCotactInput = document.getElementById("cusContactInput");
+        const statusSelector = document.getElementById("statusSelector");
+     
+        let x = cusNameInput.value;
+        let y = cusCotactInput.value;
+        let cusNameInputTyped = (x=="")? "all": x;
+        let cusCotactInputTyped = (y=="")? "all":y;
+
+        console.log(cusNameInputTyped);
+        console.log(cusCotactInputTyped);
+        let statusSelected = statusSelector.value;
+
+        window.location.replace(`http://localhost:80/beauty-craft/Customer/viewAllCustomers/${cusNameInputTyped}/${cusCotactInputTyped}/${statusSelected}`);
     });
 }
 
@@ -246,15 +293,39 @@ const allSalaryFilterBtn = document.getElementById("allSalaryFilterBtn");
 if (allSalaryFilterBtn) {
     allSalaryFilterBtn.addEventListener("click", () => {
         // console.log("salaries");
-        const sTypeSelector = document.getElementById("sMonthSelector");
-        const staffSelector = document.getElementById("sTypeSelector");
+        const staffNameInput = document.getElementById("staffNameInput");
+        const staffIDInput = document.getElementById("staffIDInput");
+        const paidTypeSelector = document.getElementById("paidTypeSelector");
+        const sMonthSelector = document.getElementById("sMonthSelector");
         // const statusSelector = document.getElementById("statusSelector");
 
-        let sTypeSelected = sTypeSelector.value;
-        // let staffNameSelected = staffNameSelector.value;
-        let sMonthSelected = sMonthSelector.value;
-        // console.log("salaries");
-        // console.log(sMonthSelected);
-        window.location.replace(`http://localhost:80/beauty-craft/Salary/salaryTableView/${sTypeSelected}/${sMonthSelected}`);
+        let x = staffNameInput.value;
+        let y = staffIDInput.value;
+        let z = sMonthSelector.value;
+        let paidTypeSelected = paidTypeSelector.value;
+        let staffNameTyped = (x == "")? "all" : x;
+        let staffIDTyped = (y =="")? "all" : y;
+        let monthSelected = (z =="")? "all" : z;
+        
+        console.log("salary filters");
+        console.log(staffNameTyped);
+        console.log(staffIDTyped);
+        console.log(paidTypeSelected);
+        console.log(monthSelected);
+        window.location.replace(`http://localhost:80/beauty-craft/Salary/salaryTableView/${staffNameTyped}/${staffIDTyped}/${paidTypeSelected}/${monthSelected}`);
+    });
+}
+
+
+//************ Filters of close salon table ***************//
+
+const allCloseDateInputFilter = document.getElementById("allCloseDateInputFilter");
+if (allCloseDateInputFilter) {
+    allCloseDateInputFilter.addEventListener("change", () => {
+        let z = allCloseDateInputFilter.value;
+        let monthSelected = (z =="0000-00")? "all" : z;
+        console.log("close salon");
+        console.log(monthSelected);
+        window.location.replace(`http://localhost:80/beauty-craft/OwnDashboard/closeSalon/${monthSelected}`);
     });
 }

@@ -13,7 +13,6 @@
         </div>
     </header>
     <div class="content contentNewRes">
-<!-- <?php print_r($data) ?> -->
         <div class="ownStaff_allignmentbox own staff resources">
             
             <div class="ownAddstaffContainer contentBox">

@@ -16,7 +16,7 @@
     </header>
     <div class="content contentNewRes">
 
-        <div class="ownStaff_allignmentbox">
+        <div class="ownStaff_allignmentbox own staff">
 
             <div class="ownAddstaffContainer contentBox">
                 <!-- <div class="ownAddStaff_Formheading">
@@ -36,13 +36,7 @@
                                     <div class="ownAddstaffBasicinfoFilesubBtn">
                                         <label for="ownAddstaffBasicinfoImagesub" class="ownAddstaffBasicinfoImagewrapper">
                                             <input type="file" accept="image/*" name="imgPath" id="ownAddstaffBasicinfoImagesub" onchange="loadFile(event)" />
-                                            <?php if ($data['imgPath'] == '' || $data['staffimagePath_error']) : ?>
-                                                <img src="<?php echo URLROOT ?>/public/icons/AddImg.png" class="ownAddstaffBasicinfoIcon" id='profileImg' height="160px" width="160px" borderRadious='50%'> <br>
-
-                                            <?php elseif ($data['imgPath']) : ?>
-                                                <img src="<?php echo URLROOT ?>/public/imgs/staffImgs/<?php echo $data['imgPath']; ?> " class="ownAddstaffBasicinfoIcon" id='profileImg' height="160px" width="160px" borderRadious='50%'> <br>
-                                            <?php endif; ?>
-
+                                                <img src="<?php echo URLROOT ?>/public/imgs/staffImgs/<?php echo ($data['imgPath']); ?> " class="ownAddstaffBasicinfoIcon" id='profileImg' height="160px" width="160px" borderRadious='50%'> <br>
                                         </label>
                                     </div>
                                     <span class="error"><?php echo $data['staffimagePath_error']; ?></span>
@@ -220,5 +214,14 @@
         </div>
 
     </div>
+    <script>
+            console.log(ownAddstaffBasicinfoImagesub);
+            ownAddstaffBasicinfoImagesub.onchange = evt => {
+                const [file] = ownAddstaffBasicinfoImagesub.files
+                if (file) {
+                    profileImg.src = URL.createObjectURL(file)
+                }
+            }
+        </script>
     <script src="<?php echo URLROOT ?>/public/js/ownAutoFillDOB.js"></script>
     <?php require APPROOT . "/views/inc/footer.php" ?>

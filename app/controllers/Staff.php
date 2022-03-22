@@ -9,6 +9,9 @@ class Staff extends Controller
  
    public function viewAllStaffMembers($sType="all", $status="all",$sName="all") 
    {  
+      print($sType);
+      print($sName);
+      // die();
       Session::validateSession([2, 3, 4]); 
       $AllStaffDetails = $this->staffModel->getAllStaffWithFilters($sType,$status,$sName); 
 
@@ -84,10 +87,15 @@ class Staff extends Controller
          // die($data['staffimagePath']);
          $data['staffHomeAddTyped'] = $data['staffHomeAdd'];
 
-         if (($data['staffimagePath'] == " "))
-         {
-            $data['staffimagePath_error'] = "Please insert a valid image";
-         }
+         // if (($data['staffimagePath'] == " " ) && ($data['gender'] == "M"))
+         // {
+         //    $data['staffimagePath'] = "male";
+         // }
+
+         // if (($data['staffimagePath'] == " " ) && ($data['gender'] == "F"))
+         // {
+         //    $data['staffimagePath'] = "female";
+         // }
          // Validating fname
          if (empty($data['staffFname']))
          {

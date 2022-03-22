@@ -178,7 +178,7 @@
                             </div>
                             <div class="ownViewStaffCardcolumn">
                                 <span class="ownViewStaffCardDetailsValue">
-                                    <?php echo $data->dob; ?>
+                                    <?php echo DateTimeExtended::dateToShortMonthFormat($data->dob, "F"); ?>
                                 </span>
                             </div>
                         </div>
@@ -193,7 +193,7 @@
                             </div>
                             <div class="ownViewStaffCardcolumn">
                                 <span class="ownViewStaffCardDetailsValue">
-                                    <?php echo $data->joinedDate; ?>
+                                    <?php echo DateTimeExtended::dateToShortMonthFormat($data->joinedDate, "F"); ?>
                                 </span>
                             </div>
                         </div>
