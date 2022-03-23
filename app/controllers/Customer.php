@@ -121,9 +121,14 @@ class Customer extends Controller
                $isVerified = $this->OTPModel->verifyOTP($data['mobileNo'], $data['OTP'], 1);
 
                //If OTP is not requested or previously-used or incorrect
-               if (!$isVerified)
+               if ($isVerified == 0)
                {
                   $data['OTP_error'] = "Incorrect OTP";
+                  $this->view('register', $data);
+               }
+               else if ($isVerified == 2)
+               {
+                  $data['OTP_error'] = "Please generate a new OTP";
                   $this->view('register', $data);
                }
                else
@@ -135,7 +140,7 @@ class Customer extends Controller
                   $this->OTPModel->removeOTP($data['mobileNo'], 1);
 
                   //System log
-                  Systemlog::createCustomerAccount();
+                  Systemlog::createCustomerAccount($data['mobileNo'], $data['fName'], $data['lName']);
 
                   SMS::sendCustomerRegSMS($data['mobileNo']);
                   $this->userModel->commit();
@@ -374,9 +379,14 @@ class Customer extends Controller
                $isVerified = $this->OTPModel->verifyOTP($data['mobileNo'], $data['OTP'], 1);
 
                //If OTP is not requested or previously-used or incorrect
-               if (!$isVerified)
+               if ($isVerified == 0)
                {
                   $data['OTP_error'] = "Incorrect OTP";
+                  $this->view('systemAdmin/systemadmin_customer', $data);
+               }
+               else if ($isVerified == 2)
+               {
+                  $data['OTP_error'] = "Please generate a new OTP";
                   $this->view('systemAdmin/systemadmin_customer', $data);
                }
                else

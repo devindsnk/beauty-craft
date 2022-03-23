@@ -1,6 +1,9 @@
 //************* Filters of Receptionis Daily View **************//
-
+console.log('filter file connected');
+if(document.getElementById("filterDailyViewBtn")){
 const dailyViewFilterBtn = document.getElementById("filterDailyViewBtn");
+}
+
 
 if (dailyViewFilterBtn) {
     dailyViewFilterBtn.addEventListener("click", () => {
@@ -14,8 +17,9 @@ if (dailyViewFilterBtn) {
 }
 
 //**************************************************************//
-
 //*************** Filters of Common Reservation ****************//
+//**************************************************************//
+
 
 const allResFilterBtn = document.getElementById("allResFilterBtn");
 
@@ -37,25 +41,88 @@ if (allResFilterBtn) {
 
 //************ Filters of SProvider Reservations ***************//
 
-function filterReservationsSpReservation() {
-    console.log("filter function called");
-    const rTypeSelectorSP = document.getElementById("rTypeSelectorSP");
-    console.log(rTypeSelectorSP.value);
+const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
+const lStatusSelectorSP = document.getElementById("lStatusLeaveData").value;
+console.log(lTypeSelectorSP);
 
-    window.location.replace(`http://localhost/beauty-craft/SerProvDashboard/reservations/${rTypeSelectorSP.value}`);
+
+function initializeLeavestatusSelector() {
+    console.log("value changed");
+    const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
+    const lStatusSelectorSP = document.getElementById("lStatusLeaveData").value;
+    console.log(lTypeSelectorSP);
+    
+    setupLeaveStatusSelector();
+
+    // if (lTypeSelectorSP != "all") {
+    //     lStatusSelectorSP.options[1].selected = true;
+    // }
 }
 
+function setupLeaveStatusSelector() {
+   
+const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
+const lStatusSelectorSP = document.getElementById("lStatusLeaveData");
+
+        if (lTypeSelectorSP == "1") {
+            // console.log("value 1");
+            lStatusSelectorSP.options[0].hidden = true; //all
+            lStatusSelectorSP.options[1].hidden = false; //approved
+            lStatusSelectorSP.options[2].hidden = false; //pending
+            lStatusSelectorSP.options[3].hidden = false; //reject
+            lStatusSelectorSP.options[4].hidden = false; //rejected medical
+            
+
+        } else {
+            //  console.log("value 2");
+            lStatusSelectorSP.options[0].hidden = false;
+            lStatusSelectorSP.options[1].hidden = false;
+            lStatusSelectorSP.options[2].hidden = false;
+            lStatusSelectorSP.options[3].hidden = false;
+            lStatusSelectorSP.options[4].hidden = true;
+            
+            
+        }
+console.log(lStatusSelectorSP.value);
+    // } else {
+    //     lStatusSelectorSP.options[0].selected = true;
+    //     lStatusSelectorSP.disabled = true;
+    // }
+}
+//************ Filters of SProvider Leaves ***************//
+
+// if(document.getElementById("lTypeLeaveData")){
+// const lTypeSelectorSP = document.getElementById("lTypeLeaveData");
+// const lStatusSelectorSP = document.getElementById("lStatusLeaveData");
+// console.log(lTypeSelectorSP.value);
+// }
+
 function filterLeavesSpAndRecep() {
-    console.log("filter  leave function called");
+    console.log("filter function called");
     const lTypeSelectorSP = document.getElementById("lTypeLeaveData");
     console.log(lTypeSelectorSP.value);
+    console.log("filter  leave function called");
     const lStatusSelectorSP = document.getElementById("lStatusLeaveData");
     console.log(lStatusSelectorSP.value);
 
+    // if(lTypeSelectorSP.value==2){
+    
+    //     if (opt.value == "StackOverflow") {
+    //     opt.disabled = true;
+
+    // }
+    
+    // }
     window.location.replace(`http://localhost/beauty-craft/Leaves/leaves/${lTypeSelectorSP.value}/${lStatusSelectorSP.value}`);
 
 
 }
+// function filterReservation(){
+//     console.log("filter reservatuion");
+// }
+
+
+
 
 //**************************************************************//
 
@@ -329,3 +396,4 @@ if (allCloseDateInputFilter) {
         window.location.replace(`http://localhost:80/beauty-craft/OwnDashboard/closeSalon/${monthSelected}`);
     });
 }
+

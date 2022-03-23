@@ -173,9 +173,14 @@ class User extends Controller
                $isVerified = $this->OTPModel->verifyOTP($data['mobileNo'], $data['OTP'], 2);
 
                //If OTP is not requested or previously-used or incorrect
-               if (!$isVerified)
+               if ($isVerified == 0)
                {
                   $data['OTP_error'] = "Incorrect OTP";
+                  $this->view('resetPassword', $data);
+               }
+               else if ($isVerified == 2)
+               {
+                  $data['OTP_error'] = "Please generate a new OTP";
                   $this->view('resetPassword', $data);
                }
                else
@@ -188,7 +193,7 @@ class User extends Controller
 
                   //System log
                   $user = $this->userModel->getUser($data['mobileNo']);
-                  die($this->getUserData($user)[1]);
+                  // die($this->getUserData($user)[1]);
                   Systemlog::resetPassword($data['mobileNo'], $this->getUserData($user)[1]);
 
                   Toast::setToast(1, "Password recovery successful!", "Sign in using new password.");

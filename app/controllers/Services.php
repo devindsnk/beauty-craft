@@ -177,26 +177,6 @@ class Services extends Controller
             }
             else
             {
-               // for ($k = 1; $k < 4; $k++){
-               //    $selectesResCount = count($data['sSelectedResCount'.($k)]);
-
-               //    for ($i = 0; $i < $selectesResCount; $i++)
-               //    {
-               //       if ($data['sSelectedResCount'.($k)][$i] != 0)
-               //       {
-               //          $data['sSelectedResCount'.($k).'_error'] = "Please enter resource quantity again";
-               //       }
-               //    }
-               // }
-               $selectesResCount = count($data['sSelectedResCount1']);
-
-               for ($i = 0; $i < $selectesResCount; $i++)
-               {
-                  if ($data['sSelectedResCount1'][$i] != 0)
-                  {
-                     $data['sSelectedResCount1_error'] = "Please enter resource quantity again";
-                  }
-               }
                $this->view('manager/mang_serviceAdd', $data);
             }
          }
@@ -299,10 +279,6 @@ class Services extends Controller
    {
       $_SESSION = $sResGetArray;
       $sizeOfSession = sizeof($_SESSION);
-      print_r($_SESSION);
-
-      // print_r($_SESSION[0]->quantity);
-      print_r($sizeOfSession);
 
       die("hi");
    }
@@ -407,9 +383,9 @@ class Services extends Controller
             'serviceDetails' => $serviceDetails[0],
             'serProvDetails' => $serProvDetails,
             'noofSlots' => $noofSlots,
-            'resDetailsSlot1' => '',
-            'resDetailsSlot2' => '',
-            'resDetailsSlot3' => '',
+            'resDetailsSlot1' => $resDetailsSlot1,
+            'resDetailsSlot2' => $resDetailsSlot2,
+            'resDetailsSlot3' => $resDetailsSlot3,
 
             'sTypesArray' => [],
             'sProvArray' => [],
@@ -507,6 +483,8 @@ class Services extends Controller
 
             if (empty($data['sName_error']) && empty($data['sSelectedCusCategory_error']) && empty($data['sPrice_error']) && empty($data['sSelectedAllType_error']) && empty($data['sSelectedSProve_error']) && empty($data['sSlot1Duration_error']) && empty($data['sSlot2Duration_error']) && empty($data['sSlot3Duration_error']) && empty($data['interval1Duration_error']) && empty($data['interval2Duration_error']))
             {
+               $slotNo = 0;
+
                if ($data['slot2Duration'] != NULL && $data['slot3Duration'] == NULL)
                {
                   $slotNo = 1;
@@ -515,7 +493,6 @@ class Services extends Controller
                {
                   $slotNo = 2;
                }
-
                if ($data['price'] != $serviceDetails[0]->price)
                {
                   $this->ServiceModel->beginTransaction();
@@ -531,61 +508,34 @@ class Services extends Controller
                {
                   $this->ServiceModel->beginTransaction();
                   $this->ServiceModel->updateService($serviceID, $data, $slotNo);
+                  $this->ServiceModel->updateServiceProviders($serviceID, $data, $serProvDetails);
+                  $this->ServiceModel->addNewSlotsFromUpdate($serviceID, $data, $slotNo);
+                  $this->ServiceModel->updateAllocatedResources($serviceID, $data, $slotNo, $resDetailsSlot1, $resDetailsSlot2, $resDetailsSlot3);
+                  $this->ServiceModel->updateIntervals($serviceID, $data, $slotNo);
+                  $this->ServiceModel->updateTimeslots($serviceID, $data, $slotNo);
+                  $this->ServiceModel->commit();
+               }
+               $resState = 5;
+               $recallReason = "For update the service";
 
-                  $resState = 5;
+               if (isset($_SESSION['recallRequestsFromUpdateService']))
+               {
                   foreach ($_SESSION['recallRequestsFromUpdateService'] as $key => $value)
                   {
 
                      if ($value == 1)
                      {
-                        // print_r($key);
                         $this->ReservationModel->updateReservationRecalledState($key, $resState);
-                        $this->ReservationModel->addReservationRecall($key);
+                        $this->ReservationModel->addReservationRecall($key, $recallReason);
                      }
                   }
                   $this->destroyRecallDetails();
-
-                  $this->ServiceModel->updateServiceProviders($serviceID, $data, $serProvDetails);
-                  $this->ServiceModel->updateAllocatedResources($serviceID, $data, $slotNo, $resDetailsSlot1, $resDetailsSlot2, $resDetailsSlot3);
-                  $this->ServiceModel->updateIntervals($serviceID, $data, $slotNo);
-                  $this->ServiceModel->updateTimeslots($serviceID, $data, $slotNo);
-                  $this->ServiceModel->commit();
                }
                Toast::setToast(1, "Service Updated Successfully!!!", "");
                redirect('Services/viewAllServices');
             }
             else
             {
-
-               $selectesResCount = count($data['sSelectedResCount1']);
-
-               for ($i = 0; $i < $selectesResCount; $i++)
-               {
-                  if ($data['sSelectedResCount1'][$i] != 0)
-                  {
-                     $data['sSelectedResCount1_error'] = "Please enter resource quantity again";
-                  }
-               }
-
-               $selectesResCount = count($data['sSelectedResCount2']);
-
-               for ($i = 0; $i < $selectesResCount; $i++)
-               {
-                  if ($data['sSelectedResCount2'][$i] != 0)
-                  {
-                     $data['sSelectedResCount2_error'] = "Please enter resource quantity again";
-                  }
-               }
-               $selectesResCount = count($data['sSelectedResCount3']);
-
-               for ($i = 0; $i < $selectesResCount; $i++)
-               {
-                  if ($data['sSelectedResCount3'][$i] != 0)
-                  {
-                     $data['sSelectedResCount3_error'] = "Please enter resource quantity again";
-                  }
-               }
-
                $this->view('manager/mang_serviceUpdate', $data);
             }
          }
@@ -596,7 +546,6 @@ class Services extends Controller
       }
       else
       {
-
          $data = [
             'name' => $serviceDetails[0]->name,
             'customerCategory' => $serviceDetails[0]->customerCategory,

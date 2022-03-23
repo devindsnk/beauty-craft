@@ -4,20 +4,20 @@ class LeaveModel extends Model
 
    public function getLeaveRecordsBystaffID($staffID, $Type, $Status)
    {
-      if ($Type == 'All')
+      if ($Type == 'all')
       {
-         if ($Status == 'All')
+         if ($Status == 'all')
          {
             $results = $this->customQuery("SELECT * FROM generalleaves WHERE staffID =:staffID ORDER BY leaveDate", [':staffID' => $staffID,]);
          }
          else
          {
-            $results = $this->customQuery("SELECT * FROM generalleaves WHERE ( staffID =:staffID )AND (status =:lType) ORDER BY leaveDate", [':staffID' => $staffID, ':lType' => $Status]);
+            $results = $this->customQuery("SELECT * FROM generalleaves WHERE ( staffID =:staffID )AND (status =:lStatus) ORDER BY leaveDate", [':staffID' => $staffID, ':lStatus' => $Status]);
          }
       }
       else
       {
-         if ($Status == 'All')
+         if ($Status == 'all')
          {
             $results = $this->customQuery("SELECT * FROM generalleaves WHERE staffID =:staffID AND leaveType=:lType ORDER BY leaveDate", [':staffID' => $staffID, ':lType' => $Type,]);
          }
@@ -170,7 +170,12 @@ class LeaveModel extends Model
    {
       $responce = 3;
       $leaveType = 1;
-      $results = $this->update('generalleaves', ['leaveType' => $leaveType, 'status' => $responce,], ['staffID' => $staffID, 'leaveDate' => $leaveDate]);
+      $results = $this->update('generalleaves', ['leaveType' => $leaveType, 'status' => $responce], ['staffID' => $staffID, 'leaveDate' => $leaveDate]);
+   }
+   public function changeCasualPendingToRemove($staffID, $leaveDate)
+   {
+      $responce = 0;
+      $results = $this->update('generalleaves', ['status' => $responce], ['staffID' => $staffID, 'leaveDate' => $leaveDate]);
    }
 
 
@@ -202,11 +207,26 @@ class LeaveModel extends Model
                                     FROM generalleaves
                                      
                                     ";
-
       // Appending conditions string
-      if (!empty($conditions)) $SQLstatement .= " WHERE $consditionsString";
+      // if (!empty($conditions))
+      // {
+      //    $SQLstatement .= " WHERE $consditionsString ORDER BY CASE WHEN status=2  THEN 1
+      // WHEN status = 1 THEN 2 WHEN status = 0 THEN 3 ELSE 4 END";
+      // }
+      // else
+      // {
+      //    $SQLstatement .= " ORDER BY CASE WHEN status=2  THEN 1
+      // WHEN status = 1 THEN 2 WHEN status = 0 THEN 3 ELSE 4 END";
+      // }
 
-      // $SQLstatement .= " ORDER BY $leaveDate";
+      if (!empty($conditions))
+      {
+         $SQLstatement .= " WHERE $consditionsString ORDER BY IF(status = 2, 1, 2) ASC, leaveDate DESC";
+      }
+      else
+      {
+         $SQLstatement .= " ORDER BY IF(status = 2, 1, 2) ASC, leaveDate DESC";
+      }
 
       $results = $this->customQuery($SQLstatement,  $dataToBind);
       return $results;
@@ -258,7 +278,9 @@ class LeaveModel extends Model
 
       $ManagerID = Session::getUser("id");
 
-      $results = $this->update('generalleaves', ['respondedStaffID' => $ManagerID, 'status' => $responce,], ['staffID' => $staffID, 'leaveDate' => $leaveDate]);
+      $results = $this->update('generalleaves', ['respondedStaffID' => $ManagerID, 'status' => $responce], ['staffID' => $staffID, 'leaveDate' => $leaveDate]);
+
+      return $results;
    }
 
    ///////////////////////////////////////////
@@ -449,6 +471,24 @@ class LeaveModel extends Model
    {
       $month = 1;
       $results = $this->getResultSet('generalleaves', '*', ['staffID' => $staffID, 'status' => 4, 'leaveType' => 'casual']);
+      return $results;
+   }
+
+   public function sProvUninformedLeave($staffID, $date)
+   {
+      $results = $this->insert(
+         'generalleaves',
+         [
+            'staffID' => $staffID,
+            'leaveDate' => $date,
+            'respondedStaffID' => "N/A",
+            'requestedDate' => "N/A",
+            'reason' => "Uninformed Leave",
+            'status' => 1,
+            'leaveType' => 1
+         ]
+      );
+
       return $results;
    }
 }

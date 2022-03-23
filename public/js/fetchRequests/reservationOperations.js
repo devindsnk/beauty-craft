@@ -31,6 +31,28 @@ function markReservationNoShow(btn) {
 		});
 }
 
+function markReservationConfirmed(btn) {
+	let reservationID = btn.getAttribute("data-id");
+	fetch(`http://localhost:80/beauty-craft/Reservations/confirmReservation/${reservationID}`)
+		.then((response) => response.json())
+		.then((state) => {
+			if (state) {
+				window.location.reload();
+			}
+		});
+}
+
+function markSProvOnLeave(btn) {
+	let sProvID = btn.getAttribute("data-id");
+	fetch(`http://localhost:80/beauty-craft/Leaves/sProvUninformedLeaveOnDate/${sProvID}`)
+		.then((response) => response.json())
+		.then((state) => {
+			if (state) {
+				window.location.reload();
+			}
+		});
+}
+
 function checkoutReservation(btn) {
 	let reservationID = btn.getAttribute("data-id");
 	fetch(`http://localhost:80/beauty-craft/Reservations/checkoutReservation/${reservationID}`)

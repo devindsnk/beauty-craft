@@ -44,10 +44,10 @@ class StaffModel extends Model
    }
 
 
-   public function getAllStaffWithFilters($sType,$status,$sName)
-   { 
-      $conditions = array(); 
- 
+   public function getAllStaffWithFilters($sType, $status, $sName)
+   {
+      $conditions = array();
+
       // Extract specially defined conditions to a separate array 
       // Note that both tableName and columnName are used as the keys 
       if ($sType != "all") $conditions["staff.staffType"] = $sType;
@@ -55,7 +55,7 @@ class StaffModel extends Model
 
       // *********************
       // seperate array to store the staff mmber name
-      if ($sName != "all") $name["staff.fName"] = $sName; 
+      if ($sName != "all") $name["staff.fName"] = $sName;
 
       $preparedConditions = array();
       $dataToBind = array();
@@ -67,7 +67,7 @@ class StaffModel extends Model
          $dataToBind[":$colName"] = $value;
       }
 
-      $consditionsString = implode(" AND ", $preparedConditions); 
+      $consditionsString = implode(" AND ", $preparedConditions);
       // $consditionsString  = "staff.staffType = :staffType AND staff.fName LIKE :sName% OR staff.lName LIKE :sName% AND staff.status = :status";// Joining conditions with AND and LIKE
       $SQLstatement =
          "SELECT * FROM staff
@@ -75,7 +75,7 @@ class StaffModel extends Model
 
       // Remove spaces, otherwise sql query doesnt work
       $string = "'$sName%'";
-      $string= str_replace(' ', '', $string);
+      $string = str_replace(' ', '', $string);
 
       // Appending conditions string
       if (!empty($conditions)) $SQLstatement .= " AND $consditionsString";
@@ -137,16 +137,15 @@ class StaffModel extends Model
 
    public function updateStaff($data, $staffID)
    {
-      $currentMobileNo=$data['staffdetails']->mobileNo;
+      $currentMobileNo = $data['staffdetails']->mobileNo;
 
       if ($data['mobileNo'] != $data['staffdetails']->mobileNo)
       {
          $SQLstatement = "UPDATE users SET mobileNo = :newMobileNo  WHERE mobileNo = :currentMobileNo;";
-         $results = $this->customQuery($SQLstatement, [":newMobileNo" => $data['mobileNo'],":currentMobileNo" => $currentMobileNo ]);
+         $results = $this->customQuery($SQLstatement, [":newMobileNo" => $data['mobileNo'], ":currentMobileNo" => $currentMobileNo]);
       }
-      $this->update('staff', ['imgPath' =>  $data['imgPath'], 'fName' => $data['fName'], 'lName' => $data['lName'], 'mobileNo' => $data['mobileNo'], 'gender' => $data['gender'], 'address' => $data['address'], 'email' => $data['email'], 'dob' => $data['dob'], 'status'=>$data['status']], ['staffID' => $staffID]);
+      $this->update('staff', ['imgPath' =>  $data['imgPath'], 'fName' => $data['fName'], 'lName' => $data['lName'], 'mobileNo' => $data['mobileNo'], 'gender' => $data['gender'], 'address' => $data['address'], 'email' => $data['email'], 'dob' => $data['dob'], 'status' => $data['status']], ['staffID' => $staffID]);
       $this->update('bankdetails', ['staffID' => $staffID, 'accountNo' => $data['accountNo'], 'bankName' => $data['bankName'], 'holdersName' => $data['holdersName'], 'branchName' => $data['branchName']], ['staffID' => $staffID]);
-   
    }
 
    public function removeStaff($staffID, $staffMobileNo)
@@ -206,6 +205,24 @@ class StaffModel extends Model
    // FOR MANAGER OVERVIEW
 
    ///// Methods added by devin ////
+   public function getSProvidersWithLeaveStatusByDate($selectedDate)
+   {
+      $SQLstatement =
+         "SELECT STAFF.staffID, STAFF.fName, STAFF.lName, STAFF.mobileNo, STAFF.imgPath, GLEAVES.status AS leaveStatus
+         FROM staff AS STAFF 
+         LEFT JOIN generalleaves AS GLEAVES 
+         ON GLEAVES.staffID = STAFF.staffID AND GLEAVES.leaveDate = :selectedDate AND GLEAVES.status IN (1,2)
+         WHERE STAFF.status = 1 ;";
+
+      $results = $this->customQuery(
+         $SQLstatement,
+         [
+            ":selectedDate" => $selectedDate
+         ]
+      );
+      return $results;
+   }
+
    // Returns the data of service providers of a given service with their availability on the give date.
    public function getSProvidersByServiceWithLeaveStatus($serviceID, $selectedDate)
    {

@@ -1,0 +1,156 @@
+.sProvHeadersContainer {
+    display: grid;
+    grid-template-columns: 25px 1fr 1fr 1fr 1fr 1fr 25px;
+    /* gap: 1px; */
+
+    margin: 15px 25px 0 55px;
+}
+
+.arrow {
+    display: flex;
+}
+
+.arrow:hover {
+    background-color: #c4cae0;
+    transition: ease-in-out 0.4s;
+}
+
+.arrow .dOverview-icon {
+    margin: auto;
+}
+
+.sProvHeader {
+    padding: 5px 0;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #c4cae0;
+    border-left: 1px solid #c4cae0;
+    /* background-color: coral; */
+}
+
+.sProvHeader img {
+    margin: auto;
+    align-self: flex-end;
+}
+
+.sProvHeader span {
+    margin: auto;
+}
+
+.mainResContainer {
+    height: 680px;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: 50px 5fr 5fr 5fr 5fr 5fr;
+    /* gap: 1px; */
+    margin: 0px 33px 5px 30px;
+}
+
+.timeVals {}
+
+.timeBox {
+
+    border-top: 1px solid #c4cae0;
+    padding-right: 4px;
+    text-align: right;
+    height: 120px;
+    font-size: 15px;
+    /* background-color: crimson; */
+}
+
+.sProvResContainer {
+    position: relative;
+    border: 1px solid #c4cae0;
+    /* background-color: darkcyan; */
+}
+
+.resBox {
+    /* background-color: crimson; */
+    position: absolute;
+    width: 100%;
+    padding: 0px !important;
+    height: 100px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.resBoxInner {
+    height: 100%;
+    margin: 1px;
+    display: grid;
+    grid-template-columns: 14px 2fr 1fr;
+    background-color: #ffffff;
+}
+
+.resBoxInner>div {
+    max-height: 100%;
+}
+
+.resBox .statusSection {
+    max-height: 100%;
+    background-color: var(--success-green);
+}
+
+.resBox .infoSection {
+    padding: 2px 3px 2px 6px;
+}
+
+.resBox .infoSection .time {
+    display: block;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.resBox .infoSection .service {
+    display: block;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.resBox .idSection {
+    display: flex;
+    justify-content: end;
+    font-weight: 600;
+
+}
+
+.resBox .idSection span {
+    background-color: #FF8B4A;
+    color: white;
+    text-align: center;
+    padding: 0px 6px 2px;
+    border-radius: 10px;
+    text-align: right;
+    display: block;
+    margin-top: 5px;
+    margin-right: 5px;
+    height: min-content;
+    line-height: 26px;
+}
+
+.alphanumeric {
+    font-family: 'Lato', sans-serif;
+}
+
+
+.res0 {
+    top: 0px;
+    right: 0px;
+}
+
+.res1 {
+    top: 100px;
+    right: 0px;
+}
+
+.res2 {
+    top: 200px;
+    right: 0px;
+}
+
+.res3 {
+    top: 300px;
+    right: 0px;
+}
