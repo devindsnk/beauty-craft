@@ -101,6 +101,20 @@ class StaffModel extends Model
       return $result;
    }
 
+   
+   // get one staff details to the view 
+   public function getStaffMemberCountForCharts()
+   {
+      $results = $this->customQuery(
+         "SELECT staff.staffType AS sType , COUNT(*) AS TotalCount
+         FROM staff
+         WHERE staff.status= 1 AND staffType IN (3,4,5)
+         GROUP BY staffType",
+         [':status' => 1]
+      );
+      return $results;
+   }
+
    public function getStaffDetailsByStaffID($staffID)
    {
       $result = $this->getResultSet('staff', '*', ["staffID" => $staffID]);

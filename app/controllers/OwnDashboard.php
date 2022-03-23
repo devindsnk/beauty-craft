@@ -35,6 +35,22 @@ class OwnDashboard extends Controller
       $this->view('owner/own_overview',$ownOverviewDetails);
    }
 
+   public function overviewChart1()
+   {
+      $totalIncomeForChart = $this->reservationModel->getMonthlyIncomeAndTotalReservationsForMangOverviewCharts();
+      // print_r($totalIncomeForChart);
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($totalIncomeForChart));
+   }
+
+   public function overviewChart2()
+   {
+      $totalStaffMembersForChart2 = $this->staffModel->getStaffMemberCountForCharts();
+      // print_r($totalIncomeForChart);
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($totalStaffMembersForChart2));
+   }
+
    public function closeSalon($monthSelected ="all")
    {
       $closeDatesDetails = $this->closedDatesModel->getCloseDatesDetails($monthSelected);
