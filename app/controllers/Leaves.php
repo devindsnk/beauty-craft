@@ -7,23 +7,23 @@ class Leaves extends Controller
       $this->closedDatesModel = $this->model('ClosedDatesModel');
    }
 
-   public function responceForLeaveRequest($staffID, $leaveDate)
-   {
-      if ($_SERVER['REQUEST_METHOD'] == 'POST')
-      {
-         if ($_POST['action'] == "approve")
-         {
-            $responce = 1;
-            $this->LeaveModel->addLeaveResponce($responce, $staffID, $leaveDate);
-         }
-         elseif ($_POST['action'] == "reject")
-         {
-            $responce = 0;
-            $this->LeaveModel->addLeaveResponce($responce, $staffID, $leaveDate);
-         }
-         header('location: ' . URLROOT . '/MangDashboard/leaveRequests');
-      }
-   }
+   // public function responceForLeaveRequest($staffID, $leaveDate)
+   // {
+   //    if ($_SERVER['REQUEST_METHOD'] == 'POST')
+   //    {
+   //       if ($_POST['action'] == "approve")
+   //       {
+   //          $responce = 1;
+   //          $this->LeaveModel->addLeaveResponce($responce, $staffID, $leaveDate);
+   //       }
+   //       elseif ($_POST['action'] == "reject")
+   //       {
+   //          $responce = 0;
+   //          $this->LeaveModel->addLeaveResponce($responce, $staffID, $leaveDate);
+   //       }
+   //       header('location: ' . URLROOT . '/MangDashboard/leaveRequests');
+   //    }
+   // }
 
    public function oneleaveRequest($staffID, $leaveDate)
    {

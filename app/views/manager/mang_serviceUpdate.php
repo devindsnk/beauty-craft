@@ -209,11 +209,11 @@
 											<?php $resID =  $sResource->resourceID ?>
 
 											<select class="dropdownSelectBox-small quantity-align resCount" name="resourceCount1[]">
-												<!-- <option class="unbold" value="0" option selected="true">0</option> -->
+												<option class="unbold" value="0" option selected="true">0</option>
 
 												<?php $Qcount = $sResource->quantity; ?>
 
-												<?php for ($i = 0; $i <= $Qcount; $i++) : ?>
+												<?php for ($i = 1; $i <= $Qcount; $i++) : ?>
 
 													<option value="<?php echo $i; ?>" <?php if (isset($data['sSelectedResCount1'][$j]))
 																						{
@@ -293,7 +293,7 @@
 
 											<?php endfor; ?>
 										</select>
-										<span class='error paddingLeft'></span>
+										<!-- <span class='error paddingLeft'></span> -->
 										<span class="error paddingLeft"><?php echo $data['sSlot2Duration_error']; ?></span>
 
 									</div>
@@ -315,11 +315,11 @@
 												<?php $resID =  $sResource->resourceID ?>
 
 												<select class="dropdownSelectBox-small quantity-align resCount resourceCountSelectBox2" name="resourceCount2[]">
-													<!-- <option class="unbold" value="0" option selected="true">0</option> -->
+													<option class="unbold" value="0" option selected="true">0</option>
 
 													<?php $Qcount = $sResource->quantity; ?>
 
-													<?php for ($i = 0; $i <= $Qcount; $i++) : ?>
+													<?php for ($i = 1; $i <= $Qcount; $i++) : ?>
 
 														<option value="<?php echo $i; ?>" <?php if (isset($data['sSelectedResCount2'][$j]))
 																							{
@@ -399,7 +399,7 @@
 
 											<?php endfor; ?>
 										</select>
-										<span class='error paddingLeft'></span>
+										<!-- <span class='error paddingLeft'></span> -->
 										<span class="error paddingLeft"><?php echo $data['sSlot2Duration_error']; ?></span>
 
 									</div>
@@ -421,11 +421,11 @@
 												<?php $resID =  $sResource->resourceID ?>
 
 												<select class="dropdownSelectBox-small quantity-align resCount resourceCountSelectBox2" name="resourceCount2[]">
-													<!-- <option class="unbold" value="0" option selected="true">0</option> -->
+													<option class="unbold" value="0" option selected="true">0</option>
 
 													<?php $Qcount = $sResource->quantity; ?>
 
-													<?php for ($i = 0; $i <= $Qcount; $i++) : ?>
+													<?php for ($i = 1; $i <= $Qcount; $i++) : ?>
 
 														<option value="<?php echo $i; ?>" <?php if (isset($data['sSelectedResCount2'][$j]))
 																							{
@@ -492,12 +492,12 @@
 											<option class='unbold' value='val0' option selected='true' disabled='disabled'>Select duration</option>
 											<?php for ($i = 10; $i <= 120; $i += 10) : ?>
 												<?php if ($i == 60 || $i == 120) : ?>
-													<option value="<?php echo $i; ?>" <?php if ($data['slot1Duration'] == $i) echo 'selected'; ?>> <?php echo ($i / 60); ?> h </option>
+													<option value="<?php echo $i; ?>" <?php if ($data['slot3Duration'] == $i) echo 'selected'; ?>> <?php echo ($i / 60); ?> h </option>
 												<?php elseif ($i > 60 && $i < 120) : ?>
-													<option value="<?php echo $i; ?>" <?php if ($data['slot1Duration'] == $i) echo 'selected'; ?>> <?php echo ($i / $i); ?> h <?php echo ($i %  60); ?>
+													<option value="<?php echo $i; ?>" <?php if ($data['slot3Duration'] == $i) echo 'selected'; ?>> <?php echo ($i / $i); ?> h <?php echo ($i %  60); ?>
 														mins</option>
 												<?php else : ?>
-													<option value="<?php echo $i; ?>" <?php if ($data['slot1Duration'] == $i) echo 'selected'; ?>> <?php echo $i; ?> mins </option>
+													<option value="<?php echo $i; ?>" <?php if ($data['slot3Duration'] == $i) echo 'selected'; ?>> <?php echo $i; ?> mins </option>
 												<?php endif; ?>
 
 											<?php endfor; ?>
@@ -524,11 +524,11 @@
 												<?php $resID =  $sResource->resourceID ?>
 
 												<select class="dropdownSelectBox-small quantity-align resCount resourceCountSelectBox3" name="resourceCount3[]">
-													<!-- <option class="unbold" value="0" option selected="true">0</option> -->
+													<option class="unbold" value="0" option selected="true">0</option>
 
 													<?php $Qcount = $sResource->quantity; ?>
 
-													<?php for ($i = 0; $i <= $Qcount; $i++) : ?>
+													<?php for ($i = 1; $i <= $Qcount; $i++) : ?>
 
 														<option value="<?php echo $i; ?>" <?php if (isset($data['sSelectedResCount3'][$j]))
 																							{
@@ -562,7 +562,7 @@
 										<?php endforeach; ?>
 
 									</div>
-									<span class="error paddingLeft"><?php echo $data['sSelectedResCount2_error']; ?></span>
+									<span class="error paddingLeft"><?php echo $data['sSelectedResCount3_error']; ?></span>
 
 								</div>
 							</div>

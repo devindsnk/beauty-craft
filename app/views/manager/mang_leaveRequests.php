@@ -6,8 +6,13 @@
         <div class="header-center verticalCenter">
             <h1 class="header-topic">Leave Request</h1>
         </div>
-        <div class="header-right verticalCenter">
+        <!-- <div class="header-right verticalCenter">
             <a href="<?php echo URLROOT ?>/MangDashboard/leaveRequests" class="top-right-closeBtn"><i class="fal fa-times fa-2x "></i></a>
+        </div> -->
+        <div class="header-right verticalCenter">
+            <span class="top-right-closeBtn" onclick="history.back()">
+                <i class=" fal fa-times fa-2x "></i>
+            </span>
         </div>
     </header>
     <div class="content leaveReq">
@@ -75,14 +80,15 @@
                         </div>
                     </div>
                 </div>
-
+                <?php date_default_timezone_set("Asia/Colombo");
+                $today = date("Y-m-d H:i:s"); ?>
                 <div class="leave-requests-button-div">
-                    <?php if ($data['leaveDetails']->status != 3) : ?>
+                    <?php if ($data['leaveDetails']->status != 3 && $data['leaveDetails']->status != 1 && $data['leaveDetails']->status != 0 && $data['leaveDetails']->leaveDate > $today) : ?>
                         <div class="">
-                            <button type="submit" class="buttonLeaveRequest btn btn-filled btn-success-green" name="action" value="approve">Approve</button>
+                            <button type="button" class="buttonLeaveRequest btn btn-filled btn-success-green btnApproveLeave" data-staffID="<?php echo $data['leaveDetails']->staffID; ?>" data-leaveDate="<?php echo $data['leaveDetails']->leaveDate; ?>">Approve</button>
                         </div>
                         <div class="">
-                            <button type="submit" class="buttonLeaveRequest btn btn-filled btn-error-red" name="action" value="reject">Reject</button>
+                            <button type="button" class="buttonLeaveRequest btn btn-filled btn-error-red btnRejectLeave" data-staffID="<?php echo $data['leaveDetails']->staffID; ?>" data-leaveDate="<?php echo $data['leaveDetails']->leaveDate; ?>">Reject</button>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -90,4 +96,40 @@
 
         </form>
     </div>
+
+    <!-- Leave approving modal -->
+    <div class="modal-container approve-leave">
+        <div class="modal-box size-confirmation">
+            <div class="confirm-model-head">
+                <h1>Approve the Leave</h1>
+            </div>
+            <div class="confirm-model-head">
+                <p>Are you sure you want to Approve the leave?</p>
+            </div>
+            <div class="confirm-model-head">
+                <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
+                <button class="btn normal ModalButton ModalBlueButton approveBtn" onclick="approveLeaveRequest(this);">Yes, Approve</button>
+            </div>
+        </div>
+    </div>
+    <!-- End of Leave approving modal -->
+
+    <!-- Leave Rejecting modal -->
+    <div class="modal-container reject-leave">
+        <div class="modal-box size-confirmation">
+            <div class="confirm-model-head">
+                <h1>Reject the Leave</h1>
+            </div>
+            <div class="confirm-model-head">
+                <p>Are you sure you want to Reject the leave?</p>
+            </div>
+            <div class="confirm-model-head">
+                <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
+                <button class="btn normal ModalButton ModalRedButton rejectBtn" onclick="rejectLeaveRequest(this);">Yes, Reject</button>
+            </div>
+        </div>
+    </div>
+    <!-- End of Leave Rejecting modal -->
+
+    <script src="<?php echo URLROOT ?>/public/js/leaveRequests.js"></script>
     <?php require APPROOT . "/views/inc/footer.php" ?>
