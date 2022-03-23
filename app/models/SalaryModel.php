@@ -19,57 +19,32 @@ class SalaryModel extends Model
       return $result;
    }
 
-   public function getAllStaffAndSalaryPaymentDetails($sType,$sMonthSelected)
+   public function getAllStaffAndSalaryPaymentDetails($staffName,$staffID,$paidType,$month)
    {
-      print_r($sType);
-      print_r($sMonthSelected);
-      // // die("salarymodel");
-      // // echo $mostRecentDateMonth . $mostRecentDateYear;
-      // $result = $this->customQuery(
-      //    "SELECT * FROM staff INNER JOIN salarypayments ON staff.staffID = salarypayments.staffID "
-      // );
-      // // print_r($result);
-      // // die("salarymodel");
-      // return $result;
+      print($staffName);
+
+$SQLstatement =
+      "SELECT * FROM staff INNER JOIN salarypayments ON staff.staffID = salarypayments.staffID WHERE staff.staffType IN (3,4,5) ";
+
+      // Remove spaces, otherwise sql query doesnt work
+      $string1 = "'$staffName%'";
+      $string1= str_replace(' ', '', $string1);
+
+      $string2 = "'$staffID%'";
+      $string2= str_replace(' ', '', $string2);
+
+      $string3 = "'$month%'";
+      $string3= str_replace(' ', '', $string3);
 
 
-
-      //////////////////////////////////////////////////////////////
-
-  // die("model called");
-  $conditions = array(); 
- 
-  // Extract specially defined conditions to a separate array 
-  // Note that both tableName and columnName are used as the keys 
-  if ($sType != "all") $conditions["staff.staffType"] = $sType; 
-  // if ($sName != "all") $conditions["staff.staffname"] = $sName; 
-  if ($sMonthSelected != "all") $conditions["salarypayments.month"] = $sMonthSelected;
-
-  $preparedConditions = array();
-  $dataToBind = array();
-
-  foreach ($conditions as $column => $value)
-  {
-     $colName = explode(".", $column, 2)[1]; // Only taking the column name for binding (discards tableName)
-     array_push($preparedConditions, "$column = :$colName");
-     $dataToBind[":$colName"] = $value;
-  }
-
-  $consditionsString = implode(" AND ", $preparedConditions); // Joining conditions with AND
-
-  $SQLstatement =
-     "SELECT * FROM staff
-     INNER JOIN salarypayments ON staff.staffID = salarypayments.staffID";
-
-  // Appending conditions string
-  if (!empty($conditions)) $SQLstatement .= " WHERE $consditionsString";
-
-  $results = $this->customQuery($SQLstatement,  $dataToBind);
-  print_r($results);
-  return $results;
-
-
-      //////////////////////////////////////////////////////////////
+      if ($staffName != "all") $SQLstatement .= " AND (staff.fName LIKE $string1 OR staff.lName LIKE $string1) ";
+      if ($staffID != "all") $SQLstatement .= " AND (staff.staffID LIKE $string2) ";
+      if ($staffID != "all") $SQLstatement .= " AND (salarypayments.month LIKE $string3) ";
+      if ($paidType != "all") $SQLstatement .= " AND (salarypayments.status = $paidType) ";
+      var_dump($SQLstatement);
+      // die();
+      $results = $this->customQuery($SQLstatement,  null);
+      return $results;
    }
 
    public function getAllStaffSalaryPaymentDetailsByStaffID($staffID)

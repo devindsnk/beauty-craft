@@ -41,22 +41,22 @@
          <div class="row">
             <div class="column">
                <div class="text-group">
-                  <label class="label" for="fName">Resource Type</label>
-                  <input type="text" name="" id="resourceNameInput" placeholder="Resource name here">
+                  <label class="label" for="fName">Resource ID</label>
+                  <input type="text" name="" id="resourceIDInput"  value="<?php echo ($data["typedID"]== "all")? "": $data["typedID"];?>" placeholder="Resource ID here">
                </div>
                <span class="error"> <?php echo " "; ?></span>
             </div>
             <div class="column">
                <div class="text-group">
-                  <label class="label" for="fName">Resource ID</label>
-                  <input type="text" name="" id="resourceIDInput" placeholder="Resource ID here">
+                  <label class="label" for="fName">Resource Type</label>
+                  <input type="text" name=""   id="resourceNameInput" value="<?php echo ($data["typedName"] == "all")? "":$data["typedName"];?>" placeholder="Resource name here">
                </div>
                <span class="error"> <?php echo " "; ?></span>
             </div>
          </div>
       </div>
       <div class="right-section">
-         <a href="" class="btn btn-filled btn-black" id="allResourcesFilterBtn">Search</a>
+         <a class="btn btn-filled btn-black" id="allResourcesFilterBtn">Search</a>
          <!-- <button class="btn btn-search">Search</button> -->
       </div>
    </div>
@@ -76,8 +76,8 @@
          </thead> 
          <tbody> 
             <tr> 
-               <?php foreach ($data as $resourceD) : ?> 
-                  <td class="column-center-align"><?php echo $resourceD->resourceID; ?></td> 
+               <?php foreach ($data['allResourceDetailsList'] as $resourceD) : ?> 
+                  <td class="column-center-align">RT<?php echo $resourceD->resourceID; ?></td> 
                   <td class="column-center-align"><?php echo $resourceD->name; ?></td> 
                   <td class="column-center-align"><?php echo $resourceD->quantity; ?></td> 
                   <td data-lable="Status" class="column-center-align"> 

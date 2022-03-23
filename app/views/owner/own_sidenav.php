@@ -68,7 +68,7 @@
          <!--End Sidebar Item-->
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Customers") echo " selected" ?>" href="<?php echo URLROOT ?>/Customer/viewAllCustomers">
+            <a class="optionLink <?php if ($selectedMain == "Customers") echo " selected" ?>" href="<?php echo URLROOT ?>/Customer/viewAllCustomers/all/all/all">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-people"></i>
                </div>
@@ -78,7 +78,7 @@
          <!--End Sidebar Item-->
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Salaries") echo " selected" ?>" href="<?php echo URLROOT ?>/Salary/salaryTableView">
+            <a class="optionLink <?php if ($selectedMain == "Salaries") echo " selected" ?>" href="<?php echo URLROOT ?>/Salary/salaryTableView/all/all/all/all">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-salaries "></i>
                </div>
@@ -98,7 +98,7 @@
          <!--End Sidebar Item-->
          <!--Sidebar Item-->
          <li class="mainOption">
-            <a class="optionLink <?php if ($selectedMain == "Close Salon") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/closeSalon">
+            <a class="optionLink <?php if ($selectedMain == "Close Salon") echo " selected" ?>" href="<?php echo URLROOT ?>/OwnDashboard/closeSalon/all">
                <div class="optionIcon">
                   <i class="sidenav-icon ci-close-salon "></i>
                </div>

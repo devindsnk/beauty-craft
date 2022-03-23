@@ -12,6 +12,7 @@ class OwnDashboard extends Controller
       $this->ratesModel = $this->model('RatesModel');
       $this->closedDatesModel = $this->model('ClosedDatesModel');
       $this->customerModel = $this->model('CustomerModel');
+      $this->reservationModel = $this->model('reservationModel');
    }
 
    public function home()
@@ -20,9 +21,39 @@ class OwnDashboard extends Controller
       // $this->view('owner/own_overview', $getManagerCount);
    }
 
-   public function closeSalon()
+   
+   public function overview()
    {
-      $closeDatesDetails = $this->closedDatesModel->getCloseDatesDetails();
+      $availableManagers = $this->staffModel->getAvailableManagerCount();
+      $totalIncome = $this->reservationModel->getTotalIncomeForMangOverview();
+      $activeCustomers = $this->customerModel->getActiveCustomerCount();
+      $ownOverviewDetails = [
+         'totalIncome' => $totalIncome,
+         'activeCustomers' => $activeCustomers,
+         'activeManagers' => $availableManagers
+      ];
+      $this->view('owner/own_overview',$ownOverviewDetails);
+   }
+
+   public function overviewChart1()
+   {
+      $totalIncomeForChart = $this->reservationModel->getMonthlyIncomeAndTotalReservationsForMangOverviewCharts();
+      // print_r($totalIncomeForChart);
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($totalIncomeForChart));
+   }
+
+   public function overviewChart2()
+   {
+      $totalStaffMembersForChart2 = $this->staffModel->getStaffMemberCountForCharts();
+      // print_r($totalIncomeForChart);
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($totalStaffMembersForChart2));
+   }
+
+   public function closeSalon($monthSelected ="all")
+   {
+      $closeDatesDetails = $this->closedDatesModel->getCloseDatesDetails($monthSelected);
       $CurrentCloseDateaCount = sizeof($closeDatesDetails);
       $date_now = date("Y-m-d");
 
@@ -36,6 +67,7 @@ class OwnDashboard extends Controller
             'closeSalonReason_error' => '',
             'haveErrors' => 0,
             'closeDates' => $closeDatesDetails,
+            'monthSelected' => $monthSelected
          ];
 
          if ($_POST['action'] == "addCloseDate")
@@ -95,6 +127,7 @@ class OwnDashboard extends Controller
             'closeSalonReason_error' => '',
             'haveErrors' => 0,
             'closeDates' => $closeDatesDetails,
+            'monthSelected' => $monthSelected
          ];
          $this->view('owner/own_closeSalon', $data);
       }
@@ -105,11 +138,6 @@ class OwnDashboard extends Controller
       $CusDetails = $this->customerModel->getAllCustomerDetails();   
       $GetCustomerArray = ['customer' => $CusDetails];
       $this->view('owner/own_customers', $GetCustomerArray);
-   }
-
-   public function overview()
-   {
-      $this->view('owner/own_overview');
    }
 
    public function rates()

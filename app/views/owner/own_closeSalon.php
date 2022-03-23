@@ -33,7 +33,7 @@
                   <div class="column">
                      <div class="text-group ownTableFormDate">
                         <label class="label" for="fName">Month</label>
-                        <input type="month" name="" value="">
+                        <input type="month" id="allCloseDateInputFilter" name="" value="<?php echo ($data['monthSelected']== " ")? " ":$data['monthSelected']; ?>">
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
                   </div>
@@ -65,8 +65,13 @@
                         <td data-lable="Action" class="column-center-align">
                            <span>
                               <?php if (Session::getUser('typeText') == "Owner") : ?>
+                                 <?php if ($closeSalonD->date < date('Y-m-d')) : ?>
+                                 <a href="#"><i data-closedateid="<?php echo $closeSalonD->defKey; ?>" class="ci-trash-disable table-icon "></i></a>
+                                 <?php endif; ?>
+                                 <?php if ($closeSalonD->date >= date('Y-m-d')) : ?>
                                  <a href="#"><i data-closedateid="<?php echo $closeSalonD->defKey; ?>" class="ci-trash table-icon btnRemoveCloseDate removeCloseDatetrash"></i></a>
-                              <?php endif; ?>
+                                 <?php endif; ?>
+                                 <?php endif; ?>
                            </span>
                         </td>
                      </tr>
@@ -99,7 +104,7 @@
       <!------------------------------------------------- Modal starts ----------------------------------------------------->
       <div class="modal-container add-closeDate  <?php if ($data['haveErrors']) echo ' show'; ?>">
          <div class="modal-box addItems">
-            <form action="<?php echo URLROOT; ?>/OwnDashboard/closeSalon/ " method="post">
+            <form class="form" action="<?php echo URLROOT; ?>/OwnDashboard/closeSalon/ " method="post">
                <h1 class="addItemsModalHead">Close Salon</h1>
                <!-- start main grid 1 -->
 
@@ -107,13 +112,13 @@
 
                   <div class="addItemsModalDetail1">
                      <label class="addItemsModalLable">Date</label> <br>
-                     <input type="date" class="addItemsModalDate closeDate" name="closeDate" value="<?php echo $data['closeDate']; ?>" min="<?= date('Y-m-d'); ?>"> <br>
-                     <span class="error"><?php echo $data['closeDate_error']; ?></span>
+                     <input type="date" class="addItemsModalDate closeDate" id="date_picker_close_salon" name="closeDate" value="<?php echo $data['closeDate']; ?>" > <br>
+                     <span class="error "><?php echo $data['closeDate_error']; ?></span>
                   </div>
                   <div class="addItemsModalDetail2">
                      <label class="addItemsModalLable">Reason</label>
-                     <textarea class="addItemsModalTextArea" rows="4" cols="50" placeholder="Type the reason here" name="closeSalonReason" value="<?php echo $data['closeSalonReason']; ?>"> </textarea> <br>
-                     <span class="error"><?php echo $data['closeSalonReason_error']; ?></span>
+                     <textarea class="addItemsModalTextArea" id="close_salon_reason" rows="4" cols="50" placeholder="Type the reason here" name="closeSalonReason" value="<?php echo $data['closeSalonReason']; ?>"></textarea> <br>
+                     <span class="error "><?php echo $data['closeSalonReason_error']; ?></span>
                   </div>
                </div>
 
@@ -123,9 +128,9 @@
 
                <div class="addItemsModalGrid2 closeSalonReservationRecallAndErrorText">
                   <div class="addItemsModalError">
-                     <label class="addItemsModalErrortext">Cannot proceed. Has upcoming reservations</label>
-                     <a href="<?php echo URLROOT ?>/closeDates/closeDateReservtaions" target="_blank" class="addItemsModalErrorAnchortag closeSalonViewReservations"> <label class="addItemsModalErrorLable ">View
-                           Reservaions</label></a>
+                     <label class="addItemsModalErrortext">The selected date has upcoming reservations.</label>
+                     <!-- <a href="<?php echo URLROOT ?>/closeDates/closeDateReservtaions" target="_blank" class="addItemsModalErrorAnchortag closeSalonViewReservations"> <label class="addItemsModalErrorLable ">View
+                           Reservaions</label></a> -->
                   </div>
                   <div class="addItemsModalRecallMessage">
                      <span class="addItemsModalMessage">Recall requests will be sent if you proceed.</span>
@@ -152,6 +157,9 @@
    </div>
    <!--End Content-->
 
+  
+
    <script src="<?php echo URLROOT ?>/public/js/fetchRequests/closeSalon.js"></script>
    <script src="<?php echo URLROOT ?>/public/js/fetchRequests/removeCloseDate.js"></script>
+   <script src="<?php echo URLROOT ?>/public/js/filters.js"></script>
    <?php require APPROOT . "/views/inc/footer.php" ?>

@@ -44,24 +44,24 @@
                <div class="row">
                   <div class="column">
                      <div class="dropdown-group">
-                        <label class="label" for="lName">Service Type</label>
-                        <select id="sTypeSelector">
-                           <option value="all" selected>All</option>
-                           <option value="3" <?php echo ($data["selectedType"] == '3') ? "selected" : "" ?>>Managaer
-                           </option>
-                           <option value="4" <?php echo ($data["selectedType"] == '4') ? "selected" : "" ?>>Receptionist
-                           </option>
-                           <option value="5" <?php echo ($data["selectedType"] == '5') ? "selected" : "" ?>>Service
-                              Provider</option>
-                        </select>
+                        <label class="label" for="fName">Staff name</label>
+                        <input type="text" name="staffName" value="<?php echo ($data["selectedStaffName"]=="all")?"": $data['selectedStaffName'];?>" id="staffNameSelector" placeholder="Type name here">
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
                   </div>
 
                   <div class="column">
                      <div class="dropdown-group">
-                        <label class="label" for="fName">Staff Member</label>
-                        <input type="text" name="staffName" value="<?php echo ($data["selectedStaffName"])?>" id="staffNameSelector" placeholder="Your first name here">
+                        <label class="label" for="lName">Staff Type</label>
+                        <select id="sTypeSelector">
+                           <option value="all" selected>All</option>
+                           <option value="3" <?php echo ($data["selectedType"] == '3') ? "selected" : "" ?>>Manager
+                           </option>
+                           <option value="4" <?php echo ($data["selectedType"] == '4') ? "selected" : "" ?>>Receptionist
+                           </option>
+                           <option value="5" <?php echo ($data["selectedType"] == '5') ? "selected" : "" ?>>Service
+                              Provider</option>
+                        </select>
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
                   </div>
