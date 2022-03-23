@@ -95,6 +95,7 @@ Leave Types
 2 - Medical Leave
     2-Pending
     1-Responded
+    0-Rejected
 
 ---------------------------------------
 Salary 

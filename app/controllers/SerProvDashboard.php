@@ -218,8 +218,9 @@
       $this->reservationModel->updateReservationRecalledState($selectedReservation, 1);
       $this->reservationModel->deleteReservationRecallRequest($selectedReservation);
       Toast::setToast(1, "Successfully remove recall request.", "");
-      header('Content-Type: application/json; charset=utf-8');
-      echo (json_encode($selectedReservation));
+      // header('Content-Type: application/json; charset=utf-8');
+      // echo (json_encode($selectedReservation));
+      redirect('SerProvDashboard/reservations');
    }
 
    public function recallReservation($selectedReservation)
@@ -238,7 +239,7 @@
 
       $this->reservationModel->updateReservationRecalledState($selectedReservation, 5);
       $this->reservationModel->addReservationRecall($selectedReservation, $reason);
-
+      Toast::setToast(1, "Successfully recall reservation.", "");
       redirect('SerProvDashboard/reservations');
    }
 }

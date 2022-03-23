@@ -274,7 +274,7 @@ function recallResrvation(btn){
      const resMoreInfoBtnList = document.querySelectorAll(".btnResMoreInfo");
      recallModelBtn.innerHTML="";
      recallReason.innerHTML='';
-      if(statusdiv.getAttribute("data-id")==5){
+      if(statusdiv.getAttribute("data-id")==5){ //reservation status
         
          recallModelBtn.classList.add('btn-error-red');
 
@@ -339,18 +339,16 @@ function proceedRecall(){
    console.log('recall funtion called ');
 var rReason=document.querySelector(".recall-reason-section").value;
 selectedReservation=document.querySelector(".proceedBtn").getAttribute("data-id");
-
+const errorMsgRecallReason=document.getElementById("recall-error-msg");
 console.log(selectedReservation);
 console.log(rReason);
 if(rReason){
    fetch(`http://localhost:80/beauty-craft/SerProvDashboard/sendRecallRequest/${selectedReservation}/${rReason}`)
-   //     .then(response => response.json())
-   //     .then(state => {
-   //       //  dateError.innerHTML = state;
-   //       console.log(state);
-   //  })
 
 console.log("KK");
+
+}else{
+errorMsgRecallReason.innerHTML='Please mention the reason.'
 }
 }
 

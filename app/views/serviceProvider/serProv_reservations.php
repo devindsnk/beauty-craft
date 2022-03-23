@@ -234,7 +234,7 @@
 
                                 <textarea class="recall-reason recall-reason-section" name="recallReason" value="" id="recall-reason-section"></textarea>
                             </div>
-                            <span class="recall error"> </span>
+                            <span class="recall error" id="recall-error-msg"> </span>
                         </div>
                         <div class="savechange">
                             <!-- <input type="text" name="selectedReservation" class="selectedReservation"> -->

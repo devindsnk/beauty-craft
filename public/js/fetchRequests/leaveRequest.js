@@ -1,6 +1,4 @@
 
-console.log("hhh");
-
 const leaveRequestSelectedDate = document.querySelector(".LeaveRequestDate");
 const dateError = document.querySelector(".request-date-error1");
 const dateSpan = document.querySelector(".dateEmpty");
@@ -87,7 +85,7 @@ editdropdown.addEventListener('change',
 )
 
 
-editleavebtn
+// editleavebtn
 
 function cancelLeaveRequest(btn){
 leaveDate=btn.getAttribute("data-id");

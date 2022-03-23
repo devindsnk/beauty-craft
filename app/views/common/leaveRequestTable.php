@@ -52,8 +52,8 @@ print_r($data);
                <div class="column">
                   <div class="dropdown-group">
                      <label class="label" for="lName">Leave Type</label>
-                     <select name="lstatus" id="lTypeLeaveData">
-                        <option value="All" selected>All</option>
+                     <select name="lstatus" id="lTypeLeaveData" onchange="initializeLeavestatusSelector()">
+                        <option value="all" selected>All</option>
                         <option value="1" <?php echo ($data["lType"] ==  1) ? "selected" : ""; ?>>Casual</option>
                         <option value="2" <?php echo ($data["lType"] ==  2) ? "selected" : ""; ?>>Medical</option>
 
@@ -66,7 +66,7 @@ print_r($data);
                   <div class="dropdown-group">
                      <label class="label" for="lName">Status</label>
                      <select name="lstatus" id="lStatusLeaveData">
-                        <option value="All" selected>All</option>
+                        <option value="all" selected>All</option>
                         <option value="1" <?php echo ($data["lStatus"] == '1') ? "selected" : "" ?>>Approved</option>
                         <option value="2" <?php echo ($data["lStatus"] == '2') ? "selected" : "" ?>>Pending</option>
                         <option value="0" <?php echo ($data["lStatus"] == '0') ? "selected" : "" ?>>Rejected</option>
@@ -91,7 +91,7 @@ print_r($data);
             <thead>
                <tr>
                   <th class="column-center-align col-1">Leave Date</th>
-                  <th class="column-center-align col-2">Requested date</th>
+                  <th class="column-center-align col-2">Requested Date</th>
                   <th class="column-center-align col-3">Responded Staff ID</th>
                   <th class="column-center-align col-4">Type</th>
                   <th class="column-center-align col-4">Status</th>
