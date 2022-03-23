@@ -134,6 +134,7 @@ class ServiceModel extends Model
             }
         }
     }
+    //////////////// START UPDATE SERVICE ////////////////
     public function updateService($serviceID, $data, $slotNo)
     {
         $noofTimeSlots = 1;
@@ -207,6 +208,41 @@ class ServiceModel extends Model
             }
         }
     }
+    public function addNewSlotsFromUpdate($serviceID, $data, $slotNo)
+    {
+        $startingTime2 = (int)$data['slot1Duration'] + (int)$data['interval1Duration'];
+        $startingTime3 = $startingTime2 + (int)$data['slot2Duration'] + (int)$data['interval2Duration'];
+        $slot2Duration = $data['slot2Duration'];
+        $slot3Duration = $data['slot3Duration'];
+        $interval1Duration = $data['interval1Duration'];
+        $interval2Duration = $data['interval2Duration'];
+
+
+        if ($data['noofSlots'] == 1)
+        {
+            if ($slotNo == 1)
+            {
+                $this->insert('intervals', ['serviceID' => $serviceID, 'slotNo' => 2, 'duration' => $interval1Duration]);
+                $this->insert('timeslots', ['serviceID' => $serviceID, 'slotNo' => 2, 'startingTime' => $startingTime2, 'duration' => $slot2Duration]);
+            }
+            elseif ($slotNo == 2)
+            {
+                $this->insert('intervals', ['serviceID' => $serviceID, 'slotNo' => 2, 'duration' => $interval1Duration]);
+                $this->insert('timeslots', ['serviceID' => $serviceID, 'slotNo' => 2, 'startingTime' => $startingTime2, 'duration' => $slot2Duration]);
+
+                $this->insert('intervals', ['serviceID' => $serviceID, 'slotNo' => 3, 'duration' => $interval2Duration]);
+                $this->insert('timeslots', ['serviceID' => $serviceID, 'slotNo' => 3, 'startingTime' => $startingTime3, 'duration' => $slot3Duration]);
+            }
+        }
+        elseif ($data['noofSlots'] == 2)
+        {
+            if ($slotNo == 2)
+            {
+                $this->insert('intervals', ['serviceID' => $serviceID, 'slotNo' => 3, 'duration' => $interval2Duration]);
+                $this->insert('timeslots', ['serviceID' => $serviceID, 'slotNo' => 3, 'startingTime' => $startingTime3, 'duration' => $slot3Duration]);
+            }
+        }
+    }
     public function updateAllocatedResources($serviceID, $data, $slotNo, $resDetailsSlot1, $resDetailsSlot2, $resDetailsSlot3)
     {
         $i = 0;
@@ -226,6 +262,18 @@ class ServiceModel extends Model
         {
             array_push($checkedResources3, $resDetailsSlot3[$j]->resourceID);
         }
+
+        if (($slotNo == 0) && ($data['noofSlots'] == 2 || $data['noofSlots'] == 3))
+        {
+            $this->customQuery("DELETE from resourceallocation 
+                                    WHERE serviceID=:serviceID AND slotNo=:slotNo", ['serviceID' => $serviceID, 'slotNo' => 2]);
+        }
+        if (($slotNo == 1 || $slotNo == 0) && ($data['noofSlots'] == 3))
+        {
+            $this->customQuery("DELETE from resourceallocation 
+                                    WHERE serviceID=:serviceID AND slotNo=:slotNo", ['serviceID' => $serviceID, 'slotNo' => 3]);
+        }
+
         foreach ($data['sResArray'] as $ResoursesArray)
         {
             $selCount = $data['sSelectedResCount1'][$i];
@@ -243,6 +291,7 @@ class ServiceModel extends Model
                     }
                     else
                     {
+
                         $this->customQuery(
                             "UPDATE resourceallocation 
                                             SET requiredQuantity=:requiredQuantity
@@ -252,7 +301,9 @@ class ServiceModel extends Model
                     }
                 }
             }
-            if (!in_array($ResoursesArray->resourceID, $checkedResources1) &&  $selCount != 0)
+
+
+            if (!in_array($ResoursesArray->resourceID, $checkedResources1) &&  ($selCount != 0 && $selCount != NULL))
             {
                 $this->insert('resourceallocation', ['serviceID' => $serviceID, 'slotNo' => 1, 'resourceID' => $ResoursesArray->resourceID,  'requiredQuantity' => $selCount]);
             }
@@ -271,7 +322,6 @@ class ServiceModel extends Model
 
                     if ($ResoursesArray->resourceID == $resDetailsSlot2[$j]->resourceID && $selCount != $resDetailsSlot2[$j]->requiredQuantity)
                     {
-
                         if ($selCount == 0)
                         {
                             $this->customQuery("DELETE from resourceallocation 
@@ -288,8 +338,9 @@ class ServiceModel extends Model
                         }
                     }
                 }
-                if (!in_array($ResoursesArray->resourceID, $checkedResources2) &&  $selCount != 0)
+                if (!in_array($ResoursesArray->resourceID, $checkedResources2) &&   ($selCount != 0 && $selCount != NULL))
                 {
+                    // die('xdsd');
                     $this->insert('resourceallocation', ['serviceID' => $serviceID, 'slotNo' => 2, 'resourceID' => $ResoursesArray->resourceID,  'requiredQuantity' => $selCount]);
                 }
                 $i++;
@@ -324,7 +375,7 @@ class ServiceModel extends Model
                         }
                     }
                 }
-                if (!in_array($ResoursesArray->resourceID, $checkedResources2) &&  $selCount != 0)
+                if (!in_array($ResoursesArray->resourceID, $checkedResources2) &&  ($selCount != 0 && $selCount != NULL))
                 {
                     $this->insert('resourceallocation', ['serviceID' => $serviceID, 'slotNo' => 2, 'resourceID' => $ResoursesArray->resourceID,  'requiredQuantity' => $selCount]);
                 }
@@ -353,7 +404,7 @@ class ServiceModel extends Model
                         }
                     }
                 }
-                if (!in_array($ResoursesArray->resourceID, $checkedResources3) &&  $selCount != 0)
+                if (!in_array($ResoursesArray->resourceID, $checkedResources3) &&   ($selCount != 0 && $selCount != NULL))
                 {
                     $this->insert('resourceallocation', ['serviceID' => $serviceID, 'slotNo' => 3, 'resourceID' => $ResoursesArray->resourceID,  'requiredQuantity' => $selCount]);
                 }
@@ -363,7 +414,29 @@ class ServiceModel extends Model
     }
     public function updateIntervals($serviceID, $data, $slotNo)
     {
-        if ($slotNo == 1)
+        // print_r($serviceID . " " . $data['noofSlots']);
+        // print_r($slotNo);
+        // die('awa');
+        if ($slotNo == 0)
+        {
+            // $interval1Duration = $data['interval1Duration'];
+
+            // $this->customQuery(
+            //     "UPDATE intervals 
+            //                 SET duration=:duration
+            //                 WHERE  serviceID=:serviceID AND slotNo=:slotNo",
+            //     ['serviceID' => $serviceID, 'slotNo' => 2, 'duration' => $interval1Duration]
+            // );
+            if ($data['noofSlots'] == 2 || $data['noofSlots'] == 3)
+            {
+                $this->customQuery("DELETE from intervals WHERE serviceID=:serviceID AND slotNo=:slotNo", ['serviceID' => $serviceID, 'slotNo' => 2]);
+            }
+            if ($data['noofSlots'] == 3)
+            {
+                $this->customQuery("DELETE from intervals WHERE serviceID=:serviceID AND slotNo=:slotNo", ['serviceID' => $serviceID, 'slotNo' => 3]);
+            }
+        }
+        elseif ($slotNo == 1)
         {
             $interval1Duration = $data['interval1Duration'];
 
@@ -414,11 +487,11 @@ class ServiceModel extends Model
                             WHERE  serviceID=:serviceID AND slotNo=:slotNo",
                 ['serviceID' => $serviceID, 'slotNo' => 1, 'startingTime' => $startingTime1, 'duration' => $slot1Duration]
             );
-            if ($data['noofSlots'] == 2)
+            if ($data['noofSlots'] == 2 || $data['noofSlots'] == 3)
             {
                 $this->customQuery("DELETE from timeslots WHERE serviceID=:serviceID AND slotNo=:slotNo", ['serviceID' => $serviceID, 'slotNo' => 2]);
             }
-            elseif ($data['noofSlots'] == 3)
+            if ($data['noofSlots'] == 3)
             {
                 $this->customQuery("DELETE from timeslots WHERE serviceID=:serviceID AND slotNo=:slotNo", ['serviceID' => $serviceID, 'slotNo' => 3]);
             }
@@ -467,10 +540,12 @@ class ServiceModel extends Model
                 "UPDATE timeslots 
                             SET startingTime=:startingTime, duration=:duration
                             WHERE  serviceID=:serviceID AND slotNo=:slotNo",
-                ['serviceID' => $serviceID, 'slotNo' => 2, 'startingTime' => $startingTime3, 'duration' => $slot3Duration]
+                ['serviceID' => $serviceID, 'slotNo' => 3, 'startingTime' => $startingTime3, 'duration' => $slot3Duration]
             );
         }
     }
+    //////////////// END UPDATE SERVICE ////////////////
+
     public function getServiceDetails()
     {
         $results = $this->getResultSet("services", "*", []);
@@ -518,7 +593,7 @@ class ServiceModel extends Model
     // Suggestion to rename this to getAllServiceProvidersData
     public function getServiceProviderDetails()
     {
-        $results = $this->getResultSet('staff', ['staffID', 'fName', 'lName'], ['staffType' => 5]);
+        $results = $this->getResultSet('staff', ['staffID', 'fName', 'lName', 'status'], ['staffType' => 5]);
 
         return $results;
     }
@@ -546,8 +621,12 @@ class ServiceModel extends Model
     public function getNoofSlots($serviceID)
     {
         $noofSlots = $this->getResultSet('services', ['noofTimeSlots'], ['serviceID' => $serviceID]);
-        $x = $noofSlots[0]->noofTimeSlots;
-        return $x;
+
+        if ($noofSlots != NULL)
+        {
+            $x = $noofSlots[0]->noofTimeSlots;
+            return $x;
+        }
     }
 
     public function getOneServiceDetail($serviceID)
@@ -735,7 +814,7 @@ class ServiceModel extends Model
     public function getDetailsForServiceReportJS($serviceID, $year, $month)
     {
         $results = $this->customQuery(
-            "SELECT S.serviceID, S.name, COUNT(DISTINCT SP.staffID) AS NoOFStaff, COUNT(DISTINCT RES.reservationID) AS NoOfRes, COUNT(DISTINCT RES.reservationID)*S.price AS TotalServicePrice
+            "SELECT S.serviceID, S.name, S.status, COUNT(DISTINCT SP.staffID) AS NoOFStaff, COUNT(DISTINCT RES.reservationID) AS NoOfRes, COUNT(DISTINCT RES.reservationID)*S.price AS TotalServicePrice
                                         FROM services AS S
                                         INNER JOIN serviceproviders AS SP
                                         ON S.serviceID = SP.serviceID
@@ -748,18 +827,44 @@ class ServiceModel extends Model
         return $results;
     }
 
+    // public function getDetailsForServiceProvReportJS($staffID, $year, $month)
+    // {
+    //     $results = $this->customQuery(
+    //         "SELECT S.staffID, S.fName, S.lName, S.status, COUNT(SP.serviceID) AS NoOFService, COUNT(DISTINCT RES.reservationID) AS NoOfRes,COUNT(DISTINCT RES.reservationID) * SV.price AS TotalServicePrice
+    //                                 FROM staff AS S
+    //                                 INNER JOIN serviceproviders AS SP
+    //                                 ON S.staffID = SP.staffID AND SP.staffID = :staffID
+    //                                 INNER JOIN services AS SV
+    //                                 ON SP.serviceID = SV.serviceID
+    //                                 LEFT JOIN reservations AS RES
+    //                                 ON S.staffID = RES.staffID 
+    //                                 AND S.staffID = :staffID AND RES.status = 4 AND S.staffType = 5 AND MONTH(RES.date) =  $month AND YEAR(RES.date) = $year",
+    //         ['staffID' => $staffID]
+    //     );
+    //     return $results;
+    // }
     public function getDetailsForServiceProvReportJS($staffID, $year, $month)
     {
         $results = $this->customQuery(
-            "SELECT S.staffID,S.fName,S.lName,COUNT(SP.serviceID) AS NoOFService,COUNT(DISTINCT RES.reservationID) AS NoOfRes,COUNT(DISTINCT RES.reservationID) * SV.price AS TotalServicePrice
-                                    FROM staff AS S
-                                    INNER JOIN serviceproviders AS SP
-                                    ON S.staffID = SP.staffID AND SP.staffID = :staffID
-                                    INNER JOIN services AS SV
-                                    ON SP.serviceID = SV.serviceID
-                                    LEFT JOIN reservations AS RES
-                                    ON S.staffID = RES.staffID 
-                                    AND S.staffID = :staffID AND RES.status = 4 AND S.staffType = 5 AND MONTH(RES.date) =  $month AND YEAR(RES.date) = $year",
+            "SELECT GG.staffID, GG.fName, GG.lName, COUNT(GG.serviceID) AS NoOFService, SUM(GG.resCount) AS NoOfRes, SUM(GG.serPrice * GG.resCount) AS TotalServicePrice FROM ( SELECT S.staffID, S.fName, S.lName, S.status, SV.serviceID, SV.price AS serPrice, COUNT(R.reservationID) AS resCount
+            FROM
+                staff AS S
+            INNER JOIN serviceproviders AS SP
+            ON
+                S.staffID = SP.staffID AND  S.staffID=:staffID
+            INNER JOIN services AS SV
+            ON
+                SP.serviceID = SV.serviceID
+            LEFT JOIN reservations AS R
+            ON
+                S.staffID = R.staffID AND SV.serviceID = R.serviceID AND R.status = 4 AND MONTH(R.date) = $month AND YEAR(R.date) = $year
+            WHERE
+            S.staffID = :staffID AND S.staffType = 5
+            GROUP BY
+                S.staffID,
+                SV.serviceID
+        ) GG
+        GROUP BY staffID",
             ['staffID' => $staffID]
         );
         return $results;
@@ -828,12 +933,12 @@ class ServiceModel extends Model
             "SELECT reservations.staffID, staff.fName, staff.lName, COUNT(*) AS resCount, SUM(services.price) AS totIncome
             FROM reservations
             INNER JOIN services ON services.serviceID = reservations.serviceID
-            INNER JOIN staff ON reservations.staffID = staff.staffID
-            WHERE reservations.status = :status
+            INNER JOIN staff ON reservations.staffID = staff.staffID AND staff.status = :status2
+            WHERE reservations.status = :status1 AND (MONTH(reservations.date) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH) AND YEAR(reservations.date) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH))
             GROUP BY reservations.staffID
             ORDER BY SUM(services.price) DESC
             LIMIT 5",
-            [':status' => 4]
+            [':status1' => 4, 'status2' => 1]
         );
         return $results;
     }
@@ -843,7 +948,7 @@ class ServiceModel extends Model
             "SELECT services.name, COUNT(DISTINCT reservations.reservationID), COUNT( DISTINCT reservations.serviceID)* SUM(services.price) AS totIncome
                                     FROM reservations
                                     INNER JOIN services ON reservations.serviceID = services.serviceID AND services.status = :status2
-                                    WHERE reservations.status = :status1 AND(MONTH(reservations.date) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH) AND YEAR(reservations.date) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH))
+                                    WHERE reservations.status = :status1 AND (MONTH(reservations.date) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH) AND YEAR(reservations.date) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH))
                                     GROUP BY reservations.serviceID
                                     ORDER BY SUM(services.price) DESC
                                     LIMIT 5;",

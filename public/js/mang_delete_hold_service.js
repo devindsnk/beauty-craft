@@ -35,6 +35,7 @@ function checkForUpcomingReservationsForDeleteService(sID) {
             } else {
                 document.getElementById("warningMsgDeleteService").innerHTML = "Are you sure you want to delete the service? <br> This action cannot be undone after proceeding.";
             }
+            // console.log(ress);
 
             recallbtn.addEventListener('click',
                 function () {
@@ -49,8 +50,9 @@ function checkForUpcomingReservationsForDeleteService(sID) {
 }
 
 function recallReservationsFromDelete(ress, ressReason) {
+    // console.log('ress');
 
-    fetch(`http://localhost:80/beauty-craft/Reservations/recallReservationsFromUpdateService/${ress}/${ressReason}`)
+    fetch(`http://localhost:80/beauty-craft/Reservations/recallReservationsFromUpdateServiceStaff/${ress}/${ressReason}`)
         .then()
 
         .catch(err => {

@@ -571,6 +571,140 @@
 }
 
 
+/*********************** Styles of Daiy Update **************************/
+
+.recept.daily-update .main-container {
+   margin: 15px 100px;
+   display: grid;
+   gap: 50px;
+   grid-template-columns: 9fr 9fr;
+}
+
+.recept.daily-update .main-container>div {
+   padding: 15px 10px 10px !important;
+   width: 95%;
+   justify-self: center;
+   overflow: hidden;
+}
+
+.recept.daily-update>div h3 {
+   margin-left: 10px;
+   margin-bottom: 10px;
+}
+
+.recept.daily-update .main-container>div .scroll-area {
+   height: calc(100vh - 210px);
+   overflow-y: auto;
+}
+
+.sProvAvailability .sProv-info {
+   display: flex;
+   align-items: center;
+   padding: 0 20px 0 10px;
+   margin: 0 10px;
+   border-bottom: 1.2px solid #c4cae0;
+   height: 70px;
+}
+
+.sProvAvailability .sProv-info div {
+   display: inline-block;
+}
+
+.sProvAvailability .sProv-info .img-container {
+   display: flex;
+   align-content: center;
+   margin-right: 15px;
+}
+
+.sProvAvailability .sProv-info .img-container img {
+   margin-top: auto;
+   margin-bottom: auto;
+}
+
+.sProvAvailability .sProv-info .text-container {
+   height: 100%;
+   width: 100%;
+   display: flex;
+   align-content: center;
+   flex-direction: column;
+}
+
+.sProvAvailability .sProv-info .text-container .cust-name {
+   font-size: 15px;
+}
+
+.sProvAvailability .sProv-info div label {
+   margin-top: auto;
+   display: block;
+}
+
+.sProvAvailability .sProv-info .text-container .contact-no {
+   color: var(--theme-grey);
+   margin-top: 0;
+   margin-bottom: auto;
+   font-size: 14px;
+}
+
+.sProvAvailability .btn {
+   width: 220px !important;
+}
+
+.sProvAvailability .status-tag {
+   width: 220px !important;
+   height: 30px;
+   margin-right: 15px;
+}
+
+/* ------------------------------------------------------------------------- */
+
+.resConfirmation .res-info {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   padding: 5px 10px 5px 10px;
+   margin: 0 10px;
+   border-bottom: 1.2px solid #c4cae0;
+   height: 105px;
+}
+
+.resConfirmation .bottom-container {
+   display: grid;
+   grid-template-columns: 3fr 5fr;
+}
+
+.resConfirmation .service-title {
+   display: block;
+   padding-bottom: 4px
+}
+
+.resConfirmation .bottom-container {
+   width: 350px;
+}
+
+.resConfirmation .bottom-container span {
+   font-size: 14px;
+   color: var(--theme-grey);
+   display: block;
+}
+
+.resConfirmation .right-container {
+   display: flex;
+   flex-direction: column;
+}
+
+.resConfirmation .right-container span {
+   display: block;
+   text-align: center;
+}
+
+.resConfirmation .right-container .btn {
+   padding: 2px;
+   margin: 4px;
+}
+
+
+/****************** End of Styles of Daiy Update ************************/
+
 /* ------------------------------------------------------ */
 /* -----------END OF STYLES ADDED BY DEVIN ---------------*/
 /* ------------------------------------------------------ */

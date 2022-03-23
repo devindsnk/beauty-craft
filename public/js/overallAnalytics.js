@@ -111,7 +111,12 @@ $(document).ready(function () {
           type: 'line',
           data: chartdata,
           options: {
-            bezierCurve: false,
+            // bezierCurve: false,
+            elements: {
+              line: {
+                tension: 0
+              }
+            }
           },
         });
       },

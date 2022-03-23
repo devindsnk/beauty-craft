@@ -113,19 +113,26 @@ class MangDashboard extends Controller
 
       foreach ($leaveDetails as $MLDetails)
       {
-         if ($MLDetails->leaveType == 2 && $MLDetails->status == 2)
+         $date1 = date_create($today);
+         $date2 = date_create($MLDetails->leaveDate);
+         $diff = date_diff($date2, $date1);
+         $diff2 = $diff->format("%R%a days");
+         print_r($diff->days);
+         if ($MLDetails->status == 2)
          {
-
-            $date1 = date_create($today);
-            $date2 = date_create($MLDetails->leaveDate);
-            $diff = date_diff($date2, $date1);
-            $diff2 = $diff->format("%R%a days");
-            print_r($diff->days);
-
-            if ($MLDetails->leaveDate < $today && $diff->days >= $evidanceLimit)
+            if ($MLDetails->leaveType == 2)
             {
-
-               $this->leaveModel->changeMedicalToCasual($MLDetails->staffID, $MLDetails->leaveDate);
+               if ($MLDetails->leaveDate < $today && $diff->days >= $evidanceLimit)
+               {
+                  $this->leaveModel->changeMedicalToCasual($MLDetails->staffID, $MLDetails->leaveDate);
+               }
+            }
+            if ($MLDetails->leaveType == 1)
+            {
+               if ($MLDetails->leaveDate < $today)
+               {
+                  $this->leaveModel->changeCasualPendingToRemove($MLDetails->staffID, $MLDetails->leaveDate);
+               }
             }
          }
       }
@@ -326,5 +333,33 @@ class MangDashboard extends Controller
       $this->leaveModel->deleteMangLeave($leaveDate, $staffID);
       Toast::setToast(1, "Leave Deleted Successfully!!!", "");
       redirect('MangDashboard/takeLeave');
+   }
+   public function approveLeaveRequestsFromTabel($staffID, $leaveDate, $responce)
+   {
+      print_r($staffID);
+      print_r($leaveDate);
+
+      die('hhhs');
+
+      $this->leaveModel->addLeaveResponce($responce, $staffID, $leaveDate);
+      redirect('MangDashboard/leaveRequests');
+   }
+   public function approveRejectLeaveRequests($staffID, $leaveDate, $responce)
+   {
+      if ($responce == 1)
+      {
+         $results = $this->leaveModel->addLeaveResponce($responce, $staffID, $leaveDate);
+      }
+      elseif ($responce == 0)
+      {
+         $results = $this->leaveModel->addLeaveResponce($responce, $staffID, $leaveDate);
+      }
+      if ($results)
+         Toast::setToast(1, "Responded successfully", "");
+      else
+         Toast::setToast(0, "Responding failed", "");
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($results));
    }
 }

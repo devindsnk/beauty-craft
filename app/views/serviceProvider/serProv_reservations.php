@@ -269,7 +269,4 @@
 
     <!--End Content-->
     <script src="<?php echo URLROOT ?>/public/js/fetchRequests/reservationMoreview.js"></script>
-
-
-    <?php require APPROOT . "/views/inc/footer.php" ?>
     <?php require APPROOT . "/views/inc/footer.php" ?>

@@ -3,33 +3,30 @@ class Leaves extends Controller
 {
    public function __construct()
    {
-
       $this->LeaveModel = $this->model('LeaveModel');
       $this->closedDatesModel = $this->model('ClosedDatesModel');
    }
 
-   public function responceForLeaveRequest($staffID, $leaveDate)
-   {
-      if ($_SERVER['REQUEST_METHOD'] == 'POST')
-      {
-         if ($_POST['action'] == "approve")
-         {
-            $responce = 1;
-            $this->LeaveModel->addLeaveResponce($responce, $staffID, $leaveDate);
-         }
-         elseif ($_POST['action'] == "reject")
-         {
-            $responce = 0;
-            $this->LeaveModel->addLeaveResponce($responce, $staffID, $leaveDate);
-         }
-         header('location: ' . URLROOT . '/MangDashboard/leaveRequests');
-      }
-   }
+   // public function responceForLeaveRequest($staffID, $leaveDate)
+   // {
+   //    if ($_SERVER['REQUEST_METHOD'] == 'POST')
+   //    {
+   //       if ($_POST['action'] == "approve")
+   //       {
+   //          $responce = 1;
+   //          $this->LeaveModel->addLeaveResponce($responce, $staffID, $leaveDate);
+   //       }
+   //       elseif ($_POST['action'] == "reject")
+   //       {
+   //          $responce = 0;
+   //          $this->LeaveModel->addLeaveResponce($responce, $staffID, $leaveDate);
+   //       }
+   //       header('location: ' . URLROOT . '/MangDashboard/leaveRequests');
+   //    }
+   // }
 
    public function oneleaveRequest($staffID, $leaveDate)
-
    {
-
       $oneLeaveDetails = $this->LeaveModel->getOneLeaveDetail($staffID, $leaveDate);
       $casualCountOfRelevantMonth = $this->LeaveModel->getRelevantMonthsLeaveCount($staffID, $leaveDate, 1);
       $medicalCountOfRelevantMonth = $this->LeaveModel->getRelevantMonthsLeaveCount($staffID, $leaveDate, 2);
@@ -383,5 +380,19 @@ class Leaves extends Controller
 
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($response));
+   }
+
+   public function sProvUninformedLeaveOnDate($staffID)
+   {
+      $date =  DateTimeExtended::getCurrentDate();
+      $results = $this->LeaveModel->sProvUninformedLeave($staffID, $date);
+
+      if ($results)
+         Toast::setToast(1, "Uninformed leave marked successfully", "");
+      else
+         Toast::setToast(0, "Uninformed leave marking failed", "");
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($results));
    }
 }
