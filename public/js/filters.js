@@ -45,7 +45,7 @@ const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
 const lStatusSelectorSP = document.getElementById("lStatusLeaveData").value;
 console.log(lTypeSelectorSP);
 
-
+lStatusSelectorSP.disabled = true;
 function initializeLeavestatusSelector() {
     console.log("value changed");
     const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
@@ -63,6 +63,11 @@ function setupLeaveStatusSelector() {
    
 const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
 const lStatusSelectorSP = document.getElementById("lStatusLeaveData");
+
+  if (lTypeSelectorSP != "all") {
+        lStatusSelectorSP.disabled = false;
+        lStatusSelectorSP.options[0].hidden = true;
+        lStatusSelectorSP.options[1].hidden = false;
 
         if (lTypeSelectorSP == "1") {
             // console.log("value 1");
@@ -83,11 +88,11 @@ const lStatusSelectorSP = document.getElementById("lStatusLeaveData");
             
             
         }
-console.log(lStatusSelectorSP.value);
-    // } else {
-    //     lStatusSelectorSP.options[0].selected = true;
-    //     lStatusSelectorSP.disabled = true;
-    // }
+        console.log(lStatusSelectorSP.value);
+    } else {
+        lStatusSelectorSP.options[0].selected = true;
+        lStatusSelectorSP.disabled = true;
+    }
 }
 //************ Filters of SProvider Leaves ***************//
 
