@@ -86,7 +86,7 @@
 }
 
 .resBoxInner:hover {
-    background-color: var(--theme-disabledgrey);
+    background-color: #DFDFDF;
     transition: all ease-in 0.5s;
 }
 
