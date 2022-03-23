@@ -26,7 +26,6 @@ moreInfoBtn.forEach((btn) => {
 
 function filterReservationsForSPOverview(){
    console.log("Function called-test");
-
    const datepicker=document.getElementById("datePickerSPRes");
    const servicepicker=document.getElementById("serviceSelectorSPRes");
    const statuspicker=document.getElementById("staffSelectorSPRes");
@@ -37,38 +36,62 @@ function filterReservationsForSPOverview(){
 }
 
 function getReservationMoreData (selectedReservation){
-   // console.log("Function called-test");
    fetch(`http://localhost:80/beauty-craft/SerProvDashboard/getReservationDetailsByID/${selectedReservation}`)
       .then(response => response.json())
       .then(reservationData => {
-         console.log(reservationData);
-         serviceName.innerHTML = reservationData['name'];
-        
-        
+        console.log(reservationData);
+        serviceName.innerHTML = reservationData['name'];
         custName.innerHTML= reservationData['fName']+" "+reservationData['lName'];
         serviceTime.innerHTML= reservationData['startTime']+" - "+reservationData['endTime'];
         duration.innerHTML = reservationData['totalDuration'] +" mins";
          // document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase";
+
+          const recallmodelbutton=document.getElementById("recallModelOpenBtn");
+          console.log(recallmodelbutton);
+
+         //  if(reservationData['status']==3||reservationData['status']==4||reservationData['status']==0){
+            
+            
+         //  }
+
          if(reservationData['status']==5){
             statusdivText.innerHTML="Recalled";
-            document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase grey";
+            document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase yellow";
+                        recallmodelbutton.classList.remove("hide");
+
             // statusdiv.classList.add('grey');
             
          
          }else if(reservationData['status']==1){
             statusdivText.innerHTML="Not Confirmed";
+                        recallmodelbutton.classList.remove("hide");
+
             // statusdiv.classList.add('yellow');
             document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase blue";
             
          }else if(reservationData['status']==2){
             statusdivText.innerHTML="Confirmed";
+                        recallmodelbutton.classList.remove("hide");
+
             // statusdiv.classList.add('blue');
             document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase green";
+           }else if(reservationData['status']==3){
+            statusdivText.innerHTML="No Show";
+            // statusdiv.classList.add('blue');
+            document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase grey";
+            recallmodelbutton.classList.add("hide");
             
          }else if(reservationData['status']==4){
             statusdivText.innerHTML="Completed";
             // statusdiv.classList.add('green');
-                        document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase grey";
+                        document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase grey";   
+                        recallmodelbutton.classList.add("hide");
+         }
+         else if(reservationData['status']==0){
+            statusdivText.innerHTML="Cancelled";
+            // statusdiv.classList.add('green');
+                        document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase red";
+                        recallmodelbutton.classList.add("hide");
 
             
          }
@@ -80,7 +103,20 @@ function getReservationMoreData (selectedReservation){
         year.innerHTML = y;
 
         reservationnote.innerHTML = reservationData['remarks'];
-        custnote.innerHTML = reservationData['customerNote'];
+
+         if(reservationData['remarks']){
+            reservationnote.innerHTML = reservationData['remarks'];
+        }else{
+            reservationnote.innerHTML = 'None';
+        }
+
+
+        if(reservationData['customerNote']){
+            custnote.innerHTML = reservationData['customerNote'];
+        }else{
+            custnote.innerHTML = 'None';
+        }
+        
 
 
                const options = { 
@@ -119,14 +155,13 @@ function getReservationMoreData (selectedReservation){
             const recallModelHeader = document.querySelector(".recall-data-header");
             if(Difference_In_Days>=2 && reservationData['status']==1)
             {
-               recallModelHeader.innerHTML="Reservation Recall";
-                        
+               recallModelHeader.innerHTML="Reservation Recall";             
                      
             }else{
 
                
                const recallModelHeader = document.querySelector(".recall-data-header");
-               recallModelHeader.innerHTML="Recalle Details";
+               recallModelHeader.innerHTML="Recall Details";
 
                
 
@@ -186,7 +221,7 @@ function recallResrvation(btn){
                 console.log(reservationData);
                recallService.innerHTML = reservationData['name'];
                recallCustName.innerHTML= reservationData['fName']+" "+reservationData['lName'];
-               document.getElementById("recallResStatus").className = "recall-moredetails-confirm-status confirm-status green";
+               document.getElementById("recallResStatus").className = "recall-moredetails-confirm-status confirm-status ";
                if(reservationData['status']==5){
                   recallStatusText.innerHTML="Recalled";
                   recallStatusDiv.classList.add('yellow');
@@ -198,12 +233,22 @@ function recallResrvation(btn){
                }else if(reservationData['status']==2){
                   recallStatusText.innerHTML="Confirmed";
                   recallStatusDiv.classList.add('green');
+
+                     }else if(reservationData['status']==3){
+                     recallStatusText.innerHTML="No Show";
+                     recallStatusDiv.classList.add('grey');
+
+                     }else if(reservationData['status']==0){
+                     recallStatusText.innerHTML="Cancelled";
+                     recallStatusDiv.classList.add('red');
                   
                }else if(reservationData['status']==4){
                   recallStatusText.innerHTML="Completed";
                   recallStatusDiv.classList.add('grey');
                   
                }
+// console.log("TT");
+               const errormsg = document.querySelector(".recall.error");
 
                recallTime.innerHTML= reservationData['startTime']+" - "+reservationData['endTime'];
                recallDuration.innerHTML = reservationData['totalDuration'] +" mins";
@@ -214,11 +259,11 @@ function recallResrvation(btn){
                const y=new Date(reservationData['date']).toLocaleString('en-us',{ year:'numeric'});
                recallYear.innerHTML = y;
 
-               if(reservationData['status']==2){
+               if(reservationData['status']!=1){
                   recallModelBtn.classList.add('btn-error-red');
-                  const errormsg = document.querySelector(".recall.error");
+                  
                   errormsg.innerHTML="Already Responded,can not delete the recall request."
-                  recallModelBtn.innerHTML="Close";
+                  recallModelBtn.classList.add('hide');
                   recallModelBtn.setAttribute('data-Rstatus', recallStatus); 
 
                }
@@ -229,7 +274,7 @@ function recallResrvation(btn){
      const resMoreInfoBtnList = document.querySelectorAll(".btnResMoreInfo");
      recallModelBtn.innerHTML="";
      recallReason.innerHTML='';
-      if(statusdiv.getAttribute("data-id")==5){
+      if(statusdiv.getAttribute("data-id")==5){ //reservation status
         
          recallModelBtn.classList.add('btn-error-red');
 
@@ -243,7 +288,11 @@ function recallResrvation(btn){
         
 
             recallStatus=recallReason.getAttribute("data-id");
-            console.log(recallStatus);
+           
+
+            if(recallData['recallStatus']){
+
+            }
             
             if(recallStatus==1){
                   recallModelBtn.classList.add('btn-error-red');
@@ -263,6 +312,7 @@ function recallResrvation(btn){
                   recallModelBtn.setAttribute('data-Rstatus', recallStatus);
                   const errormsg = document.querySelector(".recall.error");
                   errormsg.innerHTML=""
+                  recallModelBtn.classList.remove('hide');
                   recallModelBtn.innerHTML="Delete";
 
 
@@ -278,7 +328,7 @@ function recallResrvation(btn){
 
       }
       
-
+ recallModelBtn.setAttribute('data-Rid', recallStatus); 
    
 
 }
@@ -289,22 +339,34 @@ function proceedRecall(){
    console.log('recall funtion called ');
 var rReason=document.querySelector(".recall-reason-section").value;
 selectedReservation=document.querySelector(".proceedBtn").getAttribute("data-id");
-
+const errorMsgRecallReason=document.getElementById("recall-error-msg");
 console.log(selectedReservation);
 console.log(rReason);
 if(rReason){
    fetch(`http://localhost:80/beauty-craft/SerProvDashboard/sendRecallRequest/${selectedReservation}/${rReason}`)
-   //     .then(response => response.json())
-   //     .then(state => {
-   //       //  dateError.innerHTML = state;
-   //       console.log(state);
-   //  })
 
 console.log("KK");
+
+}else{
+errorMsgRecallReason.innerHTML='Please mention the reason.'
+}
 }
 
 
-}
+console.log('recall delete funtion called ');
+const deletaRecallRequest=document.getElementById("recallRequestDeleteBtn");
+   console.log(deletaRecallRequest);
+   console.log(deletaRecallRequest.getAttribute("data-id"));
+   // selectedReservation
+
+    
+    deletaRecallRequest.addEventListener("click", function () {
+      selectedReservation=deletaRecallRequest.dataset.id;
+      fetch(`http://localhost:80/beauty-craft/SerProvDashboard/deleteRecallRequest/${deletaRecallRequest.value}`)
+     
+
+    });
+
 
 
 

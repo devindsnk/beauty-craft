@@ -1333,7 +1333,7 @@ font-weight: 600;
 .status-btn {
     border: none;
     padding: 3px 2px;
-    width: 90px;
+    /* width: 90px; */
     border-radius: 6px;
     font-weight: 510;
 }

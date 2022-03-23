@@ -48,7 +48,7 @@ class Leaves extends Controller
 
 
    //Service provider and receptionist leaves view
-   public function leaves($lType = 'All', $lStatus = 'All')
+   public function leaves($lType = 'all', $lStatus = 'all')
    {
       Session::validateSession([4, 5]);
 
@@ -161,7 +161,8 @@ class Leaves extends Controller
                      {
                         $data['dateValidationMsg'] = 'Can not send leave request,Medical limit exceeded';
                         $data['haveErrors'] = 1;
-                        $this->provideLeaveRequestReleventView($data);
+                        Toast::setToast(2, "Can not send leave request.", "");
+                        redirect('Leaves/leaves');
                      }
                      else
                      {
@@ -313,6 +314,7 @@ class Leaves extends Controller
       Session::validateSession([4, 5]);
       $this->LeaveModel->cancelLeaveRequest($date, Session::getUser("id"));
       Toast::setToast(1, "Leave request deleted successfully.", "");
+      redirect('Leaves/leaves');
    }
    public function getSelectedLeaveDetails($date)
    {

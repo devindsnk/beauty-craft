@@ -4,20 +4,20 @@ class LeaveModel extends Model
 
    public function getLeaveRecordsBystaffID($staffID, $Type, $Status)
    {
-      if ($Type == 'All')
+      if ($Type == 'all')
       {
-         if ($Status == 'All')
+         if ($Status == 'all')
          {
             $results = $this->customQuery("SELECT * FROM generalleaves WHERE staffID =:staffID ORDER BY leaveDate", [':staffID' => $staffID,]);
          }
          else
          {
-            $results = $this->customQuery("SELECT * FROM generalleaves WHERE ( staffID =:staffID )AND (status =:lType) ORDER BY leaveDate", [':staffID' => $staffID, ':lType' => $Status]);
+            $results = $this->customQuery("SELECT * FROM generalleaves WHERE ( staffID =:staffID )AND (status =:lStatus) ORDER BY leaveDate", [':staffID' => $staffID, ':lStatus' => $Status]);
          }
       }
       else
       {
-         if ($Status == 'All')
+         if ($Status == 'all')
          {
             $results = $this->customQuery("SELECT * FROM generalleaves WHERE staffID =:staffID AND leaveType=:lType ORDER BY leaveDate", [':staffID' => $staffID, ':lType' => $Type,]);
          }
