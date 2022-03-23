@@ -39,6 +39,19 @@ class SMS
       return self::sendSMS($mobileNo, $SMSText, 1);
    }
 
+   // TODO:
+   // public static function sendNewReservationSMS()
+   // {
+   // }
+
+   // public static function resCancellationSMS()
+   // {
+   // }
+
+   // public static function resConfirmationSMS()
+   // {
+   // }
+
    public static function sendSMS($mobileNo, $SMSText, $priorityFlag)
    {
       echo $SMSText;

@@ -12,9 +12,9 @@ class ReceptDashboard extends Controller
    public function home()
    {
       $curDate =  DateTimeExtended::getCurrentDate();
-      redirect('ReceptDashboard/dailyView/' . $curDate);
+      redirect('ReceptDashboard/dailyOverview/' . $curDate);
    }
-   public function dailyView($date, $sProvider = null)
+   public function dailyOverview($date, $sProvider = null)
    {
       if (is_null($sProvider))
       {
@@ -34,7 +34,7 @@ class ReceptDashboard extends Controller
          'reservations' => $reservations
       ];
 
-      $this->view('receptionist/recept_dailyView', $data);
+      $this->view('receptionist/recept_dailyOverview', $data);
    }
    public function recallRequests()
    {
@@ -93,6 +93,7 @@ class ReceptDashboard extends Controller
    {
       $this->view('common/reservationMoreInfo');
    }
+
    public function test()
    {
       $curDate =  DateTimeExtended::getCurrentDate(); //"2022-03-15"; 
