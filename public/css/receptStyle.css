@@ -574,14 +574,17 @@
 /*********************** Styles of Daiy Update **************************/
 
 .recept.daily-update .main-container {
-   margin: 15px 40px;
+   margin: 15px 100px;
    display: grid;
-   gap: 60px;
-   grid-template-columns: 2fr 3fr;
+   gap: 50px;
+   grid-template-columns: 9fr 9fr;
 }
 
 .recept.daily-update .main-container>div {
    padding: 15px 10px 10px !important;
+   width: 95%;
+   justify-self: center;
+   overflow: hidden;
 }
 
 .recept.daily-update>div h3 {
@@ -590,7 +593,7 @@
 }
 
 .recept.daily-update .main-container>div .scroll-area {
-   max-height: calc(100vh - 187px);
+   height: calc(100vh - 210px);
    overflow-y: auto;
 }
 
@@ -642,9 +645,61 @@
    font-size: 14px;
 }
 
+.sProvAvailability .btn {
+   width: 220px !important;
+}
+
 .sProvAvailability .status-tag {
    width: 220px !important;
    height: 30px;
+   margin-right: 15px;
+}
+
+/* ------------------------------------------------------------------------- */
+
+.resConfirmation .res-info {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   padding: 5px 10px 5px 10px;
+   margin: 0 10px;
+   border-bottom: 1.2px solid #c4cae0;
+   height: 105px;
+}
+
+.resConfirmation .bottom-container {
+   display: grid;
+   grid-template-columns: 3fr 5fr;
+}
+
+.resConfirmation .service-title {
+   display: block;
+   padding-bottom: 4px
+}
+
+.resConfirmation .bottom-container {
+   width: 350px;
+}
+
+.resConfirmation .bottom-container span {
+   font-size: 14px;
+   color: var(--theme-grey);
+   display: block;
+}
+
+.resConfirmation .right-container {
+   display: flex;
+   flex-direction: column;
+}
+
+.resConfirmation .right-container span {
+   display: block;
+   text-align: center;
+}
+
+.resConfirmation .right-container .btn {
+   padding: 2px;
+   margin: 4px;
 }
 
 

@@ -690,4 +690,37 @@ class ReservationModel extends Model
          $results = $this->update('reservations', ['status' => $status], ['reservationID' => $selectedreservation]);
       }
    }
+
+   // Provide reservation details on a given date within a limit of service providers
+   public function getReservationsByDateForDailyOverview($givenDate, $limit, $offset)
+   {
+      $SQLquery =
+         "SELECT RES.reservationID,
+            SV.name AS serviceName,
+            RES.startTime AS resStartTime,
+            SV.totalDuration,
+            TS.slotNo,
+            TS.startingTime AS slotStartOffset,
+            TS.duration AS slotDuration,
+            RES.status,
+            RES.staffID
+         FROM
+            reservations AS RES
+         INNER JOIN (select * from staff WHERE staffType = 5 AND status = 1 limit :offset,:limit) AS S ON S.staffID = RES.staffID
+         INNER JOIN services AS SV ON SV.serviceID = RES.serviceID
+         INNER JOIN timeslots AS TS ON SV.serviceID = TS.serviceID
+         WHERE RES.date = :givenDate AND RES.status IN(1, 2, 3, 4, 5)
+         ORDER BY RES.reservationID, TS.slotNo;";
+
+      $results = $this->customQuery(
+         $SQLquery,
+         [
+            ':offset' => $offset,
+            ':limit' => $limit,
+            ':givenDate' => $givenDate
+         ]
+      );
+
+      return $results;
+   }
 }

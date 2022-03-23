@@ -138,6 +138,7 @@ if (resRecallBtn) {
         }
     );
 }
+
 // Reservation Recall BackBtn  Modal Section
 const resBackRecallBtn = document.querySelector('.btnBack');
 // console.log(resBackRecallBtn);
@@ -145,7 +146,6 @@ if (resBackRecallBtn) {
     resBackRecallBtn.addEventListener("click",
         function () {
             modalToToggle = resMoreInfoModal;
-
             toggleModal(resRecallBtn);
             modalToToggle = resRecallModal;
             closeModal(resRecallBtn);
@@ -316,11 +316,14 @@ approveLeaveBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
         modalToToggle = approveLeaveModal;
         toggleModal(btn);
-        let staffID = btn.getAttribute("data-staffID")      // get id from the clicked btn of the list
-        let leaveDate = btn.getAttribute("data-leaveDate")      // get id from the clicked btn of the list
+        let staffID = btn.getAttribute("data-staffID") // get id from the clicked btn of the list
+        let leaveDate = btn.getAttribute("data-leaveDate") // get id from the clicked btn of the list
 
-        const approveBtn = modalToToggle.querySelector('.approveBtn');  // get the approveBtn btn of the modal
-        if (approveBtn) { approveBtn.setAttribute('data-staffID', staffID); approveBtn.setAttribute('data-leaveDate', leaveDate); }
+        const approveBtn = modalToToggle.querySelector('.approveBtn'); // get the approveBtn btn of the modal
+        if (approveBtn) {
+            approveBtn.setAttribute('data-staffID', staffID);
+            approveBtn.setAttribute('data-leaveDate', leaveDate);
+        }
     });
 });
 console.log(approveLeaveModal);
@@ -332,11 +335,14 @@ rejectLeaveBtnList.forEach((btn) => {
     btn.addEventListener("click", function () {
         modalToToggle = rejectLeaveModal;
         toggleModal(btn);
-        let staffID = btn.getAttribute("data-staffID")      // get id from the clicked btn of the list
-        let leaveDate = btn.getAttribute("data-leaveDate")      // get id from the clicked btn of the list
+        let staffID = btn.getAttribute("data-staffID") // get id from the clicked btn of the list
+        let leaveDate = btn.getAttribute("data-leaveDate") // get id from the clicked btn of the list
 
-        const rejectBtn = modalToToggle.querySelector('.rejectBtn');  // get the rejectBtn btn of the modal
-        if (rejectBtn) { rejectBtn.setAttribute('data-staffID', staffID); rejectBtn.setAttribute('data-leaveDate', leaveDate); }
+        const rejectBtn = modalToToggle.querySelector('.rejectBtn'); // get the rejectBtn btn of the modal
+        if (rejectBtn) {
+            rejectBtn.setAttribute('data-staffID', staffID);
+            rejectBtn.setAttribute('data-leaveDate', leaveDate);
+        }
     });
 });
 
@@ -378,7 +384,7 @@ voidRefInvBtnModal.forEach((btn) => {
 });
 
 /* ------------------------------------------------------------------- */
-/* ------------------------ customer profile picture --------------------------- */
+/* -------------------- customer profile picture ------------------------ */
 
 // remove picture
 const imgRemovePayModal = document.querySelector(".img-remove");
@@ -389,6 +395,34 @@ if (imgRemoveBtn) {
         toggleModal();
     });
 }
+
+/* ------------------------------------------------------------------- */
+/* ------------------------ Recept Test Section ---------------------- */
+
+// Mark on leave Modal Section
+const custMarkLeaveModal = document.querySelector('.sProv-markLeave');
+const custMarkLeaveBtnList = document.querySelectorAll('.btnMarkLeave');
+custMarkLeaveBtnList.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = custMarkLeaveModal;
+        toggleModal(btn);
+    });
+});
+
+
+// Confirm reservation Modal Section
+const resConfirmModal = document.querySelector('.reservation-confirm');
+const resConfirmBtnList = document.querySelectorAll('.btnResConfirm');
+resConfirmBtnList.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        modalToToggle = resConfirmModal;
+        toggleModal(btn);
+    });
+});
+
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+
 
 
 /* ------------------------------------------------------------------- */
@@ -402,18 +436,51 @@ btnCloseList.forEach((btn) => {
     });
 });
 
+
 // get the id assigned to the clicked btn and assign id to the proceed btn of the modal
 function transferIDToModal(btn) {
-    let recordID = btn.getAttribute("data-id")      // get id from the clicked btn of the list
-    const proceedBtn = modalToToggle.querySelector('.proceedBtn');  // get the proceed btn of the modal
-    if (proceedBtn) { proceedBtn.setAttribute('data-id', recordID); }   // assign id as a data attribute to the proceed btn
+    <<
+    <<
+    <<
+    <
+    HEAD
+    let recordID = btn.getAttribute("data-id") // get id from the clicked btn of the list
+    const proceedBtn = modalToToggle.querySelector('.proceedBtn'); // get the proceed btn of the modal
+    if (proceedBtn) {
+        proceedBtn.setAttribute('data-id', recordID);
+    } // assign id as a data attribute to the proceed btn
+    ===
+    ===
+    =
+    let recordID = btn.getAttribute("data-id") // get id from the clicked btn of the list
+    const proceedBtn = modalToToggle.querySelector('.proceedBtn'); // get the proceed btn of the modal
+    if (proceedBtn) {
+        proceedBtn.setAttribute('data-id', recordID);
+    } // assign id as a data attribute to the proceed btn
+    >>>
+    >>>
+    >
+    7 be5b41f8eee635b5bad59be2d9a3d9fa7b041a8
 }
+
 
 
 // Common section for all modal toggle operations
 function toggleModal(btn) {
     // console.log('toggle model')
+    <<
+    <<
+    <<
+    <
+    HEAD
+        ===
+        ===
+        =
 
+        >>>
+        >>>
+        >
+        7 be5b41f8eee635b5bad59be2d9a3d9fa7b041a8
     if (btn) {
         transferIDToModal(btn);
     }

@@ -13,6 +13,7 @@ class Reservations extends Controller
       $this->salesModel = $this->model('SalesModel');
    }
 
+   // Get res data with filters
    public function viewAllReservations($sType = "all", $sProvider = "all", $status = "all")
    {
       Session::validateSession([2, 3, 4]);
@@ -388,6 +389,19 @@ class Reservations extends Controller
       print_r(json_encode($results));
    }
 
+   public function confirmReservation($reservationID)
+   {
+      $results = $this->reservationModel->markReservationConfirmed($reservationID);
+
+      if ($results)
+         Toast::setToast(1, "Reservation confirmed successfully", "");
+      else
+         Toast::setToast(0, "Reservation confirmed failed", "");
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($results));
+   }
+
    public function checkoutReservation($reservationID)
    {
       $this->reservationModel->beginTransaction();
@@ -432,5 +446,67 @@ class Reservations extends Controller
       // print_r($serviceID);
       // die('fk');
       //  $this->view('manager/mang_serviceUpdate', $data);
+   }
+
+   public function getResDailyOverviewData($givenDate = null, $offset = 0)
+   {
+      if ($givenDate == null) $givenDate = DateTimeExtended::getCurrentDate();
+      $noOfRecords = 5;
+
+      $results = $this->reservationModel->getReservationsByDateForDailyOverview($givenDate, $noOfRecords, (int)$offset);
+      $resData = $this->prepareResDataForDailyOverview($results);
+
+      //Structure of the data returned
+
+      // $resData  = [
+      //    'sProvID1' => [
+      //       'resID1' => [
+      //          'sName' => serviceName,
+      //          'slots' => [[startTime,endTime],[startTime,endTime],[startTime,endTime]],
+      //          'status' => 2
+      //       ],
+      //       'resID2' => [
+      //          'sName' => serviceName,
+      //          'slots' => [[startTime,endTime]],
+      //          'status' => 2
+      //       ]
+      //    ],
+      //    'sProvID2' => [
+      //       'resID3' => [
+      //          'sName' => serviceName,
+      //          'slots' => [[startTime,endTime],[startTime,endTime]],
+      //          'status' => 2
+      //       ],
+      //       'resID4' => [
+      //          'sName' => serviceName,
+      //          'slots' => [[startTime,endTime],[startTime,endTime],[startTime,endTime]],
+      //          'status' => 2
+      //       ]
+      //    ]
+      // ]
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($resData));
+   }
+
+   private function prepareResDataForDailyOverview($results)
+   {
+      // var_dump($results);
+      $resData = array();
+      foreach ($results as $result)
+      {
+         $sProvID = $result->staffID;
+         $resID = $result->reservationID;
+
+         if (!array_key_exists($sProvID, $resData)) $resData[$sProvID] = array();
+         if (!array_key_exists($resID, $resData[$sProvID])) $resData[$sProvID][$resID] = ['sName' => $result->serviceName, 'slots' => array(), 'status' => $result->status];
+
+         $slotStartTime = $result->resStartTime + $result->slotStartOffset;
+         $slotDuration = $result->slotDuration;
+         $slotArrElement = [$slotStartTime, $slotDuration];
+
+         array_push($resData[$sProvID][$resID]['slots'], $slotArrElement);
+      }
+      return $resData;
    }
 }
