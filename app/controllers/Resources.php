@@ -7,19 +7,28 @@ class  Resources extends Controller
       $this->serviceModel = $this->model('ServiceModel');
    }
 
-   public function viewAllResources($resourceID = "all",$resourceName = "all")
+   public function viewAllResources($resourceName ="all",$resourceID ="all")
    {
-      print_r($resourceID);
-      print_r($resourceName);
-      die("controller called");
-      $resourceDetails = $this->serviceModel->getResourceDetails();
-      $this->view('common/allResourcesTable', $resourceDetails);
+      $AllResourcesDetails = $this->resourceModel->getAllResourcesWithFilters($resourceName,$resourceID); 
+
+      $data = [ 
+         'typedName' => $resourceName, 
+         'typedID' => $resourceID,  
+         'allResourceDetailsList' => $AllResourcesDetails 
+      ]; 
+      $this->view('common/allResourcesTable', $data);
    }
 
-   public function viewResources($resourceID)
+   public function viewResources($resourceID,$manufacturerNameInputTyped = "all")
    {
-      $PurchaseDetails = $this->resourceModel->getPurchaseDetailsByResourceID($resourceID);
-      $this->view('common/resourcesViewMore', $PurchaseDetails);
+      $AllPurchaseDetails = $this->resourceModel->getPurchaseDetailsByResourceIDWithFilters($resourceID,$manufacturerNameInputTyped); 
+
+      $data = [ 
+         'typedManufacturer' => $manufacturerNameInputTyped,
+         'allPurchaseeDetailsList' => $AllPurchaseDetails 
+      ]; 
+
+      $this->view('common/resourcesViewMore', $data);
    }
 
    public function addResource()

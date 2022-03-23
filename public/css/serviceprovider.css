@@ -119,10 +119,19 @@ justify-content: space-between;
     align-items: center;
     display: block;
 }
-/* .confirm-status{
-    height: 40px;
-    width: 100px;
-} */
+.recall.error{
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: #DC3545;
+}
+.recall-moredetails-confirm-status{
+    border: none;
+    padding: 3px 2px;
+    /* width: 120px; */
+    border-radius: 6px;
+    font-weight: 510;
+}
 
 .serprov .sub-container2-card-time {
     height: 40%;

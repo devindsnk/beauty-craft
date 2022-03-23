@@ -5,8 +5,8 @@ const SalaryPayBtnAnchorTag = document.querySelector(".salaryPayAnchorTag");
 
 for ( var i = 0 ; i < SalaryTablePayBtn.length ; i++ ){
 
-console.log (SalaryTablePayBtn[i].dataset.staffid);
-console.log (SalaryTablePayBtn[i].dataset.month);
+// console.log (SalaryTablePayBtn[i].dataset.staffid);
+// console.log (SalaryTablePayBtn[i].dataset.month);
 let staffID = SalaryTablePayBtn[i].dataset.staffid;
 let month = SalaryTablePayBtn[i].dataset.month; 
 

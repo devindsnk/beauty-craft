@@ -16,9 +16,20 @@ class ClosedDatesModel extends Model
       $this->insert('closeddates', ['date' =>  $data['closeDate'], 'note' => $data['closeSalonReason']]);
    }
 
-   public function getCloseDatesDetails()
+   public function getCloseDatesDetails($monthSelected)
    {
-      $results =  $this->getResultSet('closeddates', '*', null);
+      $SQLstatement =
+      "SELECT * FROM closeddates ";
+
+      // Remove spaces, otherwise sql query doesnt work
+      $string = "'$monthSelected%'";
+      $string= str_replace(' ', '', $string);
+
+
+      if ($monthSelected != "all") $SQLstatement .= " WHERE closeddates.date LIKE $string ";
+      $results = $this->customQuery($SQLstatement,  null);
+      var_dump($SQLstatement);
+      // die();
       return $results;
    }
 

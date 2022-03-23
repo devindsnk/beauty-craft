@@ -22,3 +22,4 @@
 
 
    <?php require APPROOT . "/views/inc/footer.php" ?>
+   <script src="<?php echo URLROOT ?>/public/js/filters.js"></script>

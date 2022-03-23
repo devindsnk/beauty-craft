@@ -18,6 +18,14 @@ class ResourceModel extends Model
    {
       $NoOfResources = $data['quantity'];
       $ResourceID = $data['nameSelected'];
+   //    $first400 = substr($ResourceID, 0, 3);
+   //    $theRest = substr($ResourceID, 3);
+   //    print_r($theRest);
+   //    $SQLstatement= "SELECT * FROM purchaserecords WHERE purchaseID LIKE '$theRest%' ORDER BY purchaseID DESC LIMIT 1";
+      
+   //    $results = $this->customQuery($SQLstatement,  NULL);
+   //   print_r($results);
+   //    die(" ");
       for ($x = 1; $x <= $NoOfResources; $x++)
       {
          $this->insert('purchaserecords', ['resourceID' => $ResourceID, 'manufacturer' => $data['manufacturer'], 'modelNo' => $data['modelNo'], 'warrantyExpDate' => $data['warrantyExpDate'], 'price' => $data['price'], 'purchaseDate' => $data['purchaseDate']]);
@@ -84,10 +92,64 @@ class ResourceModel extends Model
       return $results;
    }
 
-   public function getPurchaseDetailsByResourceID($resourceID)
+   public function getAllResourcesWithFilters($resourceName,$resourceID)
    {
-      $results = $this->getResultSet('purchaserecords', '*',  ['resourceID' => $resourceID]);
+      print_r($resourceID);
+      print_r($resourceName);
+      // die("MODEL CALLED");
+      $conditions = array(); 
+ 
+      // Extract specially defined conditions to a separate array 
+      // Note that both tableName and columnName are used as the keys 
+      if ($resourceName != "all") $conditions["resources.name"] = $resourceName;
+      if ($resourceID != "all") $conditions["resources.resourceID"] = $resourceID;
+
+      $preparedConditions = array();
+      $dataToBind = array();
+
+      foreach ($conditions as $column => $value)
+      {
+         $colName = explode(".", $column, 2)[1]; // Only taking the column name for binding (discards tableName)
+         array_push($preparedConditions, "$column LIKE :$colName");
+         $dataToBind[":$colName"] = '%'.$value.'%';
+      }
+
+      $consditionsString = implode(" AND ", $preparedConditions); 
+
+      $SQLstatement =
+         "SELECT * FROM resources ";
+
+      // Appending conditions string
+      if (!empty($conditions)) $SQLstatement .= " WHERE $consditionsString";
+      var_dump($SQLstatement);
+      var_dump($dataToBind);
+
+      $results = $this->customQuery($SQLstatement,  $dataToBind);
+      var_dump($results);
+      // die();
       return $results;
+   }
+
+   // public function getPurchaseDetailsByResourceID($resourceID)
+   // {
+
+   //    $results = $this->getResultSet('purchaserecords', '*',  ['resourceID' => $resourceID]);
+   //    return $results;
+   // }
+   public function getPurchaseDetailsByResourceIDWithFilters($resourceID,$manufacturerName)
+   {
+
+      $SQLstatement =
+      "SELECT * FROM purchaserecords  WHERE resourceID = $resourceID ";
+
+      // Remove spaces, otherwise sql query doesnt work
+      $string = "'$manufacturerName%'";
+      $string= str_replace(' ', '', $string);
+
+      if ($manufacturerName != "all") $SQLstatement .= " AND manufacturer LIKE $string ";
+      $results = $this->customQuery($SQLstatement,  null);
+      return $results;
+      
    }
 
    public function removeResourcePurchaseRecord($purchaseID) //details

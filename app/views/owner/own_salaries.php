@@ -14,7 +14,7 @@
 
    <!--Content-->
    <div class="content own salaries">
-
+<!-- <?php print_r($data)?> -->
 
       <form class="form filter-options" action="">
          <div class="options-container">
@@ -23,25 +23,24 @@
                   <div class="column">
                      <div class="text-group">
                         <label class="label" for="fName">Staff Member Name</label>
-                        <input type="text" name="" id="fName" placeholder="Resource name here">
+                        <input type="text" name="" id="staffNameInput"value="<?php echo ($data["nameTyped"]== "all")? "": $data['nameTyped'];?>" placeholder="Resource name here">
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
                   </div>
                   <div class="column">
                      <div class="text-group">
                         <label class="label" for="fName">Staff ID</label>
-                        <input type="text" name="" id="fName" placeholder="Resource name here">
+                        <input type="text" name="" id="staffIDInput" value="<?php echo ($data["staffIDSelected"]== "all")? "": $data['staffIDSelected'];?>" placeholder="Resource name here">
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
                   </div>
                   <div class="column">
                      <div class="dropdown-group">
-                        <label class="label" for="sType">Staff Type</label>
-                        <select id="sTypeSelector">
-                           <option value="all" selected>All</option>
-                           <option value="3" <?php echo ($data["selectedType"] == '3') ? "selected" : "" ?>>Managaer</option>
-                           <option value="4" <?php echo ($data["selectedType"] == '4') ? "selected" : "" ?>>Receptionist</option>
-                           <option value="5" <?php echo ($data["selectedType"] == '5') ? "selected" : "" ?>>Service Provider</option>
+                        <label class="label" for="sType">Paid Status</label>
+                        <select id="paidTypeSelector">
+                           <option value="all" selected>Any</option>
+                           <option value="1" <?php echo ($data["paidTypeSelected"] == '1') ? "selected" : "" ?>>Paid</option>
+                           <option value="0" <?php echo ($data["paidTypeSelected"] == '0') ? "selected" : "" ?>>Not Piad</option>
                         </select>
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
@@ -49,14 +48,14 @@
                   <div class="column">
                      <div class="text-group ownTableFormDate">
                         <label class="label" for="fName">Month</label>
-                        <input type="month" name="" id="sMonthSelector" placeholder="Month here" class="salaryMonth">
+                        <input type="month" name="" id="sMonthSelector" value="<?php echo $data["selectedMonth"]?>" placeholder="Month here" class="salaryMonth">
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
                   </div>
                </div>
             </div>
             <div class="right-section">
-               <a href="" class="btn btn-filled btn-black" id="allSalaryFilterBtn">Search</a>
+               <a class="btn btn-filled btn-black" id="allSalaryFilterBtn">Search</a>
                <a href="#" class="btn btn-filled btn-theme-purple btnSalaryPayMultiple"></i> Mark As Paid</a>
             </div>
          </div>
@@ -74,7 +73,7 @@
                      <th colspan="2" >Staff Member Name</th>
                      <th>Staff ID</th>
                      <th class="column-left-align">Staff Type</th>
-                     <th class="column-right-align">Salary</th>
+                     <th class="column-right-align">Salary(LKR)</th>
                      <th class="column-center-align">Paid Status</th>
                      <th class="col-7"></th>
                      <th class="column-center-align">More</th>
@@ -90,7 +89,7 @@
                   <?php foreach ($data['allStaffSalaryDetailsList'] as $staffD) : ?>
                      <tr>
                         <td data-lable="" class="column-center-align">
-                           <input type="checkbox" name="chk" class = "payNowCheckbox" data-staffid = "<?php echo $staffD->staffID; ?>" data-month = "<?php echo $staffD->month; ?>"/>
+                           <input type="checkbox" name="chk" class = "payNowCheckbox" data-staffid = "<?php echo $staffD->staffID; ?>" data-month = "<?php echo $staffD->month; ?>" <?php echo  ($staffD->status==1)? " disabled": "" ?>/>
                         </td>
                         <!-- <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person2.jpg" /></td> -->
                         <td data-lable="Staff Member Name"><?php echo $staffD->fName ?> <?php echo $staffD->lName ?></td>
@@ -109,7 +108,7 @@
                               echo 'Service Provider';
                            } ?>
                         </td>
-                        <td data-lable="Salary" class="column-right-align"><?php echo $staffD->amount ?></td>
+                        <td data-lable="Salary" class="column-right-align"><?php echo number_format($staffD->amount , 2, '.', ' ') ?></td>
                         <td data-lable="Paid Status" class="column-center-align">
                         <?php if($staffD->status==1)
                               {
@@ -128,10 +127,10 @@
                         </td>
                         <td data-lable="More" class="column-center-align">
                            <a class="btnSalaryPayment" class="">
-                              <button data-staffid = "<?php echo $staffD->staffID; ?>" data-month = "<?php echo $staffD->month; ?>" type="button" class="table-btn black-action-btn text-uppercase btnSalaryPay">Pay Now</button>
+                              <button data-staffid = "<?php echo $staffD->staffID; ?>" data-month = "<?php echo $staffD->month; ?>" type="button" class="<?php echo  ($staffD->status==1)?   "table-btn gray-action-btn text-uppercase" : "table-btn black-action-btn text-uppercase btnSalaryPay" ?>" >Pay Now</button>
                            </a>
                         </td>
-                     </tr>
+                     </tr>                    
                      <!--End of table row-->
                   <?php endforeach; ?>
                </tbody>

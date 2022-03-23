@@ -80,10 +80,10 @@
     align-items: center;
     justify-content: center;
 }
-form .error {
+/* form .error {
     display: block;
     
-}
+} */
 
 .basicinfo .item2 {
     /* background-color: rgb(208, 224, 134); */

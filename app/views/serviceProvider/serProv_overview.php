@@ -10,40 +10,17 @@
 
     <?php
     $title = "Overview";
-
     require APPROOT . "/views/inc/headerBar.php"
     ?>
-
     <!--Content-->
     <div class="content serprov">
-
+        <?php print_r($data); ?>
         <!--sub-container1-card 1-->
         <div class="container1-card card">
-            <!-- <div class="options-container left">
-                <div class="sub-container1-card-content res">
-                    <div class="mainsection">
-
-                        <form>
-
-                            <a href="#" class="previous round">&#8249;</a>
-
-                            <input class="selecteddate" type="date" id="date_input" value="" />
-                            <a href="#" class="next round">&#8250;</a>
-                            
-                        </form>
-                        <div class="day" id="output"><?php echo date("l"); ?></div>
-                        <span class="date-error-test">
-
-
-                        </span>
-                    </div>
-                </div>
-            </div> -->
             <div class="sub-container1-card-content">
                 <div class="sub-container1-card-title">Completed </div>
                 <div class="sub-container1-card-count"><?php print_r($data['reservationData']['comCount']); ?></div>
             </div>
-
         </div>
         <!--End sub-container1-card  1-->
         <!--sub-container2-->
@@ -88,11 +65,8 @@
                                 </div>
                             </div>
                         <?php endif ?>
-
-
                     <?php endforeach; ?>
                 </div>
-
             </div>
         </div>
 
@@ -100,8 +74,7 @@
         <div class="modal-container reservation-more-info">
             <div class="modal-box">
                 <form>
-
-                    <h1 class="header">Reservation details</h1>
+                    <h1 class="header">Reservation Details</h1>
                     <div class="modelcontent">
 
                         <div class="modaldetails">
@@ -157,24 +130,12 @@
                         <div class="modalbutton-more">
                             <div class="more-details-modalbtnsection">
                                 <button class="btn modelbtnClose normal">Close</button>
-
-
-
-
                             </div>
                         </div>
                     </div>
                 </form>
-
-
             </div>
         </div>
-        <!-- end modal -->
-
-
-        <!-- end modal -->
-
-
     </div>
     </div>
 

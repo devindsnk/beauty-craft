@@ -1,3 +1,7 @@
+<?php
+print_r($data);
+
+?>
 <div class="leaverequesttable">
    <div class="cardandbutton">
 
@@ -48,10 +52,10 @@
                <div class="column">
                   <div class="dropdown-group">
                      <label class="label" for="lName">Leave Type</label>
-                     <select name="lstatus" id="lTypeLeaveData">
-                        <option value="All" selected>All</option>
-                        <option value="1">Casual</option>
-                        <option value="2">Medical</option>
+                     <select name="lstatus" id="lTypeLeaveData" onchange="initializeLeavestatusSelector()">
+                        <option value="all" selected>All</option>
+                        <option value="1" <?php echo ($data["lType"] ==  1) ? "selected" : ""; ?>>Casual</option>
+                        <option value="2" <?php echo ($data["lType"] ==  2) ? "selected" : ""; ?>>Medical</option>
 
                      </select>
                   </div>
@@ -62,7 +66,7 @@
                   <div class="dropdown-group">
                      <label class="label" for="lName">Status</label>
                      <select name="lstatus" id="lStatusLeaveData">
-                        <option value="All" selected>All</option>
+                        <option value="all" selected>All</option>
                         <option value="1" <?php echo ($data["lStatus"] == '1') ? "selected" : "" ?>>Approved</option>
                         <option value="2" <?php echo ($data["lStatus"] == '2') ? "selected" : "" ?>>Pending</option>
                         <option value="0" <?php echo ($data["lStatus"] == '0') ? "selected" : "" ?>>Rejected</option>
@@ -87,7 +91,7 @@
             <thead>
                <tr>
                   <th class="column-center-align col-1">Leave Date</th>
-                  <th class="column-center-align col-2">Requested date</th>
+                  <th class="column-center-align col-2">Requested Date</th>
                   <th class="column-center-align col-3">Responded Staff ID</th>
                   <th class="column-center-align col-4">Type</th>
                   <th class="column-center-align col-4">Status</th>
@@ -358,24 +362,20 @@
    <!-- end view leave Request -->
 </div>
 
-<!-- <script>
-   var textWrapper = document.querySelector('.error .request-date-error');
+<script language="javascript">
+   const datePicker = document.getElementById("takeLeaveDate");
 
+   let today = new Date().toISOString().split('T')[0];
+   let maxDate = new Date();
+   month = new Date().getMonth();
+   maxDate.setMonth(maxDate.getMonth() + 2);
+   maxDate = maxDate.toISOString().split('T')[0];
 
-   anime.timeline({
-         loop: true
-      })
-      .add({
-         targets: '.ml6 .letter',
-         translateZ: 0,
-         duration: 2000,
-         delay: 10000
-      }).add({
-         targets: '.ml6',
-         opacity: 0,
-         delay: 0
-      });
-</script> -->
+   datePicker.setAttribute('min', today);
+   datePicker.setAttribute('max', maxDate);
+   datePicker.setAttribute('format', 'yyyy-MM-dd')
+</script>
 
+<script src="<?php echo URLROOT ?>/public/js/filters.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/tableFilter.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/fetchRequests/leaveRequest.js"></script>

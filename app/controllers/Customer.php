@@ -8,12 +8,22 @@ class Customer extends Controller
       $this->OTPModel = $this->model('OTPManagementModel');
    }
 
-   public function viewAllCustomers()
+   public function viewAllCustomers($cusNameInputTyped= "all",$cusCotactInputTyped="all",$statusSelected="all")
    {
       Session::validateSession([2, 3, 4]);
-      $CusDetails = $this->customerModel->getAllCustomerDetails();
-      $CustomerDataArray = ['customer' => $CusDetails];
-      $this->view('common/allCustomersTable', $CustomerDataArray);
+      print_r($cusNameInputTyped);
+      print_r($cusCotactInputTyped);
+      print_r($statusSelected);
+      // die("controller called");
+      $AllCustomerDetails = $this->customerModel->getAllCustomersWithFilters($cusNameInputTyped,$cusCotactInputTyped,$statusSelected); 
+
+      $data = [ 
+         'cusName' => $cusNameInputTyped, 
+         'cusContact' => $cusCotactInputTyped, 
+         'status' =>  $statusSelected,
+         'allCustomerDetailsList' => $AllCustomerDetails 
+      ]; 
+      $this->view('common/allCustomersTable', $data);
    }
 
    public function register()
@@ -130,7 +140,7 @@ class Customer extends Controller
                   $this->OTPModel->removeOTP($data['mobileNo'], 1);
 
                   //System log
-                  Systemlog::createCustomerAccount();
+                  Systemlog::createCustomerAccount($data['mobileNo'], $data['fName'], $data['lName']);
 
                   SMS::sendCustomerRegSMS($data['mobileNo']);
                   $this->userModel->commit();
@@ -247,7 +257,7 @@ class Customer extends Controller
    {
       $this->customerModel->removeCustomerDetails($cusID, $mobileNo, $rescount);
       Toast::setToast(1, "Customer Removed Successfully!", "");
-      redirect('OwnDashboard/customers');
+      redirect('Customer/viewAllCustomers');
    }
 
    public function cusDetailView($cusID)

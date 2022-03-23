@@ -33,14 +33,14 @@
                   <div class="column">
                      <div class="text-group">
                         <label class="label" for="fName">Customer Name</label>
-                        <input type="text" name="" id="fName" placeholder="Your first name here">
+                        <input type="text" name="" id="cusNameInput"value="<?php echo ($data["cusName"]=="all")?"":$data['cusName'];?>" placeholder="Type Customer name here">
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
                   </div>
                   <div class="column">
                      <div class="text-group">
                         <label class="label" for="fName">Contact No</label>
-                        <input type="text" name="" id="fName" placeholder="Your first name here">
+                        <input type="text" name="" id="cusContactInput" value="<?php echo ($data["cusContact"]=="all")?"":$data['cusContact'];?>" placeholder="Type contact number here">
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
                   </div>
@@ -48,10 +48,10 @@
                   <div class="column">
                      <div class="dropdown-group">
                         <label class="label" for="lName">Status</label>
-                        <select>
-                           <option value="" selected>Any</option>
-                           <option value="volvo">Active</option>
-                           <option value="saab">Inactive</option>
+                        <select id="statusSelector">
+                           <option value="all" selected>All</option>
+                           <option value="1" <?php echo ($data["status"] == '1') ? "selected" : "" ?>>Active</option>
+                           <option value="0" <?php echo ($data["status"] == '0') ? "selected" : "" ?>>Inactive</option>
                         </select>
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
@@ -59,7 +59,7 @@
                </div>
             </div>
             <div class="right-section">
-               <a href="" class="btn btn-filled btn-black">Search</a>
+               <a class="btn btn-filled btn-black" id="allCustomersFilterBtn">Search</a>
                <!-- <button class="btn btn-search">Search</button> -->
             </div>
          </div>
@@ -82,16 +82,20 @@
                </thead>
                <tbody>
 
-                  <?php foreach ($data['customer'] as $customerD) : ?>
+                  <?php foreach ($data['allCustomerDetailsList'] as $customerD) : ?>
                      <tr>
                         <td data-lable="Customer ID" class="column-center-align">C<?php echo $customerD->customerID; ?></td>
                         <td data-lable="Customer Name" class="column-left-align"><?php echo $customerD->fName; ?>
                            <?php echo $customerD->lName; ?></td>
                         <td data-lable="Contact No" class="column-center-align"><?php echo $customerD->mobileNo; ?></td>
-                        <td data-lable="Gender" class="column-center-align">M</td>
+                        <td data-lable="Gender" class="column-center-align"><?php echo ($customerD->gender=="M")?"Male":"Female"; ?></td>
                         <td data-lable="Registered Date" class="column-center-align"> <?php echo DateTimeExtended::dateToShortMonthFormat($customerD->registeredDate, "F"); ?></td>
                         <td data-lable="Status" class="column-center-align">
+                           <?php if($customerD->status==1):?>
                            <button type="button" class="status-btn green text-uppercase">Active</button>
+                           <?php elseif ($customerD->status==0):?>
+                              <button type="button" class="status-btn red text-uppercase">Removed</button>
+                           <?php endif; ?>
                         </td>
                         <td class="column-center-align">
                            <a href="<?php echo URLROOT ?>/customer/cusDetailView/<?php echo $customerD->customerID ?>"><i class="ci-view-more table-icon img-gap"></i></a>
@@ -126,7 +130,7 @@
 
          <!-- main grid 2 starts -->
          <div class="ownRemCusError">
-            <label class="ownRemCusErrortext">Customer has upcoming reservations. Reservations will be canceled if you
+            <label class="ownRemCusErrortext">Customer has upcoming reservations. Reservations will be cancelled if you
                proceed.</label>
          </div>
          <!-- main grid 2 ends -->
@@ -141,9 +145,11 @@
          </div>
          <!-- main grid 3 ends -->
       </div>
+      <script src="<?php echo URLROOT ?>/public/js/fetchRequests/removeCustomer.js"></script>
+   <script src="<?php echo URLROOT ?>/public/js/filters.js"></script>
    </div>
    <!------------------- Remove Customer Container ends ----------------------------->
 
 
-   <script src="<?php echo URLROOT ?>/public/js/fetchRequests/removeCustomer.js"></script>
+   
    <?php require APPROOT . "/views/inc/footer.php" ?>

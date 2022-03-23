@@ -77,12 +77,26 @@ class Systemlog
         file_put_contents('logfile/syslog.txt', $contents);
     }
 
-    public static function createCustomerAccount()
+    public static function createCustomerAccount($mobNo, $fName, $lName)
     {
         $log = 'create customer account';
         $contents = file_get_contents('logfile/syslog.txt');
+        $name = $fName . ' ' . $lName;
+        $length = strlen($name);
 
-        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
+        if ($length < 22)
+        {
+            $userName = str_pad($name, 22, ' ', STR_PAD_RIGHT);
+        }
+        else
+        {
+            $lastname = end(explode(" ", $name));
+            $firstname = str_replace($lastname, '', $name);
+            $userName = str_pad($firstname, 22, ' ', STR_PAD_RIGHT);
+        }
+        $userData = $mobNo . "\t" . $userName;
+
+        $contents .= "\n" . self::getLogData() . "\t" . $userData . "\t$log";
         file_put_contents('logfile/syslog.txt', $contents);
     }
     public static function createAccount($staffMobileNo)
