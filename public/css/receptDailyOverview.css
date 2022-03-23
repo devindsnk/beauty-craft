@@ -82,6 +82,12 @@
     display: grid;
     grid-template-columns: 14px 2fr 1fr;
     background-color: #ffffff;
+    transition: all ease-in 0.5s;
+}
+
+.resBoxInner:hover {
+    background-color: var(--theme-disabledgrey);
+    transition: all ease-in 0.5s;
 }
 
 .resBoxInner>div {
