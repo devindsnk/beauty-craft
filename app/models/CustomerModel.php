@@ -54,6 +54,28 @@ class CustomerModel extends Model
    }
    // for customer table end
 
+   public function getAllCustomersWithFilters($cusName,$cusMobileNumber,$status)
+   {
+      
+      $SQLstatement =
+      "SELECT * FROM customers  WHERE customerID != 000001";
+
+      // Remove spaces, otherwise sql query doesnt work
+      $string1 = "'$cusName%'";
+      $string1= str_replace(' ', '', $string1);
+
+      $string2 = "'$cusMobileNumber%'";
+      $string2= str_replace(' ', '', $string2);
+
+      if ($cusName != "all") $SQLstatement .= " AND customers.fName LIKE $string1 OR customers.lName LIKE $string1 ";
+      if ($cusMobileNumber != "all") $SQLstatement .= " AND customers.mobileNo LIKE $string2 ";
+      if ($status != "all") $SQLstatement .= " AND customers.status = $status ";
+      $results = $this->customQuery($SQLstatement,  null);
+      return $results;
+
+
+   }
+
    // added by ravindu
    // for customer view
    public function getCustomerDetailsByCusID($cusID)

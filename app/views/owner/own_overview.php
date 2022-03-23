@@ -18,13 +18,12 @@
       <div class="ownOverviewContainer">
          <div class="ownOverviewCardContainer">
             <!-- owner overview available managers card starts -->
-
             <div class="ownOverviewContainerCard1">
                <div class="mang-sub-container-card-title">
                   <p>Available Managers</p>
                </div>
                <div class="mang-sub-container-card-amount">
-                  <p>5</p>
+                  <p><?php echo $data['activeManagers'][0]->mangCount?></p>
                </div>
             </div>
             <!-- owner overview available managers card ends -->
@@ -36,7 +35,7 @@
                   <p>Total Income</p>
                </div>
                <div class="mang-sub-container-card-amount">
-                  <p>400000.00 LKR</p>
+                  <p> <?php echo $data['totalIncome'][0]->totalIncome?> LKR</p>
                </div>
             </div>
             <!-- owner overview total income card ends -->
@@ -57,7 +56,7 @@
                   <p>Total Customers</p>
                </div>
                <div class="mang-sub-container-card-amount">
-                  <p>260</p>
+                  <p><?php echo $data['activeCustomers']?></p>
                </div>
             </div>
 

@@ -464,7 +464,6 @@ class LeaveModel extends Model
 
       $month = 1;
       $results = $this->getResultSet('generalleaves', '*', ['staffID' => $staffID, 'status' => 4, 'leaveType' => 'casual']);
-      print_r($results);
       return $results;
    }
 
@@ -472,7 +471,6 @@ class LeaveModel extends Model
    {
       $month = 1;
       $results = $this->getResultSet('generalleaves', '*', ['staffID' => $staffID, 'status' => 4, 'leaveType' => 'casual']);
-      print_r($results);
       return $results;
    }
 
