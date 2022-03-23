@@ -185,11 +185,12 @@
 								<div class="column" id="resorceDetails1">
 									<label class="labels paddingBottom">Resources & Quantity</label><br>
 									<div class="checkbox-div">
-										<?php $resIDArray =  []; ?>
+										<?php $j = 0; ?>
+
 										<?php foreach ($data['sResArray'] as $sResource) : ?>
 
 											<div class="divIndiv">
-												<?php $findResource = 1; ?>
+
 
 												<label class="lableInDiv" id="checkedItem">
 													<?php echo $sResource->resourceID; ?> - <?php echo $sResource->name; ?>
@@ -204,7 +205,13 @@
 
 													<?php for ($i = 1; $i <= $Qcount; $i++) : ?>
 
-														<option value="<?php echo $i; ?>" <?php if ($data['sSelectedResCount1'] == $i) echo 'selected'; ?>><?php echo $i; ?>
+														<option value="<?php echo $i; ?>" <?php if (isset($data['sSelectedResCount1'][$j]))
+																							{
+																								if ($data['sSelectedResCount1'][$j] == $i)
+																								{
+																									echo 'selected';
+																								}
+																							} ?>><?php echo $i; ?>
 														</option>
 
 													<?php endfor; ?>
@@ -212,7 +219,7 @@
 												</select>
 											</div>
 											<hr class='resHr'>
-
+											<?php $j++; ?>
 										<?php endforeach; ?>
 
 									</div>
@@ -275,7 +282,8 @@
 								<div class='column' id='resorceDetails2'>
 									<label class="labels paddingBottom">Resources & Quantity</label><br>
 									<div class="checkbox-div">
-										<?php $resIDArray =  []; ?>
+										<?php $j = 0; ?>
+
 										<?php foreach ($data['sResArray'] as $sResource) : ?>
 
 											<div class="divIndiv">
@@ -293,7 +301,13 @@
 
 													<?php for ($i = 1; $i <= $Qcount; $i++) : ?>
 
-														<option value="<?php echo $i; ?>" <?php if ($data['sSelectedResCount2'] == $i) echo 'selected'; ?>><?php echo $i; ?>
+														<option value="<?php echo $i; ?>" <?php if (isset($data['sSelectedResCount2'][$j]))
+																							{
+																								if ($data['sSelectedResCount2'][$j] == $i)
+																								{
+																									echo 'selected';
+																								}
+																							} ?>><?php echo $i; ?>
 														</option>
 
 													<?php endfor; ?>
@@ -301,7 +315,7 @@
 												</select>
 											</div>
 											<hr class='resHr'>
-
+											<?php $j++; ?>
 										<?php endforeach; ?>
 
 									</div>
@@ -360,11 +374,11 @@
 									<div class='column' id='resorceDetails3'>
 										<label class="labels paddingBottom">Resources & Quantity</label><br>
 										<div class="checkbox-div">
-											<?php $resIDArray =  []; ?>
+											<?php $j = 0; ?>
+
 											<?php foreach ($data['sResArray'] as $sResource) : ?>
 
 												<div class="divIndiv">
-													<?php $findResource = 1; ?>
 
 													<label class="lableInDiv resourceDetails3" id="checkedItem">
 														<?php echo $sResource->resourceID; ?> - <?php echo $sResource->name; ?>
@@ -379,7 +393,13 @@
 
 														<?php for ($i = 1; $i <= $Qcount; $i++) : ?>
 
-															<option value="<?php echo $i; ?>" <?php if ($data['sSelectedResCount3'] == $i) echo 'selected'; ?>><?php echo $i; ?>
+															<option value="<?php echo $i; ?>" <?php if (isset($data['sSelectedResCount3'][$j]))
+																								{
+																									if ($data['sSelectedResCount3'][$j] == $i)
+																									{
+																										echo 'selected';
+																									}
+																								} ?>><?php echo $i; ?>
 															</option>
 
 														<?php endfor; ?>
@@ -387,11 +407,11 @@
 													</select>
 												</div>
 												<hr class='resHr'>
-
+												<?php $j++; ?>
 											<?php endforeach; ?>
 
 										</div>
-										<span class="error paddingLeft"><?php echo $data['sSelectedResCount2_error']; ?></span>
+										<span class="error paddingLeft"><?php echo $data['sSelectedResCount3_error']; ?></span>
 
 									</div>
 								</div>
