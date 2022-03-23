@@ -121,12 +121,8 @@ class ResourceModel extends Model
 
       // Appending conditions string
       if (!empty($conditions)) $SQLstatement .= " WHERE $consditionsString";
-      var_dump($SQLstatement);
-      var_dump($dataToBind);
 
       $results = $this->customQuery($SQLstatement,  $dataToBind);
-      var_dump($results);
-      // die();
       return $results;
    }
 
