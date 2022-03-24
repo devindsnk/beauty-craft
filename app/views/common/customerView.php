@@ -27,11 +27,12 @@
          <div class="Card1 contentBox ">
             <div class="ProfileGrid">
                <div class="ProfileDetailsImg">
-                  <img src="<?php echo URLROOT ?>/public//imgs/img_avatar.png" alt="Avatar" class="ProfileDetailsImgCircle">
+
+                  <img src="<?php echo URLROOT; ?><?php echo ($cusD[0]->imgPath != null)? "/public/imgs/customerImgs/$cusD->imgPath" : "/public/imgs/customerImgs/customerbarimg.png"?>" alt="Avatar" class="ProfileDetailsImgCircle">
                </div>
                <div class="ProfileDetailsInfo">
                   <span class="ProfileDetailsName"><?php echo ($cusD[0]->fName) ?> <?php echo ($cusD[0]->lName) ?></span> <br>
-                  <span class="ProfileDetailsStaffId">Customer ID : <?php echo ($cusD[0]->customerID) ?></span>
+                  <span class="ProfileDetailsStaffId">Customer ID : C<?php echo ($cusD[0]->customerID) ?></span>
                </div>
             </div>
          </div>
@@ -108,7 +109,7 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                      <?php echo ($cusD[0]->registeredDate) ?>
+                      <?php echo DateTimeExtended::dateToShortMonthFormat($cusD[0]->registeredDate, "F"); ?>
                      </span>
                   </div>
                </div>

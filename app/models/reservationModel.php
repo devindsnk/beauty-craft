@@ -196,6 +196,8 @@ class ReservationModel extends Model
 
       // Appending conditions string
       if (!empty($conditions)) $SQLstatement .= " WHERE $consditionsString";
+      $SQLstatement .= " ORDER BY reservations.date DESC, reservations.startTime ASC, reservations.reservationID  ASC";
+
       $results = $this->customQuery($SQLstatement,  $dataToBind);
 
       return $results;
@@ -217,15 +219,17 @@ class ReservationModel extends Model
    }
    public function getReservationCompleteCountByID($staffID)
    {
+      date_default_timezone_set("Asia/Colombo");
+      $today = date("Y-m-d");
       $results = $this->customQuery(
          "SELECT COUNT(*) AS completeCount
          FROM reservations
-         WHERE staffID=:staffID AND status=:status",
-         [':staffID' => $staffID, ':status' => 4]
+         WHERE staffID=:staffID AND status=:status AND date=:date",
+         [':staffID' => $staffID, ':status' => 4, ':date' => $today]
       );
       // print_r($results[0]->completeCount);
       // die("HI");
-      return $results[0]->completeCount - 1;
+      return $results[0]->completeCount;
    }
 
 
@@ -689,5 +693,38 @@ class ReservationModel extends Model
       {
          $results = $this->update('reservations', ['status' => $status], ['reservationID' => $selectedreservation]);
       }
+   }
+
+   // Provide reservation details on a given date within a limit of service providers
+   public function getReservationsByDateForDailyOverview($givenDate, $limit, $offset)
+   {
+      $SQLquery =
+         "SELECT RES.reservationID,
+            SV.name AS serviceName,
+            RES.startTime AS resStartTime,
+            SV.totalDuration,
+            TS.slotNo,
+            TS.startingTime AS slotStartOffset,
+            TS.duration AS slotDuration,
+            RES.status,
+            RES.staffID
+         FROM
+            reservations AS RES
+         INNER JOIN (select * from staff WHERE staffType = 5 AND status = 1 limit :offset,:limit) AS S ON S.staffID = RES.staffID
+         INNER JOIN services AS SV ON SV.serviceID = RES.serviceID
+         INNER JOIN timeslots AS TS ON SV.serviceID = TS.serviceID
+         WHERE RES.date = :givenDate AND RES.status IN(1, 2, 3, 4, 5)
+         ORDER BY RES.reservationID, TS.slotNo;";
+
+      $results = $this->customQuery(
+         $SQLquery,
+         [
+            ':offset' => $offset,
+            ':limit' => $limit,
+            ':givenDate' => $givenDate
+         ]
+      );
+
+      return $results;
    }
 }

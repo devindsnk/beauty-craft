@@ -97,7 +97,7 @@
                 </div>
 
                 <div class="card2 contentBox">
-                    <h3>Basic Salary</h3>
+                    <h3>Basic Salary(LKR)</h3>
 
                     <div class="deatailbox">
                         <div class="labelBox">

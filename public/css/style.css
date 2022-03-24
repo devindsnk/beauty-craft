@@ -107,6 +107,10 @@ footer p {
   justify-content: center;
 }
 
+.hidden-element {
+  visibility: hidden
+}
+
 /* white box container */
 .contentBox {
   font-weight: 500;
@@ -318,30 +322,37 @@ footer p {
   padding: 4px;
   text-align: center;
   width: 120px;
+  font-weight: 500;
+  font-size: 16px;
   /*Remove this later*/
 }
 
-.status-error-red,.confirm-status.red {
+.status-error-red,
+.confirm-status.red {
   background-color: var(--bg-error-red);
   color: var(--error-red);
 }
 
-.status-success-green,.confirm-status.green {
+.status-success-green,
+.confirm-status.green {
   background-color: var(--bg-success-green);
   color: var(--success-green);
 }
 
-.status-blue,.confirm-status.blue {
+.status-blue,
+.confirm-status.blue {
   background-color: var(--bg-theme-blue);
   color: var(--theme-blue);
 }
 
-.status-grey,.confirm-status.grey {
+.status-grey,
+.confirm-status.grey {
   background-color: var(--theme-lightgrey);
   color: var(--theme-grey);
 }
 
-.status-warning-yellow,.confirm-status.yellow {
+.status-warning-yellow,
+.confirm-status.yellow {
   background-color: var(--bg-warning-yellow);
   color: var(--warning-yellow);
 }

@@ -1,3 +1,7 @@
+<?php
+print_r($data);
+
+?>
 <div class="leaverequesttable">
    <div class="cardandbutton">
 
@@ -48,10 +52,10 @@
                <div class="column">
                   <div class="dropdown-group">
                      <label class="label" for="lName">Leave Type</label>
-                     <select name="lstatus" id="lTypeLeaveData">
-                        <option value="All" selected>All</option>
-                        <option value="1">Casual</option>
-                        <option value="2">Medical</option>
+                     <select name="lstatus" id="lTypeLeaveData" onchange="initializeLeavestatusSelector()">
+                        <option value="all" selected>All</option>
+                        <option value="1" <?php echo ($data["lType"] ==  1) ? "selected" : ""; ?>>Casual</option>
+                        <option value="2" <?php echo ($data["lType"] ==  2) ? "selected" : ""; ?>>Medical</option>
 
                      </select>
                   </div>
@@ -62,7 +66,7 @@
                   <div class="dropdown-group">
                      <label class="label" for="lName">Status</label>
                      <select name="lstatus" id="lStatusLeaveData">
-                        <option value="All" selected>All</option>
+                        <option value="all" selected>All</option>
                         <option value="1" <?php echo ($data["lStatus"] == '1') ? "selected" : "" ?>>Approved</option>
                         <option value="2" <?php echo ($data["lStatus"] == '2') ? "selected" : "" ?>>Pending</option>
                         <option value="0" <?php echo ($data["lStatus"] == '0') ? "selected" : "" ?>>Rejected</option>
@@ -75,7 +79,7 @@
 
          </div>
          <div class="right-section">
-            <a class="btn btn-filled btn-black" onclick="filterLeavesSpAndRecep(this);">Search</a>
+            <a class="btn btn-filled btn-black" id="SPleaveFilteerBtn" onclick="filterLeavesSpAndRecep(this);">Search</a>
             <!-- <button class="btn btn-search">Search</button> -->
          </div>
       </div>
@@ -87,7 +91,7 @@
             <thead>
                <tr>
                   <th class="column-center-align col-1">Leave Date</th>
-                  <th class="column-center-align col-2">Requested date</th>
+                  <th class="column-center-align col-2">Requested Date</th>
                   <th class="column-center-align col-3">Responded Staff ID</th>
                   <th class="column-center-align col-4">Type</th>
                   <th class="column-center-align col-4">Status</th>
@@ -301,7 +305,7 @@
    <div class=" modal-container view-leave request">
       <div class="modal-box addItems leave_request ">
          <div class="new-type-head">
-            <h1>Edit Leave Request</h1>
+            <h1>View Leave Request</h1>
          </div>
          <div class="leaverequest-form-content">
             <div class="reqleave-date-section">
@@ -343,39 +347,33 @@
                <span class="error"> <?php echo $data['reason_error']; ?></span>
             </div>
             <div class="reqleave-button-section">
-               <div class="modalbutton">
+               <div class="modalbutton view">
                   <div class="btn1">
                      <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
-                  </div>
-                  <div class="btn2">
-                     <button type="submit" name="action" value="edit" class="confirm-service-btn editleavebtn proceedBtn" onclick="leaveRequestSaveChanges(this);">Save Changes</button>
                   </div>
                </div>
             </div>
          </div>
       </div>
    </div>
-   <!-- end view leave Request -->
+</div>
+<!-- end view leave Request -->
 </div>
 
-<!-- <script>
-   var textWrapper = document.querySelector('.error .request-date-error');
+<script language="javascript">
+   const datePicker = document.getElementById("takeLeaveDate");
 
+   let today = new Date().toISOString().split('T')[0];
+   let maxDate = new Date();
+   month = new Date().getMonth();
+   maxDate.setMonth(maxDate.getMonth() + 2);
+   maxDate = maxDate.toISOString().split('T')[0];
 
-   anime.timeline({
-         loop: true
-      })
-      .add({
-         targets: '.ml6 .letter',
-         translateZ: 0,
-         duration: 2000,
-         delay: 10000
-      }).add({
-         targets: '.ml6',
-         opacity: 0,
-         delay: 0
-      });
-</script> -->
+   datePicker.setAttribute('min', today);
+   datePicker.setAttribute('max', maxDate);
+   datePicker.setAttribute('format', 'yyyy-MM-dd')
+</script>
 
+<script src="<?php echo URLROOT ?>/public/js/filters.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/tableFilter.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/fetchRequests/leaveRequest.js"></script>

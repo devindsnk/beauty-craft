@@ -3,7 +3,6 @@ class Leaves extends Controller
 {
    public function __construct()
    {
-
       $this->LeaveModel = $this->model('LeaveModel');
       $this->closedDatesModel = $this->model('ClosedDatesModel');
    }
@@ -27,9 +26,7 @@ class Leaves extends Controller
    // }
 
    public function oneleaveRequest($staffID, $leaveDate)
-
    {
-
       $oneLeaveDetails = $this->LeaveModel->getOneLeaveDetail($staffID, $leaveDate);
       $casualCountOfRelevantMonth = $this->LeaveModel->getRelevantMonthsLeaveCount($staffID, $leaveDate, 1);
       $medicalCountOfRelevantMonth = $this->LeaveModel->getRelevantMonthsLeaveCount($staffID, $leaveDate, 2);
@@ -51,7 +48,7 @@ class Leaves extends Controller
 
 
    //Service provider and receptionist leaves view
-   public function leaves($lType = 'All', $lStatus = 'All')
+   public function leaves($lType = 'all', $lStatus = 'all')
    {
       Session::validateSession([4, 5]);
 
@@ -164,7 +161,8 @@ class Leaves extends Controller
                      {
                         $data['dateValidationMsg'] = 'Can not send leave request,Medical limit exceeded';
                         $data['haveErrors'] = 1;
-                        $this->provideLeaveRequestReleventView($data);
+                        Toast::setToast(2, "Can not send leave request.", "");
+                        redirect('Leaves/leaves');
                      }
                      else
                      {
@@ -316,6 +314,7 @@ class Leaves extends Controller
       Session::validateSession([4, 5]);
       $this->LeaveModel->cancelLeaveRequest($date, Session::getUser("id"));
       Toast::setToast(1, "Leave request deleted successfully.", "");
+      redirect('Leaves/leaves');
    }
    public function getSelectedLeaveDetails($date)
    {
@@ -381,5 +380,19 @@ class Leaves extends Controller
 
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($response));
+   }
+
+   public function sProvUninformedLeaveOnDate($staffID)
+   {
+      $date =  DateTimeExtended::getCurrentDate();
+      $results = $this->LeaveModel->sProvUninformedLeave($staffID, $date);
+
+      if ($results)
+         Toast::setToast(1, "Uninformed leave marked successfully", "");
+      else
+         Toast::setToast(0, "Uninformed leave marking failed", "");
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($results));
    }
 }

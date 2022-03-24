@@ -76,10 +76,17 @@ class OTPManagementModel extends Model
       $results = $this->getOTP($mobileNo, $type);
       if ($results)
       {
+         $timeDiff = DateTimeExtended::getTimeDiff($results->timestamp);
+
+         // If time diff is greater than 5 mins new otp should be generated
+         if ($timeDiff[0] > 5 || $timeDiff[0] == 5 && $timeDiff[1] > 0)
+            return 2;
+
+         // If 1 is returned -> OTP is verified and no timeout
          if (strcmp($results->OTP, $enteredOTP) == 0)
-            return true;
+            return 1;
       }
-      return false;
+      return 0;
    }
 
    public function removeOTP($mobileNo, $type)

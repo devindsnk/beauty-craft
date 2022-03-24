@@ -89,7 +89,7 @@
                     <tbody>
                         <?php foreach ($data['reservationData'] as $reservation) : ?>
                             <tr>
-                                <td data-lable="Reservation Date" class="column-center-align"><?php echo $reservation->date; ?></td>
+                                <td data-lable="Reservation Date" class="column-center-align"><?php echo DateTimeExtended::dateToShortMonthFormat($reservation->date, "F"); ?></td>
                                 <td data-lable="Time" class="column-center-align"><?php echo DateTimeExtended::minsToTime($reservation->startTime) . " - " . DateTimeExtended::minsToTime($reservation->endTime); ?></td>
                                 <td data-lable="Service" class="column-center-align">
                                     <?php echo $reservation->name; ?>
@@ -108,6 +108,10 @@
                                         <div class="status-btn green text-uppercase">
                                             <span>Confirmed</span>
                                         </div>
+                                    <?php elseif ($reservation->status == 3) : ?>
+                                        <div class="status-btn grey text-uppercase">
+                                            <span>No Show</span>
+                                        </div>
                                     <?php elseif ($reservation->status == 4) : ?>
                                         <div class="status-btn grey text-uppercase">
                                             <span>Completed</span>
@@ -116,6 +120,11 @@
                                         <div class="status-btn yellow text-uppercase">
                                             <span>Recalled</span>
                                         </div>
+                                    <?php elseif ($reservation->status == 0) : ?>
+                                        <div class="status-btn red text-uppercase">
+                                            <span>Cancelled</span>
+                                        </div>
+
                                     <?php endif; ?>
                                 </td>
                                 <td data-lable="Action" class="column-center-align">
@@ -135,7 +144,7 @@
         <!-- modal -->
         <div class="modal-container reservation-more-info">
             <div class="modal-box">
-                <h1 class="header">Reservation details</h1>
+                <h1 class="header">Reservation Details</h1>
                 <div class="modelcontent">
                     <div class="modaldetails">
                         <div class="modaldetails-name">
@@ -181,7 +190,7 @@
                     <div class="modalbutton-more">
                         <div class="more-details-modalbtnsection">
                             <button class="btn modelbtnClose normal">Close</button>
-                            <button class="btnOpen btnResRecall button proceedBtn" value="recall" onclick="recallResrvation(this);">Recall</button>
+                            <button class="btnOpen btnResRecall button proceedBtn " id="recallModelOpenBtn" value="recall" onclick="recallResrvation(this);">Recall</button>
                         </div>
                     </div>
                 </div>
@@ -219,22 +228,22 @@
                         </div>
                         <div class="Reservationnote">
                             <div class="Reservationnote-name">
-                                <span></span>
+                                <span>Recall reason</span>
                             </div>
                             <div class="Reservationnote-note editable" contenteditable="true">
 
                                 <textarea class="recall-reason recall-reason-section" name="recallReason" value="" id="recall-reason-section"></textarea>
                             </div>
-                            <span class="recall error"> </span>
+                            <span class="recall error" id="recall-error-msg"> </span>
                         </div>
                         <div class="savechange">
-                            <input type="text" name="selectedReservation" class="selectedReservation">
+                            <!-- <input type="text" name="selectedReservation" class="selectedReservation"> -->
                         </div>
                         <div class="modalbutton-more">
                             <div class="more-details-modalbtnsection">
                                 <!-- <button class="btn  backBtn btnResMoreInfo" ">Back</button> -->
                                 <button class="btn btnBack normal" value="close">Back</button>
-                                <button class="btnOpen recall  proceedBtn btn btn-filled " value="sendRecall" onclick="proceedRecall(this);">Delete</button>
+                                <button class="btnOpen recall  proceedBtn btn btn-filled " id="recallRequestDeleteBtn" value="sendRecall" onclick="proceedRecall(this);">Delete</button>
                             </div>
                         </div>
 

@@ -191,11 +191,11 @@ Close Salon Starts
     margin-right: auto;
 } */
 
-.content.own.close-salon .page-top-main-container,
+/* .content.own.close-salon .page-top-main-container,
 .content.own.close-salon .options-container,
 .content.own.close-salon .table2-responsive {
     padding: 0 200px;
-}
+} */
 
 /* 
 #####################################################################################################################################################
@@ -736,12 +736,14 @@ font-weight: 600;
 
 .own.staff.resources .manufacturer {
     grid-area: manufacturer;
-    padding-bottom: 10px;
+   /* padding-bottom: 10px; */
+   height: 100px;
 }
 
 .own.staff.resources .modelNumber {
     grid-area: modelNumber;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
+    height: 100px;
 }
 
 /* main frid two styles */
@@ -758,12 +760,14 @@ font-weight: 600;
 
 .own.staff.resources .addType {
     grid-area: addType;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
+    height: 100px;
 }
 
 .own.staff.resources .warrantyExpDate {
     grid-area: warrantyExpDate;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
+     height: 100px;
 }
 
 .own.staff.resources .addType {
@@ -778,7 +782,8 @@ font-weight: 600;
 
 .own.staff.resources .selectType {
     grid-area: selectType;
-    padding-bottom: 10px;
+   /* padding-bottom: 10px; */
+   height: 100px;
 }
 
 .own.staff.resources .addNewTypeButton {
@@ -802,7 +807,8 @@ font-weight: 600;
 
 .own.staff.resources .purchaseDate{
     width: 48%;
-    padding-bottom: 10px;
+   /* padding-bottom: 10px; */
+   height: 100px;
 }
 
 /* main grid 4 styles  */
@@ -818,18 +824,20 @@ font-weight: 600;
 
 .own.staff.resources .price {
     grid-area: price;
-    padding-bottom: 10px;
+     /* padding-bottom: 10px; */
+     height: 100px;
 }
 
 .own.staff.resources .quantity {
     grid-area: quantity;
-    padding-bottom: 10px;
+  /* padding-bottom: 10px; */
+  height: 100px;
 }
 .own.staff.resources  .addItemsModalGrid3{
     grid-gap : 15px;
 }
 .own.staff.resources .contentBox{
-    height: 650px;
+    max-height: 700px;
 }
 /* --------------------------------------------------------------------------------------------------- */
 /* -----------Styles for Update Resources(Other Than Styles in Add Resources) Starts------------------ */
@@ -1329,29 +1337,26 @@ font-weight: 600;
 
 /* status button styles  */
 
-.status-btn,
-.status-btn {
+.ownViewStaffProfileStatus .status-btn {
     border: none;
     padding: 3px 2px;
-    width: 90px;
+    /* width: 90px; */
     border-radius: 6px;
     font-weight: 510;
 }
 
-.green.status-btn,
-.green.status-btn {
+
+.ownViewStaffProfileStatus .green.status-btn {
     background-color: var(--bg-success-green);
     color: var(--success-green);
 }
 
-.red.status-btn,
-.red.status-btn {
+.ownViewStaffProfileStatus .red.status-btn {
     background-color: var(--bg-error-red);
     color: var(--error-red);
 }
 
-.yellow.status-btn,
-.yellow.status-btn {
+.ownViewStaffProfileStatus .yellow.status-btn {
     background-color: var(--bg-warning-yellow);
     color: var(--warning-yellow);
 }
