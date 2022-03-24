@@ -509,13 +509,13 @@ font-family: 'Philosopher',sans-serif;
   transition: .5s;
 }
 
-/* .box > span {
+.box > span {
   font-size: 3.8vh;
   display: block;
   text-align: center;
   height: 10vh;
   line-height: 2.6;
-} */
+}
 
 .box:hover { flex: 1 1 50%; }
 .box:hover > img {
