@@ -1,4 +1,4 @@
-
+/////////// SP and RECEPTIONIST //////////
 const leaveRequestSelectedDate = document.querySelector(".LeaveRequestDate");
 const dateError = document.querySelector(".request-date-error1");
 const dateSpan = document.querySelector(".dateEmpty");

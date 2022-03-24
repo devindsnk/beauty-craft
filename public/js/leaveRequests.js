@@ -1,5 +1,4 @@
 // ...........................START APPROVE LEAVE FROM TABLE...........................//
-console.log('hello');
 const approveLeaveBtn = Array.from(document.querySelectorAll('.approveLeavehref'));
 const approveLeavConfirmbtn = document.querySelector(".approveLeaveConfirm");
 const approveLeavHREF = document.querySelector('.approveLeaveConfirmHref');

@@ -41,11 +41,18 @@ if (allResFilterBtn) {
 
 //************ Filters of SProvider Reservations ***************//
 
+const leaveSelectorBtn = document.getElementById("SPleaveFilteerBtn").value;
 const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
 const lStatusSelectorSP = document.getElementById("lStatusLeaveData").value;
+let leaveSelectedType=null;
 console.log(lTypeSelectorSP);
 
-lStatusSelectorSP.disabled = true;
+if(leaveSelectorBtn){
+setupLeaveStatusSelector();
+}
+
+
+// lStatusSelectorSP.disabled = true;
 function initializeLeavestatusSelector() {
     console.log("value changed");
     const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
@@ -54,9 +61,9 @@ function initializeLeavestatusSelector() {
     
     setupLeaveStatusSelector();
 
-    // if (lTypeSelectorSP != "all") {
-    //     lStatusSelectorSP.options[1].selected = true;
-    // }
+    if (lTypeSelectorSP != "all") {
+        lStatusSelectorSP.options[1].selected = true;
+    }
 }
 
 function setupLeaveStatusSelector() {
@@ -140,6 +147,13 @@ let selectedType = null;
 
 if (salesFilterBtn) {
     setupInvoiceStatusSelector();
+}
+function initializeInvoiceStatusSelector() {
+    setupInvoiceStatusSelector();
+
+    if (selectedType != "all") {
+        statusSelector.options[1].selected = true;
+    }
 }
 
 // Sets up required status option on load based on type

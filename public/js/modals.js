@@ -2,6 +2,7 @@
 // Contains the modal to toggle
 let modalToToggle = null;
 // let recordID = null;
+console.log("Model js file connected");
 
 // Remove Service Modal Section
 const removeServiceModal = document.querySelector(".remove-service");
@@ -326,7 +327,7 @@ approveLeaveBtnList.forEach((btn) => {
         }
     });
 });
-console.log(approveLeaveModal);
+
 
 // Reject leave Modal Section
 const rejectLeaveModal = document.querySelector('.reject-leave');
@@ -439,28 +440,13 @@ btnCloseList.forEach((btn) => {
 
 // get the id assigned to the clicked btn and assign id to the proceed btn of the modal
 function transferIDToModal(btn) {
-    <<
-    <<
-    <<
-    <
-    HEAD
+   
     let recordID = btn.getAttribute("data-id") // get id from the clicked btn of the list
     const proceedBtn = modalToToggle.querySelector('.proceedBtn'); // get the proceed btn of the modal
     if (proceedBtn) {
         proceedBtn.setAttribute('data-id', recordID);
     } // assign id as a data attribute to the proceed btn
-    ===
-    ===
-    =
-    let recordID = btn.getAttribute("data-id") // get id from the clicked btn of the list
-    const proceedBtn = modalToToggle.querySelector('.proceedBtn'); // get the proceed btn of the modal
-    if (proceedBtn) {
-        proceedBtn.setAttribute('data-id', recordID);
-    } // assign id as a data attribute to the proceed btn
-    >>>
-    >>>
-    >
-    7 be5b41f8eee635b5bad59be2d9a3d9fa7b041a8
+
 }
 
 
@@ -468,19 +454,6 @@ function transferIDToModal(btn) {
 // Common section for all modal toggle operations
 function toggleModal(btn) {
     // console.log('toggle model')
-    <<
-    <<
-    <<
-    <
-    HEAD
-        ===
-        ===
-        =
-
-        >>>
-        >>>
-        >
-        7 be5b41f8eee635b5bad59be2d9a3d9fa7b041a8
     if (btn) {
         transferIDToModal(btn);
     }
