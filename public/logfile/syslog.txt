@@ -239,3 +239,8 @@ IP Address  Date & Time	        Mobile No	Name		            Activity
 ::1       	03/24/22 10:36AM	0703807404	Pasindu Munasinghe    	create customer account mobileNo:0712345678
 ::1       	03/24/22 10:36AM	0703807404	Pasindu Munasinghe    	download systemLog file
 ::1       	03/24/22 10:37AM	0703807404	Pasindu Munasinghe    	signout
+::1       	03/24/22 11:10AM	0703807405	Ruwanthi Munasinghe   	signout
+::1       	03/24/22 11:10AM		                      	create customer account mobileNo:0703807400
+::1       	03/24/22 11:24AM	0771111111	Malika Sewwandi       	create customer account
+::1       	03/24/22 11:25AM	0703807404	Pasindu Munasinghe    	signin
+::1       	03/24/22 11:26AM	0703807404	Pasindu Munasinghe    	create customer account mobileNo:0792222222

@@ -17,11 +17,12 @@
     <!--Content-->
     <div class="content admin">
         <div class="formadmin">
-
+            <pre> <?php print_r($data) ?></pre>
             <div class="ownAddstaffContainer contentBox">
                 <div class="ownAddStaff_Formheading">
                     <h1>Staff Account</h1>
                 </div>
+
                 <form action="<?php echo URLROOT; ?>/staff/addStaff" method="post" enctype="multipart/form-data">
                     <div class="ownAddstaff_formWrapper">
                         <!------------------------------ Basic Info Starts------------------------------------------------------------------------------->
