@@ -182,7 +182,58 @@
          </div>
       </div>
    </div>
+   <div id="gallery" class="sub-section gallery">
+      <span class="title">Gallery</span>
+      <div class="container">
+         <div class="box">
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg">
+            <!-- <span>Gallery1</span> -->
+         </div>
+         <div class="box">
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery2.jpg">
+            <!-- <span>Gallery2</span> -->
+         </div>
+         <div class="box">
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery3.jpg">
+            <!-- <span>Gallery3</span> -->
+         </div>
+         <div class="box">
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
+            <!-- <span>Gallery4</span> -->
+         </div>
 
+      </div>
+      <div class="container">
+         <div class="box">
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg">
+            <!-- <span>Gallery1</span> -->
+         </div>
+         <div class="box">
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery2.jpg">
+            <!-- <span>Gallery2</span> -->
+         </div>
+         <div class="box">
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery3.jpg">
+            <!-- <span>Gallery3</span> -->
+         </div>
+         <div class="box">
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
+            <!-- <span>Gallery4</span> -->
+         </div>
+
+      </div>
+
+   </div>
+   <div id="services" class="sub-section services">
+      <span class="title">Services</span>
+      <div class="main-service-scroll-div">
+         <div class="cover">
+            <div class="scroll-images">
+               <div></div>
+            </div>
+         </div>
+      </div>
+   </div>
 </body>
 
 <footer id="contact">
