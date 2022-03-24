@@ -59,7 +59,7 @@
                   <div class="column">
                      <div class="dropdown-group">
                         <label class="label" for="">Leave Type</label>
-                        <select name="leaveTypeSelector" id="leaveTypeSelector">
+                        <select name="leaveTypeSelector" id="leaveTypeSelector" onchange="initializeMangLeaveTypeSelector()">
                            <option value="all" selected>All</option>
                            <option value="1" <?php echo ($data["selectedleaveType"] == '1') ? "selected" : "" ?>>Casual</option>
                            <option value="2" <?php echo ($data["selectedleaveType"] == '2') ? "selected" : "" ?>>Medical</option>

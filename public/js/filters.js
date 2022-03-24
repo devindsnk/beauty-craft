@@ -56,7 +56,7 @@ function filterLeavesSpAndRecep() {
 
 
 }
-function filterReservation(){
+function filterReservation() {
     console.log("filter reservatuion");
 }
 
@@ -149,6 +149,34 @@ if (allServiceFilterBtn) {
 
 const allLRequestsFilterBtn = document.getElementById("allLRequestsFilterBtn");
 
+const lTyepeSelector = document.getElementById("leaveTypeSelector");
+const lStatusSelector = document.getElementById("leaveStatusSelector");
+let selectedLeaveType = null;
+
+if (allLRequestsFilterBtn) {
+    setupLeaveRequestStatusSelector();
+}
+
+function initializeMangLeaveTypeSelector() {
+    setupLeaveRequestStatusSelector();
+}
+
+function setupLeaveRequestStatusSelector() {
+    selectedLeaveType = lTyepeSelector.value;
+
+    if (selectedLeaveType == "1") {
+        lStatusSelector.options[2].hidden = false;
+        lStatusSelector.options[1].hidden = false;
+        lStatusSelector.options[3].hidden = false;
+        lStatusSelector.options[4].hidden = false;
+    } else {
+        lStatusSelector.options[2].hidden = false;
+        lStatusSelector.options[1].hidden = false;
+        lStatusSelector.options[3].hidden = false;
+        lStatusSelector.options[4].hidden = true;
+    }
+}
+
 if (allLRequestsFilterBtn) {
     allLRequestsFilterBtn.addEventListener("click", () => {
         console.log('fdffdf');
@@ -211,7 +239,7 @@ if (allStaffFilterBtn) {
         const sTypeSelector = document.getElementById("sTypeSelector");
         const staffNameSelector = document.getElementById("staffNameSelector");
         const statusSelector = document.getElementById("statusSelector");
-     
+
         let sTypeSelected = sTypeSelector.value;
         let staffNameSelected = staffNameSelector.value;
         console.log(staffNameSelected);
@@ -230,7 +258,7 @@ if (allResourcesFilterBtn) {
         const resourceNameInput = document.getElementById("sTypeSelector");
         const resourceIDInput = document.getElementById("staffNameSelector");
         // const statusSelector = document.getElementById("statusSelector");
-     
+
         let resourceNameInputTyped = resourceNameInput.value;
         let resourceIDInputTyped = resourceIDInput.value;
         console.log(resourceNameInputTyped);
