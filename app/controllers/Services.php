@@ -493,7 +493,8 @@ class Services extends Controller
                {
                   $slotNo = 2;
                }
-               if ($data['price'] != $serviceDetails[0]->price)
+
+               if ($data['price'] != $serviceDetails[0]->price || $data['slot1Duration'] != $slot1Details ||  $data['slot2Duration'] != $slot2Details || $data['slot3Duration'] != $slot3Details || $data['interval1Duration'] != $interval1Details || $data['interval2Duration'] != $interval2Details)
                {
                   $this->ServiceModel->beginTransaction();
                   $this->ServiceModel->changeServiceStatus($serviceID, 0);

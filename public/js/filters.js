@@ -1,7 +1,7 @@
 //************* Filters of Receptionis Daily View **************//
 console.log('filter file connected');
-if(document.getElementById("filterDailyViewBtn")){
-const dailyViewFilterBtn = document.getElementById("filterDailyViewBtn");
+if (document.getElementById("filterDailyViewBtn")) {
+    const dailyViewFilterBtn = document.getElementById("filterDailyViewBtn");
 }
 
 
@@ -40,21 +40,21 @@ if (allResFilterBtn) {
 //**************************************************************//
 
 //************ Filters of SProvider Reservations ***************//
-if(document.getElementById("SPleaveFilteerBtn")){
-const sleaveSelectorBtn = document.getElementById("SPleaveFilteerBtn");
-const slTypeSelectorSP = document.getElementById("lTypeLeaveData");
-const slStatusSelectorSP = document.getElementById("lStatusLeaveData");
+if (document.getElementById("SPleaveFilteerBtn")) {
+    const sleaveSelectorBtn = document.getElementById("SPleaveFilteerBtn");
+    const slTypeSelectorSP = document.getElementById("lTypeLeaveData");
+    const slStatusSelectorSP = document.getElementById("lStatusLeaveData");
 }
-const leaveSelectorBtn=sleaveSelectorBtn.value;
-const lTypeSelectorSP=slTypeSelectorSP.value;
-const lStatusSelectorSP=slStatusSelectorSP.value;
+const leaveSelectorBtn = sleaveSelectorBtn.value;
+const lTypeSelectorSP = slTypeSelectorSP.value;
+const lStatusSelectorSP = slStatusSelectorSP.value;
 
 
-let leaveSelectedType=null;
+let leaveSelectedType = null;
 console.log(lTypeSelectorSP);
 
-if(leaveSelectorBtn){
-setupLeaveStatusSelector();
+if (leaveSelectorBtn) {
+    setupLeaveStatusSelector();
 }
 
 
@@ -64,7 +64,7 @@ function initializeLeavestatusSelector() {
     const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
     const lStatusSelectorSP = document.getElementById("lStatusLeaveData").value;
     console.log(lTypeSelectorSP);
-    
+
     setupLeaveStatusSelector();
 
     if (lTypeSelectorSP != "all") {
@@ -73,11 +73,11 @@ function initializeLeavestatusSelector() {
 }
 
 function setupLeaveStatusSelector() {
-   
-const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
-const lStatusSelectorSP = document.getElementById("lStatusLeaveData");
 
-  if (lTypeSelectorSP != "all") {
+    const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
+    const lStatusSelectorSP = document.getElementById("lStatusLeaveData");
+
+    if (lTypeSelectorSP != "all") {
         lStatusSelectorSP.disabled = false;
         lStatusSelectorSP.options[0].hidden = true;
         lStatusSelectorSP.options[1].hidden = false;
@@ -89,7 +89,7 @@ const lStatusSelectorSP = document.getElementById("lStatusLeaveData");
             lStatusSelectorSP.options[2].hidden = false; //pending
             lStatusSelectorSP.options[3].hidden = false; //reject
             lStatusSelectorSP.options[4].hidden = false; //rejected medical
-            
+
 
         } else {
             //  console.log("value 2");
@@ -98,8 +98,8 @@ const lStatusSelectorSP = document.getElementById("lStatusLeaveData");
             lStatusSelectorSP.options[2].hidden = false;
             lStatusSelectorSP.options[3].hidden = false;
             lStatusSelectorSP.options[4].hidden = true;
-            
-            
+
+
         }
         console.log(lStatusSelectorSP.value);
     } else {
@@ -124,12 +124,12 @@ function filterLeavesSpAndRecep() {
     console.log(lStatusSelectorSP.value);
 
     // if(lTypeSelectorSP.value==2){
-    
+
     //     if (opt.value == "StackOverflow") {
     //     opt.disabled = true;
 
     // }
-    
+
     // }
     window.location.replace(`http://localhost/beauty-craft/Leaves/leaves/${lTypeSelectorSP.value}/${lStatusSelectorSP.value}`);
 
@@ -238,6 +238,34 @@ if (allServiceFilterBtn) {
 
 const allLRequestsFilterBtn = document.getElementById("allLRequestsFilterBtn");
 
+const lTyepeSelector = document.getElementById("leaveTypeSelector");
+const lStatusSelector = document.getElementById("leaveStatusSelector");
+let selectedLeaveType = null;
+
+if (allLRequestsFilterBtn) {
+    setupLeaveRequestStatusSelector();
+}
+
+function initializeMangLeaveTypeSelector() {
+    setupLeaveRequestStatusSelector();
+}
+
+function setupLeaveRequestStatusSelector() {
+    selectedLeaveType = lTyepeSelector.value;
+
+    if (selectedLeaveType == "1") {
+        lStatusSelector.options[2].hidden = false;
+        lStatusSelector.options[1].hidden = false;
+        lStatusSelector.options[3].hidden = false;
+        lStatusSelector.options[4].hidden = false;
+    } else {
+        lStatusSelector.options[2].hidden = false;
+        lStatusSelector.options[1].hidden = false;
+        lStatusSelector.options[3].hidden = false;
+        lStatusSelector.options[4].hidden = true;
+    }
+}
+
 if (allLRequestsFilterBtn) {
     allLRequestsFilterBtn.addEventListener("click", () => {
         console.log('fdffdf');
@@ -300,11 +328,11 @@ if (allStaffFilterBtn) {
         const sTypeSelector = document.getElementById("sTypeSelector");
         const staffNameSelector = document.getElementById("staffNameSelector");
         const statusSelector = document.getElementById("statusSelector");
-     
+
         let sTypeSelected = sTypeSelector.value;
-        
+
         let x = staffNameSelector.value;
-        let staffNameSelected = (x =="")? "all" : x;
+        let staffNameSelected = (x == "") ? "all" : x;
         console.log(staffNameSelected);
         let statusSelected = statusSelector.value;
 
@@ -324,8 +352,8 @@ if (allResourcesFilterBtn) {
         // const statusSelector = document.getElementById("statusSelector");
         let x = resourceNameInput.value;
         let y = resourceIDInput.value;
-        let resourceNameInputTyped = (x == "")? "all":x;
-        let resourceIDInputTyped = (y == "")? "all":y;
+        let resourceNameInputTyped = (x == "") ? "all" : x;
+        let resourceIDInputTyped = (y == "") ? "all" : y;
         // console.log(x);
         // console.log( resourceNameInputTyped);
         // console.log(y);
@@ -343,9 +371,9 @@ if (allPurchaseRecordsFilterBtn) {
         const manufacturerNameInput = document.getElementById("manufacturerNameInput");
         // console.log(allPurchaseRecordsFilterBtn.dataset.resourceid);
         let resourceID = allPurchaseRecordsFilterBtn.dataset.resourceid;
-        let a = manufacturerNameInput.value;        
-        let manufacturerNameInputTyped = (a == "")? "all" : a;
-          
+        let a = manufacturerNameInput.value;
+        let manufacturerNameInputTyped = (a == "") ? "all" : a;
+
         console.log(manufacturerNameInputTyped);
         console.log(resourceID);
         window.location.replace(`http://localhost:80/beauty-craft/Resources/viewResources/${resourceID}/${manufacturerNameInputTyped}`);
@@ -363,11 +391,11 @@ if (allCustomersFilterBtn) {
         const cusNameInput = document.getElementById("cusNameInput");
         const cusCotactInput = document.getElementById("cusContactInput");
         const statusSelector = document.getElementById("statusSelector");
-     
+
         let x = cusNameInput.value;
         let y = cusCotactInput.value;
-        let cusNameInputTyped = (x=="")? "all": x;
-        let cusCotactInputTyped = (y=="")? "all":y;
+        let cusNameInputTyped = (x == "") ? "all" : x;
+        let cusCotactInputTyped = (y == "") ? "all" : y;
 
         console.log(cusNameInputTyped);
         console.log(cusCotactInputTyped);
@@ -395,10 +423,10 @@ if (allSalaryFilterBtn) {
         let y = staffIDInput.value;
         let z = sMonthSelector.value;
         let paidTypeSelected = paidTypeSelector.value;
-        let staffNameTyped = (x == "")? "all" : x;
-        let staffIDTyped = (y =="")? "all" : y;
-        let monthSelected = (z =="")? "all" : z;
-        
+        let staffNameTyped = (x == "") ? "all" : x;
+        let staffIDTyped = (y == "") ? "all" : y;
+        let monthSelected = (z == "") ? "all" : z;
+
         console.log("salary filters");
         console.log(staffNameTyped);
         console.log(staffIDTyped);
@@ -415,7 +443,7 @@ const allCloseDateInputFilter = document.getElementById("allCloseDateInputFilter
 if (allCloseDateInputFilter) {
     allCloseDateInputFilter.addEventListener("change", () => {
         let z = allCloseDateInputFilter.value;
-        let monthSelected = (z =="0000-00")? "all" : z;
+        let monthSelected = (z == "0000-00") ? "all" : z;
         console.log("close salon");
         console.log(monthSelected);
         window.location.replace(`http://localhost:80/beauty-craft/OwnDashboard/closeSalon/${monthSelected}`);
