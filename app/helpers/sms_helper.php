@@ -39,6 +39,66 @@ class SMS
       return self::sendSMS($mobileNo, $SMSText, 1);
    } 
 
+   public static function sendStaffRegSMS($mobileNo, $staffType)
+   { 
+      if($staffType==3){ 
+         $staffTypeName = "Manager";
+      } 
+      elseif($staffType==4){ 
+         $staffTypeName = "Receptionist";
+      } 
+      elseif($staffType==5){ 
+         $staffTypeName = "Service provider";
+      } 
+      $SMSText = urlencode(
+         "Welcome to Beauty Craft. Your ". $staffTypeName ." Account has been created. Use your mobile number as your user name and NIC as the password to log in. Please reset your password after the first log in.\nBeauty Craft"
+      ); 
+      return self::sendSMS($mobileNo, $SMSText, 1); 
+   } 
+
+   public static function sendSalaryPaySMS($mobileNo)
+   { 
+      $SMSText = urlencode(
+         "Dear sir/madam your salary has been credited to your account.\nBeauty Craft"
+      ); 
+      return self::sendSMS($mobileNo, $SMSText, 0); 
+   } 
+
+   public static function sendEnableStaffSMS($mobileNo,$staffType)
+   { 
+      if($staffType==3){ 
+         $staffTypeName = "Manager";
+      } 
+      elseif($staffType==4){ 
+         $staffTypeName = "Receptionist";
+      } 
+      elseif($staffType==5){ 
+         $staffTypeName = "Service provider";
+      }
+
+      $SMSText = urlencode(
+         "Dear sir/madam your ".$staffTypeName ." account has been enabled. Use your new poassword as your NIC. Please reset your password after the first log in.\nBeauty Craft"
+      ); 
+      return self::sendSMS($mobileNo, $SMSText, 0); 
+   } 
+   public static function sendDisableStaffSMS($mobileNo,$staffType)
+   { 
+      if($staffType==3){ 
+         $staffTypeName = "Manager";
+      } 
+      elseif($staffType==4){ 
+         $staffTypeName = "Receptionist";
+      } 
+      elseif($staffType==5){ 
+         $staffTypeName = "Service provider";
+      }
+
+      $SMSText = urlencode(
+         "Dear sir/madam your ".$staffTypeName ." account has been temporarily disabled.\nBeauty Craft"
+      ); 
+      return self::sendSMS($mobileNo, $SMSText, 0); 
+   } 
+
    // TODO:
    // public static function sendNewReservationSMS()
    // {

@@ -9,9 +9,6 @@ class Staff extends Controller
  
    public function viewAllStaffMembers($sType="all", $status="all",$sName="all") 
    {  
-      print($sType);
-      print($sName);
-      // die();
       Session::validateSession([2, 3, 4]); 
       $AllStaffDetails = $this->staffModel->getAllStaffWithFilters($sType,$status,$sName); 
 
@@ -21,31 +18,9 @@ class Staff extends Controller
          'selectedStatus' => $status, 
          'allStaffDetailsList' => $AllStaffDetails 
       ]; 
-
-      // print_r($data); 
-      // die("error"); 
       $this->view('common/allStaffTable', $data); 
    } 
-   public function createImgName(){
-      $img_name = " "; 
-      $new_img_name =  " "; 
-      $img_name = $_FILES['staffimage']['name']; 
-      $img_size = $_FILES['staffimage']['size']; 
-      $tmp_name = $_FILES['staffimage']['tmp_name']; 
-      $error = $_FILES['staffimage']['error']; 
-      $img_extension = pathinfo($img_name, PATHINFO_EXTENSION); 
-      $img_ex_lc = strtolower($img_extension); 
-      $allowed_extensions = array("jpg", "jpeg", "png"); 
-      if ($error == 0) 
-      { 
-         if (in_array($img_ex_lc, $allowed_extensions)) 
-         { 
-            $new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc; 
-            $img_upload_path = '../public/imgs/staffImgs/' . $new_img_name; 
-            move_uploaded_file($tmp_name, $img_upload_path); 
-         } 
-      } 
-   }
+  
  
    public function addStaff() 
    { 
@@ -271,9 +246,10 @@ class Staff extends Controller
             $this->userModel->registerUser($data['staffMobileNo'], $data['staffNIC'], $data['staffType']);
             $this->staffModel->addStaffDetails($data);
             $this->staffModel->addBankDetails($data);
-            $this->userModel->commit();
             //System log
             Systemlog::createAccount($data['staffMobileNo']);
+            SMS::sendStaffRegSMS($data['staffMobileNo'], $data['staffType']);
+            $this->userModel->commit();
             Toast::setToast(1, "Staff Member Successfully Registered!", "");
 
             if (Session::getUser("type") == 2)
@@ -589,6 +565,7 @@ class Staff extends Controller
                   $this->userModel->beginTransaction();
                   $this->userModel->registerUser($data['mobileNo'], $data['nic'], $data['sType']);
                   $this->staffModel->updateStaff($data, $staffID);
+                  SMS::sendEnableStaffSMS($data['mobileNo'], $data['sType']);
                   $this->userModel->commit();
                }
                else
@@ -606,6 +583,7 @@ class Staff extends Controller
                   $this->userModel->beginTransaction();
                   $this->userModel->removeUserAccount($data['mobileNo']);
                   $this->staffModel->updateStaff($data, $staffID);
+                  SMS::sendDisableStaffSMS($data['mobileNo'], $data['sType']);
                   $this->userModel->commit();
                }
                else

@@ -255,7 +255,7 @@ class StaffModel extends Model
          "SELECT *
          FROM staff WHERE staffType = :sType  ";
         $results = $this->customQuery($SQLstatement,[":sType" => 3]);
-      print_r($results);
+      // print_r($results);
       return $results;
    }
    public function getManagerTodayLeaveCountByStaffID($staffID)

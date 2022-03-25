@@ -28,12 +28,10 @@ class OwnDashboard extends Controller
       $availableManagers=0;
       for($i = 0 ; $i< sizeof($activeManagers); $i++){
         $todayLeaveCount =  $this->staffModel->getManagerTodayLeaveCountByStaffID($activeManagers[$i]->staffID);
-        printf($todayLeaveCount[0]->leaveCount);
             if($todayLeaveCount[0]->leaveCount==0){
                   $availableManagers++;
             }
       }
-      print_r($availableManagers);
       $totalIncome = $this->reservationModel->getTotalIncomeForMangOverview();
       $activeCustomers = $this->customerModel->getActiveCustomerCount();
       $ownOverviewDetails = [

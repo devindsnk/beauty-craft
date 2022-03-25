@@ -257,3 +257,13 @@ IP Address  Date & Time	        Mobile No	Name		            Activity
 ::1       	03/24/22 11:24AM	0771111111	Malika Sewwandi       	create customer account
 ::1       	03/24/22 11:25AM	0703807404	Pasindu Munasinghe    	signin
 ::1       	03/24/22 11:26AM	0703807404	Pasindu Munasinghe    	create customer account mobileNo:0792222222
+
+::1       	03/25/22 12:54PM	0766581992	Ravindu Madhubhashana 	create staff account mobileNo:0782536291
+::1       	03/25/22 03:02PM	0766581992	Ravindu Madhubhashana 	create staff account mobileNo:0756798567
+::1       	03/25/22 03:04PM	0766581992	Ravindu Madhubhashana 	create staff account mobileNo:0756798567
+::1       	03/25/22 03:06PM	0766581992	Ravindu Madhubhashana 	create staff account mobileNo:0756798567
+::1       	03/25/22 03:09PM	0766581992	Ravindu Madhubhashana 	create staff account mobileNo:0764543667
+::1       	03/25/22 10:32PM	0766581992	Ravindu Madhubhashana 	signout
+::1       	03/25/22 10:32PM	0766581992	Ravindu Madhubhashana 	signin
+::1       	03/26/22 01:23AM	0766581992	Ravindu Madhubhashana 	signout
+::1       	03/26/22 01:23AM	0766581992	Ravindu Madhubhashana 	signin

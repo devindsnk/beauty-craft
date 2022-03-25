@@ -31,13 +31,11 @@ class Salary extends Controller
       $this->view('owner/own_salaryReportView', $AllSalaryReportDetails);
    }
 
-   public function salaryPayWithStaffID($staffID, $month)
+   public function salaryPayWithStaffID($staffID, $month,$mobileNo)
    {  
-      print($staffID);
-      // die("salaryPayWithStaffID");    
       $this->salaryModel->payNowSalaryWithStaffID($staffID,$month);
+      SMS::sendSalaryPaySMS($mobileNo);
       header('location: ' . URLROOT . '/Salary/salaryTableView');
-      // $this->view('owner/own_salaries');
    }
    public function salaryPayMultipleStaffID($staffIDs, $months)
    {  
