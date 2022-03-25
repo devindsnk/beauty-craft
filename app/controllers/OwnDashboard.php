@@ -24,7 +24,16 @@ class OwnDashboard extends Controller
    
    public function overview()
    {
-      $availableManagers = $this->staffModel->getAvailableManagerCount();
+      $activeManagers = $this->staffModel->getActiveManagerDetails();
+      $availableManagers=0;
+      for($i = 0 ; $i< sizeof($activeManagers); $i++){
+        $todayLeaveCount =  $this->staffModel->getManagerTodayLeaveCountByStaffID($activeManagers[$i]->staffID);
+        printf($todayLeaveCount[0]->leaveCount);
+            if($todayLeaveCount[0]->leaveCount==0){
+                  $availableManagers++;
+            }
+      }
+      print_r($availableManagers);
       $totalIncome = $this->reservationModel->getTotalIncomeForMangOverview();
       $activeCustomers = $this->customerModel->getActiveCustomerCount();
       $ownOverviewDetails = [
@@ -156,13 +165,13 @@ class OwnDashboard extends Controller
             'managerGeneralLeave' => trim($_POST['managerGeneralLeave']),
             'managerMedicalLeave' => trim($_POST['managerMedicalLeave']),
             'managerDailyLeave' => trim($_POST['managerDailyLeave']),
-            'evidenceLimit' => trim($_POST['evidenceLimit']),
+            // 'evidenceLimit' => trim($_POST['evidenceLimit']),
             'generalLeave_error' => '',
             'medicalLeave_error' => '',
             'managerGeneralLeave_error' => '',
             'managerMedicalLeave_error' => '',
             'managerDailyLeave_error' => '',
-            'evidenceLimit_error' => '',
+            // 'evidenceLimit_error' => '',
 
             'managerSalaryRate' => trim($_POST['managerSalaryRate']),
             'serviceProviderSalaryRate' => trim($_POST['serviceProviderSalaryRate']),
@@ -171,17 +180,9 @@ class OwnDashboard extends Controller
             'serviceProviderSalaryRate_error' => '',
             'receptionistSalaryRate_error' => '',
 
-            // 'minimumNumber' =>  trim($_POST['minimumNumber']),
-            // 'minimumNumber_error' => '',
-
             'rate' =>  trim($_POST['rate']),
             'rate_error' => '',
 
-            //is this neeeded to add here 
-            // 'leaveLimits' => $result1[0],
-            // 'salaryRates' => $result2[0],
-            // 'commissionRates' => $result3[0],
-            // 'minimumNoOfManagers' => $result4[0],
          ];
          if ($_POST['action'] == "saveLeaveLimits")
          {
@@ -189,42 +190,50 @@ class OwnDashboard extends Controller
             {
                $data['generalLeave_error'] = "Please insert a value";
             }
+            if ($data['generalLeave']<0)
+            {
+               $data['generalLeave_error'] = "Value must be positive";
+            }
 
             // Validating fname
             if (empty($data['medicalLeave']))
             {
                $data['medicalLeave_error'] =  "Please insert a value";
             }
-
+            if ($data['medicalLeave']<0)
+            {
+               $data['medicalLeave_error'] = "Value must be positive";
+            }
             // Validating lname
             if (empty($data['managerGeneralLeave']))
             {
                $data['managerGeneralLeave_error'] = "Please insert a value";
             }
-
-            if (empty($data['managerGeneralLeave']))
+            if ($data['managerGeneralLeave']<0)
             {
-               $data['managerMedicalLeave_error'] = "Please insert a value";
+               $data['managerGeneralLeave_error'] = "Value must be positive";
             }
 
             if (empty($data['managerMedicalLeave']))
             {
-               $data['managerDailyLeave_error'] = "Please insert a value";
+               $data['managerMedicalLeave_error'] = "Please insert a value";
+            }
+            if ($data['managerMedicalLeave']<0)
+            {
+               $data['managerMedicalLeave_error'] = "Value must be positive";
             }
 
             if (empty($data['managerDailyLeave']))
             {
                $data['managerDailyLeave_error'] = "Please insert a value";
             }
-
-            if (empty($data['evidenceLimit']))
+            if ($data['managerDailyLeave']<0)
             {
-               $data['evidenceLimit_error'] = "Please insert a value";
+               $data['managerDailyLeave_error'] = "Value must be positive";
             }
 
             if (
-               empty($data['generalLeave_error']) && empty($data['medicalLeave_error']) && empty($data['managerGeneralLeave_error']) && empty($data['managerMedicalLeave_error']) && empty($data['managerDailyLeave_error']) && empty($data['evidenceLimit_error'])
-            )
+               empty($data['generalLeave_error']) && empty($data['medicalLeave_error']) && empty($data['managerGeneralLeave_error']) && empty($data['managerMedicalLeave_error']) && empty($data['managerDailyLeave_error']))
             {
                $this->ratesModel->updateLeaveLimitDeatils($data);
                Toast::setToast(1, "Leave Limit Successfully Updated!", "");
@@ -242,13 +251,27 @@ class OwnDashboard extends Controller
             {
                $data['managerSalaryRate_error'] =  "Please insert a value";
             }
+
+            if ($data['managerSalaryRate']<0)
+            {
+               $data['managerSalaryRate_error'] =  "Please insert a positive value";
+            }
             // Validating fname
             if (empty($data['serviceProviderSalaryRate']))
             {
                $data['serviceProviderSalaryRate_error'] =  "Please insert a value";
             }
 
+            if ($data['serviceProviderSalaryRate'])
+            {
+               $data['serviceProviderSalaryRate_error'] =  "Please insert a positive value";
+            }
+
             // Validating lname
+            if (empty($data['receptionistSalaryRate']))
+            {
+               $data['receptionistSalaryRate_error'] =  "Please insert a value";
+            }
             if (empty($data['receptionistSalaryRate']))
             {
                $data['receptionistSalaryRate_error'] =  "Please insert a value";
@@ -274,7 +297,13 @@ class OwnDashboard extends Controller
             // ];
             if (empty($data['rate']))
             {
-               $data['rate_error'] = "Please insert a image";
+               $data['rate_error'] =  "Please insert a value";
+            }
+            if ($data['rate']> 100){
+               $data['rate_error'] =  "Please insert a value less than 100 ";
+            }
+            if ($data['rate']<0){
+               $data['rate_error'] =  "Please insert a positive value ";
             }
             if (empty($data['rate_error']))
             {
@@ -317,13 +346,13 @@ class OwnDashboard extends Controller
             'managerGeneralLeave' =>  $result1[0]->managerGeneralLeave,
             'managerMedicalLeave' =>  $result1[0]->managerMedicalLeave,
             'managerDailyLeave' =>  $result1[0]->managerDailyLeave,
-            'evidenceLimit' =>  $result1[0]->evidenceLimit,
+            // 'evidenceLimit' =>  $result1[0]->evidenceLimit,
             'generalLeave_error' => '',
             'medicalLeave_error' => '',
             'managerGeneralLeave_error' => '',
-            'managerMedicalLeave_error' => '',
-            'managerDailyLeave_error' => '',
-            'evidenceLimit_error' => '',
+            'managerMedicalLeave_error' => '', 
+            'managerDailyLeave_error' => '', 
+            // 'evidenceLimit_error' => '',
 
             'managerSalaryRate' => $result2[0]->managerSalaryRate,
             'serviceProviderSalaryRate' => $result2[0]->serviceProviderSalaryRate,
@@ -332,8 +361,8 @@ class OwnDashboard extends Controller
             'serviceProviderSalaryRate_error' => '',
             'receptionistSalaryRate_error' => '',
 
-            'rate' => $result3[0]->rate,
-            'rate_error' => '',
+            'rate' => $result3[0]->rate, 
+            'rate_error' => '', 
 
             // 'minimumNumber' => $result4[0]->minimumNumber,
             // 'minimumNumber_error' => '',

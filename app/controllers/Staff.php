@@ -26,6 +26,26 @@ class Staff extends Controller
       // die("error"); 
       $this->view('common/allStaffTable', $data); 
    } 
+   public function createImgName(){
+      $img_name = " "; 
+      $new_img_name =  " "; 
+      $img_name = $_FILES['staffimage']['name']; 
+      $img_size = $_FILES['staffimage']['size']; 
+      $tmp_name = $_FILES['staffimage']['tmp_name']; 
+      $error = $_FILES['staffimage']['error']; 
+      $img_extension = pathinfo($img_name, PATHINFO_EXTENSION); 
+      $img_ex_lc = strtolower($img_extension); 
+      $allowed_extensions = array("jpg", "jpeg", "png"); 
+      if ($error == 0) 
+      { 
+         if (in_array($img_ex_lc, $allowed_extensions)) 
+         { 
+            $new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc; 
+            $img_upload_path = '../public/imgs/staffImgs/' . $new_img_name; 
+            move_uploaded_file($tmp_name, $img_upload_path); 
+         } 
+      } 
+   }
  
    public function addStaff() 
    { 
@@ -35,6 +55,7 @@ class Staff extends Controller
  
       if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'FILES') 
       { 
+         
          $img_name = " "; 
          $new_img_name =  " "; 
          $img_name = $_FILES['staffimage']['name']; 
@@ -84,7 +105,8 @@ class Staff extends Controller
             'staffAccBank_error' => '',
             'staffAccBranch_error' => '',
          ];
-         // die($data['staffimagePath']);
+         
+         $data['staffimagePath'];
          $data['staffHomeAddTyped'] = $data['staffHomeAdd'];
 
          // if (($data['staffimagePath'] == " " ) && ($data['gender'] == "M"))
@@ -245,9 +267,11 @@ class Staff extends Controller
             empty($data['staffAccNum_error']) && empty($data['staffAccHold_error']) && empty($data['staffAccBank_error']) && empty($data['staffAccBranch_error'])
          )
          {
+            $this->userModel->beginTransaction();
             $this->userModel->registerUser($data['staffMobileNo'], $data['staffNIC'], $data['staffType']);
             $this->staffModel->addStaffDetails($data);
             $this->staffModel->addBankDetails($data);
+            $this->userModel->commit();
             //System log
             Systemlog::createAccount($data['staffMobileNo']);
             Toast::setToast(1, "Staff Member Successfully Registered!", "");
@@ -562,9 +586,10 @@ class Staff extends Controller
             {
                if ($currentStatus != $newstatus)
                {
-                  
+                  $this->userModel->beginTransaction();
                   $this->userModel->registerUser($data['mobileNo'], $data['nic'], $data['sType']);
                   $this->staffModel->updateStaff($data, $staffID);
+                  $this->userModel->commit();
                }
                else
                {   
@@ -578,8 +603,10 @@ class Staff extends Controller
             {
                if ($currentStatus != $newstatus)
                {
+                  $this->userModel->beginTransaction();
                   $this->userModel->removeUserAccount($data['mobileNo']);
                   $this->staffModel->updateStaff($data, $staffID);
+                  $this->userModel->commit();
                }
                else
                {
@@ -718,7 +745,7 @@ class Staff extends Controller
                }
                else
                {
-
+                  
                   $data['currentPassword_error'] = "Incorrect password";
                   $this->view('Staff/staff_profileview', $data);
                }
@@ -817,7 +844,9 @@ class Staff extends Controller
    public function RemoveStaff($staffID, $staffMobileNo) //details
    {
       // die("remove staff called");
-      // $this->staffModel->removestaff($staffID, $staffMobileNo);
+      $this->userModel->beginTransaction();
+      $this->staffModel->removestaff($staffID, $staffMobileNo);
+      $this->userModel->commit();
       Toast::setToast(1, "Staff member removed successfully", "");
       redirect('Staff/viewAllStaffMembers');
    }

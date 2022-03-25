@@ -57,7 +57,6 @@
                      <th class="col-7"></th>
                   </tr>
                </thead>
-               <!-- <?php print_r($data); ?> -->
                <tbody>
                   <?php foreach ($data['allPurchaseeDetailsList'] as $purchaseD) : ?>
                   <tr>
@@ -72,7 +71,6 @@
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-
                            <?php if (Session::getUser('typeText') == "Owner" && $purchaseD->status != 0 ) : ?>
                            <a href="<?php echo URLROOT ?>/resources/updateResource/<?php echo $purchaseD->purchaseID; ?>/<?php echo $purchaseD->resourceID; ?>"
                               onclick="sessionStorage.setItem('returnReferer',window.location.href);"><i 

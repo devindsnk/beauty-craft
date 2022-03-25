@@ -36,27 +36,11 @@ class ResourceModel extends Model
    {
       //Define relevant data in to variables
       $purchaseID = $data['purchaseID'];
-      $CurrentResourceID = $data['currentResourceID'];
-      $NewResourceID = $data['nameSelected'];
-      $currentQuantityCurrentResourceID = $this->getSingle('resources', ['quantity'], ['resourceID' => $CurrentResourceID]);
-      $currentQuantityNewResourceID = $this->getSingle('resources', ['quantity'], ['resourceID' => $NewResourceID]);
-      $UpdatedQuantityForCurrentResourceID = $currentQuantityCurrentResourceID->quantity - 1;
-      $UpdatedQuantityForNewResourceID = $currentQuantityNewResourceID->quantity + 1;
+       
+      $this->update('purchaserecords', ['manufacturer' => $data['manufacturer'], 'modelNo' => $data['modelNo'], 'warrantyExpDate' => $data['warrantyExpDate'], 'price' => $data['price'], 'purchaseDate' => $data['purchaseDate']], ['purchaseID' => $purchaseID]);
+      
 
-      // conditions and queries 
-      // if current resource id equal to new resource id 
-      if ($CurrentResourceID == $NewResourceID)
-      {
-         $this->update('purchaserecords', ['resourceID' => $NewResourceID, 'manufacturer' => $data['manufacturer'], 'modelNo' => $data['modelNo'], 'warrantyExpDate' => $data['warrantyExpDate'], 'price' => $data['price'], 'purchaseDate' => $data['purchaseDate']], ['purchaseID' => $purchaseID]);
-      }
-
-      // if current resource id not equal to new resource id
-      elseif ($CurrentResourceID != $NewResourceID)
-      {
-         $this->update('resources', ['quantity' => $UpdatedQuantityForCurrentResourceID], ['resourceID' => $CurrentResourceID]);
-         $this->update('resources', ['quantity' => $UpdatedQuantityForNewResourceID], ['resourceID' => $NewResourceID]);
-         $this->update('purchaserecords', ['resourceID' => $NewResourceID, 'manufacturer' => $data['manufacturer'], 'modelNo' => $data['modelNo'], 'warrantyExpDate' => $data['warrantyExpDate'], 'price' => $data['price'], 'purchaseDate' => $data['purchaseDate']], ['purchaseID' => $purchaseID]);
-      }
+     
    }
 
    //-------------------------------------- Start -----------------------------------------------------------//
