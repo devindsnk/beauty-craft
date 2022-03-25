@@ -35,7 +35,7 @@
                                             class="ownAddstaffBasicinfoImagewrapper">
                                             <input type="file" accept="image/*" name="staffimage"
                                                 id="ownAddstaffBasicinfoImagesub" onchange="loadFile(event)" />
-                                            <?php if ($data['staffimagePath'] == '' || $data['staffimagePath_error']) : ?>
+                                            <?php if ($data['staffimagePath'] == '' || $data['staffimagePath_error'] ) : ?>
                                             <img src="<?php echo URLROOT ?>/public/icons/AddImg.png"
                                                 class="ownAddstaffBasicinfoIcon" id='profileImg' height="160px"
                                                 width="160px" borderRadious='50%'> <br>
@@ -85,7 +85,7 @@
                                 <div class="ownAddstaffFormGroupNIC">
                                     <label class="ownAddstaffLabels">NIC</label>
                                     <input type="text" name="staffNIC" id="NIC" class="staffNIC"
-                                        placeholder="Your NIC here" value="<?php echo $data['staffNIC']; ?>">
+                                        placeholder="Your NIC here" value="<?php echo $data['staffNIC']; ?>" >
                                     <span class="error"><?php echo $data['staffNIC_error']; ?></span>
                                 </div>
                             </div>

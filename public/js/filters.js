@@ -40,10 +40,16 @@ if (allResFilterBtn) {
 //**************************************************************//
 
 //************ Filters of SProvider Reservations ***************//
+if (document.getElementById("SPleaveFilteerBtn")) {
+    const sleaveSelectorBtn = document.getElementById("SPleaveFilteerBtn");
+    const slTypeSelectorSP = document.getElementById("lTypeLeaveData");
+    const slStatusSelectorSP = document.getElementById("lStatusLeaveData");
+}
+const leaveSelectorBtn = sleaveSelectorBtn.value;
+const lTypeSelectorSP = slTypeSelectorSP.value;
+const lStatusSelectorSP = slStatusSelectorSP.value;
 
-const leaveSelectorBtn = document.getElementById("SPleaveFilteerBtn").value;
-const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
-const lStatusSelectorSP = document.getElementById("lStatusLeaveData").value;
+
 let leaveSelectedType = null;
 console.log(lTypeSelectorSP);
 

@@ -209,8 +209,10 @@
 
    public function updateCustNote($selectedReservation, $note)
    {
-      $reservationData = $this->reservationModel->updateCustomerNote($selectedReservation, $note);
+      $result = $this->reservationModel->updateCustomerNote($selectedReservation, $note);
       Toast::setToast(1, "Customer note changed.", "");
+      header('Content-Type: application/json; charset=utf-8');
+      echo (json_encode($result));
    }
 
    public function deleteRecallRequest($selectedReservation)

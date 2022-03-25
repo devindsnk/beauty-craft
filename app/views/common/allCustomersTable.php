@@ -100,8 +100,13 @@
                         <td class="column-center-align">
                            <a href="<?php echo URLROOT ?>/customer/cusDetailView/<?php echo $customerD->customerID ?>"><i class="ci-view-more table-icon img-gap"></i></a>
                            <?php if (Session::getUser("typeText") == "Owner") : ?>
+                              <?php if($customerD->status==1):?>
                               <a href="#"><i data-cusid="<?php echo $customerD->customerID; ?>" data-cusmobileno="<?php echo $customerD->mobileNo; ?>" data-cusname="<?php echo $customerD->fName; ?> <?php echo $customerD->lName; ?>" class="ci-trash table-icon btnRemoveCustomer removeCustomerAnchor img-gap"></i></a>
-                           <?php endif; ?>
+                              <?php endif; ?>
+                              <?php if($customerD->status==0):?>
+                              <a href="#"><i data-cusid="<?php echo $customerD->customerID; ?>" data-cusmobileno="<?php echo $customerD->mobileNo; ?>" data-cusname="<?php echo $customerD->fName; ?> <?php echo $customerD->lName; ?>" class="ci-trash-disable table-icon btnRemoveCustomer removeCustomerAnchor img-gap"></i></a>
+                              <?php endif; ?>
+                              <?php endif; ?>
                            </span>
                         </td>
                      </tr>

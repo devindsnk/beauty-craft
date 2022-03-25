@@ -20,10 +20,10 @@
             <!-- owner overview available managers card starts -->
             <div class="ownOverviewContainerCard1">
                <div class="mang-sub-container-card-title">
-                  <p>Available Managers</p>
+                  <p>Available Managers(Today)</p>
                </div>
                <div class="mang-sub-container-card-amount">
-                  <p><?php echo $data['activeManagers'][0]->mangCount?></p>
+                  <p><?php echo $data['activeManagers']?></p>
                </div>
             </div>
             <!-- owner overview available managers card ends -->
@@ -32,7 +32,7 @@
             <!-- owner overview total income card starts -->
             <div class="ownOverviewContainerCard2">
                <div class="mang-sub-container-card-title">
-                  <p>Total Income</p>
+                  <p>Total Income(Annual)</p>
                </div>
                <div class="mang-sub-container-card-amount">
                   <p> <?php echo $data['totalIncome'][0]->totalIncome?> LKR</p>

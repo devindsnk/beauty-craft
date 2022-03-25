@@ -1,8 +1,6 @@
 <?php require APPROOT . "/views/inc/header.php" ?>
 
-<?php print_r($data);
-// die();
-?>
+
 
 <body class="layout-template-1">
 
