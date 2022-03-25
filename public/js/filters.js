@@ -1,20 +1,19 @@
 //************* Filters of Receptionis Daily View **************//
-console.log('filter file connected');
-if(document.getElementById("filterDailyViewBtn")){
-const dailyViewFilterBtn = document.getElementById("filterDailyViewBtn");
-}
+// if(document.getElementById("filterDailyViewBtn")){
+// const dailyViewFilterBtn = document.getElementById("filterDailyViewBtn");
+// }
 
 
-if (dailyViewFilterBtn) {
-    dailyViewFilterBtn.addEventListener("click", () => {
-        const datePicker = document.getElementById("datePicker");
-        const staffSelector = document.getElementById("staffSelector");
-        let dateSelected = datePicker.value;
-        let staffIDSelected = staffSelector.value;
+// if (dailyViewFilterBtn) {
+//     dailyViewFilterBtn.addEventListener("click", () => {
+//         const datePicker = document.getElementById("datePicker");
+//         const staffSelector = document.getElementById("staffSelector");
+//         let dateSelected = datePicker.value;
+//         let staffIDSelected = staffSelector.value;
 
-        window.location.replace(`http://localhost:80/beauty-craft/ReceptDashboard/dailyView/${dateSelected}/${staffIDSelected}`);
-    });
-}
+//         window.location.replace(`http://localhost:80/beauty-craft/ReceptDashboard/dailyView/${dateSelected}/${staffIDSelected}`);
+//     });
+// }
 
 //**************************************************************//
 //*************** Filters of Common Reservation ****************//
@@ -43,15 +42,13 @@ if (allResFilterBtn) {
 
 const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
 const lStatusSelectorSP = document.getElementById("lStatusLeaveData").value;
-console.log(lTypeSelectorSP);
-
 
 function initializeLeavestatusSelector() {
     console.log("value changed");
     const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
     const lStatusSelectorSP = document.getElementById("lStatusLeaveData").value;
     console.log(lTypeSelectorSP);
-    
+
     setupLeaveStatusSelector();
 
     // if (lTypeSelectorSP != "all") {
@@ -60,30 +57,30 @@ function initializeLeavestatusSelector() {
 }
 
 function setupLeaveStatusSelector() {
-   
-const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
-const lStatusSelectorSP = document.getElementById("lStatusLeaveData");
 
-        if (lTypeSelectorSP == "1") {
-            // console.log("value 1");
-            lStatusSelectorSP.options[0].hidden = true; //all
-            lStatusSelectorSP.options[1].hidden = false; //approved
-            lStatusSelectorSP.options[2].hidden = false; //pending
-            lStatusSelectorSP.options[3].hidden = false; //reject
-            lStatusSelectorSP.options[4].hidden = false; //rejected medical
-            
+    const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
+    const lStatusSelectorSP = document.getElementById("lStatusLeaveData");
 
-        } else {
-            //  console.log("value 2");
-            lStatusSelectorSP.options[0].hidden = false;
-            lStatusSelectorSP.options[1].hidden = false;
-            lStatusSelectorSP.options[2].hidden = false;
-            lStatusSelectorSP.options[3].hidden = false;
-            lStatusSelectorSP.options[4].hidden = true;
-            
-            
-        }
-console.log(lStatusSelectorSP.value);
+    if (lTypeSelectorSP == "1") {
+        // console.log("value 1");
+        lStatusSelectorSP.options[0].hidden = true; //all
+        lStatusSelectorSP.options[1].hidden = false; //approved
+        lStatusSelectorSP.options[2].hidden = false; //pending
+        lStatusSelectorSP.options[3].hidden = false; //reject
+        lStatusSelectorSP.options[4].hidden = false; //rejected medical
+
+
+    } else {
+        //  console.log("value 2");
+        lStatusSelectorSP.options[0].hidden = false;
+        lStatusSelectorSP.options[1].hidden = false;
+        lStatusSelectorSP.options[2].hidden = false;
+        lStatusSelectorSP.options[3].hidden = false;
+        lStatusSelectorSP.options[4].hidden = true;
+
+
+    }
+    console.log(lStatusSelectorSP.value);
     // } else {
     //     lStatusSelectorSP.options[0].selected = true;
     //     lStatusSelectorSP.disabled = true;
@@ -106,12 +103,12 @@ function filterLeavesSpAndRecep() {
     console.log(lStatusSelectorSP.value);
 
     // if(lTypeSelectorSP.value==2){
-    
+
     //     if (opt.value == "StackOverflow") {
     //     opt.disabled = true;
 
     // }
-    
+
     // }
     window.location.replace(`http://localhost/beauty-craft/Leaves/leaves/${lTypeSelectorSP.value}/${lStatusSelectorSP.value}`);
 
@@ -275,11 +272,11 @@ if (allStaffFilterBtn) {
         const sTypeSelector = document.getElementById("sTypeSelector");
         const staffNameSelector = document.getElementById("staffNameSelector");
         const statusSelector = document.getElementById("statusSelector");
-     
+
         let sTypeSelected = sTypeSelector.value;
-        
+
         let x = staffNameSelector.value;
-        let staffNameSelected = (x =="")? "all" : x;
+        let staffNameSelected = (x == "") ? "all" : x;
         console.log(staffNameSelected);
         let statusSelected = statusSelector.value;
 
@@ -299,8 +296,8 @@ if (allResourcesFilterBtn) {
         // const statusSelector = document.getElementById("statusSelector");
         let x = resourceNameInput.value;
         let y = resourceIDInput.value;
-        let resourceNameInputTyped = (x == "")? "all":x;
-        let resourceIDInputTyped = (y == "")? "all":y;
+        let resourceNameInputTyped = (x == "") ? "all" : x;
+        let resourceIDInputTyped = (y == "") ? "all" : y;
         // console.log(x);
         // console.log( resourceNameInputTyped);
         // console.log(y);
@@ -318,9 +315,9 @@ if (allPurchaseRecordsFilterBtn) {
         const manufacturerNameInput = document.getElementById("manufacturerNameInput");
         // console.log(allPurchaseRecordsFilterBtn.dataset.resourceid);
         let resourceID = allPurchaseRecordsFilterBtn.dataset.resourceid;
-        let a = manufacturerNameInput.value;        
-        let manufacturerNameInputTyped = (a == "")? "all" : a;
-          
+        let a = manufacturerNameInput.value;
+        let manufacturerNameInputTyped = (a == "") ? "all" : a;
+
         console.log(manufacturerNameInputTyped);
         console.log(resourceID);
         window.location.replace(`http://localhost:80/beauty-craft/Resources/viewResources/${resourceID}/${manufacturerNameInputTyped}`);
@@ -338,11 +335,11 @@ if (allCustomersFilterBtn) {
         const cusNameInput = document.getElementById("cusNameInput");
         const cusCotactInput = document.getElementById("cusContactInput");
         const statusSelector = document.getElementById("statusSelector");
-     
+
         let x = cusNameInput.value;
         let y = cusCotactInput.value;
-        let cusNameInputTyped = (x=="")? "all": x;
-        let cusCotactInputTyped = (y=="")? "all":y;
+        let cusNameInputTyped = (x == "") ? "all" : x;
+        let cusCotactInputTyped = (y == "") ? "all" : y;
 
         console.log(cusNameInputTyped);
         console.log(cusCotactInputTyped);
@@ -370,10 +367,10 @@ if (allSalaryFilterBtn) {
         let y = staffIDInput.value;
         let z = sMonthSelector.value;
         let paidTypeSelected = paidTypeSelector.value;
-        let staffNameTyped = (x == "")? "all" : x;
-        let staffIDTyped = (y =="")? "all" : y;
-        let monthSelected = (z =="")? "all" : z;
-        
+        let staffNameTyped = (x == "") ? "all" : x;
+        let staffIDTyped = (y == "") ? "all" : y;
+        let monthSelected = (z == "") ? "all" : z;
+
         console.log("salary filters");
         console.log(staffNameTyped);
         console.log(staffIDTyped);
@@ -390,10 +387,9 @@ const allCloseDateInputFilter = document.getElementById("allCloseDateInputFilter
 if (allCloseDateInputFilter) {
     allCloseDateInputFilter.addEventListener("change", () => {
         let z = allCloseDateInputFilter.value;
-        let monthSelected = (z =="0000-00")? "all" : z;
+        let monthSelected = (z == "0000-00") ? "all" : z;
         console.log("close salon");
         console.log(monthSelected);
         window.location.replace(`http://localhost:80/beauty-craft/OwnDashboard/closeSalon/${monthSelected}`);
     });
 }
-

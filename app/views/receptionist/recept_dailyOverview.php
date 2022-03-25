@@ -19,28 +19,28 @@
       </div>
 
       <div class="sProvHeadersContainer">
-         <div class="arrow"><i class="dOverview-icon ci ci-arrowCircleLeft"></i></div>
+         <div class="arrow arrowLeft" onclick="arrowClick(0)"><i class="dOverview-icon ci ci-arrowCircleLeft"></i></div>
          <div class="sProvHeader">
             <img class="header-profilepic" src="<?php echo URLROOT ?>/public/imgs/staffImgs/IMG-61cfaba71ac052.86263460.jpg"></img>
-            <span>Devin Dissanayake</span>
+            <span></span>
          </div>
          <div class="sProvHeader">
             <img class="header-profilepic" src="<?php echo URLROOT ?>/public/imgs/staffImgs/IMG-61cfaba71ac052.86263460.jpg"></img>
-            <span>Devin Dissanayake</span>
+            <span></span>
          </div>
          <div class="sProvHeader">
             <img class="header-profilepic" src="<?php echo URLROOT ?>/public/imgs/staffImgs/IMG-61cfaba71ac052.86263460.jpg"></img>
-            <span>Devin Dissanayake</span>
+            <span></span>
          </div>
          <div class="sProvHeader">
             <img class="header-profilepic" src="<?php echo URLROOT ?>/public/imgs/staffImgs/IMG-61cfaba71ac052.86263460.jpg"></img>
-            <span>Devin Dissanayake</span>
+            <span></span>
          </div>
          <div class="sProvHeader">
             <img class="header-profilepic" src="<?php echo URLROOT ?>/public/imgs/staffImgs/IMG-61cfaba71ac052.86263460.jpg"></img>
-            <span>Devin Dissanayake</span>
+            <span></span>
          </div>
-         <div class="arrow"><i class="dOverview-icon ci ci-arrowCircleRight"></i></div>
+         <div class="arrow arrowRight" onclick="arrowClick(1)"><i class="dOverview-icon ci ci-arrowCircleRight"></i></div>
       </div>
       <div class="mainResContainer">
          <div class="timeVals">

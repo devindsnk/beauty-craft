@@ -793,11 +793,7 @@ class ServiceModel extends Model
     }
     public function getAvailableServiceProvidersCount()
     {
-        $results = $this->customQuery(
-            "SELECT Count(DISTINCT staffID) AS serProvCount
-                                    FROM serviceproviders",
-            []
-        );
+        $results = $this->customQuery("SELECT COUNT(*) AS serProvCount FROM staff WHERE staffType = 5  AND status = 1");
 
         return $results;
     }

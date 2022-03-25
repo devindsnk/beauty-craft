@@ -308,6 +308,12 @@ provideFeedbackBtnList.forEach((btn) => {
     });
 });
 
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------- */
+/* ------------------ Approve/Reject Leave Section ------------------- */
+
 
 // Approve leave Modal Section
 const approveLeaveModal = document.querySelector(".approve-leave");
@@ -384,7 +390,7 @@ voidRefInvBtnModal.forEach((btn) => {
 });
 
 /* ------------------------------------------------------------------- */
-/* -------------------- customer profile picture ------------------------ */
+/* -------------------- customer profile picture --------------------- */
 
 // remove picture
 const imgRemovePayModal = document.querySelector(".img-remove");
@@ -397,7 +403,7 @@ if (imgRemoveBtn) {
 }
 
 /* ------------------------------------------------------------------- */
-/* ------------------------ Recept Test Section ---------------------- */
+/* ----------------- Recept Daily Update Section --------------------- */
 
 // Mark on leave Modal Section
 const custMarkLeaveModal = document.querySelector('.sProv-markLeave');
@@ -439,28 +445,11 @@ btnCloseList.forEach((btn) => {
 
 // get the id assigned to the clicked btn and assign id to the proceed btn of the modal
 function transferIDToModal(btn) {
-    <<
-    <<
-    <<
-    <
-    HEAD
     let recordID = btn.getAttribute("data-id") // get id from the clicked btn of the list
     const proceedBtn = modalToToggle.querySelector('.proceedBtn'); // get the proceed btn of the modal
     if (proceedBtn) {
         proceedBtn.setAttribute('data-id', recordID);
     } // assign id as a data attribute to the proceed btn
-    ===
-    ===
-    =
-    let recordID = btn.getAttribute("data-id") // get id from the clicked btn of the list
-    const proceedBtn = modalToToggle.querySelector('.proceedBtn'); // get the proceed btn of the modal
-    if (proceedBtn) {
-        proceedBtn.setAttribute('data-id', recordID);
-    } // assign id as a data attribute to the proceed btn
-    >>>
-    >>>
-    >
-    7 be5b41f8eee635b5bad59be2d9a3d9fa7b041a8
 }
 
 
@@ -468,19 +457,7 @@ function transferIDToModal(btn) {
 // Common section for all modal toggle operations
 function toggleModal(btn) {
     // console.log('toggle model')
-    <<
-    <<
-    <<
-    <
-    HEAD
-        ===
-        ===
-        =
 
-        >>>
-        >>>
-        >
-        7 be5b41f8eee635b5bad59be2d9a3d9fa7b041a8
     if (btn) {
         transferIDToModal(btn);
     }

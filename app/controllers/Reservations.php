@@ -460,28 +460,35 @@ class Reservations extends Controller
 
       // $resData  = [
       //    'sProvID1' => [
-      //       'resID1' => [
-      //          'sName' => serviceName,
-      //          'slots' => [[startTime,endTime],[startTime,endTime],[startTime,endTime]],
-      //          'status' => 2
-      //       ],
-      //       'resID2' => [
-      //          'sName' => serviceName,
-      //          'slots' => [[startTime,endTime]],
-      //          'status' => 2
-      //       ]
+      //       sProvname' => fName + lName,
+      //          'reservations' => [
+      //             'resID1' => [
+      //                'sName' => serviceName,
+      //                'slots' => [[startTime,endTime],[startTime,endTime],[startTime,endTime]],
+      //                'status' => 2
+      //             ],
+      //             'resID2' => [
+      //                'sName' => serviceName,
+      //                'slots' => [[startTime,endTime]],
+      //                'status' => 2
+      //             ]
+      //          ]
       //    ],
       //    'sProvID2' => [
-      //       'resID3' => [
-      //          'sName' => serviceName,
-      //          'slots' => [[startTime,endTime],[startTime,endTime]],
-      //          'status' => 2
-      //       ],
-      //       'resID4' => [
-      //          'sName' => serviceName,
-      //          'slots' => [[startTime,endTime],[startTime,endTime],[startTime,endTime]],
-      //          'status' => 2
-      //       ]
+      //          'sProvname' => fName + lName,
+      //          'reservations' => [
+      //             'resID3' => [
+      //                         'sName' => serviceName,
+      //                         'slots' => [[startTime,endTime],[startTime,endTime]],
+      //                         'status' => 2
+      //                      ],
+      //                      'resID4' => [
+      //                         'sName' => serviceName,
+      //                         'slots' => [[startTime,endTime],[startTime,endTime],[startTime,endTime]],
+      //                         'status' => 2
+      //                      ]
+      //          ] 
+
       //    ]
       // ]
 
@@ -493,20 +500,24 @@ class Reservations extends Controller
    {
       // var_dump($results);
       $resData = array();
+
       foreach ($results as $result)
       {
          $sProvID = $result->staffID;
+         $sProvName = "$result->fName $result->lName";
          $resID = $result->reservationID;
+         $imgPath =  $result->imgPath;
 
-         if (!array_key_exists($sProvID, $resData)) $resData[$sProvID] = array();
-         if (!array_key_exists($resID, $resData[$sProvID])) $resData[$sProvID][$resID] = ['sName' => $result->serviceName, 'slots' => array(), 'status' => $result->status];
+         if (!array_key_exists($sProvID, $resData)) $resData[$sProvID] = [$sProvName, array(), $imgPath];
+         if (!array_key_exists($resID, $resData[$sProvID][1])) $resData[$sProvID][1][$resID] = ['sName' => $result->serviceName, 'slots' => array(), 'status' => $result->status];
 
          $slotStartTime = $result->resStartTime + $result->slotStartOffset;
          $slotDuration = $result->slotDuration;
          $slotArrElement = [$slotStartTime, $slotDuration];
 
-         array_push($resData[$sProvID][$resID]['slots'], $slotArrElement);
+         array_push($resData[$sProvID][1][$resID]['slots'], $slotArrElement);
       }
+      // var_dump($results);
       return $resData;
    }
 }
