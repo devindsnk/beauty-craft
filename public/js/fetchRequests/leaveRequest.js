@@ -85,11 +85,17 @@ editdropdown.addEventListener('change',
 )
 
 
-// editleavebtn
+// cancel leave request
 
 function cancelLeaveRequest(btn){
 leaveDate=btn.getAttribute("data-id");
 fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestCancel/${leaveDate}`)
+.then((response) => response.json())
+		.then((state) => {
+			if (state) {
+				window.location.reload();
+			}
+		});
 }
 
 function viewLeaveRequest(btn){

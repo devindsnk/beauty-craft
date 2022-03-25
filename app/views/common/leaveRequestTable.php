@@ -35,8 +35,8 @@
 
    <span class="leavelimitmsg">
       <?php
-      if ($data['remainingGCount'] < -1) echo "You have already taken " . $data['remainingGCount'] * (-1) . " leaves more than the general leave limit.";
-      if ($data['remainingGCount'] == -1) echo "You have already taken " . $data['remainingGCount'] * (-1) . " leave more than the general leave limit.";
+      if ($data['remainingGCount'] < -1) echo "You have already taken " . $data['remainingGCount'] * (-1) . " leaves more than the casual leave limit.";
+      if ($data['remainingGCount'] == -1) echo "You have already taken " . $data['remainingGCount'] * (-1) . " leave more than the casual leave limit.";
       ?>
    </span>
 

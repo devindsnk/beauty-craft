@@ -286,7 +286,7 @@ class Leaves extends Controller
       if ($leaveType == 1)
       {
          $leaveLimit = $this->LeaveModel->getgeneralLeaveLimit();
-         $lType = 'general';
+         $lType = 'casual';
       }
       else if ($leaveType == 2)
       {
@@ -312,9 +312,9 @@ class Leaves extends Controller
    public function leaveRequestCancel($date)
    {
       Session::validateSession([4, 5]);
-      $this->LeaveModel->cancelLeaveRequest($date, Session::getUser("id"));
+      $result = $this->LeaveModel->cancelLeaveRequest($date, Session::getUser("id"));
       Toast::setToast(1, "Leave request deleted successfully.", "");
-      redirect('Leaves/leaves');
+      print_r(json_encode($result));
    }
    public function getSelectedLeaveDetails($date, $status)
    {
