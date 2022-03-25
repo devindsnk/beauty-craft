@@ -227,10 +227,31 @@
    <div id="services" class="sub-section services">
       <span class="title">Services</span>
       <div class="main-service-scroll-div">
+         <div>
+            <button class="icon" onclick="scrollImgR()">
+               <>
+            </button>
+         </div>
          <div class="cover">
             <div class="scroll-images">
-               <div></div>
+               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
+               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
+               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
+               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
+               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
+               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
+               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
+               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
+               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
+               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
+               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
+
             </div>
+         </div>
+         <div>
+            <button class="icon" onclick="scrollImgL()">
+               <>
+            </button>
          </div>
       </div>
    </div>
@@ -277,6 +298,19 @@
       </ul>
    </div>
 </footer>
+
+<script>
+   // function scroll() {
+   //    console.log('hsdd');
+   //    let left = document.querySelector(".scroll-images");
+   //    left.scrollBy(350, 0);
+   // }
+
+   // function scroll() {
+   //    let right = document.querySelector(".scroll-images");
+   //    left.scrollBy(-350, 0);
+   // }
+</script>
 
 <script src="<?php echo URLROOT ?>/public/js/jquery-3.6.0.min.js"></script>
 <script src="<?php echo URLROOT ?>/public/js/home.js"></script>

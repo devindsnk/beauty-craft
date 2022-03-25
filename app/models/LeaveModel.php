@@ -358,7 +358,10 @@ class LeaveModel extends Model
                                     FROM leavelimits 
                                     WHERE changedDate =(SELECT MAX(changedDate) FROM leavelimits)", []);
 
-      return $results[0]->{'managerGeneralLeave'};
+      if ($results[0]->{'managerGeneralLeave'})
+      {
+         return $results[0]->{'managerGeneralLeave'};
+      }
    }
 
 
@@ -367,8 +370,10 @@ class LeaveModel extends Model
       $results = $this->customQuery("SELECT managerMedicalLeave 
                                     FROM leavelimits 
                                     WHERE changedDate =(SELECT MAX(changedDate) FROM leavelimits)", []);
-
-      return $results[0]->{'managerMedicalLeave'};
+      if ($results[0]->{'managerMedicalLeave'})
+      {
+         return $results[0]->{'managerMedicalLeave'};
+      }
    }
 
 

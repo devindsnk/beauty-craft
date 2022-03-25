@@ -504,7 +504,7 @@ font-family: 'Philosopher',sans-serif;
 
 .box > img {
   width: 100%;
-  height: calc(100% - 35vh);
+  height: calc(100% - 25vh);
   object-fit: cover; 
   transition: .5s;
 }
@@ -534,7 +534,7 @@ font-family: 'Philosopher',sans-serif;
 }
 
 .main-service-scroll-div{
-   width: 90%;
+   width: 100%;
    height: 100%;
    display: flex;
    align-items: center;
@@ -545,8 +545,52 @@ font-family: 'Philosopher',sans-serif;
    width: 90%;
    height: 50%;
 }
-.scroll-images{
+.cover::before{
+   position: absolute;
+   content: "";
+   left: 0;
+   top: 0;
+   z-index: 99;
+   height: 100%;
+   width: 150px;
+   background-image: linear-gradient(90deg, black, transparent);
+}
+.cover::after{
+   position: absolute;
+   content: "";
+   right: 0;
+   top: 0;
+   z-index: 99;
+   height: 100%;
+   width: 150px;
+   background-image: linear-gradient(-90deg, black, transparent);
+}
 
+.scroll-images{
+   width: 100%;
+   height: auto;
+   display: flex;
+   justify-content: left;
+   align-items: center;
+   overflow: auto;
+   position: relative;
+   scroll-behavior: smooth;
+}
+.child{
+   max-width: 600px;
+   height: 450px;
+   margin: 1px 10px;
+   cursor: pointer;
+   border: 1px solid white;
+   /* overflow: hidden; */
+}
+.child::-webkit-scrollbar{
+-webkit-appearance: none;
+display: none;
+}
+.child-img{
+   width: 300px;
+   height: 100%;
 }
 
 @media(max-width: 1200px) {
