@@ -57,7 +57,6 @@
                      <th class="col-7"></th>
                   </tr>
                </thead>
-               <!-- <?php print_r($data); ?> -->
                <tbody>
                   <?php foreach ($data['allPurchaseeDetailsList'] as $purchaseD) : ?>
                   <tr>
@@ -66,13 +65,12 @@
                      <td class="column-center-align"><?php echo $purchaseD->manufacturer; ?></td>
                      <td class="column-center-align"><?php echo $purchaseD->modelNo; ?></td>
                      <td class="column-center-align"><?php echo $purchaseD->price; ?></td>
-                     <td class="column-center-align"><?php echo $purchaseD->purchaseDate; ?></td>
+                     <td class="column-center-align"><?php echo DateTimeExtended::dateToShortMonthFormat($purchaseD->purchaseDate, "F"); ?></td>
                      <td class="column-center-align">
-                        <?php echo ($purchaseD->warrantyExpDate== "0000-00-00") ? "N/A":$purchaseD->warrantyExpDate ; ?>
+                        <?php echo ($purchaseD->warrantyExpDate== "0000-00-00") ? "N/A":DateTimeExtended::dateToShortMonthFormat($purchaseD->purchaseDate, "F"); ?>
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-
                            <?php if (Session::getUser('typeText') == "Owner" && $purchaseD->status != 0 ) : ?>
                            <a href="<?php echo URLROOT ?>/resources/updateResource/<?php echo $purchaseD->purchaseID; ?>/<?php echo $purchaseD->resourceID; ?>"
                               onclick="sessionStorage.setItem('returnReferer',window.location.href);"><i 

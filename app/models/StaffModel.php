@@ -249,19 +249,29 @@ class StaffModel extends Model
    ///////////////////////////////////
 
    // For owner overview 
-   public function getAvailableManagerCount()
+   public function getActiveManagerDetails()
    {
-      $date = date("Y/m/d"); 
-      // $today = date("Y/m/d", strtotime($date));
-      print_r($date);
       $SQLstatement =
-         "SELECT COUNT(*) AS mangCount
-         FROM staff AS S
-         INNER JOIN generalleaves AS L 
-         ON S.staffID = L.staffID AND S.status = 1 AND S.staffType = 3
-         AND L.leaveDate = :date AND L.status IN (0,2) ";
-        $results = $this->customQuery($SQLstatement,[":date" => $date]);
-
+         "SELECT *
+         FROM staff WHERE staffType = :sType  ";
+        $results = $this->customQuery($SQLstatement,[":sType" => 3]);
+      print_r($results);
+      return $results;
+   }
+   public function getManagerTodayLeaveCountByStaffID($staffID)
+   {
+      $date = date("Y-m-d"); 
+      $SQLstatement = 
+         "SELECT COUNT(*) as leaveCount
+         FROM generalleaves WHERE staffID = :staffID AND leaveDate = :date  AND status IN (1,3)  ";
+        $results = $this->customQuery($SQLstatement,[":staffID" => $staffID, ":date" => $date]);
+      // print_r($results);
+      // "SELECT COUNT(*) AS mangCount
+      //    FROM staff AS S
+      //    INNER JOIN generalleaves AS L 
+      //    ON S.staffID = L.staffID WHERE S.status = 1 AND S.staffType = 3
+      //    AND L.leaveDate = :date AND L.status IN (0,2) 
+      
       return $results;
    }
    /////////////////////

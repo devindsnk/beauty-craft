@@ -3,7 +3,7 @@ class RatesModel extends Model
 {
    public function updateLeaveLimitDeatils($data)
    {
-      $this->insert('leavelimits', ['generalLeave' => $data['generalLeave'], 'medicalLeave' => $data['medicalLeave'], 'managerGeneralLeave' => $data['managerGeneralLeave'], 'managerMedicalLeave' => $data['managerMedicalLeave'], 'managerDailyLeave' => $data['managerDailyLeave'], 'evidenceLimit' => $data['evidenceLimit']], null);
+      $this->insert('leavelimits', ['generalLeave' => $data['generalLeave'], 'medicalLeave' => $data['medicalLeave'], 'managerGeneralLeave' => $data['managerGeneralLeave'], 'managerMedicalLeave' => $data['managerMedicalLeave'], 'managerDailyLeave' => $data['managerDailyLeave'],], null);
    }
 
    public function updateSalaryRateDetails($data)

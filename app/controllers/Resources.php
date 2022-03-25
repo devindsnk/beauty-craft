@@ -141,8 +141,10 @@ class  Resources extends Controller
 
             if (empty($data['manufacturer_error']) && empty($data['modelNo_error']) && empty($data['nameSelected_error']) && empty($data['warrantyExpDate_error']) && empty($data['price_error']) && empty($data['quantity_error']) && empty($data['purchaseDate_error']))
             {
+               $this->resourceModel->beginTransaction();
                $this->resourceModel->updateResourceQuantityAfterAddResources($data);
                $this->resourceModel->addPurchaseDetails($data);
+               $this->resourceModel->commit();
                Toast::setToast(1, "Resources added successfully", "");
                header('location: ' . URLROOT . '/Resources/viewAllResources');
             }
@@ -185,8 +187,6 @@ class  Resources extends Controller
       $CurrentResourceTypeCount =  sizeof($resourceTypes);
       $resourcePurchaseDetails = $this->resourceModel->getRsourcePurchaseDetailsByPurchaseID($PurchaseID);
       $currentResourceType = $this->resourceModel->getRsourceTypeByResourceID($ResourceID);
-      // print_r($resourcePurchaseDetails);
-      // die();
       $CurrentResId = $resourcePurchaseDetails->resourceID;
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -194,64 +194,22 @@ class  Resources extends Controller
          $data = [
             'manufacturer' => trim($_POST['manufacturer']),
             'modelNo' => trim($_POST['modelNo']),
-            'name' => trim($_POST['name']),
-            'nameSelected' => isset($_POST['nameSelected']) ? trim($_POST['nameSelected']) : '',
             'warrantyExpDate' => trim($_POST['warrantyExpDate']),
             'price' => trim($_POST['price']),
             'purchaseDate' => trim($_POST['purchaseDate']),
             'manufacturer_error' => '',
             'modelNo_error' => '',
-            'name_error' => '',
-            'nameSelected_error' => '',
             'warrantyExpDate_error' => '',
             'price_error' => '',
             'purchaseDate_error' => '',
             'haveErrors' => 0,
             'resourceTypes' => $resourceTypes,
-            // 'purchaseDetails' => $resourcePurchaseDetails,
             'currentResourceID' => $CurrentResId,
-            'purchaseID' => $PurchaseID
+            'purchaseID' => $PurchaseID,
+            'name'=>  $currentResourceType->name
          ];
-         if ($_POST['action'] == "addType")
-         {
-            if (empty($data['name']))
-            {
-               $data['name_error'] = "Please enter a type";
-            }
 
-            for ($i = 0; $i < $CurrentResourceTypeCount; $i++)
-            {
-               $CurrentResType =  strtolower($resourceTypes[$i]->name);
-               $data1 = preg_replace('/\s+/', '', $CurrentResType);
-               $NewResType = strtolower($data['name']);
-               $data2 = preg_replace('/\s+/', '', $NewResType);
-               if ($data1 == $data2)
-               {
-                  $data['name_error'] = "Type already exists.";
-               }
-            }
-
-            if (empty($data['name_error']))
-            { 
-               $this->resourceModel->addResourceType($data);
-               $data['resourceTypes'] =  $this->resourceModel->getAllRsourceTypeDetails();
-               Toast::setToast(1, "Resource type added successfully", "");
-               $this->view('owner/own_resourceUpdate', $data);
-            }
-
-            else
-            {
-               $data['haveErrors'] = 1;
-               $this->view('owner/own_resourceUpdate', $data);
-            }
-         }
-         else if ($_POST['action'] == "cancel")
-         {
-            $data['haveErrors'] = 0;
-            $this->view('owner/own_resourceUpdate', $data);
-         }
-
-         else if ($_POST['action'] == "addResource")
+         if ($_POST['action'] == "addResource")
          {
             if (empty($data['manufacturer']))
             {
@@ -261,11 +219,6 @@ class  Resources extends Controller
             if (empty($data['modelNo']))
             {
                $data['modelNo_error'] = "Please enter model number";
-            }
-
-            if (empty($data['nameSelected']))
-            {
-               $data['nameSelected_error'] = "Please enter or select a type";
             }
 
             if (empty($data['warrantyExpDate']))
@@ -288,7 +241,7 @@ class  Resources extends Controller
                $data['purchaseDate_error'] = "Please select purchaseDate";
             }
 
-            if (empty($data['manufacturer_error']) && empty($data['modelNo_error']) && empty($data['staffLname_error']) && empty($data['nameSelected_error']) && empty($data['price_error']) && empty($data['purchaseDate_error']))
+            if (empty($data['manufacturer_error']) && empty($data['modelNo_error']) && empty($data['staffLname_error']) && empty($data['price_error']) && empty($data['purchaseDate_error']))
             {
                $this->resourceModel->updatePurchaseDetails($data);
                Toast::setToast(1, "Resource updated successfully", "");
@@ -309,20 +262,16 @@ class  Resources extends Controller
             'manufacturer' => $resourcePurchaseDetails->manufacturer,
             'modelNo' => $resourcePurchaseDetails->modelNo,
             'name' =>  $currentResourceType->name,
-            'nameSelected' => '',
             'warrantyExpDate' =>  $resourcePurchaseDetails->warrantyExpDate,
             'price' => $resourcePurchaseDetails->price,
             'purchaseDate' => $resourcePurchaseDetails->purchaseDate,
             'manufacturer_error' => '',
             'modelNo_error' => '',
-            'name_error' => '',
-            'nameSelected_error' => '',
             'warrantyExpDate_error' => '',
             'price_error' => '',
             'purchaseDate_error' => '',
             'haveErrors' => 0,
             'resourceTypes' => $resourceTypes,
-            // 'purchaseDetails' => $resourcePurchaseDetails,
             'currentResourceID' => $CurrentResId,
             'purchaseID' => $PurchaseID
          ];
@@ -332,8 +281,10 @@ class  Resources extends Controller
 
    public function removePurchaseRecord($ResourceID, $PurchaseID)
    {
+      $this->resourceModel->beginTransaction();
       $this->resourceModel->updateResourceQuantityAfterRemoveResources($ResourceID);
       $this->resourceModel->removeResourcePurchaseRecord($PurchaseID);
+      $this->resourceModel->commit();
       Toast::setToast(1, "Resource removed successfully", "");
       $this->viewResources($ResourceID);
    }

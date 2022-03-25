@@ -15,8 +15,8 @@
     <!--Content-->
     <div class="content own rates">
         <div class="rateDate ownTableFormDate">
-            <label class="rateLabel">Date</label> <br>
-            <input type="date">
+            <!-- <label class="rateLabel">Date</label> <br>
+            <input type="date"> -->
         </div>
         <form action="<?php echo URLROOT; ?>/ownDashboard/rates" method="post">
             <div class="cardContainer">
@@ -59,11 +59,6 @@
                                     <span class="error"><?php echo $data['managerDailyLeave_error']; ?></span>
                                 </div>
 
-                                <div class="detailLableLine">
-                                    <label class="rateLabel">Evidence Limit</label> <br>
-                                    <span class="error"><?php echo $data['evidenceLimit_error']; ?></span>
-                                </div>
-
                             </div>
                             <div class="valueBox">
                                 <div class="detailValueLine">
@@ -82,10 +77,6 @@
                                 <!-- <br> -->
                                 <div class="detailValueLine">
                                     <input type="text" class="rateValue" name="managerDailyLeave" value="<?php echo $data['managerDailyLeave']; ?>">
-                                </div>
-                                <!-- <br> -->
-                                <div class="detailValueLine">
-                                    <input type="text" class="rateValue" name="evidenceLimit" value="<?php echo $data['evidenceLimit']; ?> ">
                                 </div>
                             </div>
                             <div class="ratebutton">
