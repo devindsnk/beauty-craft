@@ -336,10 +336,10 @@ class MangDashboard extends Controller
    }
    public function approveLeaveRequestsFromTabel($staffID, $leaveDate, $responce)
    {
-      print_r($staffID);
-      print_r($leaveDate);
+      // print_r($staffID);
+      // print_r($leaveDate);
 
-      die('hhhs');
+      // die('hhhs');
 
       $this->leaveModel->addLeaveResponce($responce, $staffID, $leaveDate);
       redirect('MangDashboard/leaveRequests');

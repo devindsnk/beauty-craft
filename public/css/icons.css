@@ -146,6 +146,11 @@
    background-repeat: no-repeat;
    background-size: contain;
 }
+.ci-view-more-disable {
+   background: url(../../public/svg/view-more-disable.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+}
 
 .ci-overview {
    background: url(../../public/svg/overview.svg);

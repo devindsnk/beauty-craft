@@ -41,6 +41,7 @@ $SQLstatement =
       if ($staffID != "all") $SQLstatement .= " AND (staff.staffID LIKE $string2) ";
       if ($staffID != "all") $SQLstatement .= " AND (salarypayments.month LIKE $string3) ";
       if ($paidType != "all") $SQLstatement .= " AND (salarypayments.status = $paidType) ";
+      $SQLstatement .= "ORDER BY salarypayments.month";
       var_dump($SQLstatement);
       // die();
       $results = $this->customQuery($SQLstatement,  null);

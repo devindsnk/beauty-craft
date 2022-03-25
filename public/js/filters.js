@@ -39,10 +39,25 @@ if (allResFilterBtn) {
 //**************************************************************//
 
 //************ Filters of SProvider Reservations ***************//
+if (document.getElementById("SPleaveFilteerBtn")) {
+    const sleaveSelectorBtn = document.getElementById("SPleaveFilteerBtn");
+    const slTypeSelectorSP = document.getElementById("lTypeLeaveData");
+    const slStatusSelectorSP = document.getElementById("lStatusLeaveData");
+}
+const leaveSelectorBtn = sleaveSelectorBtn.value;
+const lTypeSelectorSP = slTypeSelectorSP.value;
+const lStatusSelectorSP = slStatusSelectorSP.value;
 
-const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
-const lStatusSelectorSP = document.getElementById("lStatusLeaveData").value;
 
+let leaveSelectedType = null;
+console.log(lTypeSelectorSP);
+
+if (leaveSelectorBtn) {
+    setupLeaveStatusSelector();
+}
+
+
+// lStatusSelectorSP.disabled = true;
 function initializeLeavestatusSelector() {
     console.log("value changed");
     const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
@@ -51,9 +66,9 @@ function initializeLeavestatusSelector() {
 
     setupLeaveStatusSelector();
 
-    // if (lTypeSelectorSP != "all") {
-    //     lStatusSelectorSP.options[1].selected = true;
-    // }
+    if (lTypeSelectorSP != "all") {
+        lStatusSelectorSP.options[1].selected = true;
+    }
 }
 
 function setupLeaveStatusSelector() {
@@ -61,30 +76,35 @@ function setupLeaveStatusSelector() {
     const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
     const lStatusSelectorSP = document.getElementById("lStatusLeaveData");
 
-    if (lTypeSelectorSP == "1") {
-        // console.log("value 1");
-        lStatusSelectorSP.options[0].hidden = true; //all
-        lStatusSelectorSP.options[1].hidden = false; //approved
-        lStatusSelectorSP.options[2].hidden = false; //pending
-        lStatusSelectorSP.options[3].hidden = false; //reject
-        lStatusSelectorSP.options[4].hidden = false; //rejected medical
-
-
-    } else {
-        //  console.log("value 2");
-        lStatusSelectorSP.options[0].hidden = false;
+    if (lTypeSelectorSP != "all") {
+        lStatusSelectorSP.disabled = false;
+        lStatusSelectorSP.options[0].hidden = true;
         lStatusSelectorSP.options[1].hidden = false;
-        lStatusSelectorSP.options[2].hidden = false;
-        lStatusSelectorSP.options[3].hidden = false;
-        lStatusSelectorSP.options[4].hidden = true;
+
+        if (lTypeSelectorSP == "1") {
+            // console.log("value 1");
+            lStatusSelectorSP.options[0].hidden = true; //all
+            lStatusSelectorSP.options[1].hidden = false; //approved
+            lStatusSelectorSP.options[2].hidden = false; //pending
+            lStatusSelectorSP.options[3].hidden = false; //reject
+            lStatusSelectorSP.options[4].hidden = false; //rejected medical
 
 
+        } else {
+            //  console.log("value 2");
+            lStatusSelectorSP.options[0].hidden = false;
+            lStatusSelectorSP.options[1].hidden = false;
+            lStatusSelectorSP.options[2].hidden = false;
+            lStatusSelectorSP.options[3].hidden = false;
+            lStatusSelectorSP.options[4].hidden = true;
+
+
+        }
+        console.log(lStatusSelectorSP.value);
+    } else {
+        lStatusSelectorSP.options[0].selected = true;
+        lStatusSelectorSP.disabled = true;
     }
-    console.log(lStatusSelectorSP.value);
-    // } else {
-    //     lStatusSelectorSP.options[0].selected = true;
-    //     lStatusSelectorSP.disabled = true;
-    // }
 }
 //************ Filters of SProvider Leaves ***************//
 
@@ -132,6 +152,14 @@ let selectedType = null;
 
 if (salesFilterBtn) {
     setupInvoiceStatusSelector();
+}
+
+function initializeInvoiceStatusSelector() {
+    setupInvoiceStatusSelector();
+
+    if (selectedType != "all") {
+        statusSelector.options[1].selected = true;
+    }
 }
 
 // Sets up required status option on load based on type
@@ -209,6 +237,34 @@ if (allServiceFilterBtn) {
 //*************** Filters of Manager Leave Requests Handling ****************//
 
 const allLRequestsFilterBtn = document.getElementById("allLRequestsFilterBtn");
+
+const lTyepeSelector = document.getElementById("leaveTypeSelector");
+const lStatusSelector = document.getElementById("leaveStatusSelector");
+let selectedLeaveType = null;
+
+if (allLRequestsFilterBtn) {
+    setupLeaveRequestStatusSelector();
+}
+
+function initializeMangLeaveTypeSelector() {
+    setupLeaveRequestStatusSelector();
+}
+
+function setupLeaveRequestStatusSelector() {
+    selectedLeaveType = lTyepeSelector.value;
+
+    if (selectedLeaveType == "1") {
+        lStatusSelector.options[2].hidden = false;
+        lStatusSelector.options[1].hidden = false;
+        lStatusSelector.options[3].hidden = false;
+        lStatusSelector.options[4].hidden = false;
+    } else {
+        lStatusSelector.options[2].hidden = false;
+        lStatusSelector.options[1].hidden = false;
+        lStatusSelector.options[3].hidden = false;
+        lStatusSelector.options[4].hidden = true;
+    }
+}
 
 if (allLRequestsFilterBtn) {
     allLRequestsFilterBtn.addEventListener("click", () => {

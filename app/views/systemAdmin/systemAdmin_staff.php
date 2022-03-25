@@ -22,6 +22,7 @@
                 <div class="ownAddStaff_Formheading">
                     <h1>Staff Account</h1>
                 </div>
+
                 <form action="<?php echo URLROOT; ?>/staff/addStaff" method="post" enctype="multipart/form-data">
                     <div class="ownAddstaff_formWrapper">
                         <!------------------------------ Basic Info Starts------------------------------------------------------------------------------->
@@ -66,14 +67,14 @@
                                                 <label class="option1" for="option1"> Male</label>
                                             </div>
                                             <div class="inputdiv">
-                                                <input type="radio" name="gender" id="option-1" value="M" <?php if ($data['gender'] == 'M') echo 'checked'; ?>>
+                                                <input type="radio" class="genderMale" name="gender" id="option-1" value="M" <?php if ($data['gender'] == 'M') echo 'checked'; ?>>
                                             </div>
                                         </div>
                                         <div class="option">
                                             <div class="labelname">
                                                 <label for="option2">Female</label>
                                             </div>
-                                            <div class="inputdiv"> <input type="radio" name="gender" id="option-2" value="F" <?php if ($data['gender'] == 'F') echo 'checked'; ?>></div>
+                                            <div class="inputdiv"> <input type="radio" class="genderFemale" name="gender" id="option-2" value="F" <?php if ($data['gender'] == 'F') echo 'checked'; ?>></div>
 
                                         </div>
                                     </div>
@@ -82,7 +83,7 @@
                                 </div>
                                 <div class="ownAddstaffFormGroupNIC">
                                     <label class="ownAddstaffLabels">NIC</label>
-                                    <input type="text" name="staffNIC" id="NIC" placeholder="Your NIC here" value="<?php echo $data['staffNIC']; ?>">
+                                    <input type="text" name="staffNIC" id="NIC" class="staffNIC" placeholder="Your NIC here" value="<?php echo $data['staffNIC']; ?>">
                                     <span class="error"><?php echo $data['staffNIC_error']; ?></span>
                                 </div>
                             </div>
@@ -203,5 +204,5 @@
             }
         }
     </script>
-
+    <script src="<?php echo URLROOT ?>/public/js/ownAutoFillDOB.js"></script>
     <?php require APPROOT . "/views/inc/footer.php" ?>

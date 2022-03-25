@@ -2,6 +2,7 @@
 // Contains the modal to toggle
 let modalToToggle = null;
 // let recordID = null;
+console.log("Model js file connected");
 
 // Remove Service Modal Section
 const removeServiceModal = document.querySelector(".remove-service");
@@ -236,9 +237,28 @@ if (viewLeaveBtnList) {
             modalToToggle = viewLeaveModal;
             console.log(btn);
             toggleModal(btn);
+
+            let leaveReqDate = btn.getAttribute("data-id") // get id from the clicked btn of the list
+            let leaveReqType = btn.getAttribute("data-status") // get id from the clicked btn of the list
+
+            const approveBtn = modalToToggle.querySelector('.approveBtn'); // get the approveBtn btn of the modal
+            if (approveBtn) {
+                approveBtn.setAttribute('data-id', leaveReqDate);
+                approveBtn.setAttribute('data-status', leaveReqType);
+                console.log(approveBtn);
+            }
         });
     });
 }
+
+// let staffID = btn.getAttribute("data-staffID") // get id from the clicked btn of the list
+//         let leaveDate = btn.getAttribute("data-leaveDate") // get id from the clicked btn of the list
+
+//         const rejectBtn = modalToToggle.querySelector('.rejectBtn'); // get the rejectBtn btn of the modal
+//         if (rejectBtn) {
+//             rejectBtn.setAttribute('data-staffID', staffID);
+//             rejectBtn.setAttribute('data-leaveDate', leaveDate);
+//         }
 
 // Delete Leave Request Modal Section
 const deleteLeaveModal = document.querySelector(".delete-leave");
@@ -332,7 +352,7 @@ approveLeaveBtnList.forEach((btn) => {
         }
     });
 });
-console.log(approveLeaveModal);
+
 
 // Reject leave Modal Section
 const rejectLeaveModal = document.querySelector('.reject-leave');
@@ -457,7 +477,6 @@ function transferIDToModal(btn) {
 // Common section for all modal toggle operations
 function toggleModal(btn) {
     // console.log('toggle model')
-
     if (btn) {
         transferIDToModal(btn);
     }

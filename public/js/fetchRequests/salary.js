@@ -1,4 +1,4 @@
-console.log("salaries");
+console.log("salaries called");
 const SalaryTablePayBtn = Array.from (document.querySelectorAll(".btnSalaryPay"));
 const SalaryPayBtnAnchorTag = document.querySelector(".salaryPayAnchorTag");
 // console.log("hi hi");

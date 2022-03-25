@@ -140,12 +140,20 @@ class Customer extends Controller
                   $this->OTPModel->removeOTP($data['mobileNo'], 1);
 
                   //System log
-                  Systemlog::createCustomerAccount($data['mobileNo'], $data['fName'], $data['lName']);
+                  if (Session::getUser("mobileNo"))
+                  {
+                     Systemlog::createCustomerAccount($data['mobileNo']);
+                     Toast::setToast(1, "Customer account created Successful!", '');
+                  }
+                  else
+                  {
+                     Systemlog::customerRegister($data['mobileNo'], $data['fName'], $data['lName']);
+                     Toast::setToast(1, "Registration Successful!", "You can login to your account now.");
+                  }
+
 
                   SMS::sendCustomerRegSMS($data['mobileNo']);
                   $this->userModel->commit();
-
-                  Toast::setToast(1, "Registration Successful!", "You can login to your account now.");
                   header('location: ' . URLROOT . '/user/signin');
                }
             }
@@ -398,13 +406,12 @@ class Customer extends Controller
                   $this->OTPModel->removeOTP($data['mobileNo'], 1);
 
                   //System log
-                  // TODO :
-                  // Systemlog::createCustomerAccount();
+                  Systemlog::createCustomerAccount($data['mobileNo'], $data['fName'], $data['lName']);
 
                   SMS::sendCustomerRegSMS($data['mobileNo']);
                   $this->userModel->commit();
 
-                  Toast::setToast(1, "Registration Successful!", "You can login to your account now.");
+                  Toast::setToast(1, "Customer account create Successful!", "You can login to your account now.");
 
                   redirect('Customer/createCustomerAccount');
                }

@@ -34,7 +34,12 @@ class Rates extends Controller
 
          if (empty($data['generalLeave']))
          {
-            $data['generalLeave_error'] = "Please insert a image";
+            $data['generalLeave_error'] = "Please enter a value";
+         }
+         if ($data['generalLeave']<0)
+         {
+            die("minus value called");
+            $data['generalLeave_error'] = "Value must be positive";
          }
          // Validating fname
          if (empty($data['medicalLeave']))
