@@ -124,9 +124,9 @@ class LeaveModel extends Model
    }
 
 
-   public function getSelectedLeaveDetails($date, $user)
+   public function getSelectedLeaveDetails($date, $status, $user)
    {
-      $results = $this->getResultSet('generalleaves', ['leaveDate', 'reason', 'leaveType'], ['leaveDate' => $date, 'staffID' => $user]);
+      $results = $this->getResultSet('generalleaves', ['leaveDate', 'reason', 'leaveType'], ['leaveDate' => $date, 'status' => $status, 'staffID' => $user]);
       return $results[0];
    }
 
