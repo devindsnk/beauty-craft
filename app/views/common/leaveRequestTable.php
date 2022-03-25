@@ -79,7 +79,7 @@ print_r($data);
 
          </div>
          <div class="right-section">
-            <a class="btn btn-filled btn-black" onclick="filterLeavesSpAndRecep(this);">Search</a>
+            <a class="btn btn-filled btn-black" id="SPleaveFilteerBtn" onclick="filterLeavesSpAndRecep(this);">Search</a>
             <!-- <button class="btn btn-search">Search</button> -->
          </div>
       </div>
@@ -305,7 +305,7 @@ print_r($data);
    <div class=" modal-container view-leave request">
       <div class="modal-box addItems leave_request ">
          <div class="new-type-head">
-            <h1>Edit Leave Request</h1>
+            <h1>View Leave Request</h1>
          </div>
          <div class="leaverequest-form-content">
             <div class="reqleave-date-section">
@@ -347,19 +347,17 @@ print_r($data);
                <span class="error"> <?php echo $data['reason_error']; ?></span>
             </div>
             <div class="reqleave-button-section">
-               <div class="modalbutton">
+               <div class="modalbutton view">
                   <div class="btn1">
                      <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
-                  </div>
-                  <div class="btn2">
-                     <button type="submit" name="action" value="edit" class="confirm-service-btn editleavebtn proceedBtn" onclick="leaveRequestSaveChanges(this);">Save Changes</button>
                   </div>
                </div>
             </div>
          </div>
       </div>
    </div>
-   <!-- end view leave Request -->
+</div>
+<!-- end view leave Request -->
 </div>
 
 <script language="javascript">

@@ -41,11 +41,18 @@ if (allResFilterBtn) {
 
 //************ Filters of SProvider Reservations ***************//
 
+const leaveSelectorBtn = document.getElementById("SPleaveFilteerBtn").value;
 const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
 const lStatusSelectorSP = document.getElementById("lStatusLeaveData").value;
+let leaveSelectedType=null;
 console.log(lTypeSelectorSP);
 
+if(leaveSelectorBtn){
+setupLeaveStatusSelector();
+}
 
+
+// lStatusSelectorSP.disabled = true;
 function initializeLeavestatusSelector() {
     console.log("value changed");
     const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
@@ -54,15 +61,20 @@ function initializeLeavestatusSelector() {
     
     setupLeaveStatusSelector();
 
-    // if (lTypeSelectorSP != "all") {
-    //     lStatusSelectorSP.options[1].selected = true;
-    // }
+    if (lTypeSelectorSP != "all") {
+        lStatusSelectorSP.options[1].selected = true;
+    }
 }
 
 function setupLeaveStatusSelector() {
    
 const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
 const lStatusSelectorSP = document.getElementById("lStatusLeaveData");
+
+  if (lTypeSelectorSP != "all") {
+        lStatusSelectorSP.disabled = false;
+        lStatusSelectorSP.options[0].hidden = true;
+        lStatusSelectorSP.options[1].hidden = false;
 
         if (lTypeSelectorSP == "1") {
             // console.log("value 1");
@@ -83,11 +95,11 @@ const lStatusSelectorSP = document.getElementById("lStatusLeaveData");
             
             
         }
-console.log(lStatusSelectorSP.value);
-    // } else {
-    //     lStatusSelectorSP.options[0].selected = true;
-    //     lStatusSelectorSP.disabled = true;
-    // }
+        console.log(lStatusSelectorSP.value);
+    } else {
+        lStatusSelectorSP.options[0].selected = true;
+        lStatusSelectorSP.disabled = true;
+    }
 }
 //************ Filters of SProvider Leaves ***************//
 
@@ -135,6 +147,13 @@ let selectedType = null;
 
 if (salesFilterBtn) {
     setupInvoiceStatusSelector();
+}
+function initializeInvoiceStatusSelector() {
+    setupInvoiceStatusSelector();
+
+    if (selectedType != "all") {
+        statusSelector.options[1].selected = true;
+    }
 }
 
 // Sets up required status option on load based on type

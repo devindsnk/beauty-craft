@@ -418,6 +418,12 @@ input#takeLeaveDate.addItemsModalDate{
     height: 70px;
 }
 
+.serprov .modalbutton.view {
+    
+    justify-content: center !important;
+    
+}
+
 
 .serprov .modalbutton input:focus,
 .serprov .modalbutton textarea:focus {

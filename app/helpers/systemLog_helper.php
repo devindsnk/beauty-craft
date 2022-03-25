@@ -77,7 +77,24 @@ class Systemlog
         file_put_contents('logfile/syslog.txt', $contents);
     }
 
-    public static function createCustomerAccount($mobNo, $fName, $lName)
+    public static function createCustomerAccount($mobNo) //System admin
+    {
+        $log = 'create customer account mobileNo:' . $mobNo;
+        $contents = file_get_contents('logfile/syslog.txt');
+
+        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
+        file_put_contents('logfile/syslog.txt', $contents);
+    }
+    public static function createAccount($staffMobileNo) //system admin
+    {
+        $log = 'create staff account mobileNo:' . $staffMobileNo;
+        $contents = file_get_contents('logfile/syslog.txt');
+
+        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
+        file_put_contents('logfile/syslog.txt', $contents);
+    }
+
+    public static function customerRegister($mobNo, $fName, $lName) //customer
     {
         $log = 'create customer account';
         $contents = file_get_contents('logfile/syslog.txt');
@@ -97,14 +114,6 @@ class Systemlog
         $userData = $mobNo . "\t" . $userName;
 
         $contents .= "\n" . self::getLogData() . "\t" . $userData . "\t$log";
-        file_put_contents('logfile/syslog.txt', $contents);
-    }
-    public static function createAccount($staffMobileNo)
-    {
-        $log = 'create account mobileNo:' . $staffMobileNo;
-        $contents = file_get_contents('logfile/syslog.txt');
-
-        $contents .= "\n" . self::getLogData() . "\t" . self::getUserData() . "\t$log";
         file_put_contents('logfile/syslog.txt', $contents);
     }
 
