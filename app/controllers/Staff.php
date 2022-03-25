@@ -1,70 +1,70 @@
-<?php 
-class Staff extends Controller 
-{ 
-   public function __construct() 
-   { 
-      $this->userModel = $this->model('UserModel'); 
-      $this->staffModel = $this->model('StaffModel'); 
-   } 
- 
-   public function viewAllStaffMembers($sType="all", $status="all",$sName="all") 
-   {  
+<?php
+class Staff extends Controller
+{
+   public function __construct()
+   {
+      $this->userModel = $this->model('UserModel');
+      $this->staffModel = $this->model('StaffModel');
+   }
+
+   public function viewAllStaffMembers($sType = "all", $status = "all", $sName = "all")
+   {
       print($sType);
       print($sName);
       // die();
-      Session::validateSession([2, 3, 4]); 
-      $AllStaffDetails = $this->staffModel->getAllStaffWithFilters($sType,$status,$sName); 
+      Session::validateSession([2, 3, 4]);
+      $AllStaffDetails = $this->staffModel->getAllStaffWithFilters($sType, $status, $sName);
 
-      $data = [ 
-         'selectedType' => $sType, 
-         'selectedStaffName' => $sName, 
-         'selectedStatus' => $status, 
-         'allStaffDetailsList' => $AllStaffDetails 
-      ]; 
+      $data = [
+         'selectedType' => $sType,
+         'selectedStaffName' => $sName,
+         'selectedStatus' => $status,
+         'allStaffDetailsList' => $AllStaffDetails
+      ];
 
       // print_r($data); 
       // die("error"); 
-      $this->view('common/allStaffTable', $data); 
-   } 
- 
-   public function addStaff() 
-   { 
-      Session::validateSession([1, 2]); 
-      $staffD = $this->staffModel->getAllStaffDetails(); 
-      $CurrentStaffCount = sizeof($staffD); 
- 
-      if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'FILES') 
-      { 
-         $img_name = " "; 
-         $new_img_name =  " "; 
-         $img_name = $_FILES['staffimage']['name']; 
-         $img_size = $_FILES['staffimage']['size']; 
-         $tmp_name = $_FILES['staffimage']['tmp_name']; 
-         $error = $_FILES['staffimage']['error']; 
-         $img_extension = pathinfo($img_name, PATHINFO_EXTENSION); 
-         $img_ex_lc = strtolower($img_extension); 
-         $allowed_extensions = array("jpg", "jpeg", "png"); 
-         if ($error == 0) 
-         { 
-            if (in_array($img_ex_lc, $allowed_extensions)) 
-            { 
-               $new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc; 
-               $img_upload_path = '../public/imgs/staffImgs/' . $new_img_name; 
-               move_uploaded_file($tmp_name, $img_upload_path); 
-            } 
-         } 
-         $data = [ 
-            'staffimagePath' => $new_img_name, 
-            'staffFname' => trim($_POST['staffFname']), 
-            'staffLname' => trim($_POST['staffLname']), 
-            'gender' => isset($_POST['gender']) ? trim($_POST['gender']) : '', 
-            'staffNIC' => trim($_POST['staffNIC']), 
-            'staffDOB' => trim($_POST['staffDOB']), 
-            'staffType' => isset($_POST['staffType']) ? trim($_POST['staffType']) : '', 
-            'staffHomeAdd' => trim($_POST['staffHomeAdd']), 
-            'staffHomeAddTyped' => '', 
-            'staffMobileNo' => trim($_POST['staffMobileNo']), 
-            'staffEmail' => trim($_POST['staffEmail']), 
+      $this->view('common/allStaffTable', $data);
+   }
+
+   public function addStaff()
+   {
+      Session::validateSession([1, 2]);
+      $staffD = $this->staffModel->getAllStaffDetails();
+      $CurrentStaffCount = sizeof($staffD);
+
+      if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'FILES')
+      {
+         $img_name = " ";
+         $new_img_name =  " ";
+         $img_name = $_FILES['staffimage']['name'];
+         $img_size = $_FILES['staffimage']['size'];
+         $tmp_name = $_FILES['staffimage']['tmp_name'];
+         $error = $_FILES['staffimage']['error'];
+         $img_extension = pathinfo($img_name, PATHINFO_EXTENSION);
+         $img_ex_lc = strtolower($img_extension);
+         $allowed_extensions = array("jpg", "jpeg", "png");
+         if ($error == 0)
+         {
+            if (in_array($img_ex_lc, $allowed_extensions))
+            {
+               $new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc;
+               $img_upload_path = '../public/imgs/staffImgs/' . $new_img_name;
+               move_uploaded_file($tmp_name, $img_upload_path);
+            }
+         }
+         $data = [
+            'staffimagePath' => $new_img_name,
+            'staffFname' => trim($_POST['staffFname']),
+            'staffLname' => trim($_POST['staffLname']),
+            'gender' => isset($_POST['gender']) ? trim($_POST['gender']) : '',
+            'staffNIC' => trim($_POST['staffNIC']),
+            'staffDOB' => trim($_POST['staffDOB']),
+            'staffType' => isset($_POST['staffType']) ? trim($_POST['staffType']) : '',
+            'staffHomeAdd' => trim($_POST['staffHomeAdd']),
+            'staffHomeAddTyped' => '',
+            'staffMobileNo' => trim($_POST['staffMobileNo']),
+            'staffEmail' => trim($_POST['staffEmail']),
             'staffAccNum' => trim($_POST['staffAccNum']),
             'staffAccHold' => trim($_POST['staffAccHold']),
             'staffAccBank' => trim($_POST['staffAccBank']),
@@ -335,39 +335,40 @@ class Staff extends Controller
          $img_name = " ";
          $new_img_name =  " ";
 
-         if (empty($_FILES['imgPath']['name'])){
+         if (empty($_FILES['imgPath']['name']))
+         {
 
             $new_img_name = $staffdetailsBystaffID[0]->imgPath;
-
          }
 
-         else {
-         $img_name = $_FILES['imgPath']['name'];
-         $img_size = $_FILES['imgPath']['size'];
-         $tmp_name = $_FILES['imgPath']['tmp_name'];
-         $error = $_FILES['imgPath']['error'];
-         $img_extension = pathinfo($img_name, PATHINFO_EXTENSION);
-         $img_ex_lc = strtolower($img_extension);
-         $allowed_extensions = array("jpg", "jpeg", "png");
-         if ($error == 0)
+         else
          {
-            if (in_array($img_ex_lc, $allowed_extensions))
+            $img_name = $_FILES['imgPath']['name'];
+            $img_size = $_FILES['imgPath']['size'];
+            $tmp_name = $_FILES['imgPath']['tmp_name'];
+            $error = $_FILES['imgPath']['error'];
+            $img_extension = pathinfo($img_name, PATHINFO_EXTENSION);
+            $img_ex_lc = strtolower($img_extension);
+            $allowed_extensions = array("jpg", "jpeg", "png");
+            if ($error == 0)
             {
-               $new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc;
-               $img_upload_path = '../public/imgs/staffImgs/' . $new_img_name;
-               move_uploaded_file($tmp_name, $img_upload_path);
+               if (in_array($img_ex_lc, $allowed_extensions))
+               {
+                  $new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc;
+                  $img_upload_path = '../public/imgs/staffImgs/' . $new_img_name;
+                  move_uploaded_file($tmp_name, $img_upload_path);
+               }
             }
          }
-        }
-        
-      
+
+
          $data = [
             'imgPath' =>  $new_img_name,
             'fName' => trim($_POST['fName']),
             'lName' => trim($_POST['lName']),
             'gender' => isset($_POST['gender']) ? trim($_POST['gender']) : '',
             'nic' => trim($_POST['nic']),
-            'sType'=>$staffdetailsBystaffID[0]->staffType,
+            'sType' => $staffdetailsBystaffID[0]->staffType,
             'dob' => trim($_POST['dob']),
             'address' => trim($_POST['address']),
             'mobileNo' => trim($_POST['mobileNo']),
@@ -394,8 +395,8 @@ class Staff extends Controller
             'bankdetails' => $bankdetailsBystaffID[0]
          ];
 
-         
-            
+
+
          if (($data['imgPath'] == " "))
          {
             $data['staffimagePath_error'] = "Please insert a valid image";
@@ -491,17 +492,17 @@ class Staff extends Controller
          {
             $data['mobileNo_error'] = "Invalid contact number format.";
          }
-        
-         else if ($staffdetailsBystaffID[0]->mobileNo != $data['mobileNo'])
-               {
-                  $isUserExists = $this->userModel->checkAlreadyRegistered($data['mobileNo']);
 
-                  if ($isUserExists)
-                  {
-                     $data['mobileNo_error'] = "Number is already registered";
-                  }
-               }
-         
+         else if ($staffdetailsBystaffID[0]->mobileNo != $data['mobileNo'])
+         {
+            $isUserExists = $this->userModel->checkAlreadyRegistered($data['mobileNo']);
+
+            if ($isUserExists)
+            {
+               $data['mobileNo_error'] = "Number is already registered";
+            }
+         }
+
 
          // Validating email
          if (empty($data['email']))
@@ -551,7 +552,7 @@ class Staff extends Controller
          // else if (!preg_match("/^[a-zA-Z-' ]*$/",$data['staffAccBank'])) {
          //    $data['staffAccBank_error']  = "Only letters are allowed";
          //  }
-   
+
          if (
             empty($data['staffimagePath_error']) && empty($data['fName_error']) && empty($data['lName_error']) && empty($data['gender_error']) && empty($data['nic_error']) && empty($data['dob_error'])  && empty($data['address_error']) && empty($data['mobileNo_error']) && empty($data['email_error']) &&
             empty($data['accountNo_error']) && empty($data['holdersName_error']) && empty($data['bankName_error']) && empty($data['branchName_error'])
@@ -562,12 +563,12 @@ class Staff extends Controller
             {
                if ($currentStatus != $newstatus)
                {
-                  
+
                   $this->userModel->registerUser($data['mobileNo'], $data['nic'], $data['sType']);
                   $this->staffModel->updateStaff($data, $staffID);
                }
                else
-               {   
+               {
                   // print_r($data);
                   // die("error");
                   $this->staffModel->updateStaff($data, $staffID);
@@ -712,6 +713,7 @@ class Staff extends Controller
                      $this->userModel->updatePassword(Session::getUser("mobileNo"), $data['newPassword1']);
                      //System log
                      Systemlog::changePassword();
+                     Toast::setToast(1, "Password Successfully Updated!", "");
                      $data['changePasswordModelOpen'] = 0;
                      $this->view('staff/staff_profileview', $data);
                   }
@@ -787,6 +789,7 @@ class Staff extends Controller
                   $this->userModel->updatePassword($data['mobileNo'], $data['newPassword1']);
                   //System log
                   Systemlog::changePassword();
+                  Toast::setToast(1, "Password Successfully Updated!", "");
                   $this->view('staff/staff_changepassword', $data);
                }
             }

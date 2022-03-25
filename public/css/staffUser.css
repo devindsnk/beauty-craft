@@ -40,7 +40,7 @@
 
 .profview-services-list {
     width: 32.4%;
-    height: 250px;
+    padding-bottom: 10px;
     /* background-color: turquoise; */
     margin-top: 40px;
     display: flex;

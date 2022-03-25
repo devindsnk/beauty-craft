@@ -7,9 +7,11 @@
         </div>
 
         <div class="header-right verticalCenter">
+            <span class="top-right-closeBtnSpecial profile">
 
-            <input type="button" value="X" class="" onclick="history.back()">
+                <i class=" fal fa-times fa-2x "></i>
 
+            </span>
         </div>
     </header>
 
@@ -28,7 +30,7 @@
                     </div>
                     <div class="contactNumber">
                         <span>Mobile Number</span>
-                        <input class="changepwd" value="<?php echo$data['mobileNo']; ?>" name="cpw" required readonly>
+                        <input class="changepwd" value="<?php echo $data['mobileNo']; ?>" name="cpw" required readonly>
                     </div>
                 </div>
                 <hr>
@@ -36,24 +38,21 @@
                     <div class="pwditem0">
                         <div class="pwditemleft">
                             <span>Current Password</span>
-                            <input class="changepwd" type="password" name="currentPassword"
-                                placeholder="Current password" name="cpw">
-                            <span class=" error"><?php echo$data['currentPassword_error'];  ?></span>
+                            <input class="changepwd" type="password" name="currentPassword" placeholder="Current password" name="cpw">
+                            <span class=" error"><?php echo $data['currentPassword_error'];  ?></span>
                         </div>
                         <div class="pwditemright"></div>
                     </div>
                     <div class="pwditem1">
                         <div class="pwditemleft">
                             <span>New Password</span>
-                            <input class="changepwd" type="password" name="password1" placeholder="New password"
-                                name="cpw">
-                            <span class=" error"><?php echo$data['newPassword_error']; ?></span>
+                            <input class="changepwd" type="password" name="password1" placeholder="New password" name="cpw">
+                            <span class=" error"><?php echo $data['newPassword_error']; ?></span>
                         </div>
                         <div class="pwditemright">
                             <span>Confirm Password</span>
-                            <input class="changepwd" type="password" name="password2" placeholder="Confirm password"
-                                name="cpw">
-                            <span class=" error"><?php echo$data['confirmPassword_error']; ?></span>
+                            <input class="changepwd" type="password" name="password2" placeholder="Confirm password" name="cpw">
+                            <span class=" error"><?php echo $data['confirmPassword_error']; ?></span>
                         </div>
                     </div>
                     <div class="pwditem2">

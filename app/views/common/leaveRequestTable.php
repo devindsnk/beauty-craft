@@ -1,7 +1,3 @@
-<?php
-print_r($data);
-
-?>
 <div class="leaverequesttable">
    <div class="cardandbutton">
 
@@ -136,10 +132,10 @@ print_r($data);
                      </td>
                      <td data-lable="Action" class="column-center-align">
                         <span>
-                           <button class="editicon btnViewLeave" data-id="<?php echo $leave->leaveDate; ?>"><a href="#" data-id="<?php echo $leave->leaveDate; ?>"><i class="ci-view-more table-icon" data-id="<?php echo $leave->leaveDate; ?>"></i></a></button>
+                           <button class="editicon btnViewLeave" data-id="<?php echo $leave->leaveDate; ?>" data-status="<?php echo $leave->status; ?>" onclick="viewLeaveRequest(this);"><a href="#" data-id="<?php echo $leave->leaveDate; ?>"><i class="ci-view-more table-icon" data-id="<?php echo $leave->leaveDate; ?>"></i></a></button>
 
                            <?php if ($leave->status == 2) : ?>
-                              <button class="editicon btnEditLeave" data-id="<?php echo $leave->leaveDate; ?>" onclick="editLeaveRequest(this);"><a href="#" data-id="<?php echo $leave->leaveDate; ?>"><i class="ci-edit table-icon" data-id="<?php echo $leave->leaveDate; ?>"></i></a></button>
+                              <button class="editicon btnEditLeave" data-id="<?php echo $leave->leaveDate; ?>" data-status="<?php echo $leave->status; ?>" onclick="editLeaveRequest(this);"><a href="#" data-id="<?php echo $leave->leaveDate; ?>"><i class="ci-edit table-icon" data-id="<?php echo $leave->leaveDate; ?>"></i></a></button>
                            <?php else : ?>
                               <button class="editicon btnEditLeave" data-id="<?php echo $leave->leaveDate; ?>" disabled><a data-id="<?php echo $leave->leaveDate; ?>"><i class="ci-edit-disable table-icon" data-id="<?php echo $leave->leaveDate; ?>"></i></a></button>
                            <?php endif; ?>
@@ -235,7 +231,7 @@ print_r($data);
                   <div class="text-group">
                      <label class="labels" for="serviceName">Date</label><br>
                      <form>
-                        <input class="editLeaveRequestDate" type="date" name="date" id="date_picker" disabled>
+                        <input class="editLeaveRequestDate" type="date" name="date" id="date_pickeredit" disabled>
                      </form>
                   </div>
                   <span class="error date-error">
@@ -249,7 +245,7 @@ print_r($data);
                <div class="reqleave-type-section">
                   <label class="labels" for="serviceName">Type</label><br>
                   <div class="dropdown-group">
-                     <select name="leavetype" class="editleavetype" id="lstatus">
+                     <select name="leavetype" class="editleavetype" id="lstatusedit">
                         <option class="unbold" value="0" option selected="true" disabled="disabled">Select</option>
                         <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>Casual</option>
                         <option value=2 <?php if ($data['leavetype'] == 2) echo 'selected'; ?>>Medical</option>
@@ -263,7 +259,7 @@ print_r($data);
                <div class="text-group">
                   <label class="labels" for="serviceName">Reason</label><br>
 
-                  <textarea type="text" name="reason" id="takeLeaveReason" placeholder="-- Type in --" class="editTextArea" value="<?php echo $data['reason']; ?>"><?php echo $data['reason']; ?></textarea>
+                  <textarea type="text" name="reason" id="takeLeaveReasonedit" placeholder="-- Type in --" class="editTextArea" value="<?php echo $data['reason']; ?>"><?php echo $data['reason']; ?></textarea>
                </div>
                <span class="error"> <?php echo $data['reason_error']; ?></span>
             </div>
@@ -314,7 +310,7 @@ print_r($data);
                   <div class="text-group">
                      <label class="labels" for="serviceName">Date</label><br>
                      <form>
-                        <input class="editLeaveRequestDate" type="date" name="date" id="date_picker" disabled>
+                        <input class="editLeaveRequestDate" type="date" name="date" id="date_pickerview" disabled>
                      </form>
                   </div>
                   <span class="error date-error">
@@ -328,7 +324,7 @@ print_r($data);
                <div class="reqleave-type-section">
                   <label class="labels" for="serviceName">Type</label><br>
                   <div class="dropdown-group">
-                     <select name="leavetype" class="editleaveDropdownType" id="lstatus">
+                     <select name="leavetype" disabled="disabled" class="editleaveDropdownType" id="lstatusview">
                         <option class="unbold" value="0" option selected="true" disabled="disabled">Select</option>
                         <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>Casual</option>
                         <option value=2 <?php if ($data['leavetype'] == 2) echo 'selected'; ?>>Medical</option>
@@ -342,7 +338,7 @@ print_r($data);
                <div class="text-group">
                   <label class="labels" for="serviceName">Reason</label><br>
 
-                  <textarea type="text" name="reason" id="takeLeaveReason" placeholder="-- Type in --" class="editTextArea" value="<?php echo $data['reason']; ?>"><?php echo $data['reason']; ?></textarea>
+                  <textarea type="text" disabled="disabled" name="reason" id="takeLeaveReasonview" placeholder="-- Type in --" class="editTextArea" value="<?php echo $data['reason']; ?>"><?php echo $data['reason']; ?></textarea>
                </div>
                <span class="error"> <?php echo $data['reason_error']; ?></span>
             </div>

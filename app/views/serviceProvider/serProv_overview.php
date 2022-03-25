@@ -14,7 +14,7 @@
     ?>
     <!--Content-->
     <div class="content serprov">
-        <?php print_r($data); ?>
+
         <!--sub-container1-card 1-->
         <div class="container1-card card">
             <div class="sub-container1-card-content">
