@@ -45,17 +45,8 @@
                                 <div class="addType">
                                     <div class="selectType">
                                         <label class="ownAddstaffLabels">Type</label>
-                                        <select name="nameSelected" class="dropdownselectbox resourceTypes">
-                                            <option class="unbold" value="0" option selected="true" disabled="disabled">Select</option>
-                                            <?php foreach ($data['resourceTypes'] as $resourceTypeD) : ?>
-                                                <option value="<?php echo $resourceTypeD->resourceID; ?>  " <?php if ($data['currentResourceID'] == $resourceTypeD->resourceID) echo ' selected'; ?>><?php echo $resourceTypeD->name; ?></option>
-                                            <?php endforeach; ?>
+                                            <span><?php echo ($data['name']); ?></span>
 
-                                        </select>
-                                        <span class="error"><?php echo $data['nameSelected_error']; ?></span>
-                                    </div>
-                                    <div class="addNewTypeButton">
-                                        <a href="#"><i class="AddResourceTypebutton btn btn-filled btn-black btnAddResourceType">Add</i></a>
                                     </div>
                                 </div>
                             </div>

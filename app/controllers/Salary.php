@@ -118,8 +118,10 @@ class Salary extends Controller
          {
             // die("payments has to be done condition called in last day of the month");
             // calculate the salary for this month and store in salary table with status not paid
+            $this->salaryModel->beginTransaction();
             $result = $this->salaryModel->calculateAndInsertSalaryPaymentDetails($fiveDaysBeforInPrevMonth,$fiveDaysBeforeInThisMonth);
             $StaffAndSalaryPaymentDetails = $this->salaryModel->getAllStaffAndSalaryPaymentDetails($staffName,$staffID,$paidType,$month);
+            $this->salaryModel->commit();
             $data = [ 
                'nameTyped' => $staffName, 
                'staffIDSelected' => $staffID, 
