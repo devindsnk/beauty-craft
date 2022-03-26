@@ -107,7 +107,6 @@ IP Address  Date & Time	        Mobile No	Name		            Activity
 ::1       	03/19/22 12:00PM	0766581992	                      	signin
 ::1       	03/19/22 12:18PM	0766581992	                      	signout
 ::1       	03/19/22 12:18PM	0766581992	                      	signin
-
 ::1       	03/19/22 11:19PM	0766581992	Ravindu Madhubhashana 	signin
 ::1       	03/20/22 05:41AM	0766581992	Ravindu Madhubhashana 	signin
 ::1       	03/21/22 05:51AM	0766581992	Ravindu Madhubhashana 	create account mobileNo:0764543230
@@ -142,7 +141,6 @@ IP Address  Date & Time	        Mobile No	Name		            Activity
 ::1       	03/22/22 04:09PM	0717679714	Devin Dissanayake     	signin
 ::1       	03/22/22 04:10PM	0717679714	Devin Dissanayake     	signout
 ::1       	03/22/22 04:10PM	0766581992	Ravindu Madhubhashana 	signin
-
 ::1       	03/23/22 09:31AM	0766581992	Ravindu Madhubhashana 	signin
 ::1       	03/20/22 08:16AM	0703807405	Ruwanthi Munasinghe   	signout
 ::1       	03/20/22 08:17AM	0781234567	Amaya Shalani	        create customer account
@@ -177,7 +175,6 @@ IP Address  Date & Time	        Mobile No	Name		            Activity
 ::1       	03/23/22 11:02AM	0703807405	Ruwanthi Munasinghe   	signin
 ::1       	03/23/22 12:32PM	0703807405	Ruwanthi Munasinghe   	signout
 ::1       	03/23/22 12:33PM	0703807402	Chathuri Priyangika   	signin
-
 127.0.0.1 	03/23/22 01:53PM	0717679714	Devin Dissanayake     	signout
 127.0.0.1 	03/23/22 01:53PM	0766581992	Ravindu Madhubhashana 	signin
 127.0.0.1 	03/23/22 03:19PM	0766581992	Ravindu Madhubhashana 	signout
@@ -276,13 +273,11 @@ IP Address  Date & Time	        Mobile No	Name		            Activity
 ::1       	03/24/22 10:36AM	0703807404	Pasindu Munasinghe    	download systemLog file
 ::1       	03/24/22 10:37AM	0703807404	Pasindu Munasinghe    	signout
 ::1       	03/24/22 11:10AM	0703807405	Ruwanthi Munasinghe   	signout
-::1       	03/24/22 11:10AM		                      	create customer account mobileNo:0703807400
 ::1       	03/24/22 11:24AM	0771111111	Malika Sewwandi       	create customer account
 ::1       	03/24/22 11:25AM	0703807404	Pasindu Munasinghe    	signin
 ::1       	03/24/22 11:26AM	0703807404	Pasindu Munasinghe    	create customer account mobileNo:0792222222
 ::1       	03/25/22 12:52PM	0703807405	Ruwanthi Munasinghe   	signout
 ::1       	03/25/22 12:52PM	0703807405	Ruwanthi Munasinghe   	signin
-
 127.0.0.1 	03/25/22 03:06PM	0768500228	Devin Dissanayake     	signin
 127.0.0.1 	03/25/22 03:09PM	0768500228	Devin Dissanayake     	signout
 127.0.0.1 	03/25/22 03:09PM	0717679714	Naveen Dissanayake    	signin

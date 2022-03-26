@@ -10,10 +10,12 @@ const editLeaveDate = document.querySelector(".editLeaveRequestDate");
 const editLeaveType = document.querySelector(".editleavetype");
 const editLeaveError = document.querySelector(".edit-type-error");
 const editLeaveReason = document.querySelector(".editTextArea");
+const editLeaveBtn = document.querySelector(".editleaveProceedBtn");
 const editdropdown = document.querySelector(".editleaveDropdownType");
 
 
-// console.log(editdropdown);
+
+console.log("RRRRR");
 dropdown.disabled=true;
 
 leaveRequestSelectedDate.addEventListener('change',
@@ -86,7 +88,6 @@ editdropdown.addEventListener('change',
 
 
 // cancel leave request
-
 function cancelLeaveRequest(btn){
 leaveDate=btn.getAttribute("data-id");
 fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestCancel/${leaveDate}`)
@@ -98,6 +99,7 @@ fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestCancel/${leaveDate}`)
 		});
 }
 
+//view leave data form
 function viewLeaveRequest(btn){
    const viewLeaveDate = document.getElementById("date_pickerview");
    const viewLeaveType = document.getElementById("lstatusview");
@@ -124,6 +126,7 @@ leavestatus=btn.getAttribute("data-status");
       });
 }
 
+//edit leave request form data
 function editLeaveRequest(btn){
    console.log("function edit called");
    leaveDate=btn.getAttribute("data-id");
@@ -151,26 +154,42 @@ function editLeaveRequest(btn){
 
 }
 
-
-editLeaveType.addEventListener('change',
-   function () {
-      console.log('edit type drop down changed');
-      dateError.innerHTML =  '';
-      console.log(editLeaveDate.value);
-      console.log(leaveRequestSelectedDate.value);
-       fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestTypeValidate/${leaveRequestSelectedDate.value}/${dropdown.value}`)
+//edit leave form leave type error msg
+function editleaveRequestSaveChanges(){
+fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestTypeValidate/${editLeaveDate.value}/${editLeaveType.value}`)
       .then(response => response.json())
       .then(msg => {
           console.log(msg);
           console.log('msg');
          
-        dateError.innerHTML =  msg;
- 
+         editLeaveError.innerHTML=msg;
 
+          
+        
       });
-      
+
+
+}
+
+editLeaveBtn.addEventListener('click',
+   function () {
+  console.log("leave edit btn clicked");   
+  fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestTypeValidate/${editLeaveDate.value}/${editLeaveType.value}/${editLeaveType.value}`)
+      .then(response => response.json())
+      .then(value => {
+          console.log(msg);
+          console.log('value');
+         
+
+          
+        
+      });
+  
+
+
    }
 )
+
 ///////////////////////////
 // filter options
 //////////////////////////
