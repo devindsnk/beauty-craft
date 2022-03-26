@@ -60,7 +60,6 @@
             </div>
             <div class="right-section">
                <a class="btn btn-filled btn-black" id="allCustomersFilterBtn">Search</a>
-               <!-- <button class="btn btn-search">Search</button> -->
             </div>
          </div>
 

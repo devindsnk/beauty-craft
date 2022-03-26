@@ -42,8 +42,6 @@ function CloseSalonDateResCount() {
       .then(response => response.json())
       .then(reservations => {
          reservationD = reservations;
-         // console.log(reservationD);
-         console.log("got reservations ");
 
 
          var ress = [];
@@ -63,7 +61,6 @@ function CloseSalonDateResCount() {
             AddCloseDateProceedBtn.addEventListener('click',
                function () {
                   if(closeDatesReasonTextArea.value.length != 0 && datePicker.value.length != 0 ){
-                  console.log("AddCloseDateProceedBtn called");
                   CloseSalonDateResRecall(ress, ressReason);
                   }
                }

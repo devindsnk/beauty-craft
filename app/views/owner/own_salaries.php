@@ -14,7 +14,6 @@
 
    <!--Content-->
    <div class="content own salaries">
-<!-- <?php print_r($data)?> -->
 
       <form class="form filter-options" action="">
          <div class="options-container">
@@ -85,7 +84,6 @@
                <tbody>
 
                   <!--Table row-->
-                <!-- <?php print_r($data); ?> -->
                   <?php foreach ($data['allStaffSalaryDetailsList'] as $staffD) : ?>
                      <tr>
                         <td data-lable="" class="column-center-align">
@@ -127,7 +125,7 @@
                         </td>
                         <td data-lable="More" class="column-center-align">
                            <a class="btnSalaryPayment" class="">
-                              <button data-staffid = "<?php echo $staffD->staffID; ?>" data-month = "<?php echo $staffD->month; ?>" type="button" class="<?php echo  ($staffD->status==1)?   "table-btn gray-action-btn text-uppercase" : "table-btn black-action-btn text-uppercase btnSalaryPay" ?>" >Pay Now</button>
+                              <button data-staffid = "<?php echo $staffD->staffID; ?>" data-month = "<?php echo $staffD->month; ?>" data-mobileno = "<?php echo $staffD->mobileNo; ?>" type="button" class="<?php echo  ($staffD->status==1)?   "table-btn gray-action-btn text-uppercase" : "table-btn black-action-btn text-uppercase btnSalaryPay" ?>" >Pay Now</button>
                            </a>
                         </td>
                      </tr>                    

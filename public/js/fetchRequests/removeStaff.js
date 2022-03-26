@@ -11,12 +11,6 @@ const checkbox = document.querySelector(".remStaffReservationRecallCheckBox");
 
 
 for ( var i = 0; i< StaffTableTrashBtn.length ; i++){
-   // console.log("hi hi");
-console.log(StaffTableTrashBtn[i].dataset.staffid);
-console.log(StaffTableTrashBtn[i].dataset.staffname);
-console.log(StaffTableTrashBtn[i].dataset.stafftype);
-console.log(StaffTableTrashBtn[i].dataset.staffstatus);
-console.log(StaffTableTrashBtn[i].dataset.staffmobileno);
 let staffID = StaffTableTrashBtn[i].dataset.staffid;
 let staffName = StaffTableTrashBtn[i].dataset.staffname;
 let staffType = StaffTableTrashBtn[i].dataset.stafftype;
@@ -38,10 +32,8 @@ function checkforUpcomingReservations(staffID,staffMobileNo){
     fetch(`http://localhost:80/beauty-craft/Staff/getAllReservtaionDetailsByStaffID/${staffID}`)
      .then(response => response.json()) 
      .then( reservations => {
-        console.log("checkforUpcomingReservations");
         reservationD = reservations;
        console.log(reservationD);
-       console.log("checkforUpcomingReservations works");
       //  console.log("yo");
       
       if (reservationD.length > 0)

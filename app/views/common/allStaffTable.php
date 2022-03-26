@@ -45,7 +45,9 @@
                   <div class="column">
                      <div class="dropdown-group">
                         <label class="label" for="fName">Staff name</label>
-                        <input type="text" name="staffName" value="<?php echo ($data["selectedStaffName"]=="all")?"": $data['selectedStaffName'];?>" id="staffNameSelector" placeholder="Type name here">
+                        <input type="text" name="staffName"
+                           value="<?php echo ($data["selectedStaffName"]=="all")?"": $data['selectedStaffName'];?>"
+                           id="staffNameSelector" placeholder="Type name here">
                      </div>
                      <span class="error"> <?php echo " "; ?></span>
                   </div>
@@ -159,11 +161,13 @@
 
                            <?php if ($staffD->status == 0) : ?>
                            <a href="<?php echo URLROOT ?>/staff/updateStaff/<?php echo $staffD->staffID ?>"
-                              onclick="sessionStorage.setItem('returnReferer',window.location.href);"><i class="ci ci-edit-disable table-icon img-gap "></i></a>
+                              onclick="sessionStorage.setItem('returnReferer',window.location.href);"><i
+                                 class="ci ci-edit-disable table-icon img-gap "></i></a>
                            <?php endif; ?>
                            <?php if ($staffD->status != 0) : ?>
                            <a href="<?php echo URLROOT ?>/staff/updateStaff/<?php echo $staffD->staffID ?>"
-                              onclick="sessionStorage.setItem('returnReferer',window.location.href);"><i class="ci ci-edit table-icon img-gap "></i></a>
+                              onclick="sessionStorage.setItem('returnReferer',window.location.href);"><i
+                                 class="ci ci-edit table-icon img-gap "></i></a>
                            <?php endif; ?>
 
                            <?php if ($staffD->status == 0) : ?>
@@ -204,8 +208,7 @@
                               elseif ($staffD->staffType == 5)
                                {
                                   echo 'Service Provider';
-                               } ?> "
-                                 class="ci ci-trash table-icon btnRemoveStaff removeStafftrash img-gap"></i></a>
+                               } ?> " class="ci ci-trash table-icon btnRemoveStaff removeStafftrash img-gap"></i></a>
                            <?php endif; ?>
 
                            <?php endif; ?>
