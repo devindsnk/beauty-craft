@@ -254,7 +254,7 @@
 						<!-- slot 1-->
 					</div>
 
-					<?php if ($data['noofSlots'] == 2) : ?>
+					<?php if ($data['noofSlots'] == 2 ||  ($data['noofSlots'] == 1 && ($data['slot2Duration'] != NULL || $data['interval1Duration'] != NULL || $data['sSelectedResCount2'] != NULL))) : ?>
 						<div class='newService-sub' id='fullSlotDetail1'>
 							<div class='btn-remove quantity-align'>
 								<a href='#fullSlotDetail 1' name='remove' id='2' class='close-slot'>
@@ -293,7 +293,7 @@
 
 											<?php endfor; ?>
 										</select>
-										<!-- <span class='error paddingLeft'></span> -->
+										<!-- <span class=($data['slot2Duration'] != NULL || $data['interval1Duration'] != NULL || $data['sSelectedResCount2'] != NULL)'error paddingLeft'></span> -->
 										<span class="error paddingLeft"><?php echo $data['sSlot2Duration_error']; ?></span>
 
 									</div>
@@ -360,213 +360,219 @@
 						</div>
 					<?php endif; ?>
 
-					<?php if ($data['noofSlots'] == 3) : ?>
-						<div class='newService-sub' id='fullSlotDetail1'>
-							<div class='btn-remove quantity-align'>
-								<a href='#fullSlotDetail 1' name='remove' id='2' class='close-slot'>
-									<i class='fas fa-times fa-1g'></i><br />
-								</a>
-							</div>
-							<h4 class='paddingBottom'>Slot 2</h4>
-							<div class='row'>
-								<div class='column'>
-
-									<div class='row2' id='intervalDetails1'>
-										<label class='labels'>Interval Duration</label><br>
-										<select class='dropdownSelectBox intervalSelectBox1' name="interval1Duration">
-											<option class='unbold' value='val0' option selected='true' disabled='disabled'>Select duration</option>
-											<?php for ($i = 10; $i <= 50; $i += 10) : ?>
-												<option value="<?php echo $i; ?>" <?php if ($data['interval1Duration'] == $i) echo 'selected'; ?>> <?php echo $i; ?> mins </option>
-											<?php endfor; ?>
-										</select>
-										<span class="error paddingLeft"><?php echo $data['interval1Duration_error']; ?></span>
-
-									</div>
-
-									<div class='row4' id='slotDetails2'>
-										<label class='labels'>Slot Duration</label><br>
-										<select class='dropdownSelectBox slotDurationSelectBox2' name="slot2Duration">
-											<option class='unbold' value='val0' option selected='true' disabled='disabled'>Select duration</option>
-											<?php for ($i = 10; $i <= 120; $i += 10) : ?>
-												<?php if ($i == 60 || $i == 120) : ?>
-													<option value="<?php echo $i; ?>" <?php if ($data['slot2Duration'] == $i) echo 'selected'; ?>> <?php echo ($i / 60); ?> h </option>
-												<?php elseif ($i > 60 && $i < 120) : ?>
-													<option value="<?php echo $i; ?>" <?php if ($data['slot2Duration'] == $i) echo 'selected'; ?>> <?php echo ($i / $i); ?> h <?php echo ($i %  60); ?>
-														mins</option>
-												<?php else : ?>
-													<option value="<?php echo $i; ?>" <?php if ($data['slot2Duration'] == $i) echo 'selected'; ?>> <?php echo $i; ?> mins </option>
-												<?php endif; ?>
-
-											<?php endfor; ?>
-										</select>
-										<!-- <span class='error paddingLeft'></span> -->
-										<span class="error paddingLeft"><?php echo $data['sSlot2Duration_error']; ?></span>
-
-									</div>
-
+					<?php if ($data['noofSlots'] == 3 ||  ($data['noofSlots'] == 1 && ($data['slot3Duration'] != NULL || $data['interval2Duration'] != NULL || $data['sSelectedResCount3'] != NULL)) ||  ($data['noofSlots'] == 2 && ($data['slot3Duration'] != NULL || $data['interval2Duration'] != NULL || $data['sSelectedResCount3'] != NULL))) : ?>
+						<?php if ($data['noofSlots'] == 3) : ?>
+							<div class='newService-sub' id='fullSlotDetail1'>
+								<div class='btn-remove quantity-align'>
+									<a href='#fullSlotDetail 1' name='remove' id='2' class='close-slot'>
+										<i class='fas fa-times fa-1g'></i><br />
+									</a>
 								</div>
+								<h4 class='paddingBottom'>Slot 2</h4>
+								<div class='row'>
+									<div class='column'>
 
-								<div class='column' id='resorceDetails2'>
-									<label class="labels paddingBottom">Resources & Quantity</label><br>
-									<div class="checkbox-div">
-										<?php $j = 0; ?>
-										<?php foreach ($data['sResArray'] as $sResource) : ?>
+										<div class='row2' id='intervalDetails1'>
+											<label class='labels'>Interval Duration</label><br>
+											<select class='dropdownSelectBox intervalSelectBox1' name="interval1Duration">
+												<option class='unbold' value='val0' option selected='true' disabled='disabled'>Select duration</option>
+												<?php for ($i = 10; $i <= 50; $i += 10) : ?>
+													<option value="<?php echo $i; ?>" <?php if ($data['interval1Duration'] == $i) echo 'selected'; ?>> <?php echo $i; ?> mins </option>
+												<?php endfor; ?>
+											</select>
+											<span class="error paddingLeft"><?php echo $data['interval1Duration_error']; ?></span>
 
-											<div class="divIndiv">
+										</div>
 
-												<label class="lableInDiv resourceDetails2" id="checkedItem">
-													<?php echo $sResource->resourceID; ?> - <?php echo $sResource->name; ?>
-												</label>
+										<div class='row4' id='slotDetails2'>
+											<label class='labels'>Slot Duration</label><br>
+											<select class='dropdownSelectBox slotDurationSelectBox2' name="slot2Duration">
+												<option class='unbold' value='val0' option selected='true' disabled='disabled'>Select duration</option>
+												<?php for ($i = 10; $i <= 120; $i += 10) : ?>
+													<?php if ($i == 60 || $i == 120) : ?>
+														<option value="<?php echo $i; ?>" <?php if ($data['slot2Duration'] == $i) echo 'selected'; ?>> <?php echo ($i / 60); ?> h </option>
+													<?php elseif ($i > 60 && $i < 120) : ?>
+														<option value="<?php echo $i; ?>" <?php if ($data['slot2Duration'] == $i) echo 'selected'; ?>> <?php echo ($i / $i); ?> h <?php echo ($i %  60); ?>
+															mins</option>
+													<?php else : ?>
+														<option value="<?php echo $i; ?>" <?php if ($data['slot2Duration'] == $i) echo 'selected'; ?>> <?php echo $i; ?> mins </option>
+													<?php endif; ?>
 
-												<?php $resID =  $sResource->resourceID ?>
+												<?php endfor; ?>
+											</select>
+											<!-- <span class='error paddingLeft'></span> -->
+											<span class="error paddingLeft"><?php echo $data['sSlot2Duration_error']; ?></span>
 
-												<select class="dropdownSelectBox-small quantity-align resCount resourceCountSelectBox2" name="resourceCount2[]">
-													<option class="unbold" value="0" option selected="true">0</option>
+										</div>
 
-													<?php $Qcount = $sResource->quantity; ?>
+									</div>
 
-													<?php for ($i = 1; $i <= $Qcount; $i++) : ?>
+									<div class='column' id='resorceDetails2'>
+										<label class="labels paddingBottom">Resources & Quantity</label><br>
+										<div class="checkbox-div">
+											<?php $j = 0; ?>
+											<?php foreach ($data['sResArray'] as $sResource) : ?>
 
-														<option value="<?php echo $i; ?>" <?php if (isset($data['sSelectedResCount2'][$j]))
-																							{
-																								if ($data['sSelectedResCount2'][$j] == $i)
+												<div class="divIndiv">
+
+													<label class="lableInDiv resourceDetails2" id="checkedItem">
+														<?php echo $sResource->resourceID; ?> - <?php echo $sResource->name; ?>
+													</label>
+
+													<?php $resID =  $sResource->resourceID ?>
+
+													<select class="dropdownSelectBox-small quantity-align resCount resourceCountSelectBox2" name="resourceCount2[]">
+														<option class="unbold" value="0" option selected="true">0</option>
+
+														<?php $Qcount = $sResource->quantity; ?>
+
+														<?php for ($i = 1; $i <= $Qcount; $i++) : ?>
+
+															<option value="<?php echo $i; ?>" <?php if (isset($data['sSelectedResCount2'][$j]))
 																								{
-																									echo 'selected';
-																								}
-																							} ?> <?php
-																									if ($_SERVER['REQUEST_METHOD'] != 'POST')
+																									if ($data['sSelectedResCount2'][$j] == $i)
 																									{
-																										foreach ($data['resDetailsSlot2'] as $redDetails2)
+																										echo 'selected';
+																									}
+																								} ?> <?php
+																										if ($_SERVER['REQUEST_METHOD'] != 'POST')
 																										{
-																											if ($redDetails2->resourceID == $resID && $i == $redDetails2->requiredQuantity)
+																											foreach ($data['resDetailsSlot2'] as $redDetails2)
 																											{
-																												// if ($i == $redDetails2->requiredQuantity)
-																												// {
-																												echo 'selected';
-																												// }
+																												if ($redDetails2->resourceID == $resID && $i == $redDetails2->requiredQuantity)
+																												{
+																													// if ($i == $redDetails2->requiredQuantity)
+																													// {
+																													echo 'selected';
+																													// }
+																												}
 																											}
 																										}
-																									}
-																									?>><?php echo $i; ?>
-														</option>
+																										?>><?php echo $i; ?>
+															</option>
 
-													<?php endfor; ?>
+														<?php endfor; ?>
 
-												</select>
-											</div>
-											<hr class='resHr'>
-											<?php $j++; ?>
-										<?php endforeach; ?>
+													</select>
+												</div>
+												<hr class='resHr'>
+												<?php $j++; ?>
+											<?php endforeach; ?>
+
+										</div>
+										<span class="error paddingLeft"><?php echo $data['sSelectedResCount2_error']; ?></span>
 
 									</div>
-									<span class="error paddingLeft"><?php echo $data['sSelectedResCount2_error']; ?></span>
-
 								</div>
 							</div>
-						</div>
-						<div class='newService-sub' id='fullSlotDetail2'>
-							<div class='btn-remove quantity-align'>
-								<a href='#fullSlotDetail 2' name='remove' id='3' class='close-slot'>
-									<i class='fas fa-times fa-1g'></i><br />
-								</a>
-							</div>
-							<h4 class='paddingBottom'>Slot 3</h4>
-							<div class='row'>
-								<div class='column'>
+						<?php endif; ?>
 
-									<div class='row2' id='intervalDetails2'>
-										<label class='labels'>Interval Duration</label><br>
-										<select class='dropdownSelectBox intervalSelectBox2' name="interval2Duration">
-											<option class='unbold' value='val0' option selected='true' disabled='disabled'>Select duration</option>
-											<?php for ($i = 10; $i <= 50; $i += 10) : ?>
-												<option value="<?php echo $i; ?>" <?php if ($data['interval2Duration'] == $i) echo 'selected'; ?>> <?php echo $i; ?> mins </option>
-											<?php endfor; ?>
-										</select>
-										<span class="error paddingLeft"><?php echo $data['interval2Duration_error']; ?></span>
-
-									</div>
-
-									<div class='row4' id='slotDetails3'>
-										<label class='labels'>Slot Duration</label><br>
-										<select class='dropdownSelectBox slotDurationSelectBox3' name="slot3Duration">
-											<option class='unbold' value='val0' option selected='true' disabled='disabled'>Select duration</option>
-											<?php for ($i = 10; $i <= 120; $i += 10) : ?>
-												<?php if ($i == 60 || $i == 120) : ?>
-													<option value="<?php echo $i; ?>" <?php if ($data['slot3Duration'] == $i) echo 'selected'; ?>> <?php echo ($i / 60); ?> h </option>
-												<?php elseif ($i > 60 && $i < 120) : ?>
-													<option value="<?php echo $i; ?>" <?php if ($data['slot3Duration'] == $i) echo 'selected'; ?>> <?php echo ($i / $i); ?> h <?php echo ($i %  60); ?>
-														mins</option>
-												<?php else : ?>
-													<option value="<?php echo $i; ?>" <?php if ($data['slot3Duration'] == $i) echo 'selected'; ?>> <?php echo $i; ?> mins </option>
-												<?php endif; ?>
-
-											<?php endfor; ?>
-										</select>
-										<span class="error paddingLeft"><?php echo $data['sSlot3Duration_error']; ?></span>
-
-									</div>
-
+						<?php if ($data['noofSlots'] == 3 || ($data['noofSlots'] == 1 && ($data['slot3Duration'] != NULL || $data['interval2Duration'] != NULL || $data['sSelectedResCount3'] != NULL)) || ($data['noofSlots'] == 2 && ($data['slot3Duration'] != NULL || $data['interval2Duration'] != NULL || $data['sSelectedResCount3'] != NULL))) : ?>
+							<div class='newService-sub' id='fullSlotDetail2'>
+								<div class='btn-remove quantity-align'>
+									<a href='#fullSlotDetail 2' name='remove' id='3' class='close-slot'>
+										<i class='fas fa-times fa-1g'></i><br />
+									</a>
 								</div>
+								<h4 class='paddingBottom'>Slot 3</h4>
+								<div class='row'>
+									<div class='column'>
 
-								<div class='column' id='resorceDetails3'>
-									<label class="labels paddingBottom">Resources & Quantity</label><br>
-									<div class="checkbox-div">
-										<?php $j = 0; ?>
-										<?php foreach ($data['sResArray'] as $sResource) : ?>
+										<div class='row2' id='intervalDetails2'>
+											<label class='labels'>Interval Duration</label><br>
+											<select class='dropdownSelectBox intervalSelectBox2' name="interval2Duration">
+												<option class='unbold' value='val0' option selected='true' disabled='disabled'>Select duration</option>
+												<?php for ($i = 10; $i <= 50; $i += 10) : ?>
+													<option value="<?php echo $i; ?>" <?php if ($data['interval2Duration'] == $i) echo 'selected'; ?>> <?php echo $i; ?> mins </option>
+												<?php endfor; ?>
+											</select>
+											<span class="error paddingLeft"><?php echo $data['interval2Duration_error']; ?></span>
 
-											<div class="divIndiv">
-												<!-- <?php $findResource = 1; ?> -->
+										</div>
 
-												<label class="lableInDiv resourceDetails3" id="checkedItem">
-													<?php echo $sResource->resourceID; ?> - <?php echo $sResource->name; ?>
-												</label>
+										<div class='row4' id='slotDetails3'>
+											<label class='labels'>Slot Duration</label><br>
+											<select class='dropdownSelectBox slotDurationSelectBox3' name="slot3Duration">
+												<option class='unbold' value='val0' option selected='true' disabled='disabled'>Select duration</option>
+												<?php for ($i = 10; $i <= 120; $i += 10) : ?>
+													<?php if ($i == 60 || $i == 120) : ?>
+														<option value="<?php echo $i; ?>" <?php if ($data['slot3Duration'] == $i) echo 'selected'; ?>> <?php echo ($i / 60); ?> h </option>
+													<?php elseif ($i > 60 && $i < 120) : ?>
+														<option value="<?php echo $i; ?>" <?php if ($data['slot3Duration'] == $i) echo 'selected'; ?>> <?php echo ($i / $i); ?> h <?php echo ($i %  60); ?>
+															mins</option>
+													<?php else : ?>
+														<option value="<?php echo $i; ?>" <?php if ($data['slot3Duration'] == $i) echo 'selected'; ?>> <?php echo $i; ?> mins </option>
+													<?php endif; ?>
 
-												<?php $resID =  $sResource->resourceID ?>
+												<?php endfor; ?>
+											</select>
+											<span class="error paddingLeft"><?php echo $data['sSlot3Duration_error']; ?></span>
 
-												<select class="dropdownSelectBox-small quantity-align resCount resourceCountSelectBox3" name="resourceCount3[]">
-													<option class="unbold" value="0" option selected="true">0</option>
+										</div>
 
-													<?php $Qcount = $sResource->quantity; ?>
+									</div>
 
-													<?php for ($i = 1; $i <= $Qcount; $i++) : ?>
+									<div class='column' id='resorceDetails3'>
+										<label class="labels paddingBottom">Resources & Quantity</label><br>
+										<div class="checkbox-div">
+											<?php $j = 0; ?>
+											<?php foreach ($data['sResArray'] as $sResource) : ?>
 
-														<option value="<?php echo $i; ?>" <?php if (isset($data['sSelectedResCount3'][$j]))
-																							{
-																								if ($data['sSelectedResCount3'][$j] == $i)
+												<div class="divIndiv">
+													<!-- <?php $findResource = 1; ?> -->
+
+													<label class="lableInDiv resourceDetails3" id="checkedItem">
+														<?php echo $sResource->resourceID; ?> - <?php echo $sResource->name; ?>
+													</label>
+
+													<?php $resID =  $sResource->resourceID ?>
+
+													<select class="dropdownSelectBox-small quantity-align resCount resourceCountSelectBox3" name="resourceCount3[]">
+														<option class="unbold" value="0" option selected="true">0</option>
+
+														<?php $Qcount = $sResource->quantity; ?>
+
+														<?php for ($i = 1; $i <= $Qcount; $i++) : ?>
+
+															<option value="<?php echo $i; ?>" <?php if (isset($data['sSelectedResCount3'][$j]))
 																								{
-																									echo 'selected';
-																								}
-																							} ?> <?php
-																									if ($_SERVER['REQUEST_METHOD'] != 'POST')
+																									if ($data['sSelectedResCount3'][$j] == $i)
 																									{
-																										foreach ($data['resDetailsSlot3'] as $redDetails3)
+																										echo 'selected';
+																									}
+																								} ?> <?php
+																										if ($_SERVER['REQUEST_METHOD'] != 'POST')
 																										{
-																											if ($redDetails3->resourceID == $resID && $i == $redDetails3->requiredQuantity)
+																											foreach ($data['resDetailsSlot3'] as $redDetails3)
 																											{
-																												// if ($i == $redDetails3->requiredQuantity)
-																												// {
-																												echo 'selected';
-																												// }
+																												if ($redDetails3->resourceID == $resID && $i == $redDetails3->requiredQuantity)
+																												{
+																													// if ($i == $redDetails3->requiredQuantity)
+																													// {
+																													echo 'selected';
+																													// }
+																												}
 																											}
 																										}
-																									}
-																									?>><?php echo $i; ?>
-														</option>
+																										?>><?php echo $i; ?>
+															</option>
 
-													<?php endfor; ?>
+														<?php endfor; ?>
 
-												</select>
-											</div>
-											<hr class='resHr'>
-											<?php $j++; ?>
-										<?php endforeach; ?>
+													</select>
+												</div>
+												<hr class='resHr'>
+												<?php $j++; ?>
+											<?php endforeach; ?>
+
+										</div>
+										<span class="error paddingLeft"><?php echo $data['sSelectedResCount3_error']; ?></span>
 
 									</div>
-									<span class="error paddingLeft"><?php echo $data['sSelectedResCount3_error']; ?></span>
-
 								</div>
 							</div>
-						</div>
+						<?php endif; ?>
+
 					<?php endif; ?>
 				</div>
 

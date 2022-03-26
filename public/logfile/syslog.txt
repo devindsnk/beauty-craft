@@ -177,7 +177,6 @@ IP Address  Date & Time	        Mobile No	Name		            Activity
 ::1       	03/23/22 11:02AM	0703807405	Ruwanthi Munasinghe   	signin
 ::1       	03/23/22 12:32PM	0703807405	Ruwanthi Munasinghe   	signout
 ::1       	03/23/22 12:33PM	0703807402	Chathuri Priyangika   	signin
-
 ::1       	03/23/22 04:45PM	0766581992	Ravindu Madhubhashana 	signout
 ::1       	03/23/22 04:45PM	0717679714	Devin Dissanayake     	signin
 ::1       	03/23/22 04:46PM	0717679714	Devin Dissanayake     	signout
@@ -216,26 +215,3 @@ IP Address  Date & Time	        Mobile No	Name		            Activity
 ::1       	03/24/22 11:26AM	0703807404	Pasindu Munasinghe    	create customer account mobileNo:0792222222
 ::1       	03/25/22 12:52PM	0703807405	Ruwanthi Munasinghe   	signout
 ::1       	03/25/22 12:52PM	0703807405	Ruwanthi Munasinghe   	signin
-::1       	03/25/22 02:25PM	0703807405	Ruwanthi Munasinghe   	signin
-::1       	03/25/22 02:35PM	0703807405	Ruwanthi Munasinghe   	signin
-::1       	03/25/22 02:39PM	0703807405	Ruwanthi Munasinghe   	signout
-::1       	03/25/22 02:40PM	0703807404	Pasindu Munasinghe    	signin
-::1       	03/25/22 02:40PM	0703807404	Pasindu Munasinghe    	download systemLog file
-::1       	03/25/22 02:42PM	0703807404	Pasindu Munasinghe    	signout
-::1       	03/25/22 02:42PM	0703807405	Ruwanthi Munasinghe   	signin
-::1       	03/25/22 04:11PM	0703807405	Ruwanthi Munasinghe   	signout
-::1       	03/25/22 04:11PM	0703807405	Ruwanthi Munasinghe   	signin
-::1       	03/25/22 04:20PM	0703807405	Ruwanthi Munasinghe   	signout
-::1       	03/25/22 04:20PM	0762930963	Test User             	signin
-::1       	03/25/22 04:20PM	0762930963	Test User             	signout
-::1       	03/25/22 04:20PM	0703807404	Pasindu Munasinghe    	signin
-::1       	03/25/22 04:22PM	0703807404	Pasindu Munasinghe    	download systemLog file
-::1       	03/25/22 04:25PM	0703807404	Pasindu Munasinghe    	signout
-::1       	03/25/22 04:25PM	0703807405	Ruwanthi Munasinghe   	signin
-::1       	03/25/22 04:32PM	0703807405	Ruwanthi Munasinghe   	signout
-::1       	03/25/22 04:33PM	0703807404	Pasindu Munasinghe    	signin
-::1       	03/25/22 04:33PM	0703807404	Pasindu Munasinghe    	download systemLog file
-::1       	03/25/22 04:40PM	0703807404	Pasindu Munasinghe    	signout
-::1       	03/25/22 04:47PM	0703807405	Ruwanthi Munasinghe   	signin
-::1       	03/25/22 04:47PM	0703807405	Ruwanthi Munasinghe   	signin
-::1       	03/25/22 04:47PM	0703807405	Ruwanthi Munasinghe   	signin
