@@ -482,17 +482,18 @@ Customers Endss
 .own.rates .detailValueLine,
 .own.rates .detailLine,
 .own.rates .detailLableLine {
-    padding-bottom: 15px;
+    /* padding-bottom: 15px; */
+    height: 45px;
 }
 
 .own.rates .rateLabel{
-    padding-bottom: 24px;
+    /* padding-bottom: 24px; */
 }
-.own.rates .error{
+/* .own.rates .error{
 font-size: 14px;
 color: #DA2346;
 font-weight: 600;
-}
+} */
 
 .own.rates .card3 .valueBox {
     padding-bottom: 30px;
@@ -545,14 +546,14 @@ font-weight: 600;
 .own.rates .card1 {
     grid-area: card1;
     width: 450px;
-    height: 350px;
+    height: 400px;
     justify-self: center;
 }
 
 .own.rates .card2 {
     grid-area: card2;
     width: 450px;
-    height: 350px;
+    height: 400px;
     justify-self: center;
 }
 

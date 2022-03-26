@@ -53,9 +53,8 @@ class Salary extends Controller
       $lastDayThisMonth = date("Y-m-t");
       
       // current date
-      // $currentDate = date('Y-m-d');
-      $currentDate =  $lastDayThisMonth;
-
+      $currentDate = date('Y-m-d');
+   
       // date before five days from last date of previous month
       $date = new DateTime();
       $date->modify("last day of previous month");

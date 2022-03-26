@@ -18,7 +18,7 @@
             <!-- <label class="rateLabel">Date</label> <br>
             <input type="date"> -->
         </div>
-        <form action="<?php echo URLROOT; ?>/ownDashboard/rates" method="post">
+        <form action="<?php echo URLROOT; ?>/ownDashboard/rates" method="post" class="form">
             <div class="cardContainer">
 
                 <div class="card1 contentBox">
