@@ -9,15 +9,15 @@ class StaffModel extends Model
    // add staff details to the db
    public function addStaffDetails($data)
    {
-       if (($data['staffimagePath'] == " " ) && ($data['gender'] == "M"))
-         {
-            $data['staffimagePath'] = "male.jpg";
-         }
+      if (($data['staffimagePath'] == " ") && ($data['gender'] == "M"))
+      {
+         $data['staffimagePath'] = "male.jpg";
+      }
 
-      if (($data['staffimagePath'] == " " ) && ($data['gender'] == "F"))
-         {
-            $data['staffimagePath'] = "female.jpg";
-         }
+      if (($data['staffimagePath'] == " ") && ($data['gender'] == "F"))
+      {
+         $data['staffimagePath'] = "female.jpg";
+      }
       $results =  $this->insert('staff', ['fName' => $data['staffFname'], 'lName' => $data['staffLname'], 'staffType' => $data['staffType'], 'mobileNo' => $data['staffMobileNo'], 'gender' => $data['gender'], 'nic' => $data['staffNIC'], 'address' => $data['staffHomeAdd'], 'email' => $data['staffEmail'], 'dob' => $data['staffDOB'], 'imgPath' =>  $data['staffimagePath']]);
    }
 
@@ -98,7 +98,7 @@ class StaffModel extends Model
       return $result;
    }
 
-   
+
    // get one staff details to the view 
    public function getStaffMemberCountForCharts()
    {
@@ -196,11 +196,11 @@ class StaffModel extends Model
    // FOR MANAGER OVERVIEW
 
    ///// Methods added by devin ////
-   public function getSProvidersWithLeaveStatusByDate($selectedDate)
+   public function getStaffWithLeaveStatusByDate($selectedDate)
    {
       $SQLstatement =
          "SELECT STAFF.staffID, STAFF.fName, STAFF.lName, STAFF.mobileNo, STAFF.imgPath, GLEAVES.status AS leaveStatus
-         FROM staff AS STAFF 
+         FROM (SELECT * FROM staff WHERE staffType IN (3,4,5)) AS STAFF 
          LEFT JOIN generalleaves AS GLEAVES 
          ON GLEAVES.staffID = STAFF.staffID AND GLEAVES.leaveDate = :selectedDate AND GLEAVES.status IN (1,2)
          WHERE STAFF.status = 1 ;";
@@ -245,18 +245,19 @@ class StaffModel extends Model
       $SQLstatement =
          "SELECT *
          FROM staff WHERE staffType = :sType  ";
-        $results = $this->customQuery($SQLstatement,[":sType" => 3]);
+      $results = $this->customQuery($SQLstatement, [":sType" => 3]);
       // print_r($results);
       return $results;
    }
+
    public function getManagerTodayLeaveCountByStaffID($staffID)
    {
-      $date = date("Y-m-d"); 
-      $SQLstatement = 
+      $date = date("Y-m-d");
+      $SQLstatement =
          "SELECT COUNT(*) as leaveCount
          FROM generalleaves WHERE staffID = :staffID AND leaveDate = :date  AND status IN (1,3)  ";
-        $results = $this->customQuery($SQLstatement,[":staffID" => $staffID, ":date" => $date]); 
-      
+      $results = $this->customQuery($SQLstatement, [":staffID" => $staffID, ":date" => $date]);
+
       return $results;
    }
    /////////////////////
