@@ -395,4 +395,19 @@ class Leaves extends Controller
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($results));
    }
+
+   public function editLeaverequest($date, $type, $reason)
+   {
+      $date =  DateTimeExtended::getCurrentDate();
+      $results = $this->LeaveModel->getSelectedLeaveDetails($date, 2, Session::getUser("id"));
+
+
+      // if ($results)
+      //    Toast::setToast(1, "Uninformed leave marked successfully", "");
+      // else
+      //    Toast::setToast(0, "Uninformed leave marking failed", "");
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($results));
+   }
 }
