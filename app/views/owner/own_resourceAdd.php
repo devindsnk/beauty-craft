@@ -82,7 +82,7 @@
                                 </div>
                                 <div class="quantity">
                                     <label class="ownAddstaffLabels">Quantity</label>
-                                    <input type="number" id="quantity" name="quantity" min="1" max="10" placeholder="0" value="<?php echo $data['quantity']; ?>">
+                                    <input type="number" id="quantity" name="quantity" min="1" max="50" placeholder="0" value="<?php echo $data['quantity']; ?>">
                                     <span class="error"><?php echo $data['quantity_error']; ?></span>
                                 </div>
                             </div>
