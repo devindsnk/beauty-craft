@@ -132,7 +132,7 @@
                   <div class="row">
                      <div class="column">
                         <label class="addItemsModalLable">Date</label><br>
-                        <input type="date" name="mangDate" class="addItemsModalDate mangSelectedDate" value="<?php echo $data['date']; ?>"><br>
+                        <input type="date" name="mangDate" id="mangTakeLeaveDatePicker" class="addItemsModalDate mangSelectedDate" value="<?php echo $data['date']; ?>"><br>
                         <span class="error paddingBottom mangDateError">
                            <?php
                            if ($data['date_error'])
@@ -261,6 +261,20 @@
 
    </div>
    <!--End Content-->
+
+   <script language="javascript">
+      const mangTakeLeaveDatePicker = document.getElementById("mangTakeLeaveDatePicker");
+
+      let today = new Date().toISOString().split('T')[0];
+      let maxDate = new Date();
+      month = new Date().getMonth();
+      maxDate.setMonth(maxDate.getMonth() + 2);
+      maxDate = maxDate.toISOString().split('T')[0];
+
+      mangTakeLeaveDatePicker.setAttribute('min', today);
+      mangTakeLeaveDatePicker.setAttribute('max', maxDate);
+      mangTakeLeaveDatePicker.setAttribute('format', 'yyyy-MM-dd')
+   </script>
 
    <script src="<?php echo URLROOT ?>/public/js/filters.js"></script>
    <?php require APPROOT . "/views/inc/footer.php" ?>

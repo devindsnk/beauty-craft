@@ -16,7 +16,7 @@
 
         <div class="main-container">
             <div class="sProvAvailability contentBox">
-                <h3>Service Providers Availability</h3>
+                <h3>Staff Availability (Today)</h3>
 
                 <?php $statusClassList = ["status-error-red", "status-success-green", "status-blue",  "status-grey", "status-warning-yellow"];
                 $statusValueList  = ["On Leave", "Available", "Confirmed", "No Show", "Completed", "Recalled"]; ?>
@@ -50,7 +50,7 @@
 
             </div>
             <div class="resConfirmation contentBox">
-                <h3>Pending Reservation Confirmations</h3>
+                <h3>Upcoming Reservations to Confirm</h3>
 
                 <div class="scroll-area">
                     <?php

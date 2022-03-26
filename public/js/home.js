@@ -121,3 +121,14 @@ function scrollFunction() {
 /* ------------------------------------------------------ */
 /* ------------- END OF JS ADDED BY RAVINDU ---------------------*/
 /* ------------------------------------------------------ */
+
+function scrollImgL() {
+   console.log('hsdd');
+   let left = document.querySelector(".scroll-images");
+   left.scrollBy(350, 0);
+}
+
+function scrollImgR() {
+   let right = document.querySelector(".scroll-images");
+   right.scrollBy(-350, 0);
+}

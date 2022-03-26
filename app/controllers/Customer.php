@@ -14,7 +14,7 @@ class Customer extends Controller
       print_r($cusNameInputTyped);
       print_r($cusCotactInputTyped);
       print_r($statusSelected);
-      // die("controller called");
+
       $AllCustomerDetails = $this->customerModel->getAllCustomersWithFilters($cusNameInputTyped, $cusCotactInputTyped, $statusSelected);
 
       $data = [
@@ -143,17 +143,17 @@ class Customer extends Controller
                   if (Session::getUser("mobileNo"))
                   {
                      Systemlog::createCustomerAccount($data['mobileNo']);
+                     Toast::setToast(1, "Customer account created Successful!", '');
                   }
                   else
                   {
                      Systemlog::customerRegister($data['mobileNo'], $data['fName'], $data['lName']);
+                     Toast::setToast(1, "Registration Successful!", "You can login to your account now.");
                   }
 
 
                   SMS::sendCustomerRegSMS($data['mobileNo']);
                   $this->userModel->commit();
-
-                  Toast::setToast(1, "Registration Successful!", "You can login to your account now.");
                   header('location: ' . URLROOT . '/user/signin');
                }
             }

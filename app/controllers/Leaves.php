@@ -286,7 +286,7 @@ class Leaves extends Controller
       if ($leaveType == 1)
       {
          $leaveLimit = $this->LeaveModel->getgeneralLeaveLimit();
-         $lType = 'general';
+         $lType = 'casual';
       }
       else if ($leaveType == 2)
       {
@@ -312,14 +312,14 @@ class Leaves extends Controller
    public function leaveRequestCancel($date)
    {
       Session::validateSession([4, 5]);
-      $this->LeaveModel->cancelLeaveRequest($date, Session::getUser("id"));
+      $result = $this->LeaveModel->cancelLeaveRequest($date, Session::getUser("id"));
       Toast::setToast(1, "Leave request deleted successfully.", "");
-      redirect('Leaves/leaves');
+      print_r(json_encode($result));
    }
-   public function getSelectedLeaveDetails($date)
+   public function getSelectedLeaveDetails($date, $status)
    {
       Session::validateSession([4, 5]);
-      $ldata = $this->LeaveModel->getSelectedLeaveDetails($date, Session::getUser("id"));
+      $ldata = $this->LeaveModel->getSelectedLeaveDetails($date, $status, Session::getUser("id"));
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($ldata));
    }
@@ -391,6 +391,21 @@ class Leaves extends Controller
          Toast::setToast(1, "Uninformed leave marked successfully", "");
       else
          Toast::setToast(0, "Uninformed leave marking failed", "");
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($results));
+   }
+
+   public function editLeaverequest($date, $type, $reason)
+   {
+      $date =  DateTimeExtended::getCurrentDate();
+      $results = $this->LeaveModel->getSelectedLeaveDetails($date, 2, Session::getUser("id"));
+
+
+      // if ($results)
+      //    Toast::setToast(1, "Uninformed leave marked successfully", "");
+      // else
+      //    Toast::setToast(0, "Uninformed leave marking failed", "");
 
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($results));

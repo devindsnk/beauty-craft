@@ -80,7 +80,7 @@ class Staff extends Controller
             'staffAccBank_error' => '',
             'staffAccBranch_error' => '',
          ];
-         
+
          $data['staffimagePath'];
          $data['staffHomeAddTyped'] = $data['staffHomeAdd'];
 
@@ -319,39 +319,40 @@ class Staff extends Controller
          $img_name = " ";
          $new_img_name =  " ";
 
-         if (empty($_FILES['imgPath']['name'])){
+         if (empty($_FILES['imgPath']['name']))
+         {
 
             $new_img_name = $staffdetailsBystaffID[0]->imgPath;
-
          }
 
-         else {
-         $img_name = $_FILES['imgPath']['name'];
-         $img_size = $_FILES['imgPath']['size'];
-         $tmp_name = $_FILES['imgPath']['tmp_name'];
-         $error = $_FILES['imgPath']['error'];
-         $img_extension = pathinfo($img_name, PATHINFO_EXTENSION);
-         $img_ex_lc = strtolower($img_extension);
-         $allowed_extensions = array("jpg", "jpeg", "png");
-         if ($error == 0)
+         else
          {
-            if (in_array($img_ex_lc, $allowed_extensions))
+            $img_name = $_FILES['imgPath']['name'];
+            $img_size = $_FILES['imgPath']['size'];
+            $tmp_name = $_FILES['imgPath']['tmp_name'];
+            $error = $_FILES['imgPath']['error'];
+            $img_extension = pathinfo($img_name, PATHINFO_EXTENSION);
+            $img_ex_lc = strtolower($img_extension);
+            $allowed_extensions = array("jpg", "jpeg", "png");
+            if ($error == 0)
             {
-               $new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc;
-               $img_upload_path = '../public/imgs/staffImgs/' . $new_img_name;
-               move_uploaded_file($tmp_name, $img_upload_path);
+               if (in_array($img_ex_lc, $allowed_extensions))
+               {
+                  $new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc;
+                  $img_upload_path = '../public/imgs/staffImgs/' . $new_img_name;
+                  move_uploaded_file($tmp_name, $img_upload_path);
+               }
             }
          }
-        }
-        
-      
+
+
          $data = [
             'imgPath' =>  $new_img_name,
             'fName' => trim($_POST['fName']),
             'lName' => trim($_POST['lName']),
             'gender' => isset($_POST['gender']) ? trim($_POST['gender']) : '',
             'nic' => trim($_POST['nic']),
-            'sType'=>$staffdetailsBystaffID[0]->staffType,
+            'sType' => $staffdetailsBystaffID[0]->staffType,
             'dob' => trim($_POST['dob']),
             'address' => trim($_POST['address']),
             'mobileNo' => trim($_POST['mobileNo']),
@@ -378,8 +379,8 @@ class Staff extends Controller
             'bankdetails' => $bankdetailsBystaffID[0]
          ];
 
-         
-            
+
+
          if (($data['imgPath'] == " "))
          {
             $data['staffimagePath_error'] = "Please insert a valid image";
@@ -471,17 +472,17 @@ class Staff extends Controller
          {
             $data['mobileNo_error'] = "Invalid contact number format.";
          }
-        
-         else if ($staffdetailsBystaffID[0]->mobileNo != $data['mobileNo'])
-               {
-                  $isUserExists = $this->userModel->checkAlreadyRegistered($data['mobileNo']);
 
-                  if ($isUserExists)
-                  {
-                     $data['mobileNo_error'] = "Number is already registered";
-                  }
-               }
-         
+         else if ($staffdetailsBystaffID[0]->mobileNo != $data['mobileNo'])
+         {
+            $isUserExists = $this->userModel->checkAlreadyRegistered($data['mobileNo']);
+
+            if ($isUserExists)
+            {
+               $data['mobileNo_error'] = "Number is already registered";
+            }
+         }
+
 
          // Validating email
          if (empty($data['email']))
@@ -688,13 +689,14 @@ class Staff extends Controller
                      $this->userModel->updatePassword(Session::getUser("mobileNo"), $data['newPassword1']);
                      //System log
                      Systemlog::changePassword();
+                     Toast::setToast(1, "Password Successfully Updated!", "");
                      $data['changePasswordModelOpen'] = 0;
                      $this->view('staff/staff_profileview', $data);
                   }
                }
                else
                {
-                  
+
                   $data['currentPassword_error'] = "Incorrect password";
                   $this->view('Staff/staff_profileview', $data);
                }
@@ -763,6 +765,7 @@ class Staff extends Controller
                   $this->userModel->updatePassword($data['mobileNo'], $data['newPassword1']);
                   //System log
                   Systemlog::changePassword();
+                  Toast::setToast(1, "Password Successfully Updated!", "");
                   $this->view('staff/staff_changepassword', $data);
                }
             }
@@ -810,5 +813,13 @@ class Staff extends Controller
       $result = $this->staffModel->getReservtaionDetailsByStaffID($staffID);
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($result));
+   }
+
+   public function getActiveSProvCount()
+   {
+      $results = $this->serviceModel->getAvailableServiceProvidersCount();
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($results[0]->serProvCount));
    }
 }

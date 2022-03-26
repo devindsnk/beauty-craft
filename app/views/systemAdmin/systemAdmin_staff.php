@@ -17,7 +17,7 @@
     <!--Content-->
     <div class="content admin">
         <div class="formadmin">
-            <pre> <?php print_r($data) ?></pre>
+
             <div class="ownAddstaffContainer contentBox">
                 <div class="ownAddStaff_Formheading">
                     <h1>Staff Account</h1>

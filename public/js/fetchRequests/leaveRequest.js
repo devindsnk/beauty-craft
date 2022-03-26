@@ -10,10 +10,12 @@ const editLeaveDate = document.querySelector(".editLeaveRequestDate");
 const editLeaveType = document.querySelector(".editleavetype");
 const editLeaveError = document.querySelector(".edit-type-error");
 const editLeaveReason = document.querySelector(".editTextArea");
+const editLeaveBtn = document.querySelector(".editleaveProceedBtn");
 const editdropdown = document.querySelector(".editleaveDropdownType");
 
 
-// console.log(editdropdown);
+
+console.log("RRRRR");
 dropdown.disabled=true;
 
 leaveRequestSelectedDate.addEventListener('change',
@@ -85,80 +87,109 @@ editdropdown.addEventListener('change',
 )
 
 
-// editleavebtn
-
+// cancel leave request
 function cancelLeaveRequest(btn){
 leaveDate=btn.getAttribute("data-id");
 fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestCancel/${leaveDate}`)
+.then((response) => response.json())
+		.then((state) => {
+			if (state) {
+				window.location.reload();
+			}
+		});
 }
 
-function editLeaveRequest(btn){
-   console.log("function edit called");
-leaveDate=btn.getAttribute("data-id");
-   console.log(leaveDate);
+//view leave data form
+function viewLeaveRequest(btn){
+   const viewLeaveDate = document.getElementById("date_pickerview");
+   const viewLeaveType = document.getElementById("lstatusview");
+   const viewLeaveReason = document.getElementById("takeLeaveReasonview");
+   console.log("function view called");
 
-   // console.log(btn);
-   fetch(`http://localhost:80/beauty-craft/Leaves/getSelectedLeaveDetails/${leaveDate}`)
+leaveDate=btn.getAttribute("data-id");
+leavestatus=btn.getAttribute("data-status");
+
+   console.log(leaveDate);
+   console.log(leavestatus);
+
+   fetch(`http://localhost:80/beauty-craft/Leaves/getSelectedLeaveDetails/${leaveDate}/${leavestatus}`)
       .then(response => response.json())
       .then(leaveData => {
-         // console.log(leaveData);
-         // console.log(editLeaveDate);
-         editLeaveDate.innerHTML=leaveData['leaveDate'];
-         editLeaveDate.value=leaveData['leaveDate'];
-         
-         editLeaveType.options[leaveData['leaveType']].selected = true;
-        editLeaveReason.innerHTML=leaveData['reason'];
         
+         console.log(leaveData);
+         viewLeaveDate.innerHTML=leaveData['leaveDate'];
+         viewLeaveDate.value=leaveData['leaveDate'];
+         viewLeaveType.options[leaveData['leaveType']].selected = true;
+         viewLeaveReason.innerHTML=leaveData['reason'];
+      
 
       });
 }
 
-function leaveRequestSaveChanges(btn){
+//edit leave request form data
+function editLeaveRequest(btn){
+   console.log("function edit called");
+   leaveDate=btn.getAttribute("data-id");
+   leavestatus=btn.getAttribute("data-status");
 
-      console.log(editLeaveDate.value);
-   //    console.log(editLeaveType.value);
-   //    console.log("gggggg");
-   //    console.log(btn);
+   const editLeaveDate = document.getElementById("date_pickeredit");
+   const editLeaveType = document.getElementById("lstatusedit");
+   const editLeaveReason = document.getElementById("takeLeaveReasonedit");
 
-   // fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestTypeValidate/${editLeaveDate.value}/${editLeaveType.value}`)
-   //    .then(response => response.json())
-   //    .then(msg => {
-   //        console.log(msg);
-   //       console.log(dateError);
-   //       dateError.innerHTML =  msg;
-   //    });
+   console.log(editLeaveDate.value);
+   console.log(editLeaveType.value);
 
-      // if(){
-
-      // }
-   // fetch(`http://localhost:80/beauty-craft/Leaves/getSelectedLeaveDetails/${leaveDate}`)
-   //    .then(response => response.json())
-   //    .then(leaveData => {
-         
+   // console.log(btn);
+   fetch(`http://localhost:80/beauty-craft/Leaves/getSelectedLeaveDetails/${leaveDate}/${leavestatus}`)
+      .then(response => response.json())
+      .then(leaveData => {
+         console.log(leaveData);
+         console.log(editLeaveDate);
+         editLeaveDate.innerHTML=leaveData['leaveDate'];
+         editLeaveDate.value=leaveData['leaveDate'];         
+         editLeaveType.options[leaveData['leaveType']].selected = true;
+         editLeaveReason.innerHTML=leaveData['reason'];
         
+      });
 
-   //    });
 }
 
-editLeaveType.addEventListener('change',
-   function () {
-      console.log('drop down changed');
-      dateError.innerHTML =  '';
-      console.log(dropdown.value);
-      console.log(leaveRequestSelectedDate.value);
-       fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestTypeValidate/${leaveRequestSelectedDate.value}/${dropdown.value}`)
+//edit leave form leave type error msg
+function editleaveRequestSaveChanges(){
+fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestTypeValidate/${editLeaveDate.value}/${editLeaveType.value}`)
       .then(response => response.json())
       .then(msg => {
           console.log(msg);
           console.log('msg');
          
-        dateError.innerHTML =  msg;
- 
+         editLeaveError.innerHTML=msg;
 
+          
+        
       });
-      
+
+
+}
+
+editLeaveBtn.addEventListener('click',
+   function () {
+  console.log("leave edit btn clicked");   
+  fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestTypeValidate/${editLeaveDate.value}/${editLeaveType.value}/${editLeaveType.value}`)
+      .then(response => response.json())
+      .then(value => {
+          console.log(msg);
+          console.log('value');
+         
+
+          
+        
+      });
+  
+
+
    }
 )
+
 ///////////////////////////
 // filter options
 //////////////////////////
