@@ -1,20 +1,19 @@
 //************* Filters of Receptionis Daily View **************//
-console.log('filter file connected');
-if (document.getElementById("filterDailyViewBtn")) {
-    const dailyViewFilterBtn = document.getElementById("filterDailyViewBtn");
-}
+// if(document.getElementById("filterDailyViewBtn")){
+// const dailyViewFilterBtn = document.getElementById("filterDailyViewBtn");
+// }
 
 
-if (dailyViewFilterBtn) {
-    dailyViewFilterBtn.addEventListener("click", () => {
-        const datePicker = document.getElementById("datePicker");
-        const staffSelector = document.getElementById("staffSelector");
-        let dateSelected = datePicker.value;
-        let staffIDSelected = staffSelector.value;
+// if (dailyViewFilterBtn) {
+//     dailyViewFilterBtn.addEventListener("click", () => {
+//         const datePicker = document.getElementById("datePicker");
+//         const staffSelector = document.getElementById("staffSelector");
+//         let dateSelected = datePicker.value;
+//         let staffIDSelected = staffSelector.value;
 
-        window.location.replace(`http://localhost:80/beauty-craft/ReceptDashboard/dailyView/${dateSelected}/${staffIDSelected}`);
-    });
-}
+//         window.location.replace(`http://localhost:80/beauty-craft/ReceptDashboard/dailyView/${dateSelected}/${staffIDSelected}`);
+//     });
+// }
 
 //**************************************************************//
 //*************** Filters of Common Reservation ****************//
@@ -156,6 +155,7 @@ let selectedType = null;
 if (salesFilterBtn) {
     setupInvoiceStatusSelector();
 }
+
 function initializeInvoiceStatusSelector() {
     setupInvoiceStatusSelector();
 
@@ -451,4 +451,3 @@ if (allCloseDateInputFilter) {
         window.location.replace(`http://localhost:80/beauty-craft/OwnDashboard/closeSalon/${monthSelected}`);
     });
 }
-

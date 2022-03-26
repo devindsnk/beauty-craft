@@ -40,7 +40,7 @@
                   <div class="column">
                      <div class="text-group">
                         <label for="">Time</label>
-                        <p><?php echo $data["startTime"]; ?> </p>
+                        <p><?php echo DateTimeExtended::minsToTime($data["startTime"]); ?> </p>
                      </div>
                   </div>
                   <div class="column">
