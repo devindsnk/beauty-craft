@@ -174,14 +174,11 @@ fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestTypeValidate/${editLe
 editLeaveBtn.addEventListener('click',
    function () {
   console.log("leave edit btn clicked");   
-  fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestTypeValidate/${editLeaveDate.value}/${editLeaveType.value}/${editLeaveType.value}`)
+  fetch(`http://localhost:80/beauty-craft/Leaves/editLeaverequest/${editLeaveDate.value}/${editLeaveType.value}/${editLeaveReason.value}`)
       .then(response => response.json())
       .then(value => {
-          console.log(msg);
-          console.log('value');
-         
-
-          
+          console.log(value);
+          console.log('value');       
         
       });
   
