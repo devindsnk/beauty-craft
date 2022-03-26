@@ -3,11 +3,14 @@ class CustomerModel extends Model
 {
    public function registerCustomer($data)
    {
+      $imgPath = ["M" => "male.jpg", "F" => "female.jpg"];
+
       $this->insert('customers', [
          'fName' => $data['fName'],
          'lName' => $data['lName'],
          'mobileNo' => $data['mobileNo'],
          'gender' => $data['gender'],
+         'imgPath' => $imgPath[$data['gender']],
          'status' => 1
       ]);
    }
@@ -54,26 +57,24 @@ class CustomerModel extends Model
    }
    // for customer table end
 
-   public function getAllCustomersWithFilters($cusName,$cusMobileNumber,$status)
+   public function getAllCustomersWithFilters($cusName, $cusMobileNumber, $status)
    {
-      
+
       $SQLstatement =
-      "SELECT * FROM customers  WHERE customerID != 000001";
+         "SELECT * FROM customers  WHERE customerID != 000001";
 
       // Remove spaces, otherwise sql query doesnt work
       $string1 = "'$cusName%'";
-      $string1= str_replace(' ', '', $string1);
+      $string1 = str_replace(' ', '', $string1);
 
       $string2 = "'$cusMobileNumber%'";
-      $string2= str_replace(' ', '', $string2);
+      $string2 = str_replace(' ', '', $string2);
 
       if ($cusName != "all") $SQLstatement .= " AND customers.fName LIKE $string1 OR customers.lName LIKE $string1 ";
       if ($cusMobileNumber != "all") $SQLstatement .= " AND customers.mobileNo LIKE $string2 ";
       if ($status != "all") $SQLstatement .= " AND customers.status = $status ";
       $results = $this->customQuery($SQLstatement,  null);
       return $results;
-
-
    }
 
    // added by ravindu
@@ -171,7 +172,7 @@ class CustomerModel extends Model
    public function getAllActiveCustomers()
    {
       $SQLstatement =
-         "SELECT customerID, fName, lName, mobileNo 
+         "SELECT customerID, fName, lName, mobileNo, imgPath 
          FROM customers 
          WHERE status = 1 AND customerID <> '000001'";
       $results = $this->customQuery($SQLstatement);

@@ -47,6 +47,9 @@ const leaveSelectorBtn=sleaveSelectorBtn.value;
 const lTypeSelectorSP=slTypeSelectorSP.value;
 const lStatusSelectorSP=slStatusSelectorSP.value;
 
+    setupLeaveStatusSelector();
+
+
 }
 
 
@@ -54,17 +57,17 @@ const lStatusSelectorSP=slStatusSelectorSP.value;
 let leaveSelectedType=null;
 // console.log(lTypeSelectorSP);
 
-if (leaveSelectorBtn) {
-    setupLeaveStatusSelector();
-}
+// if (leaveSelectorBtn) {
+//     setupLeaveStatusSelector();
+// }
 
 
 // lStatusSelectorSP.disabled = true;
 function initializeLeavestatusSelector() {
-    console.log("value changed");
+    
     const lTypeSelectorSP = document.getElementById("lTypeLeaveData").value;
     const lStatusSelectorSP = document.getElementById("lStatusLeaveData").value;
-    console.log(lTypeSelectorSP);
+    
 
     setupLeaveStatusSelector();
 
@@ -84,7 +87,7 @@ function setupLeaveStatusSelector() {
         lStatusSelectorSP.options[1].hidden = false;
 
         if (lTypeSelectorSP == "1") {
-            // console.log("value 1");
+            
             lStatusSelectorSP.options[0].hidden = true; //all
             lStatusSelectorSP.options[1].hidden = false; //approved
             lStatusSelectorSP.options[2].hidden = false; //pending
@@ -93,7 +96,7 @@ function setupLeaveStatusSelector() {
 
 
         } else {
-            //  console.log("value 2");
+            
             lStatusSelectorSP.options[0].hidden = false;
             lStatusSelectorSP.options[1].hidden = false;
             lStatusSelectorSP.options[2].hidden = false;
@@ -102,7 +105,7 @@ function setupLeaveStatusSelector() {
 
 
         }
-        console.log(lStatusSelectorSP.value);
+        
     } else {
         lStatusSelectorSP.options[0].selected = true;
         lStatusSelectorSP.disabled = true;
@@ -110,35 +113,18 @@ function setupLeaveStatusSelector() {
 }
 //************ Filters of SProvider Leaves ***************//
 
-// if(document.getElementById("lTypeLeaveData")){
-// const lTypeSelectorSP = document.getElementById("lTypeLeaveData");
-// const lStatusSelectorSP = document.getElementById("lStatusLeaveData");
-// console.log(lTypeSelectorSP.value);
-// }
+
 
 function filterLeavesSpAndRecep() {
-    console.log("filter function called");
+    
     const lTypeSelectorSP = document.getElementById("lTypeLeaveData");
-    console.log(lTypeSelectorSP.value);
-    console.log("filter  leave function called");
     const lStatusSelectorSP = document.getElementById("lStatusLeaveData");
-    console.log(lStatusSelectorSP.value);
 
-    // if(lTypeSelectorSP.value==2){
-
-    //     if (opt.value == "StackOverflow") {
-    //     opt.disabled = true;
-
-    // }
-
-    // }
     window.location.replace(`http://localhost/beauty-craft/Leaves/leaves/${lTypeSelectorSP.value}/${lStatusSelectorSP.value}`);
 
 
 }
-// function filterReservation(){
-//     console.log("filter reservatuion");
-// }
+
 
 
 
@@ -270,7 +256,7 @@ function setupLeaveRequestStatusSelector() {
 
 if (allLRequestsFilterBtn) {
     allLRequestsFilterBtn.addEventListener("click", () => {
-        console.log('fdffdf');
+        
         const sProvSelector = document.getElementById("sProvSelector");
         const leaveDateSelector = document.getElementById("leaveDateSelector");
         const managerSelector = document.getElementById("managerSelector");
@@ -324,7 +310,7 @@ if (allTakenLeavesFilterBtn) {
 //************ Filters of Staff members table ***************//
 
 const allStaffFilterBtn = document.getElementById("allStaffFilterBtn");
-// console.log("hi staff filters");
+
 if (allStaffFilterBtn) {
     allStaffFilterBtn.addEventListener("click", () => {
         const sTypeSelector = document.getElementById("sTypeSelector");
