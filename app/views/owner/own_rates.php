@@ -23,15 +23,6 @@
 
                 <div class="card1 contentBox">
                     <h3>Leave Limit</h3>
-                    <!-- <?php print_r($data); ?> -->
-
-                    <!-- <?php $leaveLimitsD = $data['leaveLimits']; ?>
-                    <?php $salaryD = $data['salaryRates']; ?>
-                    <?php $commissionRateD = $data['commissionRates']; ?>
-                    <?php $minimumNumberOfManagersD = $data['minimumNoOfManagers']; ?> -->
-                    <!-- <?php echo $salaryD->managerSalaryRate; ?> -->
-                    <!-- <?php echo $commissionRateD->rate; ?> -->
-
 
                     <form action="<?php echo URLROOT; ?>/rates/updateLeaveLimit" method="post">
 
@@ -150,45 +141,6 @@
                     <!-- /////////////////////////////////////////////////////////////////// -->
 
                 </div>
-
-                <!-- <div class="card3 contentBox">
-                    <h3>Other</h3>
-
-                    <div class="deatailbox">
-
-                        <div class=" labelBox">
-                            <label class="rateLabel">Service Commision Rate</label><br>
-                            <span class="error"><?php echo $data['rate_error']; ?></span>
-                        </div>
-                        <div class="valueBox">
-                            <input type="text" class="rateValue" name="rate" value="<?php echo $data['rate'] . "%"; ?>">
-                        </div>
-                        <div class="ratebutton">
-                            <button class="btn btn-filled btn-grey" name="action" value="saveCommissionRate">Save
-                                Changes</button>
-                        </div>
-
-                    </div>
-                    <div class="ownAddstaffLineContainer">
-                        <div class="ownAddstaffLines">
-                        </div>
-                    </div>
-                    <div class="deatailbox">
-
-                        <div class=" labelBox">
-                            <label class="rateLabel">Minimum Number of Managers</label><br>
-                            <span class="error"><?php echo $data['minimumNumber_error']; ?></span>
-                        </div>
-                        <div class="valueBox">
-                            <input type="text" class="rateValue" name="minimumNumber" value="<?php echo $data['minimumNumber']; ?> ">
-                        </div>
-                        <div class="ratebutton">
-                            <button class="btn btn-filled btn-grey" name="action" value="saveMinimumNumberOfManagers">Save Changes</button>
-                        </div>
-
-                    </div>
-
-                </div> -->
 
             </div>
         </form>

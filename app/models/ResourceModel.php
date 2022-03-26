@@ -18,14 +18,6 @@ class ResourceModel extends Model
    {
       $NoOfResources = $data['quantity'];
       $ResourceID = $data['nameSelected'];
-   //    $first400 = substr($ResourceID, 0, 3);
-   //    $theRest = substr($ResourceID, 3);
-   //    print_r($theRest);
-   //    $SQLstatement= "SELECT * FROM purchaserecords WHERE purchaseID LIKE '$theRest%' ORDER BY purchaseID DESC LIMIT 1";
-      
-   //    $results = $this->customQuery($SQLstatement,  NULL);
-   //   print_r($results);
-   //    die(" ");
       for ($x = 1; $x <= $NoOfResources; $x++)
       {
          $this->insert('purchaserecords', ['resourceID' => $ResourceID, 'manufacturer' => $data['manufacturer'], 'modelNo' => $data['modelNo'], 'warrantyExpDate' => $data['warrantyExpDate'], 'price' => $data['price'], 'purchaseDate' => $data['purchaseDate']]);
@@ -78,9 +70,6 @@ class ResourceModel extends Model
 
    public function getAllResourcesWithFilters($resourceName,$resourceID)
    {
-      print_r($resourceID);
-      print_r($resourceName);
-      // die("MODEL CALLED");
       $conditions = array(); 
  
       // Extract specially defined conditions to a separate array 
