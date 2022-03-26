@@ -51,6 +51,9 @@ class Leaves extends Controller
    public function leaves($lType = 'all', $lStatus = 'all')
    {
       Session::validateSession([4, 5]);
+      // $mLeaveLimit = $this->LeaveModel->updateLeaveRequestData('2022-03-28', 3, 2, 'sample new reason', 000031);
+      // die();
+
 
       $leaveData = $this->LeaveModel->getLeaveRecordsBystaffID(Session::getUser("id"), $lType, $lStatus);
       $gLeaveLimit = $this->LeaveModel->getGeneralLeaveLimit();
@@ -314,6 +317,8 @@ class Leaves extends Controller
       Session::validateSession([4, 5]);
       $result = $this->LeaveModel->cancelLeaveRequest($date, Session::getUser("id"));
       Toast::setToast(1, "Leave request deleted successfully.", "");
+      redirect('Leaves/leaves');
+
       print_r(json_encode($result));
    }
    public function getSelectedLeaveDetails($date, $status)
@@ -396,19 +401,18 @@ class Leaves extends Controller
       print_r(json_encode($results));
    }
 
-   public function editLeaverequest($date, $type, $reason)
+   public function editLeaverequest($date, $oldType, $newType, $reason)
    {
-      $date =  DateTimeExtended::getCurrentDate();
-      $results = $this->LeaveModel->getSelectedLeaveDetails($date, 2, Session::getUser("id"));
+
+      $results = $this->LeaveModel->updateLeaveRequestData($date, $oldType, $newType, $reason, Session::getUser("id"));
 
 
-      // if ($results)
-      //    Toast::setToast(1, "Uninformed leave marked successfully", "");
-      // else
-      //    Toast::setToast(0, "Uninformed leave marking failed", "");
+      if ($results)
+         Toast::setToast(1, "Leave request update successfully", "");
+      else
+         Toast::setToast(0, "Leave request update  failed", "");
 
       header('Content-Type: application/json; charset=utf-8');
-      $results = $this->LeaveModel->getSelectedLeaveDetails($date, 2, Session::getUser("id"));
-      print_r(json_encode($results->leaveDate));
+      print_r(json_encode($results));
    }
 }
