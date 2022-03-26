@@ -224,7 +224,7 @@
          <div class="new-type-head">
             <h1>Edit Leave Request</h1>
          </div>
-         <div class="leaverequest-form-content">
+         <div class="leaverequest-form-content form">
             <div class="reqleave-date-section">
                <!-- <p class="test-class">Bla bla</p> -->
                <div class="leave-date-section">
@@ -245,8 +245,8 @@
                <div class="reqleave-type-section">
                   <label class="labels" for="serviceName">Type</label><br>
                   <div class="dropdown-group">
-                     <select name="leavetype" class="editleavetype" id="lstatusedit">
-                        <option class="unbold" value="0" option selected="true" disabled="disabled">Select</option>
+                     <select name="leavetype" class="editleavetype" id="lstatusedit" onchange="editleaveRequestSaveChanges(this);">
+                        <option class=" unbold" value="0" option selected="true" disabled="disabled">Select</option>
                         <option value=1 <?php if ($data['leavetype'] == 1) echo 'selected'; ?>>Casual</option>
                         <option value=2 <?php if ($data['leavetype'] == 2) echo 'selected'; ?>>Medical</option>
                      </select>
@@ -254,6 +254,7 @@
                </div>
             </div>
             <span class="error request-date-error">
+
             </span>
             <div class="reqleave-reason-section">
                <div class="text-group">
@@ -261,19 +262,21 @@
 
                   <textarea type="text" name="reason" id="takeLeaveReasonedit" placeholder="-- Type in --" class="editTextArea" value="<?php echo $data['reason']; ?>"><?php echo $data['reason']; ?></textarea>
                </div>
-               <span class="error"> <?php echo $data['reason_error']; ?></span>
+               <span class="error edit-type-error"> <?php echo $data['reason_error']; ?></span>
             </div>
+
             <div class="reqleave-button-section">
                <div class="modalbutton">
                   <div class="btn1">
                      <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
                   </div>
                   <div class="btn2">
-                     <button type="submit" name="action" value="edit" class="confirm-service-btn proceedBtn" onclick="leaveRequestSaveChanges(this);">Save Changes</button>
+                     <button type="submit" name="action" value="edit" class="confirm-service-btn editleaveProceedBtn proceedBtn" onclick="leaveRequestSaveChanges(this);">Save Changes</button>
                   </div>
                </div>
             </div>
          </div>
+
       </div>
    </div>
    <!-- end edit leave model -->
