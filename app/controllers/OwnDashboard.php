@@ -21,16 +21,18 @@ class OwnDashboard extends Controller
       // $this->view('owner/own_overview', $getManagerCount);
    }
 
-   
+
    public function overview()
    {
       $activeManagers = $this->staffModel->getActiveManagerDetails();
-      $availableManagers=0;
-      for($i = 0 ; $i< sizeof($activeManagers); $i++){
-        $todayLeaveCount =  $this->staffModel->getManagerTodayLeaveCountByStaffID($activeManagers[$i]->staffID);
-            if($todayLeaveCount[0]->leaveCount==0){
-                  $availableManagers++;
-            }
+      $availableManagers = 0;
+      for ($i = 0; $i < sizeof($activeManagers); $i++)
+      {
+         $todayLeaveCount =  $this->staffModel->getManagerTodayLeaveCountByStaffID($activeManagers[$i]->staffID);
+         if ($todayLeaveCount[0]->leaveCount == 0)
+         {
+            $availableManagers++;
+         }
       }
       $totalIncome = $this->reservationModel->getTotalIncomeForMangOverview();
       $activeCustomers = $this->customerModel->getActiveCustomerCount();
@@ -39,7 +41,7 @@ class OwnDashboard extends Controller
          'activeCustomers' => $activeCustomers,
          'activeManagers' => $availableManagers
       ];
-      $this->view('owner/own_overview',$ownOverviewDetails);
+      $this->view('owner/own_overview', $ownOverviewDetails);
    }
 
    public function overviewChart1()
@@ -56,7 +58,7 @@ class OwnDashboard extends Controller
       print_r(json_encode($totalStaffMembersForChart2));
    }
 
-   public function closeSalon($monthSelected ="all")
+   public function closeSalon($monthSelected = "all")
    {
       $closeDatesDetails = $this->closedDatesModel->getCloseDatesDetails($monthSelected);
       $CurrentCloseDateaCount = sizeof($closeDatesDetails);
@@ -140,7 +142,7 @@ class OwnDashboard extends Controller
 
    public function customers()
    {
-      $CusDetails = $this->customerModel->getAllCustomerDetails();   
+      $CusDetails = $this->customerModel->getAllCustomerDetails();
       $GetCustomerArray = ['customer' => $CusDetails];
       $this->view('owner/own_customers', $GetCustomerArray);
    }
@@ -182,7 +184,7 @@ class OwnDashboard extends Controller
             {
                $data['generalLeave_error'] = "Please insert a value";
             }
-            if ($data['generalLeave']<0)
+            if ($data['generalLeave'] < 0)
             {
                $data['generalLeave_error'] = "Value must be positive";
             }
@@ -192,7 +194,7 @@ class OwnDashboard extends Controller
             {
                $data['medicalLeave_error'] =  "Please insert a value";
             }
-            if ($data['medicalLeave']<0)
+            if ($data['medicalLeave'] < 0)
             {
                $data['medicalLeave_error'] = "Value must be positive";
             }
@@ -201,7 +203,7 @@ class OwnDashboard extends Controller
             {
                $data['managerGeneralLeave_error'] = "Please insert a value";
             }
-            if ($data['managerGeneralLeave']<0)
+            if ($data['managerGeneralLeave'] < 0)
             {
                $data['managerGeneralLeave_error'] = "Value must be positive";
             }
@@ -210,7 +212,7 @@ class OwnDashboard extends Controller
             {
                $data['managerMedicalLeave_error'] = "Please insert a value";
             }
-            if ($data['managerMedicalLeave']<0)
+            if ($data['managerMedicalLeave'] < 0)
             {
                $data['managerMedicalLeave_error'] = "Value must be positive";
             }
@@ -219,13 +221,14 @@ class OwnDashboard extends Controller
             {
                $data['managerDailyLeave_error'] = "Please insert a value";
             }
-            if ($data['managerDailyLeave']<0)
+            if ($data['managerDailyLeave'] < 0)
             {
                $data['managerDailyLeave_error'] = "Value must be positive";
             }
 
             if (
-               empty($data['generalLeave_error']) && empty($data['medicalLeave_error']) && empty($data['managerGeneralLeave_error']) && empty($data['managerMedicalLeave_error']) && empty($data['managerDailyLeave_error']))
+               empty($data['generalLeave_error']) && empty($data['medicalLeave_error']) && empty($data['managerGeneralLeave_error']) && empty($data['managerMedicalLeave_error']) && empty($data['managerDailyLeave_error'])
+            )
             {
                $this->ratesModel->updateLeaveLimitDeatils($data);
                Toast::setToast(1, "Leave Limit Successfully Updated!", "");
@@ -244,7 +247,7 @@ class OwnDashboard extends Controller
                $data['managerSalaryRate_error'] =  "Please insert a value";
             }
 
-            if ($data['managerSalaryRate']<0)
+            if ($data['managerSalaryRate'] < 0)
             {
                $data['managerSalaryRate_error'] =  "Please insert a positive value";
             }
@@ -270,7 +273,7 @@ class OwnDashboard extends Controller
             }
             if (empty($data['managerSalaryRate_error']) && empty($data['serviceProviderSalaryRate_error']) && empty($data['receptionistSalaryRate_error']))
             {
-               
+
                $this->ratesModel->updateSalaryRateDetails($data);
                Toast::setToast(1, "Salary Rate Successfully Updated!", "");
                $this->view('owner/own_rates', $data);
@@ -287,10 +290,12 @@ class OwnDashboard extends Controller
             {
                $data['rate_error'] =  "Please insert a value";
             }
-            if ($data['rate']> 100){
+            if ($data['rate'] > 100)
+            {
                $data['rate_error'] =  "Please insert a value less than 100 ";
             }
-            if ($data['rate']<0){
+            if ($data['rate'] < 0)
+            {
                $data['rate_error'] =  "Please insert a positive value ";
             }
             if (empty($data['rate_error']))
@@ -307,7 +312,6 @@ class OwnDashboard extends Controller
       }
       else
       {
-         print_r($result1[0]->generalLeave);
          $data = [
             'generalLeave' => $result1[0]->generalLeave,
             'medicalLeave' => $result1[0]->medicalLeave,
@@ -317,8 +321,8 @@ class OwnDashboard extends Controller
             'generalLeave_error' => '',
             'medicalLeave_error' => '',
             'managerGeneralLeave_error' => '',
-            'managerMedicalLeave_error' => '', 
-            'managerDailyLeave_error' => '', 
+            'managerMedicalLeave_error' => '',
+            'managerDailyLeave_error' => '',
 
             'managerSalaryRate' => $result2[0]->managerSalaryRate,
             'serviceProviderSalaryRate' => $result2[0]->serviceProviderSalaryRate,
@@ -327,8 +331,8 @@ class OwnDashboard extends Controller
             'serviceProviderSalaryRate_error' => '',
             'receptionistSalaryRate_error' => '',
 
-            'rate' => $result3[0]->rate, 
-            'rate_error' => '', 
+            'rate' => $result3[0]->rate,
+            'rate_error' => '',
          ];
          $this->view('owner/own_rates', $data);
       }
@@ -344,7 +348,7 @@ class OwnDashboard extends Controller
    {
       $this->view('owner/own_salaries');
    }
-   
+
    public function services()
    {
       // $sDetails = $this->serviceModel->getServiceDetails();
