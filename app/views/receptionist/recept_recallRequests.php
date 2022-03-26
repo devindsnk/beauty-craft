@@ -97,7 +97,7 @@
                </div>
                <div class="confirm-model-head">
                   <button class="btn btnClose normal ModalButton ModalCancelButton">Close</button>
-                  <button class="btn normal ModalButton ModalRedButton" onclick="recallCancelReservation(recordID);">Yes, Cancel</button>
+                  <button class="btn normal ModalButton ModalRedButton proceedBtn" onclick="recallCancelReservation(this);">Yes, Cancel</button>
                </div>
             </div>
          </div>

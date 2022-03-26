@@ -29,7 +29,7 @@
                   <span class="error cust-error"></span>
                   <div class="profile-info">
                      <div class="img-container">
-                        <img class="header-profilepic" src="<?php echo URLROOT ?>/public/imgs/person1.jpg"></img>
+                        <img class="header-profilepic" src="<?php echo URLROOT ?>/public/imgs/customerImgs/male.jpg"></img>
                      </div>
                      <div class="text-container">
                         <label class="cust-name"></label>

@@ -5,6 +5,7 @@ class Staff extends Controller
    {
       $this->userModel = $this->model('UserModel');
       $this->staffModel = $this->model('StaffModel');
+      $this->serviceModel = $this->model('ServiceModel');
    }
 
    public function viewAllStaffMembers($sType = "all", $status = "all", $sName = "all")
@@ -56,7 +57,6 @@ class Staff extends Controller
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'FILES')
       {
-
          $img_name = " ";
          $new_img_name =  " ";
          $img_name = $_FILES['staffimage']['name'];
@@ -866,5 +866,13 @@ class Staff extends Controller
       $result = $this->staffModel->getReservtaionDetailsByStaffID($staffID);
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($result));
+   }
+
+   public function getActiveSProvCount()
+   {
+      $results = $this->serviceModel->getAvailableServiceProvidersCount();
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($results[0]->serProvCount));
    }
 }
