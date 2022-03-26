@@ -6,11 +6,12 @@ const custDetailsBox = document.querySelector(".profile-info");
 const custNameBox = document.querySelector(".profile-info .cust-name");
 const custMobNo = document.querySelector(".profile-info .contact-no");
 const custRemoveBtn = document.querySelector(".profile-remove");
+const custImage = document.querySelector(".header-profilepic");
 
 getCustomersList();
 
 let suggestions = [
-    // ["Devin Dissanayake", "0717679714", "000064"],
+    // ["Devin Dissanayake", "0717679714", "000064", "imgPath"],
     // ["Kasun Mendis", "0767679714", "000064"],
     // ["KBaFsun Mendis", "0717679714", "000064"],
     // ["Kasuinisfs Mendis", "0767679714", "000064"],
@@ -33,7 +34,7 @@ inputBox.onkeyup = (e) => {
 
         // map each suggestion to an element
         filteredCustList = filteredCustList.map((customer) => {
-            customer = `<li data-name = "${customer[0]}" data-mobno= "${customer[1]}" data-custid = "${customer[2]}" onclick="addCustomer(this)">${customer[0]} ${customer[1]}</li>`
+            customer = `<li data-name = "${customer[0]}" data-mobno= "${customer[1]}" data-custid = "${customer[2]}" data-img = "${customer[3]}" onclick="addCustomer(this)">${customer[0]} ${customer[1]}</li>`
             return customer;
         })
 
@@ -68,6 +69,12 @@ function addCustomer(option) {
     inputBox.value = "";
     suggestionsBox.style.display = "none";
 
+    let imgPath = option.getAttribute("data-img");
+    if (imgPath != 'null')
+        custImage.setAttribute("src", 'http://localhost/beauty-craft/public/imgs/customerImgs/' + option.getAttribute("data-img"));
+    else {
+        custImage.setAttribute("src", 'http://localhost/beauty-craft/public/imgs/customerImgs/male.jpg');
+    }
     custError.innerHTML = "";
 }
 
@@ -77,7 +84,7 @@ async function getCustomersList() {
         .then(response => response.json())
         .then(customers => {
             customers.forEach(customer => {
-                let tempArray = [`${customer['fName']} ${customer['lName']}`, `${customer['mobileNo']}`, `${customer['customerID']}`]
+                let tempArray = [`${customer['fName']} ${customer['lName']}`, `${customer['mobileNo']}`, `${customer['customerID']}`, `${customer['imgPath']}`]
                 suggestions.push(tempArray);
             });
         });
