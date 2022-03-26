@@ -231,7 +231,6 @@ class Staff extends Controller
             $this->userModel->registerUser($data['staffMobileNo'], $data['staffNIC'], $data['staffType']);
             $this->staffModel->addStaffDetails($data);
             $this->staffModel->addBankDetails($data);
-            $this->userModel->commit();
             //System log
             Systemlog::createAccount($data['staffMobileNo']);
             SMS::sendStaffRegSMS($data['staffMobileNo'], $data['staffType']);

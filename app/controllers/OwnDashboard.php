@@ -254,7 +254,7 @@ class OwnDashboard extends Controller
                $data['serviceProviderSalaryRate_error'] =  "Please insert a value";
             }
 
-            if ($data['serviceProviderSalaryRate'])
+            if ($data['serviceProviderSalaryRate']<0)
             {
                $data['serviceProviderSalaryRate_error'] =  "Please insert a positive value";
             }
