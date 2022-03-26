@@ -2,7 +2,6 @@
 // Contains the modal to toggle
 let modalToToggle = null;
 // let recordID = null;
-console.log("Model js file connected");
 
 // Remove Service Modal Section
 const removeServiceModal = document.querySelector(".remove-service");
@@ -238,15 +237,15 @@ if (viewLeaveBtnList) {
             console.log(btn);
             toggleModal(btn);
 
-        let leaveReqDate = btn.getAttribute("data-id") // get id from the clicked btn of the list
-        let leaveReqType = btn.getAttribute("data-status") // get id from the clicked btn of the list
+            let leaveReqDate = btn.getAttribute("data-id") // get id from the clicked btn of the list
+            let leaveReqType = btn.getAttribute("data-status") // get id from the clicked btn of the list
 
-        const approveBtn = modalToToggle.querySelector('.approveBtn'); // get the approveBtn btn of the modal
-        if (approveBtn) {
-            approveBtn.setAttribute('data-id', leaveReqDate);
-            approveBtn.setAttribute('data-status', leaveReqType);
-            console.log(approveBtn);
-        }
+            const approveBtn = modalToToggle.querySelector('.approveBtn'); // get the approveBtn btn of the modal
+            if (approveBtn) {
+                approveBtn.setAttribute('data-id', leaveReqDate);
+                approveBtn.setAttribute('data-status', leaveReqType);
+                console.log(approveBtn);
+            }
         });
     });
 }
@@ -328,6 +327,12 @@ provideFeedbackBtnList.forEach((btn) => {
     });
 });
 
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------- */
+/* ------------------ Approve/Reject Leave Section ------------------- */
+
 
 // Approve leave Modal Section
 const approveLeaveModal = document.querySelector(".approve-leave");
@@ -404,7 +409,7 @@ voidRefInvBtnModal.forEach((btn) => {
 });
 
 /* ------------------------------------------------------------------- */
-/* -------------------- customer profile picture ------------------------ */
+/* -------------------- customer profile picture --------------------- */
 
 // remove picture
 const imgRemovePayModal = document.querySelector(".img-remove");
@@ -417,7 +422,7 @@ if (imgRemoveBtn) {
 }
 
 /* ------------------------------------------------------------------- */
-/* ------------------------ Recept Test Section ---------------------- */
+/* ----------------- Recept Daily Update Section --------------------- */
 
 // Mark on leave Modal Section
 const custMarkLeaveModal = document.querySelector('.sProv-markLeave');
@@ -459,13 +464,11 @@ btnCloseList.forEach((btn) => {
 
 // get the id assigned to the clicked btn and assign id to the proceed btn of the modal
 function transferIDToModal(btn) {
-   
     let recordID = btn.getAttribute("data-id") // get id from the clicked btn of the list
     const proceedBtn = modalToToggle.querySelector('.proceedBtn'); // get the proceed btn of the modal
     if (proceedBtn) {
         proceedBtn.setAttribute('data-id', recordID);
     } // assign id as a data attribute to the proceed btn
-
 }
 
 

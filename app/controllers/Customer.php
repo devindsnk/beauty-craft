@@ -14,7 +14,7 @@ class Customer extends Controller
       print_r($cusNameInputTyped);
       print_r($cusCotactInputTyped);
       print_r($statusSelected);
-      // die("controller called");
+
       $AllCustomerDetails = $this->customerModel->getAllCustomersWithFilters($cusNameInputTyped, $cusCotactInputTyped, $statusSelected);
 
       $data = [
