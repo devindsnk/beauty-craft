@@ -1,13 +1,22 @@
 .sProvHeadersContainer {
     display: grid;
-    grid-template-columns: 25px 1fr 1fr 1fr 1fr 1fr 25px;
+    grid-template-columns: 27px 1fr 1fr 1fr 1fr 1fr 27px;
     /* gap: 1px; */
 
-    margin: 15px 25px 0 55px;
+    margin: 15px 23px 0 53px;
 }
 
 .arrow {
     display: flex;
+    padding: 2px;
+}
+
+.arrowLeft {
+    border-radius: 6px 0 0 6px;
+}
+
+.arrowRight {
+    border-radius: 0 6px 6px 0;
 }
 
 .arrow:hover {
@@ -25,7 +34,6 @@
     flex-direction: column;
     border-right: 1px solid #c4cae0;
     border-left: 1px solid #c4cae0;
-    /* background-color: coral; */
 }
 
 .sProvHeader img {

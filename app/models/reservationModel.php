@@ -700,24 +700,22 @@ class ReservationModel extends Model
    {
       $SQLquery =
          "SELECT RES.reservationID,
-            SV.name AS serviceName,
-            RES.startTime AS resStartTime,
-            SV.totalDuration,
-            TS.slotNo,
-            TS.startingTime AS slotStartOffset,
-            TS.duration AS slotDuration,
-            RES.status,
-            S.staffID,
-            S.fName,
-            S.lName,
-            S.imgPath
+         SV.name AS serviceName,
+         RES.startTime AS resStartTime,
+         SV.totalDuration,
+         TS.slotNo,
+         TS.startingTime AS slotStartOffset,
+         TS.duration AS slotDuration,
+         RES.status,
+         S.staffID,
+         S.fName,
+         S.lName,
+         S.imgPath
          FROM
-            reservations AS RES
-         INNER JOIN services AS SV ON SV.serviceID = RES.serviceID
-         INNER JOIN timeslots AS TS ON SV.serviceID = TS.serviceID
-         RIGHT JOIN (select * from staff WHERE staffType = 5 AND status = 1 ORDER BY staffID ASC limit :offset,:limit) AS S ON S.staffID = RES.staffID
-         WHERE (RES.date = :givenDate OR RES.date IS NULL) AND (RES.status IN(1, 2, 3, 4, 5) OR RES.status IS NULL)
-         ORDER BY RES.reservationID, TS.slotNo;";
+         (SELECT * FROM staff WHERE status IN (1,2) AND staffType = 5 ORDER BY staffID ASC limit :offset,:limit) AS S
+         LEFT JOIN reservations AS RES ON RES.staffID = S.staffID AND RES.status IN (1,2,3,4,5) AND RES.date = :givenDate 
+         LEFT JOIN services AS SV ON SV.serviceID = RES.serviceID
+         LEFT JOIN timeslots AS TS ON TS.serviceID = SV.serviceID;";
 
       $results = $this->customQuery(
          $SQLquery,

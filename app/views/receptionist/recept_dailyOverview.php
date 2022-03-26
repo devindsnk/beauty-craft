@@ -13,7 +13,13 @@
 
    <!--Content-->
    <div class="content recept daily-view">
+
       <div class="page-top-main-container">
+         <div class="text-group">
+            <label class="label" for="fName">Date</label>
+            <input type="date" name="" id="datePicker" onchange="calendarUpdate(this)" value="<?php echo $data["selectedDate"] ?>">
+         </div>
+         <span class="error"> <?php echo " "; ?></span>
          <a href="<?php echo URLROOT ?>/reservations/newReservationRecept" class="btn btn-filled btn-theme-purple btn-main">Add
             New</a>
       </div>

@@ -2,7 +2,6 @@
 // Contains the modal to toggle
 let modalToToggle = null;
 // let recordID = null;
-console.log("Model js file connected");
 
 // Remove Service Modal Section
 const removeServiceModal = document.querySelector(".remove-service");
