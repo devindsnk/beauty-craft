@@ -40,10 +40,4 @@ class RatesModel extends Model
       $result = $this->customQuery("SELECT * FROM commissionrates ORDER BY changedDate DESC LIMIT 1");
       return $result;
    }
-
-   // public function getMinimumNumberOfManagers()
-   // {
-   //    $result = $this->getResultSet('minimumnumberofmanagers', '*', null);
-   //    return $result;
-   // }
 }

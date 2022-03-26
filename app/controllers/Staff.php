@@ -84,15 +84,6 @@ class Staff extends Controller
          $data['staffimagePath'];
          $data['staffHomeAddTyped'] = $data['staffHomeAdd'];
 
-         // if (($data['staffimagePath'] == " " ) && ($data['gender'] == "M"))
-         // {
-         //    $data['staffimagePath'] = "male";
-         // }
-
-         // if (($data['staffimagePath'] == " " ) && ($data['gender'] == "F"))
-         // {
-         //    $data['staffimagePath'] = "female";
-         // }
          // Validating fname
          if (empty($data['staffFname']))
          {
@@ -182,13 +173,6 @@ class Staff extends Controller
          {
             $data['staffMobileNo_error'] = "Number is already registered";
          }
-         // for ($i = 0; $i < $CurrentStaffCount; $i++)
-         // {
-         //    if ($staffD[$i]->mobileNo == $data['staffMobileNo'])
-         //    {
-         //       $data['staffMobileNo_error'] = "The mobile number you entered is already exist.";
-         //    }
-         // }
 
          // Validating email
          if (empty($data['staffEmail']))
@@ -401,10 +385,6 @@ class Staff extends Controller
             $data['staffimagePath_error'] = "Please insert a valid image";
          }
 
-         // else
-         // {
-         //    print_r($data);
-         // }
          // Validating fname
          if (empty($data['fName']))
          {
@@ -548,9 +528,6 @@ class Staff extends Controller
          {
             $data['branchName_error'] = "Please enter branch name";
          }
-         // else if (!preg_match("/^[a-zA-Z-' ]*$/",$data['staffAccBank'])) {
-         //    $data['staffAccBank_error']  = "Only letters are allowed";
-         //  }
    
          if (
             empty($data['staffimagePath_error']) && empty($data['fName_error']) && empty($data['lName_error']) && empty($data['gender_error']) && empty($data['nic_error']) && empty($data['dob_error'])  && empty($data['address_error']) && empty($data['mobileNo_error']) && empty($data['email_error']) &&
@@ -570,8 +547,6 @@ class Staff extends Controller
                }
                else
                {   
-                  // print_r($data);
-                  // die("error");
                   $this->staffModel->updateStaff($data, $staffID);
                }
             }
@@ -588,10 +563,6 @@ class Staff extends Controller
                }
                else
                {
-                  // print_r($data);
-                  // die("error");
-                  // echo ("hi");
-                  // die();
                   $this->staffModel->updateStaff($data, $staffID);
                }
             }
@@ -821,7 +792,6 @@ class Staff extends Controller
 
    public function RemoveStaff($staffID, $staffMobileNo) //details
    {
-      // die("remove staff called");
       $this->userModel->beginTransaction();
       $this->staffModel->removestaff($staffID, $staffMobileNo);
       $this->userModel->commit();

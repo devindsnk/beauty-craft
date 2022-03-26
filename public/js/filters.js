@@ -312,7 +312,6 @@ const allResourcesFilterBtn = document.getElementById("allResourcesFilterBtn");
 // console.log("hi staff filters");
 if (allResourcesFilterBtn) {
     allResourcesFilterBtn.addEventListener("click", () => {
-        console.log("resource filters");
         const resourceNameInput = document.getElementById("resourceNameInput");
         const resourceIDInput = document.getElementById("resourceIDInput");
         // const statusSelector = document.getElementById("statusSelector");
@@ -320,10 +319,6 @@ if (allResourcesFilterBtn) {
         let y = resourceIDInput.value;
         let resourceNameInputTyped = (x == "")? "all":x;
         let resourceIDInputTyped = (y == "")? "all":y;
-        // console.log(x);
-        // console.log( resourceNameInputTyped);
-        // console.log(y);
-        // let statusSelected = statusSelector.value;
 
         window.location.replace(`http://localhost:80/beauty-craft/Resources/viewAllResources/${resourceNameInputTyped}/${resourceIDInputTyped}`);
     });
@@ -339,9 +334,6 @@ if (allPurchaseRecordsFilterBtn) {
         let resourceID = allPurchaseRecordsFilterBtn.dataset.resourceid;
         let a = manufacturerNameInput.value;        
         let manufacturerNameInputTyped = (a == "")? "all" : a;
-          
-        console.log(manufacturerNameInputTyped);
-        console.log(resourceID);
         window.location.replace(`http://localhost:80/beauty-craft/Resources/viewResources/${resourceID}/${manufacturerNameInputTyped}`);
     });
 }
@@ -353,7 +345,6 @@ const allCustomersFilterBtn = document.getElementById("allCustomersFilterBtn");
 // console.log("hi customer filters");
 if (allCustomersFilterBtn) {
     allCustomersFilterBtn.addEventListener("click", () => {
-        console.log("customers filters");
         const cusNameInput = document.getElementById("cusNameInput");
         const cusCotactInput = document.getElementById("cusContactInput");
         const statusSelector = document.getElementById("statusSelector");
@@ -362,9 +353,6 @@ if (allCustomersFilterBtn) {
         let y = cusCotactInput.value;
         let cusNameInputTyped = (x=="")? "all": x;
         let cusCotactInputTyped = (y=="")? "all":y;
-
-        console.log(cusNameInputTyped);
-        console.log(cusCotactInputTyped);
         let statusSelected = statusSelector.value;
 
         window.location.replace(`http://localhost:80/beauty-craft/Customer/viewAllCustomers/${cusNameInputTyped}/${cusCotactInputTyped}/${statusSelected}`);
@@ -393,11 +381,6 @@ if (allSalaryFilterBtn) {
         let staffIDTyped = (y =="")? "all" : y;
         let monthSelected = (z =="")? "all" : z;
         
-        console.log("salary filters");
-        console.log(staffNameTyped);
-        console.log(staffIDTyped);
-        console.log(paidTypeSelected);
-        console.log(monthSelected);
         window.location.replace(`http://localhost:80/beauty-craft/Salary/salaryTableView/${staffNameTyped}/${staffIDTyped}/${paidTypeSelected}/${monthSelected}`);
     });
 }
@@ -410,8 +393,6 @@ if (allCloseDateInputFilter) {
     allCloseDateInputFilter.addEventListener("change", () => {
         let z = allCloseDateInputFilter.value;
         let monthSelected = (z =="0000-00")? "all" : z;
-        console.log("close salon");
-        console.log(monthSelected);
         window.location.replace(`http://localhost:80/beauty-craft/OwnDashboard/closeSalon/${monthSelected}`);
     });
 }

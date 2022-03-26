@@ -28,8 +28,6 @@ class ClosedDatesModel extends Model
 
       if ($monthSelected != "all") $SQLstatement .= " WHERE closeddates.date LIKE $string ";
       $results = $this->customQuery($SQLstatement,  null);
-      var_dump($SQLstatement);
-      // die();
       return $results;
    }
 

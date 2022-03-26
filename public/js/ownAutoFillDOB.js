@@ -1,4 +1,3 @@
-console.log("nic");
 const staffNICInputField = document.querySelector('.staffNIC');
 
 staffNICInputField.addEventListener('change',
@@ -51,13 +50,8 @@ function getNICData(NIC) {
     const d = new Date();
     d.setFullYear(year, month, date);
     var gg = document.querySelector('.Date')
-    console.log(gg);
-    // var dd = year + "-" + month "-" date ;
     var dob = `${year}-${String(month).padStart(2,'0')}-${String(date).padStart(2,'0')}`
     console.log(dob);
     gg.value = dob;
-     
-    // document.querySelector('.Date').innerHTML = $("#dateOfBirth").datepicker('setDate', new Date(year,month,date));
-    // $("#dateOfBirth").datepicker('setDate', new Date(year,month,date));
     
 }

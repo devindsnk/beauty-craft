@@ -1,12 +1,8 @@
-console.log("salaries called");
 const SalaryTablePayBtn = Array.from (document.querySelectorAll(".btnSalaryPay"));
 const SalaryPayBtnAnchorTag = document.querySelector(".salaryPayAnchorTag");
-// console.log("hi hi");
 
 for ( var i = 0 ; i < SalaryTablePayBtn.length ; i++ ){
 
-// console.log (SalaryTablePayBtn[i].dataset.staffid);
-// console.log (SalaryTablePayBtn[i].dataset.month);
 let staffID = SalaryTablePayBtn[i].dataset.staffid;
 let month = SalaryTablePayBtn[i].dataset.month; 
 let mobileNo = SalaryTablePayBtn[i].dataset.mobileno; 

@@ -45,7 +45,6 @@ class OwnDashboard extends Controller
    public function overviewChart1()
    {
       $totalIncomeForChart = $this->reservationModel->getMonthlyIncomeAndTotalReservationsForMangOverviewCharts();
-      // print_r($totalIncomeForChart);
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($totalIncomeForChart));
    }
@@ -53,7 +52,6 @@ class OwnDashboard extends Controller
    public function overviewChart2()
    {
       $totalStaffMembersForChart2 = $this->staffModel->getStaffMemberCountForCharts();
-      // print_r($totalIncomeForChart);
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($totalStaffMembersForChart2));
    }
@@ -152,24 +150,20 @@ class OwnDashboard extends Controller
       $result1 = $this->ratesModel->getLeaveLimitsDetails();
       $result2 = $this->ratesModel->getSalaryRateDetails();
       $result3 = $this->ratesModel->getCommissionRateDetails();
-      // $result4 = $this->ratesModel->getMinimumNumberOfManagers();
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
-// die("rates called");
          $data = [
             'generalLeave' => trim($_POST['generalLeave']),
             'medicalLeave' => trim($_POST['medicalLeave']),
             'managerGeneralLeave' => trim($_POST['managerGeneralLeave']),
             'managerMedicalLeave' => trim($_POST['managerMedicalLeave']),
             'managerDailyLeave' => trim($_POST['managerDailyLeave']),
-            // 'evidenceLimit' => trim($_POST['evidenceLimit']),
             'generalLeave_error' => '',
             'medicalLeave_error' => '',
             'managerGeneralLeave_error' => '',
             'managerMedicalLeave_error' => '',
             'managerDailyLeave_error' => '',
-            // 'evidenceLimit_error' => '',
 
             'managerSalaryRate' => trim($_POST['managerSalaryRate']),
             'serviceProviderSalaryRate' => trim($_POST['serviceProviderSalaryRate']),
@@ -289,10 +283,6 @@ class OwnDashboard extends Controller
 
          if ($_POST['action'] == "saveCommissionRate")
          {
-            // $data = [
-            //    'rate' => trim($_POST['rate']),
-            //    'rate_error' => '',
-            // ];
             if (empty($data['rate']))
             {
                $data['rate_error'] =  "Please insert a value";
@@ -305,35 +295,15 @@ class OwnDashboard extends Controller
             }
             if (empty($data['rate_error']))
             {
-               print_r($data);
-               // die("if called");
                $this->ratesModel->updateCommissionRateDetails($data);
                Toast::setToast(1, "Commision Rate Successfully Updated!", "");
                $this->view('owner/own_rates', $data);
             }
             else
             {
-               // die("else called");
                $this->view('owner/own_rates', $data);
             }
          }
-
-         // if ($_POST['action'] == "saveMinimumNumberOfManagers")
-         // {
-         //    if (empty($data['minimumNumber']))
-         //    {
-         //       $data['minimumNumber_error'] = "Please insert a image";
-         //    }
-         //    if (empty($data['minimumNumber_error']))
-         //    {
-         //       $this->ratesModel->updateMinimumNumberOfManagers($data);
-         //       $this->view('owner/own_rates', $data);
-         //    }
-         //    else
-         //    {
-         //       $this->view('owner/own_rates', $data);
-         //    }
-         // }
       }
       else
       {
@@ -344,13 +314,11 @@ class OwnDashboard extends Controller
             'managerGeneralLeave' =>  $result1[0]->managerGeneralLeave,
             'managerMedicalLeave' =>  $result1[0]->managerMedicalLeave,
             'managerDailyLeave' =>  $result1[0]->managerDailyLeave,
-            // 'evidenceLimit' =>  $result1[0]->evidenceLimit,
             'generalLeave_error' => '',
             'medicalLeave_error' => '',
             'managerGeneralLeave_error' => '',
             'managerMedicalLeave_error' => '', 
             'managerDailyLeave_error' => '', 
-            // 'evidenceLimit_error' => '',
 
             'managerSalaryRate' => $result2[0]->managerSalaryRate,
             'serviceProviderSalaryRate' => $result2[0]->serviceProviderSalaryRate,
@@ -361,9 +329,6 @@ class OwnDashboard extends Controller
 
             'rate' => $result3[0]->rate, 
             'rate_error' => '', 
-
-            // 'minimumNumber' => $result4[0]->minimumNumber,
-            // 'minimumNumber_error' => '',
          ];
          $this->view('owner/own_rates', $data);
       }

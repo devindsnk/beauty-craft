@@ -6,11 +6,8 @@ const RemoveCloseDateBtnAnchorTag = document.querySelector(".closeDateAnchorTag"
 
 
 for ( var i = 0; i< CloseDatesTableTrashBtn.length ; i++){
-    // console.log("hi hi");
 console.log(CloseDatesTableTrashBtn[i].dataset.closedateid);
 let closeDateID = CloseDatesTableTrashBtn[i].dataset.closedateid;
-
-// checkStaffmemberStatus(staffStatus);
 
 CloseDatesTableTrashBtn[i].addEventListener('click',
 function(){

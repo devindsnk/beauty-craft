@@ -19,8 +19,6 @@ class StaffModel extends Model
             $data['staffimagePath'] = "female.jpg";
          }
       $results =  $this->insert('staff', ['fName' => $data['staffFname'], 'lName' => $data['staffLname'], 'staffType' => $data['staffType'], 'mobileNo' => $data['staffMobileNo'], 'gender' => $data['gender'], 'nic' => $data['staffNIC'], 'address' => $data['staffHomeAdd'], 'email' => $data['staffEmail'], 'dob' => $data['staffDOB'], 'imgPath' =>  $data['staffimagePath']]);
-      
-      var_dump($results);
    }
 
    //  add staff bank details to the db
@@ -34,7 +32,6 @@ class StaffModel extends Model
       );
       $staffID = $result[0]->staffID;
       $results =  $this->insert('bankdetails', ['staffID' => $staffID, 'accountNo' => $data['staffAccNum'], 'bankName' => $data['staffAccBank'], 'holdersName' => $data['staffAccHold'], 'branchName' => $data['staffAccBranch']]);
-      var_dump($results);
    }
    // get one staff details to the table
    public function  getAllStaffDetails()
@@ -182,12 +179,6 @@ class StaffModel extends Model
       );
       return $results;
    }
-   // public function getAllActiveDisableStaffNICDetails()
-
-   // {
-   //    $results =  $this->getResultSet('staff', '*', ['status' => 1 ,'status'=> 2]);
-   //    return $results;
-   // }
 
 
    // FOR MANAGER OVERVIEW
@@ -264,13 +255,7 @@ class StaffModel extends Model
       $SQLstatement = 
          "SELECT COUNT(*) as leaveCount
          FROM generalleaves WHERE staffID = :staffID AND leaveDate = :date  AND status IN (1,3)  ";
-        $results = $this->customQuery($SQLstatement,[":staffID" => $staffID, ":date" => $date]);
-      // print_r($results);
-      // "SELECT COUNT(*) AS mangCount
-      //    FROM staff AS S
-      //    INNER JOIN generalleaves AS L 
-      //    ON S.staffID = L.staffID WHERE S.status = 1 AND S.staffType = 3
-      //    AND L.leaveDate = :date AND L.status IN (0,2) 
+        $results = $this->customQuery($SQLstatement,[":staffID" => $staffID, ":date" => $date]); 
       
       return $results;
    }

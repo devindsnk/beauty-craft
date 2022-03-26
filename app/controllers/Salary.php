@@ -39,11 +39,7 @@ class Salary extends Controller
    }
    public function salaryPayMultipleStaffID($staffIDs, $months)
    {  
-      print_r($staffIDs);
-      
       $noOfStaffMembers = sizeof($staffIDs);
-      print($noOfStaffMembers);
-      die("salaryPayWithStaffID");
       for($i=0;$i<$noOfStaffMembers;$i++){    
       $this->salaryModel->payNowSalaryWithStaffID($staffIDs[$i],$months[$i]);
       }
@@ -86,7 +82,6 @@ class Salary extends Controller
       $mostRecentDateYear = date("Y", $mostRecentDate);
       $RecentmonthInNumber = date("m",strtotime($mostRecentDate));
       // $result = $this->salaryModel->calculateAndInsertSalaryPaymentDetails($fiveDaysBeforInPrevMonth,$fiveDaysBeforeInThisMonth);
-      // die("error");
 
       // check whetather the today is the last date of this month
       if ($currentDate == $lastDayThisMonth)
@@ -107,8 +102,6 @@ class Salary extends Controller
                'allStaffSalaryDetailsList' => $StaffAndSalaryPaymentDetails 
             ];  
       
-            // print_r($data); 
-            // die("error");  
             $this->view('owner/own_salaries', $data);
          }
             // if the most recent month is not equal to the current month then the payment has'nt completed
@@ -128,8 +121,6 @@ class Salary extends Controller
                'allStaffSalaryDetailsList' => $StaffAndSalaryPaymentDetails 
             ]; 
       
-            // print_r($data); 
-            // die("error");  
             $this->view('owner/own_salaries', $data);
          }
       }
@@ -144,10 +135,7 @@ class Salary extends Controller
                'paidTypeSelected' => $paidType, 
                'selectedMonth' => $month,
                'allStaffSalaryDetailsList' => $StaffAndSalaryPaymentDetails 
-            ]; 
-   
-         print_r($data); 
-         // die("error");  
+            ];   
          $this->view('owner/own_salaries', $data);
       }
 
