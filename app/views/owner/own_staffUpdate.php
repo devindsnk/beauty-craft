@@ -95,19 +95,6 @@
                                         <?php if ($data['sType'] == 3) echo "Manager"; ?> 
                                              
                                     </span>
-                                    <!-- <select name="staffType" class="dropdownselectbox" disabled>
-                                        <option class="unbold" value="0" option selected="true" disabled="disabled">
-                                            Select</option>
-                                        <option value=5
-                                            <?php if ($data['sType'] == 5) echo 'selected'; ?>>Service
-                                            Provider</option>
-                                        <option value=4
-                                            <?php if ($data['sType'] == 4) echo 'selected'; ?>>
-                                            Receptionist</option>
-                                        <option value=3
-                                            <?php if ($data['sType'] == 3) echo 'selected'; ?>>Manager
-                                        </option>
-                                    </select> -->
                                 </div>
                             </div>
                         </div>

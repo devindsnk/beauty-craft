@@ -21,7 +21,6 @@ class SalaryModel extends Model
 
    public function getAllStaffAndSalaryPaymentDetails($staffName,$staffID,$paidType,$month)
    {
-      print($staffName);
 
 $SQLstatement =
       "SELECT * FROM staff INNER JOIN salarypayments ON staff.staffID = salarypayments.staffID WHERE staff.staffType IN (3,4,5) ";
@@ -42,8 +41,6 @@ $SQLstatement =
       if ($staffID != "all") $SQLstatement .= " AND (salarypayments.month LIKE $string3) ";
       if ($paidType != "all") $SQLstatement .= " AND (salarypayments.status = $paidType) ";
       $SQLstatement .= "ORDER BY salarypayments.month";
-      var_dump($SQLstatement);
-      // die();
       $results = $this->customQuery($SQLstatement,  null);
       return $results;
    }
@@ -62,10 +59,6 @@ $SQLstatement =
 
    public function payNowSalaryWithStaffID($staffID,$month)
    {
-      print_r($staffID);
-      print_r($month);
-      // die("pay now called");
-
       $paidDate = date('Y-m-d');
       $this->update('salarypayments', ['status' => 1 , 'paidDate' => $paidDate], ['staffID' => $staffID, 'month' => $month]);
    }
@@ -166,8 +159,6 @@ $SQLstatement =
 
             $results = $this->customQuery($SQLstatement1, [':staffID' => $staffID, ':fiveDaysBeforInPrevMonth' => $fiveDaysBeforInPrevMonth, ':fiveDaysBeforeInThisMonth' => $fiveDaysBeforeInThisMonth]);
             $leaveCount = $results[0]->totalCount;
-            // print_r($leaveCount);
-            // die("mang leaves");
             $additionalLeaveCount = $leaveCount - $mangCasualLimit;
             $additionalLeaveCount = ($additionalLeaveCount < 0) ? 0 : $additionalLeaveCount;
             $deductionAmount =  $additionalLeaveCount *  $deductionRatePerDay;
