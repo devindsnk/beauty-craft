@@ -38,7 +38,7 @@
                                                 echo $user[$userTypeNo];
                                                 ?></span>
                     </div>
-                    <?php if ($userTypeNo == 5) : ?>
+                    <!-- <?php if ($userTypeNo == 5) : ?>
                         <div class="item3">
                             <span class=" rate">4.5</span>
                             <span class="fa fa-star"></span>
@@ -48,7 +48,7 @@
                             <span class="fa fa-star"></span>
                         </div>
 
-                    <?php endif; ?>
+                    <?php endif; ?> -->
                     <div class="item4">
                         <?php if ($data['profileData'][0]->status == 1) : ?>
                             <div class="item4status btn btn-filled btn-success-green">Active</div>
@@ -149,13 +149,13 @@
                         <div class="pwditem0">
                             <div class="pwditemleft">
                                 <span>Current Password</span>
-                                <input class="changepwd" type="password" name="currentPassword" placeholder="Current password">
+                                <input class="changepwd addItemsModalGrid1 " type="password" name="currentPassword" placeholder="Current password">
                                 <span class=" error"><?php echo $data['currentPassword_error']; ?></span>
                             </div>
                             <div class="pwditemright"></div>
                         </div>
                         <div class="pwditem1">
-                            <div class="pwditemleft">
+                            <div class="pwditemleft addItemsModalGrid1">
                                 <span>New Password</span>
                                 <input class="changepwd" type="password" name="password1" placeholder="New password">
                                 <span class=" error"><?php echo $data['newPassword_error']; ?></span>
