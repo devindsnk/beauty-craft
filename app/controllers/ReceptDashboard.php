@@ -16,22 +16,19 @@ class ReceptDashboard extends Controller
    }
    public function dailyOverview($date, $sProvider = null)
    {
-      if (is_null($sProvider))
-      {
-         $reservations = $this->reservationModel->getUpcomingReservationsByDate($date);
-      }
-      else
-      {
-         $reservations = $this->reservationModel->getUpcomingReservationsByDateAndStaff($date, $sProvider);
-      }
+      // if (is_null($sProvider))
+      // {
+      //    $reservations = $this->reservationModel->getUpcomingReservationsByDate($date);
+      // }
+      // else
+      // {
+      //    $reservations = $this->reservationModel->getUpcomingReservationsByDateAndStaff($date, $sProvider);
+      // }
 
-      $serviceProviders = $this->serviceModel->getServiceProviderDetails();
+      // $serviceProviders = $this->serviceModel->getServiceProviderDetails();
 
       $data = [
-         'selectedDate' => $date,
-         'selectedStaffID' => $sProvider,
-         'serviceProvidersList' => $serviceProviders,
-         'reservations' => $reservations
+         'selectedDate' => $date
       ];
 
       $this->view('receptionist/recept_dailyOverview', $data);
@@ -99,7 +96,7 @@ class ReceptDashboard extends Controller
       $curDate =  DateTimeExtended::getCurrentDate(); //"2022-03-15"; 
       $toDate = date('Y-m-d', strtotime($curDate . ' + 3 days'));;
 
-      $sProviders = $this->staffModel->getSProvidersWithLeaveStatusByDate($curDate);
+      $sProviders = $this->staffModel->getStaffWithLeaveStatusByDate($curDate);
 
       $pendingReservations = $this->reservationModel->getPendingReservationsByDate($curDate, $toDate);
 
