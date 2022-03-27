@@ -94,7 +94,11 @@ $(document).ready(function () {
             custCount.splice(i, 0, 0);
           }
         }
-
+        custCount[0] = parseInt(custCount[0]);
+        for (let i = 1; i < 5; i++) {
+          custCount[i] = parseInt(custCount[i - 1]) + parseInt(custCount[i]);
+        }
+        console.log(custCount);
         var chartdata = {
           labels: weekNo,
           datasets: [
@@ -116,6 +120,14 @@ $(document).ready(function () {
               line: {
                 tension: 0
               }
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  stepSize: 1
+                }
+              }]
             }
           },
         });
