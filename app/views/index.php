@@ -186,39 +186,39 @@
       <span class="title">Gallery</span>
       <div class="container">
          <div class="box">
-            <img src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg">
-            <!-- <span>Gallery1</span> -->
+            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery/gallery1.jpg">
+            <span><i>"Life is more beautiful when you meet the right hair dresser."</i></span>
          </div>
          <div class="box">
-            <img src="<?php echo URLROOT ?>/public/imgs/gallery2.jpg">
-            <!-- <span>Gallery2</span> -->
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery/gallery2.jpg">
+            <span><i>"Always be nice to the person who is holding scissors next to your head."</i></span>
          </div>
          <div class="box">
-            <img src="<?php echo URLROOT ?>/public/imgs/gallery3.jpg">
-            <!-- <span>Gallery3</span> -->
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery/gallery3.jpg">
+            <span><i>"People are more apt to believe you and like you when you know you look fine. And when the world approves, self-respect is just a little easier."</i></span>
          </div>
-         <div class="box">
-            <img src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
-            <!-- <span>Gallery4</span> -->
+         <div class="box"><i></i>
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery/gallery4.jpg">
+            <span><i>"As stylists we’re ground shakers and day makers. Setting trends, while fostering that inner connection between a person’s inner and outer self."</i></span>
          </div>
 
       </div>
       <div class="container">
          <div class="box">
-            <img src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg">
-            <!-- <span>Gallery1</span> -->
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery/gallery5.jpg">
+            <span><i>"Being a hair dress is the best profession. All day we get to listen to music, be creative, bond with others and make them feel amazing. Being a hairdresser rocks!"</i></span>
          </div>
          <div class="box">
-            <img src="<?php echo URLROOT ?>/public/imgs/gallery2.jpg">
-            <!-- <span>Gallery2</span> -->
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery/gallery6.jpg">
+            <span><i>"If your hair is done properly and you’re wearing good shoes, you can get away with anything."</i></span>
          </div>
          <div class="box">
-            <img src="<?php echo URLROOT ?>/public/imgs/gallery3.jpg">
-            <!-- <span>Gallery3</span> -->
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery/gallery7.jpg">
+            <span><i>"Hairdressers are a wonderful breed. You work one on one with another human being, and the object is to make them feel so much better, and to look at themselves with a twinkle in their eye.."</i></span>
          </div>
          <div class="box">
-            <img src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
-            <!-- <span>Gallery4</span> -->
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery/gallery8.jpg">
+            <span><i>"Life is short. You might as well live it with really great hair."</i></span>
          </div>
 
       </div>
@@ -226,7 +226,7 @@
    </div>
    <div id="services" class="sub-section services">
       <span class="title">Services</span>
-      <div class="main-service-scroll-div">
+      <!-- <div class="main-service-scroll-div">
          <div>
             <button class="icon" onclick="scrollImgR()">
                <>
@@ -253,6 +253,98 @@
                <>
             </button>
          </div>
+      </div> -->
+      <!-- <div class="serviceIMG">
+         <div class="containerServices">
+            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
+            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
+            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
+            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
+            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
+         </div>
+         <div class="containerServices">
+            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
+            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
+            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
+            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
+            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
+         </div>
+      </div> -->
+      <div class="servicesbox">
+         <div class="servicescard">
+            <div class="imgBx">
+               <img src="<?php echo URLROOT ?>/public/imgs/services/service1.jpg" alt="images">
+            </div>
+            <div class="details">
+               <h2>Nail Paintings<br><span>Available</span></h2>
+            </div>
+         </div>
+
+         <div class="servicescard">
+            <div class="imgBx">
+               <img src="<?php echo URLROOT ?>/public/imgs/services/service2.jpg" alt="images">
+            </div>
+            <div class="details">
+               <h2>Scrub Services<br><span>Available</span></h2>
+            </div>
+         </div>
+
+         <div class="servicescard">
+            <div class="imgBx">
+               <img src="<?php echo URLROOT ?>/public/imgs/services/service3.jpg" alt="images">
+            </div>
+            <div class="details">
+               <h2>Party Makeups<br><span>Available</span></h2>
+            </div>
+         </div>
+
+         <div class="servicescard">
+            <div class="imgBx">
+               <img src="<?php echo URLROOT ?>/public/imgs/services/service4.jpg" alt="images">
+            </div>
+            <div class="details">
+               <h2>Massages<br><span>Available</span></h2>
+            </div>
+         </div>
+
+      </div>
+      <div class="servicesbox">
+         <div class="servicescard">
+            <div class="imgBx">
+               <img src="<?php echo URLROOT ?>/public/imgs/services/service5.jpg" alt="images">
+            </div>
+            <div class="details">
+               <h2>Hair Curling<br><span>Available</span></h2>
+            </div>
+         </div>
+
+         <div class="servicescard">
+            <div class="imgBx">
+               <img src="<?php echo URLROOT ?>/public/imgs/services/service6.jpg" alt="images">
+            </div>
+            <div class="details">
+               <h2>Hair Extentions<br><span>Available</span></h2>
+            </div>
+         </div>
+
+         <div class="servicescard">
+            <div class="imgBx">
+               <img src="<?php echo URLROOT ?>/public/imgs/services/service7.jpg" alt="images">
+            </div>
+            <div class="details">
+               <h2>Child Hair Cuts<br><span>Available</span></h2>
+            </div>
+         </div>
+
+         <div class="servicescard">
+            <div class="imgBx">
+               <img src="<?php echo URLROOT ?>/public/imgs/services/service8.jpg" alt="images">
+            </div>
+            <div class="details">
+               <h2>Male & Female Hair Cuts<br><span>Available</span></h2>
+            </div>
+         </div>
+
       </div>
    </div>
 </body>

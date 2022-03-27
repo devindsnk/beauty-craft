@@ -41,9 +41,9 @@
 								<label class="labels" for="serviceCusCategory">Customer Category</label>
 								<select class="dropdownSelectBox" name="serviceCusCategory">
 									<option class="unbold" value="val1" option selected="true" disabled="disabled">Select One</option>
-									<option value=1 value="Gent" <?php if ($data['customerCategory'] == 1) echo 'selected'; ?>>Gents</option>
-									<option value=2 value="Ladies" <?php if ($data['customerCategory'] == 2) echo 'selected'; ?>>Ladies</option>
-									<option value=3 <?php if ($data['customerCategory'] == 3) echo 'selected'; ?>>Ladies & Gents</option>
+									<option value=1 value="Gent" <?php if ($data['customerCategory'] == 1) echo 'selected'; ?>>Male</option>
+									<option value=2 value="Ladies" <?php if ($data['customerCategory'] == 2) echo 'selected'; ?>>Female</option>
+									<option value=3 <?php if ($data['customerCategory'] == 3) echo 'selected'; ?>>Male & Female</option>
 								</select>
 							</div>
 							<span class="error"><?php echo $data['sSelectedCusCategory_error']; ?></span>
