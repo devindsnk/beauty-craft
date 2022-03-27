@@ -254,7 +254,7 @@ function recallResrvation(btn){
                const y=new Date(reservationData['date']).toLocaleString('en-us',{ year:'numeric'});
                recallYear.innerHTML = y;
 
-               if(reservationData['status']!=1){
+               if(reservationData['status']==3||reservationData['status']==4||reservationData['status']==5||reservationData['status']==0){
                   recallModelBtn.classList.add('btn-error-red');
                   
                   errormsg.innerHTML="Already Responded,can not delete the recall request."
