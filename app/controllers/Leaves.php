@@ -408,6 +408,7 @@ class Leaves extends Controller
       //    Toast::setToast(0, "Uninformed leave marking failed", "");
 
       header('Content-Type: application/json; charset=utf-8');
-      print_r(json_encode($results));
+      $results = $this->LeaveModel->getSelectedLeaveDetails($date, 2, Session::getUser("id"));
+      print_r(json_encode($results->leaveDate));
    }
 }

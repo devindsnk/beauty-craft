@@ -10,9 +10,6 @@ class Staff extends Controller
 
    public function viewAllStaffMembers($sType = "all", $status = "all", $sName = "all")
    {
-      print($sType);
-      print($sName);
-      // die();
       Session::validateSession([2, 3, 4]);
       $AllStaffDetails = $this->staffModel->getAllStaffWithFilters($sType, $status, $sName);
 
@@ -22,32 +19,9 @@ class Staff extends Controller
          'selectedStatus' => $status,
          'allStaffDetailsList' => $AllStaffDetails
       ];
-
-      // print_r($data); 
-      // die("error"); 
       $this->view('common/allStaffTable', $data);
    }
-   public function createImgName()
-   {
-      $img_name = " ";
-      $new_img_name =  " ";
-      $img_name = $_FILES['staffimage']['name'];
-      $img_size = $_FILES['staffimage']['size'];
-      $tmp_name = $_FILES['staffimage']['tmp_name'];
-      $error = $_FILES['staffimage']['error'];
-      $img_extension = pathinfo($img_name, PATHINFO_EXTENSION);
-      $img_ex_lc = strtolower($img_extension);
-      $allowed_extensions = array("jpg", "jpeg", "png");
-      if ($error == 0)
-      {
-         if (in_array($img_ex_lc, $allowed_extensions))
-         {
-            $new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc;
-            $img_upload_path = '../public/imgs/staffImgs/' . $new_img_name;
-            move_uploaded_file($tmp_name, $img_upload_path);
-         }
-      }
-   }
+
 
    public function addStaff()
    {
@@ -57,6 +31,7 @@ class Staff extends Controller
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'FILES')
       {
+
          $img_name = " ";
          $new_img_name =  " ";
          $img_name = $_FILES['staffimage']['name'];
@@ -110,15 +85,6 @@ class Staff extends Controller
          $data['staffimagePath'];
          $data['staffHomeAddTyped'] = $data['staffHomeAdd'];
 
-         // if (($data['staffimagePath'] == " " ) && ($data['gender'] == "M"))
-         // {
-         //    $data['staffimagePath'] = "male";
-         // }
-
-         // if (($data['staffimagePath'] == " " ) && ($data['gender'] == "F"))
-         // {
-         //    $data['staffimagePath'] = "female";
-         // }
          // Validating fname
          if (empty($data['staffFname']))
          {
@@ -208,13 +174,6 @@ class Staff extends Controller
          {
             $data['staffMobileNo_error'] = "Number is already registered";
          }
-         // for ($i = 0; $i < $CurrentStaffCount; $i++)
-         // {
-         //    if ($staffD[$i]->mobileNo == $data['staffMobileNo'])
-         //    {
-         //       $data['staffMobileNo_error'] = "The mobile number you entered is already exist.";
-         //    }
-         // }
 
          // Validating email
          if (empty($data['staffEmail']))
@@ -272,10 +231,13 @@ class Staff extends Controller
             $this->userModel->registerUser($data['staffMobileNo'], $data['staffNIC'], $data['staffType']);
             $this->staffModel->addStaffDetails($data);
             $this->staffModel->addBankDetails($data);
-            $this->userModel->commit();
+
             //System log
             Systemlog::createAccount($data['staffMobileNo']);
+            SMS::sendStaffRegSMS($data['staffMobileNo'], $data['staffType']);
             Toast::setToast(1, "Staff Member Successfully Registered!", "");
+
+            $this->userModel->commit();
 
             if (Session::getUser("type") == 2)
             {
@@ -427,10 +389,6 @@ class Staff extends Controller
             $data['staffimagePath_error'] = "Please insert a valid image";
          }
 
-         // else
-         // {
-         //    print_r($data);
-         // }
          // Validating fname
          if (empty($data['fName']))
          {
@@ -574,9 +532,6 @@ class Staff extends Controller
          {
             $data['branchName_error'] = "Please enter branch name";
          }
-         // else if (!preg_match("/^[a-zA-Z-' ]*$/",$data['staffAccBank'])) {
-         //    $data['staffAccBank_error']  = "Only letters are allowed";
-         //  }
 
          if (
             empty($data['staffimagePath_error']) && empty($data['fName_error']) && empty($data['lName_error']) && empty($data['gender_error']) && empty($data['nic_error']) && empty($data['dob_error'])  && empty($data['address_error']) && empty($data['mobileNo_error']) && empty($data['email_error']) &&
@@ -591,12 +546,11 @@ class Staff extends Controller
                   $this->userModel->beginTransaction();
                   $this->userModel->registerUser($data['mobileNo'], $data['nic'], $data['sType']);
                   $this->staffModel->updateStaff($data, $staffID);
+                  SMS::sendEnableStaffSMS($data['mobileNo'], $data['sType']);
                   $this->userModel->commit();
                }
                else
                {
-                  // print_r($data);
-                  // die("error");
                   $this->staffModel->updateStaff($data, $staffID);
                }
             }
@@ -608,14 +562,11 @@ class Staff extends Controller
                   $this->userModel->beginTransaction();
                   $this->userModel->removeUserAccount($data['mobileNo']);
                   $this->staffModel->updateStaff($data, $staffID);
+                  SMS::sendDisableStaffSMS($data['mobileNo'], $data['sType']);
                   $this->userModel->commit();
                }
                else
                {
-                  // print_r($data);
-                  // die("error");
-                  // echo ("hi");
-                  // die();
                   $this->staffModel->updateStaff($data, $staffID);
                }
             }
@@ -847,7 +798,6 @@ class Staff extends Controller
 
    public function RemoveStaff($staffID, $staffMobileNo) //details
    {
-      // die("remove staff called");
       $this->userModel->beginTransaction();
       $this->staffModel->removestaff($staffID, $staffMobileNo);
       $this->userModel->commit();

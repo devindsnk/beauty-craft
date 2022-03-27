@@ -17,18 +17,17 @@
    </header>
    <div class="content contentNewRes own ViewCustomer">
 
-<?php $cusD = $data['cusDetails'];
+      <?php $cusD = $data['cusDetails'];
       $cusCancelledResC =  $data['cancelledResCount'];
       $cusAllResC = $data['allResCount'];
       $cusSales = $data['sales'];
-?>
+      ?>
       <div class="Cards">
          <!----------------------------------------------------- Profile details starts --------------------------------->
          <div class="Card1 contentBox ">
             <div class="ProfileGrid">
                <div class="ProfileDetailsImg">
-
-                  <img src="<?php echo URLROOT; ?><?php echo ($cusD[0]->imgPath != null)? "/public/imgs/customerImgs/$cusD->imgPath" : "/public/imgs/customerImgs/customerbarimg.png"?>" alt="Avatar" class="ProfileDetailsImgCircle">
+                  <img src="<?php echo URLROOT; ?><?php echo ($cusD[0]->imgPath != null) ? "/public/imgs/customerImgs/" . $cusD[0]->imgPath : "/public/imgs/customerImgs/male.jpg" ?>" alt="Avatar" class="ProfileDetailsImgCircle">
                </div>
                <div class="ProfileDetailsInfo">
                   <span class="ProfileDetailsName"><?php echo ($cusD[0]->fName) ?> <?php echo ($cusD[0]->lName) ?></span> <br>
@@ -62,7 +61,7 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                     <?php echo ($cusD[0]->fName) ?>
+                        <?php echo ($cusD[0]->fName) ?>
                      </span>
                   </div>
                </div>
@@ -77,7 +76,7 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                     <?php echo ($cusD[0]->lName) ?>
+                        <?php echo ($cusD[0]->lName) ?>
                      </span>
                   </div>
                </div>
@@ -92,10 +91,10 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                     <?php if($cusD[0]->gender=='M')
-                     echo ('Male');
-                     elseif($cusD[0]->gender=='F')
-                     echo ('Female'); ?>
+                        <?php if ($cusD[0]->gender == 'M')
+                           echo ('Male');
+                        elseif ($cusD[0]->gender == 'F')
+                           echo ('Female'); ?>
                      </span>
                   </div>
                </div>
@@ -109,7 +108,7 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                      <?php echo DateTimeExtended::dateToShortMonthFormat($cusD[0]->registeredDate, "F"); ?>
+                        <?php echo DateTimeExtended::dateToShortMonthFormat($cusD[0]->registeredDate, "F"); ?>
                      </span>
                   </div>
                </div>
@@ -143,7 +142,7 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                     <?php echo $cusAllResC ?>
+                        <?php echo $cusAllResC ?>
                      </span>
                   </div>
                </div>
@@ -157,7 +156,7 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                     <?php echo $cusSales ?> LKR
+                        <?php echo $cusSales ?> LKR
                      </span>
                   </div>
                </div>
@@ -171,7 +170,7 @@
                   </div>
                   <div class="Cardcolumn">
                      <span class="CardDetailsValue">
-                     <?php echo $cusCancelledResC ?>
+                        <?php echo $cusCancelledResC ?>
                      </span>
                   </div>
                </div>

@@ -40,16 +40,6 @@
             </div>
             <!-- owner overview total income card ends -->
 
-            <!-- <div class="ownOverviewContainerCard3">
-               <div class="wrapper">
-               <div class="item">Box 1</div>
-               <div class="item">Box 2</div>
-               <div class="item">Box 3</div>
-               <div class="item">Box 4</div>
-               <div class="item">Box 5</div>
-               <div class="item">Box 6</div>
-               </div>
-            </div> -->
             <!-- owner overview available managers card starts -->
             <div class="ownOverviewContainerCard3">
                <div class="mang-sub-container-card-title">
@@ -83,15 +73,6 @@
                <canvas id="ownOverviewChartIncome"></canvas>
             </div>
             <!-- owner overview chart2 card ends -->
-
-            <!-- owner overview chart3 card starts -->
-            <!-- <div class="ownOverviewChart3">
-            <div class="chartHead"> 
-               <p>Income</p>
-            </div>
-               <canvas id="ownOverviewChartSalaryStatus"></canvas>
-            </div> -->
-            <!-- owner overview chart3 card ends -->
 
          </div>
          <!-- owner overview charts card ends -->

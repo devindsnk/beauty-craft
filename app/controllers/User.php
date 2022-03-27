@@ -334,7 +334,7 @@ class User extends Controller
          }
          else
          {
-            $path = 'http://localhost/beauty-craft/public/imgs/customerImgs/customerbarimg.png';
+            $path = 'http://localhost/beauty-craft/public/imgs/customerImgs/male.jpg';
          }
       }
       else
@@ -348,7 +348,7 @@ class User extends Controller
          }
          else
          {
-            $path = 'http://localhost/beauty-craft/public/imgs/customerImgs/customerbarimg.png';
+            $path = 'http://localhost/beauty-craft/public/imgs/staffImgs/male.jpg';
          }
       }
 

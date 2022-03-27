@@ -169,7 +169,7 @@ class CustDashboard extends Controller
       }
       else
       {
-         $path = 'http://localhost/beauty-craft/public/imgs/customerImgs/customerbarimg.png';
+         $path = 'http://localhost/beauty-craft/public/imgs/customerImgs/male.jpg';
       }
 
       header('Content-Type: application/json; charset=utf-8');

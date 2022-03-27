@@ -5,8 +5,8 @@
             <i class="error-icon toast-icon ci ci-warning-white"></i>
         </div>
         <div class="details">
-            <span>Registration Successfull!</span>
-            <p>sample description here</p>
+            <span></span>
+            <p></p>
         </div>
     </div>
     <div class="close-icon">
