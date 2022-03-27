@@ -73,6 +73,17 @@
                   </div>
 
                   <div class="text-group left-box date">
+                     <label class="label" for="fName">Customer Category</label>
+                     <input type="text" name="duration" id="fName" disabled class="custCategoryBox">
+                  </div>
+
+                  <div class="dropdown-group right-box start-time">
+                     <label class="label" for="fName">Price (LKR)</label>
+                     <input type="text" name="duration" id="fName" disabled class="servicePriceBox">
+                  </div>
+
+
+                  <div class="text-group left-box date">
                      <label class="label" for="fName">Date</label>
                      <input type="date" id="date_picker" name="date" value="" class="dateSelect">
                      <span class="error date-error"></span>
@@ -100,6 +111,7 @@
                      </select>
                      <span class="error sTime-error"></span>
                   </div>
+
 
                   <div class="text-group ser-provider">
                      <label class="label" for="lName">Service Provider</label>

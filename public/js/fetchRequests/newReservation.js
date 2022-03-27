@@ -13,6 +13,8 @@ const sTimeError = document.querySelector(".sTime-error");
 const remarksInput = document.querySelector(".remarks");
 const remarksError = document.querySelector(".remarks-error");
 const serviceDurationBox = document.querySelector(".durationBox");
+const custCategoryBox = document.querySelector(".custCategoryBox");
+const servicePriceBox = document.querySelector(".servicePriceBox");
 
 const addResBtnCust = document.querySelector(".addResBtnCust");
 const addResBtnRecept = document.querySelector(".addResBtnRecept");
@@ -29,7 +31,7 @@ startTime = (!startTimeSelector) ? null : startTimeSelector.value;
 // performing checks on page load
 updateStartTime();
 checkDate();
-updateServiceDuration();
+updateServiceDurationCategoryPrice();
 performChecksAndUpdates();
 
 // Change of date
@@ -46,7 +48,7 @@ dateSelector.addEventListener("change", function () {
 serviceSelector.addEventListener("change", function () {
 	selectedService = serviceSelector.value;
 	checkSelected(serviceSelector, serviceError); // Updating the error
-	updateServiceDuration(); // Updating service duration
+	updateServiceDurationCategoryPrice(); // Updating service duration pric and category
 	performChecksAndUpdates();
 });
 
@@ -124,14 +126,19 @@ function updateSProviderAvailability() {
 }
 
 // Update the duration of the selected service
-function updateServiceDuration() {
+function updateServiceDurationCategoryPrice() {
 	if (selectedService) {
-		fetch(`http://localhost:80/beauty-craft/services/getServiceDuration/${selectedService}`)
+		fetch(`http://localhost:80/beauty-craft/services/getServiceDurationCategoryPrice/${selectedService}`)
 			.then((response) => response.json())
-			.then((serviceDuration) => {
-				serviceDurationBox.innerHTML = "";
-				serviceDurationBox.text = serviceDuration;
+			.then((data) => {
+				let serviceDuration = data[0];
+				let custCategory = data[1];
+				let price = data[2];
+
+				// serviceDurationBox.textContent = serviceDuration;
 				serviceDurationBox.value = serviceDuration;
+				custCategoryBox.value = custCategory;
+				servicePriceBox.value = price;
 			});
 	}
 }
@@ -212,9 +219,10 @@ if (addResBtnCust) {
 	addResBtnCust.addEventListener("click",
 		async function () {
 			let custID = null;
-			await placeReservation(custID);
+			let response = await placeReservation(custID);
 
-			window.location.replace("http://localhost:80/beauty-craft/custDashboard/myReservations");
+			if (response)
+				window.location.replace("http://localhost:80/beauty-craft/custDashboard/myReservations");
 
 		});
 }

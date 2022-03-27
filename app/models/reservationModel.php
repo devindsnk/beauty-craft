@@ -3,6 +3,9 @@ class ReservationModel extends Model
 {
    public function addReservation($data)
    {
+      $daysAhead = DateTimeExtended::getDateDiff($data['date']);
+      $status = ($daysAhead > 7) ? 1 : 2;
+
       $results = $this->insert(
          "reservations",
          [
@@ -12,8 +15,28 @@ class ReservationModel extends Model
             "date" => $data['date'],
             "startTime" => $data['startTime'],
             "remarks" => $data['remarks'],
-            "status" => 1
+            "status" => $status
          ]
+      );
+
+      return $results;
+   }
+
+   public function editReservation($data)
+   {
+      $daysAhead = DateTimeExtended::getDateDiff($data['date']);
+      $status = ($daysAhead > 7) ? 1 : 2;
+
+      $results = $this->update(
+         "reservations",
+         [
+            "staffID" => $data['staffID'],
+            "date" => $data['date'],
+            "startTime" => $data['startTime'],
+            "remarks" => $data['remarks'],
+            "status" => $status
+         ],
+         ["reservationID" => $data['reservationID']]
       );
 
       return $results;
@@ -308,6 +331,40 @@ class ReservationModel extends Model
       return $results;
    }
 
+   public function getAllocatedResourcesOfSlotForEdit($selectedDate, $givenStartTime, $givenEndTime, $reservationID)
+   {
+      $SQLstatement =
+         "SELECT RA.resourceID,
+                 SUM(RA.requiredQuantity) AS quantity
+               --   RES.reservationID,
+               --   RES.date AS resDate,
+               --   RES.serviceID,
+               --   TS.slotNo,
+               --   RES.startTime + TS.startingTime AS slotStartTime,
+               --   RES.startTime + TS.startingTime + TS.duration AS slotEndTime
+               --   RES.status AS resStatus
+                 
+         FROM ( SELECT * FROM reservations WHERE reservationID <> :resID) AS RES
+         INNER JOIN timeslots AS TS
+         ON TS.serviceID = RES.serviceID
+         INNER JOIN resourceallocation AS RA
+         ON RA.serviceID = RES.serviceID AND RA.slotNo = TS.slotNo
+         WHERE RES.date = :selectedDate AND RES.status IN(1,2) AND RES.startTime + TS.startingTime < :givenEndTime AND RES.startTime + TS.startingTime + TS.duration > :givenStartTime
+         GROUP BY RA.resourceID;";
+
+
+      $results = $this->customQuery(
+         $SQLstatement,
+         [
+            ':resID' => $reservationID,
+            ':selectedDate' => $selectedDate,
+            ':givenStartTime' => $givenStartTime,
+            ':givenEndTime' => $givenEndTime
+         ]
+      );
+      return $results;
+   }
+
    public function getOccupiedSProviders($selectedDate, $givenStartTime, $givenEndTime)
    {
       $SQLstatement =
@@ -328,6 +385,35 @@ class ReservationModel extends Model
       $results = $this->customQuery(
          $SQLstatement,
          [
+            ':selectedDate' => $selectedDate,
+            ':givenStartTime' => $givenStartTime,
+            ':givenEndTime' => $givenEndTime
+         ]
+      );
+      return $results;
+   }
+
+   public function getOccupiedSProvidersForEdit($selectedDate, $givenStartTime, $givenEndTime, $reservationID)
+   {
+      $SQLstatement =
+         "SELECT RES.staffID
+               --   RES.reservationID,
+               --   RES.serviceID,
+               --   RES.date AS resDate,
+               --   TS.slotNo,
+               --   RES.startTime + TS.startingTime AS slotStartTime,
+               --   RES.startTime + TS.startingTime + TS.duration AS slotEndTime,
+               --   RES.status AS resStatus
+         FROM ( SELECT * FROM reservations WHERE reservationID <> :resID) AS RES
+         INNER JOIN timeslots AS TS
+         ON TS.serviceID = RES.serviceID
+         WHERE RES.date = :selectedDate AND RES.status IN(1, 2) AND RES.startTime + TS.startingTime < :givenEndTime AND RES.startTime + TS.startingTime + TS.duration > :givenStartTime;";
+
+
+      $results = $this->customQuery(
+         $SQLstatement,
+         [
+            ':resID' => $reservationID,
             ':selectedDate' => $selectedDate,
             ':givenStartTime' => $givenStartTime,
             ':givenEndTime' => $givenEndTime
@@ -726,5 +812,37 @@ class ReservationModel extends Model
          ]
       );
       return $results;
+   }
+
+   public function getReservationDataForEdit($reservationID)
+   {
+      $SQLquery =
+         "SELECT RES.reservationID,
+         RES.customerID,
+         CUS.fName,
+         CUS.lName,
+         CUS.mobileNo,
+         CUS.imgPath,
+         RES.serviceID,
+         SER.name,
+         SER.totalDuration,
+         SER.customerCategory,
+         SER.price,
+         RES.staffID,
+         RES.date,
+         RES.startTime,
+         RES.remarks
+         FROM reservations AS RES
+         INNER JOIN services AS SER ON SER.serviceID = RES.serviceID
+         INNER JOIN customers AS CUS ON CUS.customerID = RES.customerID
+         WHERE RES.reservationID = :reservationID;";
+
+      $results = $this->customQuery(
+         $SQLquery,
+         [
+            ':reservationID' => $reservationID
+         ]
+      );
+      return $results[0];
    }
 }

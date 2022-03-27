@@ -133,6 +133,45 @@ class Reservations extends Controller
       $this->view('receptionist/recept_newReservation', $data);
    }
 
+   public function reservationEditRecept($reservationID)
+   {
+      $result = $this->reservationModel->getReservationDataForEdit($reservationID);
+      // $sProvidersList = $this->serviceModel->getServiceProviderDetails();
+      // var_dump($sProvidersList);
+      // die();
+      $gender = ['', 'Male', 'Female', 'Male & Female'];
+
+      $data = [
+         'reservationID' => $result->reservationID,
+         'customerID' => '',
+         'customerName' => $result->fName . " " . $result->lName,
+         'customerMobileNo' => $result->mobileNo,
+         'imgPath' => $result->imgPath,
+         'serviceID' => $result->serviceID,
+         'serviceName' => $result->name,
+         'duration' => $result->totalDuration,
+         'custCategory' => $gender[$result->customerCategory],
+         'price' => $result->price,
+
+         'staffID' => '',
+         'date' => $result->date,
+         'startTime' => $result->startTime,
+         'remarks' => $result->remarks
+
+         // 'serviceID_error' => '',
+         // 'staffID_error' => '',
+         // 'date_error' => '',
+         // 'startTime_error' => '',
+         // 'remarks_error' => ''
+
+         // 'customersList' => $customers,
+         // 'servicesList' => $servicesList
+      ];
+      // var_dump($data);
+      // die();
+      $this->view('receptionist/recept_reservationEdit', $data);
+   }
+
    public function placeReservation($serviceID, $staffID, $date, $startTime, $custID = null, $remarks = null)
    {
       $custID = ($custID == "null") ? Session::getUser("id") : $custID;
@@ -156,6 +195,29 @@ class Reservations extends Controller
       header('Content-Type: application/json; charset=utf-8');
       print_r(json_encode($results));
    }
+
+   public function editReservation($reservationID, $staffID, $date, $startTime, $remarks = null)
+   {
+
+      $data = [
+         'reservationID' => $reservationID,
+         'staffID' => $staffID,
+         'date' => $date,
+         'startTime' => $startTime,
+         'remarks' => $remarks
+      ];
+
+      $results = $this->reservationModel->editReservation($data);
+
+      if ($results)
+         Toast::setToast(1, "Reservation edited successfully.", "");
+      else
+         Toast::setToast(0, "Something went wrong.", "Try again!");
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($results));
+   }
+
 
    public function getAllServiceProviders()
    {
@@ -284,6 +346,49 @@ class Reservations extends Controller
       return true;
    }
 
+   // *************************************************************** 
+   // For reservation Edit
+   // Excludes the passed in reservation
+   public function checkResourcesAvailabilityForEdit($serviceID, $selectedDate, $selectedTime, $reservationID)
+   {
+      header('Content-Type: application/json; charset=utf-8');
+
+      $availResources = $this->resourceModel->getCountsOfAllResources();
+      $availResourcesMap = $this->prepareResourcesMap($availResources);
+      // echo "Available Resources";
+      // print_r($availResourcesMap);
+
+      $slotsSummary = $this->serviceModel->getServiceSlotsSummary($serviceID);
+      $slotsSummary = $this->combineSlotsResources($slotsSummary);
+      // print_r($slotsSummary);
+
+      foreach ($slotsSummary as $slot)
+      {
+         $reqResourcesMap = $slot["resources"];
+         // echo "Required Resources";
+         // print_r($reqResourcesMap);
+
+         for ($i = $slot["startTime"]; $i < $slot["endTime"]; $i += 10)
+         {
+            // Excludes the resources allocated for passed in res
+            $allocResources = $this->reservationModel->getAllocatedResourcesOfSlotForEdit($selectedDate, $selectedTime + $i, $selectedTime + $i + 10, $reservationID);
+            $allocResourcesMap = $this->prepareResourcesMap($allocResources);
+            // echo "Allocted Resources from " . ($selectedTime + $i) . " to " . ($selectedTime + $i + 10);
+            // print_r($allocResourcesMap);
+
+            $eligible = $this->checkAvailOfRequiredResources($availResourcesMap, $allocResourcesMap, $reqResourcesMap);
+            if ($eligible == false)
+            {
+               print_r(json_encode("0"));
+               return;
+            }
+         }
+      }
+      print_r(json_encode("1"));
+      return;
+   }
+   // *************************************************************** 
+
    // Prepares a map of [resourceID => quantity]
    private function prepareResourcesMap($resourcesArray)
    {
@@ -330,6 +435,59 @@ class Reservations extends Controller
          $endTime = $selectedTime + $slot["endTime"];
          // echo "Checking from " . $startTime . " to " . $endTime;
          $occupiedSProviders = $this->reservationModel->getOccupiedSProviders($selectedDate, $startTime, $endTime);
+
+         foreach ($occupiedSProviders as $sProvider)
+         {
+            $staffID = $sProvider->staffID;
+            if (array_key_exists($staffID, $sProvidersSummary))
+            {
+               $sProvidersSummary[$staffID]["occupied"] = true;
+            }
+         }
+      }
+      return $sProvidersSummary;
+   }
+
+
+   public function getUpdatedSProvidersListForEdit($selectedServiceID, $selectedDate = null, $selectedTime = null, $reservationID)
+   {
+      $selectedDate = ($selectedDate == "null") ? null : $selectedDate;
+      $selectedTime = ($selectedTime == "null") ? null : $selectedTime;
+
+      $sProvidersList = $this->staffModel->getSProvidersByServiceWithLeaveStatus($selectedServiceID, $selectedDate);
+
+      $sProvidersSummary = array();
+      foreach ($sProvidersList as $sProvider)
+      {
+         $sProvidersSummary[$sProvider->staffID] = [
+            "name" => $sProvider->fName . " " . $sProvider->lName,
+            "leave" => ($sProvider->leaveStatus > 0 ? true : false),
+            "occupied" => false
+         ];
+      }
+
+      if (!(is_null($selectedDate) || is_null($selectedTime)))
+      {
+         // Updating occupied status 
+         // echo "Ocupied Checked";
+         $sProvidersSummary = $this->updateSProvidersOccuppiedStatusForEdit($sProvidersSummary, $selectedServiceID, $selectedDate, $selectedTime, $reservationID);
+      }
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode($sProvidersSummary));
+   }
+
+   private function updateSProvidersOccuppiedStatusForEdit($sProvidersSummary, $selectedServiceID, $selectedDate, $selectedTime, $reservationID)
+   {
+      $slotsSummary = $this->serviceModel->getServiceSlotsSummary($selectedServiceID);
+      $slotsSummary = $this->combineSlotsResources($slotsSummary);
+
+      foreach ($slotsSummary as $slot)
+      {
+         $startTime = $selectedTime + $slot["startTime"];
+         $endTime = $selectedTime + $slot["endTime"];
+         // echo "Checking from " . $startTime . " to " . $endTime;
+         $occupiedSProviders = $this->reservationModel->getOccupiedSProvidersForEdit($selectedDate, $startTime, $endTime, $reservationID);
 
          foreach ($occupiedSProviders as $sProvider)
          {

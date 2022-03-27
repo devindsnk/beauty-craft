@@ -770,11 +770,11 @@ class ServiceModel extends Model
         return $results;
     }
 
-    public function getServiceDuration($serviceID)
+    public function getServiceDurationCategoryPrice($serviceID)
     {
-        $results = $this->getSingle('services', ['totalDuration'], ['serviceID' => $serviceID]);
+        $results = $this->getSingle('services', ['totalDuration', 'customerCategory', 'price'], ['serviceID' => $serviceID]);
 
-        return $results->totalDuration;
+        return $results;
     }
 
     // START FOR MANAGER OVERVIEW
