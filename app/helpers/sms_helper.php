@@ -37,7 +37,7 @@ class SMS
          "Please enter the OTP code: $OTP to reset the password.\nBeauty Craft"
       );
       return self::sendSMS($mobileNo, $SMSText, 1);
-   } 
+   }
 
    // TODO:
    // public static function sendNewReservationSMS($mobileNo, $service, $time, $date)
