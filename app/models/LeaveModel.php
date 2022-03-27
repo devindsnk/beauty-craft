@@ -84,9 +84,9 @@ class LeaveModel extends Model
    }
 
 
-   public function checkExsistingLeaveRequestDay($date)
+   public function checkExsistingLeaveRequestDay($date, $user)
    {
-      $results = $this->getResultSet('generalleaves', '*', ['leavedate' => $date]);
+      $results = $this->getResultSet('generalleaves', '*', ['leavedate' => $date, 'staffID' => $user]);
       if (empty($results))
       {
          return 0;
@@ -504,6 +504,8 @@ class LeaveModel extends Model
 
    public function updateLeaveRequestData($date, $oldType, $newType, $reason, $user)
    {
+      $newType = (int)$newType;
+
       $results = $this->update('generalleaves', ['reason' => $reason, 'leaveType' => $newType], ['leaveDate' => $date, 'leaveType' => $oldType, 'staffID' => $user]);
       var_dump($results);
       return $results;

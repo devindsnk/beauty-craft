@@ -179,9 +179,10 @@ editLeaveBtn.addEventListener('click',
     console.log(oldType);   
      console.log(editLeaveType.value); 
     console.log(editLeaveReason.value);   
-
+let nType=parseInt(editLeaveType.value);
+console.log(nType);
     if(oldType !=editLeaveType.value || oldReason!=editLeaveType.value){
-      fetch(`http://localhost:80/beauty-craft/Leaves/editLeaverequest/${editLeaveDate.value}/${oldType}/${editLeaveType.value}/${editLeaveReason.value}`)
+      fetch(`http://localhost:80/beauty-craft/Leaves/editLeaverequest/${editLeaveDate.value}/${oldType}/${nType}/${editLeaveReason.value}`)
       .then(response => response.json())
       .then(value => {
           console.log(value);

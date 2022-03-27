@@ -243,7 +243,7 @@ class Leaves extends Controller
    {
       Session::validateSession([4, 5]);
 
-      $alreadyRequestedDay = $this->LeaveModel->checkExsistingLeaveRequestDay($date);
+      $alreadyRequestedDay = $this->LeaveModel->checkExsistingLeaveRequestDay($date, Session::getUser("id"));
       $haveReservation = $this->LeaveModel->checkHaveReservationByDate($date, Session::getUser("id"));
       $isSalonClosed = $this->LeaveModel->checkSalonClosedDates($date);
       header('Content-Type: application/json; charset=utf-8');
