@@ -341,7 +341,7 @@
                <img src="<?php echo URLROOT ?>/public/imgs/services/service8.jpg" alt="images">
             </div>
             <div class="details">
-               <h2>Men & Female Hair Cuts<br><span>Available</span></h2>
+               <h2>Male & Female Hair Cuts<br><span>Available</span></h2>
             </div>
          </div>
 
