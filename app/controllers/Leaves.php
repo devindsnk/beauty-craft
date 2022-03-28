@@ -119,7 +119,7 @@ class Leaves extends Controller
             if (empty($data['date_error']) && empty($data['reason_error']) && empty($data['type_error']))
             {
 
-               $alreadyRequestedDay = $this->LeaveModel->checkExsistingLeaveRequestDay($data['date']);
+               $alreadyRequestedDay = $this->LeaveModel->checkExsistingLeaveRequestDay($data['date'], Session::getUser("id"));
                $haveReservation = $this->LeaveModel->checkHaveReservationByDate($data['date'], Session::getUser("id"));
                $isSalonClosed = $this->LeaveModel->checkSalonClosedDates($data['date']);
                // $alreadyRequestedDay = 0;
