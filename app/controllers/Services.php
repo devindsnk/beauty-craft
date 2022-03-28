@@ -253,7 +253,7 @@ class Services extends Controller
 
       $data =  $this->ServiceModel->getServiceDurationCategoryPrice($serviceID);
       $serviceDuration = $data->totalDuration;
-      $serviceDuration = DateTimeExtended::minsToDuration($serviceDuration);
+      // $serviceDuration = DateTimeExtended::minsToDuration($serviceDuration);
       $custCategory = $gender[$data->customerCategory];
       $price = $data->price;
 

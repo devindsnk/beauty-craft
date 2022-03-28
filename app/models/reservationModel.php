@@ -169,7 +169,7 @@ class ReservationModel extends Model
          INNER JOIN customers ON customers.customerID = reservations.customerID
          INNER JOIN staff ON staff.staffID = reservations.staffID
          INNER JOIN services ON services.serviceID = reservations.serviceID
-         WHERE reservations.customerID = :customerID;";
+         WHERE reservations.customerID = :customerID; ORDER BY reservations.date DESC";
 
       $results = $this->customQuery($SQLquery, [':customerID' => $customerID]);
       return $results;
@@ -846,5 +846,20 @@ class ReservationModel extends Model
          ]
       );
       return $results[0];
+   }
+
+   public function updateTodayNotConfirmedToCancel()
+   {
+      $curDate = DateTimeExtended::getCurrentDate();
+      $SQLquery =
+         "UPDATE reservations SET status = 0 WHERE status = 1 AND date = :curDate";
+
+      $results = $this->customQuery(
+         $SQLquery,
+         [
+            ':curDate' => $curDate
+         ]
+      );
+      // die();
    }
 }

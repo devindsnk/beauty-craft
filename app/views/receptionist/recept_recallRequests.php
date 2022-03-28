@@ -79,7 +79,7 @@
                      </div>
                   </div>
                   <div class="right-section btn-container">
-                     <a class="btn btn-outlined btn-black btn-top">Edit</a>
+                     <a href="<?php echo URLROOT ?>/Reservations/reservationEditRecept/<?php echo $recallRequest->reservationID; ?>" class="btn btn-outlined btn-black btn-top">Edit</a>
                      <a class="btn btn-filled btn-error-red btnResCancel" data-id=<?php echo $recallRequest->reservationID ?>>Cancel</a>
                   </div>
                </div>

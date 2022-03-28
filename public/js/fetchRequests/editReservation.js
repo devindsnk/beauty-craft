@@ -112,9 +112,9 @@ function updateSProviderAvailability() {
 
 
 // Update the closed state of the selected date
-function checkDate() {
+async function checkDate() {
     if (selectedDate) {
-        fetch(`http://localhost:80/beauty-craft/Reservations/checkIfDatePossible/${selectedDate}`)
+        await fetch(`http://localhost:80/beauty-craft/Reservations/checkIfDatePossible/${selectedDate}`)
             .then((response) => response.json())
             .then((state) => {
                 dateError.innerHTML = state;
@@ -204,6 +204,7 @@ async function editReservation() {
 
     // checkDate();
     updateSProviderAvailability();
+    await checkDate();
     // console.log(checkEmpty(startTimeError));
     if (checkEmpty(sTimeError) && checkEmpty(dateError) && checkEmpty(sProvError)) {
         console.log("All empty");

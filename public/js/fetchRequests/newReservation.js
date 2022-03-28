@@ -126,27 +126,29 @@ function updateSProviderAvailability() {
 }
 
 // Update the duration of the selected service
-function updateServiceDurationCategoryPrice() {
+async function updateServiceDurationCategoryPrice() {
 	if (selectedService) {
-		fetch(`http://localhost:80/beauty-craft/services/getServiceDurationCategoryPrice/${selectedService}`)
+		await fetch(`http://localhost:80/beauty-craft/services/getServiceDurationCategoryPrice/${selectedService}`)
 			.then((response) => response.json())
 			.then((data) => {
 				let serviceDuration = data[0];
 				let custCategory = data[1];
 				let price = data[2];
 
-				// serviceDurationBox.textContent = serviceDuration;
-				serviceDurationBox.value = serviceDuration;
+				serviceDurationBox.value = minsToDuration(serviceDuration);
+				serviceDurationBox.setAttribute("data-duration", serviceDuration);
 				custCategoryBox.value = custCategory;
 				servicePriceBox.value = price;
+
+				updateStartTime();
 			});
 	}
 }
 
 // Update the closed state of the selected date
-function checkDate() {
+async function checkDate() {
 	if (selectedDate) {
-		fetch(`http://localhost:80/beauty-craft/Reservations/checkIfDatePossible/${selectedDate}`)
+		await fetch(`http://localhost:80/beauty-craft/Reservations/checkIfDatePossible/${selectedDate}`)
 			.then((response) => response.json())
 			.then((state) => {
 				dateError.innerHTML = state;
@@ -170,7 +172,7 @@ function updateStartTime() {
 	let d1 = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 5, 30, 0); // time is set to 5:30
 	let d2 = new Date(selectedDate);
 	let closeTime = 20 * 60 + 0;
-	let sDuration = parseInt(serviceDurationBox.value);
+	let sDuration = parseInt(serviceDurationBox.getAttribute("data-duration"));
 
 	if (d1.getTime() === d2.getTime()) {
 		let curTimeInMins = today.getHours() * 60 + today.getMinutes();
@@ -181,6 +183,8 @@ function updateStartTime() {
 
 			if ((sTime < curTimeInMins + 30) || (sTime + sDuration > closeTime)) {
 				sTimeOption.disabled = true;
+			} else {
+				sTimeOption.disabled = false;
 			}
 		}
 	} else {
@@ -260,6 +264,7 @@ async function placeReservation(custID) {
 
 	// checkDate();
 	updateSProviderAvailability();
+	await checkDate();
 	// console.log(checkEmpty(startTimeError));
 	if (checkEmpty(sTimeError) && checkEmpty(dateError) && checkEmpty(serviceError) && checkEmpty(sProvError)) {
 		console.log("All empty");
@@ -275,5 +280,18 @@ async function placeReservation(custID) {
 	} else {
 		console.log("bad");
 		// return 0;
+	}
+}
+
+
+function minsToDuration(durationInMins) {
+	let hours = Math.floor(durationInMins / 60);
+	let mins = durationInMins % 60;
+	if (hours == 0)
+		return mins + " mins";
+	else if (mins == 0) {
+		return hours + " hours";
+	} else {
+		return hours + " h " + mins + " mins";
 	}
 }

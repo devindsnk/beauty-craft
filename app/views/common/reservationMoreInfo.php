@@ -109,11 +109,14 @@
                </div>
             </div>
             <?php $btnDisabledStatus = ($data["status"] == 1 || $data["status"] == 2) ? "" : "disabled"; ?>
+            <?php
+            $curDate = DateTimeExtended::getCurrentDate();
+            $btnSpecDisabled = ($data["date"] > $curDate) ? "disabled" : ""; ?>
             <div class="right-section btn-container">
-               <button class="btn btn-outlined btn-grey" <?php echo $btnDisabledStatus; ?>>Edit</button>
+               <a href="<?php echo URLROOT ?>/Reservations/reservationEditRecept/<?php echo $data['reservationID']; ?>" class="btn btn-outlined btn-grey" <?php echo $btnDisabledStatus; ?>>Edit</a>
                <button class="btn btn-outlined btn-error-red btnResCancel" <?php echo $btnDisabledStatus; ?> data-id=<?php echo $data["reservationID"]; ?>>Cancel</button>
-               <button class="btn btn-outlined btn-blue btnResNoShow" <?php echo $btnDisabledStatus; ?> data-id=<?php echo $data["reservationID"]; ?>>No Show</button>
-               <button class="btn btn-filled btn-theme-purple btn-last btnResCheckout" <?php echo $btnDisabledStatus; ?> data-id=<?php echo $data["reservationID"]; ?>>Checkout</button>
+               <button class="btn btn-outlined btn-blue btnResNoShow" <?php echo $btnDisabledStatus;  ?> <?php echo $btnSpecDisabled; ?> data-id=<?php echo $data["reservationID"]; ?>>No Show</button>
+               <button class="btn btn-filled btn-theme-purple btn-last btnResCheckout" <?php echo $btnDisabledStatus; ?> <?php echo $btnSpecDisabled; ?> data-id=<?php echo $data["reservationID"]; ?>>Checkout</button>
             </div>
          </div>
       </div>

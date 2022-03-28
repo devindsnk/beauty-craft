@@ -59,15 +59,15 @@
                 <div class="summary">
                     <?php if ($data->type == 0) : ?>
                         <!-- displaying refund basic data  -->
-                        <span>Refund Created by</span>
-                        <span class="highlighted"> <?php echo $data->refRecept ?></span><br>
+                        <span>Refund Created</span>
+                        <!-- <span class="highlighted"> <?php echo $data->refRecept ?></span><br> -->
                         <span>on </span> <span class="highlighted"><?php echo DateTimeExtended::dateToShortMonthFormat($data->refDateTime, "F") ?></span>
                         <span>at </span> <span class="highlighted"><?php echo DateTimeExtended::dateToShortMonthFormat($data->refDateTime, "T") ?></span><br>
                         <span>for the payment invoice </span> <span class="highlighted">Pay_<?php echo $data->paymentInvoiceNo ?></span>
                     <?php else : ?>
                         <!-- displaying payment basic data  -->
-                        <span>Payment received by</span>
-                        <span class="highlighted"> <?php echo $data->refRecept ?></span><br>
+                        <span>Payment received</span>
+                        <!-- <span class="highlighted"> <?php echo $data->refRecept ?></span><br> -->
                         <span>on </span> <span class="highlighted"><?php echo DateTimeExtended::dateToShortMonthFormat($data->payDateTime, "F") ?> </span>
                         <span>at </span> <span class="highlighted"><?php echo DateTimeExtended::dateToShortMonthFormat($data->payDateTime, "T") ?></span>
                     <?php endif; ?>
@@ -78,8 +78,8 @@
                     <hr class="separator">
 
                     <div class="summary">
-                        <span>Refund Created by</span>
-                        <span class="highlighted"> <?php echo $data->refRecept ?></span><br>
+                        <span>Refund Created</span>
+                        <!-- <span class="highlighted"> <?php echo $data->refRecept ?></span><br> -->
                         <span>on </span> <span class="highlighted"><?php echo DateTimeExtended::dateToShortMonthFormat($data->refDateTime, "F") ?></span>
                         <span>at </span> <span class="highlighted"><?php echo DateTimeExtended::dateToShortMonthFormat($data->refDateTime, "T") ?></span><br>
                     </div>
