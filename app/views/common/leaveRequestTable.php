@@ -204,7 +204,7 @@
                   <span class="error"> <?php echo $data['reason_error']; ?></span>
                </div>
                <div class="reqleave-button-section">
-                  <div class="modalbutton">
+                  <div class="leaveSPRES modalbutton">
                      <div class="btn1">
                         <button type="submit" name="action" value="cancel" class="close-type-btn btn btnClose ">Cancel</button>
                      </div>
