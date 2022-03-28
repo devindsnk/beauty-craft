@@ -104,7 +104,9 @@
                      <th class="column-right-align col-5">Price</th>
                      <th class="column-center-align col-6">Status</th>
                      <th class="col-7"></th>
-                     <th class="col-7"></th>
+                     <?php if (Session::getUser("typeText") == "Owner" || Session::getUser("typeText") == "Manager") : ?>
+                        <th class="col-7"></th>
+                     <?php endif; ?>
                   </tr>
                </thead>
 
@@ -155,17 +157,19 @@
                               <?php endif; ?>
                            </span>
                         </td>
-                        <td class="column-center-align">
-                           <?php if ($sDetails->status == 1) : ?>
-                              <a href="#"><button type="submit" data-columns2="<?php echo $sDetails->serviceID; ?>" class="table-btn black-action-btn btnHoldService holdhref">Hold</button></a>
+                        <?php if (Session::getUser("typeText") == "Owner" || Session::getUser("typeText") == "Manager") : ?>
+                           <td class="column-center-align">
+                              <?php if ($sDetails->status == 1) : ?>
+                                 <a href="#"><button type="submit" data-columns2="<?php echo $sDetails->serviceID; ?>" class="table-btn black-action-btn btnHoldService holdhref">Hold</button></a>
 
-                           <?php elseif ($sDetails->status == 2) : ?>
-                              <a href="<?php echo URLROOT ?>/services/activeService/<?php echo $sDetails->serviceID; ?>"><button type="submit" class="table-btn green-action-btn " name="action" value="active">Active</button></a>
+                              <?php elseif ($sDetails->status == 2) : ?>
+                                 <a href="<?php echo URLROOT ?>/services/activeService/<?php echo $sDetails->serviceID; ?>"><button type="submit" class="table-btn green-action-btn " name="action" value="active">Active</button></a>
 
-                           <?php else : ?>
-                              <a href="#"><button type="submit" class="table-btn gray-action-btn" disabled>Disabled</button></a>
-                           <?php endif; ?>
-                        </td>
+                              <?php else : ?>
+                                 <a href="#"><button type="submit" class="table-btn gray-action-btn" disabled>Disabled</button></a>
+                              <?php endif; ?>
+                           </td>
+                        <?php endif; ?>
                      </tr>
                   <?php endforeach; ?>
 
