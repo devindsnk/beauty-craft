@@ -63,6 +63,18 @@ class DateTimeExtended
       return [$minsDiff, $secDiff];
    }
 
+   public static function getDateDiff($fromDate, $toDate = NULL)
+   {
+      if (is_null($toDate))
+         $toDate = self::getCurrentDate();
+
+      $toDate = date_create($toDate);
+
+      $fromDate = date_create($fromDate);
+
+      return date_diff($fromDate, $toDate)->days;
+   }
+
    public static function minsToDuration($durationInMins)
    {
       $hours = (int)($durationInMins / 60);

@@ -245,15 +245,20 @@ class Services extends Controller
       // return json_encode($serviceProvidersList, JSON_NUMERIC_CHECK);
    }
 
-   public function getServiceDuration($serviceID)
+   public function getServiceDurationCategoryPrice($serviceID)
    {
       Session::validateSession([4, 6]);
-      $serviceDuration = $this->ServiceModel->getServiceDuration($serviceID);
-      $serviceDuration = DateTimeExtended::minsToDuration($serviceDuration);
-      header('Content-Type: application/json; charset=utf-8');
-      print_r(json_encode($serviceDuration));
 
-      // return json_encode($serviceDuration, JSON_NUMERIC_CHECK);
+      $gender = ['', 'Male', 'Female', 'Male & Female'];
+
+      $data =  $this->ServiceModel->getServiceDurationCategoryPrice($serviceID);
+      $serviceDuration = $data->totalDuration;
+      // $serviceDuration = DateTimeExtended::minsToDuration($serviceDuration);
+      $custCategory = $gender[$data->customerCategory];
+      $price = $data->price;
+
+      header('Content-Type: application/json; charset=utf-8');
+      print_r(json_encode([$serviceDuration, $custCategory, $price]));
    }
 
    public function getServiceType()

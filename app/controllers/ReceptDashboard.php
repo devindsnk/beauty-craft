@@ -27,6 +27,9 @@ class ReceptDashboard extends Controller
 
       // $serviceProviders = $this->serviceModel->getServiceProviderDetails();
 
+      $this->reservationModel->updateTodayNotConfirmedToCancel();
+
+
       $data = [
          'selectedDate' => $date
       ];

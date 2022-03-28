@@ -18,7 +18,7 @@ require APPROOT . "/views/customer/cust_headerBar.php";
                 $statusClass = $statusClass[$reservation->status];
                 $statusValue = $statusValue[$reservation->status];
 
-                $btnStatus = ($reservation->status == 1 || $reservation->status == 5) ? "" : "disabled";
+                $btnStatus = ($reservation->status == 1 || $reservation->status == 2 || $reservation->status == 5) ? "" : "disabled";
 
                 $date = $reservation->date;
                 $date = explode('-', $date);
@@ -79,12 +79,12 @@ require APPROOT . "/views/customer/cust_headerBar.php";
                             </div>
                         </div>
                         <div class="right-section btn-container">
-                            <?php if ($reservation->status == 4) : ?>
+                            <!-- <?php if ($reservation->status == 4) : ?>
                                 <btn class="btn btn-outlined btn-blue btnProvFeedback" data-id="<?php echo $reservation->reservationID ?>">Provide Feedback</btn>
-                            <?php else : ?>
-                                <btn class="btn btn-outlined btn-black" <?php echo $btnStatus; ?> data-id="<?php echo $reservation->reservationID ?>">Edit</btn>
-                                <btn class="btn btn-filled btn-error-red btnResCancel" <?php echo $btnStatus; ?> data-id="<?php echo $reservation->reservationID ?>">Cancel</btn>
-                            <?php endif; ?>
+                            <?php else : ?> -->
+                            <!-- <btn class="btn btn-outlined btn-black" <?php echo $btnStatus; ?> data-id="<?php echo $reservation->reservationID ?>">Edit</btn> -->
+                            <btn class="btn btn-filled btn-error-red btnResCancel" <?php echo $btnStatus; ?> data-id="<?php echo $reservation->reservationID ?>">Cancel</btn>
+                            <!-- <?php endif; ?> -->
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@ require APPROOT . "/views/customer/cust_headerBar.php";
 
 </div>
 <!-- Provide feedback modal -->
-<div class="modal-container provide-feedback">
+<!-- <div class="modal-container provide-feedback">
     <div class="modal-box size-form">
         <div class="confirm-model-head">
             <h1>Provide Feedback</h1>
@@ -121,7 +121,7 @@ require APPROOT . "/views/customer/cust_headerBar.php";
             <button class="btn normal ModalButton ModalBlueButton proceedBtn" onclick="provideFeedback(this);">Save</button>
         </div>
     </div>
-</div>
+</div> -->
 <!-- End of Provide feedback  modal -->
 
 <!-- Res Cancellation modal -->

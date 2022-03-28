@@ -15,10 +15,15 @@
    <div class="content recept daily-view">
 
       <div class="page-top-main-container">
-         <div class="text-group">
-            <label class="label" for="fName">Date</label>
+         <div>
+
+            <span class="statusButtonsDO completed">Completed / No Show</span>
+            <span class="statusButtonsDO pending">Pending</span>
+            <span class="statusButtonsDO confirmed">Confirmed</span>
+            <span class="statusButtonsDO recalled">Recalled</span>
             <input type="date" name="" id="datePicker" onchange="calendarUpdate(this)" value="<?php echo $data["selectedDate"] ?>">
          </div>
+
          <span class="error"> <?php echo " "; ?></span>
          <a href="<?php echo URLROOT ?>/reservations/newReservationRecept" class="btn btn-filled btn-theme-purple btn-main">Add
             New</a>

@@ -168,3 +168,53 @@
     top: 300px;
     right: 0px;
 } */
+
+.daily-view .page-top-main-container {
+    justify-content: space-between !important;
+}
+
+.daily-view .page-top-main-container>div {
+    display: flex;
+    flex-direction: row;
+    width: 700px;
+    height: 39px;
+}
+
+.statusButtonsDO {
+    width: fit-content;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: none;
+    display: block;
+    padding: 4px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    margin-right: 8px;
+}
+
+.statusButtonsDO.confirmed {
+    background-color: #1BC657;
+}
+
+.statusButtonsDO.pending {
+    background-color: #037AFF;
+}
+
+.statusButtonsDO.recalled {
+    background-color: #FFBF02;
+}
+
+.statusButtonsDO.completed {
+    background-color: #50515A;
+}
+
+#datePicker {
+    margin-left: 20px;
+    width: 200px;
+}
+
+.content.daily-view {
+    overflow-y: hidden;
+}

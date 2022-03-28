@@ -13,6 +13,8 @@ const sTimeError = document.querySelector(".sTime-error");
 const remarksInput = document.querySelector(".remarks");
 const remarksError = document.querySelector(".remarks-error");
 const serviceDurationBox = document.querySelector(".durationBox");
+const custCategoryBox = document.querySelector(".custCategoryBox");
+const servicePriceBox = document.querySelector(".servicePriceBox");
 
 const addResBtnCust = document.querySelector(".addResBtnCust");
 const addResBtnRecept = document.querySelector(".addResBtnRecept");
@@ -29,7 +31,7 @@ startTime = (!startTimeSelector) ? null : startTimeSelector.value;
 // performing checks on page load
 updateStartTime();
 checkDate();
-updateServiceDuration();
+updateServiceDurationCategoryPrice();
 performChecksAndUpdates();
 
 // Change of date
@@ -46,7 +48,7 @@ dateSelector.addEventListener("change", function () {
 serviceSelector.addEventListener("change", function () {
 	selectedService = serviceSelector.value;
 	checkSelected(serviceSelector, serviceError); // Updating the error
-	updateServiceDuration(); // Updating service duration
+	updateServiceDurationCategoryPrice(); // Updating service duration pric and category
 	performChecksAndUpdates();
 });
 
@@ -124,22 +126,29 @@ function updateSProviderAvailability() {
 }
 
 // Update the duration of the selected service
-function updateServiceDuration() {
+async function updateServiceDurationCategoryPrice() {
 	if (selectedService) {
-		fetch(`http://localhost:80/beauty-craft/services/getServiceDuration/${selectedService}`)
+		await fetch(`http://localhost:80/beauty-craft/services/getServiceDurationCategoryPrice/${selectedService}`)
 			.then((response) => response.json())
-			.then((serviceDuration) => {
-				serviceDurationBox.innerHTML = "";
-				serviceDurationBox.text = serviceDuration;
-				serviceDurationBox.value = serviceDuration;
+			.then((data) => {
+				let serviceDuration = data[0];
+				let custCategory = data[1];
+				let price = data[2];
+
+				serviceDurationBox.value = minsToDuration(serviceDuration);
+				serviceDurationBox.setAttribute("data-duration", serviceDuration);
+				custCategoryBox.value = custCategory;
+				servicePriceBox.value = price;
+
+				updateStartTime();
 			});
 	}
 }
 
 // Update the closed state of the selected date
-function checkDate() {
+async function checkDate() {
 	if (selectedDate) {
-		fetch(`http://localhost:80/beauty-craft/Reservations/checkIfDatePossible/${selectedDate}`)
+		await fetch(`http://localhost:80/beauty-craft/Reservations/checkIfDatePossible/${selectedDate}`)
 			.then((response) => response.json())
 			.then((state) => {
 				dateError.innerHTML = state;
@@ -163,7 +172,7 @@ function updateStartTime() {
 	let d1 = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 5, 30, 0); // time is set to 5:30
 	let d2 = new Date(selectedDate);
 	let closeTime = 20 * 60 + 0;
-	let sDuration = parseInt(serviceDurationBox.value);
+	let sDuration = parseInt(serviceDurationBox.getAttribute("data-duration"));
 
 	if (d1.getTime() === d2.getTime()) {
 		let curTimeInMins = today.getHours() * 60 + today.getMinutes();
@@ -174,6 +183,8 @@ function updateStartTime() {
 
 			if ((sTime < curTimeInMins + 30) || (sTime + sDuration > closeTime)) {
 				sTimeOption.disabled = true;
+			} else {
+				sTimeOption.disabled = false;
 			}
 		}
 	} else {
@@ -212,9 +223,10 @@ if (addResBtnCust) {
 	addResBtnCust.addEventListener("click",
 		async function () {
 			let custID = null;
-			await placeReservation(custID);
+			let response = await placeReservation(custID);
 
-			window.location.replace("http://localhost:80/beauty-craft/custDashboard/myReservations");
+			if (response)
+				window.location.replace("http://localhost:80/beauty-craft/custDashboard/myReservations");
 
 		});
 }
@@ -252,6 +264,7 @@ async function placeReservation(custID) {
 
 	// checkDate();
 	updateSProviderAvailability();
+	await checkDate();
 	// console.log(checkEmpty(startTimeError));
 	if (checkEmpty(sTimeError) && checkEmpty(dateError) && checkEmpty(serviceError) && checkEmpty(sProvError)) {
 		console.log("All empty");
@@ -267,5 +280,18 @@ async function placeReservation(custID) {
 	} else {
 		console.log("bad");
 		// return 0;
+	}
+}
+
+
+function minsToDuration(durationInMins) {
+	let hours = Math.floor(durationInMins / 60);
+	let mins = durationInMins % 60;
+	if (hours == 0)
+		return mins + " mins";
+	else if (mins == 0) {
+		return hours + " hours";
+	} else {
+		return hours + " h " + mins + " mins";
 	}
 }

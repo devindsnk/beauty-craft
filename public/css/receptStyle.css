@@ -270,6 +270,7 @@
    margin-bottom: 0 !important;
 }
 
+.recept.editRes .editResBtnRecept,
 .recept.newRes .addResBtnRecept {
    width: 100%;
    padding: 7px;
@@ -279,8 +280,22 @@
 }
 
 
+
+
 /****************** End of Styles of new reservation page *******************/
 
+
+/********************* Styles of edit reservation page ***********************/
+/* Most styles are inherited from new res  */
+.editRes .cust-container .profile-info {
+   display: flex !important;
+}
+
+.editRes .profile-info {
+   margin: 0 !important;
+}
+
+/****************** End of Styles of edit reservation page *******************/
 
 /*********************** Styles of daily view page **************************/
 

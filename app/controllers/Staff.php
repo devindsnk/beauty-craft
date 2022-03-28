@@ -379,7 +379,8 @@ class Staff extends Controller
             'bankName_error' => '',
             'branchName_error' => '',
             'staffdetails' => $staffdetailsBystaffID[0],
-            'bankdetails' => $bankdetailsBystaffID[0]
+            'bankdetails' => $bankdetailsBystaffID[0],
+            'staffID' => $staffID
          ];
 
 
@@ -609,7 +610,7 @@ class Staff extends Controller
             'holdersName_error' => '',
             'bankName_error' => '',
             'branchName_error' => '',
-            'staffID' => $staffID,
+            'staffID' => $staffID
          ];
          $this->view('owner/own_staffUpdate', $data);
       }

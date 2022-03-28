@@ -132,7 +132,7 @@
                            <span>
                               <a href="<?php echo URLROOT ?>/Reservations/reservationMoreInfo/<?php echo $reservation->reservationID; ?>"><i class="ci-view-more table-icon img-gap"></i></a>
                               <?php if (Session::getUser("typeText") == "Receptionist") : ?>
-                                 <a href="#"><i class="ci-edit table-icon img-gap"></i></a>
+                                 <a href="<?php echo URLROOT ?>/Reservations/reservationEditRecept/<?php echo $reservation->reservationID; ?>"><i class="ci-edit table-icon img-gap"></i></a>
                                  <!-- <a href="#"><i class="ci-trash table-icon img-gap"></i></a> -->
                               <?php endif; ?>
                            </span>
