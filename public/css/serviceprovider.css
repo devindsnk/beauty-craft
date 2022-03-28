@@ -409,7 +409,7 @@ input#takeLeaveDate.addItemsModalDate{
     visibility: hidden !important;
 }
 
-.serprov .modalbutton {
+.leaveSPRES.modalbutton {
     display: flex;
     flex-direction: row;
     align-items: flex-end;

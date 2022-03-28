@@ -68,16 +68,16 @@ require APPROOT . "/views/customer/cust_headerBar.php";
                 <div class="profname">
                     <label class="label" for="gender">Gender</label>
                     <div class="radiobutton custProfileSettings">
-                          <input type="radio" id="gender" name="gender" value="M" <?php if ($data['gender'] == 'M')
-                                                                                    {
-                                                                                        echo 'checked';
-                                                                                    } ?>>
-                          <label for="male">Male</label>
-                          <input type="radio" id="css" name="gender" value="F" <?php if ($data['gender'] == 'F')
+                        <input type="radio" id="gender" name="gender" value="M" <?php if ($data['gender'] == 'M')
                                                                                 {
                                                                                     echo 'checked';
                                                                                 } ?>>
-                          <label for="female">Female</label>
+                        <label for="male">Male</label>
+                        <input type="radio" id="css" name="gender" value="F" <?php if ($data['gender'] == 'F')
+                                                                                {
+                                                                                    echo 'checked';
+                                                                                } ?>>
+                        <label for="female">Female</label>
                     </div>
                     <span class="error"></span>
                 </div>
@@ -88,25 +88,25 @@ require APPROOT . "/views/customer/cust_headerBar.php";
                 <div class="column">
                     <div class="text-group-name">
                         <label class="proflabel">Mobile Number </label> <br />
-                        <input type="text" name="mobileNo" value="<?php echo $data['mobileNo']; ?>" maxlength="35">
-                        <span class="error"><?php echo 'hhh'; ?></span>
+                        <input type="text" name="mobileNo" value="<?php echo $data['mobileNo']; ?>" maxlength="35" disabled>
+                        <!-- <span class="error"><?php echo 'hhh'; ?></span> -->
                     </div>
                 </div>
-                <div class="column spec otpcolumn">
+                <!-- <div class="column spec otpcolumn">
                     <div class="text-group-name">
                         <p id="countdown"></p>
                         <button type="submit" name="action" value="getOTP" id="getOTPBtn" class="btn btn-filled btn-black middle">Get OTP</button>
                     </div>
-                </div>
+                </div> -->
             </div>
 
-            <div class="item item4">
+            <!-- <div class="item item4">
                 <div class="profname">
                     <label class="proflabel">OTP </label> <br />
                     <input type="text" name="OTP" value=" " maxlength="6" class="OTP" placeholder="OTP">
                 </div>
                 <span class="error"><?php  ?></span>
-            </div>
+            </div> -->
 
             <div class="item item5">
                 <div class="savebutton">
