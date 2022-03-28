@@ -30,7 +30,7 @@
 
                             <div class="labelBox">
                                 <div class="detailLableLine">
-                                    <label class="rateLabel">General Leave Limit</label> <br>
+                                    <label class="rateLabel">Casual Leave Limit</label> <br>
                                     <span class="error"><?php echo $data['generalLeave_error']; ?></span>
                                 </div>
                                 <div class="detailLableLine">
@@ -38,7 +38,7 @@
                                     <span class="error"><?php echo $data['medicalLeave_error']; ?></span>
                                 </div>
                                 <div class="detailLableLine">
-                                    <label class="rateLabel">Manager General Leave Limit</label> <br>
+                                    <label class="rateLabel">Manager Casual Leave Limit</label> <br>
                                     <span class="error"><?php echo $data['managerGeneralLeave_error']; ?></span>
                                 </div>
                                 <div class="detailLableLine">
