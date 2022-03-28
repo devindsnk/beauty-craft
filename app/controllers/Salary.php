@@ -31,7 +31,7 @@ class Salary extends Controller
       $this->view('owner/own_salaryReportView', $AllSalaryReportDetails);
    }
 
-   public function salaryPayWithStaffID($staffID, $month,$mobileNo)
+   public function salaryPayWithStaffID($staffID,$month,$mobileNo)
    {  
       $this->salaryModel->payNowSalaryWithStaffID($staffID,$month);
       SMS::sendSalaryPaySMS($mobileNo);

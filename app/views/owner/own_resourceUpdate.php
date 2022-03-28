@@ -14,7 +14,7 @@
     </header>
     <div class="content contentNewRes">
         <div class="ownStaff_allignmentbox own staff resources">
-            
+
             <div class="ownAddstaffContainer contentBox">
                 <form action="<?php echo URLROOT; ?>/resources/updateResource/<?php echo $data['purchaseID']; ?>/<?php echo $data['currentResourceID']; ?>" method="post">
                     <div class="ownAddstaff_formWrapper">
@@ -45,7 +45,7 @@
                                 <div class="addType">
                                     <div class="selectType">
                                         <label class="ownAddstaffLabels">Type</label>
-                                            <span><?php echo ($data['name']); ?></span>
+                                        <span><?php echo ($data['name']); ?></span>
 
                                     </div>
                                 </div>

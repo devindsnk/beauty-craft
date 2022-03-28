@@ -128,34 +128,34 @@ class SMS
    public static function sendSMS($mobileNo, $SMSText, $priorityFlag)
    {
       echo $SMSText;
-      // $user = SMS_USER;
-      // $password = SMS_PASS;
+      $user = SMS_USER;
+      $password = SMS_PASS;
 
-      // $to = "94" . substr($mobileNo, 1, 9);
-      // $baseurl = "http://www.textit.biz/sendmsg";
+      $to = "94" . substr($mobileNo, 1, 9);
+      $baseurl = "http://www.textit.biz/sendmsg";
 
-      // if ($priorityFlag == 1)
-      //    $ecoVal = "N";
-      // else
-      //    $ecoVal = "Y";
+      if ($priorityFlag == 1)
+         $ecoVal = "N";
+      else
+         $ecoVal = "Y";
 
 
-      // $url = "$baseurl/?id=$user&pw=$password&to=$to&text=$SMSText&eco=$ecoVal";
-      // $ret = file($url);
-      // // print_r($ret);
-      // $res = explode(":", $ret[0]);
+      $url = "$baseurl/?id=$user&pw=$password&to=$to&text=$SMSText&eco=$ecoVal";
+      $ret = file($url);
+      // print_r($ret);
+      $res = explode(":", $ret[0]);
 
-      // if (trim($res[0]) == "OK")
-      // {
-      //    // echo $mobileNo, $text;
-      //    return true;
-      //    // die("Message Sent - ID : " . $res[1]);
-      // }
-      // else
-      // {
-      //    return false;
-      //    // die("Sent Failed - Error : " . $res[1]);
-      // }
+      if (trim($res[0]) == "OK")
+      {
+         // echo $mobileNo, $text;
+         return true;
+         // die("Message Sent - ID : " . $res[1]);
+      }
+      else
+      {
+         return false;
+         // die("Sent Failed - Error : " . $res[1]);
+      }
       return true;
    }
 }
