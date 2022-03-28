@@ -55,7 +55,7 @@
             </div>
             <div class="right-section">
                <a class="btn btn-filled btn-black" id="allSalaryFilterBtn">Search</a>
-               <a href="#" class="btn btn-filled btn-theme-purple btnSalaryPayMultiple"></i> Mark As Paid</a>
+               <!-- <a href="#" class="btn btn-filled btn-theme-purple btnSalaryPayMultiple"></i> Mark As Paid</a> -->
             </div>
          </div>
       </form>
@@ -87,7 +87,7 @@
                   <?php foreach ($data['allStaffSalaryDetailsList'] as $staffD) : ?>
                      <tr>
                         <td data-lable="" class="column-center-align">
-                           <input type="checkbox" name="chk" class = "payNowCheckbox" data-staffid = "<?php echo $staffD->staffID; ?>" data-month = "<?php echo $staffD->month; ?>" <?php echo  ($staffD->status==1)? " disabled": "" ?>/>
+                           <!-- <input type="checkbox" name="chk" class = "payNowCheckbox" data-staffid = "<?php echo $staffD->staffID; ?>" data-month = "<?php echo $staffD->month; ?>" <?php echo  ($staffD->status==1)? " disabled": "" ?>/> -->
                         </td>
                         <!-- <td data-lable="" class="column-center-align"><img class="img-profile-picture" src="<?php echo URLROOT ?>/public/imgs/person2.jpg" /></td> -->
                         <td data-lable="Staff Member Name"><?php echo $staffD->fName ?> <?php echo $staffD->lName ?></td>
@@ -134,8 +134,8 @@
                </tbody>
                <!--End of table body-->
             </table>
-            <input type="button" class="table-btn check-btn btn-position" onclick='selects()' value="CheckAll" />
-            <input type="button" class="table-btn uncheck-btn btn-position" onclick='deSelect()' value="UncheckAll" />
+            <!-- <input type="button" class="table-btn check-btn btn-position" onclick='selects()' value="CheckAll" />
+            <input type="button" class="table-btn uncheck-btn btn-position" onclick='deSelect()' value="UncheckAll" /> -->
          </div>
       </div>
       <!--End Content-->

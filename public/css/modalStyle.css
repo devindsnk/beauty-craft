@@ -146,6 +146,7 @@
     padding-bottom: 15px;
 }
 .addItemsModalGrid1 input[type="date"],
+.addItemsModalGrid1 input[type="password"],
 .addItemsModalTextArea,
 .addItemsModalGrid1 input[type="text"] {
     font-weight: 400;

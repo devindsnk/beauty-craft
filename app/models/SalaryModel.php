@@ -21,7 +21,6 @@ class SalaryModel extends Model
 
    public function getAllStaffAndSalaryPaymentDetails($staffName,$staffID,$paidType,$month)
    {
-
 $SQLstatement =
       "SELECT * FROM staff INNER JOIN salarypayments ON staff.staffID = salarypayments.staffID WHERE staff.staffType IN (3,4,5) ";
 
@@ -38,7 +37,7 @@ $SQLstatement =
 
       if ($staffName != "all") $SQLstatement .= " AND (staff.fName LIKE $string1 OR staff.lName LIKE $string1) ";
       if ($staffID != "all") $SQLstatement .= " AND (staff.staffID LIKE $string2) ";
-      if ($staffID != "all") $SQLstatement .= " AND (salarypayments.month LIKE $string3) ";
+      if ($month != "all") $SQLstatement .= " AND (salarypayments.month LIKE $string3) ";
       if ($paidType != "all") $SQLstatement .= " AND (salarypayments.status = $paidType) ";
       $SQLstatement .= "ORDER BY salarypayments.month";
       $results = $this->customQuery($SQLstatement,  null);

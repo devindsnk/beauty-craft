@@ -172,9 +172,9 @@ class ReservationModel extends Model
 
       // // Extract specially defined conditions to a separate array
       // // Note that both tableName and columnName are used as the keys
-      if ($rDate != "all") $conditions["reservations.date"] = $rDate;
+      if ($rDate != "all") $conditions["RES.date"] = $rDate;
       if ($rService != "all") $conditions["services.serviceID"] = $rService;
-      if ($rType != "all") $conditions["reservations.status"] = $rType;
+      if ($rType != "all") $conditions["RES.status"] = $rType;
 
       $preparedConditions = array();
       $dataToBind = array();
@@ -189,14 +189,16 @@ class ReservationModel extends Model
       $consditionsString = implode(" AND ", $preparedConditions); // Joining conditions with AND
 
       $SQLstatement =
-         "SELECT reservations.date,reservations.reservationID,reservations.startTime,reservations.endTime,reservations.remarks,reservations.status,services.name,services.totalDuration,customers.fName,customers.lName 
-      FROM reservations 
-      INNER JOIN services ON services.serviceID = reservations.serviceID
-      INNER JOIN customers ON customers.customerID = reservations.customerID";
+         "SELECT RES.date, RES.reservationID, RES.startTime, RES.endTime, RES.remarks, RES.status,services.name,services.totalDuration,customers.fName,customers.lName 
+      FROM (SELECT * FROM reservations WHERE staffID = :staffID) AS RES
+      INNER JOIN services ON services.serviceID =  RES.serviceID
+      INNER JOIN customers ON customers.customerID =  RES.customerID";
+
+      $dataToBind[":staffID"] = $staffID;
 
       // Appending conditions string
       if (!empty($conditions)) $SQLstatement .= " WHERE $consditionsString";
-      $SQLstatement .= " ORDER BY reservations.date DESC, reservations.startTime ASC, reservations.reservationID  ASC";
+      $SQLstatement .= " ORDER BY RES.date DESC, RES.startTime ASC, RES.reservationID  ASC";
 
       $results = $this->customQuery($SQLstatement,  $dataToBind);
 

@@ -98,9 +98,8 @@
 
                            <!-- <a href="#" class="removeResourceTypeAnchor"><i  class="ci-trash table-icon btnRemoveResourceType img-gap"></i></a> -->
                            <?php if ($resourceD->quantity==0) : ?>
-                           <a
-                              href="<?php echo URLROOT ?>/resources/viewResources/<?php echo $resourceD->resourceID; ?>"><i
-                                 class="ci ci-view-more-disable table-icon img-gap"></i></a>
+                           <a><i
+                                 class="ci ci-view-more-disable table-icon img-gap" ></i></a>
                            <?php endif; ?>
                            <?php if ($resourceD->quantity>0) : ?>
                            <a
