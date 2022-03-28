@@ -769,7 +769,8 @@ class Staff extends Controller
                   //System log
                   Systemlog::changePassword();
                   Toast::setToast(1, "Password Successfully Updated!", "");
-                  $this->view('staff/staff_changepassword', $data);
+                  // $this->view('staff/staff_changepassword', $data);
+                  redirect('Staff/changepassword');
                }
             }
             else

@@ -13,9 +13,6 @@ const editLeaveReason = document.querySelector(".editTextArea");
 const editLeaveBtn = document.querySelector(".editleaveProceedBtn");
 const editdropdown = document.querySelector(".editleaveDropdownType");
 
-
-
-console.log("RRRRR");
 dropdown.disabled=true;
 
 leaveRequestSelectedDate.addEventListener('change',
@@ -149,6 +146,9 @@ function editLeaveRequest(btn){
          editLeaveDate.value=leaveData['leaveDate'];         
          editLeaveType.options[leaveData['leaveType']].selected = true;
          editLeaveReason.innerHTML=leaveData['reason'];
+         editLeaveType.setAttribute('data-id', leaveData['leaveType']);
+         editLeaveReason.setAttribute('data-id', leaveData['reason']);
+
         
       });
 
@@ -163,7 +163,6 @@ fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestTypeValidate/${editLe
           console.log('msg');
          
          editLeaveError.innerHTML=msg;
-
           
         
       });
@@ -173,19 +172,39 @@ fetch(`http://localhost:80/beauty-craft/Leaves/leaveRequestTypeValidate/${editLe
 
 editLeaveBtn.addEventListener('click',
    function () {
-  console.log("leave edit btn clicked");   
-  fetch(`http://localhost:80/beauty-craft/Leaves/editLeaverequest/${editLeaveDate.value}/${editLeaveType.value}/${editLeaveReason.value}`)
+  const oldType=editLeaveType.getAttribute('data-id'); 
+    const oldReason=editLeaveReason.getAttribute('data-id'); 
+
+   console.log(editLeaveDate.value); 
+    console.log(oldType);   
+     console.log(editLeaveType.value); 
+    console.log(editLeaveReason.value);   
+let nType=parseInt(editLeaveType.value);
+console.log(nType);
+    if(oldType !=editLeaveType.value || oldReason!=editLeaveType.value){
+      fetch(`http://localhost:80/beauty-craft/Leaves/editLeaverequest/${editLeaveDate.value}/${oldType}/${nType}/${editLeaveReason.value}`)
       .then(response => response.json())
       .then(value => {
           console.log(value);
-          console.log('value');       
         
       });
+       				window.location.reload();
+
+    }else{
+       				window.location.reload();
+
+    }
+//   
   
 
 
    }
 )
+
+
+
+
+
 
 ///////////////////////////
 // filter options
