@@ -74,7 +74,7 @@
       </div>
       <!--End of sub-container1-->
       <div class="main-head">
-         <p>Last month prograss</p>
+         <p>Last month progress</p>
          <hr class="head-hr">
       </div>
       <div class="mang-sub-container3 mang">
@@ -150,7 +150,7 @@
       <!--End of sub-container2-->
 
       <div class="main-head">
-         <p>Annual prograss</p>
+         <p>Annual progress</p>
          <hr class="head-hr">
       </div>
 
