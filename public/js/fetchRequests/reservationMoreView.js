@@ -43,7 +43,7 @@ function getReservationMoreData (selectedReservation){
         custName.innerHTML= reservationData['fName']+" "+reservationData['lName'];
         serviceTime.innerHTML= reservationData['startTime']+" - "+reservationData['endTime'];
         duration.innerHTML = reservationData['totalDuration'] +" mins";
-         // document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase";
+         document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase";
 
           const recallmodelbutton=document.getElementById("recallModelOpenBtn");
 
@@ -61,7 +61,7 @@ function getReservationMoreData (selectedReservation){
 
          if(reservationData['status']==5){
             statusdivText.innerHTML="Recalled";
-            document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase yellow";
+            document.getElementById("resStatus").className = "confirm-status yellow status-btn btn text-uppercase yellow";
                         recallmodelbutton.classList.remove("hide");
 
             // statusdiv.classList.add('grey');
@@ -72,30 +72,30 @@ function getReservationMoreData (selectedReservation){
                         recallmodelbutton.classList.remove("hide");
 
             // statusdiv.classList.add('yellow');
-            document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase blue";
+            document.getElementById("resStatus").className = "confirm-status blue status-btn btn text-uppercase blue";
             
          }else if(reservationData['status']==2){
             statusdivText.innerHTML="Confirmed";
                         recallmodelbutton.classList.remove("hide");
 
             // statusdiv.classList.add('blue');
-            document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase green";
+            document.getElementById("resStatus").className = "confirm-status green status-btn btn text-uppercase green";
            }else if(reservationData['status']==3){
             statusdivText.innerHTML="No Show";
             // statusdiv.classList.add('blue');
-            document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase grey";
+            document.getElementById("resStatus").className = "confirm-status grey status-btn btn text-uppercase grey";
             recallmodelbutton.classList.add("hide");
             
          }else if(reservationData['status']==4){
             statusdivText.innerHTML="Completed";
             // statusdiv.classList.add('green');
-                        document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase grey";   
+                        document.getElementById("resStatus").className = "confirm-status grey status-btn btn text-uppercase grey";   
                         recallmodelbutton.classList.add("hide");
          }
          else if(reservationData['status']==0){
             statusdivText.innerHTML="Cancelled";
             // statusdiv.classList.add('green');
-                        document.getElementById("resStatus").className = "confirm-status status-btn btn text-uppercase red";
+                        document.getElementById("resStatus").className = "confirm-status red status-btn btn text-uppercase red";
                         recallmodelbutton.classList.add("hide");
 
             

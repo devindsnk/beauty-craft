@@ -119,8 +119,11 @@ function filterLeavesSpAndRecep() {
     
     const lTypeSelectorSP = document.getElementById("lTypeLeaveData");
     const lStatusSelectorSP = document.getElementById("lStatusLeaveData");
+    //filter to the leave date 
+        const newDateFilter = document.getElementById("datePickerSPResleave");
+console.log(newDateFilter.value);
 
-    window.location.replace(`http://localhost/beauty-craft/Leaves/leaves/${lTypeSelectorSP.value}/${lStatusSelectorSP.value}`);
+    window.location.replace(`http://localhost/beauty-craft/Leaves/leaves/${newDateFilter.value}/${lTypeSelectorSP.value}/${lStatusSelectorSP.value}`);
 
 
 }
@@ -418,3 +421,7 @@ if (allCloseDateInputFilter) {
         window.location.replace(`http://localhost:80/beauty-craft/OwnDashboard/closeSalon/${monthSelected}`);
     });
 }
+
+//filter to the leave date 
+//************ Filters of close salon table ***************//
+

@@ -48,14 +48,14 @@ class Leaves extends Controller
 
 
    //Service provider and receptionist leaves view
-   public function leaves($lType = 'all', $lStatus = 'all')
+   public function leaves($sDate = 'all', $lType = 'all', $lStatus = 'all')
    {
       Session::validateSession([4, 5]);
       // $mLeaveLimit = $this->LeaveModel->updateLeaveRequestData('2022-03-28', 3, 2, 'sample new reason', 000031);
       // die();
 
 
-      $leaveData = $this->LeaveModel->getLeaveRecordsBystaffID(Session::getUser("id"), $lType, $lStatus);
+      $leaveData = $this->LeaveModel->getLeaveRecordsBystaffID(Session::getUser("id"), $sDate, $lType, $lStatus);
       $gLeaveLimit = $this->LeaveModel->getGeneralLeaveLimit();
       $mLeaveLimit = $this->LeaveModel->getMedicalLeaveLimit();
       $gleaveCount = $this->LeaveModel->getCurrentMonthLeaveCount(Session::getUser("id"), 1);
@@ -81,6 +81,7 @@ class Leaves extends Controller
          'dateValidationMsg' => '',
          'lType' => $lType,
          'lStatus' => $lStatus,
+         'sDate' => ''
 
       ];
 
@@ -104,6 +105,7 @@ class Leaves extends Controller
             'dateValidationMsg' => '',
             'lType' => $lType,
             'lStatus' => $lStatus,
+            'sDate' => isset($_POST['sDate']) ? trim($_POST['sDate']) : ''
          ];
          if ($_POST['action'] == "addleave")
          {
@@ -248,19 +250,19 @@ class Leaves extends Controller
       $isSalonClosed = $this->LeaveModel->checkSalonClosedDates($date);
       header('Content-Type: application/json; charset=utf-8');
 
-      if ($isSalonClosed == 1)
+      if ($isSalonClosed == 1) //check salon close dates
       {
          $dateValidationMsg = "Salon Closed";
       }
       else
       {
-         if ($alreadyRequestedDay == 1)
+         if ($alreadyRequestedDay == 1) //already leave requsted days
          {
             $dateValidationMsg = "The date You entered is already exit";
          }
          else
          {
-            if ($haveReservation == 1)
+            if ($haveReservation == 1) //already placed reservations
             {
                $dateValidationMsg = "Can not request a leave,You have ongoing reservations.";
             }

@@ -2,28 +2,56 @@
 class LeaveModel extends Model
 {
 
-   public function getLeaveRecordsBystaffID($staffID, $Type, $Status)
+   public function getLeaveRecordsBystaffID($staffID, $sDate, $Type, $Status)
    {
       if ($Type == 'all')
       {
          if ($Status == 'all')
          {
-            $results = $this->customQuery("SELECT * FROM generalleaves WHERE staffID =:staffID ORDER BY leaveDate", [':staffID' => $staffID,]);
+            if ($sDate == 'all')
+            {
+               $results = $this->customQuery("SELECT * FROM generalleaves WHERE staffID =:staffID ORDER BY leaveDate", [':staffID' => $staffID,]);
+            }
+            else
+            {
+               $results = $this->customQuery("SELECT * FROM generalleaves WHERE staffID =:staffID AND leaveDate=:lDate ORDER BY leaveDate", [':staffID' => $staffID, ':lDate' => $sDate]);
+            }
          }
          else
          {
-            $results = $this->customQuery("SELECT * FROM generalleaves WHERE ( staffID =:staffID )AND (status =:lStatus) ORDER BY leaveDate", [':staffID' => $staffID, ':lStatus' => $Status]);
+            if ($sDate == 'all')
+            {
+               $results = $this->customQuery("SELECT * FROM generalleaves WHERE ( staffID =:staffID )AND (status =:lStatus)AND leaveDate=:lDate ORDER BY leaveDate", [':staffID' => $staffID, ':lStatus' => $Status, ':lDate' => $sDate]);
+            }
+            else
+            {
+               $results = $this->customQuery("SELECT * FROM generalleaves WHERE ( staffID =:staffID )AND (status =:lStatus) ORDER BY leaveDate", [':staffID' => $staffID, ':lStatus' => $Status, ':lDate' => $sDate]);
+            }
          }
       }
       else
       {
          if ($Status == 'all')
          {
-            $results = $this->customQuery("SELECT * FROM generalleaves WHERE staffID =:staffID AND leaveType=:lType ORDER BY leaveDate", [':staffID' => $staffID, ':lType' => $Type,]);
+            if ($sDate == 'all')
+            {
+               $results = $this->customQuery("SELECT * FROM generalleaves WHERE staffID =:staffID AND leaveType=:lType ORDER BY leaveDate", [':staffID' => $staffID, ':lType' => $Type,]);
+            }
+            else
+            {
+               $results = $this->customQuery("SELECT * FROM generalleaves WHERE staffID =:staffID AND leaveType=:lType AND leaveDate=:lDate ORDER BY leaveDate", [':staffID' => $staffID, ':lType' => $Type, ':lDate' => $sDate]);
+            }
          }
          else
          {
-            $results = $this->customQuery("SELECT * FROM generalleaves WHERE ( staffID =:staffID )AND (status =:lStatus) AND leaveType=:lType ORDER BY leaveDate", [':staffID' => $staffID, ':lStatus' => $Status, ':lType' => $Type,]);
+            if ($sDate == 'all')
+            {
+               $results = $this->customQuery("SELECT * FROM generalleaves WHERE ( staffID =:staffID )AND (status =:lStatus) AND leaveType=:lType ORDER BY leaveDate", [':staffID' => $staffID, ':lStatus' => $Status, ':lType' => $Type,]);
+            }
+            else
+            {
+               $results = $this->customQuery("SELECT * FROM generalleaves WHERE ( staffID =:staffID )AND (status =:lStatus) AND leaveType=:lType AND leaveDate=:lDate ORDER BY leaveDate", [':staffID' => $staffID, ':lStatus' => $Status, ':lType' => $Type, ':lDate' => $sDate]);
+            }
          }
       }
 

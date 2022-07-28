@@ -47,6 +47,13 @@
             <div class="row statusopt">
                <div class="column">
                   <div class="dropdown-group">
+                     <label class="label" for="lName">Date</label>
+                     <input type="date" name="" id="datePickerSPResleave" value="" format="yyyy-MM-dd">
+                  </div>
+                  <span class="error"> <?php echo " "; ?></span>
+               </div>
+               <div class="column">
+                  <div class="dropdown-group">
                      <label class="label" for="lName">Leave Type</label>
                      <select name="lstatus" id="lTypeLeaveData" onchange="initializeLeavestatusSelector()">
                         <option value="all" selected>All</option>

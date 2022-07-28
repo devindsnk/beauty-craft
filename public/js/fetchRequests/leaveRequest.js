@@ -136,7 +136,7 @@ function editLeaveRequest(btn){
    console.log(editLeaveDate.value);
    console.log(editLeaveType.value);
 
-   // console.log(btn);
+   
    fetch(`http://localhost:80/beauty-craft/Leaves/getSelectedLeaveDetails/${leaveDate}/${leavestatus}`)
       .then(response => response.json())
       .then(leaveData => {
