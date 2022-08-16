@@ -82,22 +82,22 @@ function loadSProviders(reservationData) {
 
 function loadData(reservationData) {
     let x = 0;
-
     let sProvIndex = 0;
     for (let sProvID in reservationData) {
         let sProvData = reservationData[sProvID];
         let sProvColumn = sProvColumnsList[sProvIndex];
 
         for (let reservationID in sProvData[1]) {
-            if (reservationID == "") break;
+            // if (reservationID == "") break;
             let resData = sProvData[1][reservationID];
             let sName = resData['sName'];
             let resSlots = resData['slots'];
             let resStatus = resData['status'];
-
             for (let i = 0; i < resSlots.length; i++) {
                 resSlot = resSlots[i];
+
                 let resBox = createResBox(resStatus, resSlot[0], resSlot[1], sName, numToAlph[i + 1], reservationID, x);
+                console.log(resBox);
                 sProvColumnsList[sProvIndex].appendChild(resBox);
             }
 

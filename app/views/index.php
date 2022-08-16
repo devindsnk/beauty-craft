@@ -113,163 +113,8 @@
       </div>
    </header>
 
-   <div class="features sub-section">
-      <span class="title">WHY CHOOSE US</span>
-
-      <div class="card_container">
-         <div class="card">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, alias dolore molestiae consectetur cupiditate debitis ex cumque necessitatibus, commodi expedita officia, laborum omnis aliquam inventore perferendis cum dignissimos maxime! Laborum?
-         </div>
-
-      </div>
-   </div>
-
-   <div id="services" class="testimonials sub-section">
-      <span class="title">WHAT THEY SAY</span>
-      <div class="comment-container">
-         <img src="<?php echo URLROOT ?>/public/imgs/stylist-1.jpg" alt="">
-         <span class="description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum inventore ab tenetur possimus quisquam odit recusandae similique iusto ipsa in! Alias aperiam quo, ea fugiat unde tempore officia nostrum vel?
-         </span>
-         <span class="name"> Sanajana Rajapaksha </span>
-      </div>
-   </div>
-
-   <div id="staff" class="sub-section team">
-      <span class="title">Our Team</span>
-      <div class="card-container">
-         <div class="card-outer">
-            <div class="card">
-               <img src="<?php echo URLROOT ?>/public/imgs/stylist-1.jpg" alt="">
-               <h3>Sanajana Rajapaksha</h3>
-               <span>Role Here</span>
-            </div>
-         </div>
-         <div class="card-outer">
-            <div class="card">
-               <img src="<?php echo URLROOT ?>/public/imgs/stylist-2.jpg" alt="">
-               <h3>Name Here</h3>
-               <span>Role Here</span>
-            </div>
-         </div>
-         <div class="card-outer">
-            <div class="card">
-               <img src="<?php echo URLROOT ?>/public/imgs/stylist-3.jpg" alt="">
-               <h3>Name Here</h3>
-               <span>Role Here</span>
-            </div>
-         </div>
-         <div class="card-outer">
-            <div class="card">
-               <img src="<?php echo URLROOT ?>/public/imgs/stylist-4.jpg" alt="">
-               <h3>Name Here</h3>
-               <span>Role Here</span>
-            </div>
-         </div>
-         <div class="card-outer">
-            <div class="card">
-               <img src="<?php echo URLROOT ?>/public/imgs/stylist-5.jpg" alt="">
-               <h3>Name Here</h3>
-               <span>Role Here</span>
-            </div>
-         </div>
-         <div class="card-outer">
-            <div class="card">
-               <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" alt="">
-               <h3>Name Here</h3>
-               <span>Role Here</span>
-            </div>
-         </div>
-      </div>
-   </div>
-   <div id="gallery" class="sub-section gallery">
-      <span class="title">Gallery</span>
-      <div class="container">
-         <div class="box">
-            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery/gallery1.jpg">
-            <span><i>"Life is more beautiful when you meet the right hair dresser."</i></span>
-         </div>
-         <div class="box">
-            <img src="<?php echo URLROOT ?>/public/imgs/gallery/gallery2.jpg">
-            <span><i>"Always be nice to the person who is holding scissors next to your head."</i></span>
-         </div>
-         <div class="box">
-            <img src="<?php echo URLROOT ?>/public/imgs/gallery/gallery3.jpg">
-            <span><i>"People are more apt to believe you and like you when you know you look fine. And when the world approves, self-respect is just a little easier."</i></span>
-         </div>
-         <div class="box"><i></i>
-            <img src="<?php echo URLROOT ?>/public/imgs/gallery/gallery4.jpg">
-            <span><i>"As stylists we’re ground shakers and day makers. Setting trends, while fostering that inner connection between a person’s inner and outer self."</i></span>
-         </div>
-
-      </div>
-      <div class="container">
-         <div class="box">
-            <img src="<?php echo URLROOT ?>/public/imgs/gallery/gallery5.jpg">
-            <span><i>"Being a hair dress is the best profession. All day we get to listen to music, be creative, bond with others and make them feel amazing. Being a hairdresser rocks!"</i></span>
-         </div>
-         <div class="box">
-            <img src="<?php echo URLROOT ?>/public/imgs/gallery/gallery6.jpg">
-            <span><i>"If your hair is done properly and you’re wearing good shoes, you can get away with anything."</i></span>
-         </div>
-         <div class="box">
-            <img src="<?php echo URLROOT ?>/public/imgs/gallery/gallery7.jpg">
-            <span><i>"Hairdressers are a wonderful breed. You work one on one with another human being, and the object is to make them feel so much better, and to look at themselves with a twinkle in their eye.."</i></span>
-         </div>
-         <div class="box">
-            <img src="<?php echo URLROOT ?>/public/imgs/gallery/gallery8.jpg">
-            <span><i>"Life is short. You might as well live it with really great hair."</i></span>
-         </div>
-
-      </div>
-
-   </div>
    <div id="services" class="sub-section services">
       <span class="title">Services</span>
-      <!-- <div class="main-service-scroll-div">
-         <div>
-            <button class="icon" onclick="scrollImgR()">
-               <>
-            </button>
-         </div>
-         <div class="cover">
-            <div class="scroll-images">
-               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
-               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
-               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
-               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
-               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
-               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
-               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
-               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
-               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
-               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
-               <div class="child"><img class="child-img" src="<?php echo URLROOT ?>/public/imgs/gallery1.jpg"></div>
-
-            </div>
-         </div>
-         <div>
-            <button class="icon" onclick="scrollImgL()">
-               <>
-            </button>
-         </div>
-      </div> -->
-      <!-- <div class="serviceIMG">
-         <div class="containerServices">
-            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
-            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
-            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
-            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
-            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
-         </div>
-         <div class="containerServices">
-            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
-            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
-            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
-            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
-            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery4.jpg">
-         </div>
-      </div> -->
       <div class="servicesbox">
          <div class="servicescard">
             <div class="imgBx">
@@ -347,6 +192,119 @@
 
       </div>
    </div>
+
+   <!-- <div class="features sub-section">
+      <span class="title">WHY CHOOSE US</span>
+
+      <div class="card_container">
+         <div class="card">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, alias dolore molestiae consectetur cupiditate debitis ex cumque necessitatibus, commodi expedita officia, laborum omnis aliquam inventore perferendis cum dignissimos maxime! Laborum?
+         </div>
+
+      </div>
+   </div> -->
+
+   <!-- <div id="services" class="testimonials sub-section">
+      <span class="title">WHAT THEY SAY</span>
+      <div class="comment-container">
+         <img src="<?php echo URLROOT ?>/public/imgs/stylist-1.jpg" alt="">
+         <span class="description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum inventore ab tenetur possimus quisquam odit recusandae similique iusto ipsa in! Alias aperiam quo, ea fugiat unde tempore officia nostrum vel?
+         </span>
+         <span class="name"> Sanajana Rajapaksha </span>
+      </div>
+   </div> -->
+
+   <div id="staff" class="sub-section team">
+      <span class="title">Our Team</span>
+      <div class="card-container">
+         <div class="card-outer">
+            <div class="card">
+               <img src="<?php echo URLROOT ?>/public/imgs/stylist-1.jpg" alt="">
+               <h3>Piyumi Wathsala</h3>
+               <span>Hairdresser</span>
+            </div>
+         </div>
+         <div class="card-outer">
+            <div class="card">
+               <img src="<?php echo URLROOT ?>/public/imgs/stylist-2.jpg" alt="">
+               <h3>Induni Dhananjana</h3>
+               <span>Hairdresser</span>
+            </div>
+         </div>
+         <div class="card-outer">
+            <div class="card">
+               <img src="<?php echo URLROOT ?>/public/imgs/stylist-3.jpg" alt="">
+               <h3>Subhashi Perera</h3>
+               <span>Hair Colorist</span>
+            </div>
+         </div>
+         <div class="card-outer">
+            <div class="card">
+               <img src="<?php echo URLROOT ?>/public/imgs/stylist-4.jpg" alt="">
+               <h3>Ruwanthi Munasinghe</h3>
+               <span>Senior Stylist</span>
+            </div>
+         </div>
+         <div class="card-outer">
+            <div class="card">
+               <img src="<?php echo URLROOT ?>/public/imgs/stylist-5.jpg" alt="">
+               <h3>Pasindu Bhagya</h3>
+               <span>Manager</span>
+            </div>
+         </div>
+         <div class="card-outer">
+            <div class="card">
+               <img src="<?php echo URLROOT ?>/public/imgs/person1.jpg" alt="">
+               <h3>Ravindu Madhubhashana</h3>
+               <span>Owner</span>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div id="gallery" class="sub-section gallery">
+      <span class="title">Gallery</span>
+      <div class="container">
+         <div class="box">
+            <img class="galleryIMG" src="<?php echo URLROOT ?>/public/imgs/gallery/gallery1.jpg">
+            <span><i>"Life is more beautiful when you meet the right hair dresser."</i></span>
+         </div>
+         <div class="box">
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery/gallery2.jpg">
+            <span><i>"Always be nice to the person who is holding scissors next to your head."</i></span>
+         </div>
+         <div class="box">
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery/gallery3.jpg">
+            <span><i>"People are more apt to believe you and like you when you know you look fine. And when the world approves, self-respect is just a little easier."</i></span>
+         </div>
+         <div class="box"><i></i>
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery/gallery4.jpg">
+            <span><i>"As stylists we’re ground shakers and day makers. Setting trends, while fostering that inner connection between a person’s inner and outer self."</i></span>
+         </div>
+
+      </div>
+      <div class="container">
+         <div class="box">
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery/gallery5.jpg">
+            <span><i>"Being a hair dress is the best profession. All day we get to listen to music, be creative, bond with others and make them feel amazing. Being a hairdresser rocks!"</i></span>
+         </div>
+         <div class="box">
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery/gallery6.jpg">
+            <span><i>"If your hair is done properly and you’re wearing good shoes, you can get away with anything."</i></span>
+         </div>
+         <div class="box">
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery/gallery7.jpg">
+            <span><i>"Hairdressers are a wonderful breed. You work one on one with another human being, and the object is to make them feel so much better, and to look at themselves with a twinkle in their eye.."</i></span>
+         </div>
+         <div class="box">
+            <img src="<?php echo URLROOT ?>/public/imgs/gallery/gallery8.jpg">
+            <span><i>"Life is short. You might as well live it with really great hair."</i></span>
+         </div>
+
+      </div>
+
+   </div>
+
 </body>
 
 <footer id="contact">

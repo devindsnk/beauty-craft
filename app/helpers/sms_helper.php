@@ -109,13 +109,13 @@ class SMS
    }
 
    // TODO:
-   // public static function sendNewReservationSMS($mobileNo, $service, $time, $date)
-   // {
-   //    $SMSText = urlencode(
-   //       "A reservation for: $service to reset the password.\nBeauty Craft"
-   //    );
-   //    return self::sendSMS($mobileNo, $SMSText, 1);
-   // }
+   public static function sendNewReservationSMS($mobileNo, $service, $seProv, $time, $date)
+   {
+      $SMSText = urlencode(
+         "Your reservation has been placed successfully.\n Service: " . $service . "\n Service Provider: " . $seProv . "\n Time:  " . $time . " on " . $date . "\n\nBeauty Craft"
+      );
+      return self::sendSMS($mobileNo, $SMSText, 1);
+   }
 
    // public static function resCancellationSMS()
    // {
@@ -127,7 +127,7 @@ class SMS
 
    public static function sendSMS($mobileNo, $SMSText, $priorityFlag)
    {
-      echo $SMSText;
+      // echo $SMSText;
       $user = SMS_USER;
       $password = SMS_PASS;
 
