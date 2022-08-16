@@ -647,3 +647,16 @@ IP Address  Date & Time	        Mobile No	Name		            Activity
 ::1       	03/28/22 09:31AM	0717338773	Dulaj Tharindu        	signin
 ::1       	03/28/22 09:32AM	0717338773	Dulaj Tharindu        	signout
 ::1       	03/28/22 09:32AM	0703807405	Ruwanthi Munasinghe   	signin
+
+127.0.0.1 	07/10/22 07:32PM	0768500228	Devin Dissanayake     	signout
+127.0.0.1 	07/10/22 07:33PM	0766581992	Ravindu Madhubhashana 	signin
+127.0.0.1 	07/21/22 11:54PM	0766581992	Ravindu Madhubhashana 	signout
+127.0.0.1 	07/21/22 11:54PM	0717679714	Sahan Thathsara       	signin
+127.0.0.1 	07/21/22 11:54PM	0717679714	Sahan Thathsara       	signout
+127.0.0.1 	07/21/22 11:54PM	0768500228	Devin Dissanayake     	signin
+127.0.0.1 	07/21/22 11:59PM	0768500228	Devin Dissanayake     	signout
+127.0.0.1 	07/22/22 12:00AM	0766581992	Ravindu Madhubhashana 	signin
+127.0.0.1 	07/22/22 12:00AM	0766581992	Ravindu Madhubhashana 	signout
+127.0.0.1 	07/22/22 12:00AM	0714665240	Sanjana Rajapaksha    	signin
+127.0.0.1 	07/22/22 12:01AM	0714665240	Sanjana Rajapaksha    	signout
+127.0.0.1 	07/27/22 10:11PM	0768500228	Devin Dissanayake     	signin

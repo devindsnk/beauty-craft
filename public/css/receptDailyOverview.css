@@ -54,10 +54,8 @@
     margin: 0px 33px 5px 30px;
 }
 
-.timeVals {}
 
 .timeBox {
-
     border-top: 1px solid #c4cae0;
     padding-right: 4px;
     text-align: right;
@@ -148,27 +146,6 @@
     font-family: 'Lato', sans-serif;
 }
 
-
-/* .res0 {
-    top: 0px;
-    right: 0px;
-}
-
-.res1 {
-    top: 100px;
-    right: 0px;
-}
-
-.res2 {
-    top: 200px;
-    right: 0px;
-}
-
-.res3 {
-    top: 300px;
-    right: 0px;
-} */
-
 .daily-view .page-top-main-container {
     justify-content: space-between !important;
 }
@@ -212,6 +189,7 @@
 
 #datePicker {
     margin-left: 20px;
+    height: 37px;
     width: 200px;
 }
 

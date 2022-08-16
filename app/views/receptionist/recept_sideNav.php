@@ -2,12 +2,11 @@
 <div class="sidebar">
    <!--Sidebar Header-->
    <div class="header">
-      <a href="recept_calendar.php">
+      <a href="<?php echo URLROOT ?>/ReceptDashboard/dailyOverview/<?php echo DateTimeExtended::getCurrentDate(); ?>">
          <div>
             <img src="<?php echo URLROOT ?>/public/logo/logo-white.png" alt="BeautyCraft" class="full-logo">
             <img src="<?php echo URLROOT ?>/public/logo/iconAllWhiteNoBg.png" alt="BeautyCraft" class="icon-logo">
          </div>
-
       </a>
    </div>
    <!--End Sidebar Header-->
