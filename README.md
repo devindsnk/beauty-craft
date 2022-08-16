@@ -31,11 +31,11 @@ Beauty Craft mainly focuses on efficient and user-friendly reservation managemen
 - Log records of major operations of the system for security purposes.
 
 ## Screen Captures
-<div style="text-align:center"><img src="./docs/screenshots/screenshot_1" /></div>
-<div style="text-align:center"><img src="./docs/screenshots/screenshot_2" /></div>
-<div style="text-align:center"><img src="./docs/screenshots/screenshot_3" /></div>
-<div style="text-align:center"><img src="./docs/screenshots/screenshot_4" /></div>
-<div style="text-align:center"><img src="./docs/screenshots/screenshot_5" /></div>
-<div style="text-align:center"><img src="./docs/screenshots/screenshot_6" /></div>
-<div style="text-align:center"><img src="./docs/screenshots/screenshot_7" /></div>
+<div style="text-align:center"><img src="./docs/screenshots/screenshot_1.png" /></div>
+<div style="text-align:center"><img src="./docs/screenshots/screenshot_2.png" /></div>
+<div style="text-align:center"><img src="./docs/screenshots/screenshot_3.png" /></div>
+<div style="text-align:center"><img src="./docs/screenshots/screenshot_4.png" /></div>
+<div style="text-align:center"><img src="./docs/screenshots/screenshot_5.png" /></div>
+<div style="text-align:center"><img src="./docs/screenshots/screenshot_6.png" /></div>
+<div style="text-align:center"><img src="./docs/screenshots/screenshot_7.png" /></div>
 
