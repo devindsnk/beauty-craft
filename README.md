@@ -1,7 +1,41 @@
-# Beauty Craft - Integrated Management System for a Salon
+<div style="text-align:center"><img src="./public/logo/bannerWhiteBgLessH.png" /></div>
 
-![Asset 19](https://user-images.githubusercontent.com/72311387/125108875-3deb1c00-e100-11eb-826a-5655363b8baa.png)
+# "Beauty Craft" - An Integrated Management System for Salons
 
-Repo of Second year group project
+Beauty Craft mainly focuses on efficient and user-friendly reservation management as well as managing the organizational work of beauty salons requiring minimum user effort and time.
 
+## Subsystems
+- Reservation Management
+- Services and Resources Handling
+- Customer and Staff Handling
+- Leaves and Salary Management
+- Report Generation
+
+## Users
+- Customers
+- Service Providers
+- Receptionist
+- Manager
+- Owner
+
+## Product Features
+- Allow customers to place reservations based on their preference of date, time, and service provider.
+- Manage reservations based on date, time, and selected service provider's availability and availability of resources.
+- Provide a daily overview of upcoming reservations to service providers.
+- Handle reservation reschedule/cancel requests by both customers and service providers.
+- Handle payment/refund/void invoices of reservations.
+- Allow senior staff to handle casual/medical leaves of staff members. 
+- Calculate salaries based on the services provided and leaves taken.
+- Generate reports for senior staff to support managerial decisions.
+- Inform new/updates of reservations to customers and service providers via SMS.
+- Log records of major operations of the system for security purposes.
+
+## Screen Captures
+<div style="text-align:center"><img src="./docs/screenshots/screenshot_1" /></div>
+<div style="text-align:center"><img src="./docs/screenshots/screenshot_2" /></div>
+<div style="text-align:center"><img src="./docs/screenshots/screenshot_3" /></div>
+<div style="text-align:center"><img src="./docs/screenshots/screenshot_4" /></div>
+<div style="text-align:center"><img src="./docs/screenshots/screenshot_5" /></div>
+<div style="text-align:center"><img src="./docs/screenshots/screenshot_6" /></div>
+<div style="text-align:center"><img src="./docs/screenshots/screenshot_7" /></div>
 
